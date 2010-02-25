@@ -53,9 +53,39 @@
     			<include name="*.spec"/>
     		</fileset>
     	</copy>
-    	<rpm specfile="openscada.p2.spec" topdir="${basedir}/build"/>
-    	<rpm specfile="openscada.p2.external.spec" topdir="${basedir}/build"/>
+    	
+    	<wrapP2 name="org.eclipse.platform" version="3.5.1" src="http://d2u376ub0heus3.cloudfront.net/eclipse/downloads/drops/R-3.5.1-200909170800" file="org.eclipse.platform-p2repo-3.5.1.zip"/>
+    	<wrapP2 name="org.eclipse.rcp" version="3.5.1" src="http://d2u376ub0heus3.cloudfront.net/eclipse/downloads/drops/R-3.5.1-200909170800" file="org.eclipse.rcp-p2repo-3.5.1.zip"/>
+    	<wrapP2 name="org.openscada.external" version="${version.external.id}" src="http://download.openscada.org/external/${version.external.type}/${version.external.id}" file="org.openscada.external-${version.external.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.aurora.sdk" version="${version.aurora.id}" src="http://download.openscada.org/aurora/${version.aurora.type}/${version.aurora.id}" file="org.openscada.aurora.sdk-${version.aurora.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.oxygen.sdk" version="${version.oxygen.id}" src="http://download.openscada.org/oxygen/${version.oxygen.type}/${version.oxygen.id}" file="org.openscada.oxygen.sdk-${version.oxygen.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.utgard.sdk" version="${version.utgard.id}" src="http://download.openscada.org/utgard/${version.utgard.type}/${version.utgard.id}" file="org.openscada.utgard.sdk-${version.utgard.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.atlantis.sdk" version="${version.atlantis.id}" src="http://download.openscada.org/atlantis/${version.atlantis.type}/${version.atlantis.id}" file="org.openscada.atlantis.sdk-${version.atlantis.id}-p2repo.zip"/>
+    	
+    	<wrapP2 name="org.eclipse.ecf.sdk" version="3.1.0" src="file:///${basedir}/source/SOURCES" file="org.eclipse.ecf.sdk-3.1.0.v20091012-1618-p2repo.zip"/>
     </target>
 
+	<macrodef name="wrapP2">
+		<attribute name="name" />
+		<attribute name="version" />
+		<attribute name="src" />
+		<attribute name="file" />
+		<sequential>
+
+			<mkdir dir="build/SOURCES"/>
+			<get usetimestamp="true" dest="build/SOURCES/@{file}" src="@{src}/@{file}"/>
+			
+			<mkdir dir="build/SPECS"/>
+			
+			<copy file="source/specs/p2.tpl.spec" tofile="build/SPECS/@{name}.spec"/>
+			<replace file="build/SPECS/@{name}.spec">
+				<replacefilter token="___NAME___" value="@{name}"/>
+				<replacefilter token="___VERSION___" value="@{version}"/>
+				<replacefilter token="___FILE___" value="@{file}"/>
+			</replace>
+			
+			<rpm specfile="@{name}.spec" topdir="${basedir}/build"/>
+		</sequential>
+	</macrodef>
 
 </project>
