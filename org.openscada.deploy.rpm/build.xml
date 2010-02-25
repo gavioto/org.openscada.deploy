@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Feb 25, 2010 11:58:25 AM                                                        
+
+     OpenSCADA Deploy    
+     OpenSCADA Deploy Packages
+                   
+     Jens Reimann                                                                
+     ====================================================================== -->
+<project name="OpenSCADA Deploy" default="default">
+    <description>
+            OpenSCADA Deploy Packages
+    </description>
+
+	<property name="SOURCES" location="${basedir}/build/SOURCES" />
+	<property file="versions.properties"/>
+	
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="download,rpm" description="OpenSCADA Deploy Packages">
+    </target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: clean                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="clean">
+		<delete dir="build"/>
+    </target>
+	
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: download
+         - - - - - - - - - - - - - - - - - -->
+    <target name="download" unless="skip.download">
+    	<mkdir dir="${SOURCES}"/>
+    	<get usetimestamp="true" src="http://download.openscada.org/external/${version.external.type}/${version.external.id}/org.openscada.external-${version.external.id}-p2repo.zip" dest="${SOURCES}/org.openscada.external-${version.external.id}-p2repo.zip"/>
+    </target>
+	
+	<!-- ================================= 
+          target: pack              
+         ================================= -->
+    <target name="pack" depends="" description="Pack local source">
+        <tar destfile="build/SOURCES/org.openscada.p2-0.15.0.tar.gz" compression="gzip" basedir="${basedir}/source/openscada.p2">
+        </tar>
+    </target>
+
+	<!-- ================================= 
+          target: rpm              
+         ================================= -->
+    <target name="rpm" depends="pack" description="Build the RPM">
+    	<copy todir="build/SPECS">
+    		<fileset dir="source/specs">
+    			<include name="*.spec"/>
+    		</fileset>
+    	</copy>
+    	<rpm specfile="openscada.p2.spec" topdir="${basedir}/build"/>
+    	<rpm specfile="openscada.p2.external.spec" topdir="${basedir}/build"/>
+    </target>
+
+
+</project>
