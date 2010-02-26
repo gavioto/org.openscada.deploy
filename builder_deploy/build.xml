@@ -37,6 +37,7 @@
          ================================= -->
     <target name="build" depends="populate" description="OpenSCADA Atlantis Products">
     	<openscada.productBuild builder="builder.p2director"/>
+    	<openscada.bundleBuild builder="builder"/>
     </target>
 
 	<!-- ================================= 
@@ -50,6 +51,7 @@
          ================================= -->
     <target name="publish" depends="" description="Publish artifacts">
     	<openscada.publish.product project="deploy" name="p2director" builder="builder.p2director"/>
+    	<openscada.publish.repository id="org.openscada.deploy" project="deploy"/>
     </target>
 	
 	<!-- ================================= 
