@@ -21,4 +21,8 @@
          id="org.openscada.deploy.ca"
          version="0.0.0"/>
 
+   <includes
+         id="org.openscada.deploy.p2"
+         version="0.0.0"/>
+
 </feature>
