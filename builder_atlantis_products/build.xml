@@ -50,8 +50,8 @@
           target: publish              
          ================================= -->
     <target name="publish" depends="" description="Publish artifacts">
-    	<openscada.publish.product project="atlantis" name="hdserver" builder="builder.hdserver"/>
-    	<openscada.publish.product project="atlantis" name="master" builder="builder.master"/>
+    	<openscada.publish.product project="deploy" name="hdserver" builder="builder.hdserver"/>
+    	<openscada.publish.product project="deploy" name="master" builder="builder.master"/>
     </target>
 	
 	<!-- ================================= 
