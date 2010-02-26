@@ -105,8 +105,8 @@
   <target name="postSetup">
     <antcall target="getBaseComponents" />
   	
-  	<openscada.builder.copyPlugin id="org.openscada.atlantis.products"/>
-  	<openscada.builder.copyFeature id="org.openscada.ca.install"/>
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.atlantis.products"/>
+  	<openscada.builder.copyFeature id="org.openscada.deploy.ca"/>
   	<openscada.builder.copyFeature id="org.openscada.master.server.product"/>
   </target>
 
