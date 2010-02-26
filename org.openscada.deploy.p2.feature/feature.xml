@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.openscada.master.server.product"
+      id="org.openscada.deploy.p2"
       label="Master Server Feature"
       version="0.15.0.qualifier"
       provider-name="inavare GmbH">

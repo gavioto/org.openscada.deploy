@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.openscada.deploy.ca.feature"
+      id="org.openscada.deploy.ca"
       label="OpenSCADA Deploy CA Feature"
       version="0.15.0.qualifier"
       provider-name="inavare GmbH">
