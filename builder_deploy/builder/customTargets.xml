@@ -85,6 +85,7 @@
 		
 		<openscada.import.externalRepository file="GEF-Update-3.5.0.zip" />
 		<openscada.import.externalRepository file="org.eclipse.ecf.sdk-3.1.0.v20091012-1618-p2repo.zip" />
+		<openscada.import.externalRepository file="org.eclipse.rcp-p2repo-3.5.1.zip" />
   	</target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
