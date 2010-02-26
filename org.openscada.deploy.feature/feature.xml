@@ -18,7 +18,7 @@
    </license>
 
    <includes
-         id="org.openscada.deploy.ca.feature"
+         id="org.openscada.deploy.ca"
          version="0.0.0"/>
 
 </feature>
