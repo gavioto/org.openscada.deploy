@@ -107,7 +107,7 @@
   	
   	<openscada.builder.copyPlugin id="org.openscada.deploy.atlantis.products"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.ca"/>
-  	<openscada.builder.copyFeature id="org.openscada.master.server.product"/>
+  	<openscada.builder.copyFeature id="org.openscada.deploy.p2"/>
   </target>
 
   <!-- ===================================================================== -->
