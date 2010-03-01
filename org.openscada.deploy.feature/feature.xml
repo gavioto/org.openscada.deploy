@@ -25,4 +25,24 @@
          id="org.openscada.deploy.p2"
          version="0.0.0"/>
 
+   <includes
+         id="org.openscada.atlantis"
+         version="0.0.0"/>
+
+   <includes
+         id="org.openscada.external"
+         version="0.0.0"/>
+
+   <includes
+         id="org.openscada.aurora"
+         version="0.0.0"/>
+
+   <includes
+         id="org.openscada.utgard"
+         version="0.0.0"/>
+
+   <includes
+         id="org.openscada.oxygen"
+         version="0.0.0"/>
+
 </feature>
