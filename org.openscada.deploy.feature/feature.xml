@@ -45,9 +45,12 @@
          id="org.openscada.oxygen"
          version="0.0.0"/>
 
-   <requires>
-      <import feature="org.eclipse.rcp" version="3.5.0.v20090519-9SA0FwxFv6x089WEf-TWh11"/>
-      <import plugin="org.eclipse.platform"/>
-   </requires>
+   <includes
+         id="org.eclipse.rcp"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.platform"
+         version="0.0.0"/>
 
 </feature>
