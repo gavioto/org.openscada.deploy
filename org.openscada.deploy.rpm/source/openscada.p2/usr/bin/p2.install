@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+import os
+import os.path
+import sys
+import subprocess
+
+import sets
+
+
+def main(argv):
+    target = argv[0]
+    units = argv[1:]
+
+    print "Installing to '%s' ..." % target
+    
+    if not os.path.isdir(target):
+        raise "Target %s must exist" % target
+    
+    if not os.path.isdir(target+"/p2"):
+        raise "Target %s seems not to be a P2 installed product" % target 
+
+    cwd = os.getcwd()
+    os.chdir ( target )
+    
+    pre = os.listdir ( "plugins" )
+    rc = subprocess.call ( ["p2.installRaw"] + units )
+    
+    if rc != 0:
+        raise "Failed to call p2.installRaw"
+    
+    post = os.listdir ( "plugins" )
+    
+    result = sets.Set(post) - sets.Set(pre)
+    
+    commands = ""
+    for x in result:
+        commands += "install reference:file:plugins/%s\n" % x
+        
+    commands += "close\n"
+    
+    print "Installing new bundles in OSGi container..."
+    
+    process = subprocess.Popen(args=["./launcher"], stdin=subprocess.PIPE )
+    process.communicate(commands)
+    
+    os.chdir ( cwd )
+    
+    if process.returncode != 0:
+        raise "Failed to install modules"
+    
+if __name__ == "__main__":
+    main(sys.argv[1:])

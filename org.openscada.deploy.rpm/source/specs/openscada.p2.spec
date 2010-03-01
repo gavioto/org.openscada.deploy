@@ -4,6 +4,7 @@
 
 %define qualifier %(date +%%Y%%m%%d%%k%%M%%S)
 
+%define _bindir /usr/bin
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
 %define version 0.15.0
@@ -22,12 +23,18 @@ Prereq: /sbin/ldconfig
 %description
 
 %prep
-#%setup
+rm -Rf openscada.p2
+mkdir openscada.p2
+cd openscada.p2
+tar xzf %_sourcedir/org.openscada.p2-%{version}.tar.gz
+cd ..
 
 %build
 
 %install
 install -d %buildroot/%_repodir
+install -d %buildroot/%_bindir
+install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
@@ -38,6 +45,7 @@ install -d %buildroot/%_repodir
 
 %files
 %dir %_repodir
+%_bindir/p2.*
 
 %changelog
 * Thu Feb 25 2010 - jens.reimann@inavare.net
