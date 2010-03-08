@@ -51,9 +51,9 @@
           target: publish              
          ================================= -->
     <target name="publish" depends="" description="Publish artifacts">
+    	<openscada.publish.repository id="org.openscada.deploy" project="deploy"/>
     	<openscada.publish.product project="deploy" name="p2director" builder="builder.p2director"/>
     	<openscada.publish.product project="deploy" name="hdserver" builder="builder.hdserver"/>
-    	<openscada.publish.repository id="org.openscada.deploy" project="deploy"/>
     </target>
 	
 	<!-- ================================= 
