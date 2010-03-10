@@ -21,12 +21,12 @@ if [ -e "$TARGET" ]; then
  	exit 1
 fi
 
-UNITS="org.eclipse.equinox.executable.feature.group"
+UNITS="org.eclipse.equinox.launcher"
 UNITS="$UNITS,org.eclipse.osgi"
 
 p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"
 
-chmod a+x "$TARGET/launcher"
+ln -s "`dirname $0`/p2.launcher" "$TARGET/launcher"
 
 # fill file
 cat <<__EOF__ > "$TARGET/launcher.ini"
