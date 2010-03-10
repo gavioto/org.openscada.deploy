@@ -12,7 +12,8 @@
             OpenSCADA Deploy Packages
     </description>
 
-	<property name="SOURCES" location="${basedir}/build/SOURCES" />
+	<property name="rpm.base" location="${basedir}/build"/>
+	<property name="SOURCES" location="${rpm.base}/SOURCES" />
 	<property file="versions.properties"/>
 	
     <!-- ================================= 
@@ -43,7 +44,7 @@
           target: pack              
          ================================= -->
     <target name="pack" depends="" description="Pack local source">
-        <tar destfile="build/SOURCES/org.openscada.p2-0.15.0.tar.gz" compression="gzip" basedir="${basedir}/source/openscada.p2">
+        <tar destfile="${rpm.base}/SOURCES/org.openscada.p2-0.15.0.tar.gz" compression="gzip" basedir="${basedir}/source/openscada.p2">
         </tar>
     </target>
 
@@ -51,13 +52,13 @@
           target: copySpec                      
          - - - - - - - - - - - - - - - - - -->
     <target name="copySpec">
-    	<copy todir="build/SPECS">
-    		<fileset dir="source/specs">
+    	<copy todir="${rpm.base}/SPECS">
+    		<fileset dir="${basedir}/source/specs">
     			<include name="*.spec"/>
     		</fileset>
     	</copy>
-    	<copy todir="build/SOURCES">
-    		<fileset dir="source/SOURCES">
+    	<copy todir="${rpm.base}/SOURCES">
+    		<fileset dir="${basedir}/source/SOURCES">
     		</fileset>
     	</copy>
     </target>
@@ -73,12 +74,12 @@
           target: rpm.init                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.init">
-		<mkdir dir="build"/>
-    	<mkdir dir="build/SOURCES"/>
-    	<mkdir dir="build/RPMS"/>
-    	<mkdir dir="build/BUILD"/>
-    	<mkdir dir="build/SPECS"/>
-    	<mkdir dir="build/BUILDROOT"/>
+		<mkdir dir="${rpm.base}"/>
+    	<mkdir dir="${rpm.base}/SOURCES"/>
+    	<mkdir dir="${rpm.base}/RPMS"/>
+    	<mkdir dir="${rpm.base}/BUILD"/>
+    	<mkdir dir="${rpm.base}/SPECS"/>
+    	<mkdir dir="${rpm.base}/BUILDROOT"/>
     </target>
 
 	
@@ -86,14 +87,14 @@
           target: rpm.openscada.p2                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.openscada.p2" depends="pack,copySpec">
-    	<rpm specfile="openscada.p2.spec" topdir="${basedir}/build"/>
+    	<rpm specfile="openscada.p2.spec" topdir="${rpm.base}"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: rpm.clean                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.clean">
-    	<delete dir="build">
+    	<delete dir="${rpm.base}">
 			<include name="**/*.rpm"/>
 		</delete>    
     </target>
@@ -125,7 +126,7 @@
           target: rpm.p2director                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.p2director" depends="copySpec">
-    	<rpm specfile="p2director.spec" topdir="${basedir}/build"/>
+    	<rpm specfile="p2director.spec" topdir="${rpm.base}"/>
     </target>
 
 	
@@ -136,19 +137,19 @@
 		<attribute name="file" />
 		<sequential>
 
-			<mkdir dir="build/SOURCES"/>
-			<get usetimestamp="true" dest="build/SOURCES/@{file}" src="@{src}/@{file}"/>
+			<mkdir dir="${rpm.base}/SOURCES"/>
+			<get usetimestamp="true" dest="${rpm.base}/SOURCES/@{file}" src="@{src}/@{file}"/>
 			
-			<mkdir dir="build/SPECS"/>
+			<mkdir dir="${rpm.base}/SPECS"/>
 			
-			<copy file="source/specs/p2.tpl.spec" tofile="build/SPECS/@{name}.spec"/>
-			<replace file="build/SPECS/@{name}.spec">
+			<copy file="${baseidr}/source/specs/p2.tpl.spec" tofile="build/SPECS/@{name}.spec"/>
+			<replace file="${rpm.base}/SPECS/@{name}.spec">
 				<replacefilter token="___NAME___" value="@{name}"/>
 				<replacefilter token="___VERSION___" value="@{version}"/>
 				<replacefilter token="___FILE___" value="@{file}"/>
 			</replace>
 			
-			<rpm specfile="@{name}.spec" topdir="${basedir}/build" />
+			<rpm specfile="@{name}.spec" topdir="${rpm.base}" />
 		</sequential>
 	</macrodef>
 
