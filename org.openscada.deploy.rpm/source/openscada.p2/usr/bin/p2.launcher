@@ -66,8 +66,10 @@ def main(argv):
     java = findJava ()
     if not java:
         raise Exception("Unable to find JVM")
-    
-    args = ["launcher"]
+
+    commandName = os.environ.get("COMMAND_NAME","launcher")
+
+    args = [commandName]
     
     appendSystemProperties ( args, getProperties () )
     
