@@ -6,26 +6,33 @@ import glob
 import string
 import subprocess
 
-from os import pathsep
+from os import pathsep, sep
 from string import split
-from os.path import exists, join, abspath
+from os.path import exists, join, abspath, basename, dirname
 
-def main(argv):
-   
-    instancePath = argv[1]
+def launcher(instancePath):
+    
     if not exists(instancePath):
         raise Exception("The path " + instancePath+" does not exist") 
 
-    commandName = os.path.basename(instancePath)
-    commandName = os.environ.get("SCREEN_NAME", commandName )
-   
-    cmd = "launcher" + sep + launcher
-   
+    cmd = instancePath + sep + "launcher"
+
     if not exists(cmd):
         raise Exception ( "The launcher " + cmd + " does not exist" )
-   
-    subprocess.call( ["screen", "-x", commandName , "-X", "register", "p", "close\n" ] )
-    subprocess.call( ["screen", "-x", commandName , "-X", "paste", "p" ] )
+    
+    return cmd
+    
+def getScreenName(cmd):
+    return os.environ.get("SCREEN_NAME", basename(dirname(cmd)))
+
+
+def main(argv):
+    
+    cmd = launcher ( argv[0] )
+    screenName = getScreenName ( cmd )
+    
+    subprocess.call( ["screen", "-r", screenName , "-X", "register", "p", "close" + os.linesep ] )
+    subprocess.call( ["screen", "-r", screenName , "-X", "paste", "p" ] )
     
 if __name__ == "__main__":
     main(sys.argv[1:])
