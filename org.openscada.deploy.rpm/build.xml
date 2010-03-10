@@ -66,9 +66,22 @@
 	<!-- ================================= 
           target: rpm              
          ================================= -->
-    <target name="rpm" depends="rpm.openscada.p2,rpm.clean,rpm.wrap,rpm.p2director,copySpec" description="Build the RPM">
+    <target name="rpm" depends="rpm.init,rpm.openscada.p2,rpm.clean,rpm.wrap,rpm.p2director,copySpec" description="Build the RPM">
     </target>
 
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: rpm.init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="rpm.init">
+		<mkdir dir="build"/>
+    	<mkdir dir="build/SOURCES"/>
+    	<mkdir dir="build/RPMS"/>
+    	<mkdir dir="build/BUILD"/>
+    	<mkdir dir="build/SPECS"/>
+    	<mkdir dir="build/BUILDROOT"/>
+    </target>
+
+	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: rpm.openscada.p2                      
          - - - - - - - - - - - - - - - - - -->
