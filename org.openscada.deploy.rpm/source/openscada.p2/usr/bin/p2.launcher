@@ -4,6 +4,7 @@ import sys
 import os
 import glob
 import string
+import codecs
 
 from os import pathsep
 from string import split
@@ -53,13 +54,20 @@ def getProperties():
     } 
     
     if os.path.exists("launcher.properties"):
-        f = open ( "launcher.properties" )
+        f = codecs.open ( "launcher.properties", encoding="UTF-8" )
         for line in f:
             key,value = line.strip().split ( "=", 1 )
             properties[key] = value
         f.close ()
     
     return properties;
+
+def appendJVMArguments(args):
+    if os.path.exists("launcher.args"):
+        f = codecs.open ( "launcher.args", encoding="UTF-8" )
+        for line in f:
+            args.append ( line.strip () )
+        f.close ()
 
 def main(argv):
     appdir = os.path.dirname  ( os.path.abspath ( sys.argv[0] ) )
@@ -81,6 +89,7 @@ def main(argv):
     args = [commandName]
     
     appendSystemProperties ( args, getProperties () )
+    appendJVMArguments ( args );
     
     args.append ( "-jar" )
     args.append ( launcher )
