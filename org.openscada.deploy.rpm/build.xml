@@ -67,7 +67,7 @@
 	<!-- ================================= 
           target: rpm              
          ================================= -->
-    <target name="rpm" depends="rpm.init,rpm.openscada.p2,rpm.clean,rpm.wrap,rpm.p2director,copySpec" description="Build the RPM">
+    <target name="rpm" depends="rpm.init,rpm.openscada.p2,rpm.clean,rpm.wrap,rpm.p2director,rpm.openscada.p2" description="Build the RPM">
     </target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
