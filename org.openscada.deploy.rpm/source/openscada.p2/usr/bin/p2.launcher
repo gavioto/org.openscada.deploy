@@ -47,10 +47,19 @@ def appendSystemProperties ( args, props ):
         args.append ( "-D" + key + "=" + value )
     
 def getProperties():
-    return {
+    properties = {
         "eclipse.ignoreApp":"true",
         "osgi.noShutdown":"true"
-    }
+    } 
+    
+    if os.path.exists("launcher.properties"):
+        f = open ( "launcher.properties" )
+        for line in f:
+            key,value = line.strip().split ( "=", 1 )
+            properties[key] = value
+        f.close ()
+    
+    return properties;
 
 def main(argv):
     appdir = os.path.dirname  ( os.path.abspath ( sys.argv[0] ) )
