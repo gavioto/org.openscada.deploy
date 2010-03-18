@@ -16,6 +16,8 @@
 	<property name="SOURCES" location="${rpm.base}/SOURCES" />
 	<property file="versions.properties"/>
 	
+	<import file="lib.xml"/>
+	
     <!-- ================================= 
           target: default              
          ================================= -->

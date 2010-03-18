@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Feb 25, 2010 11:58:25 AM                                                        
+
+     OpenSCADA Deploy    
+     OpenSCADA Deploy Packages
+                   
+     Jens Reimann                                                                
+     ====================================================================== -->
+<project name="OpenSCADA Deploy Library">
+    <description>
+            OpenSCADA Deploy Library
+    </description>
+
+	<property file="versions.properties"/>
+	
+	<macrodef name="wrapP2">
+		<attribute name="name" />
+		<attribute name="version" />
+		<attribute name="src" />
+		<attribute name="file" />
+		<sequential>
+
+			<mkdir dir="${rpm.base}/SOURCES"/>
+			<get usetimestamp="true" dest="${rpm.base}/SOURCES/@{file}" src="@{src}/@{file}"/>
+			
+			<mkdir dir="${rpm.base}/SPECS"/>
+			
+			<copy file="${basedir}/source/specs/p2.tpl.spec" tofile="build/SPECS/@{name}.spec"/>
+			<replace file="${rpm.base}/SPECS/@{name}.spec">
+				<replacefilter token="___NAME___" value="@{name}"/>
+				<replacefilter token="___VERSION___" value="@{version}"/>
+				<replacefilter token="___FILE___" value="@{file}"/>
+			</replace>
+			
+			<rpm specfile="@{name}.spec" topdir="${rpm.base}" />
+		</sequential>
+	</macrodef>
+
+</project>
