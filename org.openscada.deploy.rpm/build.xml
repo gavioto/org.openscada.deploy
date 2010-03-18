@@ -36,15 +36,15 @@
     	<mkdir dir="${SOURCES}"/>
     	<get usetimestamp="true" src="http://download.openscada.org/external/${version.external.type}/${version.external.id}/org.openscada.external-${version.external.id}-p2repo.zip" dest="${SOURCES}/org.openscada.external-${version.external.id}-p2repo.zip"/>
     		
-    	<get usetimestamp="true" src="http://download.openscada.org/deploy/I/0.15.0/p2director/p2director-linux.gtk.x86.zip" dest="${SOURCES}/p2director-linux.gtk.x86.zip"/> 
-    	<get usetimestamp="true" src="http://download.openscada.org/deploy/I/0.15.0/p2director/p2director-linux.gtk.x86_64.zip" dest="${SOURCES}/p2director-linux.gtk.x86_64.zip"/>
+    	<get usetimestamp="true" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}/p2director/p2director-linux.gtk.x86.zip" dest="${SOURCES}/p2director-linux.gtk.x86.zip"/> 
+    	<get usetimestamp="true" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}/p2director/p2director-linux.gtk.x86_64.zip" dest="${SOURCES}/p2director-linux.gtk.x86_64.zip"/>
     </target>
 	
 	<!-- ================================= 
           target: pack              
          ================================= -->
     <target name="pack" depends="" description="Pack local source">
-        <tar destfile="${rpm.base}/SOURCES/org.openscada.p2-0.15.0.tar.gz" compression="gzip" basedir="${basedir}/source/openscada.p2">
+        <tar destfile="${rpm.base}/SOURCES/org.openscada.p2-${version.deploy.id}.tar.gz" compression="gzip" basedir="${basedir}/source/openscada.p2">
         </tar>
     </target>
 
