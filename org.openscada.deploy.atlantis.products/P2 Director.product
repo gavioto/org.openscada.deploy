@@ -14,7 +14,6 @@
 
    <windowImages/>
 
-
    <launcher name="p2director">
       <solaris/>
       <win useIco="false">
@@ -22,12 +21,16 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
 
+   <plugins>
+   </plugins>
+
    <features>
-      <feature id="org.eclipse.platform" version="3.5.0.v20090611a-9gEeG1HFtQcmRThO4O3aR_fqSMvJR2sJ"/>
-      <feature id="org.eclipse.rcp" version="3.5.0.v20090519-9SA0FwxFv6x089WEf-TWh11"/>
+      <feature id="org.eclipse.rcp" version="3.5.2.R35x_v20100119-9SA0FxwFnoCU5XxWItFdXXb27BA6"/>
+      <feature id="org.eclipse.platform" version="3.5.2.R35x_v20100210-0800-9hEiFzmFst-TiEn9hNYgDWg1XN8ulH_JvCNGB"/>
    </features>
 
    <configurations>
