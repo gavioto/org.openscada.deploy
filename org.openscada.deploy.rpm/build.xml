@@ -21,9 +21,18 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="download,rpm" description="OpenSCADA Deploy Packages">
+    <target name="default" depends="dump,download,rpm" description="OpenSCADA Deploy Packages">
     </target>
 
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: dump                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="dump">
+		<echo message="rpm.base = ${rpm.base}"/>
+    	<echo message="SOURCES = ${SOURCES}"/>
+    </target>
+
+	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: clean                      
          - - - - - - - - - - - - - - - - - -->
@@ -152,7 +161,7 @@
 				<replacefilter token="___FILE___" value="@{file}"/>
 			</replace>
 			
-			<rpm specfile="@{name}.spec" topdir="${rpm.base}" />
+			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true"/>
 		</sequential>
 	</macrodef>
 
