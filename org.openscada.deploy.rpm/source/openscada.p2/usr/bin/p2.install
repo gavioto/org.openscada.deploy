@@ -15,16 +15,16 @@ def main(argv):
     print "Installing to '%s' ..." % target
     
     if not os.path.isdir(target):
-        raise "Target %s must exist" % target
+        raise Exception ( "Target %s must exist" % target )
     
     if not os.path.isdir(target+"/p2"):
-        raise "Target %s seems not to be a P2 installed product" % target 
+        raise Exception ( "Target %s seems not to be a P2 installed product" % target ) 
     
     pre = os.listdir ( target + sep + "plugins" )
     rc = subprocess.call ( ["p2.installRaw", target] + units )
     
     if rc != 0:
-        raise "Failed to call p2.installRaw"
+        raise Exception ( "Failed to call p2.installRaw" )
     
     post = os.listdir ( target + sep + "plugins" )
     
@@ -42,7 +42,7 @@ def main(argv):
     process.communicate(commands)
     
     if process.returncode != 0:
-        raise "Failed to install modules"
+        raise Exception ( "Failed to install modules" )
     
 if __name__ == "__main__":
     main(sys.argv[1:])
