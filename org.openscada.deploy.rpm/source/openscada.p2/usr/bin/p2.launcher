@@ -57,7 +57,7 @@ def getProperties():
         f = codecs.open ( "launcher.properties", encoding="UTF-8" )
         for line in f:
             line = line.strip ()
-            if line:
+            if not line:
                 continue
             key,value = line.split ( "=", 1 )
             properties[key] = value
