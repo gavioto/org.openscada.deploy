@@ -4,7 +4,8 @@
 
 PROFILE="profile"
 FLAVOR="tooling"
-TARGET="."
+TARGET="$1"
+shift
 
 UNITS="$1"
 

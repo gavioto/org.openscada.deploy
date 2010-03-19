@@ -19,12 +19,9 @@ def main(argv):
     
     if not os.path.isdir(target+"/p2"):
         raise "Target %s seems not to be a P2 installed product" % target 
-
-    cwd = os.getcwd()
-    os.chdir ( target )
     
     pre = os.listdir ( "plugins" )
-    rc = subprocess.call ( ["p2.installRaw"] + units )
+    rc = subprocess.call ( ["p2.installRaw", target] + units )
     
     if rc != 0:
         raise "Failed to call p2.installRaw"
@@ -41,10 +38,8 @@ def main(argv):
     
     print "Installing new bundles in OSGi container..."
     
-    process = subprocess.Popen(args=["./launcher"], stdin=subprocess.PIPE )
+    process = subprocess.Popen(args=["./launcher"], stdin=subprocess.PIPE, cwd=target )
     process.communicate(commands)
-    
-    os.chdir ( cwd )
     
     if process.returncode != 0:
         raise "Failed to install modules"
