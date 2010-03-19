@@ -7,6 +7,7 @@
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
 %define version ___VERSION___
+%define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      ___NAME___
 Summary:   Wrapping the P2 repository ___NAME___
@@ -19,6 +20,7 @@ Group:     Applications/System
 Source0:   ___FILE___
 Prereq: /sbin/ldconfig
 Requires: openscada.p2
+BuildRoot: %{buildroot}
 
 %description
 
