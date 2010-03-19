@@ -27,7 +27,7 @@
 	<!-- - - - - - - - - - - - - - - - - - 
           target: clean                      
          - - - - - - - - - - - - - - - - - -->
-    <target name="clean">
+    <target name="clean" depends="rpm.clean">
 		<delete dir="build"/>
     </target>
 	
@@ -69,7 +69,7 @@
 	<!-- ================================= 
           target: rpm              
          ================================= -->
-    <target name="rpm" depends="rpm.init,rpm.openscada.p2,rpm.clean,rpm.wrap,rpm.p2director,rpm.openscada.p2" description="Build the RPM">
+    <target name="rpm" depends="rpm.clean,rpm.init,rpm.openscada.p2,rpm.wrap,rpm.p2director" description="Build the RPM">
     </target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
