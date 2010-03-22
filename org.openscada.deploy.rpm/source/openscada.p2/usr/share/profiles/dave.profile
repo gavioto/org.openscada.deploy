@@ -1,6 +1,18 @@
 
 uninstall org.openscada.ca.jdbc.default
 uninstall org.openscada.ae.server.storage.jdbc.configuration
+uninstall org.openscada.da.server.opc
+uninstall org.openscada.da.server.stock
+uninstall org.openscada.da.server.ice
+uninstall org.openscada.da.server.sysinfo
+uninstall org.openscada.da.server.proxy
+uninstall org.openscada.da.server.snmp
+uninstall org.openscada.da.server.exec
+uninstall org.openscada.da.server.simulation
+uninstall org.openscada.da.server.simulation.component
+uninstall org.openscada.da.server.test
+uninstall org.openscada.da.server.spring
+uninstall org.openscada.da.server.jdbc
 
 start org.openscada.da.server.osgi.exporter.net
 start org.openscada.da.client.net
