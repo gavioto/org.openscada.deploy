@@ -14,46 +14,34 @@ fi
 PROFILE="profile"
 FLAVOR="tooling"
 TARGET="$1"
+ARG_UNITS="$2"
 
 # check if a launcher already exists
 if [ -e "$TARGET" ]; then
- 	echo "$TARGET alread exists"
+ 	echo "$TARGET already exists"
  	exit 1
 fi
 
 UNITS="org.eclipse.equinox.launcher"
 UNITS="$UNITS,org.eclipse.osgi"
+UNITS="$UNITS,org.eclipse.equinox.common"
+UNITS="$UNITS,org.eclipse.update.configurator"
 
-p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"
-
-ln -s "`dirname $0`/p2.launcher" "$TARGET/launcher"
-
-# fill file
-cat <<__EOF__ > "$TARGET/launcher.ini"
-\${target.os}
--ws
-\${target.ws}
--arch
-\${target.arch}
--nl
-\${target.nl}
--console
-__EOF__
-
-# optionally add JVM
-if [ ! -z "$JAVA_HOME" ]; then
-cat <<__EOF__ >> "$TARGET/launcher.ini"
--vm
-$JAVA_HOME/bin
-__EOF__
+# add additional units
+if [ ! -z "$ARG_UNITS" ]; then
+	UNITS="$UNITS,$ARG_UNITS"
 fi
 
-# add VM args
-cat <<__EOF__ >> "$TARGET/launcher.ini"
--vmargs
--Xmx1024m
--Declipse.ignoreApp=true
--Dosgi.noShutdown=true
+if p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"; then
+	ln -s "`dirname $0`/p2.launcher" "$TARGET/launcher"
+
+	mkdir "$TARGET/configuration"
+	
+# write config.ini
+cat <<__EOF__ > "$TARGET/configuration/config.ini"
+osgi.bundles=org.eclipse.equinox.common@2:start, org.eclipse.update.configurator@3:start
+eclipse.ignoreApp=true
+osgi.noShutdown=true
 __EOF__
 
-echo "P2 setup created. You might consider calling 'p2.init \"$TARGET\"' in order to install initial bundles"
+fi

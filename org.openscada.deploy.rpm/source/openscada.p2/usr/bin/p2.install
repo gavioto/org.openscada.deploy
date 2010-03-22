@@ -1,48 +1,22 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 
-import os
-import os.path
-import sys
-import subprocess
+. p2.functions || exit 1
 
-import sets
-from os import pathsep, sep
+PROFILE="profile"
+FLAVOR="tooling"
 
-def main(argv):
-    target = argv[0]
-    units = argv[1:]
+TARGET="$1"
+shift
 
-    print "Installing to '%s' ..." % target
-    
-    if not os.path.isdir(target):
-        raise Exception ( "Target %s must exist" % target )
-    
-    if not os.path.isdir(target+"/p2"):
-        raise Exception ( "Target %s seems not to be a P2 installed product" % target ) 
-    
-    pre = os.listdir ( target + sep + "plugins" )
-    rc = subprocess.call ( ["p2.installRaw", target] + units )
-    
-    if rc != 0:
-        raise Exception ( "Failed to call p2.installRaw" )
-    
-    post = os.listdir ( target + sep + "plugins" )
-    
-    result = sets.Set(post) - sets.Set(pre)
-    
-    commands = ""
-    for x in result:
-        commands += "install reference:file:plugins/%s\n" % x
-        
-    commands += "close\n"
-    
-    print "Installing new bundles in OSGi container..."
-    
-    process = subprocess.Popen(args=["./launcher"], stdin=subprocess.PIPE, cwd=target )
-    process.communicate(commands)
-    
-    if process.returncode != 0:
-        raise Exception ( "Failed to install modules" )
-    
-if __name__ == "__main__":
-    main(sys.argv[1:])
+UNITS="$1"
+while shift; do
+	[ ! -z "$UNITS" ] && UNITS="$UNITS,"
+	UNITS="${UNITS}$1"
+done
+
+if [ ! -d "$TARGET/p2" ]; then
+	echo "Failed to detect P2 installation"
+	exit 1
+fi 
+
+p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"
