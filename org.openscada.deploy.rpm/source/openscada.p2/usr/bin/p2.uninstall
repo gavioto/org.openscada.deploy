@@ -13,6 +13,11 @@ while shift; do
 	UNITS="${UNITS}$1"
 done
 
+if [ ! -d "$TARGET/p2" ]; then
+	echo "Failed to detect P2 installation"
+	exit 1
+fi
+
 if [ -d "$PWD/p2" ]; then
 	echo "You are inside a P2 installation. Please step back!"
 	exit 1
