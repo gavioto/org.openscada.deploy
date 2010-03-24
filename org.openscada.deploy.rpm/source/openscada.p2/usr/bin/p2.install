@@ -17,6 +17,11 @@ done
 if [ ! -d "$TARGET/p2" ]; then
 	echo "Failed to detect P2 installation"
 	exit 1
+fi
+
+if [ -d "$PWD/p2" ]; then
+	echo "You are inside a P2 installation. Please step back!"
+	exit 1
 fi 
 
 p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"
