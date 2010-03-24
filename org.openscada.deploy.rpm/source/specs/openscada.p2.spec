@@ -8,17 +8,19 @@
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
 %define version 0.15.0
+%define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      openscada.p2
 Summary:   The openscada P2 repository and product system
 Version:   %{version}
 Release:   %{qualifier}
-License:   GPL
+License:   LGPLv3
 BuildArch: noarch
 Vendor:    inavare GmbH <info@inavare.net>
 Group:     Applications/System
 Source0:   org.openscada.p2-%{version}.tar.gz
 Prereq: /sbin/ldconfig
+BuildRoot: %{buildroot}
 
 %description
 
