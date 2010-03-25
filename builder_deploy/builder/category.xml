@@ -3,5 +3,9 @@
    <feature url="features/org.openscada.deploy_0.15.0.qualifier.jar" id="org.openscada.deploy" version="0.15.0.qualifier">
       <category name="org.openscada.deploy"/>
    </feature>
+   <feature url="features/org.openscada.deploy.defaults_0.15.0.qualifier.jar" id="org.openscada.deploy.defaults" version="0.15.0.qualifier">
+      <category name="org.openscada.deploy.defaults"/>
+   </feature>
    <category-def name="org.openscada.deploy" label="OpenSCADA Deploy"/>
+   <category-def name="org.openscada.deploy.defaults" label="Default Settings"/>
 </site>

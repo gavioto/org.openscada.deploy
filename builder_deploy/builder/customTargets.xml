@@ -112,10 +112,11 @@
   <target name="postSetup">
     <antcall target="getBaseComponents" />
   
+  	<openscada.builder.copyFeature id="org.openscada.deploy.repo"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy" />
   	<openscada.builder.copyFeature id="org.openscada.deploy.ca"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.p2"/>
-
+  	<openscada.builder.copyFeature id="org.openscada.deploy.defaults"/>
   </target>
 
   <!-- ===================================================================== -->
