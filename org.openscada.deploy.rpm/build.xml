@@ -122,7 +122,7 @@
     	<wrapP2 name="org.openscada.oxygen.sdk" version="${version.oxygen.id}" src="http://download.openscada.org/oxygen/${version.oxygen.type}/${version.oxygen.id}" file="org.openscada.oxygen.sdk-${version.oxygen.id}-p2repo.zip"/>
     	<wrapP2 name="org.openscada.utgard.sdk" version="${version.utgard.id}" src="http://download.openscada.org/utgard/${version.utgard.type}/${version.utgard.id}" file="org.openscada.utgard.sdk-${version.utgard.id}-p2repo.zip"/>
     	<wrapP2 name="org.openscada.atlantis.sdk" version="${version.atlantis.id}" src="http://download.openscada.org/atlantis/${version.atlantis.type}/${version.atlantis.id}" file="org.openscada.atlantis.sdk-${version.atlantis.id}-p2repo.zip"/>
-    	<wrapP2 name="org.openscada.deploy" version="${version.deploy.id}" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}" file="org.openscada.deploy-${version.deploy.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.deploy" version="${version.deploy.id}" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}" file="org.openscada.deploy.repo-${version.deploy.id}-p2repo.zip"/>
     	
     	<wrapP2 name="org.equinox.sdk" version="3.5.2" src="http://d2u376ub0heus3.cloudfront.net/equinox/drops/R-3.5.2-201002111343" file="equinox-SDK-3.5.2.zip"/>
     	
