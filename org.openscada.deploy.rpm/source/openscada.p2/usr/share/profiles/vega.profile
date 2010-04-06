@@ -14,6 +14,7 @@ uninstall org.openscada.da.server.simulation.component
 uninstall org.openscada.da.server.test
 uninstall org.openscada.da.server.spring
 uninstall org.openscada.da.server.jdbc
+uninstall org.openscada.ca.jdbc.default
 
 start org.openscada.da.server.osgi.exporter.net
 start org.openscada.da.client.net
@@ -28,19 +29,16 @@ start org.openscada.da.datasource.proxy
 start org.openscada.da.datasource.item
 start org.openscada.ca.servlet.jaxws
 start org.openscada.ca.servlet
-start org.openscada.ca.file
+start org.openscada.ca.jdbc
 start org.openscada.ds.storage.file
 start org.openscada.utils.osgi.jaxws
 start org.openscada.da.server.osgi
 start com.inavare.da.driver.vega
+start org.springframework.osgi.extender
 
-openscada.da.net.exportUri=da:net://0.0.0.0:12023
-org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9241
-org.openscada.ca.file.root=/home/jens/cas/dave_full
-org.openscada.ca.jdbc.url=jdbc:postgresql://localhost/ca_master
-org.openscada.ds.storage.file.root=/home/jens/ds/dave_full
-org.openscada.ca.jdbc.password=test12
-org.openscada.ca.jdbc.username=jens
-org.openscada.ae.server.storage.jdbc.password=test12
-org.openscada.ae.server.storage.jdbc.username=jens
+openscada.da.net.exportUri=da:net://0.0.0.0:12025
+org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9242
+org.openscada.ds.storage.file.root=/home/jens/ds/vega_full
+org.eclipse.equinox.http.jetty.http.port=8084
+org.openscada.ca.jdbc.instance=vega
 

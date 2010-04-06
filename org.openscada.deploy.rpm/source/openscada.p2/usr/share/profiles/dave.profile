@@ -27,7 +27,7 @@ start org.openscada.da.datasource.proxy
 start org.openscada.da.datasource.item
 start org.openscada.ca.servlet.jaxws
 start org.openscada.ca.servlet
-start org.openscada.ca.file
+start org.openscada.ca.jdbc
 start org.openscada.ds.storage.file
 start org.openscada.utils.osgi.jaxws
 start org.openscada.da.server.osgi

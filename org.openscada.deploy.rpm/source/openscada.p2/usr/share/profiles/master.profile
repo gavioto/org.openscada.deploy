@@ -30,7 +30,7 @@ start org.openscada.da.datasource.sum
 start org.openscada.da.datasource.ds
 start org.openscada.ca.servlet.jaxws
 start org.openscada.ca.servlet
-start org.openscada.ca.file
+start org.openscada.ca.jdbc
 start org.openscada.ds.storage.file
 start org.openscada.utils.osgi.jaxws
 start org.openscada.ae.event.logger
@@ -48,7 +48,8 @@ start org.openscada.ae.server.common.condition
 start org.openscada.ae.monitor
 start org.openscada.ae.server.common.event
 start org.openscada.da.server.osgi
-
+start org.springframework.osgi.extender
+start org.openscada.ae.server.storage.jdbc
 
 openscada.da.net.exportUri=da:net://0.0.0.0:12040
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9240
