@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenSCADA DS Default Configuration Fragment
+Bundle-SymbolicName: org.openscada.ds.storage.jdbc.default
+Bundle-Version: 0.15.0.qualifier
+Bundle-Vendor: inavare GmbH
+Fragment-Host: org.openscada.ds.storage.jdbc;bundle-version="0.15.0"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
