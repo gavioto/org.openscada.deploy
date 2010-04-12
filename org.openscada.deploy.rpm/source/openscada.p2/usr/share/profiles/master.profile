@@ -1,3 +1,5 @@
+p2.create master
+p2.install master org.openscada.deploy.feature.group com.inavare.projects.ossi.feature.group
 
 uninstall org.openscada.ca.jdbc.default
 uninstall org.openscada.ae.server.storage.jdbc.configuration

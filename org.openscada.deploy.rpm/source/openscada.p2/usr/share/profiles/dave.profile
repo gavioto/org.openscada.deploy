@@ -1,3 +1,5 @@
+p2.create dave
+p2.install dave org.openscada.deploy.feature.group com.inavare.projects.ossi.feature.group
 
 uninstall org.openscada.ca.jdbc.default
 uninstall org.openscada.ae.server.storage.jdbc.configuration
@@ -15,20 +17,10 @@ uninstall org.openscada.da.server.spring
 uninstall org.openscada.da.server.jdbc
 
 start org.openscada.da.server.osgi.exporter.net
-start org.openscada.da.client.net
 start org.openscada.da.server.common.osgi
-start org.openscada.da.connection.provider
-start org.openscada.da.client.connection.service
-start org.openscada.da.master.analyzer
-start org.openscada.da.master.common
-start org.openscada.da.datasource.script
-start org.openscada.da.datasource.memory
-start org.openscada.da.datasource.proxy
-start org.openscada.da.datasource.item
 start org.openscada.ca.servlet.jaxws
 start org.openscada.ca.servlet
 start org.openscada.ca.jdbc
-start org.openscada.ds.storage.file
 start org.openscada.utils.osgi.jaxws
 start org.openscada.da.server.osgi
 start org.openscada.da.server.dave
