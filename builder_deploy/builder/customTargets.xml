@@ -119,7 +119,7 @@
   	<openscada.builder.copyFeature id="org.openscada.deploy.defaults"/>
   		
   	
-  	<openscada.builder.copyPlugin id="org.openscada.ds.storage.jdbc" />
+  	<openscada.builder.copyPlugin id="org.openscada.ds.storage.jdbc.default" />
   	<openscada.builder.copyPlugin id="org.openscada.ca.jdbc.default" />
   	<openscada.builder.copyPlugin id="org.openscada.ae.server.storage.jdbc.configuration"/>
   </target>
