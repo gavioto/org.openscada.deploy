@@ -1,3 +1,5 @@
+p2.create vega
+p2.install vega org.openscada.deploy.feature.group com.inavare.projects.ossi.feature.group
 
 uninstall org.openscada.ca.jdbc.default
 uninstall org.openscada.ae.server.storage.jdbc.configuration
