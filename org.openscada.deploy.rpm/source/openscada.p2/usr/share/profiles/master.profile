@@ -52,6 +52,8 @@ start org.openscada.ae.server.common.event
 start org.openscada.da.server.osgi
 start org.springframework.osgi.extender
 start org.openscada.ae.server.storage.jdbc
+start org.openscada.sec.provider.script
+start com.inavare.ossi.sec.provider
 
 openscada.da.net.exportUri=da:net://0.0.0.0:12040
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9240

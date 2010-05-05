@@ -37,6 +37,7 @@ start org.openscada.utils.osgi.jaxws
 start org.openscada.da.server.osgi
 start com.inavare.da.driver.vega
 start org.springframework.osgi.extender
+start org.openscada.sec.provider.dummy
 
 openscada.da.net.exportUri=da:net://0.0.0.0:12025
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9242
