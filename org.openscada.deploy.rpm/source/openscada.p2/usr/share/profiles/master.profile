@@ -54,14 +54,27 @@ start org.springframework.osgi.extender
 start org.openscada.ae.server.storage.jdbc
 start org.openscada.sec.provider.script
 start com.inavare.ossi.sec.provider
+start org.openscada.ae.server.http
+start org.mortbay.jetty.server
+start org.eclipse.equinox.http.jetty
 
 openscada.da.net.exportUri=da:net://0.0.0.0:12040
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9240
-org.openscada.ca.file.root=/home/jens/cas/master_full
-org.openscada.ca.jdbc.url=jdbc:postgresql://localhost/ca_master
-org.openscada.ds.storage.file.root=/home/jens/ds/master_full
-org.openscada.ca.jdbc.password=test12
-org.openscada.ca.jdbc.username=jens
+org.openscada.ds.storage.file.root=/home/inavare/ds/master_full
 org.openscada.ae.server.storage.jdbc.password=test12
 org.openscada.ae.server.storage.jdbc.username=jens
+org.eclipse.equinox.http.jetty.http.port=8082
+org.openscada.ca.jdbc.url=jdbc:oracle:thin:@(DESCRIPTION =     (ADDRESS = (PROTOCOL = TCP)(HOST = VS-IPT-RR1-HRN-11)(PORT = 1521))     (CONNECT_DATA =       (SID = VSIPT1)     )   )
+org.openscada.ca.jdbc.username=tfms
+org.openscada.ca.jdbc.password=oracle
+org.openscada.ca.jdbc.schema=tfms
+org.openscada.ca.jdbc.instance=master
+org.openscada.ca.jdbc.fixNull=true
+org.openscada.ae.server.storage.jdbc.url=jdbc:oracle:thin:@(DESCRIPTION =     (ADDRESS = (PROTOCOL = TCP)(HOST = VS-IPT-RR1-HRN-11)(PORT = 1521))     (CONNECT_DATA =       (SID = VSIPT1)     )   )
+org.openscada.ae.server.storage.jdbc.username=tfms
+org.openscada.ae.server.storage.jdbc.password=oracle
+org.openscada.ae.server.storage.jdbc.schema=tfms
+com.inavare.ossi.sec.provider.ignoreencryption=true
+log4j.configuration=file:///home/inavare/master/log4j.properties
+log4j.debug=true
 
