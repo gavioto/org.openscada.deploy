@@ -31,8 +31,7 @@ def main(argv):
     cmd = launcher ( argv[0] )
     screenName = getScreenName ( cmd )
     
-    subprocess.call( ["screen", "-r", screenName , "-X", "register", "p", "close" + os.linesep ] )
-    subprocess.call( ["screen", "-r", screenName , "-X", "paste", "p" ] )
+    subprocess.call( ["screen", "-r", screenName , "-X", "exec", ".!!", "/bin/echo", "close" ] )
     
 if __name__ == "__main__":
     main(sys.argv[1:])
