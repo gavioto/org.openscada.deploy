@@ -39,7 +39,7 @@ install -d %buildroot/%_repodir
 install -d %buildroot/%_bindir
 install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 install -d %buildroot/%_profiledir
-install openscada.p2/usr/share/profiles/ %buildroot/%_profiledir
+install openscada.p2/usr/share/profiles/*.profile %buildroot/%_profiledir
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
@@ -49,9 +49,10 @@ install openscada.p2/usr/share/profiles/ %buildroot/%_profiledir
 %postun
 
 %files
+%dir %_profiledir
+%_profiledir/*.profile
 %dir %_repodir
 %_bindir/p2.*
-%dir %_profiledir
 
 %changelog
 * Fri May 28 2010 - jens.reimann@inavare.net
