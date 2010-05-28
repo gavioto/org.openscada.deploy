@@ -8,6 +8,7 @@
 
 %define _datadir /usr/share
 %define _bindir /usr/bin
+%define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      p2director
 Summary:   The Equinox P2 director
