@@ -25,13 +25,12 @@ def launcher(instancePath):
 def getScreenName(cmd):
     return os.environ.get("SCREEN_NAME", basename(dirname(cmd)))
 
-
 def main(argv):
     
     cmd = launcher ( argv[0] )
     screenName = getScreenName ( cmd )
     
-    subprocess.call( ["screen", "-r", screenName , "-X", "exec", ".!!", "/bin/echo", "close" ] )
+    os.execvp ( "screen", ["screen", "-x", screenName, "-X", "exec", ".!!", "/bin/echo", "close" ] )
     
 if __name__ == "__main__":
     main(sys.argv[1:])

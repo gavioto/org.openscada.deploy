@@ -46,7 +46,7 @@ start org.openscada.ae.connection.provider
 start org.openscada.ae.server.common
 start org.openscada.ae.server.storage.jdbc
 start org.openscada.ae.monitor.common
-start org.openscada.ae.server.common.condition
+start org.openscada.ae.server.common.monitor
 start org.openscada.ae.monitor
 start org.openscada.ae.server.common.event
 start org.openscada.da.server.osgi
