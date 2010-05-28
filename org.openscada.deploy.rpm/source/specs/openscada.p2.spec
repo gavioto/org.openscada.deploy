@@ -7,6 +7,7 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
+%define _profiledir %_datadir/openscada/profiles
 %define version 0.15.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
@@ -37,6 +38,8 @@ cd ..
 install -d %buildroot/%_repodir
 install -d %buildroot/%_bindir
 install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
+install -d %buildroot/%_profiledir
+install openscada.p2/usr/share/profiles/ %buildroot/%_profiledir
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
@@ -48,7 +51,10 @@ install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 %files
 %dir %_repodir
 %_bindir/p2.*
+%dir %_profiledir
 
 %changelog
+* Fri May 28 2010 - jens.reimann@inavare.net
+- Added profiledir
 * Thu Feb 25 2010 - jens.reimann@inavare.net
 - Initial version
