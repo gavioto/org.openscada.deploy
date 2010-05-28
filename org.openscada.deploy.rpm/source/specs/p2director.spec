@@ -19,6 +19,7 @@ Packager:    inavare GmbH <info@inavare.net>
 Group:     Applications/System
 Source0:   p2director-linux.gtk.x86_64.zip
 Prereq: /sbin/ldconfig
+BuildRoot: %{buildroot}
 
 %description
 
