@@ -24,6 +24,7 @@ start org.openscada.ca.jdbc
 start org.openscada.utils.osgi.jaxws
 start org.openscada.da.server.osgi
 start org.openscada.da.server.dave
+start org.springframework.osgi.extender
 
 openscada.da.net.exportUri=da:net://0.0.0.0:12023
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9241
