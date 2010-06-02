@@ -2,7 +2,7 @@
 # OpenSCADA Spec File
 #
 
-%define qualifier %(date +%%Y%%m%%d%%k%%M%%S)
+%define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
 
 %define _bindir /usr/bin
 %define _datadir /usr/share
