@@ -6,3 +6,17 @@ Bundle-Version: 0.15.0.qualifier
 Bundle-Vendor: inavare GmbH
 Fragment-Host: org.openscada.ds.storage.jdbc;bundle-version="0.15.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Import-Package: org.hsqldb;version="1.8.0",
+ org.hsqldb.index;version="1.8.0",
+ org.hsqldb.jdbc;version="1.8.0",
+ org.hsqldb.lib;version="1.8.0",
+ org.hsqldb.lib.java;version="1.8.0",
+ org.hsqldb.persist;version="1.8.0",
+ org.hsqldb.resources;version="1.8.0",
+ org.hsqldb.rowio;version="1.8.0",
+ org.hsqldb.sample;version="1.8.0",
+ org.hsqldb.scriptio;version="1.8.0",
+ org.hsqldb.store;version="1.8.0",
+ org.hsqldb.types;version="1.8.0",
+ org.hsqldb.util;version="1.8.0"
+Bundle-ClassPath: .
