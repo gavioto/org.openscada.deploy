@@ -33,7 +33,7 @@ start org.openscada.da.datasource.ds
 start org.openscada.ca.servlet.jaxws
 start org.openscada.ca.servlet
 start org.openscada.ca.jdbc
-start org.openscada.ds.storage.file
+start org.openscada.ds.storage.jdbc
 start org.openscada.utils.osgi.jaxws
 start org.openscada.ae.event.logger
 start org.openscada.ae.server.storage
