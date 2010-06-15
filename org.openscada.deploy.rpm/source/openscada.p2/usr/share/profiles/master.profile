@@ -57,6 +57,8 @@ start com.inavare.ossi.sec.provider
 start org.openscada.ae.server.http
 start org.mortbay.jetty.server
 start org.eclipse.equinox.http.jetty
+start org.openscada.ae.server.info
+start org.openscada.da.server.osgi.summary
 
 openscada.da.net.exportUri=da:net://0.0.0.0:12040
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9240
