@@ -19,10 +19,11 @@
 		<attribute name="version" />
 		<attribute name="src" />
 		<attribute name="file" />
+		<attribute name="httpusecaches"/>
 		<sequential>
 
 			<mkdir dir="${rpm.base}/SOURCES"/>
-			<get usetimestamp="true" dest="${rpm.base}/SOURCES/@{file}" src="@{src}/@{file}"/>
+			<get httpusecaches="@{httpusecaches}" usetimestamp="true" dest="${rpm.base}/SOURCES/@{file}" src="@{src}/@{file}"/>
 			
 			<mkdir dir="${rpm.base}/SPECS"/>
 			
