@@ -23,6 +23,8 @@
 
 			<mkdir dir="${rpm.base}/SOURCES"/>
 			<get usetimestamp="true" dest="${rpm.base}/SOURCES/@{file}" src="@{src}/@{file}"/>
+			<checksum algorithm="SHA1" file="${rpm.base}/SOURCES/@{file}" property="checksum"/>
+			<echo message="Checksum: ${checksum} - @{file}" />
 			
 			<mkdir dir="${rpm.base}/SPECS"/>
 			
