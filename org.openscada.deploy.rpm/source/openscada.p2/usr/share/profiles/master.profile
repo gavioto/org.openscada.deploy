@@ -60,6 +60,9 @@ start org.eclipse.equinox.http.jetty
 start org.openscada.ae.server.info
 start org.openscada.da.server.osgi.summary
 
+setbsl 5 org.openscada.da.server.osgi.exporter.net
+setbsl 5 org.openscada.ae.server.exporter.net
+
 openscada.da.net.exportUri=da:net://0.0.0.0:12040
 org.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9240
 org.openscada.ds.storage.file.root=/home/inavare/ds/master_full
