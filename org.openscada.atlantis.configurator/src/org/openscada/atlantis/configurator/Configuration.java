@@ -24,7 +24,7 @@ import javax.script.ScriptException;
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.SummaryItem;
-import org.openscada.deploy.iolist.utils.AbstractConfiguration;
+import org.openscada.deploy.iolist.utils.GenericConfiguration;
 import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
 import org.openscada.utils.collection.MapBuilder;
 import org.openscada.utils.str.StringHelper;
@@ -32,7 +32,7 @@ import org.openscada.utils.str.StringHelper;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
-public class Configuration extends AbstractConfiguration
+public class Configuration extends GenericConfiguration
 {
 
     private final List<Item> items = new ArrayList<Item> ();

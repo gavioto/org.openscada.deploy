@@ -17,14 +17,14 @@ import java.util.zip.ZipOutputStream;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class AbstractConfiguration
+public class GenericConfiguration
 {
 
     private final Map<String, Set<String>> ignoreFields = new HashMap<String, Set<String>> ();
 
     private final Map<String, Map<String, Map<String, Object>>> data = new HashMap<String, Map<String, Map<String, Object>>> ();
 
-    public AbstractConfiguration ()
+    public GenericConfiguration ()
     {
     }
 
