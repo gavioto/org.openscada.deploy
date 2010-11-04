@@ -57,8 +57,11 @@ public class Application implements IApplication
         final String outFile = arguments.pop ();
 
         System.out.println ( "** 0 - Loading scripts" );
+        System.out.println ( "*** 0a - Script Loader" );
         arguments.push ( org.openscada.atlantis.configurator.summary.ScriptLoader.loadScripts ( cfg, new File ( base, "input/formulas.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ) ) );
+        System.out.println ( "*** 0b - Formulas Loader" );
         arguments.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-tams-script.xls" ) ) );
+        System.out.println ( "*** 0c - Summary groups" );
         arguments.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ) ) );
 
         arguments.push ( processNetwork ( System.getProperty ( "prefix", "XXX" ), base, generatedBase ) );
@@ -100,7 +103,7 @@ public class Application implements IApplication
 
     private static String processNetwork ( final String prefix, final File base, final File generatedBase ) throws Exception
     {
-        System.out.println ( "*** 0a - Processing network" );
+        System.out.println ( "*** 0d - Processing network" );
         final File outListFile = new File ( generatedBase, "IOList-generated-exec.xls" );
         final File sourceFile = new File ( base, "input/network.ods" );
         final File xmlOutFile = new File ( generatedBase, "network.xml" );
