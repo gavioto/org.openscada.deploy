@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Arrays;
@@ -13,6 +14,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.Text;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -70,6 +84,76 @@ public class GenericConfiguration
         ignoreStream.close ();
 
         makeOscar ( dataFile, ignoreFieldsFile, new File ( baseDir, "configuration.oscar" ) );
+
+        writeXml ( new File ( baseDir, "objects.xml" ) );
+    }
+
+    private void writeXml ( final File file ) throws Exception
+    {
+        final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance ();
+        final DocumentBuilder db = dbf.newDocumentBuilder ();
+        final Document doc = db.newDocument ();
+
+        doc.setNodeValue ( "root" );
+
+        final Element root = doc.createElement ( "root" );
+        doc.appendChild ( root );
+
+        for ( final Map.Entry<String, Map<String, Map<String, Object>>> factory : this.data.entrySet () )
+        {
+            final Element factoryElement = doc.createElement ( "factory" );
+            root.appendChild ( factoryElement );
+            factoryElement.setAttribute ( "id", factory.getKey () );
+
+            for ( final Map.Entry<String, Map<String, Object>> conf : factory.getValue ().entrySet () )
+            {
+                final Element configurationElement = doc.createElement ( "configuration" );
+                factoryElement.appendChild ( configurationElement );
+                configurationElement.setAttribute ( "id", conf.getKey () );
+
+                for ( final Map.Entry<String, Object> entry : conf.getValue ().entrySet () )
+                {
+                    final Element entryElement = doc.createElement ( "entry" );
+                    configurationElement.appendChild ( entryElement );
+                    entryElement.setAttribute ( "name", entry.getKey () );
+                    final Node dataNode = makeDataNode ( doc, entry );
+                    entryElement.appendChild ( dataNode );
+                }
+            }
+        }
+
+        final TransformerFactory tf = TransformerFactory.newInstance ();
+        final Transformer transformer = tf.newTransformer ();
+        transformer.setOutputProperty ( OutputKeys.INDENT, "yes" );
+        transformer.setOutputProperty ( OutputKeys.ENCODING, "UTF-8" );
+        transformer.setOutputProperty ( "{http://xml.apache.org/xslt}indent-amount", String.valueOf ( 3 ) );
+
+        //initialize StreamResult with File object to save to file
+        final FileWriter writer = new FileWriter ( file );
+        try
+        {
+            final StreamResult result = new StreamResult ( writer );
+            final DOMSource source = new DOMSource ( doc );
+            transformer.transform ( source, result );
+        }
+        finally
+        {
+            writer.close ();
+        }
+
+    }
+
+    private Text makeDataNode ( final Document doc, final Map.Entry<String, Object> entry )
+    {
+        final String data = "" + entry.getValue ();
+        if ( data.matches ( "[\\p{Alnum}\\p{Space}_\\+-\\+\\/=()@\\.\\:]+" ) )
+        {
+            return doc.createTextNode ( data );
+        }
+        else
+        {
+            return doc.createCDATASection ( data );
+        }
     }
 
     private void makeOscar ( final File dataFile, final File ignoreFieldsFile, final File oscarFile ) throws IOException
