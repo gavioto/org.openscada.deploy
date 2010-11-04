@@ -6,7 +6,7 @@ Bundle-Version: 1.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.inavare.vims.iolist.model;version="1.0.1";uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
  com.inavare.vims.iolist.model.impl;version="1.0.1";
   uses:="org.eclipse.emf.ecore,

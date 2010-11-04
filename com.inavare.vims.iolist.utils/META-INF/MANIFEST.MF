@@ -9,7 +9,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  com.springsource.jxl;bundle-version="2.6.6",
  com.inavare.vims.iolist.model;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: com.inavare.vims.iolist.utils;version="1.0.1";uses:="org.eclipse.core.runtime,com.inavare.vims.iolist.model,org.osgi.framework"
 Import-Package: com.google.gson;version="1.4.0",
