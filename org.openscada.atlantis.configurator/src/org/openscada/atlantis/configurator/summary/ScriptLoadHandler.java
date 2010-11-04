@@ -11,9 +11,8 @@ import java.util.Set;
 
 import org.openscada.atlantis.configurator.Configuration;
 import org.openscada.atlantis.configurator.common.RowHandler;
-
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ModelFactory;
 
 public class ScriptLoadHandler implements RowHandler
 {

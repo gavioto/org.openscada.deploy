@@ -1,4 +1,4 @@
-package com.inavare.vims.iolist.utils;
+package org.openscada.deploy.iolist.utils;
 
 import java.io.PrintStream;
 import java.util.Map;

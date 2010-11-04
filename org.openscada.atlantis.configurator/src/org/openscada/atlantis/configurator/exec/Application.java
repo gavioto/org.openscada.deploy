@@ -14,11 +14,10 @@ import org.openscada.da.server.exec.configuration.model.HiveProcessCommandType;
 import org.openscada.da.server.exec.configuration.model.ProcessType;
 import org.openscada.da.server.exec.configuration.model.RootDocument;
 import org.openscada.da.server.exec.configuration.model.RootType;
-
-import com.inavare.vims.iolist.model.DataType;
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.model.ModelFactory;
-import com.inavare.vims.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.model.DataType;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
 
 public class Application
 {

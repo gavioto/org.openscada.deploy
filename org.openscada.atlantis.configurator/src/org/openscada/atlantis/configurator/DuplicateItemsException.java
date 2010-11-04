@@ -2,14 +2,11 @@ package org.openscada.atlantis.configurator;
 
 import java.util.Collection;
 
-import com.inavare.vims.iolist.model.Item;
+import org.openscada.deploy.iolist.model.Item;
 
 public class DuplicateItemsException extends RuntimeException
 {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
     private final Collection<Item> items;

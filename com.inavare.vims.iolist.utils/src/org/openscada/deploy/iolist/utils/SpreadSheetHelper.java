@@ -1,4 +1,4 @@
-package com.inavare.vims.iolist.utils;
+package org.openscada.deploy.iolist.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,10 +30,9 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.utils.str.StringHelper;
-
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.model.ModelFactory;
 
 public class SpreadSheetHelper
 {

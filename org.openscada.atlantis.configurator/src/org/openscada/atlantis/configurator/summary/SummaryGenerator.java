@@ -5,11 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.openscada.atlantis.configurator.Configuration;
-
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.model.ModelFactory;
-import com.inavare.vims.iolist.model.SummaryGroup;
-import com.inavare.vims.iolist.model.SummaryItem;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.SummaryItem;
 
 public class SummaryGenerator
 {

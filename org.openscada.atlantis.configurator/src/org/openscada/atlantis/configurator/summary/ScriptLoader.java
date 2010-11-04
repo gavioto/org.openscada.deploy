@@ -4,8 +4,8 @@ import java.io.File;
 
 import org.openscada.atlantis.configurator.Configuration;
 import org.openscada.atlantis.configurator.common.DataLoader;
+import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
 
-import com.inavare.vims.iolist.utils.SpreadSheetHelper;
 
 public class ScriptLoader
 {

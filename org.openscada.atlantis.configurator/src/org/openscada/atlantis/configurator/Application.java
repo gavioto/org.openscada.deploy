@@ -11,9 +11,8 @@ import javax.script.ScriptException;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.atlantis.configurator.summary.SumLoader;
-
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
 
 public class Application implements IApplication
 {

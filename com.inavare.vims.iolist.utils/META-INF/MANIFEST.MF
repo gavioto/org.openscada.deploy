@@ -1,17 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Utils
-Bundle-SymbolicName: com.inavare.vims.iolist.utils
+Bundle-SymbolicName: org.openscada.deploy.iolist.utils
 Bundle-Version: 1.0.1.qualifier
-Bundle-Activator: com.inavare.vims.iolist.utils.Activator
+Bundle-Activator: org.openscada.deploy.iolist.utils.Activator
 Bundle-Vendor: inavare GmbH
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  com.springsource.jxl;bundle-version="2.6.6",
- com.inavare.vims.iolist.model;bundle-version="1.0.0"
+ org.openscada.deploy.iolist.model;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: com.inavare.vims.iolist.utils;version="1.0.1";uses:="org.eclipse.core.runtime,com.inavare.vims.iolist.model,org.osgi.framework"
+Export-Package: org.openscada.deploy.iolist.utils;version="1.0.1";uses:="org.eclipse.core.runtime,com.inavare.vims.iolist.model,org.osgi.framework"
 Import-Package: com.google.gson;version="1.4.0",
  com.google.gson.annotations;version="1.4.0",
  com.google.gson.reflect;version="1.4.0",

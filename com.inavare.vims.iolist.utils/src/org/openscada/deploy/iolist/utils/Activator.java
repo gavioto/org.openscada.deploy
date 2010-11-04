@@ -1,4 +1,4 @@
-package com.inavare.vims.iolist.utils;
+package org.openscada.deploy.iolist.utils;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
@@ -9,7 +9,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "com.inavare.vims.iolist.utils";
+	public static final String PLUGIN_ID = "org.openscada.deploy.iolist.utils";
 
 	// The shared instance
 	private static Activator plugin;

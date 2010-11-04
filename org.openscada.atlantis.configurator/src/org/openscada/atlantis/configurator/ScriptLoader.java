@@ -11,17 +11,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
 
 public class ScriptLoader
 {
 
-    private static void addPACOSScript ( final Configuration cfg, final File scriptBase, final String target, final String function, final Map<String, String> sources, final Collection<Item> items ) throws Exception
+    private static void addExtScript ( final Configuration cfg, final File scriptBase, final String target, final String function, final Map<String, String> sources, final Collection<Item> items ) throws Exception
     {
         cfg.addScript ( target + ".script", null, sources, null, Configuration.loadFromFile ( new File ( scriptBase, "functions.js" ) ), convertJs ( function, sources.size () ), null, null );
 
-        final Item item = com.inavare.vims.iolist.model.ModelFactory.eINSTANCE.createItem ();
+        final Item item = ModelFactory.eINSTANCE.createItem ();
 
         item.setAlias ( target );
         item.setName ( target + ".script" );
@@ -99,7 +100,7 @@ public class ScriptLoader
                 final String[] toks = line.split ( " " );
                 if ( line.length () == 0 )
                 {
-                    addPACOSScript ( cfg, scriptBase, target, function, sources, items );
+                    addExtScript ( cfg, scriptBase, target, function, sources, items );
                     sources.clear ();
                 }
                 else if ( toks.length == 4 )
@@ -114,7 +115,7 @@ public class ScriptLoader
                 }
                 else if ( toks.length == 0 )
                 {
-                    addPACOSScript ( cfg, scriptBase, target, function, sources, items );
+                    addExtScript ( cfg, scriptBase, target, function, sources, items );
                     sources.clear ();
                 }
                 else
@@ -125,7 +126,7 @@ public class ScriptLoader
 
             if ( !sources.isEmpty () )
             {
-                addPACOSScript ( cfg, scriptBase, target, function, sources, items );
+                addExtScript ( cfg, scriptBase, target, function, sources, items );
             }
         }
         finally

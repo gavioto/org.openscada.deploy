@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.inavare.vims.iolist.utils;
+package org.openscada.deploy.iolist.utils;
 
 import java.util.regex.Pattern;
 
-import com.inavare.vims.iolist.model.DataType;
-import com.inavare.vims.iolist.model.Item;
+import org.openscada.deploy.iolist.model.DataType;
+import org.openscada.deploy.iolist.model.Item;
 
 public enum Header
 {

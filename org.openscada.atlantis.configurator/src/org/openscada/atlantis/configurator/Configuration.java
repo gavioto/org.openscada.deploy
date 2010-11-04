@@ -22,15 +22,15 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.SummaryItem;
+import org.openscada.deploy.iolist.utils.AbstractConfiguration;
+import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
 import org.openscada.utils.collection.MapBuilder;
 import org.openscada.utils.str.StringHelper;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.inavare.vims.iolist.model.Item;
-import com.inavare.vims.iolist.model.SummaryItem;
-import com.inavare.vims.iolist.utils.AbstractConfiguration;
-import com.inavare.vims.iolist.utils.SpreadSheetHelper;
 
 public class Configuration extends AbstractConfiguration
 {
