@@ -13,6 +13,7 @@ import jxl.read.biff.BiffException;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
+import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.usermodel.HeaderFooter;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -320,7 +321,7 @@ public class SpreadSheetPoiHelper
     {
         final List<Item> result = new LinkedList<Item> ();
 
-        final Workbook workbook = new HSSFWorkbook ( new FileInputStream ( fileName ) );
+        final HSSFWorkbook workbook = new HSSFWorkbook ( new FileInputStream ( fileName ) );
 
         final Sheet sheet = workbook.getSheetAt ( 0 );
 
@@ -328,7 +329,7 @@ public class SpreadSheetPoiHelper
 
         for ( int row = 1; row < sheet.getLastRowNum (); row++ )
         {
-            final Item item = convertToItem ( header, sheet.getRow ( row ), String.format ( "%s@%s", fileName, row ) );
+            final Item item = convertToItem ( workbook, header, sheet.getRow ( row ), String.format ( "%s@%s", fileName, row ) );
             if ( item != null )
             {
                 result.add ( item );
@@ -338,7 +339,7 @@ public class SpreadSheetPoiHelper
         return result;
     }
 
-    private static Item convertToItem ( final Map<Integer, Header> header, final Row row, final String debugInformation )
+    private static Item convertToItem ( final HSSFWorkbook workbook, final Map<Integer, Header> header, final Row row, final String debugInformation )
     {
         if ( row == null || row.getLastCellNum () < 2 )
         {
@@ -354,7 +355,7 @@ public class SpreadSheetPoiHelper
         final Item item = ModelFactory.eINSTANCE.createItem ();
         item.setDebugInformation ( debugInformation );
 
-        final Map<Header, Value> mapped = makeRow ( header, row );
+        final Map<Header, Value> mapped = makeRow ( workbook, header, row );
 
         for ( final Map.Entry<Header, Value> entry : mapped.entrySet () )
         {
@@ -364,7 +365,31 @@ public class SpreadSheetPoiHelper
         return item;
     }
 
-    private static Map<Header, Value> makeRow ( final Map<Integer, Header> headers, final Row row )
+    private static String makeStringValue ( final HSSFWorkbook workbook, final Cell cell )
+    {
+        if ( cell == null )
+        {
+            return null;
+        }
+
+        final HSSFFormulaEvaluator eval = new HSSFFormulaEvaluator ( workbook );
+
+        switch ( cell.getCellType () )
+        {
+        case Cell.CELL_TYPE_BLANK:
+            return "";
+        case Cell.CELL_TYPE_FORMULA:
+            final String str = cell.toString ();
+            final String data = eval.evaluate ( cell ).getStringValue ();
+
+            return data;
+
+        default:
+            return cell.toString ();
+        }
+    }
+
+    private static Map<Header, Value> makeRow ( final HSSFWorkbook workbook, final Map<Integer, Header> headers, final Row row )
     {
         final Map<Header, Value> result = new HashMap<Header, Value> ();
 
@@ -376,7 +401,7 @@ public class SpreadSheetPoiHelper
                 final Cell cell = row.getCell ( i );
 
                 final Value value = new Value ();
-                value.setValue ( cell.toString () );
+                value.setValue ( makeStringValue ( workbook, cell ) );
 
                 value.setBackgroundColor ( new RGB ( 255, 255, 255 ) );
 
