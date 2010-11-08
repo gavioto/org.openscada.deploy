@@ -25,7 +25,7 @@ import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
-import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 import org.openscada.utils.collection.MapBuilder;
 import org.openscada.utils.str.StringHelper;
 
@@ -819,7 +819,7 @@ public class Configuration extends GenericConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
-        SpreadSheetHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ).getAbsolutePath (), this.items );
+        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ).getAbsolutePath (), this.items );
         super.write ( baseDir );
     }
 

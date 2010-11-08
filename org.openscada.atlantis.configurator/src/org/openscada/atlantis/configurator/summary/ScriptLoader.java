@@ -4,8 +4,7 @@ import java.io.File;
 
 import org.openscada.atlantis.configurator.Configuration;
 import org.openscada.atlantis.configurator.common.DataLoader;
-import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
-
+import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class ScriptLoader
 {
@@ -18,7 +17,7 @@ public class ScriptLoader
         final ScriptLoadHandler handler = new ScriptLoadHandler ( cfg, scriptBase );
         loader.load ( 0, handler );
 
-        SpreadSheetHelper.writeSpreadsheet ( generatedFile.getAbsolutePath (), handler.getItems () );
+        SpreadSheetPoiHelper.writeSpreadsheet ( generatedFile.getAbsolutePath (), handler.getItems () );
 
         return generatedFile.getAbsolutePath ();
     }

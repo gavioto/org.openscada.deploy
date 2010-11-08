@@ -12,7 +12,7 @@ import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.atlantis.configurator.summary.SumLoader;
 import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application implements IApplication
 {
@@ -74,7 +74,7 @@ public class Application implements IApplication
             if ( !file.contains ( "override" ) )
             {
                 System.out.println ( " ** Loading: " + file );
-                cfg.addItems ( SpreadSheetHelper.loadExcel ( file ) );
+                cfg.addItems ( SpreadSheetPoiHelper.loadExcel ( file ) );
             }
             else
             {
@@ -85,7 +85,7 @@ public class Application implements IApplication
         System.out.println ( "** 1a - Apply overrides" );
         for ( final String file : overrides )
         {
-            cfg.applyOverrides ( SpreadSheetHelper.loadExcel ( file ) );
+            cfg.applyOverrides ( SpreadSheetPoiHelper.loadExcel ( file ) );
         }
 
         System.out.println ( "** 1b - Apply script overrides" );

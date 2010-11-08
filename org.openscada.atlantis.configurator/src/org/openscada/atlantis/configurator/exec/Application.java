@@ -17,7 +17,7 @@ import org.openscada.da.server.exec.configuration.model.RootType;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application
 {
@@ -28,7 +28,7 @@ public class Application
         final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
         loader.load ( 0, handler );
 
-        SpreadSheetHelper.writeSpreadsheet ( outList, convertDevices ( prefix, handler.getDevices () ) );
+        SpreadSheetPoiHelper.writeSpreadsheet ( outList, convertDevices ( prefix, handler.getDevices () ) );
 
         final RootDocument doc = createDoc ( handler.getDevices () );
 
