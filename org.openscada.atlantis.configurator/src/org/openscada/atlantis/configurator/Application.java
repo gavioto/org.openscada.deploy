@@ -2,6 +2,7 @@ package org.openscada.atlantis.configurator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -10,6 +11,7 @@ import javax.script.ScriptException;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
+import org.openscada.atlantis.configurator.common.DataLoader;
 import org.openscada.atlantis.configurator.summary.SumLoader;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
@@ -52,9 +54,10 @@ public class Application implements IApplication
         final File scriptBase = new File ( base, "script/js" );
         final File generatedBase = new File ( base, "generated" );
 
-        final Configuration cfg = new Configuration ( "localhost" );
+        final Configuration cfg = new Configuration ();
 
         final String outFile = arguments.pop ();
+        final String basicsFile = arguments.pop ();
 
         System.out.println ( "** 0 - Loading scripts" );
         System.out.println ( "*** 0a - Script Loader" );
@@ -69,6 +72,10 @@ public class Application implements IApplication
         final Collection<String> overrides = new LinkedList<String> ();
 
         System.out.println ( "** 1 - Loading data" );
+        System.out.println ( "*** 1a - Loading basic configuration" );
+        loadBasics ( cfg, new File ( basicsFile ) );
+
+        System.out.println ( "*** 1b - Loading data files" );
         for ( final String file : arguments )
         {
             if ( !file.contains ( "override" ) )
@@ -82,13 +89,13 @@ public class Application implements IApplication
             }
         }
 
-        System.out.println ( "** 1a - Apply overrides" );
+        System.out.println ( "*** 1c - Apply overrides" );
         for ( final String file : overrides )
         {
             cfg.applyOverrides ( SpreadSheetPoiHelper.loadExcel ( file ) );
         }
 
-        System.out.println ( "** 1b - Apply script overrides" );
+        System.out.println ( "*** 1d - Apply script overrides" );
         applyScriptOverrides ( scriptDBase, cfg );
 
         System.out.println ( "** 3 - Process" );
@@ -99,6 +106,21 @@ public class Application implements IApplication
         cfg.write ( new File ( outFile ) );
 
         cfg.close ();
+    }
+
+    private static void loadBasics ( final Configuration cfg, final File file ) throws IOException
+    {
+        System.out.println ( "Loading basics from: " + file );
+        final DataLoader loader = new DataLoader ( file );
+
+        System.out.println ( "**** 1aa - Loading basic configuration - Connections" );
+        loader.load ( 0, new ConnectionHandler ( cfg ) );
+
+        System.out.println ( "**** 1ab - Loading basic configuration - Authorizations" );
+        loader.load ( 1, new AuthorizationHandler ( cfg ) );
+
+        System.out.println ( "**** 1ac - Loading basic configuration - JMS Monitors" );
+        loader.load ( 2, new JmsHandler ( cfg ) );
     }
 
     private static String processNetwork ( final String prefix, final File base, final File generatedBase ) throws Exception

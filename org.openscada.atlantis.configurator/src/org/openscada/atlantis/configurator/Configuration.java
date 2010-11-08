@@ -26,7 +26,6 @@ import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
-import org.openscada.utils.collection.MapBuilder;
 import org.openscada.utils.str.StringHelper;
 
 import com.google.common.collect.HashMultimap;
@@ -41,30 +40,9 @@ public class Configuration extends GenericConfiguration
 
     private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null );
 
-    public Configuration ( final String scadaServer ) throws Exception
+    public Configuration () throws Exception
     {
         this.logStream = System.out;
-
-        // connections
-
-        addConnection ( "paar", "da:net://" + scadaServer + ":12021" );
-
-        addConnection ( "hitag", "da:net://" + scadaServer + ":12022" );
-
-        addConnection ( "dave", "da:net://" + scadaServer + ":12023" );
-        addConnection ( "modbus", "da:net://" + scadaServer + ":12039" );
-        addConnection ( "vega", "da:net://" + scadaServer + ":12025" );
-
-        addConnection ( "printer", "da:net://" + scadaServer + ":12031" );
-
-        addConnection ( "exec", "da:net://" + scadaServer + ":12034" );
-        addConnection ( "exec.hr1", "da:net://10.85.240.20:12034" );
-        addConnection ( "exec.hr2", "da:net://10.85.240.22:12034" );
-
-        addConnection ( "jboss", "da:net://" + scadaServer + ":12042" );
-        addConnection ( "jdbc", "da:net://" + scadaServer + ":12036" );
-
-        addConnection ( "master", "da:net://jboss:vimsjbossbg@" + scadaServer + ":12040" );
 
         // event query
 
@@ -79,29 +57,7 @@ public class Configuration extends GenericConfiguration
         addMonitorQuery ( "monitors.init", "(status=INIT)" );
         addMonitorQuery ( "monitors.all", "(status=*)" );
 
-        // security
-
-        addAuthorizationScript ( "allow.admin.session", "user == null ? false : user.getRoles().contains(\"ALLOW_ADMINISTRATION\");", 1000, ".*admin.*", "SESSION", null );
-        addAuthorizationScript ( "reject.admin.session", "false;", 1001, ".*admin.*", "SESSION", null );
-
-        addAuthorizationScript ( "allow.operator.session", "user != null;", 1000, ".*operator.*", "SESSION", null );
-        addAuthorizationScript ( "reject.operator.session", "false;", 1001, ".*operator.*", "SESSION", null );
-
-        addAuthorizationScript ( "allow.all", "user != null;", Integer.MAX_VALUE );
-
-        // jms events
-
-        final MapBuilder<String, String> builder = new MapBuilder<String, String> ();
-        builder.put ( "message", "Truck loading adapter failed" );
-        builder.put ( "monitorType", "JMS" );
-        builder.put ( "actorType", "SYSTEM" );
-        builder.put ( "system", "VIMSP" );
-
-        addJmsMonitor ( "truckLoadingAdapter.bay01", "(component=truckLoadingAdapter.bay01)", builder.getMap () );
-        addJmsMonitor ( "truckLoadingAdapter.bay02", "(component=truckLoadingAdapter.bay02)", builder.getMap () );
-
-        addJmsMonitor ( "bay01", "(&(location=AlarmEvent)(component=bay01))", builder.getMap () );
-        addJmsMonitor ( "bay02", "(&(location=AlarmEvent)(component=bay02))", builder.getMap () );
+        // add ignore fields
 
         addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" );
         addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" );
@@ -117,6 +73,7 @@ public class Configuration extends GenericConfiguration
         addIgnoreFields ( "org.openscada.da.scale.input", "active", "factor" );
 
         // summaries
+
         addSummary ( "error" );
         addSummary ( "alarm" );
         addSummary ( "manual" );
@@ -181,7 +138,7 @@ public class Configuration extends GenericConfiguration
         addAuthorizationScript ( id, script, priority, null, null, null );
     }
 
-    private void addAuthorizationScript ( final String id, final String script, final int priority, final String idFilter, final String typeFilter, final String actionFilter )
+    public void addAuthorizationScript ( final String id, final String script, final int priority, final String idFilter, final String typeFilter, final String actionFilter )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
         data.put ( "script", script );
@@ -264,8 +221,15 @@ public class Configuration extends GenericConfiguration
 
     private void convertItems ()
     {
+        final Set<String> connections = new HashSet<String> ();
+
         for ( final Item item : this.items )
         {
+            if ( item.getDevice () != null && !item.getDevice ().isEmpty () )
+            {
+                connections.add ( item.getDevice () );
+            }
+
             final String itemId = item.getName ();
 
             final String internalItemId = makeInternalItemId ( item );
@@ -352,6 +316,22 @@ public class Configuration extends GenericConfiguration
                 addListMonitor ( masterId + ".listMonitor", masterId, item.isListMonitorListIsAlarm (), item.getListMonitorItems (), item.isListMonitorAckRequired (), item.getDescription (), attributes );
             }
         }
+
+        validateConnections ( connections );
+    }
+
+    private void validateConnections ( final Set<String> connections )
+    {
+        System.out.flush ();
+        final Map<String, Map<String, Object>> connnectionData = this.data.get ( "da.connection" );
+        for ( final String device : connections )
+        {
+            if ( !connnectionData.containsKey ( device ) )
+            {
+                System.err.println ( String.format ( "Connection '%s' is undefined!", device ) );
+            }
+        }
+        System.err.flush ();
     }
 
     private void addDSDataSource ( final String id )
