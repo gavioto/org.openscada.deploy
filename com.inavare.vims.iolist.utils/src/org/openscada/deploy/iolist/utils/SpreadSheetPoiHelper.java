@@ -379,11 +379,7 @@ public class SpreadSheetPoiHelper
         case Cell.CELL_TYPE_BLANK:
             return "";
         case Cell.CELL_TYPE_FORMULA:
-            final String str = cell.toString ();
-            final String data = eval.evaluate ( cell ).getStringValue ();
-
-            return data;
-
+            return eval.evaluate ( cell ).getStringValue ();
         default:
             return cell.toString ();
         }
