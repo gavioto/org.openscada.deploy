@@ -4,7 +4,7 @@ Bundle-Name: RAFTW
 Bundle-SymbolicName: org.openscada.atlantis.configurator;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.openscada.atlantis.configurator.Activator
-Bundle-Vendor: TH4 Systems GmbH
+Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime;bundle-version="3.6.0",
  org.eclipse.emf.ecore;bundle-version="2.6.1"
