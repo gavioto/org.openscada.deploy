@@ -133,11 +133,6 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.ae.server.common.event.pool", id, data );
     }
 
-    private void addAuthorizationScript ( final String id, final String script, final int priority )
-    {
-        addAuthorizationScript ( id, script, priority, null, null, null );
-    }
-
     public void addAuthorizationScript ( final String id, final String script, final int priority, final String idFilter, final String typeFilter, final String actionFilter )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
