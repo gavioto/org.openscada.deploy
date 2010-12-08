@@ -88,7 +88,7 @@ public class SummaryGenerator
 
         public boolean isValid ()
         {
-            return this.location != null && this.component != null && this.location.length () != 0 && this.component.length () != 0;
+            return this.location != null && this.location.length () != 0;
         }
 
     }
@@ -98,32 +98,45 @@ public class SummaryGenerator
         final Map<Location, SummaryGroup> locations = new HashMap<Location, SummaryGroup> ();
         for ( final Item item : items )
         {
-            final Location location = new Location ( item.getLocation (), item.getComponent () );
-            if ( !location.isValid () || item.isIgnoreSummary () )
+            if ( item.isIgnoreSummary () )
             {
                 continue;
             }
 
-            SummaryGroup locationItems = locations.get ( location );
-            if ( locationItems == null )
-            {
-                locationItems = ModelFactory.eINSTANCE.createSummaryGroup ();
-                locationItems.setLocation ( item.getLocation () );
-                locationItems.setComponent ( item.getComponent () );
-                locationItems.setId ( makeGroupId ( location ) );
-                locations.put ( location, locationItems );
-            }
-
-            final SummaryItem summaryItem = ModelFactory.eINSTANCE.createSummaryItem ();
-            summaryItem.setDataSourceId ( item.getAlias () + ".master" );
-            locationItems.getItems ().add ( summaryItem );
+            addItem ( locations, new Location ( item.getLocation (), item.getComponent () ), item );
+            addItem ( locations, new Location ( item.getLocation (), null ), item );
         }
 
         SumLoader.configureGroups ( cfg, locations.values (), items );
     }
 
+    private static void addItem ( final Map<Location, SummaryGroup> locations, final Location location, final Item item )
+    {
+        if ( !location.isValid () )
+        {
+            return;
+        }
+
+        SummaryGroup locationItems = locations.get ( location );
+        if ( locationItems == null )
+        {
+            locationItems = ModelFactory.eINSTANCE.createSummaryGroup ();
+            locationItems.setLocation ( location.getLocation () );
+            locationItems.setComponent ( location.getComponent () );
+            locationItems.setId ( makeGroupId ( location ) );
+            locations.put ( location, locationItems );
+        }
+
+        final SummaryItem summaryItem = ModelFactory.eINSTANCE.createSummaryItem ();
+        summaryItem.setDataSourceId ( item.getAlias () + ".master" );
+        locationItems.getItems ().add ( summaryItem );
+    }
+
     private static String makeGroupId ( final Location location )
     {
-        return System.getProperty ( "prefix", "BG_IPT" ) + "." + location.getLocation () + "." + location.getComponent () + ".SUM.V";
+        final String strLoc = location.getLocation () == null ? "" : location.getLocation ();
+        final String strComp = location.getComponent () == null ? "" : location.getComponent ();
+
+        return System.getProperty ( "prefix", "BG_IPT" ) + "." + strLoc + "." + strComp + ".SUM.V";
     }
 }
