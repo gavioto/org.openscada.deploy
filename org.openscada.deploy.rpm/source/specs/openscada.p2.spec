@@ -47,8 +47,6 @@ install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 %postun
 
 %files
-%dir %_profiledir
-%_profiledir/*.profile
 %dir %_repodir
 %_bindir/p2.*
 
