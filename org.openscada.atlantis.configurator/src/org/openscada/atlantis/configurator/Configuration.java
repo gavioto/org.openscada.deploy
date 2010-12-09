@@ -392,9 +392,9 @@ public class Configuration extends GenericConfiguration
 
     static final String NL = System.getProperty ( "line.separator" );
 
-    private static final String BOOLEAN_ALARM_MONITOR_FACTORY_ID = null;
+    private static final String BOOLEAN_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.booleanAlarm";
 
-    private static final String LIST_ALARM_MONITOR_FACTORY_ID = null;
+    private static final String LIST_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.listAlarm";
 
     public static String loadFromFile ( final File file ) throws Exception
     {
