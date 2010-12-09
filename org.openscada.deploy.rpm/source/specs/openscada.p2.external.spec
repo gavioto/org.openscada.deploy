@@ -14,7 +14,8 @@ Version:   %{version}
 Release:   %{qualifier}
 License:   GPL
 BuildArch: noarch
-Vendor:    inavare GmbH <info@inavare.net>
+Packager:  TH4 SYSTEMS GmbH <info@th4-systems.com>
+Vendor:    TH4 SYSTEMS GmbH <info@th4-systems.com>
 Group:     Applications/System
 Source0:   org.openscada.external-%{version}-p2repo.zip
 Prereq: /sbin/ldconfig
@@ -41,5 +42,7 @@ install ../SOURCES/org.openscada.external-0.15.0-p2repo.zip %buildroot/%_repodir
 %_repodir/org.openscada.external-0.15.0-p2repo.zip
 
 %changelog
+* Thu Dec  9 2010 - jens.reimann@th4-systems.net
+- Change to TH4
 * Thu Feb 25 2010 - jens.reimann@inavare.net
 - Initial version

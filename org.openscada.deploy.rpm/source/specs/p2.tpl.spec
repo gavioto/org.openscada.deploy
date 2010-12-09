@@ -15,7 +15,7 @@ Version:   %{version}
 Release:   %{qualifier}
 License:   Other
 BuildArch: noarch
-Packager:  inavare GmbH <info@inavare.net>
+Packager:  TH4 SYSTEMS GmbH <info@th4-systems.com>
 Group:     Applications/System
 Source0:   ___FILE___
 Prereq: /sbin/ldconfig

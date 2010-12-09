@@ -16,7 +16,8 @@ Version:   %{version}
 Release:   %{qualifier}
 License:   LGPLv3
 BuildArch: noarch
-Vendor:    TH4 SYSTEMS GmbH <info@th4-systems.net>
+Packager:  TH4 SYSTEMS GmbH <info@th4-systems.com>
+Vendor:    TH4 SYSTEMS GmbH <info@th4-systems.com>
 Group:     Applications/System
 Source0:   org.openscada.p2-%{version}.tar.gz
 Prereq: /sbin/ldconfig

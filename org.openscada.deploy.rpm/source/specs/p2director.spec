@@ -15,7 +15,7 @@ Summary:   The Equinox P2 director
 Version:   %{version}
 Release:   %{qualifier}
 License:   ECL
-Packager:    inavare GmbH <info@inavare.net>
+Packager:  TH4 SYSTEMS GmbH <info@th4-systems.com>
 Group:     Applications/System
 Source0:   p2director-linux.gtk.x86_64.zip
 Prereq: /sbin/ldconfig
@@ -52,5 +52,7 @@ ln -s ../share/p2director/p2director %buildroot/%_bindir/p2director
 %_bindir/p2director
 
 %changelog
+* Thu Dec  9 2010 - jens.reimann@th4-systems.net
+- Change to TH4
 * Thu Feb 25 2010 - jens.reimann@inavare.net
 - Initial version
