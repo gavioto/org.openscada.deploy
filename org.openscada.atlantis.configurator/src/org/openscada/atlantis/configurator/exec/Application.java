@@ -42,7 +42,7 @@ public class Application
         options.setSavePrettyPrint ();
 
         final Map<Object, Object> suggestedPrefixes = new HashMap<Object, Object> ();
-        suggestedPrefixes.put ( "http://openscada.org/DA/Exec2/Configuration", "exec" );
+        suggestedPrefixes.put ( "http://openscada.org/DA/Exec/Configuration", "exec" );
 
         options.setSaveSuggestedPrefixes ( suggestedPrefixes );
         doc.save ( file, options );
