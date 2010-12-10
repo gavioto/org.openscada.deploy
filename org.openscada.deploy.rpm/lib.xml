@@ -35,7 +35,7 @@
 				<replacefilter token="___FILE___" value="@{file}"/>
 			</replace>
 			
-			<rpm specfile="@{name}.spec" topdir="${rpm.base}" />
+			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" />
 		</sequential>
 	</macrodef>
 

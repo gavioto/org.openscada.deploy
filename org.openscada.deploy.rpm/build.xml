@@ -96,7 +96,7 @@
           target: rpm.openscada.p2                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.openscada.p2" depends="pack,copySpec">
-    	<rpm specfile="openscada.p2.spec" topdir="${rpm.base}"/>
+    	<rpm specfile="openscada.p2.spec" topdir="${rpm.base}" failOnError="true"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
@@ -138,7 +138,7 @@
           target: rpm.p2director                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.p2director" depends="copySpec">
-    	<rpm specfile="p2director.spec" topdir="${rpm.base}"/>
+    	<rpm specfile="p2director.spec" topdir="${rpm.base}" failOnError="true"/>
     </target>
 
 </project>
