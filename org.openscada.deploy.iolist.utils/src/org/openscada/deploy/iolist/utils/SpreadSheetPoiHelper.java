@@ -29,9 +29,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.utils.str.StringHelper;
 
-public class SpreadSheetPoiHelper
+public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 {
     private final Workbook workbook;
 
@@ -86,7 +85,9 @@ public class SpreadSheetPoiHelper
     public static void writeSpreadsheet ( final String filename, final Collection<Item> items ) throws Exception
     {
         final SpreadSheetPoiHelper helper = new SpreadSheetPoiHelper ();
-        helper.process ( items );
+        helper.writeHeader ();
+        helper.writeItems ( items );
+        helper.autoAdjust ( helper.sheet );
         helper.write ( filename );
     }
 
@@ -97,89 +98,12 @@ public class SpreadSheetPoiHelper
         fileOut.close ();
     }
 
-    private void process ( final Collection<Item> items ) throws Exception
-    {
-
-        for ( final Header header : Header.values () )
-        {
-            addHeaderCell ( this.sheet, header.toString (), header.ordinal () );
-        }
-
-        int row = 1;
-        for ( final Item item : items )
-        {
-            addData ( this.sheet, row, Header.HIVE.ordinal (), item.getDevice () );
-            addData ( this.sheet, row, Header.SOURCE_NAME.ordinal (), item.getName () );
-            addData ( this.sheet, row, Header.DATA_TYPE.ordinal (), item.getDataType ().toString () );
-            addData ( this.sheet, row, Header.UNIT.ordinal (), item.getUnit () );
-
-            addData ( this.sheet, row, Header.DESCRIPTION.ordinal (), item.getDescription () );
-            addData ( this.sheet, row, Header.SYSTEM.ordinal (), item.getSystem () );
-            addData ( this.sheet, row, Header.LOCATION.ordinal (), item.getLocation () );
-            addData ( this.sheet, row, Header.COMPONENT.ordinal (), item.getComponent () );
-            addData ( this.sheet, row, Header.ALIAS.ordinal (), item.getAlias () );
-
-            addFlag ( this.sheet, row, Header.DEFAULT_CHAIN.ordinal (), item.isDefaultChain (), false );
-
-            addData ( this.sheet, row, Header.MIN.ordinal (), item.getLocalMin (), item.isLocalMinAck () );
-            addData ( this.sheet, row, Header.MAX.ordinal (), item.getLocalMax (), item.isLocalMaxAck () );
-            addSelectiveDataAck ( this.sheet, row, Header.LIMIT_HH.ordinal (), item.isLocalHighHighAvailable (), item.getLocalHighHighPreset (), item.isLocalHighHighAck () );
-            addSelectiveDataAck ( this.sheet, row, Header.LIMIT_H.ordinal (), item.isLocalHighAvailable (), item.getLocalHighPreset (), item.isLocalHighAck () );
-            addSelectiveDataAck ( this.sheet, row, Header.LIMIT_L.ordinal (), item.isLocalLowAvailable (), item.getLocalLowPreset (), item.isLocalLowAck () );
-            addSelectiveDataAck ( this.sheet, row, Header.LIMIT_LL.ordinal (), item.isLocalLowLowAvailable (), item.getLocalLowLowPreset (), item.isLocalLowLowAck () );
-
-            addFlag ( this.sheet, row, Header.EVENT_WRITE.ordinal (), item.isEventCommand (), false );
-            addFlag ( this.sheet, row, Header.MANUAL.ordinal (), item.isLocalManual (), false );
-            addSelectiveOptionalFlag ( this.sheet, row, Header.MONITOR_BOOL.ordinal (), item.isLocalBoolAvailable (), item.getLocalBool (), item.isLocalBoolAck () );
-
-            addSelectiveData ( this.sheet, row, Header.LIST_MONITOR.ordinal (), item.isListMonitorPreset (), makeListData ( item ), item.isListMonitorAckRequired () );
-
-            addFlag ( this.sheet, row, Header.REMOTE_MIN.ordinal (), item.isRemoteMin (), false );
-            addFlag ( this.sheet, row, Header.REMOTE_MAX.ordinal (), item.isRemoteMax (), false );
-
-            addFlag ( this.sheet, row, Header.REMOTE_HH.ordinal (), item.isRemoteHighHigh (), false );
-            addFlag ( this.sheet, row, Header.REMOTE_H.ordinal (), item.isRemoteHigh (), false );
-            addFlag ( this.sheet, row, Header.REMOTE_L.ordinal (), item.isRemoteLow (), false );
-            addFlag ( this.sheet, row, Header.REMOTE_LL.ordinal (), item.isRemoteLowLow (), false );
-
-            addFlag ( this.sheet, row, Header.REMOTE_BOOL.ordinal (), item.isRemoteBool (), false );
-            addFlag ( this.sheet, row, Header.REMOTE_MANUAL.ordinal (), item.isRemoteManual (), false );
-            addFlag ( this.sheet, row, Header.EXCLUDE_SUMMARY.ordinal (), item.isIgnoreSummary (), false );
-
-            addSelectiveData ( this.sheet, row, Header.LOCAL_SCALE_FACTOR.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleFactor () );
-            addSelectiveData ( this.sheet, row, Header.LOCAL_SCALE_OFFSET.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleOffset () );
-
-            row++;
-        }
-
-        autoAdjust ( this.sheet );
-    }
-
     private void autoAdjust ( final Sheet sheet )
     {
         for ( int i = 0; i < Header.values ().length; i++ )
         {
             sheet.autoSizeColumn ( i );
         }
-    }
-
-    private void addData ( final Sheet sheet, final int row, final int column, final String data ) throws RowsExceededException, WriteException
-    {
-        addData ( sheet, row, column, data, false );
-    }
-
-    private static String makeListData ( final Item item )
-    {
-        final StringBuilder sb = new StringBuilder ();
-
-        if ( item.isListMonitorListIsAlarm () )
-        {
-            sb.append ( "ALARM:" );
-        }
-
-        sb.append ( StringHelper.join ( item.getListMonitorItems (), "," ) );
-
-        return sb.toString ();
     }
 
     private Cell createCell ( final Sheet sheet, final int row, final int column )
@@ -192,17 +116,19 @@ public class SpreadSheetPoiHelper
         return rowData.createCell ( column );
     }
 
-    private void addHeaderCell ( final Sheet sheet, final String string, final int index ) throws WriteException, RowsExceededException
+    @Override
+    protected void addHeaderCell ( final String string, final int index ) throws Exception
     {
-        final Cell cell = createCell ( sheet, 0, index );
+        final Cell cell = createCell ( this.sheet, 0, index );
 
         cell.setCellValue ( string );
         cell.setCellStyle ( this.headerStyle );
     }
 
-    private void addData ( final Sheet sheet, final int row, final int column, final Double data, final boolean ack ) throws RowsExceededException, WriteException
+    @Override
+    protected void addData ( final int row, final int column, final Double data, final boolean ack ) throws RowsExceededException, WriteException
     {
-        final Cell cell = createCell ( sheet, row, column );
+        final Cell cell = createCell ( this.sheet, row, column );
 
         if ( data != null )
         {
@@ -218,9 +144,10 @@ public class SpreadSheetPoiHelper
         }
     }
 
-    private void addData ( final Sheet sheet, final int row, final int column, final String data, final boolean ack ) throws WriteException, RowsExceededException
+    @Override
+    protected void addData ( final int row, final int column, final String data, final boolean ack ) throws WriteException, RowsExceededException
     {
-        final Cell cell = createCell ( sheet, row, column );
+        final Cell cell = createCell ( this.sheet, row, column );
 
         if ( data != null )
         {
@@ -236,38 +163,10 @@ public class SpreadSheetPoiHelper
         }
     }
 
-    private void addFlag ( final Sheet sheet, final int row, final int column, final boolean flag, final boolean ack ) throws RowsExceededException, WriteException
+    @Override
+    protected void addSelectiveDataAck ( final int row, final int column, final boolean available, final Double value, final boolean ack ) throws RowsExceededException, WriteException
     {
-        addData ( sheet, row, column, flag ? "X" : null, ack );
-    }
-
-    private void addSelectiveOptionalFlag ( final Sheet sheet, final int row, final int column, final boolean available, final Boolean flag, final boolean ack ) throws RowsExceededException, WriteException
-    {
-        if ( available )
-        {
-            if ( flag == null )
-            {
-                addData ( sheet, row, column, "X", ack );
-            }
-            else
-            {
-                addData ( sheet, row, column, flag ? "+" : "-", ack );
-            }
-        }
-        else
-        {
-            addData ( sheet, row, column, (String)null, ack );
-        }
-    }
-
-    private void addSelectiveData ( final Sheet sheet, final int row, final int column, final boolean available, final Double value ) throws RowsExceededException, WriteException
-    {
-        addSelectiveDataAck ( sheet, row, column, available, value, false );
-    }
-
-    private void addSelectiveDataAck ( final Sheet sheet, final int row, final int column, final boolean available, final Double value, final boolean ack ) throws RowsExceededException, WriteException
-    {
-        final Cell cell = createCell ( sheet, row, column );
+        final Cell cell = createCell ( this.sheet, row, column );
 
         if ( available && value == null )
         {
@@ -291,9 +190,10 @@ public class SpreadSheetPoiHelper
         }
     }
 
-    private void addSelectiveData ( final Sheet sheet, final int row, final int column, final boolean available, final String value, final boolean ackRequired ) throws RowsExceededException, WriteException
+    @Override
+    protected void addSelectiveData ( final int row, final int column, final boolean available, final String value, final boolean ackRequired ) throws RowsExceededException, WriteException
     {
-        final Cell cell = createCell ( sheet, row, column );
+        final Cell cell = createCell ( this.sheet, row, column );
 
         if ( available && value == null )
         {
@@ -327,7 +227,7 @@ public class SpreadSheetPoiHelper
 
         final Map<Integer, Header> header = loadHeader ( sheet );
 
-        for ( int row = 1; row < sheet.getLastRowNum (); row++ )
+        for ( int row = 1; row <= sheet.getLastRowNum (); row++ )
         {
             final Item item = convertToItem ( workbook, header, sheet.getRow ( row ), String.format ( "%s@%s", fileName, row ) );
             if ( item != null )

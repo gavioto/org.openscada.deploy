@@ -32,20 +32,25 @@ import jxl.write.biff.RowsExceededException;
 
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.utils.str.StringHelper;
 
-public class SpreadSheetHelper
+public class SpreadSheetHelper extends GenericSpreadSheetHelper
 {
 
-    public static void writeSpreadsheet ( final String filename, final Collection<Item> items ) throws Exception
+    private WritableSheet sheet;
+
+    protected SpreadSheetHelper ()
+    {
+    }
+
+    public void write ( final String filename, final Collection<Item> items ) throws Exception
     {
         final File file = new File ( filename );
 
         final WorkbookSettings settings = new WorkbookSettings ();
         settings.setAutoFilterDisabled ( false );
         final WritableWorkbook workbook = Workbook.createWorkbook ( file, settings );
-        final WritableSheet sheet = workbook.createSheet ( "IO-List", 0 );
-        final SheetSettings sheetSettings = sheet.getSettings ();
+        this.sheet = workbook.createSheet ( "IO-List", 0 );
+        final SheetSettings sheetSettings = this.sheet.getSettings ();
         sheetSettings.setVerticalFreeze ( 1 );
         sheetSettings.setPrintTitlesRow ( 1, 1 );
         sheetSettings.setOrientation ( PageOrientation.LANDSCAPE );
@@ -68,82 +73,26 @@ public class SpreadSheetHelper
         sheetSettings.setFooterMargin ( 0.5 );
         sheetSettings.setFooter ( footer );
 
-        for ( final Header header : Header.values () )
-        {
-            addHeaderCell ( sheet, header.toString (), header.ordinal () );
-        }
-
-        int row = 1;
-        for ( final Item item : items )
-        {
-            addData ( sheet, row, Header.HIVE.ordinal (), item.getDevice () );
-            addData ( sheet, row, Header.SOURCE_NAME.ordinal (), item.getName () );
-            addData ( sheet, row, Header.DATA_TYPE.ordinal (), item.getDataType ().toString () );
-            addData ( sheet, row, Header.UNIT.ordinal (), item.getUnit () );
-
-            addData ( sheet, row, Header.DESCRIPTION.ordinal (), item.getDescription () );
-            addData ( sheet, row, Header.SYSTEM.ordinal (), item.getSystem () );
-            addData ( sheet, row, Header.LOCATION.ordinal (), item.getLocation () );
-            addData ( sheet, row, Header.COMPONENT.ordinal (), item.getComponent () );
-            addData ( sheet, row, Header.ALIAS.ordinal (), item.getAlias () );
-
-            addFlag ( sheet, row, Header.DEFAULT_CHAIN.ordinal (), item.isDefaultChain (), false );
-
-            addData ( sheet, row, Header.MIN.ordinal (), item.getLocalMin (), item.isLocalMinAck () );
-            addData ( sheet, row, Header.MAX.ordinal (), item.getLocalMax (), item.isLocalMaxAck () );
-            addSelectiveDataAck ( sheet, row, Header.LIMIT_HH.ordinal (), item.isLocalHighHighAvailable (), item.getLocalHighHighPreset (), item.isLocalHighHighAck () );
-            addSelectiveDataAck ( sheet, row, Header.LIMIT_H.ordinal (), item.isLocalHighAvailable (), item.getLocalHighPreset (), item.isLocalHighAck () );
-            addSelectiveDataAck ( sheet, row, Header.LIMIT_L.ordinal (), item.isLocalLowAvailable (), item.getLocalLowPreset (), item.isLocalLowAck () );
-            addSelectiveDataAck ( sheet, row, Header.LIMIT_LL.ordinal (), item.isLocalLowLowAvailable (), item.getLocalLowLowPreset (), item.isLocalLowLowAck () );
-
-            addFlag ( sheet, row, Header.EVENT_WRITE.ordinal (), item.isEventCommand (), false );
-            addFlag ( sheet, row, Header.MANUAL.ordinal (), item.isLocalManual (), false );
-            addSelectiveOptionalFlag ( sheet, row, Header.MONITOR_BOOL.ordinal (), item.isLocalBoolAvailable (), item.getLocalBool (), item.isLocalBoolAck () );
-
-            addSelectiveData ( sheet, row, Header.LIST_MONITOR.ordinal (), item.isListMonitorPreset (), makeListData ( item ), item.isListMonitorAckRequired () );
-
-            addFlag ( sheet, row, Header.REMOTE_MIN.ordinal (), item.isRemoteMin (), false );
-            addFlag ( sheet, row, Header.REMOTE_MAX.ordinal (), item.isRemoteMax (), false );
-
-            addFlag ( sheet, row, Header.REMOTE_HH.ordinal (), item.isRemoteHighHigh (), false );
-            addFlag ( sheet, row, Header.REMOTE_H.ordinal (), item.isRemoteHigh (), false );
-            addFlag ( sheet, row, Header.REMOTE_L.ordinal (), item.isRemoteLow (), false );
-            addFlag ( sheet, row, Header.REMOTE_LL.ordinal (), item.isRemoteLowLow (), false );
-
-            addFlag ( sheet, row, Header.REMOTE_BOOL.ordinal (), item.isRemoteBool (), false );
-            addFlag ( sheet, row, Header.REMOTE_MANUAL.ordinal (), item.isRemoteManual (), false );
-            addFlag ( sheet, row, Header.EXCLUDE_SUMMARY.ordinal (), item.isIgnoreSummary (), false );
-
-            addSelectiveData ( sheet, row, Header.LOCAL_SCALE_FACTOR.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleFactor () );
-            addSelectiveData ( sheet, row, Header.LOCAL_SCALE_OFFSET.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleOffset () );
-
-            row++;
-        }
+        writeHeader ();
+        writeItems ( items );
 
         workbook.write ();
         workbook.close ();
     }
 
-    private static void addData ( final WritableSheet sheet, final int row, final int column, final String data ) throws RowsExceededException, WriteException
+    public static void writeSpreadsheet ( final String filename, final Collection<Item> items ) throws Exception
     {
-        addData ( sheet, row, column, data, false );
+        new SpreadSheetHelper ().write ( filename, items );
     }
 
-    private static String makeListData ( final Item item )
+    @Override
+    protected void addData ( final int row, final int column, final String data ) throws RowsExceededException, WriteException
     {
-        final StringBuilder sb = new StringBuilder ();
-
-        if ( item.isListMonitorListIsAlarm () )
-        {
-            sb.append ( "ALARM:" );
-        }
-
-        sb.append ( StringHelper.join ( item.getListMonitorItems (), "," ) );
-
-        return sb.toString ();
+        addData ( row, column, data, false );
     }
 
-    private static void addHeaderCell ( final WritableSheet sheet, final String string, final int index ) throws WriteException, RowsExceededException
+    @Override
+    protected void addHeaderCell ( final String string, final int index ) throws WriteException, RowsExceededException
     {
         final WritableCellFormat cf = new WritableCellFormat ();
         cf.setFont ( new WritableFont ( WritableFont.ARIAL, 10, WritableFont.BOLD ) );
@@ -152,14 +101,15 @@ public class SpreadSheetHelper
         cell = new Label ( index, 0, string );
         cell.setCellFormat ( cf );
 
-        sheet.addCell ( cell );
+        this.sheet.addCell ( cell );
 
         final CellView cv = new CellView ();
         cv.setAutosize ( true );
-        sheet.setColumnView ( index, cv );
+        this.sheet.setColumnView ( index, cv );
     }
 
-    private static void addData ( final WritableSheet sheet, final int row, final int column, final Double data, final boolean ack ) throws RowsExceededException, WriteException
+    @Override
+    protected void addData ( final int row, final int column, final Double data, final boolean ack ) throws RowsExceededException, WriteException
     {
         final WritableCell cell;
         if ( data != null )
@@ -177,10 +127,11 @@ public class SpreadSheetHelper
             cell = new Blank ( column, row );
         }
 
-        sheet.addCell ( cell );
+        this.sheet.addCell ( cell );
     }
 
-    private static void addData ( final WritableSheet sheet, final int row, final int column, final String data, final boolean ack ) throws WriteException, RowsExceededException
+    @Override
+    protected void addData ( final int row, final int column, final String data, final boolean ack ) throws WriteException, RowsExceededException
     {
         final WritableCell cell;
         if ( data != null )
@@ -197,39 +148,11 @@ public class SpreadSheetHelper
         {
             cell = new Blank ( column, row );
         }
-        sheet.addCell ( cell );
+        this.sheet.addCell ( cell );
     }
 
-    private static void addFlag ( final WritableSheet sheet, final int row, final int column, final boolean flag, final boolean ack ) throws RowsExceededException, WriteException
-    {
-        addData ( sheet, row, column, flag ? "X" : null, ack );
-    }
-
-    private static void addSelectiveOptionalFlag ( final WritableSheet sheet, final int row, final int column, final boolean available, final Boolean flag, final boolean ack ) throws RowsExceededException, WriteException
-    {
-        if ( available )
-        {
-            if ( flag == null )
-            {
-                addData ( sheet, row, column, "X", ack );
-            }
-            else
-            {
-                addData ( sheet, row, column, flag ? "+" : "-", ack );
-            }
-        }
-        else
-        {
-            addData ( sheet, row, column, (String)null, ack );
-        }
-    }
-
-    private static void addSelectiveData ( final WritableSheet sheet, final int row, final int column, final boolean available, final Double value ) throws RowsExceededException, WriteException
-    {
-        addSelectiveDataAck ( sheet, row, column, available, value, false );
-    }
-
-    private static void addSelectiveDataAck ( final WritableSheet sheet, final int row, final int column, final boolean available, final Double value, final boolean ack ) throws RowsExceededException, WriteException
+    @Override
+    protected void addSelectiveDataAck ( final int row, final int column, final boolean available, final Double value, final boolean ack ) throws RowsExceededException, WriteException
     {
         final WritableCell cell;
         if ( available && value == null )
@@ -256,10 +179,11 @@ public class SpreadSheetHelper
         {
             cell = new Blank ( column, row );
         }
-        sheet.addCell ( cell );
+        this.sheet.addCell ( cell );
     }
 
-    private static void addSelectiveData ( final WritableSheet sheet, final int row, final int column, final boolean available, final String value, final boolean ackRequired ) throws RowsExceededException, WriteException
+    @Override
+    protected void addSelectiveData ( final int row, final int column, final boolean available, final String value, final boolean ackRequired ) throws RowsExceededException, WriteException
     {
         final WritableCell cell;
         if ( available && value == null )
@@ -282,7 +206,7 @@ public class SpreadSheetHelper
             cell.setCellFormat ( cf );
         }
 
-        sheet.addCell ( cell );
+        this.sheet.addCell ( cell );
     }
 
     public static List<Item> loadExcel ( final String fileName ) throws BiffException, IOException

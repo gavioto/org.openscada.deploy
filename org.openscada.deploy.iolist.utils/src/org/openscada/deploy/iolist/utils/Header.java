@@ -309,6 +309,14 @@ public enum Header
             item.setRemoteBool ( asBoolean ( value ) );
         }
     },
+    REMOTE_BOOL_ACK_VALUE
+    {
+        @Override
+        public void apply ( final Item item, final Value value )
+        {
+            item.setRemoteBoolAckValue ( asOptionalBoolean ( value ) );
+        }
+    },
     REMOTE_MANUAL
     {
         @Override
