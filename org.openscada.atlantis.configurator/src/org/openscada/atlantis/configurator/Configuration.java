@@ -271,7 +271,7 @@ public class Configuration extends GenericConfiguration
 
             if ( item.isRemoteBool () )
             {
-                addRemoteValueMonitor ( masterId + ".remote.monitor", masterId, "remote.ackRequired", "remote.ackRequired.timestamp", "ALM", attributes );
+                addRemoteValueMonitor ( masterId + ".remote.monitor", masterId, "remote.ackRequired", "remote.ackRequired.timestamp", "ALM", attributes, item.getRemoteBoolAckValue () );
             }
             if ( item.isLocalBoolAvailable () )
             {
@@ -597,7 +597,7 @@ public class Configuration extends GenericConfiguration
         addData ( LIST_ALARM_MONITOR_FACTORY_ID, id, data );
     }
 
-    private void addRemoteValueMonitor ( final String id, final String masterId, final String attributeAck, final String attributeAckTimestamp, final String monitorType, Map<String, String> attributes )
+    private void addRemoteValueMonitor ( final String id, final String masterId, final String attributeAck, final String attributeAckTimestamp, final String monitorType, Map<String, String> attributes, final Boolean ackValue )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
@@ -614,6 +614,10 @@ public class Configuration extends GenericConfiguration
         data.put ( "master.id", masterId );
         data.put ( "attribute.ack.name", attributeAck );
         data.put ( "attribute.ack.timestamp.name", attributeAckTimestamp );
+        if ( ackValue != null )
+        {
+            data.put ( "attribute.ack.value", String.format ( "BOOL#%s", ackValue ) );
+        }
 
         addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data );
     }

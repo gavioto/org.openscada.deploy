@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.script.ScriptException;
 
@@ -81,7 +82,9 @@ public class Application implements IApplication
             if ( !file.contains ( "override" ) )
             {
                 System.out.println ( " ** Loading: " + file );
-                cfg.addItems ( SpreadSheetPoiHelper.loadExcel ( file ) );
+                final List<Item> loadedItems = SpreadSheetPoiHelper.loadExcel ( file );
+                cfg.addItems ( loadedItems );
+                System.out.println ( String.format ( " ** Loaded %s items from %s", loadedItems.size (), file ) );
             }
             else
             {
