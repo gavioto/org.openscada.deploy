@@ -147,6 +147,10 @@
         <element xmi:type="ecore:EAttribute" href="model.ecore#//Item/remoteBool"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_PgE4oQG1Ed-bdq9hYNl-jw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_Eaa74B4zEeCdzK7wSUQjdQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="model.ecore#//Item/remoteBoolAckValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Eaa74R4zEeCdzK7wSUQjdQ"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_NHWiwAvyEd-qIpn-IhM9Bw" type="2001">
         <element xmi:type="ecore:EAttribute" href="model.ecore#//Item/input"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_NHWiwQvyEd-qIpn-IhM9Bw"/>
