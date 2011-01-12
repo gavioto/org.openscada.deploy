@@ -87,7 +87,6 @@
 		<openscada.import.externalRepository file="org.eclipse.ecf.sdk-3.1.0.v20091012-1618-p2repo.zip" />
 		<openscada.import.externalRepository file="org.eclipse.rcp-3.6.1.zip" />
 		<openscada.import.externalRepository file="org.eclipse.platform-3.6.1.zip" />
-		<!-- <openscada.import.externalRepository file="equinox-SDK-3.5.2.zip" /> -->
   	</target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
