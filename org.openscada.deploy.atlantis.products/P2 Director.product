@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="P2 Director" uid="p2.director" id="org.eclipse.equinox.p2.director.product" version="3.5.0.qualifier" useFeatures="true" includeLaunchers="true">
-
+<product name="P2 Director" uid="p2.director" id="org.eclipse.equinox.p2.director.product" version="3.6.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -21,7 +20,6 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
 
@@ -29,8 +27,8 @@
    </plugins>
 
    <features>
-      <feature id="org.eclipse.rcp" version="3.5.2.R35x_v20100119-9SA0FxwFnoCU5XxWItFdXXb27BA6"/>
-      <feature id="org.eclipse.platform" version="3.5.2.R35x_v20100210-0800-9hEiFzmFst-TiEn9hNYgDWg1XN8ulH_JvCNGB"/>
+      <feature id="org.eclipse.rcp" version="3.6.1.r361_v20100827-9OArFLdFjY-ThSQXmKvKz0_T"/>
+      <feature id="org.eclipse.platform" version="3.6.1.r361_v20100909-9gF78GrkFqw7GrsZnvz0JWNTeb6fue6896L"/>
    </features>
 
    <configurations>
