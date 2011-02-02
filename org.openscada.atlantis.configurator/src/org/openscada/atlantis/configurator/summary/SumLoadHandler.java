@@ -55,7 +55,7 @@ public class SumLoadHandler implements RowHandler
             return null;
         }
 
-        return "BG_IPT.DCS." + m.group ( 1 ) + ".SUM.V";
+        return System.getProperty ( "prefix", "BG_IPT" ) + ".DCS." + m.group ( 1 ) + ".SUM.V";
     }
 
     private String convertType ( String string )

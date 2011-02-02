@@ -13,8 +13,10 @@ import javax.script.ScriptException;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.atlantis.configurator.common.DataLoader;
+import org.openscada.atlantis.configurator.formula.FormulaModule;
 import org.openscada.atlantis.configurator.summary.SumLoader;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application implements IApplication
@@ -24,6 +26,8 @@ public class Application implements IApplication
     public Object start ( final IApplicationContext context ) throws Exception
     {
         final String[] args = (String[])context.getArguments ().get ( IApplicationContext.APPLICATION_ARGS );
+
+        ModelPackageImpl.init ();
 
         try
         {
@@ -55,7 +59,7 @@ public class Application implements IApplication
         final File scriptBase = new File ( base, "script/js" );
         final File generatedBase = new File ( base, "generated" );
 
-        final Configuration cfg = new Configuration ();
+        final Configuration cfg = new Configuration ( base );
 
         final String outFile = arguments.pop ();
         final String basicsFile = arguments.pop ();
@@ -92,13 +96,16 @@ public class Application implements IApplication
             }
         }
 
-        System.out.println ( "*** 1c - Apply overrides" );
+        System.out.println ( "*** 1c - Process Formulas" );
+        FormulaModule.process ( new File ( base, "input/formulas" ), cfg );
+
+        System.out.println ( "*** 1d - Apply overrides" );
         for ( final String file : overrides )
         {
             cfg.applyOverrides ( SpreadSheetPoiHelper.loadExcel ( file ) );
         }
 
-        System.out.println ( "*** 1d - Apply script overrides" );
+        System.out.println ( "*** 1e - Apply script overrides" );
         applyScriptOverrides ( scriptDBase, cfg );
 
         System.out.println ( "** 3 - Process" );

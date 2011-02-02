@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http:///com/inavare/vims/iolist/model.ecore"
+            uri="http:///org/openscada/deploy/iolist/model.ecoreinavare/vims/iolist/model.ecore"
             class="org.openscada.deploy.iolist.model.ModelPackage"
             genModel="iolist.genmodel"/>
    </extension>

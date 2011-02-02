@@ -22,7 +22,12 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
+import org.openscada.core.VariantType;
+import org.openscada.deploy.iolist.model.DataType;
+import org.openscada.deploy.iolist.model.FormulaInput;
+import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
@@ -38,10 +43,13 @@ public class Configuration extends GenericConfiguration
 
     private final PrintStream logStream;
 
+    private final File base;
+
     private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null );
 
-    public Configuration () throws Exception
+    public Configuration ( final File base ) throws Exception
     {
+        this.base = base;
         this.logStream = System.out;
 
         // event query
@@ -99,7 +107,7 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.da.server.osgi.summary.attribute", "summary." + string, data );
     }
 
-    public void addItems ( final List<Item> items )
+    public void addItems ( final List<? extends Item> items )
     {
         if ( maxItemLimit == null )
         {
@@ -144,7 +152,7 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.sec.provider.script.factory", id, data );
     }
 
-    public void process ()
+    public void process () throws Exception
     {
         validate ();
 
@@ -214,7 +222,7 @@ public class Configuration extends GenericConfiguration
         return makeInternalItemId ( item ) + ".master";
     }
 
-    private void convertItems ()
+    private void convertItems () throws Exception
     {
         final Set<String> connections = new HashSet<String> ();
 
@@ -232,7 +240,12 @@ public class Configuration extends GenericConfiguration
 
             String sourceId;
 
-            if ( "ds".equalsIgnoreCase ( item.getDevice () ) )
+            if ( item instanceof FormulaItem )
+            {
+                sourceId = internalItemId + ".formula";
+                processFormulaItem ( sourceId, (FormulaItem)item );
+            }
+            else if ( "ds".equalsIgnoreCase ( item.getDevice () ) )
             {
                 sourceId = item.getName () + ".ds";
                 addDSDataSource ( sourceId );
@@ -313,6 +326,83 @@ public class Configuration extends GenericConfiguration
         }
 
         validateConnections ( connections );
+    }
+
+    private void processFormulaItem ( final String id, final FormulaItem item ) throws Exception
+    {
+        final Map<String, Object> data = new HashMap<String, Object> ();
+
+        if ( item.getWriteValueName () != null && !item.getWriteValueName ().isEmpty () )
+        {
+            data.put ( "writeValueName", item.getWriteValueName () );
+        }
+        if ( item.getOutputDatasourceId () != null && !item.getOutputDatasourceId ().isEmpty () )
+        {
+            data.put ( "outputDatasource.id", item.getOutputDatasourceId () );
+        }
+        if ( item.getOutputFormula () != null && !item.getOutputFormula ().isEmpty () )
+        {
+            data.put ( "outputFormula", item.getOutputFormula () );
+        }
+        if ( item.getOutputDatasourceType () != null )
+        {
+            data.put ( "outputDatasource.type", convert ( item.getOutputDatasourceType () ) );
+        }
+
+        if ( item.getInputFormula () != null && !item.getInputFormula ().isEmpty () )
+        {
+            data.put ( "inputFormula", item.getInputFormula () );
+        }
+
+        for ( final FormulaInput input : item.getInputs () )
+        {
+            data.put ( "datasource." + input.getName (), input.getDatasourceId () );
+            if ( input.getType () != null )
+            {
+                data.put ( "datasourceType." + input.getName (), convert ( input.getType () ) );
+            }
+        }
+
+        if ( item.getInitScript () != null && !item.getInitScript ().isEmpty () )
+        {
+            data.put ( "init.0", item.getInitScript () );
+        }
+
+        int i = 1;
+        for ( final ScriptModule module : item.getScriptModules () )
+        {
+            if ( module.isResource () )
+            {
+                data.put ( "init." + i, loadFromFile ( new File ( this.base, module.getData () ) ) );
+            }
+            else
+            {
+                data.put ( "init." + i, module.getData () );
+            }
+            i++;
+        }
+
+        addData ( "org.openscada.da.datasource.formula", id, data );
+    }
+
+    private String convert ( final DataType type )
+    {
+        switch ( type )
+        {
+        case BOOLEAN:
+            return VariantType.BOOLEAN.name ();
+        case INTEGER:
+            return VariantType.INT32.name ();
+        case LONG_INTEGER:
+            return VariantType.INT64.name ();
+        case STRING:
+            return VariantType.STRING.name ();
+        case FLOAT:
+            return VariantType.DOUBLE.name ();
+        case VARIANT:
+            return null;
+        }
+        return null;
     }
 
     private void validateConnections ( final Set<String> connections )
@@ -396,6 +486,12 @@ public class Configuration extends GenericConfiguration
 
     private static final String LIST_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.listAlarm";
 
+    /**
+     * Loads text data from a file
+     * @param file
+     * @return
+     * @throws Exception
+     */
     public static String loadFromFile ( final File file ) throws Exception
     {
         if ( file == null )
