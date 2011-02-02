@@ -62,9 +62,9 @@ public class Application implements IApplication
 
         System.out.println ( "** 0 - Loading scripts" );
         System.out.println ( "*** 0a - Script Loader" );
-        arguments.push ( org.openscada.atlantis.configurator.summary.ScriptLoader.loadScripts ( cfg, new File ( base, "input/formulas.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ) ) );
+        arguments.push ( org.openscada.atlantis.configurator.summary.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ) ) );
         System.out.println ( "*** 0b - Formulas Loader" );
-        arguments.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-tams-script.xls" ) ) );
+        arguments.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
         System.out.println ( "*** 0c - Summary groups" );
         arguments.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ) ) );
 

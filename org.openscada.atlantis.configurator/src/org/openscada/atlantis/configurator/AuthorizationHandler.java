@@ -17,6 +17,12 @@ public class AuthorizationHandler implements RowHandler
     public void handleRow ( final int rowNumber, final Map<String, String> rowData )
     {
         final String id = rowData.get ( "ID" );
+
+        if ( id == null || id.isEmpty () )
+        {
+            return;
+        }
+
         final Integer priority = Integer.parseInt ( rowData.get ( "PRIORITY" ), 10 );
         final String idFilter = rowData.get ( "ID_FILTER" ).isEmpty () ? null : rowData.get ( "ID_FILTER" );
         final String typeFilter = rowData.get ( "TYPE_FILTER" ).isEmpty () ? null : rowData.get ( "TYPE_FILTER" );

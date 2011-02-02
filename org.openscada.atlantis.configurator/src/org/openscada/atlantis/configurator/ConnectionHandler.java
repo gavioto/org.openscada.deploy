@@ -17,6 +17,12 @@ public class ConnectionHandler implements RowHandler
     public void handleRow ( final int rowNumber, final Map<String, String> rowData )
     {
         final String hive = rowData.get ( "HIVE" );
+
+        if ( hive == null || hive.isEmpty () )
+        {
+            return;
+        }
+
         final String uri = rowData.get ( "URI" );
         System.out.println ( String.format ( "Adding connection '%s' as '%s'", uri, hive ) );
         this.configuration.addConnection ( hive, uri );

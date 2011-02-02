@@ -19,6 +19,11 @@ public class JmsHandler implements RowHandler
     {
         final String id = rowData.get ( "ID" );
 
+        if ( id == null || id.isEmpty () )
+        {
+            return;
+        }
+
         final String system = rowData.get ( "SYSTEM" );
         final String actorType = rowData.get ( "ACTOR_TYPE" );
         final String monitorType = rowData.get ( "MONITOR_TYPE" );
