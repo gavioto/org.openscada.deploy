@@ -11,7 +11,7 @@ fi
 
 . p2.functions || exit 1
 
-PROFILE="profile"
+PROFILE="SDKProfile"
 FLAVOR="tooling"
 TARGET="$1"
 ARG_UNITS="$2"
