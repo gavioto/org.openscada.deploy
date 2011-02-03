@@ -29,6 +29,7 @@
    <features>
       <feature id="org.eclipse.rcp" version="3.6.1.r361_v20100827-9OArFLdFjY-ThSQXmKvKz0_T"/>
       <feature id="org.eclipse.platform" version="3.6.1.r361_v20100909-9gF78GrkFqw7GrsZnvz0JWNTeb6fue6896L"/>
+      <feature id="org.eclipse.equinox.p2.user.ui" version="2.0.1.r361_v20100903-897HFZFFZRuSD2LMtVxyz0Vr"/>
    </features>
 
    <configurations>
