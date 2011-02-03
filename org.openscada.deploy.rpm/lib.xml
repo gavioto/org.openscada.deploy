@@ -28,6 +28,8 @@
 			
 			<mkdir dir="${rpm.base}/SPECS"/>
 			
+			<!-- delete, then copy, otherwise version updates won't get into the file -->
+			<delete file="build/SPECS/@{name}.spec"/>
 			<copy file="${basedir}/source/specs/p2.tpl.spec" tofile="build/SPECS/@{name}.spec"/>
 			<replace file="${rpm.base}/SPECS/@{name}.spec">
 				<replacefilter token="___NAME___" value="@{name}"/>
