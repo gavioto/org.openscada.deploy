@@ -32,11 +32,5 @@
       <feature id="org.eclipse.equinox.p2.user.ui" version="2.0.1.r361_v20100903-897HFZFFZRuSD2LMtVxyz0Vr"/>
    </features>
 
-   <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
-   </configurations>
 
 </product>
