@@ -4,7 +4,7 @@
 
 %define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
 
-%define version 3.5.2
+%define version 3.6.1
 
 %define _datadir /usr/share
 %define _bindir /usr/bin
@@ -32,10 +32,6 @@ unzip %_sourcedir/p2director-linux.gtk.x86_64.zip
 %install
 mkdir -p %buildroot/%_datadir/
 cp -a p2director %buildroot/%_datadir/
-
-# Skip this step, seems to be fixed in 3.6.1
-# Override p2director.ini since it comes broken from the P2 build
-# cp %_sourcedir/p2director.ini %buildroot/%_datadir/p2director
 
 mkdir -p %buildroot/%_bindir/
 ln -s ../share/p2director/p2director %buildroot/%_bindir/p2director
