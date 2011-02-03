@@ -15,7 +15,7 @@ Summary:   The Equinox P2 director
 Version:   %{version}
 Release:   %{qualifier}
 License:   ECL
-Packager:  TH4 SYSTEMS GmbH <info@th4-systems.com>
+Packager:  TH4 SYSTEMS GmbH <jens.reimann@th4-systems.com>
 Group:     Applications/System
 Source0:   p2director-linux.gtk.x86_64.zip
 Prereq: /sbin/ldconfig
@@ -33,8 +33,9 @@ unzip %_sourcedir/p2director-linux.gtk.x86_64.zip
 mkdir -p %buildroot/%_datadir/
 cp -a p2director %buildroot/%_datadir/
 
+# Skip this step, seems to be fixed in 3.6.1
 # Override p2director.ini since it comes broken from the P2 build
-cp %_sourcedir/p2director.ini %buildroot/%_datadir/p2director
+# cp %_sourcedir/p2director.ini %buildroot/%_datadir/p2director
 
 mkdir -p %buildroot/%_bindir/
 ln -s ../share/p2director/p2director %buildroot/%_bindir/p2director
