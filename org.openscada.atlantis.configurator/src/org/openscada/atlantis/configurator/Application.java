@@ -111,7 +111,10 @@ public class Application implements IApplication
         System.out.println ( "** 3 - Process" );
         cfg.process ();
 
-        System.out.println ( "** 4 - Output" );
+        System.out.println ( "** 4 - Validating" );
+        cfg.validate ();
+
+        System.out.println ( "** 5 - Output" );
         System.out.println ( " **  Base Dir: " + outFile );
         cfg.write ( new File ( outFile ) );
 

@@ -21,6 +21,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import org.openscada.atlantis.configurator.loop.LoopValidator;
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.core.VariantType;
 import org.openscada.deploy.iolist.model.DataType;
@@ -80,13 +81,6 @@ public class Configuration extends GenericConfiguration
 
         addIgnoreFields ( "org.openscada.da.scale.input", "active", "factor" );
 
-        // summaries
-
-        addSummary ( "error" );
-        addSummary ( "alarm" );
-        addSummary ( "manual" );
-        addSummary ( "org.openscada.da.master.common.block.active" );
-
         addAEInfo ();
     }
 
@@ -97,12 +91,18 @@ public class Configuration extends GenericConfiguration
         addData ( "ae.server.info", "ae.server.info.all", data );
     }
 
-    private void addSummary ( final String string )
+    private void addSummary ( final String string, final Set<String> blacklist )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
         data.put ( "attribute", string );
         data.put ( "onlyMaster", true );
+
+        int i = 0;
+        for ( final String entry : blacklist )
+        {
+            data.put ( "blacklist." + i++, entry );
+        }
 
         addData ( "org.openscada.da.server.osgi.summary.attribute", "summary." + string, data );
     }
@@ -154,12 +154,47 @@ public class Configuration extends GenericConfiguration
 
     public void process () throws Exception
     {
-        validate ();
-
         generateSummaryAlarms ();
         generateSummeryBlocks ();
 
         convertItems ();
+
+        generateGlobalSummaries ();
+    }
+
+    private void generateGlobalSummaries ()
+    {
+        final Set<String> blacklist = new HashSet<String> ();
+
+        final Set<String> summaries = new HashSet<String> ();
+        summaries.add ( "error" );
+        summaries.add ( "alarm" );
+        summaries.add ( "manual" );
+        summaries.add ( "org.openscada.da.master.common.block.active" );
+
+        // summaries
+        for ( final Item item : this.items )
+        {
+            for ( final String summary : summaries )
+            {
+                if ( item.getName () == null )
+                {
+                    continue;
+                }
+
+                if ( item.getName ().equals ( "summary." + summary ) )
+                {
+                    final String masterId = item.getAlias () + ".master";
+                    blacklist.add ( masterId );
+                    this.logStream.println ( String.format ( "Adding %s as blacklist for summaries", masterId ) );
+                }
+            }
+        }
+
+        for ( final String summary : summaries )
+        {
+            addSummary ( summary, blacklist );
+        }
     }
 
     private void generateSummeryBlocks ()
@@ -567,9 +602,15 @@ public class Configuration extends GenericConfiguration
         addData ( "da.datasource.dataitem", id, data );
     }
 
-    private void validate ()
+    public void validate ()
     {
         checkForDuplicates ();
+        checkForLoops ();
+    }
+
+    private void checkForLoops ()
+    {
+        new LoopValidator ( this.data, this.logStream ).validate ();
     }
 
     private void checkForDuplicates ()
