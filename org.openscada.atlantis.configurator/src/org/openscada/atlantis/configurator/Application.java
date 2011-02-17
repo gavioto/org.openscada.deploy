@@ -109,7 +109,9 @@ public class Application implements IApplication
         applyScriptOverrides ( scriptDBase, cfg );
 
         System.out.println ( "** 3 - Process" );
-        cfg.process ();
+        cfg.generateSummaryAlarms ();
+        cfg.generateItems ();
+        cfg.generateGlobalSummaries ();
 
         System.out.println ( "** 4 - Validating" );
         cfg.validate ();

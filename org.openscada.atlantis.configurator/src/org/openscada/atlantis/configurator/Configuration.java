@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -152,17 +153,26 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.sec.provider.script.factory", id, data );
     }
 
+    /**
+     * @deprecated Use the methods {@link #generateSummaryAlarms()}, {@link #generateSummeryBlocks()}, {@link #generateItems()} and {@link #generateGlobalSummaries()}
+     * explicitly
+     * @throws Exception
+     */
+    @Deprecated
     public void process () throws Exception
     {
         generateSummaryAlarms ();
         generateSummeryBlocks ();
 
-        convertItems ();
+        generateItems ();
 
         generateGlobalSummaries ();
     }
 
-    private void generateGlobalSummaries ()
+    /**
+     * Generate global summaries
+     */
+    public void generateGlobalSummaries ()
     {
         final Set<String> blacklist = new HashSet<String> ();
 
@@ -170,7 +180,7 @@ public class Configuration extends GenericConfiguration
         summaries.add ( "error" );
         summaries.add ( "alarm" );
         summaries.add ( "manual" );
-        summaries.add ( "org.openscada.da.master.common.block.active" );
+        summaries.add ( "blocked" );
 
         // summaries
         for ( final Item item : this.items )
@@ -197,7 +207,10 @@ public class Configuration extends GenericConfiguration
         }
     }
 
-    private void generateSummeryBlocks ()
+    /**
+     * Generated blocks based on location and component
+     */
+    public void generateSummeryBlocks ()
     {
         final Multimap<String, String> locMap = HashMultimap.create ();
 
@@ -219,23 +232,31 @@ public class Configuration extends GenericConfiguration
         }
     }
 
-    private void addBlock ( final String blockId, final List<String> values )
+    private void addBlock ( final String blockId, final String masterId )
     {
-        if ( values.isEmpty () )
+        addBlock ( blockId, Arrays.asList ( masterId ) );
+    }
+
+    private void addBlock ( final String blockId, final List<String> masterIds )
+    {
+        if ( masterIds.isEmpty () )
         {
             return;
         }
 
-        Collections.sort ( values );
+        Collections.sort ( masterIds );
 
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", StringHelper.join ( values, "," ) );
+        data.put ( "master.id", StringHelper.join ( masterIds, "," ) );
 
         addData ( "org.openscada.da.master.common.block", blockId, data );
     }
 
-    private void generateSummaryAlarms ()
+    /**
+     * Generate summary alarms based on location and component
+     */
+    public void generateSummaryAlarms ()
     {
         SummaryGenerator.generateSummaryAlarms ( this, this.items );
     }
@@ -257,7 +278,11 @@ public class Configuration extends GenericConfiguration
         return makeInternalItemId ( item ) + ".master";
     }
 
-    private void convertItems () throws Exception
+    /**
+     * Generate configuration for currently known items
+     * @throws Exception
+     */
+    public void generateItems () throws Exception
     {
         final Set<String> connections = new HashSet<String> ();
 
@@ -357,6 +382,11 @@ public class Configuration extends GenericConfiguration
             if ( item.isListMonitorPreset () )
             {
                 addListMonitor ( masterId + ".listMonitor", masterId, item.isListMonitorListIsAlarm (), item.getListMonitorItems (), item.isListMonitorAckRequired (), item.getDescription (), attributes );
+            }
+
+            if ( item.isBlock () )
+            {
+                addBlock ( masterId + ".block", masterId );
             }
         }
 
