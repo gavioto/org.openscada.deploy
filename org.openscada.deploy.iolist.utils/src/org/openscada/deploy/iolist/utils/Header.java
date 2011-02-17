@@ -372,6 +372,14 @@ public enum Header
         {
             item.setIgnoreSummary ( asBoolean ( value ) );
         }
+    },
+    BLOCK
+    {
+        @Override
+        public void apply ( final Item item, final Value value )
+        {
+            item.setBlock ( asBoolean ( value ) );
+        }
     };
 
     public abstract void apply ( final Item item, final Value value );

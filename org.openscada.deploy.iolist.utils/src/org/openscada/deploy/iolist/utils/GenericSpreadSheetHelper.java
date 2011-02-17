@@ -65,6 +65,8 @@ public abstract class GenericSpreadSheetHelper
             addSelectiveData ( row, Header.LOCAL_SCALE_FACTOR.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleFactor () );
             addSelectiveData ( row, Header.LOCAL_SCALE_OFFSET.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleOffset () );
 
+            addFlag ( row, Header.BLOCK.ordinal (), item.isBlock (), false );
+
             row++;
         }
 
