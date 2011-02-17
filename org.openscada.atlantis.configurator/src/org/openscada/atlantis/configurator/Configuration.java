@@ -793,25 +793,26 @@ public class Configuration extends GenericConfiguration
     {
         addSum ( masterId + ".error.phase1", masterId, "error", 600, "phase1" );
 
-        addSum ( masterId + ".manual", masterId, "manual", null, null );
-        addSum ( masterId + ".error.phase2", masterId, "error", null, "phase2" );
-        addSum ( masterId + ".alarm", masterId, "alarm", null, null );
-        addSum ( masterId + ".ackRequired", masterId, "ackRequired", null, null );
+        addSum ( masterId + ".manual", masterId, "manual", 5010, null );
+        addSum ( masterId + ".error.phase2", masterId, "error", 5000, "phase2" );
+        addSum ( masterId + ".alarm", masterId, "alarm", 5020, null );
+        addSum ( masterId + ".ackRequired", masterId, "ackRequired", 5030, null );
+        addSum ( masterId + ".blocked", masterId, "blocked", 5040, null );
     }
 
-    private void addSum ( final String id, final String masterId, final String type, final Integer priority, final String prefix )
+    private void addSum ( final String id, final String masterId, final String type, final int priority, final String prefix )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
         data.put ( "master.id", masterId );
-        if ( priority != null )
-        {
-            data.put ( "handlerPriority", "" + priority );
-        }
+        data.put ( "tag", type );
+
+        data.put ( "handlerPriority", "" + priority );
+
         if ( prefix != null )
         {
             data.put ( "prefix", prefix );
         }
-        addData ( String.format ( "da.master.handler.sum.%s", type ), id, data );
+        addData ( String.format ( "da.master.handler.sum", type ), id, data );
     }
 
     protected void addConnection ( final String id, final String connectionUri )
