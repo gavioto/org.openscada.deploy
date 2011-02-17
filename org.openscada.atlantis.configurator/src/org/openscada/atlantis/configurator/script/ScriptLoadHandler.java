@@ -1,4 +1,4 @@
-package org.openscada.atlantis.configurator.summary;
+package org.openscada.atlantis.configurator.script;
 
 import java.io.File;
 import java.util.ArrayList;
