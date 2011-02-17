@@ -36,7 +36,7 @@ public class SumLoader
 
     public static void configureGroups ( final Configuration cfg, final Collection<SummaryGroup> groups, final Collection<Item> items )
     {
-        final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired" ) );
+        final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked" ) );
 
         for ( final SummaryGroup group : groups )
         {
