@@ -36,22 +36,22 @@ public class LoopValidator
 
     private void initFixedSources ()
     {
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.NOT_AKN" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.OK" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.INIT" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.ALERT_ACTIVE" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.ALERT_DISABLED" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.NOT_OK_NOT_AKN" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.UNSAFE" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.INACTIVE" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.NOT_OK_AKN" ) );
-        this.descriptorPool.add ( new DataSourceDescriptor ( "ae.server.info.NOT_OK" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.NOT_AKN" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.OK" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.INIT" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.ALERT_ACTIVE" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.ALERT_DISABLED" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.NOT_OK_NOT_AKN" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.UNSAFE" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.INACTIVE" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.NOT_OK_AKN" ) );
+        this.descriptorPool.add ( new DataSourceDescriptor ( "datasource", "ae.server.info.NOT_OK" ) );
     }
 
     private void initLoopHandler ()
     {
         this.handlers.put ( "org.openscada.ae.event.logger", new NoOpHandler () );
-        this.handlers.put ( "master.item", new SimpleAttributeHandler ( "datasource.id" ) );
+        this.handlers.put ( "master.item", new SimpleAttributeHandler ( "datasource", "datasource", "datasource.id" ) );
         this.handlers.put ( "da.datasource.dataitem", new SimpleHandler () );
         this.handlers.put ( "org.openscada.da.datasource.script", new MultiSourceAttributeHandler ( "datasource." ) );
         this.handlers.put ( "org.openscada.da.datasource.sum", new MultiSourceAttributeHandler ( "datasource." ) );
@@ -60,6 +60,17 @@ public class LoopValidator
 
         this.handlers.put ( "org.openscada.da.server.osgi.summary.attribute", new SummaryHandler () );
         this.handlers.put ( "org.openscada.da.datasource.formula", new FormulaHandler () );
+
+        this.handlers.put ( "org.openscada.da.level.floor", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.ceil", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.highhigh", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.high", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.low", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.lowlow", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "da.master.handler.sum", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.negate.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.master.common.block", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
     }
 
     public void validate ()
@@ -111,24 +122,24 @@ public class LoopValidator
 
     private Set<DataSourceNode> buildGraph ()
     {
-        final Map<String, DataSourceNode> nodes = new HashMap<String, DataSourceNode> ();
+        final Map<DataSourceReference, DataSourceNode> nodes = new HashMap<DataSourceReference, DataSourceNode> ();
 
         // create nodes
         for ( final DataSourceDescriptor desc : this.descriptorPool )
         {
-            final DataSourceNode node = new DataSourceNode ( desc.getId () );
-            nodes.put ( node.getId (), node );
+            final DataSourceNode node = new DataSourceNode ( desc.getType (), desc.getId () );
+            nodes.put ( desc, node );
         }
         // connect nodes
         for ( final DataSourceDescriptor desc : this.descriptorPool )
         {
-            final DataSourceNode node = nodes.get ( desc.getId () );
-            for ( final String reference : desc.getReferences () )
+            final DataSourceNode node = nodes.get ( desc );
+            for ( final DataSourceReference reference : desc.getReferences () )
             {
                 final DataSourceNode ref = nodes.get ( reference );
                 if ( ref == null )
                 {
-                    this.logStream.println ( String.format ( "Reference from %s to %s not found", desc.getId (), reference ) );
+                    this.logStream.println ( String.format ( "Reference from %s to %s not found", desc, reference ) );
                 }
                 else
                 {

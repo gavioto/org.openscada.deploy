@@ -1,36 +1,15 @@
 package org.openscada.atlantis.configurator.loop;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-public class DataSourceNode
+public class DataSourceReference
 {
     private final String id;
 
     private final String type;
 
-    private final Set<DataSourceNode> references = new HashSet<DataSourceNode> ();
-
-    public DataSourceNode ( final String type, final String id )
+    public DataSourceReference ( final String type, final String id )
     {
         this.type = type;
         this.id = id;
-    }
-
-    public boolean addReference ( final DataSourceNode node )
-    {
-        return this.references.add ( node );
-    }
-
-    public Set<DataSourceNode> getReferences ()
-    {
-        return Collections.unmodifiableSet ( this.references );
-    }
-
-    public String getId ()
-    {
-        return this.id;
     }
 
     public String getType ()
@@ -38,10 +17,9 @@ public class DataSourceNode
         return this.type;
     }
 
-    @Override
-    public String toString ()
+    public String getId ()
     {
-        return this.type + "@" + this.id;
+        return this.id;
     }
 
     @Override
@@ -65,11 +43,11 @@ public class DataSourceNode
         {
             return false;
         }
-        if ( ! ( obj instanceof DataSourceNode ) )
+        if ( ! ( obj instanceof DataSourceReference ) )
         {
             return false;
         }
-        final DataSourceNode other = (DataSourceNode)obj;
+        final DataSourceReference other = (DataSourceReference)obj;
         if ( this.id == null )
         {
             if ( other.id != null )
@@ -93,6 +71,12 @@ public class DataSourceNode
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString ()
+    {
+        return this.type + "@" + this.id;
     }
 
 }

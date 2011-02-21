@@ -19,7 +19,7 @@ public class FormulaHandler extends MultiSourceAttributeHandler
 
         if ( parameters.containsKey ( "outputDatasource.id" ) )
         {
-            node.addReference ( (String)parameters.get ( "outputDatasource.id" ) );
+            node.addReference ( "datasource", (String)parameters.get ( "outputDatasource.id" ) );
         }
 
         return node;

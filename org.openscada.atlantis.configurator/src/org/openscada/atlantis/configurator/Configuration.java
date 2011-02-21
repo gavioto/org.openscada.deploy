@@ -70,7 +70,6 @@ public class Configuration extends GenericConfiguration
         // add ignore fields
 
         addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" );
-        addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" );
         addIgnoreFields ( "org.openscada.da.master.common.block", "note", "active", "user", "timestamp" );
 
         addIgnoreFields ( "org.openscada.da.level.high", "preset", "active" );
@@ -791,13 +790,13 @@ public class Configuration extends GenericConfiguration
 
     private void addDefaultChain ( final String masterId )
     {
-        addSum ( masterId + ".error.phase1", masterId, "error", 600, "phase1" );
+        addSum ( masterId + ".sum.error.phase1", masterId, "error", 600, "phase1" );
 
-        addSum ( masterId + ".manual", masterId, "manual", 5010, null );
-        addSum ( masterId + ".error.phase2", masterId, "error", 5000, "phase2" );
-        addSum ( masterId + ".alarm", masterId, "alarm", 5020, null );
-        addSum ( masterId + ".ackRequired", masterId, "ackRequired", 5030, null );
-        addSum ( masterId + ".blocked", masterId, "blocked", 5040, null );
+        addSum ( masterId + ".sum.manual", masterId, "manual", 5010, null );
+        addSum ( masterId + ".sum.error.phase2", masterId, "error", 5000, "phase2" );
+        addSum ( masterId + ".sum.alarm", masterId, "alarm", 5020, null );
+        addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", 5030, null );
+        addSum ( masterId + ".sum.blocked", masterId, "blocked", 5040, null );
     }
 
     private void addSum ( final String id, final String masterId, final String type, final int priority, final String prefix )

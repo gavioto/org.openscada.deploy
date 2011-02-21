@@ -17,7 +17,7 @@ public class SimpleHandler extends NoOpHandler implements LoopHandler
     @Override
     public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, Object> parameters )
     {
-        final DataSourceDescriptor desc = new DataSourceDescriptor ( configurationId );
+        final DataSourceDescriptor desc = new DataSourceDescriptor ( "datasource", configurationId );
 
         return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }

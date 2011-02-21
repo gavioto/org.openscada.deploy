@@ -15,7 +15,7 @@ public class SummaryDataSourceDescriptor extends DataSourceDescriptor
 
     public SummaryDataSourceDescriptor ( final String id, final Set<String> blacklist, final boolean masterOnly )
     {
-        super ( id );
+        super ( "datasource", id );
         this.blacklist = new HashSet<String> ( blacklist );
         this.masterOnly = masterOnly;
     }

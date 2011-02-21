@@ -26,7 +26,7 @@ public class MultiSourceAttributeHandler extends NoOpHandler implements LoopHand
 
     protected DataSourceDescriptor createNode ( final String configurationId, final Map<String, Object> parameters )
     {
-        final DataSourceDescriptor desc = new DataSourceDescriptor ( configurationId );
+        final DataSourceDescriptor desc = new DataSourceDescriptor ( "datasource", configurationId );
 
         for ( final Map.Entry<String, Object> entry : parameters.entrySet () )
         {
@@ -45,7 +45,7 @@ public class MultiSourceAttributeHandler extends NoOpHandler implements LoopHand
                 continue;
             }
 
-            desc.addReference ( (String)entry.getValue () );
+            desc.addReference ( "datasource", (String)entry.getValue () );
         }
         return desc;
     }

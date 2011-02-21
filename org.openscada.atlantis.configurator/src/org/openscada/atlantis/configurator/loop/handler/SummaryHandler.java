@@ -72,7 +72,7 @@ public class SummaryHandler implements LoopHandler
                     continue;
                 }
 
-                our.addReference ( desc.getId () );
+                our.addReference ( "datasource", desc.getId () );
 
             }
         }

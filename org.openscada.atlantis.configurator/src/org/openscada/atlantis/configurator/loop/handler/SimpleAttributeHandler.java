@@ -12,15 +12,21 @@ public class SimpleAttributeHandler extends NoOpHandler implements LoopHandler
 {
     private final String attributeName;
 
-    public SimpleAttributeHandler ( final String attributeName )
+    private final String type;
+
+    private final String referenceType;
+
+    public SimpleAttributeHandler ( final String type, final String referenceType, final String attributeName )
     {
+        this.type = type;
+        this.referenceType = referenceType;
         this.attributeName = attributeName;
     }
 
     @Override
     public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, Object> parameters )
     {
-        final DataSourceDescriptor desc = new DataSourceDescriptor ( configurationId );
+        final DataSourceDescriptor desc = new DataSourceDescriptor ( this.type, configurationId );
         final Object reference = parameters.get ( this.attributeName );
 
         if ( ! ( reference instanceof String ) )
@@ -33,7 +39,7 @@ public class SimpleAttributeHandler extends NoOpHandler implements LoopHandler
             return Collections.emptySet ();
         }
 
-        desc.addReference ( (String)reference );
+        desc.addReference ( this.referenceType, (String)reference );
 
         return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }
