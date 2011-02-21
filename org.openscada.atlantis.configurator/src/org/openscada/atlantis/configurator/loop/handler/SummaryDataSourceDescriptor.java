@@ -1,8 +1,10 @@
-package org.openscada.atlantis.configurator.loop;
+package org.openscada.atlantis.configurator.loop.handler;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
+import org.openscada.atlantis.configurator.loop.DataSourceDescriptor;
 
 public class SummaryDataSourceDescriptor extends DataSourceDescriptor
 {
