@@ -1,9 +1,12 @@
-package org.openscada.atlantis.configurator.loop;
+package org.openscada.atlantis.configurator.loop.handler;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import org.openscada.atlantis.configurator.loop.DataSourceDescriptor;
+import org.openscada.atlantis.configurator.loop.SummaryDataSourceDescriptor;
 
 public class SummaryHandler implements LoopHandler
 {

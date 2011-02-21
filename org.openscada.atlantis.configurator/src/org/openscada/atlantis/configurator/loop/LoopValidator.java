@@ -7,6 +7,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+import org.openscada.atlantis.configurator.loop.handler.FormulaHandler;
+import org.openscada.atlantis.configurator.loop.handler.LoopHandler;
+import org.openscada.atlantis.configurator.loop.handler.MultiSourceAttributeHandler;
+import org.openscada.atlantis.configurator.loop.handler.NoOpHandler;
+import org.openscada.atlantis.configurator.loop.handler.SimpleAttributeHandler;
+import org.openscada.atlantis.configurator.loop.handler.SummaryHandler;
 import org.openscada.utils.str.StringHelper;
 
 public class LoopValidator

@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.openscada.atlantis.configurator.loop.handler.LoopHandler;
+import org.openscada.atlantis.configurator.loop.handler.NoOpHandler;
+
 public class SimpleHandler extends NoOpHandler implements LoopHandler
 {
     public SimpleHandler ()
