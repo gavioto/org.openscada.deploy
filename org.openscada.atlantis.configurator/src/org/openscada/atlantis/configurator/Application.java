@@ -113,8 +113,10 @@ public class Application implements IApplication
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 
-        System.out.println ( "** 4 - Validating" );
+        System.out.println ( "** 4a - Validating" );
         cfg.validate ();
+        System.out.println ( "** 4a - Writing DOT file" );
+        cfg.exportToDot ( new File ( generatedBase, "data.dot" ) );
 
         System.out.println ( "** 5 - Output" );
         System.out.println ( " **  Base Dir: " + outFile );

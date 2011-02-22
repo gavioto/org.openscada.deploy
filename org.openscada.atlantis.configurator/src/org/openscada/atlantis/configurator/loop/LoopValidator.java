@@ -1,6 +1,9 @@
 package org.openscada.atlantis.configurator.loop;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -75,6 +78,50 @@ public class LoopValidator
 
     public void validate ()
     {
+        final Set<DataSourceNode> nodes = load ();
+        searchForLoops ( nodes );
+    }
+
+    public void writeDot ( final File dotFile ) throws FileNotFoundException
+    {
+        final Set<DataSourceNode> nodes = load ();
+
+        System.out.println ( "Writing to: " + dotFile );
+
+        final PrintWriter writer = new PrintWriter ( dotFile );
+
+        writer.println ( "digraph {" );
+
+        writer.println ( "  rankdir=LR" );
+
+        for ( final DataSourceNode node : nodes )
+        {
+            if ( "datasource".equals ( node.getType () ) )
+            {
+                writer.println ( String.format ( "\"%s\"", node.getId () ) );
+                writer.println ();
+            }
+        }
+
+        for ( final DataSourceNode node : nodes )
+        {
+            if ( "datasource".equals ( node.getType () ) )
+            {
+                for ( final DataSourceNode refNode : node.getReferences () )
+                {
+                    writer.println ( String.format ( "\"%s\" -> \"%s\"", node.getId (), refNode.getId () ) );
+                }
+                writer.println ();
+            }
+        }
+
+        writer.println ( "}" );
+
+        writer.close ();
+    }
+
+    private Set<DataSourceNode> load ()
+    {
         for ( final Map.Entry<String, Map<String, Map<String, Object>>> factory : this.data.entrySet () )
         {
             processFactory ( factory.getKey (), factory.getValue () );
@@ -91,7 +138,7 @@ public class LoopValidator
         this.logStream.println ( String.format ( "%s datasources in pool", this.descriptorPool.size () ) );
 
         final Set<DataSourceNode> nodes = buildGraph ();
-        searchForLoops ( nodes );
+        return nodes;
     }
 
     private void searchForLoops ( final Set<DataSourceNode> nodes )

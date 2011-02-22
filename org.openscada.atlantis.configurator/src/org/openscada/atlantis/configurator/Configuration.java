@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -635,6 +636,11 @@ public class Configuration extends GenericConfiguration
     {
         checkForDuplicates ();
         checkForLoops ();
+    }
+
+    public void exportToDot ( final File dotFile ) throws IOException
+    {
+        new LoopValidator ( this.data, this.logStream ).writeDot ( dotFile );
     }
 
     private void checkForLoops ()
