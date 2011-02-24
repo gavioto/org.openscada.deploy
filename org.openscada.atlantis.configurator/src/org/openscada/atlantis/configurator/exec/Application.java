@@ -103,6 +103,7 @@ public class Application
     {
         final Item item = ModelFactory.eINSTANCE.createItem ();
         item.setDevice ( "exec" );
+        item.setSystem ( "NETWORK" );
 
         item.setDataType ( DataType.FLOAT );
 
