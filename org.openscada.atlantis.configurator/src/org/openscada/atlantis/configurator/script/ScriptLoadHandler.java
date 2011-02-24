@@ -114,6 +114,7 @@ public class ScriptLoadHandler implements RowHandler
         item.setLocalLowAvailable ( true );
         item.setLocalHighHighAvailable ( true );
         item.setLocalLowLowAvailable ( true );
+        item.setSystem ( "SCRIPT" );
         return item;
     }
 

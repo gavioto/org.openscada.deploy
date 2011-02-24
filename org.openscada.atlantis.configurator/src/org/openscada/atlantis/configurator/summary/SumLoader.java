@@ -45,6 +45,7 @@ public class SumLoader
             item.setDescription ( "Summary item for group: " + id );
             item.setName ( id + ".sum" );
             item.setAlias ( id );
+            item.setSystem ( "SCADA" );
             item.setDataType ( DataType.INTEGER );
             item.setLocalManual ( false );
             item.setDefaultChain ( false );
