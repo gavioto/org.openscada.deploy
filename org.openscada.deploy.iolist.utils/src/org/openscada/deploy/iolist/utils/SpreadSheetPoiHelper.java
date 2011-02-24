@@ -9,10 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import jxl.read.biff.BiffException;
-import jxl.write.WriteException;
-import jxl.write.biff.RowsExceededException;
-
 import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.usermodel.HeaderFooter;
@@ -126,7 +122,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
     }
 
     @Override
-    protected void addData ( final int row, final int column, final Double data, final boolean ack ) throws RowsExceededException, WriteException
+    protected void addData ( final int row, final int column, final Double data, final boolean ack )
     {
         final Cell cell = createCell ( this.sheet, row, column );
 
@@ -145,7 +141,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
     }
 
     @Override
-    protected void addData ( final int row, final int column, final String data, final boolean ack ) throws WriteException, RowsExceededException
+    protected void addData ( final int row, final int column, final String data, final boolean ack )
     {
         final Cell cell = createCell ( this.sheet, row, column );
 
@@ -164,7 +160,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
     }
 
     @Override
-    protected void addSelectiveDataAck ( final int row, final int column, final boolean available, final Double value, final boolean ack ) throws RowsExceededException, WriteException
+    protected void addSelectiveDataAck ( final int row, final int column, final boolean available, final Double value, final boolean ack )
     {
         final Cell cell = createCell ( this.sheet, row, column );
 
@@ -191,7 +187,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
     }
 
     @Override
-    protected void addSelectiveData ( final int row, final int column, final boolean available, final String value, final boolean ackRequired ) throws RowsExceededException, WriteException
+    protected void addSelectiveData ( final int row, final int column, final boolean available, final String value, final boolean ackRequired )
     {
         final Cell cell = createCell ( this.sheet, row, column );
 
@@ -217,7 +213,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
         }
     }
 
-    public static List<Item> loadExcel ( final String fileName ) throws BiffException, IOException
+    public static List<Item> loadExcel ( final String fileName ) throws IOException
     {
         final List<Item> result = new LinkedList<Item> ();
 
