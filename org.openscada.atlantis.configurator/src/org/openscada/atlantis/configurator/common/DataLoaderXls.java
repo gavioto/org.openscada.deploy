@@ -117,12 +117,13 @@ public class DataLoaderXls
     {
         final Map<Integer, String> rowData = new HashMap<Integer, String> ();
 
-        int i = 0;
-        for ( final Cell cell : row )
+        final int count = row.getLastCellNum ();
+
+        for ( int i = 0; i < count; i++ )
         {
+            final Cell cell = row.getCell ( i );
             final String value = makeStringValue ( sheet.getWorkbook (), cell );
             rowData.put ( i, value );
-            i++;
         }
 
         return rowData;
