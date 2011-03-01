@@ -1,4 +1,4 @@
-package org.openscada.atlantis.configurator;
+package org.openscada.deploy.iolist.utils;
 
 import java.util.Collection;
 

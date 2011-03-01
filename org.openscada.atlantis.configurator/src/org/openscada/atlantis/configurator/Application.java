@@ -17,6 +17,7 @@ import org.openscada.atlantis.configurator.formula.FormulaModule;
 import org.openscada.atlantis.configurator.summary.SumLoader;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
+import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application implements IApplication

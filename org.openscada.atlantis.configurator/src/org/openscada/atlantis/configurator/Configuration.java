@@ -32,6 +32,7 @@ import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.SummaryItem;
+import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 import org.openscada.utils.str.StringHelper;
