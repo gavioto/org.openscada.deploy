@@ -49,7 +49,7 @@ public class Configuration extends GenericConfiguration
 
     private final File base;
 
-    private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null );
+    private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null ); //$NON-NLS-1$
 
     public Configuration ( final File base ) throws Exception
     {
@@ -58,30 +58,30 @@ public class Configuration extends GenericConfiguration
 
         // event query
 
-        addEventQuery ( "events.all", "(eventType=*)", 10000 );
+        addEventQuery ( "events.all", "(eventType=*)", 10000 ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // monitor query
 
-        addMonitorQuery ( "monitors.unsafe", "(status=UNSAFE)" );
-        addMonitorQuery ( "monitors.inactive", "(status=INACTIVE)" );
-        addMonitorQuery ( "monitors.not_ok", "(|(status=NOT_OK)(status=NOT_OK_NOT_AKN)(status=NOT_OK_AKN))" );
-        addMonitorQuery ( "monitors.ack_required", "(|(status=NOT_AKN)(status=NOT_OK_NOT_AKN))" );
-        addMonitorQuery ( "monitors.init", "(status=INIT)" );
-        addMonitorQuery ( "monitors.all", "(status=*)" );
+        addMonitorQuery ( "monitors.unsafe", "(status=UNSAFE)" ); //$NON-NLS-1$ //$NON-NLS-2$
+        addMonitorQuery ( "monitors.inactive", "(status=INACTIVE)" ); //$NON-NLS-1$ //$NON-NLS-2$
+        addMonitorQuery ( "monitors.not_ok", "(|(status=NOT_OK)(status=NOT_OK_NOT_AKN)(status=NOT_OK_AKN))" ); //$NON-NLS-1$ //$NON-NLS-2$
+        addMonitorQuery ( "monitors.ack_required", "(|(status=NOT_AKN)(status=NOT_OK_NOT_AKN))" ); //$NON-NLS-1$ //$NON-NLS-2$
+        addMonitorQuery ( "monitors.init", "(status=INIT)" ); //$NON-NLS-1$ //$NON-NLS-2$
+        addMonitorQuery ( "monitors.all", "(status=*)" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // add ignore fields
 
-        addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" );
-        addIgnoreFields ( "org.openscada.da.master.common.block", "note", "active", "user", "timestamp" );
+        addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+        addIgnoreFields ( "org.openscada.da.master.common.block", "note", "active", "user", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 
-        addIgnoreFields ( "org.openscada.da.level.high", "preset", "active" );
-        addIgnoreFields ( "org.openscada.da.level.highhigh", "preset", "active" );
-        addIgnoreFields ( "org.openscada.da.level.low", "preset", "active" );
-        addIgnoreFields ( "org.openscada.da.level.lowlow", "preset", "active" );
-        addIgnoreFields ( "org.openscada.da.level.ceil", "preset", "active" );
-        addIgnoreFields ( "org.openscada.da.level.floor", "preset", "active" );
+        addIgnoreFields ( "org.openscada.da.level.high", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( "org.openscada.da.level.highhigh", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( "org.openscada.da.level.low", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( "org.openscada.da.level.lowlow", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( "org.openscada.da.level.ceil", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( "org.openscada.da.level.floor", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
-        addIgnoreFields ( "org.openscada.da.scale.input", "active", "factor" );
+        addIgnoreFields ( "org.openscada.da.scale.input", "active", "factor" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
         addAEInfo ();
     }
@@ -89,24 +89,24 @@ public class Configuration extends GenericConfiguration
     private void addAEInfo ()
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
-        data.put ( "prefix", "ae.server.info" );
-        addData ( "ae.server.info", "ae.server.info.all", data );
+        data.put ( "prefix", "ae.server.info" ); //$NON-NLS-1$ //$NON-NLS-2$
+        addData ( "ae.server.info", "ae.server.info.all", data ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private void addSummary ( final String string, final Set<String> blacklist )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "attribute", string );
-        data.put ( "onlyMaster", true );
+        data.put ( "attribute", string ); //$NON-NLS-1$
+        data.put ( "onlyMaster", true ); //$NON-NLS-1$
 
         int i = 0;
         for ( final String entry : blacklist )
         {
-            data.put ( "blacklist." + i++, entry );
+            data.put ( "blacklist." + i++, entry ); //$NON-NLS-1$
         }
 
-        addData ( "org.openscada.da.server.osgi.summary.attribute", "summary." + string, data );
+        addData ( "org.openscada.da.server.osgi.summary.attribute", "summary." + string, data ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     public void addItems ( final List<? extends Item> items )
@@ -131,27 +131,27 @@ public class Configuration extends GenericConfiguration
     private void addMonitorQuery ( final String id, final String filter )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
-        data.put ( "filter", filter );
-        addData ( "ae.monitor.query", id, data );
+        data.put ( "filter", filter ); //$NON-NLS-1$
+        addData ( "ae.monitor.query", id, data ); //$NON-NLS-1$
     }
 
     private void addEventQuery ( final String id, final String filter, final int size )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
-        data.put ( "filter", filter );
-        data.put ( "size", size );
-        addData ( "org.openscada.ae.server.common.event.pool", id, data );
+        data.put ( "filter", filter ); //$NON-NLS-1$
+        data.put ( "size", size ); //$NON-NLS-1$
+        addData ( "org.openscada.ae.server.common.event.pool", id, data ); //$NON-NLS-1$
     }
 
     public void addAuthorizationScript ( final String id, final String script, final int priority, final String idFilter, final String typeFilter, final String actionFilter )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
-        data.put ( "script", script );
-        data.put ( "priority", priority );
-        data.put ( "for.id", idFilter );
-        data.put ( "for.type", typeFilter );
-        data.put ( "for.action", actionFilter );
-        addData ( "org.openscada.sec.provider.script.factory", id, data );
+        data.put ( "script", script ); //$NON-NLS-1$
+        data.put ( "priority", priority ); //$NON-NLS-1$
+        data.put ( "for.id", idFilter ); //$NON-NLS-1$
+        data.put ( "for.type", typeFilter ); //$NON-NLS-1$
+        data.put ( "for.action", actionFilter ); //$NON-NLS-1$
+        addData ( "org.openscada.sec.provider.script.factory", id, data ); //$NON-NLS-1$
     }
 
     /**
@@ -178,10 +178,10 @@ public class Configuration extends GenericConfiguration
         final Set<String> blacklist = new HashSet<String> ();
 
         final Set<String> summaries = new HashSet<String> ();
-        summaries.add ( "error" );
-        summaries.add ( "alarm" );
-        summaries.add ( "manual" );
-        summaries.add ( "blocked" );
+        summaries.add ( "error" ); //$NON-NLS-1$
+        summaries.add ( "alarm" ); //$NON-NLS-1$
+        summaries.add ( "manual" ); //$NON-NLS-1$
+        summaries.add ( "blocked" ); //$NON-NLS-1$
 
         // summaries
         for ( final Item item : this.items )
@@ -193,11 +193,11 @@ public class Configuration extends GenericConfiguration
                     continue;
                 }
 
-                if ( item.getName ().equals ( "summary." + summary ) )
+                if ( item.getName ().equals ( "summary." + summary ) ) //$NON-NLS-1$
                 {
-                    final String masterId = item.getAlias () + ".master";
+                    final String masterId = item.getAlias () + ".master"; //$NON-NLS-1$
                     blacklist.add ( masterId );
-                    this.logStream.println ( String.format ( "Adding %s as blacklist for summaries", masterId ) );
+                    this.logStream.println ( String.format ( "Adding %s as blacklist for summaries", masterId ) ); //$NON-NLS-1$
                 }
             }
         }
@@ -222,14 +222,14 @@ public class Configuration extends GenericConfiguration
                 continue;
             }
 
-            final String loc = item.getLocation () + "-" + item.getComponent ();
+            final String loc = item.getLocation () + "-" + item.getComponent (); //$NON-NLS-1$
             locMap.put ( loc, makeMasterId ( item ) );
         }
 
         for ( final String key : locMap.keySet () )
         {
             final Collection<String> values = locMap.get ( key );
-            addBlock ( key + ".block", new ArrayList<String> ( values ) );
+            addBlock ( key + ".block", new ArrayList<String> ( values ) ); //$NON-NLS-1$
         }
     }
 
@@ -249,9 +249,9 @@ public class Configuration extends GenericConfiguration
 
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", StringHelper.join ( masterIds, "," ) );
+        data.put ( "master.id", StringHelper.join ( masterIds, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addData ( "org.openscada.da.master.common.block", blockId, data );
+        addData ( "org.openscada.da.master.common.block", blockId, data ); //$NON-NLS-1$
     }
 
     /**
@@ -276,7 +276,7 @@ public class Configuration extends GenericConfiguration
 
     private String makeMasterId ( final Item item )
     {
-        return makeInternalItemId ( item ) + ".master";
+        return makeInternalItemId ( item ) + ".master"; //$NON-NLS-1$
     }
 
     /**
@@ -303,17 +303,17 @@ public class Configuration extends GenericConfiguration
 
             if ( item instanceof FormulaItem )
             {
-                sourceId = internalItemId + ".formula";
+                sourceId = internalItemId + ".formula"; //$NON-NLS-1$
                 processFormulaItem ( sourceId, (FormulaItem)item );
             }
-            else if ( "ds".equalsIgnoreCase ( item.getDevice () ) )
+            else if ( "ds".equalsIgnoreCase ( item.getDevice () ) ) //$NON-NLS-1$
             {
-                sourceId = item.getName () + ".ds";
+                sourceId = item.getName () + ".ds"; //$NON-NLS-1$
                 addDSDataSource ( sourceId );
             }
-            else if ( item.getDevice () != null && !"".equals ( item.getDevice () ) )
+            else if ( item.getDevice () != null && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
             {
-                sourceId = internalItemId + ".source";
+                sourceId = internalItemId + ".source"; //$NON-NLS-1$
 
                 addSource ( sourceId, itemId, item.getDevice ().toLowerCase () );
             }
@@ -323,29 +323,29 @@ public class Configuration extends GenericConfiguration
             }
 
             addMaster ( masterId, sourceId );
-            addAlias ( internalItemId + ".alias", internalItemId, masterId, item.getDescription () );
+            addAlias ( internalItemId + ".alias", internalItemId, masterId, item.getDescription () ); //$NON-NLS-1$
             if ( item.isDefaultChain () )
             {
                 addDefaultChain ( masterId );
             }
 
             final Map<String, String> attributes = new HashMap<String, String> ();
-            attributes.put ( "location", item.getLocation () );
-            attributes.put ( "component", item.getComponent () );
+            attributes.put ( "location", item.getLocation () ); //$NON-NLS-1$
+            attributes.put ( "component", item.getComponent () ); //$NON-NLS-1$
             if ( item.getDevice () != null )
             {
-                attributes.put ( "hive", item.getDevice ().toUpperCase () );
+                attributes.put ( "hive", item.getDevice ().toUpperCase () ); //$NON-NLS-1$
             }
             if ( item.getSystem () != null )
             {
-                attributes.put ( "system", item.getSystem ().toUpperCase () );
+                attributes.put ( "system", item.getSystem ().toUpperCase () ); //$NON-NLS-1$
             }
-            attributes.put ( "message", item.getDescription () );
-            attributes.put ( "item", internalItemId );
+            attributes.put ( "message", item.getDescription () ); //$NON-NLS-1$
+            attributes.put ( "item", internalItemId ); //$NON-NLS-1$
 
             if ( item.isRemoteBool () )
             {
-                addRemoteValueMonitor ( masterId + ".remote.monitor", masterId, "remote.ackRequired", "remote.ackRequired.timestamp", "ALM", attributes, item.getRemoteBoolAckValue () );
+                addRemoteValueMonitor ( masterId + ".remote.monitor", masterId, "remote.ackRequired", "remote.ackRequired.timestamp", "ALM", attributes, item.getRemoteBoolAckValue () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
             }
             if ( item.isLocalBoolAvailable () )
             {
@@ -356,38 +356,38 @@ public class Configuration extends GenericConfiguration
                 }
                 else
                 {
-                    reference = item.getLocalBool () ? "true" : "false";
+                    reference = item.getLocalBool () ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
                 }
 
-                addLocalMonitor ( masterId + ".local.monitor", masterId, reference, item.isLocalBoolAck (), item.getDescription (), attributes );
+                addLocalMonitor ( masterId + ".local.monitor", masterId, reference, item.isLocalBoolAck (), item.getDescription (), attributes ); //$NON-NLS-1$
             }
             makeRemoteLevels ( item, masterId, attributes );
             makeLocalLevels ( item, masterId, attributes );
 
             if ( item.isEventCommand () )
             {
-                addWriteLogger ( internalItemId + ".logger", masterId, attributes );
+                addWriteLogger ( internalItemId + ".logger", masterId, attributes ); //$NON-NLS-1$
             }
-            addNegate ( masterId + ".negate", masterId, false );
+            addNegate ( masterId + ".negate", masterId, false ); //$NON-NLS-1$
 
             if ( item.isLocalManual () )
             {
-                addLocalManual ( masterId + ".manual", masterId, attributes );
+                addLocalManual ( masterId + ".manual", masterId, attributes ); //$NON-NLS-1$
             }
 
             if ( item.isLocalScaleAvailable () )
             {
-                addLocalScale ( masterId + ".scale", masterId, item.getLocalScaleFactor (), item.getLocalScaleOffset (), attributes );
+                addLocalScale ( masterId + ".scale", masterId, item.getLocalScaleFactor (), item.getLocalScaleOffset (), attributes ); //$NON-NLS-1$
             }
 
             if ( item.isListMonitorPreset () )
             {
-                addListMonitor ( masterId + ".listMonitor", masterId, item.isListMonitorListIsAlarm (), item.getListMonitorItems (), item.isListMonitorAckRequired (), item.getDescription (), attributes );
+                addListMonitor ( masterId + ".listMonitor", masterId, item.isListMonitorListIsAlarm (), item.getListMonitorItems (), item.isListMonitorAckRequired (), item.getDescription (), attributes ); //$NON-NLS-1$
             }
 
             if ( item.isBlock () )
             {
-                addBlock ( masterId + ".block", masterId );
+                addBlock ( masterId + ".block", masterId ); //$NON-NLS-1$
             }
         }
 
@@ -400,38 +400,38 @@ public class Configuration extends GenericConfiguration
 
         if ( item.getWriteValueName () != null && !item.getWriteValueName ().isEmpty () )
         {
-            data.put ( "writeValueName", item.getWriteValueName () );
+            data.put ( "writeValueName", item.getWriteValueName () ); //$NON-NLS-1$
         }
         if ( item.getOutputDatasourceId () != null && !item.getOutputDatasourceId ().isEmpty () )
         {
-            data.put ( "outputDatasource.id", item.getOutputDatasourceId () );
+            data.put ( "outputDatasource.id", item.getOutputDatasourceId () ); //$NON-NLS-1$
         }
         if ( item.getOutputFormula () != null && !item.getOutputFormula ().isEmpty () )
         {
-            data.put ( "outputFormula", item.getOutputFormula () );
+            data.put ( "outputFormula", item.getOutputFormula () ); //$NON-NLS-1$
         }
         if ( item.getOutputDatasourceType () != null )
         {
-            data.put ( "outputDatasource.type", convert ( item.getOutputDatasourceType () ) );
+            data.put ( "outputDatasource.type", convert ( item.getOutputDatasourceType () ) ); //$NON-NLS-1$
         }
 
         if ( item.getInputFormula () != null && !item.getInputFormula ().isEmpty () )
         {
-            data.put ( "inputFormula", item.getInputFormula () );
+            data.put ( "inputFormula", item.getInputFormula () ); //$NON-NLS-1$
         }
 
         for ( final FormulaInput input : item.getInputs () )
         {
-            data.put ( "datasource." + input.getName (), input.getDatasourceId () );
+            data.put ( "datasource." + input.getName (), input.getDatasourceId () ); //$NON-NLS-1$
             if ( input.getType () != null )
             {
-                data.put ( "datasourceType." + input.getName (), convert ( input.getType () ) );
+                data.put ( "datasourceType." + input.getName (), convert ( input.getType () ) ); //$NON-NLS-1$
             }
         }
 
         if ( item.getInitScript () != null && !item.getInitScript ().isEmpty () )
         {
-            data.put ( "init.0", item.getInitScript () );
+            data.put ( "init.0", item.getInitScript () ); //$NON-NLS-1$
         }
 
         int i = 1;
@@ -439,16 +439,16 @@ public class Configuration extends GenericConfiguration
         {
             if ( module.isResource () )
             {
-                data.put ( "init." + i, loadFromFile ( new File ( this.base, module.getData () ) ) );
+                data.put ( "init." + i, loadFromFile ( new File ( this.base, module.getData () ) ) ); //$NON-NLS-1$
             }
             else
             {
-                data.put ( "init." + i, module.getData () );
+                data.put ( "init." + i, module.getData () ); //$NON-NLS-1$
             }
             i++;
         }
 
-        addData ( "org.openscada.da.datasource.formula", id, data );
+        addData ( "org.openscada.da.datasource.formula", id, data ); //$NON-NLS-1$
     }
 
     private String convert ( final DataType type )
@@ -474,12 +474,12 @@ public class Configuration extends GenericConfiguration
     private void validateConnections ( final Set<String> connections )
     {
         System.out.flush ();
-        final Map<String, Map<String, Object>> connnectionData = this.data.get ( "da.connection" );
+        final Map<String, Map<String, Object>> connnectionData = this.data.get ( "da.connection" ); //$NON-NLS-1$
         for ( final String device : connections )
         {
             if ( !connnectionData.containsKey ( device ) )
             {
-                System.err.println ( String.format ( "Connection '%s' is undefined!", device ) );
+                System.err.println ( String.format ( "Connection '%s' is undefined!", device ) ); //$NON-NLS-1$
             }
         }
         System.err.flush ();
@@ -489,18 +489,18 @@ public class Configuration extends GenericConfiguration
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        addData ( "org.openscada.da.datasource.ds", id, data );
+        addData ( "org.openscada.da.datasource.ds", id, data ); //$NON-NLS-1$
     }
 
     private void addLocalManual ( final String id, final String masterId, final Map<String, String> attributes )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", masterId );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.manual", id, data );
+        addData ( "org.openscada.da.manual", id, data ); //$NON-NLS-1$
     }
 
     public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Set<String> outputs, final String init, final String update, final String timerCommand, final Integer timer )
@@ -509,36 +509,36 @@ public class Configuration extends GenericConfiguration
 
         if ( engine != null )
         {
-            data.put ( "engine", engine );
+            data.put ( "engine", engine ); //$NON-NLS-1$
         }
 
         for ( final Map.Entry<String, String> entry : dataSources.entrySet () )
         {
-            data.put ( "datasource." + entry.getKey (), entry.getValue () );
+            data.put ( "datasource." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
         }
 
         if ( init != null )
         {
-            data.put ( "init", init );
+            data.put ( "init", init ); //$NON-NLS-1$
         }
         if ( update != null )
         {
-            data.put ( "updateCommand", update );
+            data.put ( "updateCommand", update ); //$NON-NLS-1$
         }
         if ( outputs != null && !outputs.isEmpty () )
         {
-            data.put ( "writeSources", StringHelper.join ( outputs, "," ) );
+            data.put ( "writeSources", StringHelper.join ( outputs, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( timer != null )
         {
-            data.put ( "timer", timer );
+            data.put ( "timer", timer ); //$NON-NLS-1$
         }
         if ( timerCommand != null )
         {
-            data.put ( "timerCommand", timerCommand );
+            data.put ( "timerCommand", timerCommand ); //$NON-NLS-1$
         }
 
-        addData ( "org.openscada.da.datasource.script", id, data );
+        addData ( "org.openscada.da.datasource.script", id, data ); //$NON-NLS-1$
     }
 
     public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final File initFile, final File updateFile ) throws Exception
@@ -546,11 +546,11 @@ public class Configuration extends GenericConfiguration
         addScript ( id, engine, dataSources, null, loadFromFile ( initFile ), loadFromFile ( updateFile ), null, null );
     }
 
-    static final String NL = System.getProperty ( "line.separator" );
+    static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
 
-    private static final String BOOLEAN_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.booleanAlarm";
+    private static final String BOOLEAN_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.booleanAlarm"; //$NON-NLS-1$
 
-    private static final String LIST_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.listAlarm";
+    private static final String LIST_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.listAlarm"; //$NON-NLS-1$
 
     /**
      * Loads text data from a file
@@ -588,49 +588,49 @@ public class Configuration extends GenericConfiguration
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", masterId );
-        data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) );
-        data.put ( "factor", "" + localScaleFactor != null ? localScaleFactor : "1.0" );
-        data.put ( "offset", "" + localScaleOffset != null ? localScaleOffset : "0.0" );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "factor", "" + localScaleFactor != null ? localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        data.put ( "offset", "" + localScaleOffset != null ? localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.scale.input", id, data );
+        addData ( "org.openscada.da.scale.input", id, data ); //$NON-NLS-1$
     }
 
     private void addNegate ( final String id, final String masterId, final boolean active )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", masterId );
-        data.put ( "active", "" + active );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "active", "" + active ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addData ( "org.openscada.da.negate.input", id, data );
+        addData ( "org.openscada.da.negate.input", id, data ); //$NON-NLS-1$
     }
 
     private void addWriteLogger ( final String id, final String masterId, final Map<String, String> attributes )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", masterId );
-        data.put ( "source", masterId );
-        data.put ( "logValue", true );
-        data.put ( "logAttributes", false );
-        data.put ( "logSubscription", true );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "source", masterId ); //$NON-NLS-1$
+        data.put ( "logValue", true ); //$NON-NLS-1$
+        data.put ( "logAttributes", false ); //$NON-NLS-1$
+        data.put ( "logSubscription", true ); //$NON-NLS-1$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.ae.event.logger", id, data );
+        addData ( "org.openscada.ae.event.logger", id, data ); //$NON-NLS-1$
     }
 
     private void addSource ( final String id, final String itemId, final String connectionId )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "item.id", itemId );
-        data.put ( "connection.id", connectionId );
+        data.put ( "item.id", itemId ); //$NON-NLS-1$
+        data.put ( "connection.id", connectionId ); //$NON-NLS-1$
 
-        addData ( "da.datasource.dataitem", id, data );
+        addData ( "da.datasource.dataitem", id, data ); //$NON-NLS-1$
     }
 
     public void validate ()
@@ -674,27 +674,27 @@ public class Configuration extends GenericConfiguration
     {
         if ( item.getLocalMin () != null )
         {
-            makeLocalLevel ( masterId, "floor", true, item.isLocalMinAck (), item.getLocalMin (), attributes );
+            makeLocalLevel ( masterId, "floor", true, item.isLocalMinAck (), item.getLocalMin (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalMax () != null )
         {
-            makeLocalLevel ( masterId, "ceil", true, item.isLocalMaxAck (), item.getLocalMax (), attributes );
+            makeLocalLevel ( masterId, "ceil", true, item.isLocalMaxAck (), item.getLocalMax (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalHighHighAvailable () )
         {
-            makeLocalLevel ( masterId, "highhigh", false, item.isLocalHighHighAck (), item.getLocalHighHighPreset (), attributes );
+            makeLocalLevel ( masterId, "highhigh", false, item.isLocalHighHighAck (), item.getLocalHighHighPreset (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalHighAvailable () )
         {
-            makeLocalLevel ( masterId, "high", false, item.isLocalHighAck (), item.getLocalHighPreset (), attributes );
+            makeLocalLevel ( masterId, "high", false, item.isLocalHighAck (), item.getLocalHighPreset (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalLowAvailable () )
         {
-            makeLocalLevel ( masterId, "low", false, item.isLocalLowAck (), item.getLocalLowPreset (), attributes );
+            makeLocalLevel ( masterId, "low", false, item.isLocalLowAck (), item.getLocalLowPreset (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalLowLowAvailable () )
         {
-            makeLocalLevel ( masterId, "lowlow", false, item.isLocalLowLowAck (), item.getLocalLowLowPreset (), attributes );
+            makeLocalLevel ( masterId, "lowlow", false, item.isLocalLowLowAck (), item.getLocalLowLowPreset (), attributes ); //$NON-NLS-1$
         }
     }
 
@@ -702,27 +702,27 @@ public class Configuration extends GenericConfiguration
     {
         if ( item.isRemoteMax () )
         {
-            makeRemoteLevel ( masterId, "ceil", "R-MAX", attributes );
+            makeRemoteLevel ( masterId, "ceil", "R-MAX", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteHighHigh () )
         {
-            makeRemoteLevel ( masterId, "highhigh", "R-HH", attributes );
+            makeRemoteLevel ( masterId, "highhigh", "R-HH", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteHigh () )
         {
-            makeRemoteLevel ( masterId, "high", "R-H", attributes );
+            makeRemoteLevel ( masterId, "high", "R-H", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteLow () )
         {
-            makeRemoteLevel ( masterId, "low", "R-L", attributes );
+            makeRemoteLevel ( masterId, "low", "R-L", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteLowLow () )
         {
-            makeRemoteLevel ( masterId, "lowlow", "R-LL", attributes );
+            makeRemoteLevel ( masterId, "lowlow", "R-LL", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteMin () )
         {
-            makeRemoteLevel ( masterId, "floor", "R-MIN", attributes );
+            makeRemoteLevel ( masterId, "floor", "R-MIN", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -732,18 +732,18 @@ public class Configuration extends GenericConfiguration
 
         if ( reference != null )
         {
-            data.put ( "reference", reference );
-            data.put ( "active", "true" );
+            data.put ( "reference", reference ); //$NON-NLS-1$
+            data.put ( "active", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         else
         {
-            data.put ( "active", "false" );
+            data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
-        data.put ( "master.id", masterId );
-        data.put ( "requireAck", "" + ack );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( message != null )
         {
-            data.put ( "message", message );
+            data.put ( "message", message ); //$NON-NLS-1$
         }
 
         applyInfoAttributes ( attributes, data );
@@ -755,14 +755,14 @@ public class Configuration extends GenericConfiguration
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "referenceList", StringHelper.join ( referenceList, "," ) );
-        data.put ( "listIsAlarm", listIsAlarm );
-        data.put ( "master.id", masterId );
-        data.put ( "requireAck", "" + ack );
+        data.put ( "referenceList", StringHelper.join ( referenceList, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "listIsAlarm", listIsAlarm ); //$NON-NLS-1$
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
 
         if ( message != null )
         {
-            data.put ( "message", message );
+            data.put ( "message", message ); //$NON-NLS-1$
         }
 
         applyInfoAttributes ( attributes, data );
@@ -781,122 +781,122 @@ public class Configuration extends GenericConfiguration
 
         attributes = new HashMap<String, String> ( attributes );
 
-        attributes.put ( "monitorType", monitorType );
+        attributes.put ( "monitorType", monitorType ); //$NON-NLS-1$
         applyInfoAttributes ( attributes, data );
 
-        data.put ( "master.id", masterId );
-        data.put ( "attribute.ack.name", attributeAck );
-        data.put ( "attribute.ack.timestamp.name", attributeAckTimestamp );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "attribute.ack.name", attributeAck ); //$NON-NLS-1$
+        data.put ( "attribute.ack.timestamp.name", attributeAckTimestamp ); //$NON-NLS-1$
         if ( ackValue != null )
         {
-            data.put ( "attribute.ack.value", String.format ( "BOOL#%s", ackValue ) );
+            data.put ( "attribute.ack.value", String.format ( "BOOL#%s", ackValue ) ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
-        addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data );
+        addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data ); //$NON-NLS-1$
     }
 
     private void addDefaultChain ( final String masterId )
     {
-        addSum ( masterId + ".sum.error.phase1", masterId, "error", 600, "phase1" );
+        addSum ( masterId + ".sum.error.phase1", masterId, "error", 600, "phase1" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
-        addSum ( masterId + ".sum.manual", masterId, "manual", 5010, null );
-        addSum ( masterId + ".sum.error.phase2", masterId, "error", 5000, "phase2" );
-        addSum ( masterId + ".sum.alarm", masterId, "alarm", 5020, null );
-        addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", 5030, null );
-        addSum ( masterId + ".sum.blocked", masterId, "blocked", 5040, null );
+        addSum ( masterId + ".sum.manual", masterId, "manual", 5010, null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.error.phase2", masterId, "error", 5000, "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addSum ( masterId + ".sum.alarm", masterId, "alarm", 5020, null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", 5030, null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.blocked", masterId, "blocked", 5040, null ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private void addSum ( final String id, final String masterId, final String type, final int priority, final String prefix )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
-        data.put ( "master.id", masterId );
-        data.put ( "tag", type );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "tag", type ); //$NON-NLS-1$
 
-        data.put ( "handlerPriority", "" + priority );
+        data.put ( "handlerPriority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
 
         if ( prefix != null )
         {
-            data.put ( "prefix", prefix );
+            data.put ( "prefix", prefix ); //$NON-NLS-1$
         }
-        addData ( String.format ( "da.master.handler.sum", type ), id, data );
+        addData ( String.format ( "da.master.handler.sum", type ), id, data ); //$NON-NLS-1$
     }
 
     protected void addConnection ( final String id, final String connectionUri )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "connection.uri", connectionUri );
+        data.put ( "connection.uri", connectionUri ); //$NON-NLS-1$
 
-        addData ( "da.connection", id, data );
+        addData ( "da.connection", id, data ); //$NON-NLS-1$
     }
 
     public void addMaster ( final String id, final String dataSourceId )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "datasource.id", dataSourceId );
+        data.put ( "datasource.id", dataSourceId ); //$NON-NLS-1$
 
-        addData ( "master.item", id, data );
+        addData ( "master.item", id, data ); //$NON-NLS-1$
     }
 
     public void addAlias ( final String id, final String itemId, final String dataSourceId, final String description )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "datasource.id", dataSourceId );
-        data.put ( "item.id", itemId );
+        data.put ( "datasource.id", dataSourceId ); //$NON-NLS-1$
+        data.put ( "item.id", itemId ); //$NON-NLS-1$
         if ( description != null )
         {
-            data.put ( "description", description );
+            data.put ( "description", description ); //$NON-NLS-1$
         }
 
-        addData ( "da.dataitem.datasource", id, data );
+        addData ( "da.dataitem.datasource", id, data ); //$NON-NLS-1$
     }
 
     private void makeLocalLevel ( final String masterId, final String type, final boolean error, final boolean requireAck, final Double preset, Map<String, String> attributes )
     {
         attributes = new HashMap<String, String> ( attributes );
-        attributes.put ( "message", String.format ( "Level reached %s", type ) );
-        addLocalLevelMonitor ( masterId + ".local.level." + type, error, requireAck, masterId, type, preset, attributes );
+        attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        addLocalLevelMonitor ( masterId + ".local.level." + type, error, requireAck, masterId, type, preset, attributes ); //$NON-NLS-1$
     }
 
     private void addLocalLevelMonitor ( final String id, final boolean error, final boolean requireAck, final String masterId, final String type, final Double preset, final Map<String, String> attributes )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", masterId );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
 
         if ( preset != null )
         {
-            data.put ( "preset", preset );
-            data.put ( "active", "true" );
+            data.put ( "preset", preset ); //$NON-NLS-1$
+            data.put ( "active", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         else
         {
-            data.put ( "active", "false" );
+            data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
-        data.put ( "error", "" + error );
-        data.put ( "requireAck", "" + requireAck );
+        data.put ( "error", "" + error ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "requireAck", "" + requireAck ); //$NON-NLS-1$ //$NON-NLS-2$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.level." + type, id, data );
+        addData ( "org.openscada.da.level." + type, id, data ); //$NON-NLS-1$
     }
 
     private void makeRemoteLevel ( final String masterId, final String type, final String monitorType, Map<String, String> attributes )
     {
         attributes = new HashMap<String, String> ( attributes );
 
-        attributes.put ( "message", String.format ( "Level reached %s in PLC", type ) );
-        attributes.put ( "monitorType", monitorType );
+        attributes.put ( "message", String.format ( "Level reached %s in PLC", type ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        attributes.put ( "monitorType", monitorType ); //$NON-NLS-1$
         addRemoteAttributeMonitor ( // 
-        String.format ( "%s.remote.limit.%s", masterId, type ), masterId, // 
-        String.format ( "remote.level.%s.alarm", type ), //  
-        String.format ( "remote.level.%s.ackRequired", type ), //
-        String.format ( "remote.level.%s.active", type ), //
-        String.format ( "remote.level.%s.active.timestamp", type ), //
-        String.format ( "remote.level.%s.ackRequired.timestamp", type ), //
+        String.format ( "%s.remote.limit.%s", masterId, type ), masterId, //  //$NON-NLS-1$
+        String.format ( "remote.level.%s.alarm", type ), //   //$NON-NLS-1$
+        String.format ( "remote.level.%s.ackRequired", type ), // //$NON-NLS-1$
+        String.format ( "remote.level.%s.active", type ), // //$NON-NLS-1$
+        String.format ( "remote.level.%s.active.timestamp", type ), // //$NON-NLS-1$
+        String.format ( "remote.level.%s.ackRequired.timestamp", type ), // //$NON-NLS-1$
         attributes );
     }
 
@@ -904,16 +904,16 @@ public class Configuration extends GenericConfiguration
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "master.id", masterId );
-        data.put ( "attribute.value.name", attributeValue );
-        data.put ( "attribute.ack.name", attributeAck );
-        data.put ( "attribute.active.name", attributeActive );
-        data.put ( "attribute.active.timestamp.name", attributeTimestamp );
-        data.put ( "attribute.ack.timestamp.name", attributeAckTimestamp );
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "attribute.value.name", attributeValue ); //$NON-NLS-1$
+        data.put ( "attribute.ack.name", attributeAck ); //$NON-NLS-1$
+        data.put ( "attribute.active.name", attributeActive ); //$NON-NLS-1$
+        data.put ( "attribute.active.timestamp.name", attributeTimestamp ); //$NON-NLS-1$
+        data.put ( "attribute.ack.timestamp.name", attributeAckTimestamp ); //$NON-NLS-1$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "ae.monitor.da.remote.booleanAttributeAlarm", id, data );
+        addData ( "ae.monitor.da.remote.booleanAttributeAlarm", id, data ); //$NON-NLS-1$
     }
 
     private void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, Object> data )
@@ -925,7 +925,7 @@ public class Configuration extends GenericConfiguration
 
         for ( final Map.Entry<String, String> entry : attributes.entrySet () )
         {
-            data.put ( "info." + entry.getKey (), entry.getValue () );
+            data.put ( "info." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
         }
     }
 
@@ -953,15 +953,15 @@ public class Configuration extends GenericConfiguration
             String value = item.getDataSourceId ();
             if ( item.getType () != null )
             {
-                value += "#" + item.getType ();
+                value += "#" + item.getType (); //$NON-NLS-1$
             }
-            data.put ( "datasource." + i, value );
+            data.put ( "datasource." + i, value ); //$NON-NLS-1$
             i++;
         }
 
-        data.put ( "groups", StringHelper.join ( groups, "," ) );
+        data.put ( "groups", StringHelper.join ( groups, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addData ( "org.openscada.da.datasource.sum", id, data );
+        addData ( "org.openscada.da.datasource.sum", id, data ); //$NON-NLS-1$
     }
 
     public void close ()
@@ -972,13 +972,13 @@ public class Configuration extends GenericConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
-        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ).getAbsolutePath (), this.items );
+        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ).getAbsolutePath (), this.items ); //$NON-NLS-1$
         super.write ( baseDir );
     }
 
     public String getExtension ( final File file )
     {
-        final String[] toks = file.getName ().split ( "\\." );
+        final String[] toks = file.getName ().split ( "\\." ); //$NON-NLS-1$
         return toks[toks.length - 1];
     }
 
@@ -989,13 +989,13 @@ public class Configuration extends GenericConfiguration
             return;
         }
 
-        this.logStream.println ( "Running script: " + file );
+        this.logStream.println ( "Running script: " + file ); //$NON-NLS-1$
 
         final ScriptEngineManager manager = new ScriptEngineManager ();
 
         final ScriptEngine engine = manager.getEngineByExtension ( getExtension ( file ) );
         final ScriptContext context = engine.getContext ();
-        context.setAttribute ( "items", this.items.toArray (), ScriptContext.ENGINE_SCOPE );
+        context.setAttribute ( "items", this.items.toArray (), ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
 
         engine.eval ( new FileReader ( file ) );
     }
@@ -1004,16 +1004,16 @@ public class Configuration extends GenericConfiguration
     {
         for ( final Item item : overrides )
         {
-            this.logStream.println ( "Trying override: " + item );
+            this.logStream.println ( "Trying override: " + item ); //$NON-NLS-1$
 
             final Item origItem = findItemByAlias ( item );
             if ( origItem != null )
             {
-                this.logStream.println ( "Overriding item: " + origItem );
+                this.logStream.println ( "Overriding item: " + origItem ); //$NON-NLS-1$
 
-                if ( item.getName () == null || "".equals ( item.getName () ) )
+                if ( item.getName () == null || "".equals ( item.getName () ) ) //$NON-NLS-1$
                 {
-                    this.logStream.println ( "Use original source name: " + origItem.getName () );
+                    this.logStream.println ( "Use original source name: " + origItem.getName () ); //$NON-NLS-1$
                     item.setName ( origItem.getName () );
                 }
 
@@ -1045,10 +1045,10 @@ public class Configuration extends GenericConfiguration
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        data.put ( "filter", filter );
+        data.put ( "filter", filter ); //$NON-NLS-1$
         applyInfoAttributes ( attributes, data );
 
-        addData ( "ae.monitor.ae.event.external", id, data );
+        addData ( "ae.monitor.ae.event.external", id, data ); //$NON-NLS-1$
     }
 
 }
