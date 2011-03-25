@@ -137,6 +137,9 @@ public class Application implements IApplication
 
         System.out.println ( "**** 1ac - Loading basic configuration - JMS Monitors" );
         loader.load ( 2, new JmsHandler ( cfg ) );
+
+        System.out.println ( "**** 1ad - Loading basic configuration - AE" );
+        loader.load ( 3, new AeHandler ( cfg ) );
     }
 
     private static String processNetwork ( final String prefix, final File base, final File generatedBase ) throws Exception

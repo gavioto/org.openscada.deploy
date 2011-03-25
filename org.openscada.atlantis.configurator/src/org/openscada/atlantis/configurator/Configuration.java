@@ -128,14 +128,14 @@ public class Configuration extends GenericConfiguration
         }
     }
 
-    private void addMonitorQuery ( final String id, final String filter )
+    public void addMonitorQuery ( final String id, final String filter )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
         addData ( "ae.monitor.query", id, data ); //$NON-NLS-1$
     }
 
-    private void addEventQuery ( final String id, final String filter, final int size )
+    public void addEventQuery ( final String id, final String filter, final int size )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
