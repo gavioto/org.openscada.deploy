@@ -56,19 +56,6 @@ public class Configuration extends GenericConfiguration
         this.base = base;
         this.logStream = System.out;
 
-        // event query
-
-        addEventQuery ( "events.all", "(eventType=*)", 10000 ); //$NON-NLS-1$ //$NON-NLS-2$
-
-        // monitor query
-
-        addMonitorQuery ( "monitors.unsafe", "(status=UNSAFE)" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addMonitorQuery ( "monitors.inactive", "(status=INACTIVE)" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addMonitorQuery ( "monitors.not_ok", "(|(status=NOT_OK)(status=NOT_OK_NOT_AKN)(status=NOT_OK_AKN))" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addMonitorQuery ( "monitors.ack_required", "(|(status=NOT_AKN)(status=NOT_OK_NOT_AKN))" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addMonitorQuery ( "monitors.init", "(status=INIT)" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addMonitorQuery ( "monitors.all", "(status=*)" ); //$NON-NLS-1$ //$NON-NLS-2$
-
         // add ignore fields
 
         addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
@@ -128,14 +115,14 @@ public class Configuration extends GenericConfiguration
         }
     }
 
-    private void addMonitorQuery ( final String id, final String filter )
+    public void addMonitorQuery ( final String id, final String filter )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
         addData ( "ae.monitor.query", id, data ); //$NON-NLS-1$
     }
 
-    private void addEventQuery ( final String id, final String filter, final int size )
+    public void addEventQuery ( final String id, final String filter, final int size )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
