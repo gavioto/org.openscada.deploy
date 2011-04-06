@@ -154,6 +154,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timerPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
         eType="#//ScriptOutput" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptOutput">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="datasourceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
