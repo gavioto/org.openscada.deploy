@@ -20,7 +20,7 @@ public class ScriptLoader
 
     private static void addExtScript ( final Configuration cfg, final File scriptBase, final String target, final String function, final Map<String, String> sources, final Collection<Item> items ) throws Exception
     {
-        cfg.addScript ( target + ".script", null, sources, null, Configuration.loadFromFile ( new File ( scriptBase, "functions.js" ) ), convertJs ( function, sources.size () ), null, null );
+        cfg.addScript ( target + ".script", null, sources, null, Configuration.loadFromFile ( new File ( scriptBase, "functions.js" ) ), convertJs ( function, sources.size () ), null, null, null );
 
         final Item item = ModelFactory.eINSTANCE.createItem ();
 

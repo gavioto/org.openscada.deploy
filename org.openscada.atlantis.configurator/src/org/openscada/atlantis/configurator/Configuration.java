@@ -448,7 +448,7 @@ public class Configuration extends GenericConfiguration
 
     private void processScriptItem ( final String id, final ScriptItem item ) throws Exception
     {
-        addScript ( id, item.getScriptEngine (), makeMap ( item.getInputs () ), makeSet ( item.getOutputs () ), item.getInitScript (), item.getUpdateScript (), item.getTimerScript (), item.getTimerPeriod () );
+        addScript ( id, item.getScriptEngine (), makeMap ( item.getInputs () ), makeSet ( item.getOutputs () ), item.getInitScript (), item.getUpdateScript (), item.getTimerScript (), item.getTimerPeriod (), item.getWriteCommand () );
     }
 
     private Set<String> makeSet ( final EList<ScriptOutput> outputs )
@@ -527,7 +527,7 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.da.manual", id, data ); //$NON-NLS-1$
     }
 
-    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Set<String> outputs, final String init, final String update, final String timerCommand, final Long timer )
+    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Set<String> outputs, final String init, final String update, final String timerCommand, final Long timer, final String write )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
@@ -561,13 +561,14 @@ public class Configuration extends GenericConfiguration
         {
             data.put ( "timerCommand", timerCommand ); //$NON-NLS-1$
         }
+        data.put ( "writeCommand", write ); //$NON-NLS-1$
 
         addData ( "org.openscada.da.datasource.script", id, data ); //$NON-NLS-1$
     }
 
     public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final File initFile, final File updateFile ) throws Exception
     {
-        addScript ( id, engine, dataSources, null, loadFromFile ( initFile ), loadFromFile ( updateFile ), null, null );
+        addScript ( id, engine, dataSources, null, loadFromFile ( initFile ), loadFromFile ( updateFile ), null, null, null );
     }
 
     static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
