@@ -23,6 +23,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import org.eclipse.emf.common.util.EList;
 import org.openscada.atlantis.configurator.loop.LoopValidator;
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.core.VariantType;
@@ -30,7 +31,9 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
+import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
@@ -293,6 +296,11 @@ public class Configuration extends GenericConfiguration
                 sourceId = internalItemId + ".formula"; //$NON-NLS-1$
                 processFormulaItem ( sourceId, (FormulaItem)item );
             }
+            else if ( item instanceof ScriptItem )
+            {
+                sourceId = internalItemId + ".script"; //$NON-NLS-1$
+                processScriptItem ( sourceId, (ScriptItem)item );
+            }
             else if ( "ds".equalsIgnoreCase ( item.getDevice () ) ) //$NON-NLS-1$
             {
                 sourceId = item.getName () + ".ds"; //$NON-NLS-1$
@@ -438,6 +446,35 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.da.datasource.formula", id, data ); //$NON-NLS-1$
     }
 
+    private void processScriptItem ( final String id, final ScriptItem item ) throws Exception
+    {
+        addScript ( id, item.getScriptEngine (), makeMap ( item.getInputs () ), makeSet ( item.getOutputs () ), item.getInitScript (), item.getUpdateScript (), item.getTimerScript (), item.getTimerPeriod () );
+    }
+
+    private Set<String> makeSet ( final EList<ScriptOutput> outputs )
+    {
+        final Set<String> result = new HashSet<String> ();
+
+        for ( final ScriptOutput output : outputs )
+        {
+            result.add ( output.getDatasourceId () );
+        }
+
+        return result;
+    }
+
+    private Map<String, String> makeMap ( final EList<FormulaInput> inputs )
+    {
+        final Map<String, String> result = new HashMap<String, String> ();
+
+        for ( final FormulaInput input : inputs )
+        {
+            result.put ( input.getName (), input.getDatasourceId () );
+        }
+
+        return result;
+    }
+
     private String convert ( final DataType type )
     {
         switch ( type )
@@ -490,11 +527,11 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.da.manual", id, data ); //$NON-NLS-1$
     }
 
-    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Set<String> outputs, final String init, final String update, final String timerCommand, final Integer timer )
+    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Set<String> outputs, final String init, final String update, final String timerCommand, final Long timer )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
-        if ( engine != null )
+        if ( engine != null && !engine.isEmpty () )
         {
             data.put ( "engine", engine ); //$NON-NLS-1$
         }

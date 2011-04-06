@@ -53,19 +53,30 @@ public class GenericConfiguration
         fields.addAll ( Arrays.asList ( field ) );
     }
 
-    protected void addData ( final String factory, final String id, final Map<String, Object> data )
+    protected void addData ( final String factory, final String id, final Map<String, Object> sourceData )
     {
         if ( factory == null || id == null || factory.isEmpty () || id.isEmpty () )
         {
             throw new NullPointerException ( String.format ( "Must not be null (%s - %s)", factory, id ) );
         }
 
-        for ( final Map.Entry<String, Object> entry : data.entrySet () )
+        for ( final Map.Entry<String, Object> entry : sourceData.entrySet () )
         {
             if ( entry.getKey () == null || entry.getKey ().isEmpty () )
             {
-                throw new NullPointerException ( String.format ( "Key must not be null (%s - %s): %s", factory, id, data ) );
+                throw new NullPointerException ( String.format ( "Key must not be null (%s - %s): %s", factory, id, this.data ) );
             }
+        }
+
+        final Map<String, Object> data = new HashMap<String, Object> ();
+        for ( final Map.Entry<String, Object> entry : sourceData.entrySet () )
+        {
+            if ( entry.getValue () == null )
+            {
+                continue;
+            }
+
+            data.put ( entry.getKey (), entry.getValue () );
         }
 
         Map<String, Map<String, Object>> factoryMap = this.data.get ( factory );

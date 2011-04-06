@@ -14,6 +14,7 @@ import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.atlantis.configurator.common.DataLoader;
 import org.openscada.atlantis.configurator.formula.FormulaModule;
+import org.openscada.atlantis.configurator.script.ScriptModule;
 import org.openscada.atlantis.configurator.summary.SumLoader;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
@@ -67,7 +68,7 @@ public class Application implements IApplication
 
         System.out.println ( "** 0 - Loading scripts" );
         System.out.println ( "*** 0a - Script Loader" );
-        arguments.push ( org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ) ) );
+        org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ), new File ( base, "input/scripts" ) );
         System.out.println ( "*** 0b - Formulas Loader" );
         arguments.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
         System.out.println ( "*** 0c - Summary groups" );
@@ -100,13 +101,16 @@ public class Application implements IApplication
         System.out.println ( "*** 1c - Process Formulas" );
         FormulaModule.process ( new File ( base, "input/formulas" ), cfg );
 
-        System.out.println ( "*** 1d - Apply overrides" );
+        System.out.println ( "*** 1d - Process Scripts" );
+        ScriptModule.process ( new File ( base, "input/scripts" ), cfg );
+
+        System.out.println ( "*** 1e - Apply overrides" );
         for ( final String file : overrides )
         {
             cfg.applyOverrides ( SpreadSheetPoiHelper.loadExcel ( file ) );
         }
 
-        System.out.println ( "*** 1e - Apply script overrides" );
+        System.out.println ( "*** 1f - Apply script overrides" );
         applyScriptOverrides ( scriptDBase, cfg );
 
         System.out.println ( "** 3 - Process" );

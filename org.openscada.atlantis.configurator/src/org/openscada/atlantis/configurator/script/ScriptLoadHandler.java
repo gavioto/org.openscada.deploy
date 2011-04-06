@@ -2,30 +2,26 @@ package org.openscada.atlantis.configurator.script;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.openscada.atlantis.configurator.Configuration;
 import org.openscada.atlantis.configurator.common.RowHandler;
+import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.model.ScriptItem;
+import org.openscada.deploy.iolist.model.ScriptOutput;
 
 public class ScriptLoadHandler implements RowHandler
 {
 
-    private final Collection<Item> items = new ArrayList<Item> ();
-
-    private final Configuration cfg;
+    private final Collection<ScriptItem> items = new ArrayList<ScriptItem> ();
 
     private final File scriptBase;
 
     public ScriptLoadHandler ( final Configuration cfg, final File scriptBase )
     {
-        this.cfg = cfg;
         this.scriptBase = scriptBase;
     }
 
@@ -39,16 +35,17 @@ public class ScriptLoadHandler implements RowHandler
         final String timeoutScript = getScript ( rowData.get ( "TIMER_SCRIPT" ) );
         final String timerString = rowData.get ( "TIMER" );
 
-        Integer timer;
+        Long timer;
         if ( timerString != null && timerString.length () > 0 )
         {
-            timer = (int)Double.parseDouble ( timerString );
+            timer = (long)Double.parseDouble ( timerString );
         }
         else
         {
             timer = null;
         }
 
+        /*
         final Map<String, String> dataSources = new HashMap<String, String> ();
         {
             // get inputs
@@ -73,13 +70,54 @@ public class ScriptLoadHandler implements RowHandler
             // get outputs
             final String[] toks = rowData.get ( "OUTPUTS" ).split ( "[, \n\t]+" );
             outputs.addAll ( Arrays.asList ( toks ) );
+        }*/
+
+        //  final String id = alias + ".script";
+
+        // this.cfg.addScript ( id, scriptEngine, dataSources, outputs, initScript, updateScript, timeoutScript, timer );
+
+        final ScriptItem item = createItem ( alias );
+
+        item.setScriptEngine ( scriptEngine );
+        item.setInitScript ( initScript );
+        item.setUpdateScript ( updateScript );
+        item.setTimerScript ( timeoutScript );
+        item.setTimerPeriod ( timer );
+
+        {
+            // get outputs
+            final String[] toks = rowData.get ( "OUTPUTS" ).split ( "[, \n\t]+" );
+
+            for ( final String tok : toks )
+            {
+                final ScriptOutput output = ModelFactory.eINSTANCE.createScriptOutput ();
+                output.setDatasourceId ( tok );
+                item.getOutputs ().add ( output );
+            }
         }
 
-        final String id = alias + ".script";
+        {
+            // get inputs
+            final String dataSource = rowData.get ( "INPUTS" );
+            final String[] toks = dataSource.split ( "[, \n\r]+" );
+            for ( int i = 0; i < toks.length; i++ )
+            {
+                final String[] subToks = toks[i].split ( "=", 2 );
+                final FormulaInput input = ModelFactory.eINSTANCE.createFormulaInput ();
+                if ( subToks.length > 1 )
+                {
+                    input.setDatasourceId ( subToks[1] );
+                    input.setName ( subToks[0] );
+                }
+                else
+                {
+                    input.setDatasourceId ( toks[i] );
+                    input.setName ( "source" + i );
+                }
+            }
+        }
 
-        this.cfg.addScript ( id, scriptEngine, dataSources, outputs, initScript, updateScript, timeoutScript, timer );
-
-        this.items.add ( createItem ( alias ) );
+        this.items.add ( item );
     }
 
     private String getScript ( final String string )
@@ -104,9 +142,9 @@ public class ScriptLoadHandler implements RowHandler
         }
     }
 
-    private Item createItem ( final String alias )
+    private ScriptItem createItem ( final String alias )
     {
-        final Item item = ModelFactory.eINSTANCE.createItem ();
+        final ScriptItem item = ModelFactory.eINSTANCE.createScriptItem ();
         item.setAlias ( alias );
         item.setDevice ( null );
         item.setName ( alias + ".script" );
@@ -115,10 +153,14 @@ public class ScriptLoadHandler implements RowHandler
         item.setLocalHighHighAvailable ( true );
         item.setLocalLowLowAvailable ( true );
         item.setSystem ( "SCRIPT" );
+        item.setComponent ( "" );
+        item.setDevice ( "" );
+        item.setLocation ( "" );
+        item.setDescription ( "" );
         return item;
     }
 
-    public Collection<Item> getItems ()
+    public Collection<? extends Item> getItems ()
     {
         return this.items;
     }

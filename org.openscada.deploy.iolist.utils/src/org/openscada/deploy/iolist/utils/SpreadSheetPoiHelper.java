@@ -78,7 +78,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
         this.workbook.setRepeatingRowsAndColumns ( 0, -1, -1, 0, 1 );
     }
 
-    public static void writeSpreadsheet ( final String filename, final Collection<Item> items ) throws Exception
+    public static void writeSpreadsheet ( final String filename, final Collection<? extends Item> items ) throws Exception
     {
         final SpreadSheetPoiHelper helper = new SpreadSheetPoiHelper ();
         helper.writeHeader ();

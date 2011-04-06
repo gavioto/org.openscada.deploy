@@ -17,7 +17,7 @@ public abstract class GenericSpreadSheetHelper
         }
     }
 
-    protected void writeItems ( final Collection<Item> items ) throws Exception
+    protected void writeItems ( final Collection<? extends Item> items ) throws Exception
     {
         int row = 1;
         for ( final Item item : items )
