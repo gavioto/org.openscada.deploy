@@ -24,6 +24,8 @@ import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 public class Application implements IApplication
 {
 
+    private static final Integer SUMMARY_REQUIRED_SIZE = Integer.getInteger ( "summary.requiredSize", 1 );
+
     @Override
     public Object start ( final IApplicationContext context ) throws Exception
     {
@@ -72,7 +74,7 @@ public class Application implements IApplication
         System.out.println ( "*** 0b - Formulas Loader" );
         arguments.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
         System.out.println ( "*** 0c - Summary groups" );
-        arguments.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ) ) );
+        arguments.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ), SUMMARY_REQUIRED_SIZE ) );
 
         arguments.push ( processNetwork ( System.getProperty ( "prefix", "XXX" ), base, generatedBase ) );
 
@@ -114,7 +116,7 @@ public class Application implements IApplication
         applyScriptOverrides ( scriptDBase, cfg );
 
         System.out.println ( "** 3 - Process" );
-        cfg.generateSummaryAlarms ();
+        cfg.generateSummaryAlarms ( SUMMARY_REQUIRED_SIZE );
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 
