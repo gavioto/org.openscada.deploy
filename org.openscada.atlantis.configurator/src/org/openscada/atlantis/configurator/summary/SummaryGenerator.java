@@ -93,7 +93,7 @@ public class SummaryGenerator
 
     }
 
-    public static void generateSummaryAlarms ( final Configuration cfg, final List<Item> items )
+    public static void generateSummaryAlarms ( final Configuration cfg, final List<Item> items, final int requiredSize )
     {
         final Map<Location, SummaryGroup> locations = new HashMap<Location, SummaryGroup> ();
         for ( final Item item : items )
@@ -107,7 +107,7 @@ public class SummaryGenerator
             addItem ( locations, new Location ( item.getLocation (), null ), item );
         }
 
-        SumLoader.configureGroups ( cfg, locations.values (), items );
+        SumLoader.configureGroups ( cfg, locations.values (), items, requiredSize );
     }
 
     private static void addItem ( final Map<Location, SummaryGroup> locations, final Location location, final Item item )

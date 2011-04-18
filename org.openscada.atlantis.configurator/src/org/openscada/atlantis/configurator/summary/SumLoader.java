@@ -26,15 +26,15 @@ public class SumLoader
         return handler.getGroups ();
     }
 
-    public static String convertGroups ( final Configuration cfg, final File file, final File generatedFile ) throws Exception
+    public static String convertGroups ( final Configuration cfg, final File file, final File generatedFile, final int requiredSize ) throws Exception
     {
         final Collection<Item> items = new LinkedList<Item> ();
-        configureGroups ( cfg, loadGroups ( file ), items );
+        configureGroups ( cfg, loadGroups ( file ), items, requiredSize );
         SpreadSheetHelper.writeSpreadsheet ( generatedFile.getAbsolutePath (), items );
         return generatedFile.getAbsolutePath ();
     }
 
-    public static void configureGroups ( final Configuration cfg, final Collection<SummaryGroup> groups, final Collection<Item> items )
+    public static void configureGroups ( final Configuration cfg, final Collection<SummaryGroup> groups, final Collection<Item> items, final int requiredSize )
     {
         final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked" ) );
 
@@ -51,9 +51,12 @@ public class SumLoader
             item.setDefaultChain ( false );
             item.setLocation ( group.getLocation () );
             item.setComponent ( group.getComponent () );
-            items.add ( item );
 
-            cfg.addSum ( id + ".sum", group.getItems (), groupsSum );
+            if ( group.getItems ().size () >= requiredSize )
+            {
+                items.add ( item );
+                cfg.addSum ( id + ".sum", group.getItems (), groupsSum );
+            }
         }
     }
 

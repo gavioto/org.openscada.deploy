@@ -145,22 +145,6 @@ public class Configuration extends GenericConfiguration
     }
 
     /**
-     * @deprecated Use the methods {@link #generateSummaryAlarms()}, {@link #generateSummeryBlocks()}, {@link #generateItems()} and {@link #generateGlobalSummaries()}
-     * explicitly
-     * @throws Exception
-     */
-    @Deprecated
-    public void process () throws Exception
-    {
-        generateSummaryAlarms ();
-        generateSummeryBlocks ();
-
-        generateItems ();
-
-        generateGlobalSummaries ();
-    }
-
-    /**
      * Generate global summaries
      */
     public void generateGlobalSummaries ()
@@ -247,9 +231,9 @@ public class Configuration extends GenericConfiguration
     /**
      * Generate summary alarms based on location and component
      */
-    public void generateSummaryAlarms ()
+    public void generateSummaryAlarms ( final int requiredSize )
     {
-        SummaryGenerator.generateSummaryAlarms ( this, this.items );
+        SummaryGenerator.generateSummaryAlarms ( this, this.items, requiredSize );
     }
 
     private String makeInternalItemId ( final Item item )
