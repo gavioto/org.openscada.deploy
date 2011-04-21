@@ -34,6 +34,7 @@ public class ScriptLoadHandler implements RowHandler
         final String updateScript = getScript ( rowData.get ( "UPDATE_SCRIPT" ) );
         final String timeoutScript = getScript ( rowData.get ( "TIMER_SCRIPT" ) );
         final String timerString = rowData.get ( "TIMER" );
+        final String description = rowData.get ( "DESCRIPTION" );
 
         Long timer;
         if ( timerString != null && timerString.length () > 0 )
@@ -83,6 +84,7 @@ public class ScriptLoadHandler implements RowHandler
         item.setUpdateScript ( updateScript );
         item.setTimerScript ( timeoutScript );
         item.setTimerPeriod ( timer );
+        item.setDescription ( description );
 
         {
             // get outputs
