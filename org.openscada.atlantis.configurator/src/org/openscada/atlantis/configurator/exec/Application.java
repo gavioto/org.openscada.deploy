@@ -38,11 +38,11 @@ public class Application
     private static void saveConfiguration ( final File file, final RootDocument doc ) throws IOException
     {
         final XmlOptions options = new XmlOptions ();
-        options.setCharacterEncoding ( "UTF-8" );
+        options.setCharacterEncoding ( "UTF-8" ); //$NON-NLS-1$
         options.setSavePrettyPrint ();
 
         final Map<Object, Object> suggestedPrefixes = new HashMap<Object, Object> ();
-        suggestedPrefixes.put ( "http://openscada.org/DA/Exec/Configuration", "exec" );
+        suggestedPrefixes.put ( "http://openscada.org/DA/Exec/Configuration", "exec" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         options.setSaveSuggestedPrefixes ( suggestedPrefixes );
         doc.save ( file, options );
@@ -56,14 +56,14 @@ public class Application
 
         final HiveProcessCommandType hive = root.addNewHiveProcess ();
         hive.setRestartDelay ( 5000 );
-        hive.setId ( "PING" );
+        hive.setId ( "PING" ); //$NON-NLS-1$
 
         final ProcessType proc = hive.addNewProcess ();
-        proc.setExec ( "openscada_ping" );
+        proc.setExec ( "openscada_ping" ); //$NON-NLS-1$
 
         for ( final NetworkDevice device : devices )
         {
-            proc.addArgument ( String.format ( "%s=%s", device.getIp (), device.getHostname () ) );
+            proc.addArgument ( String.format ( "%s=%s", device.getIp (), device.getHostname () ) ); //$NON-NLS-1$
         }
 
         doc.setRoot ( root );
@@ -79,18 +79,18 @@ public class Application
         {
             {
                 final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () / 100.0, device.getAlarmLoss () / 100.0 );
-                item.setAlias ( String.format ( "%s.%s.%s.AVAIL.V", prefix, item.getLocation (), item.getComponent () ) );
-                item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) );
-                item.setDescription ( String.format ( "Packet loss for %s", device.getDescription () ) );
-                item.setUnit ( "%" );
+                item.setAlias ( String.format ( "%s.%s.%s.AVAIL.V", prefix, item.getLocation (), item.getComponent () ) ); //$NON-NLS-1$
+                item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) ); //$NON-NLS-1$
+                item.setDescription ( String.format ( Messages.Application_PacketLoss_Description, device.getDescription () ) );
+                item.setUnit ( "%" ); //$NON-NLS-1$
                 items.add ( item );
             }
             {
                 final Item item = createDeviceItem ( device, device.getWarnRtt (), device.getAlarmRtt (), null, null );
-                item.setAlias ( String.format ( "%s.%s.%s.P_RT.V", prefix, item.getLocation (), item.getComponent () ) );
-                item.setName ( String.format ( "PING.values.%s.rtt", device.getHostname () ) );
-                item.setDescription ( String.format ( "Round trip time for %s", device.getDescription () ) );
-                item.setUnit ( "ms" );
+                item.setAlias ( String.format ( "%s.%s.%s.P_RT.V", prefix, item.getLocation (), item.getComponent () ) ); //$NON-NLS-1$
+                item.setName ( String.format ( "PING.values.%s.rtt", device.getHostname () ) ); //$NON-NLS-1$
+                item.setDescription ( String.format ( Messages.Application_RTT_Description, device.getDescription () ) );
+                item.setUnit ( "ms" ); //$NON-NLS-1$
                 items.add ( item );
             }
 
@@ -102,8 +102,8 @@ public class Application
     private static Item createDeviceItem ( final NetworkDevice device, final Double warnHigh, final Double alarmHigh, final Double warnLow, final Double alarmLow )
     {
         final Item item = ModelFactory.eINSTANCE.createItem ();
-        item.setDevice ( "exec" );
-        item.setSystem ( "NETWORK" );
+        item.setDevice ( "exec" ); //$NON-NLS-1$
+        item.setSystem ( "NETWORK" ); //$NON-NLS-1$
 
         item.setDataType ( DataType.FLOAT );
 
