@@ -21,8 +21,8 @@ public class SummaryGenerator
         public Location ( final String location, final String component )
         {
             super ();
-            this.location = location;
-            this.component = component;
+            this.location = location == null ? "" : location;
+            this.component = component == null ? "" : component;
         }
 
         public String getComponent ()
