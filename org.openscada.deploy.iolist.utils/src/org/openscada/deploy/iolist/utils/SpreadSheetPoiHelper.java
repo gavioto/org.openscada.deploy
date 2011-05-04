@@ -1,5 +1,6 @@
 package org.openscada.deploy.iolist.utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -78,18 +79,18 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
         this.workbook.setRepeatingRowsAndColumns ( 0, -1, -1, 0, 1 );
     }
 
-    public static void writeSpreadsheet ( final String filename, final Collection<? extends Item> items ) throws Exception
+    public static void writeSpreadsheet ( final File file, final Collection<? extends Item> items ) throws Exception
     {
         final SpreadSheetPoiHelper helper = new SpreadSheetPoiHelper ();
         helper.writeHeader ();
         helper.writeItems ( items );
         helper.autoAdjust ( helper.sheet );
-        helper.write ( filename );
+        helper.write ( file );
     }
 
-    private void write ( final String filename ) throws Exception
+    private void write ( final File file ) throws Exception
     {
-        final FileOutputStream fileOut = new FileOutputStream ( filename );
+        final FileOutputStream fileOut = new FileOutputStream ( file );
         this.workbook.write ( fileOut );
         fileOut.close ();
     }
