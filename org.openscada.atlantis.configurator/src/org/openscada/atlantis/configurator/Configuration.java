@@ -981,7 +981,7 @@ public class Configuration extends GenericConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
-        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ).getAbsolutePath (), this.items ); //$NON-NLS-1$
+        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
         super.write ( baseDir );
     }
 

@@ -28,7 +28,7 @@ public class Application
         final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
         loader.load ( 0, handler );
 
-        SpreadSheetPoiHelper.writeSpreadsheet ( outList, convertDevices ( prefix, handler.getDevices () ) );
+        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( outList ), convertDevices ( prefix, handler.getDevices () ) );
 
         final RootDocument doc = createDoc ( handler.getDevices () );
 
