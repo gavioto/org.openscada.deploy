@@ -432,22 +432,22 @@ public class Configuration extends GenericConfiguration
 
     private void processScriptItem ( final String id, final ScriptItem item ) throws Exception
     {
-        addScript ( id, item.getScriptEngine (), makeMap ( item.getInputs () ), makeSet ( item.getOutputs () ), item.getInitScript (), item.getUpdateScript (), item.getTimerScript (), item.getTimerPeriod (), item.getWriteCommand () );
+        addScript ( id, item.getScriptEngine (), makeMapInputs ( item.getInputs () ), makeMapOutputs ( item.getOutputs () ), item.getInitScript (), item.getUpdateScript (), item.getTimerScript (), item.getTimerPeriod (), item.getWriteCommand () );
     }
 
-    private Set<String> makeSet ( final EList<ScriptOutput> outputs )
+    private Map<String, String> makeMapOutputs ( final EList<ScriptOutput> outputs )
     {
-        final Set<String> result = new HashSet<String> ();
+        final Map<String, String> result = new HashMap<String, String> ();
 
         for ( final ScriptOutput output : outputs )
         {
-            result.add ( output.getDatasourceId () );
+            result.put ( output.getName (), output.getDatasourceId () );
         }
 
         return result;
     }
 
-    private Map<String, String> makeMap ( final EList<FormulaInput> inputs )
+    private Map<String, String> makeMapInputs ( final EList<FormulaInput> inputs )
     {
         final Map<String, String> result = new HashMap<String, String> ();
 
@@ -511,7 +511,7 @@ public class Configuration extends GenericConfiguration
         addData ( "org.openscada.da.manual", id, data ); //$NON-NLS-1$
     }
 
-    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Set<String> outputs, final String init, final String update, final String timerCommand, final Long timer, final String write )
+    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Map<String, String> outputs, final String init, final String update, final String timerCommand, final Long timer, final String write )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
 
@@ -535,7 +535,10 @@ public class Configuration extends GenericConfiguration
         }
         if ( outputs != null && !outputs.isEmpty () )
         {
-            data.put ( "writeSources", StringHelper.join ( outputs, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            for ( final Map.Entry<String, String> entry : dataSources.entrySet () )
+            {
+                data.put ( "writeSource." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
+            }
         }
         if ( timer != null )
         {

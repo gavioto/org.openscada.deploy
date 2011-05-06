@@ -88,12 +88,22 @@ public class ScriptLoadHandler implements RowHandler
 
         {
             // get outputs
-            final String[] toks = rowData.get ( "OUTPUTS" ).split ( "[, \n\t]+" );
-
-            for ( final String tok : toks )
+            final String dataSource = rowData.get ( "OUTPUT" );
+            final String[] toks = dataSource.split ( "[, \n\r]+" );
+            for ( int i = 0; i < toks.length; i++ )
             {
+                final String[] subToks = toks[i].split ( "=", 2 );
                 final ScriptOutput output = ModelFactory.eINSTANCE.createScriptOutput ();
-                output.setDatasourceId ( tok );
+                if ( subToks.length > 1 )
+                {
+                    output.setDatasourceId ( subToks[1] );
+                    output.setName ( subToks[0] );
+                }
+                else
+                {
+                    output.setDatasourceId ( toks[i] );
+                    output.setName ( toks[i] );
+                }
                 item.getOutputs ().add ( output );
             }
         }
