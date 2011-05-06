@@ -116,6 +116,7 @@ public class ScriptLoadHandler implements RowHandler
                     input.setDatasourceId ( toks[i] );
                     input.setName ( "source" + i );
                 }
+                item.getInputs ().add ( input );
             }
         }
 
