@@ -458,6 +458,10 @@
         <element xmi:type="ecore:EAttribute" href="model.ecore#//ScriptOutput/datasourceId"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cT7x4WAiEeCwOqt1B16Tow"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_NXFbgHfxEeCAHuy8nrsVqQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="model.ecore#//ScriptOutput/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_NXFbgXfxEeCAHuy8nrsVqQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_bI_BtWAiEeCwOqt1B16Tow"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_bI_BtmAiEeCwOqt1B16Tow"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_bI_Bt2AiEeCwOqt1B16Tow"/>
