@@ -88,45 +88,51 @@ public class ScriptLoadHandler implements RowHandler
 
         {
             // get outputs
-            final String dataSource = rowData.get ( "OUTPUT" );
-            final String[] toks = dataSource.split ( "[, \n\r]+" );
-            for ( int i = 0; i < toks.length; i++ )
+            final String dataSource = rowData.get ( "OUTPUTS" );
+            if ( dataSource != null && !dataSource.isEmpty () )
             {
-                final String[] subToks = toks[i].split ( "=", 2 );
-                final ScriptOutput output = ModelFactory.eINSTANCE.createScriptOutput ();
-                if ( subToks.length > 1 )
+                final String[] toks = dataSource.split ( "[, \n\r]+" );
+                for ( int i = 0; i < toks.length; i++ )
                 {
-                    output.setDatasourceId ( subToks[1] );
-                    output.setName ( subToks[0] );
+                    final String[] subToks = toks[i].split ( "=", 2 );
+                    final ScriptOutput output = ModelFactory.eINSTANCE.createScriptOutput ();
+                    if ( subToks.length > 1 )
+                    {
+                        output.setDatasourceId ( subToks[1] );
+                        output.setName ( subToks[0] );
+                    }
+                    else
+                    {
+                        output.setDatasourceId ( toks[i] );
+                        output.setName ( toks[i] );
+                    }
+                    item.getOutputs ().add ( output );
                 }
-                else
-                {
-                    output.setDatasourceId ( toks[i] );
-                    output.setName ( toks[i] );
-                }
-                item.getOutputs ().add ( output );
             }
         }
 
         {
             // get inputs
             final String dataSource = rowData.get ( "INPUTS" );
-            final String[] toks = dataSource.split ( "[, \n\r]+" );
-            for ( int i = 0; i < toks.length; i++ )
+            if ( dataSource != null && !dataSource.isEmpty () )
             {
-                final String[] subToks = toks[i].split ( "=", 2 );
-                final FormulaInput input = ModelFactory.eINSTANCE.createFormulaInput ();
-                if ( subToks.length > 1 )
+                final String[] toks = dataSource.split ( "[, \n\r]+" );
+                for ( int i = 0; i < toks.length; i++ )
                 {
-                    input.setDatasourceId ( subToks[1] );
-                    input.setName ( subToks[0] );
+                    final String[] subToks = toks[i].split ( "=", 2 );
+                    final FormulaInput input = ModelFactory.eINSTANCE.createFormulaInput ();
+                    if ( subToks.length > 1 )
+                    {
+                        input.setDatasourceId ( subToks[1] );
+                        input.setName ( subToks[0] );
+                    }
+                    else
+                    {
+                        input.setDatasourceId ( toks[i] );
+                        input.setName ( "source" + i );
+                    }
+                    item.getInputs ().add ( input );
                 }
-                else
-                {
-                    input.setDatasourceId ( toks[i] );
-                    input.setName ( "source" + i );
-                }
-                item.getInputs ().add ( input );
             }
         }
 

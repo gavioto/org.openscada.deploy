@@ -535,7 +535,7 @@ public class Configuration extends GenericConfiguration
         }
         if ( outputs != null && !outputs.isEmpty () )
         {
-            for ( final Map.Entry<String, String> entry : dataSources.entrySet () )
+            for ( final Map.Entry<String, String> entry : outputs.entrySet () )
             {
                 data.put ( "writeSource." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
             }
