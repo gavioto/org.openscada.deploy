@@ -24,6 +24,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.openscada.atlantis.configurator.loop.LoopValidator;
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.core.VariantType;
@@ -1029,10 +1030,21 @@ public class Configuration extends GenericConfiguration
                     item.setName ( origItem.getName () );
                 }
 
+                applyOverrides ( origItem, item );
+
                 // override definition
-                this.items.remove ( origItem );
-                this.items.add ( item );
+                // this.items.remove ( origItem );
+                // this.items.add ( item );
             }
+        }
+    }
+
+    private void applyOverrides ( final Item origItem, final Item item )
+    {
+        for ( final EAttribute attr : item.eClass ().getEAllAttributes () )
+        {
+            final Object value = item.eGet ( attr );
+            origItem.eSet ( attr, value );
         }
     }
 
