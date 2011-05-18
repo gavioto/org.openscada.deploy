@@ -69,7 +69,6 @@ public abstract class GenericSpreadSheetHelper
 
             row++;
         }
-
     }
 
     protected static String makeListData ( final Item item )
