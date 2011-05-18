@@ -80,6 +80,10 @@ public abstract class GenericSpreadSheetHelper
         {
             sb.append ( "ALARM:" );
         }
+        else
+        {
+            sb.append ( "EVENT:" );
+        }
 
         sb.append ( StringHelper.join ( item.getListMonitorItems (), "," ) );
 
