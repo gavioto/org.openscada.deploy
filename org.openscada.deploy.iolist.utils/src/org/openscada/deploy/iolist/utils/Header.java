@@ -227,7 +227,7 @@ public enum Header
     },
     LIST_MONITOR
     {
-        final Pattern splitPattern = Pattern.compile ( "[, \\n\\t\\r]+" );
+        final Pattern splitPattern = Pattern.compile ( "," );
 
         @Override
         public void apply ( final Item item, final Value cValue )
@@ -236,7 +236,7 @@ public enum Header
             {
                 final String value = cValue.getValue ();
                 item.setListMonitorPreset ( true );
-                final String toks[] = value.split ( ":" );
+                final String toks[] = value.split ( ":", 2 );
                 if ( toks.length > 1 )
                 {
                     item.setListMonitorListIsAlarm ( toks[0].toUpperCase ().equals ( "ALARM" ) );
@@ -244,6 +244,14 @@ public enum Header
                     {
                         item.getListMonitorItems ().add ( valueEntry );
                     }
+                }
+                else
+                {
+                    for ( final String valueEntry : this.splitPattern.split ( value ) )
+                    {
+                        item.getListMonitorItems ().add ( valueEntry );
+                    }
+
                 }
             }
             else
