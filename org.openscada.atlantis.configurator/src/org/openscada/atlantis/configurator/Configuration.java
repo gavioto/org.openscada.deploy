@@ -772,6 +772,7 @@ public class Configuration extends GenericConfiguration
         data.put ( "listIsAlarm", listIsAlarm ); //$NON-NLS-1$
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "splitPattern", "," );//$NON-NLS-1$
 
         if ( message != null )
         {
