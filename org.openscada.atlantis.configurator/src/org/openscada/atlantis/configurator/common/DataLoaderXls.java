@@ -24,15 +24,15 @@ public class DataLoaderXls
 
     public DataLoaderXls ( final File file ) throws Exception
     {
-        this ( file, true, 0, 0, null );
+        this ( file, true, 0, 0 );
     }
 
-    public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders, final String encoding ) throws Exception
+    public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders ) throws Exception
     {
-        this ( file, useHeader, skipHeaders, 0, encoding );
+        this ( file, useHeader, skipHeaders, 0 );
     }
 
-    public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders, final int skipPastHeaders, final String encoding ) throws Exception
+    public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders, final int skipPastHeaders ) throws Exception
     {
         final HSSFWorkbook wb = new HSSFWorkbook ( new FileInputStream ( file ) );
 
