@@ -7,7 +7,7 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
-%define version 0.16.0
+%define version 0.17.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      openscada.p2
