@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -1018,6 +1019,11 @@ public class Configuration extends GenericConfiguration
     {
         for ( final Item item : overrides )
         {
+            if ( !item.isEnabled () )
+            {
+                this.logStream.println ( "Override is inactive: " + item ); //$NON-NLS-1$
+                continue;
+            }
             this.logStream.println ( "Trying override: " + item ); //$NON-NLS-1$
 
             final Item origItem = findItemByAlias ( item );
@@ -1032,10 +1038,6 @@ public class Configuration extends GenericConfiguration
                 }
 
                 applyOverrides ( origItem, item );
-
-                // override definition
-                // this.items.remove ( origItem );
-                // this.items.add ( item );
             }
         }
     }
@@ -1076,4 +1078,17 @@ public class Configuration extends GenericConfiguration
         addData ( "ae.monitor.ae.event.external", id, data ); //$NON-NLS-1$
     }
 
+    public void removeInactive ()
+    {
+        final Iterator<Item> i = this.items.iterator ();
+        while ( i.hasNext () )
+        {
+            final Item item = i.next ();
+            if ( !item.isEnabled () )
+            {
+                System.out.println ( String.format ( "   Removing item %s since it is disabled", item.getAlias () ) );
+                i.remove ();
+            }
+        }
+    }
 }

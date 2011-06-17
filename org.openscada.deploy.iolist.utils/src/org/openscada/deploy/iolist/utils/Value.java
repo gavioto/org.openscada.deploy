@@ -6,6 +6,8 @@ public class Value
 
     private RGB backgroundColor;
 
+    private boolean strikeThrough;
+
     private static final RGB defaultColor = new RGB ( 255, 255, 255 );
 
     public void setBackgroundColor ( final RGB backgroundColor )
@@ -43,4 +45,13 @@ public class Value
         return this.value;
     }
 
+    public void setStrikeThrough ( final boolean strikthrough )
+    {
+        this.strikeThrough = strikthrough;
+    }
+
+    public boolean isStrikeThrough ()
+    {
+        return this.strikeThrough;
+    }
 }

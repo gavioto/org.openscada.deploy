@@ -6,10 +6,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.usermodel.HeaderFooter;
@@ -37,6 +39,8 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 
     private final CellStyle headerStyle;
 
+    private final CellStyle strikeoutStyle;
+
     protected SpreadSheetPoiHelper ()
     {
         this.workbook = new HSSFWorkbook ();
@@ -49,8 +53,14 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
         final Font headerFont = this.workbook.createFont ();
         headerFont.setBoldweight ( Font.BOLDWEIGHT_BOLD );
 
+        final Font strikeoutFont = this.workbook.createFont ();
+        strikeoutFont.setStrikeout ( true );
+
         this.headerStyle = this.workbook.createCellStyle ();
         this.headerStyle.setFont ( headerFont );
+
+        this.strikeoutStyle = this.workbook.createCellStyle ();
+        this.strikeoutStyle.setFont ( strikeoutFont );
 
         // enable auto filter
         this.sheet.setAutoFilter ( new CellRangeAddress ( 0, 0, 0, Header.values ().length - 1 ) );
@@ -111,6 +121,17 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
             rowData = sheet.createRow ( row );
         }
         return rowData.createCell ( column );
+    }
+
+    @Override
+    protected void strikeThroughRow ( final int rowIndex ) throws Exception
+    {
+        final Row row = this.sheet.getRow ( rowIndex );
+        for ( final Iterator<Cell> i = row.cellIterator (); i.hasNext (); )
+        {
+            final Cell cell = i.next ();
+            cell.setCellStyle ( this.strikeoutStyle );
+        }
     }
 
     @Override
@@ -300,6 +321,12 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 
                 if ( cell.getCellStyle () != null )
                 {
+                    final HSSFFont font = workbook.getFontAt ( cell.getCellStyle ().getFontIndex () );
+                    if ( font != null )
+                    {
+                        value.setStrikeThrough ( font.getStrikeout () );
+                    }
+
                     final short color = cell.getCellStyle ().getFillForegroundColor ();
                     if ( color == HSSFColor.RED.index )
                     {
