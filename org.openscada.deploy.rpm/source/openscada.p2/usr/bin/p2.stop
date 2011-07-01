@@ -30,7 +30,7 @@ def main(argv):
     cmd = launcher ( argv[0] )
     screenName = getScreenName ( cmd )
     
-    os.execvp ( "screen", ["screen", "-S", screenName, "-X", "exec", ".!!", "/bin/echo", "close" ] )
+    os.execvp ( "screen", ["screen", "-S", screenName, "-X", "stuff", "\nexit\n" ] )
     
 if __name__ == "__main__":
     main(sys.argv[1:])
