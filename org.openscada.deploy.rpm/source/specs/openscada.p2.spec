@@ -21,6 +21,7 @@ Vendor:    TH4 SYSTEMS GmbH <info@th4-systems.com>
 Group:     Applications/System
 Source0:   org.openscada.p2-%{version}.tar.gz
 Prereq: /sbin/ldconfig
+Requires:	screen
 BuildRoot: %{buildroot}
 
 %description
@@ -51,6 +52,9 @@ install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 %_bindir/p2.*
 
 %changelog
+* Wed Jul 13 2011 - jens.reimann@th4-systems.net
+- Add requirement screen
+- Add p2.autostart
 * Thu Dec  9 2010 - jens.reimann@th4-systems.net
 - Change to TH4 and remove profiles
 * Fri May 28 2010 - jens.reimann@inavare.net
