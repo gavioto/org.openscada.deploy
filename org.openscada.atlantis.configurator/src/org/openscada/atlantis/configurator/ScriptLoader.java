@@ -13,7 +13,7 @@ import java.util.Map;
 
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class ScriptLoader
 {
@@ -134,7 +134,7 @@ public class ScriptLoader
             reader.close ();
         }
 
-        SpreadSheetHelper.writeSpreadsheet ( itemFile.getAbsolutePath (), items );
+        SpreadSheetPoiHelper.writeSpreadsheet ( itemFile, items );
 
         return itemFile.getAbsolutePath ();
     }

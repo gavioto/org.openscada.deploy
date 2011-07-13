@@ -14,7 +14,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.utils.SpreadSheetHelper;
+import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class SumLoader
 {
@@ -30,7 +30,7 @@ public class SumLoader
     {
         final Collection<Item> items = new LinkedList<Item> ();
         configureGroups ( cfg, loadGroups ( file ), items, requiredSize );
-        SpreadSheetHelper.writeSpreadsheet ( generatedFile.getAbsolutePath (), items );
+        SpreadSheetPoiHelper.writeSpreadsheet ( generatedFile, items );
         return generatedFile.getAbsolutePath ();
     }
 

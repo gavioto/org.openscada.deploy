@@ -67,6 +67,11 @@ public abstract class GenericSpreadSheetHelper
 
             addFlag ( row, Header.BLOCK.ordinal (), item.isBlock (), false );
 
+            if ( !item.isEnabled () )
+            {
+                strikeThroughRow ( row );
+            }
+
             row++;
         }
     }
@@ -130,6 +135,8 @@ public abstract class GenericSpreadSheetHelper
             addData ( row, column, (String)null, ack );
         }
     }
+
+    protected abstract void strikeThroughRow ( int row ) throws Exception;
 
     protected abstract void addData ( final int row, final int column, final String data, final boolean ack ) throws Exception;
 

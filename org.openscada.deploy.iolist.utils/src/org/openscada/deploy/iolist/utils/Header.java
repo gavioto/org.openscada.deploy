@@ -114,6 +114,7 @@ public enum Header
         public void apply ( final Item item, final Value value )
         {
             item.setAlias ( value.getValue () );
+            item.setEnabled ( !value.isStrikeThrough () );
         }
     },
     MIN

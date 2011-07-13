@@ -116,6 +116,7 @@ public class Application implements IApplication
         applyScriptOverrides ( scriptDBase, cfg );
 
         System.out.println ( "** 3 - Process" );
+        cfg.removeInactive ();
         cfg.generateSummaryAlarms ( SUMMARY_REQUIRED_SIZE );
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();

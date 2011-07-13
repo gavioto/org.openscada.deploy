@@ -5,10 +5,12 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 
 public class DataLoaderXls
@@ -22,20 +24,23 @@ public class DataLoaderXls
 
     private final int skipPastHeaders;
 
+    private final int skipStrikeoutColumn;
+
     public DataLoaderXls ( final File file ) throws Exception
     {
-        this ( file, true, 0, 0 );
+        this ( file, true, 0, 0, -1 );
     }
 
     public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders ) throws Exception
     {
-        this ( file, useHeader, skipHeaders, 0 );
+        this ( file, useHeader, skipHeaders, 0, -1 );
     }
 
-    public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders, final int skipPastHeaders ) throws Exception
+    public DataLoaderXls ( final File file, final boolean useHeader, final int skipHeaders, final int skipPastHeaders, final int skipStrikeoutColumn ) throws Exception
     {
         final HSSFWorkbook wb = new HSSFWorkbook ( new FileInputStream ( file ) );
 
+        this.skipStrikeoutColumn = skipStrikeoutColumn;
         this.workbook = wb;
         this.useHeader = useHeader;
         this.skipHeaders = skipHeaders;
@@ -66,11 +71,46 @@ public class DataLoaderXls
             }
             if ( i > this.skipHeaders + this.skipPastHeaders )
             {
-                rowHandler.handleRow ( i, mapRow ( header, loadRow ( sheet, row ) ) );
+                if ( !isStrikeout ( row ) )
+                {
+                    rowHandler.handleRow ( i, mapRow ( header, loadRow ( sheet, row ) ) );
+                }
+                else
+                {
+                    System.out.println ( String.format ( "Skipping row #%s, since it is striked out", i ) );
+                }
             }
             i++;
         }
 
+    }
+
+    private boolean isStrikeout ( final Row row )
+    {
+        if ( this.skipStrikeoutColumn < 0 )
+        {
+            return false;
+        }
+
+        final Cell col = row.getCell ( this.skipStrikeoutColumn );
+
+        if ( col == null )
+        {
+            return false;
+        }
+
+        final CellStyle style = col.getCellStyle ();
+        if ( style == null )
+        {
+            return false;
+        }
+
+        final HSSFFont font = this.workbook.getFontAt ( style.getFontIndex () );
+        if ( font == null )
+        {
+            return false;
+        }
+        return font.getStrikeout ();
     }
 
     private static Map<String, String> mapRow ( final Map<Integer, String> header, final Map<Integer, String> data )
