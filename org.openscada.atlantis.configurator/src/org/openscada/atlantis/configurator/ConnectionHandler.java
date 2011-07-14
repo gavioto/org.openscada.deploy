@@ -6,9 +6,9 @@ import org.openscada.atlantis.configurator.common.RowHandler;
 
 public class ConnectionHandler implements RowHandler
 {
-    private final Configuration configuration;
+    private final GenericMasterConfiguration configuration;
 
-    public ConnectionHandler ( final Configuration configuration )
+    public ConnectionHandler ( final GenericMasterConfiguration configuration )
     {
         this.configuration = configuration;
     }

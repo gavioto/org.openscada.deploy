@@ -2,13 +2,13 @@ package org.openscada.atlantis.configurator.script;
 
 import java.io.File;
 
-import org.openscada.atlantis.configurator.Configuration;
+import org.openscada.atlantis.configurator.GenericMasterConfiguration;
 import org.openscada.atlantis.configurator.common.DataLoader;
 
 public class ScriptLoader
 {
 
-    public static String loadScripts ( final Configuration cfg, final File file, final File generatedFile, final File outputDir ) throws Exception
+    public static String loadScripts ( final GenericMasterConfiguration cfg, final File file, final File generatedFile, final File outputDir ) throws Exception
     {
         final File scriptBase = file.getParentFile ();
 
