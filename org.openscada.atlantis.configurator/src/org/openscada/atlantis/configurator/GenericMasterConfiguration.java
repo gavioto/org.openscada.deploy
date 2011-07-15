@@ -70,7 +70,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
         {
             data.put ( "prefix", prefix ); //$NON-NLS-1$
         }
-        addData ( String.format ( "da.master.handler.sum", type ), id, data ); //$NON-NLS-1$
+        addData ( "da.master.handler.sum", id, data ); //$NON-NLS-1$
     }
 
     public void addSource ( final String id, final String itemId, final String connectionId )
