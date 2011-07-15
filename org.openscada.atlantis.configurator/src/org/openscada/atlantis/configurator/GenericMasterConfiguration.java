@@ -1,9 +1,14 @@
 package org.openscada.atlantis.configurator;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
+import org.openscada.utils.str.StringHelper;
 
 public class GenericMasterConfiguration extends GenericConfiguration
 {
@@ -69,11 +74,23 @@ public class GenericMasterConfiguration extends GenericConfiguration
     public void addSource ( final String id, final String itemId, final String connectionId )
     {
         final Map<String, Object> data = new HashMap<String, Object> ();
-    
+
         data.put ( "item.id", itemId ); //$NON-NLS-1$
         data.put ( "connection.id", connectionId ); //$NON-NLS-1$
-    
+
         addData ( "da.datasource.dataitem", id, data ); //$NON-NLS-1$
+    }
+
+    public void addProxy ( final String id, final Set<String> sources )
+    {
+        final Map<String, Object> data = new HashMap<String, Object> ();
+
+        final List<String> sourceList = new ArrayList<String> ( sources );
+        Collections.sort ( sourceList );
+
+        data.put ( "sources", StringHelper.join ( sourceList, ", " ) );
+
+        addData ( "da.datasource.proxy", id, data ); //$NON-NLS-1$
     }
 
 }
