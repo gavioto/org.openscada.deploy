@@ -536,9 +536,21 @@ public class Configuration extends GenericMasterConfiguration
         }
         if ( outputs != null && !outputs.isEmpty () )
         {
+            final Set<String> oldSources = new HashSet<String> ();
             for ( final Map.Entry<String, String> entry : outputs.entrySet () )
             {
-                data.put ( "writeSource." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
+                if ( entry.getKey () == null )
+                {
+                    oldSources.add ( entry.getValue () );
+                }
+                else
+                {
+                    data.put ( "writeSource." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
+                }
+            }
+            if ( !oldSources.isEmpty () )
+            {
+                data.put ( "writeSources", StringHelper.join ( oldSources, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
             }
         }
         if ( timer != null )
