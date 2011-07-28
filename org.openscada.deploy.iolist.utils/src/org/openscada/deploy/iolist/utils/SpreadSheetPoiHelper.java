@@ -348,10 +348,17 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 
         for ( int i = 0; i < row.getLastCellNum (); i++ )
         {
-            final Header header = Header.valueOf ( row.getCell ( i ).getStringCellValue () );
-            if ( header != null )
+            try
             {
-                headerMap.put ( i, header );
+                final Header header = Header.valueOf ( row.getCell ( i ).getStringCellValue () );
+                if ( header != null )
+                {
+                    headerMap.put ( i, header );
+                }
+            }
+            catch ( final IllegalArgumentException e )
+            {
+                // ignore extra header
             }
         }
         return headerMap;
