@@ -13,7 +13,7 @@ from os.path import exists, join, abspath, basename, dirname
 def launcher(instancePath):
     
     if not exists(instancePath):
-        raise Exception("The path " + instancePath+" does not exist") 
+        raise Exception("The path " + instancePath + " does not exist") 
 
     cmd = instancePath + sep + "launcher"
 
