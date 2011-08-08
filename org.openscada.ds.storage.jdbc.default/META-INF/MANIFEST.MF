@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.openscada.ds.storage.jdbc.default
 Bundle-Version: 0.15.0.qualifier
 Bundle-Vendor: inavare GmbH
 Fragment-Host: org.openscada.ds.storage.jdbc;bundle-version="0.15.0"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.hsqldb;version="1.8.0",
  org.hsqldb.index;version="1.8.0",
  org.hsqldb.jdbc;version="1.8.0",
