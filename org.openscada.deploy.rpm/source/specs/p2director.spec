@@ -4,7 +4,7 @@
 
 %define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
 
-%define version 3.6.1
+%define version 3.7.0
 
 %define _datadir /usr/share
 %define _bindir /usr/bin
