@@ -112,8 +112,12 @@
           target: rpm.wrap                      
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.wrap" depends="copySpec,rpm.init">
+    	<!--
     	<wrapP2 name="org.eclipse.platform" version="3.6.1" src="http://download.openscada.org/mirror" file="org.eclipse.platform-3.6.1.zip"/>
     	<wrapP2 name="org.eclipse.rcp" version="3.6.1" src="http://download.openscada.org/mirror" file="org.eclipse.rcp-3.6.1.zip"/>
+    	-->
+    	<wrapP2 name="org.eclipse.platform" version="3.7.0" src="http://download.openscada.org/mirror" file="org.eclipse.platform-3.7.zip"/>
+    	<wrapP2 name="org.eclipse.rcp" version="3.7.0" src="http://download.openscada.org/mirror" file="org.eclipse.rcp-3.7.zip"/>
     	
     	<wrapP2 name="org.openscada.external" version="${version.external.id}" src="http://download.openscada.org/external/${version.external.type}/${version.external.id}" file="org.openscada.external-${version.external.id}-p2repo.zip"/>
     	<wrapP2 name="org.openscada.aurora.sdk" version="${version.aurora.id}" src="http://download.openscada.org/aurora/${version.aurora.type}/${version.aurora.id}" file="org.openscada.aurora.sdk-${version.aurora.id}-p2repo.zip"/>
