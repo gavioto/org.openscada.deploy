@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.openscada.deploy_0.15.0.qualifier.jar" id="org.openscada.deploy" version="0.15.0.qualifier">
+   <feature url="features/org.openscada.deploy_0.17.0.qualifier.jar" id="org.openscada.deploy" version="0.17.0.qualifier">
       <category name="org.openscada.deploy"/>
    </feature>
-   <feature url="features/org.openscada.deploy.defaults_0.15.0.qualifier.jar" id="org.openscada.deploy.defaults" version="0.15.0.qualifier">
+   <feature url="features/org.openscada.deploy.defaults_0.17.0.qualifier.jar" id="org.openscada.deploy.defaults" version="0.17.0.qualifier">
       <category name="org.openscada.deploy.defaults"/>
    </feature>
    <category-def name="org.openscada.deploy" label="OpenSCADA Deploy"/>

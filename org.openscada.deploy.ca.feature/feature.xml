@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.openscada.deploy.ca"
-      label="OpenSCADA Deploy CA Feature"
-      version="0.15.0.qualifier"
-      provider-name="inavare GmbH">
+      label="openSCADA Deploy CA Feature"
+      version="0.17.0.qualifier"
+      provider-name="TH4 SYSTEMS GmbH">
 
    <description>
       This features packs together components needed to deploy a CA including WebService and Servlet access.
    </description>
 
- <copyright url="http://opensource.org/licenses/lgpl-3.0.html">
+   <copyright url="http://opensource.org/licenses/lgpl-3.0.html">
       &lt;pre&gt;
       This file is part of the OpenSCADA project
 Copyright (C) 2006-2010 inavare GmbH (http://th4-systems.com)
