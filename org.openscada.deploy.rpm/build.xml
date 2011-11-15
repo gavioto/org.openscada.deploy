@@ -14,6 +14,8 @@
 
 	<property name="rpm.base" location="${basedir}/build"/>
 	<property name="SOURCES" location="${rpm.base}/SOURCES" />
+	<property name="openscada.base" value="http://download.openscada.org/deploy"/>
+	
 	<property file="versions.properties"/>
 	
 	<import file="lib.xml"/>
@@ -45,8 +47,8 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="download" unless="skipDownload">
     	<mkdir dir="${SOURCES}"/>
-    	<get usetimestamp="true" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}/p2director/p2director-linux.gtk.x86.zip" dest="${SOURCES}/p2director-linux.gtk.x86.zip"/> 
-    	<get usetimestamp="true" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}/p2director/p2director-linux.gtk.x86_64.zip" dest="${SOURCES}/p2director-linux.gtk.x86_64.zip"/>
+    	<get usetimestamp="true" src="${openscada.base}/deploy/${version.deploy.type}/${version.deploy.id}/p2director/p2director-linux.gtk.x86.zip" dest="${SOURCES}/p2director-linux.gtk.x86.zip"/> 
+    	<get usetimestamp="true" src="${openscada.base}/deploy/${version.deploy.type}/${version.deploy.id}/p2director/p2director-linux.gtk.x86_64.zip" dest="${SOURCES}/p2director-linux.gtk.x86_64.zip"/>
     </target>
 	
 	<!-- ================================= 
@@ -119,12 +121,12 @@
     	<wrapP2 name="org.eclipse.platform" version="3.7.0" src="http://download.openscada.org/mirror" file="org.eclipse.platform-3.7.zip"/>
     	<wrapP2 name="org.eclipse.rcp" version="3.7.0" src="http://download.openscada.org/mirror" file="org.eclipse.rcp-3.7.zip"/>
     	
-    	<wrapP2 name="org.openscada.external" version="${version.external.id}" src="http://download.openscada.org/external/${version.external.type}/${version.external.id}" file="org.openscada.external-${version.external.id}-p2repo.zip"/>
-    	<wrapP2 name="org.openscada.aurora.sdk" version="${version.aurora.id}" src="http://download.openscada.org/aurora/${version.aurora.type}/${version.aurora.id}" file="org.openscada.aurora.sdk-${version.aurora.id}-p2repo.zip"/>
-    	<wrapP2 name="org.openscada.oxygen.sdk" version="${version.oxygen.id}" src="http://download.openscada.org/oxygen/${version.oxygen.type}/${version.oxygen.id}" file="org.openscada.oxygen.sdk-${version.oxygen.id}-p2repo.zip"/>
-    	<wrapP2 name="org.openscada.utgard.sdk" version="${version.utgard.id}" src="http://download.openscada.org/utgard/${version.utgard.type}/${version.utgard.id}" file="org.openscada.utgard.sdk-${version.utgard.id}-p2repo.zip"/>
-    	<wrapP2 name="org.openscada.atlantis.sdk" version="${version.atlantis.id}" src="http://download.openscada.org/atlantis/${version.atlantis.type}/${version.atlantis.id}" file="org.openscada.atlantis.sdk-${version.atlantis.id}-p2repo.zip"/>
-    	<wrapP2 name="org.openscada.deploy" version="${version.deploy.id}" src="http://download.openscada.org/deploy/${version.deploy.type}/${version.deploy.id}" file="org.openscada.deploy.repo-${version.deploy.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.external" version="${version.external.id}" src="${openscada.base}/external/${version.external.type}/${version.external.id}" file="org.openscada.external-${version.external.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.aurora.sdk" version="${version.aurora.id}" src="${openscada.base}/aurora/${version.aurora.type}/${version.aurora.id}" file="org.openscada.aurora.sdk-${version.aurora.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.oxygen.sdk" version="${version.oxygen.id}" src="${openscada.base}/oxygen/${version.oxygen.type}/${version.oxygen.id}" file="org.openscada.oxygen.sdk-${version.oxygen.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.utgard.sdk" version="${version.utgard.id}" src="${openscada.base}/utgard/${version.utgard.type}/${version.utgard.id}" file="org.openscada.utgard.sdk-${version.utgard.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.atlantis.sdk" version="${version.atlantis.id}" src="${openscada.base}/atlantis/${version.atlantis.type}/${version.atlantis.id}" file="org.openscada.atlantis.sdk-${version.atlantis.id}-p2repo.zip"/>
+    	<wrapP2 name="org.openscada.deploy" version="${version.deploy.id}" src="${openscada.base}/deploy/${version.deploy.type}/${version.deploy.id}" file="org.openscada.deploy.repo-${version.deploy.id}-p2repo.zip"/>
     	
     	<!--
     	<wrapP2 name="org.equinox.sdk" version="3.6.1" src="http://download.openscada.org/mirror" file="equinox-SDK-3.5.2.zip"/>
