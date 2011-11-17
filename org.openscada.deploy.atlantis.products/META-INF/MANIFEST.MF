@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: OpenSCADA Atlantis Products
+Bundle-Name: openSCADA Atlantis Products
 Bundle-SymbolicName: org.openscada.deploy.atlantis.products;singleton:=true
-Bundle-Version: 0.15.0.qualifier
+Bundle-Version: 0.18.0.qualifier
 Bundle-Activator: org.openscada.atlantis.products.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
