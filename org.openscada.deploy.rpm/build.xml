@@ -38,7 +38,8 @@
           target: clean                      
          - - - - - - - - - - - - - - - - - -->
     <target name="clean" depends="rpm.clean">
-		<delete dir="build"/>
+		<delete dir="build" failonerror="false"/>
+    	<delete dir="${output.dir}" failonerror="false"/>
     </target>
 	
 	<!-- ================================= 
@@ -68,8 +69,22 @@
 	<!-- ================================= 
           target: rpm              
          ================================= -->
-    <target name="rpm" depends="rpm.clean,rpm.init,rpm.openscada.p2,rpm.wrap,rpm.p2director" description="Build the RPM">
+    <target name="rpm" depends="rpm.clean,rpm.init,rpm.openscada.p2,rpm.wrap,rpm.p2director,rpm.gather" description="Build the RPM">
     </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: rpm.gather                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="rpm.gather">
+    	<mkdir dir="${output.dir}"/>
+		<copy todir="${output.dir}">
+			<fileset dir="${build.root}/build/RPMS">
+				<include name="**/*.rpm"/>
+			</fileset>
+			<mapper type="flatten"/>
+    	</copy>
+    </target>
+
 
 	<!-- - - - - - - - - - - - - - - - - - 
           target: rpm.init                      
