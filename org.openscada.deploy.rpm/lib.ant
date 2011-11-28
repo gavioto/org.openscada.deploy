@@ -12,17 +12,14 @@
             OpenSCADA Deploy Library
     </description>
 
-	<property file="versions.properties"/>
-	
 	<macrodef name="wrapP2">
 		<attribute name="name" />
 		<attribute name="version" />
-		<attribute name="src" />
 		<attribute name="file" />
 		<sequential>
 
 			<mkdir dir="${rpm.base}/SOURCES"/>
-			<get usetimestamp="true" dest="${rpm.base}/SOURCES/@{file}" src="@{src}/@{file}"/>
+			<copy tofile="${rpm.base}/SOURCES/@{file}" file="${input.dir}/repos/@{file}"/>
 			<checksum algorithm="SHA1" file="${rpm.base}/SOURCES/@{file}" property="checksum"/>
 			<echo message="Checksum: ${checksum} - @{file}" />
 			

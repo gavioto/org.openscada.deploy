@@ -6,7 +6,7 @@
 
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
-%define version 0.15.0
+%define version 0.18.0
 
 Name:      openscada.p2.external
 Summary:   The openscada external P2 repository
@@ -29,7 +29,7 @@ Requires: openscada.p2
 
 %install
 install -d %buildroot/%_repodir
-install ../SOURCES/org.openscada.external-0.15.0-p2repo.zip %buildroot/%_repodir/
+install ../SOURCES/org.openscada.external-0.18.0-p2repo.zip %buildroot/%_repodir/
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
@@ -39,7 +39,7 @@ install ../SOURCES/org.openscada.external-0.15.0-p2repo.zip %buildroot/%_repodir
 %postun
 
 %files
-%_repodir/org.openscada.external-0.15.0-p2repo.zip
+%_repodir/org.openscada.external-0.18.0-p2repo.zip
 
 %changelog
 * Thu Dec  9 2010 - jens.reimann@th4-systems.net
