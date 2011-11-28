@@ -165,6 +165,7 @@
   <!-- ===================================================================== -->
   <target name="postBuild">
     <antcall target="gatherLogs" />
+  	<openscada.deploy.product name="p2director"/>
   </target>
 
   <!-- ===================================================================== -->
