@@ -32,7 +32,6 @@
 		<echo message="rpm.base = ${rpm.base}"/>
     	<echo message="SOURCES = ${SOURCES}"/>
     </target>
-
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: clean                      
