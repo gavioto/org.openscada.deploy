@@ -119,7 +119,6 @@
     	<wrapP2 name="org.openscada.deploy" version="${deploy.version}" file="org.openscada.deploy.repo-${deploy.version}-p2repo.zip"/>
     </target>
 
-
 	<!-- - - - - - - - - - - - - - - - - - 
           target: rpm.p2director                      
          - - - - - - - - - - - - - - - - - -->
