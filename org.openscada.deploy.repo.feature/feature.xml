@@ -204,8 +204,4 @@ Library.
          id="org.openscada.deploy"
          version="0.0.0"/>
 
-   <includes
-         id="org.openscada.deploy.defaults"
-         version="0.0.0"/>
-
 </feature>
