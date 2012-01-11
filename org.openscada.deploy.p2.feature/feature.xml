@@ -2,8 +2,8 @@
 <feature
       id="org.openscada.deploy.p2"
       label="P2 Feature"
-      version="0.15.0.qualifier"
-      provider-name="inavare GmbH">
+      version="0.17.0.qualifier"
+      provider-name="TH4 SYSTEMS GmbH">
 
    <description>
       This feature packs together P2 components used in OpenSCADA servers.

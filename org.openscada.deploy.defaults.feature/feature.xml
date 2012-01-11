@@ -2,8 +2,8 @@
 <feature
       id="org.openscada.deploy.defaults"
       label="OpenSCADA Deploy Defaults"
-      version="0.15.0.qualifier"
-      provider-name="inavare GmbH">
+      version="0.17.0.qualifier"
+      provider-name="TH4 SYSTEMS GmbH">
 
    <description url="http://openscada.org">
       This feature contains default fragments for some bundles that need additionals fragments as configuration. For example the org.openscada.ca.jdbc bundle needs a fragment containing the actual JDBC driver and configuration.
