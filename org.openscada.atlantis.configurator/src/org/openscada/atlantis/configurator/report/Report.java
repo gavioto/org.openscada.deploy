@@ -44,6 +44,9 @@ public class Report
         final OdfTextDocument odt = OdfTextDocument.newTextDocument ();
         cleanOutDocument ( odt );
 
+        odt.getOfficeMetadata ().setTitle ( Messages.getString ( "Report.title" ) ); //$NON-NLS-1$
+        odt.getOfficeMetadata ().setSubject ( Messages.getString ( "Report.subtitle" ) ); //$NON-NLS-1$
+
         createStyles ( odt );
 
         final TextTableOfContentElement toc = new TextTableOfContentElement ( odt.getContentDom () );
