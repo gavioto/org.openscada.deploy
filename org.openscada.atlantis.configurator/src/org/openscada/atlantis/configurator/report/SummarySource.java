@@ -33,12 +33,12 @@ public class SummarySource implements Source
             aliasMap.put ( this.cfg.makeMasterId ( item ), item );
         }
 
-        OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString("SummarySource.description") ); //$NON-NLS-1$
+        OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString ( "SummarySource.description" ) ); //$NON-NLS-1$
 
         final OdfTable table = OdfTable.newTable ( odt, this.items.size () + 1, 2, 1, 0 );
 
-        table.getCellByPosition ( 0, 0 ).setStringValue ( Messages.getString("SummarySource.header.external") ); //$NON-NLS-1$
-        table.getCellByPosition ( 1, 0 ).setStringValue ( Messages.getString("SummarySource.header.internal") ); //$NON-NLS-1$
+        OdfHelper.setCell ( table, 0, 0, Messages.getString ( "SummarySource.header.external" ), OdfHelper.TABLE_HEADING ); //$NON-NLS-1$
+        OdfHelper.setCell ( table, 1, 0, Messages.getString ( "SummarySource.header.internal" ), OdfHelper.TABLE_HEADING ); //$NON-NLS-1$
 
         int i = 1;
         for ( final SummaryItem item : this.items )
@@ -47,12 +47,12 @@ public class SummarySource implements Source
 
             if ( iitem != null )
             {
-                table.getCellByPosition ( 0, i ).setStringValue ( iitem.getAlias () );
+                OdfHelper.setCell ( table, 0, i, iitem.getAlias (), OdfHelper.TABLE_CONTENTS );
             }
 
-            table.getCellByPosition ( 1, i ).setStringValue ( item.getDataSourceId () );
+            OdfHelper.setCell ( table, 1, i, item.getDataSourceId (), OdfHelper.TABLE_CONTENTS );
             i++;
         }
-    }
 
+    }
 }

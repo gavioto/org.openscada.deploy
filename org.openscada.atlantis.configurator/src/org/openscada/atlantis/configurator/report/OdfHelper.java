@@ -5,15 +5,20 @@ import java.util.Map;
 
 import org.odftoolkit.odfdom.doc.OdfTextDocument;
 import org.odftoolkit.odfdom.doc.table.OdfTable;
+import org.odftoolkit.odfdom.doc.table.OdfTableCell;
 import org.odftoolkit.odfdom.dom.element.text.TextListItemElement;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfTextList;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfTextParagraph;
 
 public class OdfHelper
 {
-    public static final String SOURCE_TEXT = "Screen text"; //$NON-NLS-1$
+    public static final String SOURCE_TEXT = "Screen Text"; //$NON-NLS-1$
 
     public static final String TEXT_BODY = "Text body"; //$NON-NLS-1$
+
+    public static final String TABLE_HEADING = "Table Heading";//$NON-NLS-1$
+
+    public static final String TABLE_CONTENTS = "Table Contents";//$NON-NLS-1$
 
     public static void createMapTable ( final OdfTextDocument odt, final Map<String, String> data )
     {
@@ -29,6 +34,9 @@ public class OdfHelper
         {
             table.getCellByPosition ( 0, i ).setStringValue ( entry.getKey () );
             table.getCellByPosition ( 1, i ).setStringValue ( entry.getValue () );
+
+            table.getCellByPosition ( 0, i ).getOdfElement ().setStyleName ( TABLE_HEADING );
+            table.getCellByPosition ( 1, i ).getOdfElement ().setStyleName ( TABLE_CONTENTS );
             i++;
         }
     }
@@ -45,6 +53,13 @@ public class OdfHelper
 
         odt.getContentRoot ().appendChild ( list );
         return list;
+    }
+
+    public static void setCell ( final OdfTable table, final int col, final int row, final String content, final String style )
+    {
+        final OdfTableCell cell = table.getCellByPosition ( col, row );
+        cell.setStringValue ( content );
+        cell.getOdfElement ().setStyleName ( style );
     }
 
     public static OdfTextParagraph newStyledParagraph ( final OdfTextDocument odt, final String style, final String content ) throws Exception
