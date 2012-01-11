@@ -18,23 +18,23 @@ public class BaseInformation
 
         if ( hive != null )
         {
-            this.data.put ( "Driver Name", hive );
+            this.data.put ( Messages.getString("BaseInformation.driverName"), hive ); //$NON-NLS-1$
         }
         if ( system != null )
         {
-            this.data.put ( "System", system );
+            this.data.put ( Messages.getString("BaseInformation.system"), system ); //$NON-NLS-1$
         }
         if ( location != null )
         {
-            this.data.put ( "Location", location );
+            this.data.put ( Messages.getString("BaseInformation.location"), location ); //$NON-NLS-1$
         }
         if ( component != null )
         {
-            this.data.put ( "Component", component );
+            this.data.put ( Messages.getString("BaseInformation.component"), component ); //$NON-NLS-1$
         }
         if ( description != null )
         {
-            this.data.put ( "Description", description );
+            this.data.put ( Messages.getString("BaseInformation.description"), description ); //$NON-NLS-1$
         }
         this.logger = logger;
     }
@@ -44,7 +44,7 @@ public class BaseInformation
         OdfHelper.createMapTable ( odt, this.data );
         if ( this.logger )
         {
-            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "All value, write requests and state changes of this item are logged into AE." );
+            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString("BaseInformation.loggerText") ); //$NON-NLS-1$
         }
     }
 

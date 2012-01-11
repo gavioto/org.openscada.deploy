@@ -350,7 +350,7 @@ public class Configuration extends GenericMasterConfiguration
             attributes.put ( "message", item.getDescription () ); //$NON-NLS-1$
             attributes.put ( "item", internalItemId ); //$NON-NLS-1$
 
-            reportItem.setBasicInformation ( attributes.get ( "hive" ), attributes.get ( "system" ), attributes.get ( "location" ), attributes.get ( "component" ), attributes.get ( "message" ), item.isEventCommand () );
+            reportItem.setBasicInformation ( attributes.get ( "hive" ), attributes.get ( "system" ), attributes.get ( "location" ), attributes.get ( "component" ), attributes.get ( "message" ), item.isEventCommand () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 
             if ( item.isRemoteBool () )
             {
@@ -379,12 +379,12 @@ public class Configuration extends GenericMasterConfiguration
                 addWriteLogger ( internalItemId + ".logger", masterId, attributes ); //$NON-NLS-1$
             }
             addNegate ( masterId + ".negate", masterId, false ); //$NON-NLS-1$
-            reportItem.addFeature ( "Negation of input value. Initially switch off." );
+            reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.negate" ) ); //$NON-NLS-1$
 
             if ( item.isLocalManual () )
             {
                 addLocalManual ( masterId + ".manual", masterId, attributes ); //$NON-NLS-1$
-                reportItem.addFeature ( "Manually override a process value." );
+                reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.manual" ) ); //$NON-NLS-1$
             }
 
             if ( item.isLocalScaleAvailable () )
@@ -401,7 +401,7 @@ public class Configuration extends GenericMasterConfiguration
             if ( item.isBlock () )
             {
                 addBlock ( masterId + ".block", masterId ); //$NON-NLS-1$
-                reportItem.addFeature ( "Access to the item can be blocked." );
+                reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.block" ) ); //$NON-NLS-1$
             }
         }
 
@@ -410,23 +410,24 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addLocalScaleFeature ( final Item item, final DataItem reportItem )
     {
-        final StringBuilder sb = new StringBuilder ( "Applying a factor and offset to the input value." );
+        final StringBuilder sb = new StringBuilder ( Messages.getString ( "Configuration.report.feature.scale.1" ) ); //$NON-NLS-1$
         if ( item.getLocalScaleFactor () != null )
         {
-            sb.append ( String.format ( " The initial factor is set to %f", item.getLocalScaleFactor () ) );
+            sb.append ( String.format ( Messages.getString ( "Configuration.report.feature.scale.2" ), item.getLocalScaleFactor () ) ); //$NON-NLS-1$
         }
         else
         {
-            sb.append ( " The initial factor is not set." );
+            sb.append ( Messages.getString ( "Configuration.report.feature.scale.3" ) ); //$NON-NLS-1$
         }
         if ( item.getLocalScaleOffset () != null )
         {
-            sb.append ( String.format ( " The initial offset is set to %f", item.getLocalScaleOffset () ) );
+            sb.append ( String.format ( Messages.getString ( "Configuration.report.feature.scale.4" ), item.getLocalScaleOffset () ) ); //$NON-NLS-1$
         }
         else
         {
-            sb.append ( " The initial offset is not set." );
+            sb.append ( Messages.getString ( "Configuration.report.feature.scale.5" ) ); //$NON-NLS-1$
         }
+
         reportItem.addFeature ( sb.toString () );
     }
 
@@ -840,7 +841,7 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "listIsAlarm", listIsAlarm ); //$NON-NLS-1$
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "splitPattern", "," );//$NON-NLS-1$
+        data.put ( "splitPattern", "," );//$NON-NLS-1$ //$NON-NLS-2$
 
         if ( message != null )
         {
@@ -998,7 +999,7 @@ public class Configuration extends GenericMasterConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
-        this.report.write ( new File ( baseDir, "report.odt" ) );
+        this.report.write ( new File ( baseDir, "report.odt" ) ); //$NON-NLS-1$
         SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
         super.write ( baseDir );
     }
@@ -1098,7 +1099,7 @@ public class Configuration extends GenericMasterConfiguration
             final Item item = i.next ();
             if ( !item.isEnabled () )
             {
-                System.out.println ( String.format ( "   Removing item %s since it is disabled", item.getAlias () ) );
+                System.out.println ( String.format ( "   Removing item %s since it is disabled", item.getAlias () ) ); //$NON-NLS-1$
                 i.remove ();
             }
         }

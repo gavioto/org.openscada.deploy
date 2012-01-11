@@ -11,9 +11,9 @@ import org.odftoolkit.odfdom.incubator.doc.text.OdfTextParagraph;
 
 public class OdfHelper
 {
-    public static final String SOURCE_TEXT = "Screen text";
+    public static final String SOURCE_TEXT = "Screen text"; //$NON-NLS-1$
 
-    public static final String TEXT_BODY = "Text body";
+    public static final String TEXT_BODY = "Text body"; //$NON-NLS-1$
 
     public static void createMapTable ( final OdfTextDocument odt, final Map<String, String> data )
     {

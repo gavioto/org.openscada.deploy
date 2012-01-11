@@ -33,12 +33,12 @@ public class SummarySource implements Source
             aliasMap.put ( this.cfg.makeMasterId ( item ), item );
         }
 
-        OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "The item is an summary aggregation of a group of other items." );
+        OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString("SummarySource.description") ); //$NON-NLS-1$
 
         final OdfTable table = OdfTable.newTable ( odt, this.items.size () + 1, 2, 1, 0 );
 
-        table.getCellByPosition ( 0, 0 ).setStringValue ( "External Name" );
-        table.getCellByPosition ( 1, 0 ).setStringValue ( "Internal ID" );
+        table.getCellByPosition ( 0, 0 ).setStringValue ( Messages.getString("SummarySource.header.external") ); //$NON-NLS-1$
+        table.getCellByPosition ( 1, 0 ).setStringValue ( Messages.getString("SummarySource.header.internal") ); //$NON-NLS-1$
 
         int i = 1;
         for ( final SummaryItem item : this.items )

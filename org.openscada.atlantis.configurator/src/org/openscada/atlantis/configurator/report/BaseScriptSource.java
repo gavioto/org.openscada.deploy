@@ -9,7 +9,7 @@ public abstract class BaseScriptSource implements Source
 
     protected void writeScript ( final OdfTextDocument odt, final String script ) throws Exception
     {
-        final StringTokenizer tok = new StringTokenizer ( script, "\n" );
+        final StringTokenizer tok = new StringTokenizer ( script, "\n" ); //$NON-NLS-1$
         while ( tok.hasMoreElements () )
         {
             OdfHelper.newStyledParagraph ( odt, OdfHelper.SOURCE_TEXT, tok.nextToken () );

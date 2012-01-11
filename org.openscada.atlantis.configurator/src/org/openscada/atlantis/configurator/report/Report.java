@@ -71,9 +71,9 @@ public class Report
 
         final OdfStyle style = styles.newStyle ( OdfHelper.SOURCE_TEXT, OdfStyleFamily.Paragraph );
         style.setStyleParentStyleNameAttribute ( OdfHelper.TEXT_BODY );
-        style.setProperty ( OdfParagraphProperties.Margin, "1cm" );
-        style.setProperty ( OdfParagraphProperties.BackgroundColor, "#DDDDDD" );
-        setFontFamily ( style, "Courier New" );
+        style.setProperty ( OdfParagraphProperties.Margin, "1cm" ); //$NON-NLS-1$
+        style.setProperty ( OdfParagraphProperties.BackgroundColor, "#DDDDDD" ); //$NON-NLS-1$
+        setFontFamily ( style, "Courier New" ); //$NON-NLS-1$
     }
 
     void cleanOutDocument ( final OdfTextDocument odt ) throws DOMException, Exception
@@ -90,7 +90,7 @@ public class Report
     private void writeItems ( final OdfTextDocument odt ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
-        heading.addStyledContent ( "Heading 1", "Available Items" );
+        heading.addStyledContent ( "Heading 1", Messages.getString("Report.header.availaleItems") ); //$NON-NLS-1$ //$NON-NLS-2$
         heading.setTextOutlineLevelAttribute ( 1 );
 
         odt.getContentRoot ().appendChild ( heading );
@@ -104,12 +104,12 @@ public class Report
     private void writeItem ( final OdfTextDocument odt, final DataItem item ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
-        heading.addStyledContent ( "Heading 2", item.getId () );
+        heading.addStyledContent ( "Heading 2", item.getId () ); //$NON-NLS-1$
         heading.setTextOutlineLevelAttribute ( 2 );
 
         odt.getContentRoot ().appendChild ( heading );
 
-        OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, String.format ( "The item is internally referenced as »%s«.", item.getInternalId () ) );
+        OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, String.format ( Messages.getString("Report.item.internalReference"), item.getInternalId () ) ); //$NON-NLS-1$
 
         if ( item.getBaseInformation () != null )
         {
@@ -120,7 +120,7 @@ public class Report
 
         if ( !item.getFeatures ().isEmpty () )
         {
-            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "The following features are supported by this item:" );
+            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString("Report.item.features") ); //$NON-NLS-1$
             OdfHelper.newTextList ( odt, item.getFeatures () );
         }
 
@@ -131,14 +131,14 @@ public class Report
     private void writeItemMonitors ( final OdfTextDocument odt, final DataItem item ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
-        heading.addStyledContent ( "Heading 3", "Monitors" );
+        heading.addStyledContent ( "Heading 3", Messages.getString("Report.heading.monitors") ); //$NON-NLS-1$ //$NON-NLS-2$
         heading.setTextOutlineLevelAttribute ( 3 );
 
         odt.getContentRoot ().appendChild ( heading );
 
         if ( item.getMonitors ().isEmpty () )
         {
-            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "The item is not monitored." );
+            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString("Report.monitors.none") ); //$NON-NLS-1$
         }
         else
         {
@@ -152,7 +152,7 @@ public class Report
     private void writeItemSource ( final OdfTextDocument odt, final DataItem item ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
-        heading.addStyledContent ( "Heading 3", "Value Source" );
+        heading.addStyledContent ( "Heading 3", Messages.getString("Report.heading.valueSource") ); //$NON-NLS-1$ //$NON-NLS-2$
         heading.setTextOutlineLevelAttribute ( 3 );
 
         odt.getContentRoot ().appendChild ( heading );
@@ -163,7 +163,7 @@ public class Report
         }
         else
         {
-            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "Internal value source." );
+            OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, Messages.getString("Report.valueSource.none") ); //$NON-NLS-1$
         }
     }
 }

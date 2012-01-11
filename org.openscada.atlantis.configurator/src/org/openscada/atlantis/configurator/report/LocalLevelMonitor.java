@@ -25,27 +25,27 @@ public class LocalLevelMonitor implements Monitor
     @Override
     public void write ( final OdfTextDocument odt ) throws Exception
     {
-        final OdfTextParagraph p = OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "" );
+        final OdfTextParagraph p = OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "" ); //$NON-NLS-1$
 
-        p.addContent ( String.format ( "A local level monitor named »%s« is attached to this item.", this.type ) );
+        p.addContent ( String.format ( Messages.getString("LocalLevelMonitor.description"), this.type ) ); //$NON-NLS-1$
 
         if ( this.error )
         {
-            p.addContent ( " Reaching the level will cause the data item be flagged as erroneous." );
+            p.addContent ( Messages.getString("LocalLevelMonitor.error") ); //$NON-NLS-1$
         }
 
         if ( this.requireAck )
         {
-            p.addContent ( " Users are required to acknowledge this event." );
+            p.addContent ( Messages.getString("LocalLevelMonitor.requireAck") ); //$NON-NLS-1$
         }
 
         if ( this.preset != null )
         {
-            p.addContent ( String.format ( " The original level limit was set to %f. It might have been changed by users since the original configuration was loaded.", this.preset ) );
+            p.addContent ( String.format ( Messages.getString("LocalLevelMonitor.preset"), this.preset ) ); //$NON-NLS-1$
         }
         else
         {
-            p.addContent ( " Originally no limit was set. This means that, as long as no value is set, the monitor will remain inactive." );
+            p.addContent ( Messages.getString("LocalLevelMonitor.preset.none") ); //$NON-NLS-1$
         }
     }
 

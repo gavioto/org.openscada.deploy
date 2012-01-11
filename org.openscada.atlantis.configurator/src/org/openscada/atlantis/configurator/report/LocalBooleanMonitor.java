@@ -19,26 +19,26 @@ public class LocalBooleanMonitor implements Monitor
     @Override
     public void write ( final OdfTextDocument odt ) throws Exception
     {
-        final OdfTextParagraph p = OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "" );
+        final OdfTextParagraph p = OdfHelper.newStyledParagraph ( odt, OdfHelper.TEXT_BODY, "" ); //$NON-NLS-1$
 
-        p.addContent ( "The item's value is monitored as a boolean value." );
+        p.addContent ( Messages.getString("LocalBooleanMonitor.description") ); //$NON-NLS-1$
 
         if ( this.referenceValue == null )
         {
-            p.addContent ( " Originally no reference value was set. This means that, as long as no value is set, the monitor will remain inactive." );
+            p.addContent ( Messages.getString("LocalBooleanMonitor.reference.none") ); //$NON-NLS-1$
         }
-        else if ( this.referenceValue.equals ( "true" ) )
+        else if ( this.referenceValue.equals ( "true" ) ) //$NON-NLS-1$
         {
-            p.addContent ( " The value »true« is considered as good state. If the value changes to »false« the monitor evalutes to fail state." );
+            p.addContent ( Messages.getString("LocalBooleanMonitor.reference.true") ); //$NON-NLS-1$
         }
         else
         {
-            p.addContent ( " The value »false« is considered as good state. If the value changes to »true« the monitor evalutes to fail state." );
+            p.addContent ( Messages.getString("LocalBooleanMonitor.reference.false") ); //$NON-NLS-1$
         }
 
         if ( this.requireAck )
         {
-            p.addContent ( " Users are required to acknowledge this event." );
+            p.addContent ( Messages.getString("LocalBooleanMonitor.requireAck") ); //$NON-NLS-1$
         }
     }
 

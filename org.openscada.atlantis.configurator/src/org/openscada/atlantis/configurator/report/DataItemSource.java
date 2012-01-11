@@ -20,11 +20,11 @@ public class DataItemSource implements Source
     @Override
     public void write ( final OdfTextDocument odt ) throws Exception
     {
-        odt.newParagraph ( "This item is imported from another interface driver." );
+        odt.newParagraph ( Messages.getString("DataItemSource.description") ); //$NON-NLS-1$
 
         final Map<String, String> data = new LinkedHashMap<String, String> ();
-        data.put ( "Connection Id", this.connectionId );
-        data.put ( "Item Id", this.itemId );
+        data.put ( Messages.getString("DataItemSource.connectionId"), this.connectionId ); //$NON-NLS-1$
+        data.put ( Messages.getString("DataItemSource.itemId"), this.itemId ); //$NON-NLS-1$
         OdfHelper.createMapTable ( odt, data );
 
     }
