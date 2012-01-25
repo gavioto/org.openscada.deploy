@@ -27,6 +27,14 @@ import javax.script.ScriptException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.openscada.atlantis.configurator.loop.LoopValidator;
+import org.openscada.atlantis.configurator.report.DataItem;
+import org.openscada.atlantis.configurator.report.DataItemSource;
+import org.openscada.atlantis.configurator.report.FormulaSource;
+import org.openscada.atlantis.configurator.report.LocalBooleanMonitor;
+import org.openscada.atlantis.configurator.report.LocalLevelMonitor;
+import org.openscada.atlantis.configurator.report.Report;
+import org.openscada.atlantis.configurator.report.ScriptSource;
+import org.openscada.atlantis.configurator.report.Source;
 import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.core.VariantType;
 import org.openscada.deploy.iolist.model.DataType;
@@ -53,12 +61,16 @@ public class Configuration extends GenericMasterConfiguration
 
     private final File base;
 
+    private final Report report;
+
     private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null ); //$NON-NLS-1$
 
     public Configuration ( final File base ) throws Exception
     {
         this.base = base;
         this.logStream = System.out;
+
+        this.report = new Report ();
 
         // add ignore fields
 
@@ -237,7 +249,7 @@ public class Configuration extends GenericMasterConfiguration
         SummaryGenerator.generateSummaryAlarms ( this, this.items, requiredSize );
     }
 
-    private String makeInternalItemId ( final Item item )
+    public String makeInternalItemId ( final Item item )
     {
         if ( item.getAlias () == null )
         {
@@ -249,9 +261,14 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private String makeMasterId ( final Item item )
+    public String makeMasterId ( final Item item )
     {
         return makeInternalItemId ( item ) + ".master"; //$NON-NLS-1$
+    }
+
+    public DataItem getReportItem ( final String id )
+    {
+        return this.report.getItem ( id );
     }
 
     /**
@@ -274,17 +291,23 @@ public class Configuration extends GenericMasterConfiguration
             final String internalItemId = makeInternalItemId ( item );
             final String masterId = makeMasterId ( item );
 
+            final DataItem reportItem = this.report.getItem ( internalItemId );
+
             String sourceId;
 
             if ( item instanceof FormulaItem )
             {
                 sourceId = internalItemId + ".formula"; //$NON-NLS-1$
                 processFormulaItem ( sourceId, (FormulaItem)item );
+
+                reportItem.setValueSource ( createFormulaSource ( (FormulaItem)item ) );
             }
             else if ( item instanceof ScriptItem )
             {
                 sourceId = internalItemId + ".script"; //$NON-NLS-1$
                 processScriptItem ( sourceId, (ScriptItem)item );
+
+                reportItem.setValueSource ( createScriptSource ( (ScriptItem)item ) );
             }
             else if ( "ds".equalsIgnoreCase ( item.getDevice () ) ) //$NON-NLS-1$
             {
@@ -296,11 +319,15 @@ public class Configuration extends GenericMasterConfiguration
                 sourceId = internalItemId + ".source"; //$NON-NLS-1$
 
                 addSource ( sourceId, itemId, item.getDevice ().toLowerCase () );
+
+                reportItem.setValueSource ( new DataItemSource ( itemId, item.getDevice ().toLowerCase () ) );
             }
             else
             {
                 sourceId = item.getName ();
             }
+
+            reportItem.setInternalId ( masterId );
 
             addMaster ( masterId, sourceId );
             addAlias ( internalItemId + ".alias", internalItemId, masterId, item.getDescription () ); //$NON-NLS-1$
@@ -323,6 +350,8 @@ public class Configuration extends GenericMasterConfiguration
             attributes.put ( "message", item.getDescription () ); //$NON-NLS-1$
             attributes.put ( "item", internalItemId ); //$NON-NLS-1$
 
+            reportItem.setBasicInformation ( attributes.get ( "hive" ), attributes.get ( "system" ), attributes.get ( "location" ), attributes.get ( "component" ), attributes.get ( "message" ), item.isEventCommand () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+
             if ( item.isRemoteBool () )
             {
                 addRemoteValueMonitor ( masterId + ".remote.monitor", masterId, "remote.ackRequired", "remote.ackRequired.timestamp", "ALM", attributes, item.getRemoteBoolAckValue () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
@@ -340,24 +369,28 @@ public class Configuration extends GenericMasterConfiguration
                 }
 
                 addLocalMonitor ( masterId + ".local.monitor", masterId, reference, item.isLocalBoolAck (), item.getDescription (), attributes ); //$NON-NLS-1$
+                reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.isLocalBoolAck () ) );
             }
-            makeRemoteLevels ( item, masterId, attributes );
-            makeLocalLevels ( item, masterId, attributes );
+            makeRemoteLevels ( item, reportItem, masterId, attributes );
+            makeLocalLevels ( item, reportItem, masterId, attributes );
 
             if ( item.isEventCommand () )
             {
                 addWriteLogger ( internalItemId + ".logger", masterId, attributes ); //$NON-NLS-1$
             }
             addNegate ( masterId + ".negate", masterId, false ); //$NON-NLS-1$
+            reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.negate" ) ); //$NON-NLS-1$
 
             if ( item.isLocalManual () )
             {
                 addLocalManual ( masterId + ".manual", masterId, attributes ); //$NON-NLS-1$
+                reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.manual" ) ); //$NON-NLS-1$
             }
 
             if ( item.isLocalScaleAvailable () )
             {
                 addLocalScale ( masterId + ".scale", masterId, item.getLocalScaleFactor (), item.getLocalScaleOffset (), attributes ); //$NON-NLS-1$
+                addLocalScaleFeature ( item, reportItem );
             }
 
             if ( item.isListMonitorPreset () )
@@ -368,10 +401,44 @@ public class Configuration extends GenericMasterConfiguration
             if ( item.isBlock () )
             {
                 addBlock ( masterId + ".block", masterId ); //$NON-NLS-1$
+                reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.block" ) ); //$NON-NLS-1$
             }
         }
 
         validateConnections ( connections );
+    }
+
+    private void addLocalScaleFeature ( final Item item, final DataItem reportItem )
+    {
+        final StringBuilder sb = new StringBuilder ( Messages.getString ( "Configuration.report.feature.scale.1" ) ); //$NON-NLS-1$
+        if ( item.getLocalScaleFactor () != null )
+        {
+            sb.append ( String.format ( Messages.getString ( "Configuration.report.feature.scale.2" ), item.getLocalScaleFactor () ) ); //$NON-NLS-1$
+        }
+        else
+        {
+            sb.append ( Messages.getString ( "Configuration.report.feature.scale.3" ) ); //$NON-NLS-1$
+        }
+        if ( item.getLocalScaleOffset () != null )
+        {
+            sb.append ( String.format ( Messages.getString ( "Configuration.report.feature.scale.4" ), item.getLocalScaleOffset () ) ); //$NON-NLS-1$
+        }
+        else
+        {
+            sb.append ( Messages.getString ( "Configuration.report.feature.scale.5" ) ); //$NON-NLS-1$
+        }
+
+        reportItem.addFeature ( sb.toString () );
+    }
+
+    private Source createScriptSource ( final ScriptItem item )
+    {
+        return new ScriptSource ( item );
+    }
+
+    private Source createFormulaSource ( final FormulaItem item )
+    {
+        return new FormulaSource ( item );
     }
 
     private void processFormulaItem ( final String id, final FormulaItem item ) throws Exception
@@ -685,59 +752,59 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private void makeLocalLevels ( final Item item, final String masterId, final Map<String, String> attributes )
+    private void makeLocalLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
         if ( item.getLocalMin () != null )
         {
-            makeLocalLevel ( masterId, "floor", true, item.isLocalMinAck (), item.getLocalMin (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "floor", true, item.isLocalMinAck (), item.getLocalMin (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalMax () != null )
         {
-            makeLocalLevel ( masterId, "ceil", true, item.isLocalMaxAck (), item.getLocalMax (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "ceil", true, item.isLocalMaxAck (), item.getLocalMax (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalHighHighAvailable () )
         {
-            makeLocalLevel ( masterId, "highhigh", false, item.isLocalHighHighAck (), item.getLocalHighHighPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "highhigh", false, item.isLocalHighHighAck (), item.getLocalHighHighPreset (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalHighAvailable () )
         {
-            makeLocalLevel ( masterId, "high", false, item.isLocalHighAck (), item.getLocalHighPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "high", false, item.isLocalHighAck (), item.getLocalHighPreset (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalLowAvailable () )
         {
-            makeLocalLevel ( masterId, "low", false, item.isLocalLowAck (), item.getLocalLowPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "low", false, item.isLocalLowAck (), item.getLocalLowPreset (), attributes ); //$NON-NLS-1$
         }
         if ( item.isLocalLowLowAvailable () )
         {
-            makeLocalLevel ( masterId, "lowlow", false, item.isLocalLowLowAck (), item.getLocalLowLowPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "lowlow", false, item.isLocalLowLowAck (), item.getLocalLowLowPreset (), attributes ); //$NON-NLS-1$
         }
     }
 
-    private void makeRemoteLevels ( final Item item, final String masterId, final Map<String, String> attributes )
+    private void makeRemoteLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
         if ( item.isRemoteMax () )
         {
-            makeRemoteLevel ( masterId, "ceil", "R-MAX", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
+            makeRemoteLevel ( reportItem, masterId, "ceil", "R-MAX", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteHighHigh () )
         {
-            makeRemoteLevel ( masterId, "highhigh", "R-HH", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
+            makeRemoteLevel ( reportItem, masterId, "highhigh", "R-HH", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteHigh () )
         {
-            makeRemoteLevel ( masterId, "high", "R-H", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
+            makeRemoteLevel ( reportItem, masterId, "high", "R-H", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteLow () )
         {
-            makeRemoteLevel ( masterId, "low", "R-L", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
+            makeRemoteLevel ( reportItem, masterId, "low", "R-L", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteLowLow () )
         {
-            makeRemoteLevel ( masterId, "lowlow", "R-LL", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
+            makeRemoteLevel ( reportItem, masterId, "lowlow", "R-LL", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.isRemoteMin () )
         {
-            makeRemoteLevel ( masterId, "floor", "R-MIN", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
+            makeRemoteLevel ( reportItem, masterId, "floor", "R-MIN", attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -774,7 +841,7 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "listIsAlarm", listIsAlarm ); //$NON-NLS-1$
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "splitPattern", "," );//$NON-NLS-1$
+        data.put ( "splitPattern", "," );//$NON-NLS-1$ //$NON-NLS-2$
 
         if ( message != null )
         {
@@ -811,11 +878,13 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data ); //$NON-NLS-1$
     }
 
-    private void makeLocalLevel ( final String masterId, final String type, final boolean error, final boolean requireAck, final Double preset, Map<String, String> attributes )
+    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final boolean error, final boolean requireAck, final Double preset, Map<String, String> attributes )
     {
         attributes = new HashMap<String, String> ( attributes );
         attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
         addLocalLevelMonitor ( masterId + ".local.level." + type, error, requireAck, masterId, type, preset, attributes ); //$NON-NLS-1$
+
+        reportItem.addMonitor ( new LocalLevelMonitor ( type, error, requireAck, preset ) );
     }
 
     private void addLocalLevelMonitor ( final String id, final boolean error, final boolean requireAck, final String masterId, final String type, final Double preset, final Map<String, String> attributes )
@@ -842,7 +911,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.level." + type, id, data ); //$NON-NLS-1$
     }
 
-    private void makeRemoteLevel ( final String masterId, final String type, final String monitorType, Map<String, String> attributes )
+    private void makeRemoteLevel ( final DataItem reportItem, final String masterId, final String type, final String monitorType, Map<String, String> attributes )
     {
         attributes = new HashMap<String, String> ( attributes );
 
@@ -850,12 +919,12 @@ public class Configuration extends GenericMasterConfiguration
         attributes.put ( "monitorType", monitorType ); //$NON-NLS-1$
         addRemoteAttributeMonitor ( // 
         String.format ( "%s.remote.limit.%s", masterId, type ), masterId, //  //$NON-NLS-1$
-        String.format ( "remote.level.%s.alarm", type ), //   //$NON-NLS-1$
-        String.format ( "remote.level.%s.ackRequired", type ), // //$NON-NLS-1$
-        String.format ( "remote.level.%s.active", type ), // //$NON-NLS-1$
-        String.format ( "remote.level.%s.active.timestamp", type ), // //$NON-NLS-1$
-        String.format ( "remote.level.%s.ackRequired.timestamp", type ), // //$NON-NLS-1$
-        attributes );
+                String.format ( "remote.level.%s.alarm", type ), //   //$NON-NLS-1$
+                String.format ( "remote.level.%s.ackRequired", type ), // //$NON-NLS-1$
+                String.format ( "remote.level.%s.active", type ), // //$NON-NLS-1$
+                String.format ( "remote.level.%s.active.timestamp", type ), // //$NON-NLS-1$
+                String.format ( "remote.level.%s.ackRequired.timestamp", type ), // //$NON-NLS-1$
+                attributes );
     }
 
     private void addRemoteAttributeMonitor ( final String id, final String masterId, final String attributeValue, final String attributeAck, final String attributeActive, final String attributeTimestamp, final String attributeAckTimestamp, final Map<String, String> attributes )
@@ -930,6 +999,7 @@ public class Configuration extends GenericMasterConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
+        this.report.write ( new File ( baseDir, "report.odt" ) ); //$NON-NLS-1$
         SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
         super.write ( baseDir );
     }
@@ -1029,9 +1099,14 @@ public class Configuration extends GenericMasterConfiguration
             final Item item = i.next ();
             if ( !item.isEnabled () )
             {
-                System.out.println ( String.format ( "   Removing item %s since it is disabled", item.getAlias () ) );
+                System.out.println ( String.format ( "   Removing item %s since it is disabled", item.getAlias () ) ); //$NON-NLS-1$
                 i.remove ();
             }
         }
+    }
+
+    public List<Item> getItems ()
+    {
+        return this.items;
     }
 }

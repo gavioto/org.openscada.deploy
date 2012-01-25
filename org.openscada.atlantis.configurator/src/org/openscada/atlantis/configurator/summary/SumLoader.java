@@ -10,6 +10,8 @@ import java.util.Set;
 
 import org.openscada.atlantis.configurator.Configuration;
 import org.openscada.atlantis.configurator.common.DataLoader;
+import org.openscada.atlantis.configurator.report.DataItem;
+import org.openscada.atlantis.configurator.report.SummarySource;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
@@ -56,6 +58,9 @@ public class SumLoader
             {
                 items.add ( item );
                 cfg.addSum ( id + ".sum", group.getItems (), groupsSum ); //$NON-NLS-1$
+
+                final DataItem reportItem = cfg.getReportItem ( item.getAlias () );
+                reportItem.setValueSource ( new SummarySource ( cfg, group.getItems () ) );
             }
         }
     }
