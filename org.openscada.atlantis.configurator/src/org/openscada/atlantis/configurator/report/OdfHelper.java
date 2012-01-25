@@ -16,6 +16,10 @@ public class OdfHelper
 
     public static final String TEXT_BODY = "Text body"; //$NON-NLS-1$
 
+    public static final String TITLE = "Title"; //$NON-NLS-1$
+
+    public static final String SUBTITLE = "Subtitle"; //$NON-NLS-1$
+
     public static final String TABLE_HEADING = "Table Heading";//$NON-NLS-1$
 
     public static final String TABLE_CONTENTS = "Table Contents";//$NON-NLS-1$
@@ -64,7 +68,16 @@ public class OdfHelper
 
     public static OdfTextParagraph newStyledParagraph ( final OdfTextDocument odt, final String style, final String content ) throws Exception
     {
-        final OdfTextParagraph p = odt.newParagraph ( content );
+        final OdfTextParagraph p;
+
+        if ( content != null )
+        {
+            p = odt.newParagraph ( content );
+        }
+        else
+        {
+            p = odt.newParagraph ();
+        }
         p.setStyleName ( style );
         return p;
     }

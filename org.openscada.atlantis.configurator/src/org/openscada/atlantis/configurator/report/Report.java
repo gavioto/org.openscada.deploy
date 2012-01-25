@@ -16,6 +16,7 @@ import org.odftoolkit.odfdom.dom.style.props.OdfTextProperties;
 import org.odftoolkit.odfdom.incubator.doc.office.OdfOfficeStyles;
 import org.odftoolkit.odfdom.incubator.doc.style.OdfStyle;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfTextHeading;
+import org.odftoolkit.odfdom.incubator.doc.text.OdfTextParagraph;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -50,6 +51,19 @@ public class Report
         odt.getOfficeMetadata ().setSubject ( Messages.getString ( "Report.subtitle" ) ); //$NON-NLS-1$
 
         createStyles ( odt );
+
+        // insert title page
+        {
+            final OdfTextParagraph p = OdfHelper.newStyledParagraph ( odt, OdfHelper.TITLE, null );
+            p.newTextTitleElement ();
+        }
+
+        {
+            final OdfTextParagraph p = OdfHelper.newStyledParagraph ( odt, OdfHelper.SUBTITLE, null );
+            p.newTextSubjectElement ();
+        }
+
+        // insert TOC
 
         final TextTableOfContentElement toc = new TextTableOfContentElement ( odt.getContentDom () );
         odt.getContentRoot ().appendChild ( toc );
