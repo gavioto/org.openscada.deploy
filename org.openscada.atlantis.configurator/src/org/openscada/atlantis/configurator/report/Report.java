@@ -7,6 +7,7 @@ import java.util.TreeMap;
 
 import org.odftoolkit.odfdom.doc.OdfTextDocument;
 import org.odftoolkit.odfdom.dom.element.OdfStyleBase;
+import org.odftoolkit.odfdom.dom.element.text.TextSectionElement;
 import org.odftoolkit.odfdom.dom.element.text.TextTableOfContentElement;
 import org.odftoolkit.odfdom.dom.element.text.TextTableOfContentSourceElement;
 import org.odftoolkit.odfdom.dom.style.OdfStyleFamily;
@@ -17,6 +18,7 @@ import org.odftoolkit.odfdom.incubator.doc.style.OdfStyle;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfTextHeading;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class Report
 {
@@ -38,7 +40,7 @@ public class Report
         return item;
     }
 
-    public void write ( final File file ) throws Exception
+    public void write ( final File file, final File inputDir ) throws Exception
     {
         // Create a text document from a standard template (empty documents within the JAR)
         final OdfTextDocument odt = OdfTextDocument.newTextDocument ();
@@ -56,10 +58,35 @@ public class Report
         tocSource.setTextOutlineLevelAttribute ( 2 );
         odt.setLocale ( Locale.GERMAN );
 
+        createStaticContent ( odt, new File ( inputDir, "static.odt" ) );
+
         writeItems ( odt );
 
         // Save document
         odt.save ( file );
+    }
+
+    private void createStaticContent ( final OdfTextDocument odt, final File file ) throws Exception
+    {
+        if ( !file.canRead () || !file.isFile () )
+        {
+            return;
+        }
+
+        final OdfTextDocument staticOdt = OdfTextDocument.loadDocument ( file );
+
+        final TextSectionElement section = new TextSectionElement ( odt.getContentDom () );
+        odt.getContentRoot ().appendChild ( section );
+        section.setTextProtectedAttribute ( true );
+        section.setTextNameAttribute ( "Static Content" );
+
+        final NodeList childNodes = staticOdt.getContentRoot ().getChildNodes ();
+        for ( int i = 0; i < childNodes.getLength (); i++ )
+        {
+            final Node newNode = childNodes.item ( i ).cloneNode ( true );
+            final Node adoptedNode = odt.getContentDom ().adoptNode ( newNode );
+            section.appendChild ( adoptedNode );
+        }
     }
 
     protected void setFontFamily ( final OdfStyleBase style, final String value )

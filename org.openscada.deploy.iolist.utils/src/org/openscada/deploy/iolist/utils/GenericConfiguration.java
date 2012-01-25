@@ -88,7 +88,7 @@ public class GenericConfiguration
         factoryMap.put ( id, new HashMap<String, Object> ( data ) );
     }
 
-    public void write ( final File baseDir ) throws Exception
+    public void write ( final File baseDir, final File inputDir ) throws Exception
     {
         if ( !baseDir.exists () )
         {

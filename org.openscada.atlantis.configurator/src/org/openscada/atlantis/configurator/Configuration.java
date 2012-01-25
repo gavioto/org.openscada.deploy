@@ -997,11 +997,13 @@ public class Configuration extends GenericMasterConfiguration
     }
 
     @Override
-    public void write ( final File baseDir ) throws Exception
+    public void write ( final File baseDir, final File inputDir ) throws Exception
     {
-        this.report.write ( new File ( baseDir, "report.odt" ) ); //$NON-NLS-1$
         SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
-        super.write ( baseDir );
+        super.write ( baseDir, inputDir );
+
+        System.out.println ( "   ** Writing report" );
+        this.report.write ( new File ( baseDir, "report.odt" ), inputDir ); //$NON-NLS-1$
     }
 
     public String getExtension ( final File file )
