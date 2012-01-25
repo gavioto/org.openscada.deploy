@@ -92,7 +92,7 @@ public class Report
         final TextSectionElement section = new TextSectionElement ( odt.getContentDom () );
         odt.getContentRoot ().appendChild ( section );
         section.setTextProtectedAttribute ( true );
-        section.setTextNameAttribute ( "Static Content" );
+        section.setTextNameAttribute ( "Static Content" ); //$NON-NLS-1$
 
         final NodeList childNodes = staticOdt.getContentRoot ().getChildNodes ();
         for ( int i = 0; i < childNodes.getLength (); i++ )
