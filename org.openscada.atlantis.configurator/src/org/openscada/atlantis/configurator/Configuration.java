@@ -1111,4 +1111,13 @@ public class Configuration extends GenericMasterConfiguration
     {
         return this.items;
     }
+
+    public void addEventFilter ( final String id, final long priority, final String type, final Map<String, Object> properties )
+    {
+        final Map<String, Object> data = new HashMap<String, Object> ();
+        data.putAll ( properties );
+        data.put ( "priority", priority );
+        data.put ( "type", type );
+        addData ( "org.openscada.ae.server.http.eventFilter", id, data );
+    }
 }

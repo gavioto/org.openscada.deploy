@@ -147,6 +147,9 @@ public class Application implements IApplication
 
         System.out.println ( "**** 1ad - Loading basic configuration - AE" );
         loader.load ( 3, new AeHandler ( cfg ) );
+
+        System.out.println ( "**** 1ad - Loading basic configuration - AE Filter" );
+        loader.load ( 4, new EventFilterHandler ( cfg ) );
     }
 
     private static String processNetwork ( final String prefix, final File base, final File generatedBase ) throws Exception
