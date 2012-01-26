@@ -1118,6 +1118,7 @@ public class Configuration extends GenericMasterConfiguration
         data.putAll ( properties );
         data.put ( "priority", priority );
         data.put ( "type", type );
+        data.put ( "id", id ); // for now ...
         addData ( "org.openscada.ae.server.http.eventFilter", id, data );
     }
 }
