@@ -113,8 +113,6 @@ public class Report
     private void createStyles ( final OdfTextDocument odt )
     {
         final OdfOfficeStyles styles = odt.getOrCreateDocumentStyles ();
-        //final OdfStyle defaultStyle = styles.getStyle ( OdfHelper.TEXT_BODY, OdfStyleFamily.Paragraph );
-
         {
             final OdfStyle style = styles.newStyle ( OdfHelper.SOURCE_TEXT, OdfStyleFamily.Paragraph );
             style.setStyleParentStyleNameAttribute ( OdfHelper.TEXT_BODY );
