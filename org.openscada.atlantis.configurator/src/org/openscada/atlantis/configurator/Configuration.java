@@ -157,6 +157,20 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.sec.provider.script.factory", id, data ); //$NON-NLS-1$
     }
 
+    public void addScriptComponent ( final String id, final String scriptEngine, final String script, final Map<String, String> properties )
+    {
+        final Map<String, Object> data = new HashMap<String, Object> ();
+
+        if ( scriptEngine != null )
+        {
+            data.put ( "scriptEngine", scriptEngine );//$NON-NLS-1$
+        }
+        data.put ( "script", script );//$NON-NLS-1$
+        injectAttributes ( properties, "property.", data );//$NON-NLS-1$
+
+        addData ( "org.openscada.da.component.script", id, data );//$NON-NLS-1$
+    }
+
     /**
      * Generate global summaries
      */
@@ -943,7 +957,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "ae.monitor.da.remote.booleanAttributeAlarm", id, data ); //$NON-NLS-1$
     }
 
-    private void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, Object> data )
+    private void injectAttributes ( final Map<String, String> attributes, final String prefix, final Map<String, Object> data )
     {
         if ( attributes == null )
         {
@@ -952,8 +966,13 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Map.Entry<String, String> entry : attributes.entrySet () )
         {
-            data.put ( "info." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
+            data.put ( prefix + entry.getKey (), entry.getValue () );
         }
+    }
+
+    private void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, Object> data )
+    {
+        injectAttributes ( attributes, "info.", data );
     }
 
     public void addSum ( final String id, List<SummaryItem> sources, final Set<String> groups )
