@@ -47,6 +47,7 @@ import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
+import org.openscada.utils.lang.Pair;
 import org.openscada.utils.str.StringHelper;
 
 import com.google.common.collect.HashMultimap;
@@ -214,7 +215,7 @@ public class Configuration extends GenericMasterConfiguration
      */
     public void generateSummeryBlocks ()
     {
-        final Multimap<String, String> locMap = HashMultimap.create ();
+        final Multimap<Pair<String, String>, String> locMap = HashMultimap.create ();
 
         for ( final Item item : this.items )
         {
@@ -223,23 +224,30 @@ public class Configuration extends GenericMasterConfiguration
                 continue;
             }
 
-            final String loc = item.getLocation () + "-" + item.getComponent (); //$NON-NLS-1$
+            final Pair<String, String> loc = new Pair<String, String> ( item.getLocation (), item.getComponent () );
+
             locMap.put ( loc, makeMasterId ( item ) );
         }
 
-        for ( final String key : locMap.keySet () )
+        for ( final Pair<String, String> key : locMap.keySet () )
         {
             final Collection<String> values = locMap.get ( key );
-            addBlock ( key + ".block", new ArrayList<String> ( values ) ); //$NON-NLS-1$
+
+            final Map<String, String> attributes = new HashMap<String, String> ();
+
+            attributes.put ( "location", key.first );
+            attributes.put ( "component", key.second );
+
+            addBlock ( key + ".block", new ArrayList<String> ( values ), attributes ); //$NON-NLS-1$
         }
     }
 
-    private void addBlock ( final String blockId, final String masterId )
+    private void addBlock ( final String blockId, final String masterId, final Map<String, String> attributes )
     {
-        addBlock ( blockId, Arrays.asList ( masterId ) );
+        addBlock ( blockId, Arrays.asList ( masterId ), attributes );
     }
 
-    private void addBlock ( final String blockId, final List<String> masterIds )
+    private void addBlock ( final String blockId, final List<String> masterIds, final Map<String, String> attributes )
     {
         if ( masterIds.isEmpty () )
         {
@@ -251,6 +259,8 @@ public class Configuration extends GenericMasterConfiguration
         final Map<String, Object> data = new HashMap<String, Object> ();
 
         data.put ( "master.id", StringHelper.join ( masterIds, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        injectAttributes ( attributes, "info.", data );
 
         addData ( "org.openscada.da.master.common.block", blockId, data ); //$NON-NLS-1$
     }
@@ -414,7 +424,7 @@ public class Configuration extends GenericMasterConfiguration
 
             if ( item.isBlock () )
             {
-                addBlock ( masterId + ".block", masterId ); //$NON-NLS-1$
+                addBlock ( masterId + ".block", masterId, attributes ); //$NON-NLS-1$
                 reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.block" ) ); //$NON-NLS-1$
             }
         }
