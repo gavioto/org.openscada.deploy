@@ -7,7 +7,7 @@ import subprocess
 from os import pathsep
 from xml.dom.minidom import parse
 
-profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/openscada/share/profiles" )
+profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/openscada/profiles" )
 target = sys.argv[2]
 
 class Profile:
