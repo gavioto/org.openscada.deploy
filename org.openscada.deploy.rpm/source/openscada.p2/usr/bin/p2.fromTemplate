@@ -95,6 +95,13 @@ def writeArguments(fileName, arguments):
 		f.write ( "\n".join ( arguments ) )
 		f.close ()
 
+def writeStartLevels(fileName, bundleStartLevels):
+	if len(bundleStartLevels.keys()):
+		f = open ( fileName, "w" )	
+		for key in bundleStartLevels.keys():
+			f.write ( "%s=%s\n" % ( key, bundleStartLevels[key]) )
+		f.close ()
+
 def writeProperties(fileName, properties):
 	if len(properties.keys()):
 		f = open ( fileName, "w" )	
@@ -107,6 +114,7 @@ def createInstance ( target, p ):
 	subprocess.call ( ["p2.install", target ] + p.features );
 	writeArguments ( target + os.sep + "launcher.args", p.arguments )
 	writeProperties ( target + os.sep + "launcher.properties", p.properties )
+	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
 
 createInstance ( target, loadProfile(sys.argv[1]) )
 
