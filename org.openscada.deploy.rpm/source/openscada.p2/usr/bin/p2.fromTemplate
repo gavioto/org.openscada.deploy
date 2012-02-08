@@ -14,7 +14,6 @@ class Profile:
 	"""A class holding profile information"""
 	def __init__(self):
 		self.features=[]
-		self.startBundles=[]
 		self.arguments={}
 		self.bundleStartLevels={}
 		self.properties={}
@@ -59,7 +58,7 @@ def performLoad ( p, templateFile ):
 	for node in profile.getElementsByTagName("start"):
 		bundle = getText(node.childNodes)
 		print "Start: %s" % bundle
-		p.startBundles.append ( bundle )
+		p.bundleStartLevels[bundle] = "-1"
 
 	for node in profile.getElementsByTagName("setbsl"):
 		bundle = getText(node.childNodes)
