@@ -28,8 +28,8 @@ UNITS="$UNITS,org.eclipse.equinox.common"
 UNITS="$UNITS,org.eclipse.update.configurator"
 UNITS="$UNITS,org.eclipse.equinox.ds"
 UNITS="$UNITS,org.eclipse.equinox.p2.console"
-UNTIS="$UNITS,org.eclipse.equinox.simpleconfigurator"
-UNTIS="$UNITS,org.openscada.utils.osgi.autostart"
+UNITS="$UNITS,org.eclipse.equinox.simpleconfigurator"
+UNITS="$UNITS,org.openscada.utils.osgi.autostart"
 
 # add additional units
 if [ ! -z "$ARG_UNITS" ]; then
