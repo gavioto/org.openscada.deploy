@@ -40,7 +40,7 @@ if p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REP
 	ln -s "`dirname $0`/p2.launcher" "$TARGET/launcher"
 
 	mkdir "$TARGET/configuration"
-	
+	FULL_TARGET="`readlink -f $TARGET`"
 # write config.ini
 cat <<__EOF__ > "$TARGET/configuration/config.ini"
 osgi.bundles=org.eclipse.equinox.common@1:start, org.eclipse.update.configurator@2:start, org.openscada.utils.osgi.autostart@3:start
@@ -49,7 +49,7 @@ osgi.noShutdown=true
 equinox.use.ds=true
 eclipse.p2.data.area=@config.dir/../p2/
 eclipse.p2.profile=SDKProfile
-org.openscada.utils.osgi.autostart.file=$TARGET/startLevels.properties
+org.openscada.utils.osgi.autostart.file=$FULL_TARGET/startLevels.properties
 org.eclipse.equinox.simpleconfigurator.configUrl=file\:org.eclipse.equinox.simpleconfigurator/bundles.info
 __EOF__
 
