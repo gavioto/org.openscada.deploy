@@ -14,12 +14,11 @@ class Profile:
 	"""A class holding profile information"""
 	def __init__(self):
 		self.features=[]
-		self.arguments={}
+		self.arguments=[]
 		self.bundleStartLevels={}
 		self.properties={}
 
-
-def loadProfile ( template ):
+def findProfileFile ( template ):
 	if not os.path.exists(profilesDir):
 		sys.stderr.write ("'" + profilesDir + "' does not exist\n")
 		sys.exit(-1)
@@ -30,7 +29,10 @@ def loadProfile ( template ):
 		sys.stderr.write ("'" + templateFile + "' does not exist\n")
 		sys.exit(-2)
 
-	return loadProfileFile ( templateFile )
+	return templateFile	
+
+def loadProfile ( template ):
+	return loadProfileFile ( findProfileFile ( template ) )
 
 def getText(nodelist):
     rc = []
@@ -48,7 +50,7 @@ def performLoad ( p, templateFile ):
 	# print profile.toprettyxml()
 
 	if "parent" in profile.attributes.keys():
-		parent = loadProfile ( profile.attributes["parent"].value )
+		performLoad ( p,  findProfileFile ( profile.attributes["parent"].value ) )
 
 	for node in profile.getElementsByTagName("feature"):
 		feature = getText(node.childNodes)
@@ -80,7 +82,7 @@ def performLoad ( p, templateFile ):
 	for node in profile.getElementsByTagName("argument"):
 		argument = getText(node.childNodes)
 		print "Argument: %s" % argument
-		p.startBundles.append ( argument )
+		p.arguments.append ( argument )
 
 
 def loadProfileFile ( templateFile ):
@@ -91,7 +93,8 @@ def loadProfileFile ( templateFile ):
 def writeArguments(fileName, arguments):
 	if len(arguments):
 		f = open ( fileName, "w" )	
-		f.write ( "\n".join ( arguments ) )
+		for arg in arguments:
+			f.write ( arg + "\n" )
 		f.close ()
 
 def writeStartLevels(fileName, bundleStartLevels):
@@ -109,8 +112,8 @@ def writeProperties(fileName, properties):
 		f.close ()
 
 def createInstance ( target, p ):
-	subprocess.call ( ["p2.create", target] );
-	subprocess.call ( ["p2.install", target ] + p.features );
+	#subprocess.call ( ["p2.create", target] );
+	#subprocess.call ( ["p2.install", target ] + p.features );
 	writeArguments ( target + os.sep + "launcher.args", p.arguments )
 	writeProperties ( target + os.sep + "launcher.properties", p.properties )
 	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
