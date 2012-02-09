@@ -70,6 +70,14 @@ def readProperties ( properties, elements, context = ""):
             properties[key] = value
             print "property[%s]: %s -> %s" % ( context, key, value )
 
+def findNodes ( element, tag ):
+    result = []
+
+    for child in element.childNodes:
+        if ( child.tagName == tag ):
+            result.append ( child )
+
+    return result
 
 def performLoad ( templateName, p, templateFile ):
     print "Loading: " + templateFile
@@ -103,7 +111,7 @@ def performLoad ( templateName, p, templateFile ):
         print "BSL: %s -> %s" % ( bundle, level )
         p.bundleStartLevels[bundle] = level
 
-    readProperties ( p.properties, profile.getElementsByTagName("property") )
+    readProperties ( p.properties, findNodes ( profile, "property" ) )
 
     for node in profile.getElementsByTagName("argument"):
         argument = getText(node.childNodes)
@@ -119,7 +127,7 @@ def performLoad ( templateName, p, templateFile ):
         if not name in p.profiles:
             p.profiles[name]={}
 
-        readProperties ( p.profiles[name], node.getElementsByTagName("property"), name )
+        readProperties ( p.profiles[name], findNodes ( node, "property" ), name )
 
 
 
