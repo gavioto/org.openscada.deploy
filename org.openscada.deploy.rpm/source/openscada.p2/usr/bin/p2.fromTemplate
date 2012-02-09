@@ -74,6 +74,8 @@ def findNodes ( element, tag ):
     result = []
 
     for child in element.childNodes:
+    	if ( child.nodeType != element.ELEMENT_NODE ):
+    		continue
         if ( child.tagName == tag ):
             result.append ( child )
 
