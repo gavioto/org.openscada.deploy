@@ -20,6 +20,7 @@ class Profile:
 		self.properties={}
 		self.profiles={}
         self.defaultProfileName=None
+        self.dataDirectories=[]
 
 def findProfileFile ( template ):
 	if not os.path.exists(profilesDir):
@@ -34,9 +35,19 @@ def findProfileFile ( template ):
 
 	return templateFile	
 
+def findDataDir ( name ):
+    dirName = profilesDir + os.sep + name
+
+	if not os.path.exists(dirName):
+        return None
+
+    if os.path.isdir ( dirName ):
+        return dirName
+
+    return None
 
 def loadProfile ( template ):
-	return loadProfileFile ( findProfileFile ( template ) )
+	return loadProfileFile ( template, findProfileFile ( template ) )
 
 
 def getText(nodelist):
@@ -60,8 +71,12 @@ def readProperties ( properties, elements, context = ""):
 			print "property[%s]: %s -> %s" % ( context, key, value )
 
 
-def performLoad ( p, templateFile ):
+def performLoad ( templateName, p, templateFile ):
 	print "Loading: " + templateFile
+
+    dataDir = findDataDir ( templateName )
+    if dataDir:
+        p.dataDirectories.append ( dataDir )
 
 	dom = parse ( templateFile )
 	profile = dom.documentElement
@@ -69,7 +84,8 @@ def performLoad ( p, templateFile ):
 	# print profile.toprettyxml()
 
 	if "parent" in profile.attributes.keys():
-		performLoad ( p,  findProfileFile ( profile.attributes["parent"].value ) )
+        parentName = profile.attributes["parent"].value
+		performLoad ( parentName, p,  findProfileFile ( parentName ) )
 
 	for node in profile.getElementsByTagName("feature"):
 		feature = getText(node.childNodes)
@@ -107,9 +123,9 @@ def performLoad ( p, templateFile ):
 
 
 
-def loadProfileFile ( templateFile ):
+def loadProfileFile ( name, templateFile ):
 	p = Profile()
-	performLoad ( p, templateFile )
+	performLoad ( name, p, templateFile )
 	return p
 
 def writeArguments(fileName, arguments):
@@ -126,7 +142,7 @@ def writeStartLevels(fileName, bundleStartLevels):
 			f.write ( "%s=%s\n" % ( key, bundleStartLevels[key]) )
 		f.close ()
 
-def wrtiteDefaultProfile ( fileName, defaultProfileName ):
+def writeDefaultProfile ( fileName, defaultProfileName ):
     if defaultProfileName:
 		f = open ( fileName, "w" )	
         f.write ( defaultProfileName + "\n" )
@@ -143,14 +159,19 @@ def writeProfiles(target, profiles):
 	for key in profiles.keys():
 		writeProperties ( target + os.sep + "launcher." + key + ".properties", profiles[key] )
 
+def copyData ( target, dataDirs ):
+    for dirName in dataDirs:
+        subprocess.call ( "cp -av \"%s\"/* -t \"%s\"" % ( dirName, target ), shell=True)
+
 def createInstance ( target, p ):
-	subprocess.call ( ["p2.create", target] );
-	subprocess.call ( ["p2.install", target ] + p.features );
+	#subprocess.call ( ["p2.create", target] )
+	#subprocess.call ( ["p2.install", target ] + p.features )
 	writeArguments ( target + os.sep + "launcher.args", p.arguments )
 	writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
 	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
 	writeProfiles ( target, p.profiles )
-    wrtiteDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
+    writeDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
+    copyData ( target, p.dataDirectories )
 
 createInstance ( target, loadProfile(sys.argv[1]) )
 
