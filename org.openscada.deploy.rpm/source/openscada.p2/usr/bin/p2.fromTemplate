@@ -17,6 +17,7 @@ class Profile:
 		self.arguments=[]
 		self.bundleStartLevels={}
 		self.properties={}
+		self.profiles={}
 
 def findProfileFile ( template ):
 	if not os.path.exists(profilesDir):
@@ -31,8 +32,10 @@ def findProfileFile ( template ):
 
 	return templateFile	
 
+
 def loadProfile ( template ):
 	return loadProfileFile ( findProfileFile ( template ) )
+
 
 def getText(nodelist):
     rc = []
@@ -40,6 +43,20 @@ def getText(nodelist):
         if node.nodeType == node.TEXT_NODE:
             rc.append(node.data)
     return ''.join(rc)
+
+
+def readProperties ( properties, elements, context = ""):
+	for node in elements:
+		key = node.attributes["key"].value
+
+		if "unset" in node.attributes.keys():
+			properties.remove ( key )
+			print "property[%s]: %s -> UNSET" % ( context, key )
+		else:
+			value = getText(node.childNodes)
+			properties[key] = value
+			print "property[%s]: %s -> %s" % ( context, key, value )
+
 
 def performLoad ( p, templateFile ):
 	print "Loading: " + templateFile
@@ -68,21 +85,18 @@ def performLoad ( p, templateFile ):
 		print "BSL: %s -> %s" % ( bundle, level )
 		p.bundleStartLevels[bundle] = level
 
-	for node in profile.getElementsByTagName("property"):
-		key = node.attributes["key"].value
-
-		if "unset" in node.attributes.keys():
-			p.properties[key]=None;
-			print "property: %s -> UNSET" % ( key )
-		else:
-			value = getText(node.childNodes)
-			p.properties[key] = value
-			print "property: %s -> %s" % ( key, value )
+	readProperties ( p.properties, profile.getElementsByTagName("property") )
 
 	for node in profile.getElementsByTagName("argument"):
 		argument = getText(node.childNodes)
 		print "Argument: %s" % argument
 		p.arguments.append ( argument )
+
+	for node in profile.getElementsByTagName("profile"):
+		name = node.attributes["name"].value
+		p.profiles[name]={}
+		readProperties ( p.profiles[name], node.getElementsByTagName("property"), name )
+
 
 
 def loadProfileFile ( templateFile ):
@@ -104,19 +118,24 @@ def writeStartLevels(fileName, bundleStartLevels):
 			f.write ( "%s=%s\n" % ( key, bundleStartLevels[key]) )
 		f.close ()
 
-def writeProperties(fileName, properties):
-	if len(properties.keys()):
+def writeProperties(fileName, properties, force = True):
+	if len(properties.keys()) or force:
 		f = open ( fileName, "w" )	
 		for key in properties.keys():
 			f.write ( "%s=%s\n" % ( key, properties[key]) )
 		f.close ()
 
+def writeProfiles(target, profiles):
+	for key in profiles.keys():
+		writeProperties ( target + os.sep + "launcher." + key + ".properties", profiles[key] )
+
 def createInstance ( target, p ):
-	subprocess.call ( ["p2.create", target] );
-	subprocess.call ( ["p2.install", target ] + p.features );
+	#subprocess.call ( ["p2.create", target] );
+	#subprocess.call ( ["p2.install", target ] + p.features );
 	writeArguments ( target + os.sep + "launcher.args", p.arguments )
-	writeProperties ( target + os.sep + "launcher.properties", p.properties )
+	writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
 	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
+	writeProfiles ( target, p.profiles )
 
 createInstance ( target, loadProfile(sys.argv[1]) )
 
