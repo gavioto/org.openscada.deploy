@@ -19,6 +19,7 @@ class Profile:
 		self.bundleStartLevels={}
 		self.properties={}
 		self.profiles={}
+        self.defaultProfileName=None
 
 def findProfileFile ( template ):
 	if not os.path.exists(profilesDir):
@@ -95,6 +96,10 @@ def performLoad ( p, templateFile ):
 
 	for node in profile.getElementsByTagName("profile"):
 		name = node.attributes["name"].value
+
+        if "default" in node.attributes:
+            p.defaultProfileName = name
+
 		p.profiles[name]={}
 		readProperties ( p.profiles[name], node.getElementsByTagName("property"), name )
 
@@ -119,6 +124,12 @@ def writeStartLevels(fileName, bundleStartLevels):
 			f.write ( "%s=%s\n" % ( key, bundleStartLevels[key]) )
 		f.close ()
 
+def wrtiteDefaultProfile ( fileName, defaultProfileName ):
+    if defaultProfileName:
+		f = open ( fileName, "w" )	
+        f.write ( defaultProfileName + "\n" )
+        f.close ()
+
 def writeProperties(fileName, properties, force = True):
 	if len(properties.keys()) or force:
 		f = open ( fileName, "w" )	
@@ -137,6 +148,7 @@ def createInstance ( target, p ):
 	writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
 	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
 	writeProfiles ( target, p.profiles )
+    wrtiteDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
 
 createInstance ( target, loadProfile(sys.argv[1]) )
 
