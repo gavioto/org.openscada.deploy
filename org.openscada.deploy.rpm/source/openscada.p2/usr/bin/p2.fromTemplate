@@ -10,6 +10,8 @@ from xml.dom.minidom import parse
 
 profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/openscada/profiles" )
 target = sys.argv[2]
+TARGET_DIR = os.path.abspath ( target ) # for the eval() calls
+debug = "debug" in os.environ
 
 class Profile:
     """A class holding profile information"""
@@ -21,6 +23,7 @@ class Profile:
         self.profiles={}
         self.defaultProfileName=None
         self.dataDirectories=[]
+        self.notes=[]
 
 def findProfileFile ( template ):
     if not os.path.exists(profilesDir):
@@ -64,11 +67,15 @@ def readProperties ( properties, elements, context = ""):
 
         if "unset" in node.attributes.keys():
             properties.remove ( key )
-            print "property[%s]: %s -> UNSET" % ( context, key )
+            if debug: print "property[%s]: %s -> UNSET" % ( context, key )
         else:
             value = getText(node.childNodes)
-            properties[key] = value
-            print "property[%s]: %s -> %s" % ( context, key, value )
+            useEval = "eval" in node.attributes.keys()
+            if useEval:
+                properties[key] = eval ( value )
+            else:
+                properties[key] = value
+            if debug: print "property[%s]: %s -> %s" % ( context, key, properties[key] )
 
 def findNodes ( element, tag ):
     result = []
@@ -97,27 +104,33 @@ def performLoad ( templateName, p, templateFile ):
         parentName = profile.attributes["parent"].value
         performLoad ( parentName, p,  findProfileFile ( parentName ) )
 
+    for node in profile.getElementsByTagName("note"):
+        value = getText ( node.childNodes )
+        if "eval" in node.attributes.keys():
+            value = eval ( value )
+        p.notes.append ( value )
+
     for node in profile.getElementsByTagName("feature"):
         feature = getText(node.childNodes)
-        print "Feature: %s" % feature
+        if debug: print "Feature: %s" % feature
         p.features.append ( feature )
 
     for node in profile.getElementsByTagName("start"):
         bundle = getText(node.childNodes)
-        print "Start: %s" % bundle
+        if debug: print "Start: %s" % bundle
         p.bundleStartLevels[bundle] = "-1"
 
     for node in profile.getElementsByTagName("setbsl"):
         bundle = getText(node.childNodes)
         level = node.attributes["level"].value
-        print "BSL: %s -> %s" % ( bundle, level )
+        if debug: print "BSL: %s -> %s" % ( bundle, level )
         p.bundleStartLevels[bundle] = level
 
     readProperties ( p.properties, findNodes ( profile, "property" ) )
 
     for node in profile.getElementsByTagName("argument"):
         argument = getText(node.childNodes)
-        print "Argument: %s" % argument
+        if debug: print "Argument: %s" % argument
         p.arguments.append ( argument )
 
     for node in profile.getElementsByTagName("profile"):
@@ -173,6 +186,18 @@ def copyData ( target, dataDirs ):
     for dirName in dataDirs:
         subprocess.call ( "cp -av \"%s\"/* -t \"%s\"" % ( dirName, target ), shell=True)
 
+def showNotes ( notes ):
+    if notes:
+        print "\n===================== NOTES ==================="
+    i = 0
+    for note in notes:
+        if i: print "----------------------------------------"
+        print "\nNOTE: " + note + "\n"
+        i = i + 1
+    if notes:
+        print "===================== NOTES ===================\n"
+
+
 def createInstance ( target, p ):
     subprocess.call ( ["p2.create", target] )
     subprocess.call ( ["p2.install", target ] + p.features )
@@ -182,6 +207,7 @@ def createInstance ( target, p ):
     writeProfiles ( target, p.profiles )
     writeDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
     copyData ( target, p.dataDirectories )
+    showNotes ( p.notes )
 
 createInstance ( target, loadProfile(sys.argv[1]) )
 
