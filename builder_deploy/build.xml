@@ -22,6 +22,7 @@
          ================================= -->
     <target name="default" depends="clean,openscada.build.profile.setup">
     	<openscada.bundleBuild builder="builder"/>
+    	<openscada.productBuild builder="builder.daserver"/>
     	<openscada.productBuild builder="builder.p2director"/>
     </target>
 	
