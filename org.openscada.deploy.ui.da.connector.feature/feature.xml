@@ -16,10 +16,6 @@ for UI applications to create DA connections.
       %copyright
    </copyright>
 
-   <license url="http://opensource.org/licenses/lgpl-3.0.html">
-      %license
-   </license>
-
    <requires>
       <import feature="org.openscada.deploy.da.connector" version="0.18.0.qualifier"/>
    </requires>

@@ -16,10 +16,6 @@ are required to create connections to DA services using OSGi.
       %copyright
    </copyright>
 
-   <license url="http://opensource.org/licenses/lgpl-3.0.html">
-      %license
-   </license>
-
    <requires>
       <import plugin="slf4j.api"/>
       <import plugin="org.eclipse.osgi"/>
