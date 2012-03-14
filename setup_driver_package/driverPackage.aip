@@ -38,7 +38,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="ShelExec.exe" Component_="ShelExec.exe" FileName="ShelExec.exe" Attributes="0" SourcePath="..\..\..\..\test\resources\ShelExec.exe" SelfReg="false"/>
+    <ROW File="ShelExec.exe" Component_="ShelExec.exe" FileName="ShelExec.exe" Attributes="0" SourcePath="resources\ShelExec.exe" SelfReg="false"/>
     <ROW File="cal10n.api_0.7.4.jar_1" Component_="cal10n.api_0.7.4.jar_1" FileName="cal10n~1.jar|cal10n.api_0.7.4.jar" Attributes="0" SourcePath="unpack\cal10n.api_0.7.4.jar" SelfReg="false" NextFile="ch.qos.logback.classic_1.0.0.jar_1"/>
     <ROW File="ch.qos.logback.classic_1.0.0.jar_1" Component_="cal10n.api_0.7.4.jar_1" FileName="chqosl~1.jar|ch.qos.logback.classic_1.0.0.jar" Attributes="0" SourcePath="unpack\ch.qos.logback.classic_1.0.0.jar" SelfReg="false" NextFile="ch.qos.logback.core_1.0.0.jar_1"/>
     <ROW File="ch.qos.logback.core_1.0.0.jar_1" Component_="cal10n.api_0.7.4.jar_1" FileName="chqosl~2.jar|ch.qos.logback.core_1.0.0.jar" Attributes="0" SourcePath="unpack\ch.qos.logback.core_1.0.0.jar" SelfReg="false" NextFile="com.google.gson_1.7.0.jar_1"/>
@@ -363,7 +363,6 @@
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="51"/>
     <ROW Action="AI_AiRemoveFilesRollback" Sequence="3099"/>
-    <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
     <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
     <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
@@ -372,6 +371,7 @@
     <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
     <ROW Action="AI_DetectJRE" Condition="1" Sequence="399" Builds="DefaultBuild"/>
+    <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
