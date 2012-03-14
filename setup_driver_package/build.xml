@@ -21,6 +21,12 @@
           target: default              
          ================================= -->
     <target name="default" depends="clean,openscada.build.profile.setup,build,deploy">
+    </target>
+	
+	<!-- ================================= 
+          target: unpack              
+         ================================= -->
+    <target name="unpack" depends="clean" description="Unpack">
     	<mkdir dir="unpack"/>
     	<unzip dest="unpack">
     		<fileset dir="${input.dir}/repos">
@@ -32,6 +38,7 @@
     		<mapper type="flatten"/>
     	</unzip>
     </target>
+
 	
 	<!-- ================================= 
           target: clean              
@@ -59,7 +66,7 @@
 	<!-- ================================= 
           target: build              
          ================================= -->
-    <target name="build" description="Build the setup">
+    <target name="build" depends="unpack" description="Build the setup">
     	<echo message="Setting version to ${version}"/>
         <exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
     		<arg value="/edit"/>
