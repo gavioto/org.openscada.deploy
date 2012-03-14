@@ -73,6 +73,7 @@
 	
 	<target name="preProcessRepos">
 		<openscada.importAllRepositories/>
+		<copy file="${output.dir}/org.openscada.deploy.repo-${buildType}.${buildId}.zip" todir="${repoBaseLocation}"/>
 	</target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
