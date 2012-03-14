@@ -41,4 +41,24 @@
          id="org.openscada.utgard"
          version="0.0.0"/>
 
+   <plugin
+         id="org.openscada.sec.provider.dummy"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.ca.file"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.da.server.arduino"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
 </feature>
