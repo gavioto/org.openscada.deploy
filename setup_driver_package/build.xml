@@ -55,7 +55,7 @@
     	<mkdir dir="${output.dir}"/>
     	
         <copy todir="${output.dir}">
-        	<fileset dir=".">
+        	<fileset dir="setup_driver_package/output">
         		<include name="*.msi"/>
         	</fileset>
     	</copy>
