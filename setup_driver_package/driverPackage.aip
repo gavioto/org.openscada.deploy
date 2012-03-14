@@ -250,7 +250,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
     <ROW BuildKey="BuildMacOS" BuildName="BuildMacOS" BuildOrder="2" BuildType="2" Languages="en" MacDefaultMemorySize="128"/>
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" PackageFolder="output" PackageFileName="driverPackage-[|ProductVersion]" Languages="en;de" LangOpt="1" InstallationType="4" CabsLocation="1" ExtUI="true" Unicode="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" PackageFolder="output" PackageFileName="driverPackage-[|ProductVersion]" Languages="en;de" LangOpt="1" InstallationType="4" ExtUI="true" Unicode="true"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
