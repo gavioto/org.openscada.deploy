@@ -3,9 +3,7 @@
       id="org.openscada.deploy.da.connector"
       label="openSCADA DA Connector Feature"
       version="0.18.0.qualifier"
-      provider-name="TH4 SYSTEMS GmbH"
-      license-feature="org.openscada.deploy"
-      license-feature-version="0.18.0.qualifier">
+      provider-name="TH4 SYSTEMS GmbH">
 
    <description url="http://openscada.org">
       The openSCADA DA Connector Modules. Contains all bundles that
@@ -15,6 +13,10 @@ are required to create connections to DA services using OSGi.
    <copyright>
       %copyright
    </copyright>
+
+   <license url="http://opensource.org/licenses/lgpl-3.0.html">
+      %license
+   </license>
 
    <requires>
       <import plugin="slf4j.api"/>
