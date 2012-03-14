@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.openscada.deploy.ui.da.connector"
+      label="openSCADA DA UI Connector Feature"
+      version="0.18.0.qualifier"
+      provider-name="TH4 SYSTEMS GmbH"
+      license-feature="org.openscada.deploy"
+      license-feature-version="0.18.0.qualifier">
+
+   <description url="http://openscada.org">
+      The openSCADA DA UI Connector Modules. Contains all bundles required
+for UI applications to create DA connections.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="http://opensource.org/licenses/lgpl-3.0.html">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.openscada.deploy.da.connector" version="0.18.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="org.openscada.da.ui.connection.creator.net"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.core.ui.connection.creator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

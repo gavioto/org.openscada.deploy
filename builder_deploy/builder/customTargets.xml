@@ -101,6 +101,10 @@
   	<openscada.builder.copyFeature id="org.openscada.deploy" />
   	<openscada.builder.copyFeature id="org.openscada.deploy.ca"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.p2"/>
+  	
+  	<openscada.builder.copyFeature id="org.openscada.deploy.da.connector"/>
+  	<openscada.builder.copyFeature id="org.openscada.deploy.ui.da.connector"/>
+  	
   </target>
 
   <!-- ===================================================================== -->
