@@ -45,7 +45,11 @@
          ================================= -->
     <target name="clean">
     	<delete dir="unpack" failonerror="false"/>
-        <delete dir="${output.dir}" failonerror="false"/>
+    	<delete dir="${output.dir}" failonerror="false"/>
+    	
+    	<!-- local advinst output dir -->
+    	<delete dir="output" failonerror="false"/>
+        
     </target>
 	
 	<!-- ================================= 
