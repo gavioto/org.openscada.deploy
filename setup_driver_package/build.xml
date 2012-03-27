@@ -100,7 +100,7 @@
         <exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
     		<arg value="/edit"/>
     		<arg value="driverPackage.aip"/>
-    		<arg value="/SetUpdateUrl"/>
+    		<arg value="/SetUpdatesUrl"/>
     		<arg value="${update.url}"/>
     	</exec>
     </target>
