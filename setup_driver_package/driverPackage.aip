@@ -412,6 +412,8 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="CheckforUpdates" Directory_="SHORTCUTDIR" Name="Checkf~1|Check for Updates" Component_="updater.exe" Target="[#updater.exe]" Arguments="/checknow" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="Editexporter.xml" Directory_="SHORTCUTDIR" Name="Editex~1.xml|Edit exporter.xml" Component_="ShelExec.exe" Target="[#ShelExec.exe]" Arguments="/Verb:edit &quot;[#exporter.xml]&quot;" Hotkey="0" Icon_="openscada.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="Folderforcustomjars" Directory_="SHORTCUTDIR" Name="Folder~1|Folder for custom jars" Component_="openSCADA_Drivers.exe" Target="[customJars_Dir]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Viewexporter.xml" Directory_="SHORTCUTDIR" Name="Viewex~1.xml|View exporter.xml" Component_="exporter.xml" Target="[#exporter.xml]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="configuration_Dir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="spring"/>
