@@ -26,12 +26,24 @@
 <exec:queue name="Q1">
 
     <!--
+      - run "date" command 
+      -->
+	<exec:command id="DATE" period="1000">
+		<exec:process exec="cmd.exe">
+			<exec:argument>/c</exec:argument>
+			<exec:argument>date</exec:argument>
+			<exec:argument>/t</exec:argument>
+		</exec:process>
+		<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
+	</exec:command>
+	
+    <!--
       - run "time" command 
       -->
 	<exec:command id="TIME" period="1000">
 		<exec:process exec="cmd.exe">
 			<exec:argument>/c</exec:argument>
-			<exec:argument>date</exec:argument>
+			<exec:argument>time</exec:argument>
 			<exec:argument>/t</exec:argument>
 		</exec:process>
 		<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
