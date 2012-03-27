@@ -93,10 +93,14 @@
     	</exec>
     </target>
 	
+	<condition property="has.update.url">
+		<isset property="update.url"/>
+	</condition>
+	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: setupdateurl                      
          - - - - - - - - - - - - - - - - - -->
-    <target name="setupdateurl" if="update.url">
+    <target name="setupdateurl" if="has.update.url">
         <exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
     		<arg value="/edit"/>
     		<arg value="driverPackage.aip"/>
