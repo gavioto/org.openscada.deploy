@@ -106,7 +106,7 @@
     		<arg value="/edit"/>
     		<arg value="driverPackage.aip"/>
     		<arg value="/SetUpdatesUrl"/>
-    		<arg value="${update.url}"/>
+    		<arg value="${update.url}/updates.txt"/>
     	</exec>
     </target>
 	
