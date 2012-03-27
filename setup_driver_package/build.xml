@@ -39,12 +39,13 @@
     	</unzip>
     	
     	<!-- unpack schema files -->
-    	<mkdir dir="gather.schema"/>
-    	<unzip dest="gather.schema">
+    	<mkdir dir="resources/schema"/>
+    	<unzip dest="resources/schema">
     		<fileset dir="unpack" includes="*.jar"/>
     		<patternset>
     			<include name="schema/*.xsd"/>
     		</patternset>
+    		<globmapper from="schema/*" to="*"/>
     	</unzip>
     </target>
 
@@ -54,7 +55,7 @@
          ================================= -->
     <target name="clean">
     	<delete dir="unpack" failonerror="false"/>
-		<delete dir="gather.schema" failonerror="false"/>
+		<delete dir="resources/schema" failonerror="false"/>
     	
     	<delete dir="${output.dir}" failonerror="false"/>
     	
