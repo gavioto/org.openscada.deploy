@@ -79,17 +79,37 @@
     	<echo message="version=${version}" output="${output.dir}/version.properties" append="false"/>
     </target>
 	
-	<!-- ================================= 
-          target: build              
-         ================================= -->
-    <target name="build" depends="unpack" description="Build the setup">
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: setversion                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="setversion">
     	<echo message="Setting version to ${version}"/>
+
         <exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
     		<arg value="/edit"/>
     		<arg value="driverPackage.aip"/>
     		<arg value="/SetVersion"/>
     		<arg value="${version}"/>
     	</exec>
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: setupdateurl                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="setupdateurl" if="update.url">
+        <exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
+    		<arg value="/edit"/>
+    		<arg value="driverPackage.aip"/>
+    		<arg value="/SetUpdateUrl"/>
+    		<arg value="${update.url}"/>
+    	</exec>
+    </target>
+	
+	<!-- ================================= 
+          target: build              
+         ================================= -->
+    <target name="build" depends="unpack,setversion,setupdateurl" description="Build the setup">
+    	
     	<exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
     		<arg value="/build"/>
     		<arg value="driverPackage.aip"/>
