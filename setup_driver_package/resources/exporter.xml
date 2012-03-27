@@ -187,6 +187,11 @@
 	<exporter:hive ref="org.openscada.da.server.opc.Hive">
 		<exporter:configuration>
 			<opc:root>
+				<opc:connections>
+				</opc:connections>
+				
+				<opc:item-templates>
+				</opc:item-templates>
 			</opc:root>
 		</exporter:configuration>
 		<exporter:export uri="da:net://0.0.0.0:12027"/>
