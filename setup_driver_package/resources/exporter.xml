@@ -173,8 +173,9 @@
 					password=""
 					timeout="1000">
 					
-					<jdbc:query period="1000" id="TIME">
+					<jdbc:query period="100" id="TIME">
 						<jdbc:sql><![CDATA[call CURRENT_TIMESTAMP]]></jdbc:sql>
+						<jdbc:columnMapping columnNumber="1" aliasName="CURRENT_TIMESTAMP"/>
 					</jdbc:query>
 					
 				</jdbc:connection>
