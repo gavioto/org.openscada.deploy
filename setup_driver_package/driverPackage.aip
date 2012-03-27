@@ -382,10 +382,10 @@
     <ROW Action="AI_AiRemoveFilesRollback" Sequence="3099"/>
     <ROW Action="AI_DetectJRE" Condition="1" Sequence="399" Builds="DefaultBuild"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Condition="($updater.exe = 2) AND (?updater.exe = 3) AND NOT (UPGRADINGPRODUCTCODE)" Sequence="1551"/>
-    <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
     <ROW Action="AI_ExtractTempFiles" Sequence="1001"/>
     <ROW Action="AI_RemoveTempFiles" Sequence="6601"/>
     <ROW Action="AI_RemoveAllTempFiles" Sequence="1501"/>
+    <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -410,7 +410,7 @@
     <ROW ServiceInstall="openSCADA_Drivers.exe" Name="openSCADA Driver Package" DisplayName="openSCADA Driver Package" ServiceType="16" StartType="2" ErrorControl="1" Component_="openSCADA_Drivers.exe" Description="All plain openSCADA Drivers"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="CheckforUpdates" Directory_="SHORTCUTDIR" Name="Checkf~1|Check for Updates" Component_="updater.exe" Target="[#updater.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="CheckforUpdates" Directory_="SHORTCUTDIR" Name="Checkf~1|Check for Updates" Component_="updater.exe" Target="[#updater.exe]" Arguments="/checknow" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="Editexporter.xml" Directory_="SHORTCUTDIR" Name="Editex~1.xml|Edit exporter.xml" Component_="ShelExec.exe" Target="[#ShelExec.exe]" Arguments="/Verb:edit &quot;[#exporter.xml]&quot;" Hotkey="0" Icon_="openscada.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
