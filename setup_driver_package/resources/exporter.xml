@@ -21,7 +21,11 @@
       - run "time" command 
       -->
 	<exec:command id="TIME" period="1000">
-		<exec:process exec="/bin/date"/>
+		<exec:process exec="cmd.exe">
+			<exec:argument>/c</exec:argument>
+			<exec:argument>date</exec:argument>
+			<exec:argument>/t</exec:argument>
+		</exec:process>
 		<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
 	</exec:command>
 	
@@ -131,7 +135,9 @@
 	fork="false"
 	skipIfNull="true"
 	>
-	<exec:process exec="echo">
+	<exec:process exec="cmd">
+		<exec:argument>/c</exec:argument>
+		<exec:argument>echo</exec:argument>
 		<exec:argument>Hello: __VALUE__</exec:argument>
 	</exec:process>
 	<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>

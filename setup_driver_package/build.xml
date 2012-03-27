@@ -45,7 +45,11 @@
          ================================= -->
     <target name="clean">
     	<delete dir="unpack" failonerror="false"/>
-        <delete dir="${output.dir}" failonerror="false"/>
+    	<delete dir="${output.dir}" failonerror="false"/>
+    	
+    	<!-- local advinst output dir -->
+    	<delete dir="output" failonerror="false"/>
+        
     </target>
 	
 	<!-- ================================= 
@@ -55,7 +59,7 @@
     	<mkdir dir="${output.dir}"/>
     	
         <copy todir="${output.dir}">
-        	<fileset dir="setup_driver_package/output">
+        	<fileset dir="output">
         		<include name="*.msi"/>
         	</fileset>
     	</copy>
