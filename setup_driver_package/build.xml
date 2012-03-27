@@ -101,6 +101,7 @@
           target: setupdateurl                      
          - - - - - - - - - - - - - - - - - -->
     <target name="setupdateurl" if="has.update.url">
+    	<echo message="Setting update URL to ${update.url}"/>
         <exec executable="${advinst.base}/AdvancedInstaller.com" failonerror="true">
     		<arg value="/edit"/>
     		<arg value="driverPackage.aip"/>
