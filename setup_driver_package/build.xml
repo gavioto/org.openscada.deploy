@@ -37,6 +37,15 @@
     		</patternset>
     		<mapper type="flatten"/>
     	</unzip>
+    	
+    	<!-- unpack schema files -->
+    	<mkdir dir="gather.schema"/>
+    	<unzip dest="gather.schema">
+    		<fileset dir="unpack" includes="*.jar"/>
+    		<patternset>
+    			<include name="schema/*.xsd"/>
+    		</patternset>
+    	</unzip>
     </target>
 
 	
@@ -45,6 +54,8 @@
          ================================= -->
     <target name="clean">
     	<delete dir="unpack" failonerror="false"/>
+		<delete dir="gather.schema" failonerror="false"/>
+    	
     	<delete dir="${output.dir}" failonerror="false"/>
     	
     	<!-- local advinst output dir -->
