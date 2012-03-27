@@ -167,7 +167,7 @@
 			<jdbc:root>
 				<jdbc:connection
 					id="JDBC1"
-					connectionClass="org.hsqldb.jdbc.JDBCDriver"
+					connectionClass="org.hsqldb.jdbcDriver"
 					uri="jdbc:hsqldb:mem:test"
 					username="SA"
 					password=""
@@ -181,6 +181,14 @@
 			</jdbc:root>
 		</exporter:configuration>
 		<exporter:export uri="da:net://0.0.0.0:12021"/>
+	</exporter:hive>
+	
+	<exporter:hive ref="org.openscada.da.server.opc.Hive">
+		<exporter:configuration>
+			<opc:root>
+			</opc:root>
+		</exporter:configuration>
+		<exporter:export uri="da:net://0.0.0.0:12027"/>
 	</exporter:hive>
 	
 </exporter:configuration>
