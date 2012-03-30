@@ -2,3 +2,5 @@
 /unpack
 /input
 /gather.schema
+/output
+*.back.aip
