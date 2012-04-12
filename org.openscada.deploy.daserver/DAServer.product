@@ -31,6 +31,7 @@
       <feature id="org.eclipse.rcp"/>
       <feature id="org.openscada.deploy.daserver"/>
       <feature id="org.openscada.deploy.da.connector"/>
+      <feature id="org.openscada.deploy.ca"/>
    </features>
 
    <configurations>
