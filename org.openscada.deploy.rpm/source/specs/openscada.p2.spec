@@ -1,5 +1,5 @@
 #
-# OpenSCADA Spec File
+# openSCADA Spec File
 #
 
 %define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
@@ -7,11 +7,11 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
-%define version 0.18.0
+%define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      openscada.p2
-Summary:   The openSCADA P2 repository and product system
+Summary:   The openSCADA P2 repository and deployment system
 Version:   %{version}
 Release:   %{qualifier}
 License:   LGPLv3
@@ -52,6 +52,8 @@ install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 %_bindir/p2.*
 
 %changelog
+* Tue Apr 12 2012 - jens.reimann@th4-systems.net
+- Building for openSCADA 1.0.0
 * Mon Nov 28 2011 - jens.reimann@th4-systems.net
 - Building for openSCADA 0.18.0
 * Wed Jul 13 2011 - jens.reimann@th4-systems.net
