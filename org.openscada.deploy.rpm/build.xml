@@ -47,6 +47,8 @@
     <target name="pack" depends="" description="Pack local source">
         <tar destfile="${rpm.base}/SOURCES/org.openscada.p2-${deploy.version}.tar.gz" compression="gzip" basedir="${basedir}/source/openscada.p2">
         </tar>
+    	<tar destfile="${rpm.base}/SOURCES/p2.profiles-${deploy.version}.tar.gz" compression="gzip" basedir="${basedir}/source/p2.profiles">
+        </tar>
     </target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
@@ -56,10 +58,6 @@
     	<copy todir="${rpm.base}/SPECS">
     		<fileset dir="${basedir}/source/specs">
     			<include name="*.spec"/>
-    		</fileset>
-    	</copy>
-    	<copy todir="${rpm.base}/SOURCES">
-    		<fileset dir="${basedir}/source/SOURCES">
     		</fileset>
     	</copy>
     </target>
@@ -103,6 +101,7 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="rpm.openscada.p2" depends="pack,copySpec">
     	<rpm specfile="openscada.p2.spec" topdir="${rpm.base}" failOnError="true"/>
+    	<rpm specfile="p2.profiles.spec" topdir="${rpm.base}" failOnError="true"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 

@@ -7,6 +7,7 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
+%define _logdir /var/log
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
@@ -38,6 +39,7 @@ cd ..
 %install
 install -d %buildroot/%_repodir
 install -d %buildroot/%_bindir
+install -d %buildroot/%_logdir/openscada
 install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 
 %clean
@@ -50,6 +52,7 @@ install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 %files
 %dir %_repodir
 %_bindir/p2.*
+%dir %_logdir/openscada
 
 %changelog
 * Tue Apr 12 2012 - jens.reimann@th4-systems.net
