@@ -2,11 +2,12 @@
 <feature
       id="org.openscada.deploy.ca"
       label="openSCADA Deploy CA Feature"
-      version="0.18.0.qualifier"
+      version="1.0.0.qualifier"
       provider-name="TH4 SYSTEMS GmbH">
 
    <description>
-      This features packs together components needed to deploy a CA including WebService and Servlet access.
+      This features packs together components needed to deploy a CA
+including WebService and Servlet access but not the CA itself.
    </description>
 
    <copyright url="http://opensource.org/licenses/lgpl-3.0.html">
