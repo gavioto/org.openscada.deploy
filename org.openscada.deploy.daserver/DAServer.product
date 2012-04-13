@@ -51,7 +51,11 @@
       <plugin id="org.openscada.da.connection.provider" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.net" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.server.arduino" autoStart="true" startLevel="0" />
+	  <plugin id="org.openscada.da.server.common.osgi" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.da.server.dave" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.sec.provider.dummy" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.ca.servlet.jaxws" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.ca.servlet" autoStart="true" startLevel="0" />
       <property name="eclipse.ignoreApp" value="true" />
       <property name="osgi.noShutdown" value="true" />
    </configurations>
