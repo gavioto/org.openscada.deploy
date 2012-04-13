@@ -39,7 +39,6 @@
 	<start>org.openscada.ae.monitor</start>
 	<start>org.openscada.ae.server.common.event</start>
 	<start>org.openscada.da.server.osgi</start>
-	<!-- TODO: add sec provider -->
 	<start>org.openscada.ae.server.http</start>
 	<start>org.mortbay.jetty.server</start>
 	<start>org.eclipse.equinox.http.jetty</start>

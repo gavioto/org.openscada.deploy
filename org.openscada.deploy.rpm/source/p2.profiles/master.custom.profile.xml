@@ -5,6 +5,9 @@
 	<argument>-XX:+UseConcMarkSweepGC</argument>
 	<argument>-XX:+CMSIncrementalMode</argument>
 	
+	<!-- starting with dummy sec provider -->
+	<start>org.openscada.sec.provider.dummy</start>
+	
 	<property key="org.openscada.ds.storage.jdbc.instance">master.custom</property>
 	<property key="org.openscada.ca.jdbc.instance">master.custom</property>
 	<property key="org.openscada.ae.server.storage.jdbc.instance">master.custom</property>
