@@ -1,6 +1,6 @@
-/global
-/unpack
-/input
-/gather.schema
-/output
+global
+unpack
+input
+gather.schema
+output
 *.back.aip
