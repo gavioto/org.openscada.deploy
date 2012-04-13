@@ -142,8 +142,14 @@ def performLoad ( templateName, p, templateFile ):
         if not name in p.profiles:
             p.profiles[name]={}
 
-        readProperties ( p.profiles[name], findNodes ( node, "property" ), name )
+        if "parent" in node.attributes.keys():
+            parentProfile = node.attributes["parent"].value
+            # add all properties from parent profile
+            for key,value in p.profiles[parentProfile].items():
+                if debug: print "Import %s from profile %s: %s" % (key,parentProfile,value)
+                p.profiles[name][key] = value
 
+        readProperties ( p.profiles[name], findNodes ( node, "property" ), name )
 
 
 def loadProfileFile ( name, templateFile ):
