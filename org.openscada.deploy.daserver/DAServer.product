@@ -55,7 +55,7 @@
       <plugin id="org.openscada.sec.provider.dummy" autoStart="true" startLevel="0" />
       <property name="eclipse.ignoreApp" value="true" />
       <property name="openscada.da.net.exportUri" value="da:net://0.0.0.0:12030" />
-      <property name="org.openscada.utils.osgi.jaxws.baseAddress" value="http://0.0.0.0:9240" />
+      <property name="org.openscada.utils.osgi.jaxws.baseAddress" value="http://0.0.0.0:9241" />
       <property name="osgi.noShutdown" value="true" />
    </configurations>
 
