@@ -8,6 +8,7 @@
     </description>
 
 	<property name="rpm.base" location="${basedir}/build"/>
+	<property name="deb.base" location="${basedir}/build/debs"/>
 	<property name="SOURCES" location="${rpm.base}/SOURCES" />
 	
 	<property name="build.root" location="."/>
@@ -22,8 +23,27 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="dump,setup,rpm" description="OpenSCADA Deploy Packages">
+    <target name="default" depends="dump,setup,rpm,alien,gather" description="OpenSCADA Deploy Packages">
     </target>
+	
+	<!-- ================================= 
+          target: alien              
+         ================================= -->
+    <target name="alien" depends="" description="Convert to DEB">
+    	<mkdir dir="${deb.base}"/>
+        <shellscript shell="bash">
+        	<env key="RPM_BASE" value="${rpm.base}"/>
+        	<env key="DEB_BASE" value="${deb.base}"/>
+<![CDATA[
+for i in `find "$RPM_BASE" -name "*.rpm"`; do
+	pushd "$DEB_BASE"
+	fakeroot alien "$i"
+	popd
+done
+]]>
+    	</shellscript>
+    </target>
+
 
 	<!-- - - - - - - - - - - - - - - - - - 
           target: dump                      
@@ -37,6 +57,7 @@
           target: clean                      
          - - - - - - - - - - - - - - - - - -->
     <target name="clean" depends="rpm.clean">
+    	<delete dir="${deb.base}" failonerror="false"/>
 		<delete dir="build" failonerror="false"/>
     	<delete dir="${output.dir}" failonerror="false"/>
     </target>
@@ -66,17 +87,25 @@
 	<!-- ================================= 
           target: rpm              
          ================================= -->
-    <target name="rpm" depends="rpm.clean,rpm.init,rpm.openscada.p2,rpm.wrap,rpm.p2director,rpm.gather" description="Build the RPM">
+    <target name="rpm" depends="rpm.clean,rpm.init,rpm.openscada.p2,rpm.wrap,rpm.p2director" description="Build the RPM">
     </target>
 	
-	<!-- - - - - - - - - - - - - - - - - - 
-          target: rpm.gather                      
-         - - - - - - - - - - - - - - - - - -->
-    <target name="rpm.gather">
-    	<mkdir dir="${output.dir}"/>
-		<copy todir="${output.dir}">
+	<!-- ================================= 
+          target: gather              
+         ================================= -->
+    <target name="gather">
+    	<mkdir dir="${output.dir}/rpm"/>
+		<copy todir="${output.dir}/rpm">
 			<fileset dir="${build.root}/build/RPMS">
 				<include name="**/*.rpm"/>
+			</fileset>
+			<mapper type="flatten"/>
+    	</copy>
+    	
+    	<mkdir dir="${output.dir}/deb"/>
+    	<copy todir="${output.dir}/deb">
+			<fileset dir="${deb.base}">
+				<include name="**/*.deb"/>
 			</fileset>
 			<mapper type="flatten"/>
     	</copy>
