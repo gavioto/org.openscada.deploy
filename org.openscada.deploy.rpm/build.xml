@@ -23,7 +23,7 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="dump,setup,rpm,alien,gather" description="OpenSCADA Deploy Packages">
+    <target name="default" depends="dump,setup,rpm,alien,gather" description="openSCADA Deploy Packages">
     </target>
 	
 	<!-- ================================= 
