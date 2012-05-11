@@ -83,6 +83,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isIgnoreSummary <em>Ignore Summary</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isBlock <em>Block</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getHdStorage <em>Hd Storage</em>}</li>
  * </ul>
  * </p>
  *
@@ -1139,6 +1140,26 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected boolean enabled = ENABLED_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getHdStorage() <em>Hd Storage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHdStorage()
+     * @generated
+     * @ordered
+     */
+    protected static final String HD_STORAGE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getHdStorage() <em>Hd Storage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHdStorage()
+     * @generated
+     * @ordered
+     */
+    protected String hdStorage = HD_STORAGE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -2376,6 +2397,29 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getHdStorage()
+    {
+        return hdStorage;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setHdStorage(String newHdStorage)
+    {
+        String oldHdStorage = hdStorage;
+        hdStorage = newHdStorage;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__HD_STORAGE, oldHdStorage, hdStorage));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -2487,6 +2531,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isBlock();
             case ModelPackage.ITEM__ENABLED:
                 return isEnabled();
+            case ModelPackage.ITEM__HD_STORAGE:
+                return getHdStorage();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -2662,6 +2708,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__ENABLED:
                 setEnabled((Boolean)newValue);
                 return;
+            case ModelPackage.ITEM__HD_STORAGE:
+                setHdStorage((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -2835,6 +2884,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__ENABLED:
                 setEnabled(ENABLED_EDEFAULT);
                 return;
+            case ModelPackage.ITEM__HD_STORAGE:
+                setHdStorage(HD_STORAGE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -2955,6 +3007,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return block != BLOCK_EDEFAULT;
             case ModelPackage.ITEM__ENABLED:
                 return enabled != ENABLED_EDEFAULT;
+            case ModelPackage.ITEM__HD_STORAGE:
+                return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals(hdStorage);
         }
         return super.eIsSet(featureID);
     }
@@ -3076,6 +3130,8 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(block);
         result.append(", enabled: ");
         result.append(enabled);
+        result.append(", hdStorage: ");
+        result.append(hdStorage);
         result.append(')');
         return result.toString();
     }

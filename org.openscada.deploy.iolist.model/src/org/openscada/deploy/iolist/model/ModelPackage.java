@@ -549,13 +549,22 @@ public interface ModelPackage extends EPackage
     int ITEM__ENABLED = 52;
 
     /**
+     * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__HD_STORAGE = 53;
+
+    /**
      * The number of structural features of the '<em>Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_FEATURE_COUNT = 53;
+    int ITEM_FEATURE_COUNT = 54;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -1135,6 +1144,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__ENABLED = ITEM__ENABLED;
+
+    /**
+     * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
 
     /**
      * The feature id for the '<em><b>Input Formula</b></em>' attribute.
@@ -1814,6 +1832,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int SCRIPT_ITEM__ENABLED = ITEM__ENABLED;
+
+    /**
+     * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
 
     /**
      * The feature id for the '<em><b>Script Engine</b></em>' attribute.
@@ -2536,6 +2563,17 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EAttribute getItem_Enabled();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Hd Storage</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getHdStorage()
+     * @see #getItem()
+     * @generated
+     */
+    EAttribute getItem_HdStorage();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryGroup <em>Summary Group</em>}'.
@@ -3413,6 +3451,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute ITEM__ENABLED = eINSTANCE.getItem_Enabled();
+
+        /**
+         * The meta object literal for the '<em><b>Hd Storage</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM__HD_STORAGE = eINSTANCE.getItem_HdStorage();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
