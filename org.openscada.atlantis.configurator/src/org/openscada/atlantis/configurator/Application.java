@@ -167,7 +167,7 @@ public class Application implements IApplication
     {
         for ( final File file : base.listFiles () )
         {
-            cfg.applyScriptOverride ( file );
+            cfg.applyScriptOverride ( file, base );
         }
     }
 }
