@@ -67,6 +67,8 @@ public abstract class GenericSpreadSheetHelper
 
             addFlag ( row, Header.BLOCK.ordinal (), item.isBlock (), false );
 
+            addData ( row, Header.HD_STORAGE.ordinal (), item.getHdStorage () );
+
             if ( !item.isEnabled () )
             {
                 strikeThroughRow ( row );
