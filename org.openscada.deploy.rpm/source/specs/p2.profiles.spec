@@ -36,10 +36,10 @@ cd ..
 
 %install
 install -d %buildroot/%_profiledir
-install p2.profiles/*.profile.xml %buildroot/%_profiledir
+install -m 0644 p2.profiles/*.profile.xml %buildroot/%_profiledir
 for i in dave master; do
 	install -d %buildroot/%_profiledir/$i
-	install p2.profiles/$i/* %buildroot/%_profiledir/$i
+	install -m 0644 p2.profiles/$i/* %buildroot/%_profiledir/$i
 done
 
 %clean
@@ -58,6 +58,9 @@ done
 %_profiledir/dave/*
 
 %changelog
+* Mon May 21 2012 - jens.reimann@th4-systems.com
+- Correct permissions of config files
+
 * Wed Feb  8 2012 - jens.reimann@th4-systems.com
 - Adding *.profile.xml
 
