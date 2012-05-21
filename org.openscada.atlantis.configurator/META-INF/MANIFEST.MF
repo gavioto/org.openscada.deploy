@@ -30,4 +30,5 @@ Bundle-ClassPath: lib/odfdom-java-0.8.7.jar,
  lib/xercesImpl.jar,
  lib/xml-apis.jar,
  .
-Export-Package: org.openscada.atlantis.configurator
+Export-Package: org.openscada.atlantis.configurator;version="1.0.0",
+ org.openscada.atlantis.configurator.formula;version="1.0.0"
