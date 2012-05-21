@@ -71,6 +71,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isIgnoreSummary <em>Ignore Summary</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isBlock <em>Block</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}</li>
  * </ul>
  * </p>
  *
@@ -1474,5 +1475,31 @@ public interface Item extends EObject
      * @generated
      */
     void setEnabled(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hd Storage</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hd Storage</em>' attribute.
+     * @see #setHdStorage(String)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_HdStorage()
+     * @model
+     * @generated
+     */
+    String getHdStorage();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Hd Storage</em>' attribute.
+     * @see #getHdStorage()
+     * @generated
+     */
+    void setHdStorage(String value);
 
 } // Item

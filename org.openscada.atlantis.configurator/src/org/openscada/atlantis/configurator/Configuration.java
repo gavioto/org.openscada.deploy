@@ -1041,7 +1041,7 @@ public class Configuration extends GenericMasterConfiguration
         return toks[toks.length - 1];
     }
 
-    public void applyScriptOverride ( final File file ) throws FileNotFoundException, ScriptException
+    public void applyScriptOverride ( final File file, final File baseDir ) throws FileNotFoundException, ScriptException
     {
         if ( file.isDirectory () )
         {
@@ -1055,6 +1055,7 @@ public class Configuration extends GenericMasterConfiguration
         final ScriptEngine engine = manager.getEngineByExtension ( getExtension ( file ) );
         final ScriptContext context = engine.getContext ();
         context.setAttribute ( "items", this.items.toArray (), ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
+        context.setAttribute ( "baseDir", baseDir, ScriptContext.ENGINE_SCOPE );//$NON-NLS-1$
 
         engine.eval ( new FileReader ( file ) );
     }

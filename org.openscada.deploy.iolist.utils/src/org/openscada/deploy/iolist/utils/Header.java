@@ -389,6 +389,14 @@ public enum Header
         {
             item.setBlock ( asBoolean ( value ) );
         }
+    },
+    HD_STORAGE
+    {
+        @Override
+        public void apply ( final Item item, final Value value )
+        {
+            item.setHdStorage ( value.getValue () );
+        }
     };
 
     public abstract void apply ( final Item item, final Value value );
