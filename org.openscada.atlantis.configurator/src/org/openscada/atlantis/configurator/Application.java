@@ -68,6 +68,7 @@ public class Application implements IApplication
         final File baseConfiguration = new File ( base, "input/parent.json" );
         if ( baseConfiguration.canRead () )
         {
+            System.out.println ( "** 0 - Loading base json: " + baseConfiguration );
             cfg.loadData ( baseConfiguration );
         }
 
