@@ -23,13 +23,13 @@ public class LoopValidator
 
     private final Map<String, LoopHandler> handlers = new HashMap<String, LoopHandler> ();
 
-    private final Map<String, Map<String, Map<String, Object>>> data;
+    private final Map<String, Map<String, Map<String, String>>> data;
 
     private final PrintStream logStream;
 
     private final Set<DataSourceDescriptor> descriptorPool = new HashSet<DataSourceDescriptor> ();
 
-    public LoopValidator ( final Map<String, Map<String, Map<String, Object>>> data, final PrintStream logStream )
+    public LoopValidator ( final Map<String, Map<String, Map<String, String>>> data, final PrintStream logStream )
     {
         this.data = data;
         this.logStream = logStream;
@@ -122,7 +122,7 @@ public class LoopValidator
 
     private Set<DataSourceNode> load ()
     {
-        for ( final Map.Entry<String, Map<String, Map<String, Object>>> factory : this.data.entrySet () )
+        for ( final Map.Entry<String, Map<String, Map<String, String>>> factory : this.data.entrySet () )
         {
             processFactory ( factory.getKey (), factory.getValue () );
         }
@@ -198,7 +198,7 @@ public class LoopValidator
         return new HashSet<DataSourceNode> ( nodes.values () );
     }
 
-    private void processFactory ( final String factoryId, final Map<String, Map<String, Object>> value )
+    private void processFactory ( final String factoryId, final Map<String, Map<String, String>> value )
     {
         final LoopHandler handler = this.handlers.get ( factoryId );
         if ( handler == null )
@@ -213,13 +213,13 @@ public class LoopValidator
             return;
         }
 
-        for ( final Map.Entry<String, Map<String, Object>> configuration : value.entrySet () )
+        for ( final Map.Entry<String, Map<String, String>> configuration : value.entrySet () )
         {
             processConfiguration ( handler, factoryId, configuration.getKey (), configuration.getValue () );
         }
     }
 
-    private void processConfiguration ( final LoopHandler handler, final String factoryId, final String configurationId, final Map<String, Object> parameters )
+    private void processConfiguration ( final LoopHandler handler, final String factoryId, final String configurationId, final Map<String, String> parameters )
     {
         final Set<DataSourceDescriptor> descriptors = handler.getNode ( configurationId, parameters );
         for ( final DataSourceDescriptor desc : descriptors )

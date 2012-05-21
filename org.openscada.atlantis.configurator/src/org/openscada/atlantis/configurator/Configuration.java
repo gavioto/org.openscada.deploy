@@ -92,17 +92,17 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addAEInfo ()
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "prefix", "ae.server.info" ); //$NON-NLS-1$ //$NON-NLS-2$
         addData ( "ae.server.info", "ae.server.info.all", data ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private void addSummary ( final String string, final Set<String> blacklist )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "attribute", string ); //$NON-NLS-1$
-        data.put ( "onlyMaster", true ); //$NON-NLS-1$
+        data.put ( "onlyMaster", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         int i = 0;
         for ( final String entry : blacklist )
@@ -134,24 +134,24 @@ public class Configuration extends GenericMasterConfiguration
 
     public void addMonitorQuery ( final String id, final String filter )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
         addData ( "ae.monitor.query", id, data ); //$NON-NLS-1$
     }
 
     public void addEventQuery ( final String id, final String filter, final int size )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
-        data.put ( "size", size ); //$NON-NLS-1$
+        data.put ( "size", "" + size ); //$NON-NLS-1$
         addData ( "org.openscada.ae.server.common.event.pool", id, data ); //$NON-NLS-1$
     }
 
     public void addAuthorizationScript ( final String id, final String script, final int priority, final String idFilter, final String typeFilter, final String actionFilter )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "script", script ); //$NON-NLS-1$
-        data.put ( "priority", priority ); //$NON-NLS-1$
+        data.put ( "priority", "" + priority ); //$NON-NLS-1$
         data.put ( "for.id", idFilter ); //$NON-NLS-1$
         data.put ( "for.type", typeFilter ); //$NON-NLS-1$
         data.put ( "for.action", actionFilter ); //$NON-NLS-1$
@@ -160,7 +160,7 @@ public class Configuration extends GenericMasterConfiguration
 
     public void addScriptComponent ( final String id, final String scriptEngine, final String script, final Map<String, String> properties )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         if ( scriptEngine != null )
         {
@@ -256,7 +256,7 @@ public class Configuration extends GenericMasterConfiguration
 
         Collections.sort ( masterIds );
 
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", StringHelper.join ( masterIds, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
@@ -297,6 +297,7 @@ public class Configuration extends GenericMasterConfiguration
 
     /**
      * Generate configuration for currently known items
+     * 
      * @throws Exception
      */
     public void generateItems () throws Exception
@@ -467,7 +468,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private void processFormulaItem ( final String id, final FormulaItem item ) throws Exception
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         if ( item.getWriteValueName () != null && !item.getWriteValueName ().isEmpty () )
         {
@@ -555,18 +556,18 @@ public class Configuration extends GenericMasterConfiguration
     {
         switch ( type )
         {
-        case BOOLEAN:
-            return VariantType.BOOLEAN.name ();
-        case INTEGER:
-            return VariantType.INT32.name ();
-        case LONG_INTEGER:
-            return VariantType.INT64.name ();
-        case STRING:
-            return VariantType.STRING.name ();
-        case FLOAT:
-            return VariantType.DOUBLE.name ();
-        case VARIANT:
-            return null;
+            case BOOLEAN:
+                return VariantType.BOOLEAN.name ();
+            case INTEGER:
+                return VariantType.INT32.name ();
+            case LONG_INTEGER:
+                return VariantType.INT64.name ();
+            case STRING:
+                return VariantType.STRING.name ();
+            case FLOAT:
+                return VariantType.DOUBLE.name ();
+            case VARIANT:
+                return null;
         }
         return null;
     }
@@ -574,7 +575,7 @@ public class Configuration extends GenericMasterConfiguration
     private void validateConnections ( final Set<String> connections )
     {
         System.out.flush ();
-        final Map<String, Map<String, Object>> connnectionData = this.data.get ( "da.connection" ); //$NON-NLS-1$
+        final Map<String, Map<String, String>> connnectionData = this.data.get ( "da.connection" ); //$NON-NLS-1$
         for ( final String device : connections )
         {
             if ( !connnectionData.containsKey ( device ) )
@@ -587,14 +588,14 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addDSDataSource ( final String id )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         addData ( "org.openscada.da.datasource.ds", id, data ); //$NON-NLS-1$
     }
 
     private void addLocalManual ( final String id, final String masterId, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
 
@@ -605,7 +606,7 @@ public class Configuration extends GenericMasterConfiguration
 
     public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Map<String, String> outputs, final String init, final String update, final String timerCommand, final Long timer, final String write )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         if ( engine != null && !engine.isEmpty () )
         {
@@ -646,7 +647,7 @@ public class Configuration extends GenericMasterConfiguration
         }
         if ( timer != null )
         {
-            data.put ( "timer", timer ); //$NON-NLS-1$
+            data.put ( "timer", "" + timer ); //$NON-NLS-1$
         }
         if ( timerCommand != null )
         {
@@ -670,6 +671,7 @@ public class Configuration extends GenericMasterConfiguration
 
     /**
      * Loads text data from a file
+     * 
      * @param file
      * @return
      * @throws Exception
@@ -702,12 +704,12 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addLocalScale ( final String id, final String masterId, final Double localScaleFactor, final Double localScaleOffset, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "factor", "" + localScaleFactor != null ? localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        data.put ( "offset", "" + localScaleOffset != null ? localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
         applyInfoAttributes ( attributes, data );
 
@@ -716,7 +718,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addNegate ( final String id, final String masterId, final boolean active )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "active", "" + active ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -726,13 +728,13 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addWriteLogger ( final String id, final String masterId, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "source", masterId ); //$NON-NLS-1$
-        data.put ( "logValue", true ); //$NON-NLS-1$
-        data.put ( "logAttributes", false ); //$NON-NLS-1$
-        data.put ( "logSubscription", true ); //$NON-NLS-1$
+        data.put ( "logValue", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "logAttributes", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "logSubscription", "true" ); //$NON-NLS-1$  //$NON-NLS-2$
 
         applyInfoAttributes ( attributes, data );
 
@@ -834,7 +836,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addLocalMonitor ( final String id, final String masterId, final String reference, final boolean ack, final String message, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         if ( reference != null )
         {
@@ -859,10 +861,10 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addListMonitor ( final String id, final String masterId, final boolean listIsAlarm, final Collection<String> referenceList, final boolean ack, final String message, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "referenceList", StringHelper.join ( referenceList, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "listIsAlarm", listIsAlarm ); //$NON-NLS-1$
+        data.put ( "listIsAlarm", "" + listIsAlarm ); //$NON-NLS-1$
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "splitPattern", "," );//$NON-NLS-1$ //$NON-NLS-2$
@@ -879,7 +881,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addRemoteValueMonitor ( final String id, final String masterId, final String attributeAck, final String attributeAckTimestamp, final String monitorType, Map<String, String> attributes, final Boolean ackValue )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         if ( attributes == null )
         {
@@ -913,13 +915,13 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addLocalLevelMonitor ( final String id, final boolean error, final boolean requireAck, final String masterId, final String type, final Double preset, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
 
         if ( preset != null )
         {
-            data.put ( "preset", preset ); //$NON-NLS-1$
+            data.put ( "preset", "" + preset ); //$NON-NLS-1$
             data.put ( "active", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         else
@@ -953,7 +955,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private void addRemoteAttributeMonitor ( final String id, final String masterId, final String attributeValue, final String attributeAck, final String attributeActive, final String attributeTimestamp, final String attributeAckTimestamp, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "attribute.value.name", attributeValue ); //$NON-NLS-1$
@@ -967,7 +969,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "ae.monitor.da.remote.booleanAttributeAlarm", id, data ); //$NON-NLS-1$
     }
 
-    private void injectAttributes ( final Map<String, String> attributes, final String prefix, final Map<String, Object> data )
+    private void injectAttributes ( final Map<String, String> attributes, final String prefix, final Map<String, String> data )
     {
         if ( attributes == null )
         {
@@ -980,7 +982,7 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, Object> data )
+    private void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, String> data )
     {
         injectAttributes ( attributes, "info.", data );
     }
@@ -989,7 +991,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         // this.logStream.println ( String.format ( "Add summary group: %s for groups: '%s'", id, StringHelper.join ( groups, "," ) ) );
 
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         sources = new ArrayList<SummaryItem> ( sources );
 
@@ -1115,7 +1117,7 @@ public class Configuration extends GenericMasterConfiguration
 
     public void addJmsMonitor ( final String id, final String filter, final Map<String, String> attributes )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "filter", filter ); //$NON-NLS-1$
         applyInfoAttributes ( attributes, data );
@@ -1142,13 +1144,14 @@ public class Configuration extends GenericMasterConfiguration
         return this.items;
     }
 
-    public void addEventFilter ( final String id, final long priority, final String type, final Map<String, Object> properties )
+    public void addEventFilter ( final String id, final long priority, final String type, final Map<String, String> properties )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
         data.putAll ( properties );
-        data.put ( "priority", priority );
+        data.put ( "priority", "" + priority );
         data.put ( "type", type );
         data.put ( "id", id ); // for now ...
         addData ( "org.openscada.ae.server.http.eventFilter", id, data );
     }
+
 }

@@ -17,7 +17,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     public void addMaster ( final String id, final String dataSourceId )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "datasource.id", dataSourceId ); //$NON-NLS-1$
 
@@ -26,7 +26,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     protected void addConnection ( final String id, final String connectionUri )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "connection.uri", connectionUri ); //$NON-NLS-1$
 
@@ -35,7 +35,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     public void addAlias ( final String id, final String itemId, final String dataSourceId, final String description )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "datasource.id", dataSourceId ); //$NON-NLS-1$
         data.put ( "item.id", itemId ); //$NON-NLS-1$
@@ -60,7 +60,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     protected void addSum ( final String id, final String masterId, final String type, final int priority, final String prefix )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "tag", type ); //$NON-NLS-1$
 
@@ -75,7 +75,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     public void addSource ( final String id, final String itemId, final String connectionId )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "item.id", itemId ); //$NON-NLS-1$
         data.put ( "connection.id", connectionId ); //$NON-NLS-1$
@@ -90,7 +90,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     public void addProxy ( final String id, final Set<String> sources )
     {
-        final Map<String, Object> data = new HashMap<String, Object> ();
+        final Map<String, String> data = new HashMap<String, String> ();
 
         final List<String> sourceList = new ArrayList<String> ( sources );
         Collections.sort ( sourceList );

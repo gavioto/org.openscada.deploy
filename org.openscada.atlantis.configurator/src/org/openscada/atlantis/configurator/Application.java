@@ -65,6 +65,12 @@ public class Application implements IApplication
 
         final Configuration cfg = new Configuration ( base );
 
+        final File baseConfiguration = new File ( base, "input/parent.json" );
+        if ( baseConfiguration.canRead () )
+        {
+            cfg.loadData ( baseConfiguration );
+        }
+
         final String outFile = arguments.pop ();
         final String basicsFile = arguments.pop ();
 

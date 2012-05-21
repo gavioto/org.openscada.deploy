@@ -17,18 +17,18 @@ public class MultiSourceAttributeHandler extends NoOpHandler implements LoopHand
     }
 
     @Override
-    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, Object> parameters )
+    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, String> parameters )
     {
         final DataSourceDescriptor desc = createNode ( configurationId, parameters );
 
         return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }
 
-    protected DataSourceDescriptor createNode ( final String configurationId, final Map<String, Object> parameters )
+    protected DataSourceDescriptor createNode ( final String configurationId, final Map<String, String> parameters )
     {
         final DataSourceDescriptor desc = new DataSourceDescriptor ( "datasource", configurationId );
 
-        for ( final Map.Entry<String, Object> entry : parameters.entrySet () )
+        for ( final Map.Entry<String, String> entry : parameters.entrySet () )
         {
             if ( !entry.getKey ().startsWith ( this.attributePrefix ) )
             {
@@ -40,12 +40,12 @@ public class MultiSourceAttributeHandler extends NoOpHandler implements LoopHand
                 continue;
             }
 
-            if ( ( (String)entry.getValue () ).isEmpty () )
+            if ( entry.getValue ().isEmpty () )
             {
                 continue;
             }
 
-            desc.addReference ( "datasource", (String)entry.getValue () );
+            desc.addReference ( "datasource", entry.getValue () );
         }
         return desc;
     }
