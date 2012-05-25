@@ -406,16 +406,25 @@ public enum Header
         @Override
         public void apply ( final Item item, final Value value )
         {
-            final Mapper mapper = ModelFactory.eINSTANCE.createMapper ();
-
             final String stringValue = value.getValue ();
+            if ( stringValue == null || stringValue.isEmpty () )
+            {
+                return;
+            }
+
             final Matcher m = p.matcher ( stringValue );
 
-            mapper.setMapperId ( m.group ( 1 ) );
-            mapper.setFromAttribute ( m.group ( 2 ) );
-            mapper.setToAttribute ( m.group ( 3 ) );
+            if ( m.matches () )
+            {
 
-            item.getMapper ().add ( mapper );
+                final Mapper mapper = ModelFactory.eINSTANCE.createMapper ();
+
+                mapper.setMapperId ( m.group ( 1 ) );
+                mapper.setFromAttribute ( m.group ( 2 ) );
+                mapper.setToAttribute ( m.group ( 3 ) );
+
+                item.getMapper ().add ( mapper );
+            }
         }
     };
     static final Pattern p = Pattern.compile ( "(.*?):(.?)/(.?)" );
