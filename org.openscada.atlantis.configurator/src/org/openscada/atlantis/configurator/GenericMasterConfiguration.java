@@ -100,10 +100,11 @@ public class GenericMasterConfiguration extends GenericConfiguration
         addData ( "da.datasource.proxy", id, data ); //$NON-NLS-1$
     }
 
-    protected void addMapperHandler ( final String id, final String mapperId, final String fromAttribute, final String toAttribute )
+    protected void addMapperHandler ( final String masterId, final String id, final String mapperId, final String fromAttribute, final String toAttribute )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
+        data.put ( "master.id", masterId );
         data.put ( "mapperId", mapperId );
         if ( fromAttribute != null && !fromAttribute.isEmpty () )
         {
@@ -111,7 +112,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
         }
         if ( toAttribute != null && !toAttribute.isEmpty () )
         {
-            data.put ( "targetAttributeName", fromAttribute );
+            data.put ( "targetAttributeName", toAttribute );
         }
 
         addData ( "org.openscada.da.master.mapper", id, data );

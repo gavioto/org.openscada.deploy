@@ -434,7 +434,7 @@ public class Configuration extends GenericMasterConfiguration
             {
                 for ( final Mapper mapper : item.getMapper () )
                 {
-                    addMapperHandler ( makeMapperHandlerName ( masterId, mapper ), mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () );
+                    addMapperHandler ( masterId, makeMapperHandlerName ( masterId, mapper ), mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () );
                 }
             }
         }
