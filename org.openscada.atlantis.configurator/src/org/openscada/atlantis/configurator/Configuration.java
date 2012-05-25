@@ -41,6 +41,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
@@ -428,9 +429,31 @@ public class Configuration extends GenericMasterConfiguration
                 addBlock ( masterId + ".block", masterId, attributes ); //$NON-NLS-1$
                 reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.block" ) ); //$NON-NLS-1$
             }
+
+            if ( item.getMapper () != null )
+            {
+                for ( final Mapper mapper : item.getMapper () )
+                {
+                    addMapperHandler ( makeMapperHandlerName ( masterId, mapper ), mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () );
+                }
+            }
         }
 
         validateConnections ( connections );
+    }
+
+    private String makeMapperHandlerName ( final String masterId, final Mapper mapper )
+    {
+        if ( mapper.getFromAttribute () == null )
+        {
+            mapper.setFromAttribute ( "" );
+        }
+        if ( mapper.getToAttribute () == null )
+        {
+            mapper.setToAttribute ( "" );
+        }
+
+        return String.format ( "%s.mapper.%s.%s/%s", masterId, mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () );
     }
 
     private void addLocalScaleFeature ( final Item item, final DataItem reportItem )
