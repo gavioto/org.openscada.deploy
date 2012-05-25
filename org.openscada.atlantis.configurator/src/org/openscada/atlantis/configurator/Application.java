@@ -152,6 +152,7 @@ public class Application implements IApplication
         System.out.println ( " **  Base Dir: " + outFile );
         cfg.write ( new File ( outFile ), new File ( base, "input" ) );
 
+        System.out.println ( "** 5 - Output finished" );
         cfg.close ();
     }
 
