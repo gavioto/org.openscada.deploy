@@ -427,7 +427,7 @@ public enum Header
             }
         }
     };
-    static final Pattern p = Pattern.compile ( "(.*?):(.?)/(.?)" );
+    private static final Pattern p = Pattern.compile ( "(.*?):(.?)/(.?)" );
 
     public abstract void apply ( final Item item, final Value value );
 
