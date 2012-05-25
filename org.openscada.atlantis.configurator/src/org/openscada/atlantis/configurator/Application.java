@@ -16,6 +16,9 @@ import org.openscada.atlantis.configurator.common.DataLoader;
 import org.openscada.atlantis.configurator.formula.FormulaModule;
 import org.openscada.atlantis.configurator.script.ScriptModule;
 import org.openscada.atlantis.configurator.summary.SumLoader;
+import org.openscada.configuration.model.ConfiguratorFactory;
+import org.openscada.configuration.model.Project;
+import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
@@ -32,6 +35,7 @@ public class Application implements IApplication
         final String[] args = (String[])context.getArguments ().get ( IApplicationContext.APPLICATION_ARGS );
 
         ModelPackageImpl.init ();
+        ConfiguratorPackageImpl.init ();
 
         try
         {
@@ -58,6 +62,19 @@ public class Application implements IApplication
     {
         final LinkedList<String> arguments = new LinkedList<String> ( Arrays.asList ( args ) );
 
+        final Project project;
+
+        if ( arguments.peekFirst ().endsWith ( ".oscm" ) )
+        {
+            final String file = arguments.pollFirst ();
+            System.out.println ( String.format ( "** 0 - Using %s as project file", file ) );
+            project = ConfigurationLoader.load ( new File ( file ) );
+        }
+        else
+        {
+            project = ConfiguratorFactory.eINSTANCE.createProject ();
+        }
+
         final File scriptDBase = new File ( arguments.pop () );
         final File base = new File ( arguments.pop () );
         final File scriptBase = new File ( base, "script/js" );
@@ -65,11 +82,11 @@ public class Application implements IApplication
 
         final Configuration cfg = new Configuration ( base );
 
-        final File baseConfiguration = new File ( base, "input/parent.json" );
-        if ( baseConfiguration.canRead () )
+        System.out.println ( "** 0 - Loading base json files" );
+        for ( final String uri : project.getJsonBase () )
         {
-            System.out.println ( "** 0 - Loading base json: " + baseConfiguration );
-            cfg.loadData ( baseConfiguration );
+            System.out.println ( "*** 0 - Loading base json file: " + uri );
+            cfg.loadData ( uri );
         }
 
         final String outFile = arguments.pop ();
@@ -155,7 +172,7 @@ public class Application implements IApplication
         System.out.println ( "**** 1ad - Loading basic configuration - AE" );
         loader.load ( 3, new AeHandler ( cfg ) );
 
-        System.out.println ( "**** 1ad - Loading basic configuration - AE Filter" );
+        System.out.println ( "**** 1ae - Loading basic configuration - AE Filter" );
         loader.load ( 4, new EventFilterHandler ( cfg ) );
     }
 

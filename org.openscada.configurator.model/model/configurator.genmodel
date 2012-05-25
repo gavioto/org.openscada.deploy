@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.configurator.model/src"
+    modelPluginID="org.openscada.configurator.model" modelName="Configurator" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    providerRootExtendsClass="">
+  <foreignModel>configurator.ecore</foreignModel>
+  <genPackages prefix="Configurator" basePackage="org.openscada.configuration" disposableProviderFactory="true"
+      fileExtensions="oscm" ecorePackage="configurator.ecore#/">
+    <genClasses ecoreClass="configurator.ecore#//Project">
+      <genFeatures createChild="false" propertyDescription="URI to another JSON file that should be added to the configuration"
+          ecoreFeature="ecore:EAttribute configurator.ecore#//Project/jsonBase"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

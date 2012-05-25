@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -211,15 +212,15 @@ public class GenericConfiguration
         zout.closeEntry ();
     }
 
-    private void writeJson ( final PrintStream dataStream ) throws FileNotFoundException
+    public void writeJson ( final PrintStream dataStream ) throws FileNotFoundException
     {
         final Gson g = new GsonBuilder ().setPrettyPrinting ().create ();
         g.toJson ( this.data, dataStream );
     }
 
-    public void loadData ( final File baseConfiguration ) throws Exception
+    public void loadData ( final String uri ) throws Exception
     {
-        final Map<String, Map<String, Map<String, String>>> baseData = OscarLoader.loadJsonData ( new FileInputStream ( baseConfiguration ) );
+        final Map<String, Map<String, Map<String, String>>> baseData = OscarLoader.loadJsonData ( new URL ( uri ).openStream () );
 
         for ( final Map.Entry<String, Map<String, Map<String, String>>> entry1 : baseData.entrySet () )
         {
