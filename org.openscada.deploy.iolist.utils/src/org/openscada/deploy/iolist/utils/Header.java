@@ -416,7 +416,6 @@ public enum Header
 
             if ( m.matches () )
             {
-
                 final Mapper mapper = ModelFactory.eINSTANCE.createMapper ();
 
                 mapper.setMapperId ( m.group ( 1 ) );
@@ -427,7 +426,7 @@ public enum Header
             }
         }
     };
-    private static final Pattern p = Pattern.compile ( "(.*?):(.?)/(.?)" );
+    private static final Pattern p = Pattern.compile ( "(.*?):(.*?)/(.*?)" );
 
     public abstract void apply ( final Item item, final Value value );
 
