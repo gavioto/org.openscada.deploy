@@ -105,7 +105,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
         final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId );
-        data.put ( "mapperId", mapperId );
+        data.put ( "mapper.id", mapperId );
         if ( fromAttribute != null && !fromAttribute.isEmpty () )
         {
             data.put ( "sourceAttributeName", fromAttribute );
