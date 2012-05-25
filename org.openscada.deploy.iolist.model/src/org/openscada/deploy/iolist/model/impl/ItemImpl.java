@@ -10,17 +10,22 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
 /**
@@ -84,6 +89,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isBlock <em>Block</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getHdStorage <em>Hd Storage</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getMapper <em>Mapper</em>}</li>
  * </ul>
  * </p>
  *
@@ -1160,6 +1166,16 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected String hdStorage = HD_STORAGE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getMapper() <em>Mapper</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMapper()
+     * @generated
+     * @ordered
+     */
+    protected EList<Mapper> mapper;
 
     /**
      * <!-- begin-user-doc -->
@@ -2420,6 +2436,36 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Mapper> getMapper()
+    {
+        if (mapper == null)
+        {
+            mapper = new EObjectContainmentEList<Mapper>(Mapper.class, this, ModelPackage.ITEM__MAPPER);
+        }
+        return mapper;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    {
+        switch (featureID)
+        {
+            case ModelPackage.ITEM__MAPPER:
+                return ((InternalEList<?>)getMapper()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -2533,6 +2579,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isEnabled();
             case ModelPackage.ITEM__HD_STORAGE:
                 return getHdStorage();
+            case ModelPackage.ITEM__MAPPER:
+                return getMapper();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -2711,6 +2759,10 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__HD_STORAGE:
                 setHdStorage((String)newValue);
                 return;
+            case ModelPackage.ITEM__MAPPER:
+                getMapper().clear();
+                getMapper().addAll((Collection<? extends Mapper>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -2887,6 +2939,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__HD_STORAGE:
                 setHdStorage(HD_STORAGE_EDEFAULT);
                 return;
+            case ModelPackage.ITEM__MAPPER:
+                getMapper().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -3009,6 +3064,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return enabled != ENABLED_EDEFAULT;
             case ModelPackage.ITEM__HD_STORAGE:
                 return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals(hdStorage);
+            case ModelPackage.ITEM__MAPPER:
+                return mapper != null && !mapper.isEmpty();
         }
         return super.eIsSet(featureID);
     }
