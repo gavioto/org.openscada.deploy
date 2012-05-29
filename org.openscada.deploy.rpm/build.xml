@@ -150,8 +150,8 @@ done
 		<copy file="${input.dir}/product/p2director-linux.gtk.x86.zip" tofile="${SOURCES}/p2director-linux.gtk.x86.zip"/>
 		<copy file="${input.dir}/product/p2director-linux.gtk.x86_64.zip" tofile="${SOURCES}/p2director-linux.gtk.x86_64.zip"/>
     	
-    	<wrapP2 name="org.eclipse.platform" version="3.7.0" file="org.eclipse.platform-3.7.2.zip"/>
-    	<wrapP2 name="org.eclipse.rcp" version="3.7.0" file="org.eclipse.rcp-3.7.2.zip"/>
+    	<wrapP2 name="org.eclipse.platform" version="3.7.2" file="org.eclipse.platform-3.7.2.zip"/>
+    	<wrapP2 name="org.eclipse.rcp" version="3.7.2" file="org.eclipse.rcp-3.7.2.zip"/>
     	
     	<wrapP2 name="org.openscada.external.sdk" version="${external.version}"  file="org.openscada.external.sdk-${external.version}-p2repo.zip"/>
     	<wrapP2 name="org.openscada.aurora.sdk" version="${aurora.version}" file="org.openscada.aurora.sdk-${aurora.version}-p2repo.zip"/>
