@@ -54,15 +54,25 @@ public class LoopValidator
     private void initLoopHandler ()
     {
         this.handlers.put ( "org.openscada.ae.event.logger", new NoOpHandler () );
+        this.handlers.put ( "org.openscada.ae.server.http.eventFilter", new NoOpHandler () );
+        this.handlers.put ( "org.openscada.sec.provider.jdbc.authenticator", new NoOpHandler () );
+        this.handlers.put ( "ae.monitor.query", new NoOpHandler () );
+
+        this.handlers.put ( "da.connection", new SimpleHandler ( "connection" ) );
+
+        this.handlers.put ( "da.dataitem.datasource", new SimpleAttributeHandler ( "datasource", "connection", "connection.id" ) );
+
         this.handlers.put ( "master.item", new SimpleAttributeHandler ( "datasource", "datasource", "datasource.id" ) );
-        this.handlers.put ( "da.datasource.dataitem", new SimpleHandler () );
+        this.handlers.put ( "da.datasource.dataitem", new SimpleHandler ( "datasource" ) );
         this.handlers.put ( "org.openscada.da.datasource.script", new MultiSourceAttributeHandler ( "datasource." ) );
         this.handlers.put ( "org.openscada.da.datasource.sum", new MultiSourceAttributeHandler ( "datasource." ) );
 
-        this.handlers.put ( "org.openscada.da.datasource.ds", new SimpleHandler () );
+        this.handlers.put ( "org.openscada.da.datasource.ds", new SimpleHandler ( "datasource" ) );
 
         this.handlers.put ( "org.openscada.da.server.osgi.summary.attribute", new SummaryHandler () );
         this.handlers.put ( "org.openscada.da.datasource.formula", new FormulaHandler () );
+
+        this.handlers.put ( "ae.monitor.da.booleanAlarm", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
 
         this.handlers.put ( "org.openscada.da.level.floor", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.ceil", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
@@ -74,6 +84,16 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.negate.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.master.common.block", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+
+        this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+
+        this.handlers.put ( "org.openscada.da.mapper.osgi.configuredMapper", new SimpleHandler ( "mapper" ) );
+        this.handlers.put ( "org.openscada.da.master.mapper", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.master.mapper", new SimpleAttributeHandler ( "masterHandler", "mapper", "mapper.id" ) );
+
+        this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+
     }
 
     public void validate ()
