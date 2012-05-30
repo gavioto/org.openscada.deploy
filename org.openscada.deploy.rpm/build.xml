@@ -35,7 +35,7 @@
         	<env key="RPM_BASE" value="${rpm.base}"/>
         	<env key="DEB_BASE" value="${deb.base}"/>
 <![CDATA[
-for i in `find "$RPM_BASE" -name "*.rpm"`; do
+for i in `find "$RPM_BASE" -name "*.rpm" -and -type f`; do
 	pushd "$DEB_BASE"
 	fakeroot alien "$i"
 	popd
