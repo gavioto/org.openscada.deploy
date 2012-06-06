@@ -1031,8 +1031,10 @@ public class Configuration extends GenericMasterConfiguration
         SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
         super.write ( baseDir, inputDir );
 
-        System.out.println ( "   ** Writing report" );
+        this.logStream.println ( "   ** Writing report" );
+        final long start = System.currentTimeMillis ();
         this.report.write ( new File ( baseDir, "report.odt" ), inputDir ); //$NON-NLS-1$
+        this.logStream.println ( String.format ( "   ** Writing took %s ms", System.currentTimeMillis () - start ) );
     }
 
     public String getExtension ( final File file )

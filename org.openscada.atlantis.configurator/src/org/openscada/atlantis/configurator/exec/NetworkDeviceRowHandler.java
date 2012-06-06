@@ -21,6 +21,11 @@ public class NetworkDeviceRowHandler implements RowHandler
     {
         final NetworkDevice device = new NetworkDevice ();
 
+        if ( rowData.get ( "IP" ) == null || rowData.get ( "IP" ).isEmpty () )
+        {
+            return;
+        }
+
         device.setHostname ( rowData.get ( "HOSTNAME" ) );
         device.setIp ( rowData.get ( "IP" ) );
         device.setAlias ( rowData.get ( "ALIAS" ) );
