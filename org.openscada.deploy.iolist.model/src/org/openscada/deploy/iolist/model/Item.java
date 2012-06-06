@@ -72,6 +72,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isBlock <em>Block</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getMapper <em>Mapper</em>}</li>
  * </ul>
  * </p>
  *
@@ -1501,5 +1502,21 @@ public interface Item extends EObject
      * @generated
      */
     void setHdStorage(String value);
+
+    /**
+     * Returns the value of the '<em><b>Mapper</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.deploy.iolist.model.Mapper}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Mapper</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Mapper</em>' containment reference list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Mapper()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Mapper> getMapper();
 
 } // Item

@@ -3,10 +3,13 @@
  */
 package org.openscada.deploy.iolist.utils;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.ModelFactory;
 
 public enum Header
 {
@@ -397,7 +400,33 @@ public enum Header
         {
             item.setHdStorage ( value.getValue () );
         }
+    },
+    DATA_MAPPER
+    {
+        @Override
+        public void apply ( final Item item, final Value value )
+        {
+            final String stringValue = value.getValue ();
+            if ( stringValue == null || stringValue.isEmpty () )
+            {
+                return;
+            }
+
+            final Matcher m = p.matcher ( stringValue );
+
+            if ( m.matches () )
+            {
+                final Mapper mapper = ModelFactory.eINSTANCE.createMapper ();
+
+                mapper.setMapperId ( m.group ( 1 ) );
+                mapper.setFromAttribute ( m.group ( 2 ) );
+                mapper.setToAttribute ( m.group ( 3 ) );
+
+                item.getMapper ().add ( mapper );
+            }
+        }
     };
+    private static final Pattern p = Pattern.compile ( "(.*?):(.*?)/(.*?)" );
 
     public abstract void apply ( final Item item, final Value value );
 

@@ -108,6 +108,15 @@ public interface ModelFactory extends EFactory
     ScriptOutput createScriptOutput();
 
     /**
+     * Returns a new object of class '<em>Mapper</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Mapper</em>'.
+     * @generated
+     */
+    Mapper createMapper();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

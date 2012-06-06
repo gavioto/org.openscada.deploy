@@ -2,7 +2,9 @@ package org.openscada.deploy.iolist.utils;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.util.EList;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.utils.str.StringHelper;
 
 public abstract class GenericSpreadSheetHelper
@@ -69,6 +71,8 @@ public abstract class GenericSpreadSheetHelper
 
             addData ( row, Header.HD_STORAGE.ordinal (), item.getHdStorage () );
 
+            addData ( row, Header.DATA_MAPPER.ordinal (), makeMapper ( item.getMapper () ) );
+
             if ( !item.isEnabled () )
             {
                 strikeThroughRow ( row );
@@ -76,6 +80,34 @@ public abstract class GenericSpreadSheetHelper
 
             row++;
         }
+    }
+
+    private String makeMapper ( final EList<Mapper> mapper )
+    {
+        if ( mapper == null )
+        {
+            return null;
+        }
+        if ( mapper.isEmpty () )
+        {
+            return null;
+        }
+        if ( mapper.size () > 1 )
+        {
+            throw new IllegalStateException ( "Mapper contains more than one entry. This can not be serialzed into spreadsheets" );
+        }
+
+        final Mapper m = mapper.get ( 0 );
+        if ( m.getFromAttribute () == null )
+        {
+            m.setFromAttribute ( "" );
+        }
+        if ( m.getToAttribute () == null )
+        {
+            m.setToAttribute ( "" );
+        }
+
+        return String.format ( "%s:%s/%s", m.getMapperId (), m.getFromAttribute (), m.getToAttribute () );
     }
 
     protected static String makeListData ( final Item item )

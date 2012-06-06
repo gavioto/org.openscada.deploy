@@ -37,6 +37,11 @@ public class ScriptLoadHandler implements RowHandler
         final String timerString = rowData.get ( "TIMER" );
         final String description = rowData.get ( "DESCRIPTION" );
 
+        if ( alias == null || alias.isEmpty () )
+        {
+            return;
+        }
+
         Long timer;
         if ( timerString != null && timerString.length () > 0 )
         {

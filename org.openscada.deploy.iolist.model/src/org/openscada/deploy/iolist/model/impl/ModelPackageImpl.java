@@ -18,6 +18,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
@@ -97,6 +98,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EClass scriptOutputEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass mapperEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -723,6 +731,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getItem_Mapper()
+    {
+        return (EReference)itemEClass.getEStructuralFeatures().get(54);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSummaryGroup()
     {
         return summaryGroupEClass;
@@ -1103,6 +1121,46 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getMapper()
+    {
+        return mapperEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMapper_MapperId()
+    {
+        return (EAttribute)mapperEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMapper_FromAttribute()
+    {
+        return (EAttribute)mapperEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMapper_ToAttribute()
+    {
+        return (EAttribute)mapperEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getDataType()
     {
         return dataTypeEEnum;
@@ -1193,6 +1251,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(itemEClass, ITEM__BLOCK);
         createEAttribute(itemEClass, ITEM__ENABLED);
         createEAttribute(itemEClass, ITEM__HD_STORAGE);
+        createEReference(itemEClass, ITEM__MAPPER);
 
         summaryGroupEClass = createEClass(SUMMARY_GROUP);
         createEReference(summaryGroupEClass, SUMMARY_GROUP__ITEMS);
@@ -1239,6 +1298,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         scriptOutputEClass = createEClass(SCRIPT_OUTPUT);
         createEAttribute(scriptOutputEClass, SCRIPT_OUTPUT__DATASOURCE_ID);
         createEAttribute(scriptOutputEClass, SCRIPT_OUTPUT__NAME);
+
+        mapperEClass = createEClass(MAPPER);
+        createEAttribute(mapperEClass, MAPPER__MAPPER_ID);
+        createEAttribute(mapperEClass, MAPPER__FROM_ATTRIBUTE);
+        createEAttribute(mapperEClass, MAPPER__TO_ATTRIBUTE);
 
         // Create enums
         dataTypeEEnum = createEEnum(DATA_TYPE);
@@ -1332,6 +1396,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getItem_Block(), ecorePackage.getEBoolean(), "block", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_HdStorage(), ecorePackage.getEString(), "hdStorage", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_Mapper(), this.getMapper(), null, "mapper", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSummaryGroup_Items(), this.getSummaryItem(), null, "items", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1378,6 +1443,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass(scriptOutputEClass, ScriptOutput.class, "ScriptOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getScriptOutput_DatasourceId(), ecorePackage.getEString(), "datasourceId", null, 1, 1, ScriptOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getScriptOutput_Name(), ecorePackage.getEString(), "name", null, 1, 1, ScriptOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(mapperEClass, Mapper.class, "Mapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getMapper_MapperId(), ecorePackage.getEString(), "mapperId", null, 1, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getMapper_FromAttribute(), ecorePackage.getEString(), "fromAttribute", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getMapper_ToAttribute(), ecorePackage.getEString(), "toAttribute", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(dataTypeEEnum, DataType.class, "DataType");

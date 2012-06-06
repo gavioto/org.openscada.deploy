@@ -16,4 +16,5 @@ Export-Package: org.openscada.deploy.iolist.utils;version="1.0.1";uses:="org.ecl
 Import-Package: com.google.gson;version="1.4.0",
  com.google.gson.annotations;version="1.4.0",
  com.google.gson.reflect;version="1.4.0",
+ org.openscada.ca.ui.util;version="1.0.0",
  org.openscada.utils.str;version="0.15.0"

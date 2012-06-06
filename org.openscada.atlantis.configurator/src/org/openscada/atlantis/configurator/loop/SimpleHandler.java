@@ -10,14 +10,17 @@ import org.openscada.atlantis.configurator.loop.handler.NoOpHandler;
 
 public class SimpleHandler extends NoOpHandler implements LoopHandler
 {
-    public SimpleHandler ()
+    private final String type;
+
+    public SimpleHandler ( final String type )
     {
+        this.type = type;
     }
 
     @Override
-    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, Object> parameters )
+    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, String> parameters )
     {
-        final DataSourceDescriptor desc = new DataSourceDescriptor ( "datasource", configurationId );
+        final DataSourceDescriptor desc = new DataSourceDescriptor ( this.type, configurationId );
 
         return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }

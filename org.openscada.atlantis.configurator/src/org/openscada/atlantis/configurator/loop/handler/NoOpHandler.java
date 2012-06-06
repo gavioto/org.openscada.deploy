@@ -10,7 +10,7 @@ public class NoOpHandler implements LoopHandler
 {
 
     @Override
-    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, Object> parameters )
+    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, String> parameters )
     {
         return Collections.emptySet ();
     }

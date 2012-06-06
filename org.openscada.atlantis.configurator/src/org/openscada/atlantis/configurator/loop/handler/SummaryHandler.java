@@ -13,7 +13,7 @@ public class SummaryHandler implements LoopHandler
     private final Set<SummaryDataSourceDescriptor> ourSources = new HashSet<SummaryDataSourceDescriptor> ();
 
     @Override
-    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, Object> parameters )
+    public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, String> parameters )
     {
         // we will add references later on
         final SummaryDataSourceDescriptor desc = new SummaryDataSourceDescriptor ( configurationId, makeBlacklist ( parameters ), parameters.containsKey ( "onlyMaster" ) );
@@ -22,15 +22,15 @@ public class SummaryHandler implements LoopHandler
         return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }
 
-    private Set<String> makeBlacklist ( final Map<String, Object> parameters )
+    private Set<String> makeBlacklist ( final Map<String, String> parameters )
     {
         final Set<String> result = new HashSet<String> ();
 
-        for ( final Map.Entry<String, Object> entry : parameters.entrySet () )
+        for ( final Map.Entry<String, String> entry : parameters.entrySet () )
         {
             if ( entry.getKey ().startsWith ( "blacklist." ) )
             {
-                result.add ( (String)entry.getValue () );
+                result.add ( entry.getValue () );
             }
         }
         return result;

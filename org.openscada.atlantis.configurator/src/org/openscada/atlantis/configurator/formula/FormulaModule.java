@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,7 +82,12 @@ public class FormulaModule
         cfg.addItems ( load ( file ) );
     }
 
-    private static void create ( final File filename ) throws IOException
+    public static void create ( final File filename ) throws IOException
+    {
+        store ( filename, Collections.<FormulaItem> emptyList () );
+    }
+
+    public static void store ( final File filename, final List<FormulaItem> items ) throws IOException
     {
         final Model model = ModelFactory.eINSTANCE.createModel ();
 
@@ -99,6 +105,11 @@ public class FormulaModule
         ModelFactory.eINSTANCE.getModelPackage ().eResource ().setURI ( uri2 );
         final Resource resource = rs.createResource ( fileUri );
         resource.getContents ().add ( model );
+
+        if ( items != null )
+        {
+            model.getItems ().addAll ( items );
+        }
 
         // plant.eResource ().setURI ( uri2 );
 

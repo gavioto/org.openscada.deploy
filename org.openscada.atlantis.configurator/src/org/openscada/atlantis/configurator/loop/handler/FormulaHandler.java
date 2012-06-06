@@ -13,13 +13,13 @@ public class FormulaHandler extends MultiSourceAttributeHandler
     }
 
     @Override
-    protected DataSourceDescriptor createNode ( final String configurationId, final Map<String, Object> parameters )
+    protected DataSourceDescriptor createNode ( final String configurationId, final Map<String, String> parameters )
     {
         final DataSourceDescriptor node = super.createNode ( configurationId, parameters );
 
         if ( parameters.containsKey ( "outputDatasource.id" ) )
         {
-            node.addReference ( "datasource", (String)parameters.get ( "outputDatasource.id" ) );
+            node.addReference ( "datasource", parameters.get ( "outputDatasource.id" ) );
         }
 
         return node;

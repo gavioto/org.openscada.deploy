@@ -78,6 +78,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
             case ModelPackage.MODEL: return createModel();
             case ModelPackage.SCRIPT_ITEM: return createScriptItem();
             case ModelPackage.SCRIPT_OUTPUT: return createScriptOutput();
+            case ModelPackage.MAPPER: return createMapper();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -214,6 +215,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         ScriptOutputImpl scriptOutput = new ScriptOutputImpl();
         return scriptOutput;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Mapper createMapper()
+    {
+        MapperImpl mapper = new MapperImpl();
+        return mapper;
     }
 
     /**

@@ -7,7 +7,7 @@ import org.openscada.atlantis.configurator.loop.DataSourceDescriptor;
 
 public interface LoopHandler
 {
-    public Set<DataSourceDescriptor> getNode ( String configurationId, Map<String, Object> parameters );
+    public Set<DataSourceDescriptor> getNode ( String configurationId, Map<String, String> parameters );
 
     public boolean providesDescriptors ();
 

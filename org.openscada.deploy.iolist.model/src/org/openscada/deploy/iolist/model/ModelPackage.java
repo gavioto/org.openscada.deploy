@@ -558,13 +558,22 @@ public interface ModelPackage extends EPackage
     int ITEM__HD_STORAGE = 53;
 
     /**
+     * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__MAPPER = 54;
+
+    /**
      * The number of structural features of the '<em>Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_FEATURE_COUNT = 54;
+    int ITEM_FEATURE_COUNT = 55;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -1153,6 +1162,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
+
+    /**
+     * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__MAPPER = ITEM__MAPPER;
 
     /**
      * The feature id for the '<em><b>Input Formula</b></em>' attribute.
@@ -1843,6 +1861,15 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
 
     /**
+     * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__MAPPER = ITEM__MAPPER;
+
+    /**
      * The feature id for the '<em><b>Script Engine</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1961,6 +1988,52 @@ public interface ModelPackage extends EPackage
     int SCRIPT_OUTPUT_FEATURE_COUNT = 2;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.MapperImpl <em>Mapper</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.MapperImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMapper()
+     * @generated
+     */
+    int MAPPER = 9;
+
+    /**
+     * The feature id for the '<em><b>Mapper Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPER__MAPPER_ID = 0;
+
+    /**
+     * The feature id for the '<em><b>From Attribute</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPER__FROM_ATTRIBUTE = 1;
+
+    /**
+     * The feature id for the '<em><b>To Attribute</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPER__TO_ATTRIBUTE = 2;
+
+    /**
+     * The number of structural features of the '<em>Mapper</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPER_FEATURE_COUNT = 3;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1968,7 +2041,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 9;
+    int DATA_TYPE = 10;
 
 
     /**
@@ -2576,6 +2649,17 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_HdStorage();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Item#getMapper <em>Mapper</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Mapper</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getMapper()
+     * @see #getItem()
+     * @generated
+     */
+    EReference getItem_Mapper();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryGroup <em>Summary Group</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2984,6 +3068,49 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EAttribute getScriptOutput_Name();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Mapper <em>Mapper</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Mapper</em>'.
+     * @see org.openscada.deploy.iolist.model.Mapper
+     * @generated
+     */
+    EClass getMapper();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Mapper#getMapperId <em>Mapper Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Mapper Id</em>'.
+     * @see org.openscada.deploy.iolist.model.Mapper#getMapperId()
+     * @see #getMapper()
+     * @generated
+     */
+    EAttribute getMapper_MapperId();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Mapper#getFromAttribute <em>From Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>From Attribute</em>'.
+     * @see org.openscada.deploy.iolist.model.Mapper#getFromAttribute()
+     * @see #getMapper()
+     * @generated
+     */
+    EAttribute getMapper_FromAttribute();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Mapper#getToAttribute <em>To Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>To Attribute</em>'.
+     * @see org.openscada.deploy.iolist.model.Mapper#getToAttribute()
+     * @see #getMapper()
+     * @generated
+     */
+    EAttribute getMapper_ToAttribute();
 
     /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
@@ -3461,6 +3588,14 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__HD_STORAGE = eINSTANCE.getItem_HdStorage();
 
         /**
+         * The meta object literal for the '<em><b>Mapper</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM__MAPPER = eINSTANCE.getItem_Mapper();
+
+        /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3779,6 +3914,40 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute SCRIPT_OUTPUT__NAME = eINSTANCE.getScriptOutput_Name();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.MapperImpl <em>Mapper</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.MapperImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMapper()
+         * @generated
+         */
+        EClass MAPPER = eINSTANCE.getMapper();
+
+        /**
+         * The meta object literal for the '<em><b>Mapper Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MAPPER__MAPPER_ID = eINSTANCE.getMapper_MapperId();
+
+        /**
+         * The meta object literal for the '<em><b>From Attribute</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MAPPER__FROM_ATTRIBUTE = eINSTANCE.getMapper_FromAttribute();
+
+        /**
+         * The meta object literal for the '<em><b>To Attribute</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MAPPER__TO_ATTRIBUTE = eINSTANCE.getMapper_ToAttribute();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.

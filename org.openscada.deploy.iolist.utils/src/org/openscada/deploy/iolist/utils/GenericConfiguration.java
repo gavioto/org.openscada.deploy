@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.openscada.ca.ui.util.OscarLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -36,7 +38,7 @@ public class GenericConfiguration
 
     private final Map<String, Set<String>> ignoreFields = new HashMap<String, Set<String>> ();
 
-    protected final Map<String, Map<String, Map<String, Object>>> data = new HashMap<String, Map<String, Map<String, Object>>> ();
+    protected final Map<String, Map<String, Map<String, String>>> data = new HashMap<String, Map<String, Map<String, String>>> ();
 
     public GenericConfiguration ()
     {
@@ -53,14 +55,14 @@ public class GenericConfiguration
         fields.addAll ( Arrays.asList ( field ) );
     }
 
-    protected void addData ( final String factory, final String id, final Map<String, Object> sourceData )
+    protected void addData ( final String factory, final String id, final Map<String, String> sourceData )
     {
         if ( factory == null || id == null || factory.isEmpty () || id.isEmpty () )
         {
             throw new NullPointerException ( String.format ( "Must not be null (%s - %s)", factory, id ) );
         }
 
-        for ( final Map.Entry<String, Object> entry : sourceData.entrySet () )
+        for ( final Map.Entry<String, String> entry : sourceData.entrySet () )
         {
             if ( entry.getKey () == null || entry.getKey ().isEmpty () )
             {
@@ -68,8 +70,8 @@ public class GenericConfiguration
             }
         }
 
-        final Map<String, Object> data = new HashMap<String, Object> ();
-        for ( final Map.Entry<String, Object> entry : sourceData.entrySet () )
+        final Map<String, String> data = new HashMap<String, String> ();
+        for ( final Map.Entry<String, String> entry : sourceData.entrySet () )
         {
             if ( entry.getValue () == null )
             {
@@ -79,13 +81,13 @@ public class GenericConfiguration
             data.put ( entry.getKey (), entry.getValue () );
         }
 
-        Map<String, Map<String, Object>> factoryMap = this.data.get ( factory );
+        Map<String, Map<String, String>> factoryMap = this.data.get ( factory );
         if ( factoryMap == null )
         {
-            factoryMap = new HashMap<String, Map<String, Object>> ();
+            factoryMap = new HashMap<String, Map<String, String>> ();
             this.data.put ( factory, factoryMap );
         }
-        factoryMap.put ( id, new HashMap<String, Object> ( data ) );
+        factoryMap.put ( id, new HashMap<String, String> ( data ) );
     }
 
     public void write ( final File baseDir, final File inputDir ) throws Exception
@@ -123,19 +125,19 @@ public class GenericConfiguration
         final Element root = doc.createElement ( "root" );
         doc.appendChild ( root );
 
-        for ( final Map.Entry<String, Map<String, Map<String, Object>>> factory : this.data.entrySet () )
+        for ( final Map.Entry<String, Map<String, Map<String, String>>> factory : this.data.entrySet () )
         {
             final Element factoryElement = doc.createElement ( "factory" );
             root.appendChild ( factoryElement );
             factoryElement.setAttribute ( "id", factory.getKey () );
 
-            for ( final Map.Entry<String, Map<String, Object>> conf : factory.getValue ().entrySet () )
+            for ( final Map.Entry<String, Map<String, String>> conf : factory.getValue ().entrySet () )
             {
                 final Element configurationElement = doc.createElement ( "configuration" );
                 factoryElement.appendChild ( configurationElement );
                 configurationElement.setAttribute ( "id", conf.getKey () );
 
-                for ( final Map.Entry<String, Object> entry : conf.getValue ().entrySet () )
+                for ( final Map.Entry<String, String> entry : conf.getValue ().entrySet () )
                 {
                     final Element entryElement = doc.createElement ( "entry" );
                     configurationElement.appendChild ( entryElement );
@@ -167,7 +169,7 @@ public class GenericConfiguration
 
     }
 
-    private Text makeDataNode ( final Document doc, final Map.Entry<String, Object> entry )
+    private Text makeDataNode ( final Document doc, final Map.Entry<String, String> entry )
     {
         final String data = "" + entry.getValue ();
         if ( data.matches ( "[\\p{Alnum}\\p{Space}_\\+-\\+\\/=()@\\.\\:]+" ) )
@@ -210,10 +212,22 @@ public class GenericConfiguration
         zout.closeEntry ();
     }
 
-    private void writeJson ( final PrintStream dataStream ) throws FileNotFoundException
+    public void writeJson ( final PrintStream dataStream ) throws FileNotFoundException
     {
         final Gson g = new GsonBuilder ().setPrettyPrinting ().create ();
         g.toJson ( this.data, dataStream );
     }
 
+    public void loadData ( final String uri ) throws Exception
+    {
+        final Map<String, Map<String, Map<String, String>>> baseData = OscarLoader.loadJsonData ( new URL ( uri ).openStream () );
+
+        for ( final Map.Entry<String, Map<String, Map<String, String>>> entry1 : baseData.entrySet () )
+        {
+            for ( final Map.Entry<String, Map<String, String>> entry2 : entry1.getValue ().entrySet () )
+            {
+                addData ( entry1.getKey (), entry2.getKey (), entry2.getValue () );
+            }
+        }
+    }
 }

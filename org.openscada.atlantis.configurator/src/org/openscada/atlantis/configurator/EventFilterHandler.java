@@ -26,14 +26,14 @@ public class EventFilterHandler implements RowHandler
 
         final long priority = Long.parseLong ( rowData.get ( "PRIORITY" ), 10 );
 
-        final Map<String, Object> properties = new HashMap<String, Object> ();
+        final Map<String, String> properties = new HashMap<String, String> ();
 
         final String type = rowData.get ( "TYPE" ).isEmpty () ? null : rowData.get ( "TYPE" );
         final String data = rowData.get ( "DATA" ).isEmpty () ? null : rowData.get ( "DATA" );
 
         if ( "static".equals ( type ) )
         {
-            properties.put ( "value", Boolean.parseBoolean ( data ) );
+            properties.put ( "value", data );
         }
         else if ( "filter".equals ( type ) )
         {
