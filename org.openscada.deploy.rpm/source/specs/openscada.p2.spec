@@ -25,7 +25,6 @@ Requires:	screen
 BuildRoot: %{buildroot}
 Prefix: %{_bindir}
 Prefix: %{_repodir}
-Prefix: %{_logdir}
 
 %description
 
