@@ -30,7 +30,7 @@ Prefix: %{_repodir}
 
 %install
 install -d %buildroot/%_repodir
-install ../SOURCES/org.openscada.external-1.0.0-p2repo.zip %buildroot/%_repodir/
+install -m 0644 ../SOURCES/org.openscada.external-1.0.0-p2repo.zip %buildroot/%_repodir/
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}

@@ -31,7 +31,7 @@ Prefix: %{_repodir}
 
 %install
 install -d %buildroot/%_repodir
-install ../SOURCES/___FILE___ %buildroot/%_repodir/
+install -m 0644 ../SOURCES/___FILE___ %buildroot/%_repodir/
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
