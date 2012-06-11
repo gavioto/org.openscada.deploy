@@ -20,6 +20,7 @@ Group:     Applications/System
 Source0:   org.openscada.external-%{version}-p2repo.zip
 Prereq: /sbin/ldconfig
 Requires: openscada.p2
+Prefix: %{_repodir}
 
 %description
 
@@ -42,6 +43,8 @@ install -m 0644 ../SOURCES/org.openscada.external-0.18.0-p2repo.zip %buildroot/%
 %_repodir/org.openscada.external-0.18.0-p2repo.zip
 
 %changelog
+* Mon Jun 11 2012 - jens.reimann@th4-systems.net
+- Make relocatable
 * Thu Dec  9 2010 - jens.reimann@th4-systems.net
 - Change to TH4
 * Thu Feb 25 2010 - jens.reimann@inavare.net

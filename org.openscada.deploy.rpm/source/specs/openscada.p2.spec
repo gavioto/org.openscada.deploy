@@ -23,6 +23,9 @@ Source0:   org.openscada.p2-%{version}.tar.gz
 Prereq: /sbin/ldconfig
 Requires:	screen
 BuildRoot: %{buildroot}
+Prefix: %{_bindir}
+Prefix: %{_repodir}
+Prefix: %{_logdir}
 
 %description
 
@@ -52,6 +55,8 @@ install openscada.p2/usr/bin/p2.*  %buildroot/%_bindir
 %_bindir/p2.*
 
 %changelog
+* Mon Jun 11 2012 - jens.reimann@th4-systems.net
+- Make relocatable
 * Mon Nov 28 2011 - jens.reimann@th4-systems.net
 - Building for openSCADA 0.18.0
 * Wed Jul 13 2011 - jens.reimann@th4-systems.net

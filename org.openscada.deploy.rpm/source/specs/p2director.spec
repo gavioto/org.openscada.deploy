@@ -20,6 +20,7 @@ Group:     Applications/System
 Source0:   p2director-linux.gtk.x86_64.zip
 Prereq: /sbin/ldconfig
 BuildRoot: %{buildroot}
+Prefix: /usr
 
 %description
 
@@ -49,6 +50,8 @@ ln -s ../share/p2director/p2director %buildroot/%_bindir/p2director
 %_bindir/p2director
 
 %changelog
+* Mon Jun 11 2012 - jens.reimann@th4-systems.net
+- Make relocatable
 * Thu Dec  9 2010 - jens.reimann@th4-systems.net
 - Change to TH4
 * Thu Feb 25 2010 - jens.reimann@inavare.net

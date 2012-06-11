@@ -21,6 +21,7 @@ Source0:   ___FILE___
 Prereq: /sbin/ldconfig
 Requires: openscada.p2
 BuildRoot: %{buildroot}
+Prefix: %{_repodir}
 
 %description
 
@@ -43,5 +44,8 @@ install -m 0644 ../SOURCES/___FILE___ %buildroot/%_repodir/
 %_repodir/___FILE___
 
 %changelog
+* Mon Jun 11 2012 - jens.reimann@th4-systems.net
+- Make relocatable
+
 * Thu Feb 25 2010 - jens.reimann@inavare.net
 - Initial version
