@@ -2,7 +2,7 @@
 
 P2_REPOS=""
 
-for i in `ls "${P2_REPO_BASE:-/usr/share/openscada/p2}/*.zip"`; do
+for i in `ls "${P2_REPO_BASE:-/usr/share/openscada/p2}/"*.zip`; do
 	[ ! -z "$P2_REPOS" ] && P2_REPOS="$P2_REPOS,"
 	P2_REPOS="${P2_REPOS}jar:file:$i!/"
 	echo "Adding repository: $i"
