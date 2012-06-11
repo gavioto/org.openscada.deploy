@@ -4,9 +4,7 @@
 
 %define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
 
-%define _bindir /usr/bin
 %define _datadir /usr/share
-%define _repodir %_datadir/openscada/p2
 %define _profiledir %_datadir/openscada/profiles
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
@@ -22,6 +20,7 @@ Group:     Applications/System
 Source0:   p2.profiles-%{version}.tar.gz
 Prereq: /sbin/ldconfig
 BuildRoot: %{buildroot}
+Prefix: %{_profiledir}
 
 %description
 
@@ -58,6 +57,9 @@ done
 %_profiledir/dave/*
 
 %changelog
+* Mon Jun 11 2012 - jens.reimann@th4-systems.net
+- Make relocatable
+
 * Mon May 21 2012 - jens.reimann@th4-systems.com
 - Correct permissions of config files
 
