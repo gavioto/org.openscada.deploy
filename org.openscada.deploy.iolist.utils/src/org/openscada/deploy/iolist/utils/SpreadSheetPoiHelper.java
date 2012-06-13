@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -237,9 +238,14 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 
     public static List<Item> loadExcel ( final String fileName ) throws IOException
     {
+        return loadExcel ( new FileInputStream ( fileName ), fileName );
+    }
+
+    public static List<Item> loadExcel ( final InputStream inputStream, final String sourceName ) throws IOException
+    {
         final List<Item> result = new LinkedList<Item> ();
 
-        final HSSFWorkbook workbook = new HSSFWorkbook ( new FileInputStream ( fileName ) );
+        final HSSFWorkbook workbook = new HSSFWorkbook ( inputStream );
 
         final Sheet sheet = workbook.getSheetAt ( 0 );
 
@@ -247,7 +253,7 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 
         for ( int row = 1; row <= sheet.getLastRowNum (); row++ )
         {
-            final Item item = convertToItem ( workbook, header, sheet.getRow ( row ), String.format ( "%s@%s", fileName, row ) );
+            final Item item = convertToItem ( workbook, header, sheet.getRow ( row ), String.format ( "%s@%s", sourceName, row ) );
             if ( item != null )
             {
                 result.add ( item );
@@ -294,12 +300,12 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
 
         switch ( cell.getCellType () )
         {
-        case Cell.CELL_TYPE_BLANK:
-            return "";
-        case Cell.CELL_TYPE_FORMULA:
-            return eval.evaluate ( cell ).getStringValue ();
-        default:
-            return cell.toString ();
+            case Cell.CELL_TYPE_BLANK:
+                return "";
+            case Cell.CELL_TYPE_FORMULA:
+                return eval.evaluate ( cell ).getStringValue ();
+            default:
+                return cell.toString ();
         }
     }
 
