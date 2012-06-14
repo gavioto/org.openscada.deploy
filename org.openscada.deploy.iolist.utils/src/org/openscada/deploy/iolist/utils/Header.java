@@ -425,6 +425,14 @@ public enum Header
                 item.getMapper ().add ( mapper );
             }
         }
+    },
+    SIMULATION_VALUE
+    {
+        @Override
+        public void apply ( final Item item, final Value value )
+        {
+            item.setSimulationValue ( value.getValue () );
+        }
     };
     private static final Pattern p = Pattern.compile ( "(.*?):(.*?)/(.*?)" );
 

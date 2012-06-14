@@ -73,6 +73,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getMapper <em>Mapper</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -1518,5 +1519,31 @@ public interface Item extends EObject
      * @generated
      */
     EList<Mapper> getMapper();
+
+    /**
+     * Returns the value of the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Simulation Value</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Simulation Value</em>' attribute.
+     * @see #setSimulationValue(String)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_SimulationValue()
+     * @model
+     * @generated
+     */
+    String getSimulationValue();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Simulation Value</em>' attribute.
+     * @see #getSimulationValue()
+     * @generated
+     */
+    void setSimulationValue(String value);
 
 } // Item

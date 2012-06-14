@@ -741,6 +741,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getItem_SimulationValue()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(55);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSummaryGroup()
     {
         return summaryGroupEClass;
@@ -1252,6 +1262,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(itemEClass, ITEM__ENABLED);
         createEAttribute(itemEClass, ITEM__HD_STORAGE);
         createEReference(itemEClass, ITEM__MAPPER);
+        createEAttribute(itemEClass, ITEM__SIMULATION_VALUE);
 
         summaryGroupEClass = createEClass(SUMMARY_GROUP);
         createEReference(summaryGroupEClass, SUMMARY_GROUP__ITEMS);
@@ -1397,6 +1408,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getItem_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_HdStorage(), ecorePackage.getEString(), "hdStorage", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getItem_Mapper(), this.getMapper(), null, "mapper", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getItem_SimulationValue(), ecorePackage.getEString(), "simulationValue", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSummaryGroup_Items(), this.getSummaryItem(), null, "items", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

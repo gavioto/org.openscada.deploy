@@ -567,13 +567,22 @@ public interface ModelPackage extends EPackage
     int ITEM__MAPPER = 54;
 
     /**
+     * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__SIMULATION_VALUE = 55;
+
+    /**
      * The number of structural features of the '<em>Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_FEATURE_COUNT = 55;
+    int ITEM_FEATURE_COUNT = 56;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -1171,6 +1180,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__MAPPER = ITEM__MAPPER;
+
+    /**
+     * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__SIMULATION_VALUE = ITEM__SIMULATION_VALUE;
 
     /**
      * The feature id for the '<em><b>Input Formula</b></em>' attribute.
@@ -1868,6 +1886,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int SCRIPT_ITEM__MAPPER = ITEM__MAPPER;
+
+    /**
+     * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__SIMULATION_VALUE = ITEM__SIMULATION_VALUE;
 
     /**
      * The feature id for the '<em><b>Script Engine</b></em>' attribute.
@@ -2658,6 +2685,17 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference getItem_Mapper();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Simulation Value</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getSimulationValue()
+     * @see #getItem()
+     * @generated
+     */
+    EAttribute getItem_SimulationValue();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryGroup <em>Summary Group</em>}'.
@@ -3594,6 +3632,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EReference ITEM__MAPPER = eINSTANCE.getItem_Mapper();
+
+        /**
+         * The meta object literal for the '<em><b>Simulation Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM__SIMULATION_VALUE = eINSTANCE.getItem_SimulationValue();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.

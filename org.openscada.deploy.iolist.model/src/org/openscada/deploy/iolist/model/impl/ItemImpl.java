@@ -90,6 +90,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getHdStorage <em>Hd Storage</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getMapper <em>Mapper</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getSimulationValue <em>Simulation Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -1176,6 +1177,26 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected EList<Mapper> mapper;
+
+    /**
+     * The default value of the '{@link #getSimulationValue() <em>Simulation Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSimulationValue()
+     * @generated
+     * @ordered
+     */
+    protected static final String SIMULATION_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getSimulationValue() <em>Simulation Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSimulationValue()
+     * @generated
+     * @ordered
+     */
+    protected String simulationValue = SIMULATION_VALUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -2450,6 +2471,29 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getSimulationValue()
+    {
+        return simulationValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSimulationValue(String newSimulationValue)
+    {
+        String oldSimulationValue = simulationValue;
+        simulationValue = newSimulationValue;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__SIMULATION_VALUE, oldSimulationValue, simulationValue));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -2581,6 +2625,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return getHdStorage();
             case ModelPackage.ITEM__MAPPER:
                 return getMapper();
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                return getSimulationValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -2763,6 +2809,9 @@ public class ItemImpl extends EObjectImpl implements Item
                 getMapper().clear();
                 getMapper().addAll((Collection<? extends Mapper>)newValue);
                 return;
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                setSimulationValue((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -2942,6 +2991,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__MAPPER:
                 getMapper().clear();
                 return;
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                setSimulationValue(SIMULATION_VALUE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -3066,6 +3118,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals(hdStorage);
             case ModelPackage.ITEM__MAPPER:
                 return mapper != null && !mapper.isEmpty();
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                return SIMULATION_VALUE_EDEFAULT == null ? simulationValue != null : !SIMULATION_VALUE_EDEFAULT.equals(simulationValue);
         }
         return super.eIsSet(featureID);
     }
@@ -3189,6 +3243,8 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(enabled);
         result.append(", hdStorage: ");
         result.append(hdStorage);
+        result.append(", simulationValue: ");
+        result.append(simulationValue);
         result.append(')');
         return result.toString();
     }

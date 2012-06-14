@@ -73,6 +73,8 @@ public abstract class GenericSpreadSheetHelper
 
             addData ( row, Header.DATA_MAPPER.ordinal (), makeMapper ( item.getMapper () ) );
 
+            addData ( row, Header.SIMULATION_VALUE.ordinal (), item.getSimulationValue () );
+
             if ( !item.isEnabled () )
             {
                 strikeThroughRow ( row );
