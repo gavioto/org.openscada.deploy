@@ -1033,8 +1033,10 @@ public class Configuration extends GenericMasterConfiguration
 
         if ( !Boolean.getBoolean ( "skipReport" ) )
         {
-            System.out.println ( "   ** Writing report" ); //$NON-NLS-1$
+            this.logStream.println ( "   ** Writing report" );
+            final long start = System.currentTimeMillis ();
             this.report.write ( new File ( baseDir, "report.odt" ), inputDir ); //$NON-NLS-1$
+            this.logStream.println ( String.format ( "   ** Writing took %s ms", System.currentTimeMillis () - start ) );
         }
     }
 
