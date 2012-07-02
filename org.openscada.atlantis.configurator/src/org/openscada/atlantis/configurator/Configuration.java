@@ -734,6 +734,8 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "logAttributes", false ); //$NON-NLS-1$
         data.put ( "logSubscription", true ); //$NON-NLS-1$
 
+        data.put ( "handlerPriority", Integer.getInteger ( "org.openscada.ae.event.logger.handlerPriority", 10000 ) ); //$NON-NLS-1$
+
         applyInfoAttributes ( attributes, data );
 
         addData ( "org.openscada.ae.event.logger", id, data ); //$NON-NLS-1$
