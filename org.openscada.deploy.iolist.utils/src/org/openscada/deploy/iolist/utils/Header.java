@@ -10,6 +10,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.model.Rounding;
 
 public enum Header
 {
@@ -127,7 +128,8 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalMin ( Double.valueOf ( value.getValue () ) );
+                item.setLocalMinAvailable ( true );
+                item.setLocalMin ( makeDouble ( value ) );
                 item.setLocalMinAck ( value.getBackgroundColor ().isRed () );
             }
         }
@@ -139,7 +141,8 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalMax ( Double.valueOf ( value.getValue () ) );
+                item.setLocalMaxAvailable ( true );
+                item.setLocalMax ( makeDouble ( value ) );
                 item.setLocalMaxAck ( value.getBackgroundColor ().isRed () );
             }
         }
@@ -374,6 +377,25 @@ public enum Header
             {
                 item.setLocalScaleAvailable ( true );
                 item.setLocalScaleOffset ( makeDouble ( value ) );
+            }
+        }
+    },
+    ROUNDING
+    {
+        @Override
+        public void apply ( final Item item, final Value value )
+        {
+            if ( value != null && value.length () != 0 )
+            {
+                item.setRoundingAvailable ( true );
+                if ( value != null )
+                {
+                    final Rounding rounding = Rounding.get ( value.getValue () );
+                    if ( rounding != null && rounding != Rounding.NONE )
+                    {
+                        item.setRoundingValue ( rounding );
+                    }
+                }
             }
         }
     },

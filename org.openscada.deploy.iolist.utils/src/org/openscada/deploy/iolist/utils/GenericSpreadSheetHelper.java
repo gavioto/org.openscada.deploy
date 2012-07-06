@@ -37,8 +37,8 @@ public abstract class GenericSpreadSheetHelper
 
             addFlag ( row, Header.DEFAULT_CHAIN.ordinal (), item.isDefaultChain (), false );
 
-            addData ( row, Header.MIN.ordinal (), item.getLocalMin (), item.isLocalMinAck () );
-            addData ( row, Header.MAX.ordinal (), item.getLocalMax (), item.isLocalMaxAck () );
+            addSelectiveDataAck ( row, Header.MIN.ordinal (), item.isLocalMinAvailable (), item.getLocalMin (), item.isLocalMinAck () );
+            addSelectiveDataAck ( row, Header.MAX.ordinal (), item.isLocalMaxAvailable (), item.getLocalMax (), item.isLocalMaxAck () );
             addSelectiveDataAck ( row, Header.LIMIT_HH.ordinal (), item.isLocalHighHighAvailable (), item.getLocalHighHighPreset (), item.isLocalHighHighAck () );
             addSelectiveDataAck ( row, Header.LIMIT_H.ordinal (), item.isLocalHighAvailable (), item.getLocalHighPreset (), item.isLocalHighAck () );
             addSelectiveDataAck ( row, Header.LIMIT_L.ordinal (), item.isLocalLowAvailable (), item.getLocalLowPreset (), item.isLocalLowAck () );
@@ -66,6 +66,7 @@ public abstract class GenericSpreadSheetHelper
 
             addSelectiveData ( row, Header.LOCAL_SCALE_FACTOR.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleFactor () );
             addSelectiveData ( row, Header.LOCAL_SCALE_OFFSET.ordinal (), item.isLocalScaleAvailable (), item.getLocalScaleOffset () );
+            addSelectiveData ( row, Header.ROUNDING.ordinal (), item.isRoundingAvailable (), item.getRoundingValue ().toString (), false );
 
             addFlag ( row, Header.BLOCK.ordinal (), item.isBlock (), false );
 
