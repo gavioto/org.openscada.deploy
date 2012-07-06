@@ -26,8 +26,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getDescription <em>Description</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMinAvailable <em>Local Min Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMinAck <em>Local Min Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAvailable <em>Local Max Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAck <em>Local Max Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAvailable <em>Local High High Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAck <em>Local High High Ack</em>}</li>
@@ -74,6 +76,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getMapper <em>Mapper</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#isRoundingAvailable <em>Rounding Available</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getRoundingValue <em>Rounding Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -296,6 +300,33 @@ public interface Item extends EObject
     void setLocalMin(Double value);
 
     /**
+     * Returns the value of the '<em><b>Local Min Available</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local Min Available</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local Min Available</em>' attribute.
+     * @see #setLocalMinAvailable(boolean)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMinAvailable()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isLocalMinAvailable();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalMinAvailable <em>Local Min Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local Min Available</em>' attribute.
+     * @see #isLocalMinAvailable()
+     * @generated
+     */
+    void setLocalMinAvailable(boolean value);
+
+    /**
      * Returns the value of the '<em><b>Local Min Ack</b></em>' attribute.
      * The default value is <code>"true"</code>.
      * <!-- begin-user-doc -->
@@ -347,6 +378,33 @@ public interface Item extends EObject
      * @generated
      */
     void setLocalMax(Double value);
+
+    /**
+     * Returns the value of the '<em><b>Local Max Available</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local Max Available</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local Max Available</em>' attribute.
+     * @see #setLocalMaxAvailable(boolean)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMaxAvailable()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isLocalMaxAvailable();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAvailable <em>Local Max Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local Max Available</em>' attribute.
+     * @see #isLocalMaxAvailable()
+     * @generated
+     */
+    void setLocalMaxAvailable(boolean value);
 
     /**
      * Returns the value of the '<em><b>Local Max Ack</b></em>' attribute.
@@ -1545,5 +1603,62 @@ public interface Item extends EObject
      * @generated
      */
     void setSimulationValue(String value);
+
+    /**
+     * Returns the value of the '<em><b>Rounding Available</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Rounding Available</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Rounding Available</em>' attribute.
+     * @see #setRoundingAvailable(boolean)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_RoundingAvailable()
+     * @model default="false"
+     * @generated
+     */
+    boolean isRoundingAvailable();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRoundingAvailable <em>Rounding Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Rounding Available</em>' attribute.
+     * @see #isRoundingAvailable()
+     * @generated
+     */
+    void setRoundingAvailable(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Rounding Value</b></em>' attribute.
+     * The default value is <code>"NONE"</code>.
+     * The literals are from the enumeration {@link org.openscada.deploy.iolist.model.Rounding}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Rounding Value</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Rounding Value</em>' attribute.
+     * @see org.openscada.deploy.iolist.model.Rounding
+     * @see #setRoundingValue(Rounding)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_RoundingValue()
+     * @model default="NONE"
+     * @generated
+     */
+    Rounding getRoundingValue();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getRoundingValue <em>Rounding Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Rounding Value</em>' attribute.
+     * @see org.openscada.deploy.iolist.model.Rounding
+     * @see #getRoundingValue()
+     * @generated
+     */
+    void setRoundingValue(Rounding value);
 
 } // Item

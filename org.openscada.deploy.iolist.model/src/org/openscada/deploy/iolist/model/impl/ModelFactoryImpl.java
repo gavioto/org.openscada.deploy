@@ -96,6 +96,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
         {
             case ModelPackage.DATA_TYPE:
                 return createDataTypeFromString(eDataType, initialValue);
+            case ModelPackage.ROUNDING:
+                return createRoundingFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -113,6 +115,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
         {
             case ModelPackage.DATA_TYPE:
                 return convertDataTypeToString(eDataType, instanceValue);
+            case ModelPackage.ROUNDING:
+                return convertRoundingToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -246,6 +250,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * @generated
      */
     public String convertDataTypeToString(EDataType eDataType, Object instanceValue)
+    {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Rounding createRoundingFromString(EDataType eDataType, String initialValue)
+    {
+        Rounding result = Rounding.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertRoundingToString(EDataType eDataType, Object instanceValue)
     {
         return instanceValue == null ? null : instanceValue.toString();
     }

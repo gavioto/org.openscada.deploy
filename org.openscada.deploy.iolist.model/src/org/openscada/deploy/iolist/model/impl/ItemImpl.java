@@ -27,6 +27,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Rounding;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,8 +44,10 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isDefaultChain <em>Default Chain</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMin <em>Local Min</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMinAvailable <em>Local Min Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMinAck <em>Local Min Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMax <em>Local Max</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMaxAvailable <em>Local Max Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMaxAck <em>Local Max Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalHighHighAvailable <em>Local High High Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalHighHighAck <em>Local High High Ack</em>}</li>
@@ -91,6 +94,8 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getHdStorage <em>Hd Storage</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getMapper <em>Mapper</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getSimulationValue <em>Simulation Value</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRoundingAvailable <em>Rounding Available</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getRoundingValue <em>Rounding Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -259,6 +264,26 @@ public class ItemImpl extends EObjectImpl implements Item
     protected Double localMin = LOCAL_MIN_EDEFAULT;
 
     /**
+     * The default value of the '{@link #isLocalMinAvailable() <em>Local Min Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isLocalMinAvailable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean LOCAL_MIN_AVAILABLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isLocalMinAvailable() <em>Local Min Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isLocalMinAvailable()
+     * @generated
+     * @ordered
+     */
+    protected boolean localMinAvailable = LOCAL_MIN_AVAILABLE_EDEFAULT;
+
+    /**
      * The default value of the '{@link #isLocalMinAck() <em>Local Min Ack</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -297,6 +322,26 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected Double localMax = LOCAL_MAX_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isLocalMaxAvailable() <em>Local Max Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isLocalMaxAvailable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean LOCAL_MAX_AVAILABLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isLocalMaxAvailable() <em>Local Max Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isLocalMaxAvailable()
+     * @generated
+     * @ordered
+     */
+    protected boolean localMaxAvailable = LOCAL_MAX_AVAILABLE_EDEFAULT;
 
     /**
      * The default value of the '{@link #isLocalMaxAck() <em>Local Max Ack</em>}' attribute.
@@ -1199,6 +1244,46 @@ public class ItemImpl extends EObjectImpl implements Item
     protected String simulationValue = SIMULATION_VALUE_EDEFAULT;
 
     /**
+     * The default value of the '{@link #isRoundingAvailable() <em>Rounding Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isRoundingAvailable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean ROUNDING_AVAILABLE_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isRoundingAvailable() <em>Rounding Available</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isRoundingAvailable()
+     * @generated
+     * @ordered
+     */
+    protected boolean roundingAvailable = ROUNDING_AVAILABLE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getRoundingValue() <em>Rounding Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRoundingValue()
+     * @generated
+     * @ordered
+     */
+    protected static final Rounding ROUNDING_VALUE_EDEFAULT = Rounding.NONE;
+
+    /**
+     * The cached value of the '{@link #getRoundingValue() <em>Rounding Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRoundingValue()
+     * @generated
+     * @ordered
+     */
+    protected Rounding roundingValue = ROUNDING_VALUE_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1408,6 +1493,29 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isLocalMinAvailable()
+    {
+        return localMinAvailable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalMinAvailable(boolean newLocalMinAvailable)
+    {
+        boolean oldLocalMinAvailable = localMinAvailable;
+        localMinAvailable = newLocalMinAvailable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN_AVAILABLE, oldLocalMinAvailable, localMinAvailable));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean isLocalMinAck()
     {
         return localMinAck;
@@ -1447,6 +1555,29 @@ public class ItemImpl extends EObjectImpl implements Item
         localMax = newLocalMax;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, oldLocalMax, localMax));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isLocalMaxAvailable()
+    {
+        return localMaxAvailable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalMaxAvailable(boolean newLocalMaxAvailable)
+    {
+        boolean oldLocalMaxAvailable = localMaxAvailable;
+        localMaxAvailable = newLocalMaxAvailable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX_AVAILABLE, oldLocalMaxAvailable, localMaxAvailable));
     }
 
     /**
@@ -2494,6 +2625,52 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isRoundingAvailable()
+    {
+        return roundingAvailable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRoundingAvailable(boolean newRoundingAvailable)
+    {
+        boolean oldRoundingAvailable = roundingAvailable;
+        roundingAvailable = newRoundingAvailable;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__ROUNDING_AVAILABLE, oldRoundingAvailable, roundingAvailable));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Rounding getRoundingValue()
+    {
+        return roundingValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRoundingValue(Rounding newRoundingValue)
+    {
+        Rounding oldRoundingValue = roundingValue;
+        roundingValue = newRoundingValue == null ? ROUNDING_VALUE_EDEFAULT : newRoundingValue;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__ROUNDING_VALUE, oldRoundingValue, roundingValue));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -2531,10 +2708,14 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isDefaultChain();
             case ModelPackage.ITEM__LOCAL_MIN:
                 return getLocalMin();
+            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
+                return isLocalMinAvailable();
             case ModelPackage.ITEM__LOCAL_MIN_ACK:
                 return isLocalMinAck();
             case ModelPackage.ITEM__LOCAL_MAX:
                 return getLocalMax();
+            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
+                return isLocalMaxAvailable();
             case ModelPackage.ITEM__LOCAL_MAX_ACK:
                 return isLocalMaxAck();
             case ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE:
@@ -2627,6 +2808,10 @@ public class ItemImpl extends EObjectImpl implements Item
                 return getMapper();
             case ModelPackage.ITEM__SIMULATION_VALUE:
                 return getSimulationValue();
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                return isRoundingAvailable();
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                return getRoundingValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -2666,11 +2851,17 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_MIN:
                 setLocalMin((Double)newValue);
                 return;
+            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
+                setLocalMinAvailable((Boolean)newValue);
+                return;
             case ModelPackage.ITEM__LOCAL_MIN_ACK:
                 setLocalMinAck((Boolean)newValue);
                 return;
             case ModelPackage.ITEM__LOCAL_MAX:
                 setLocalMax((Double)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
+                setLocalMaxAvailable((Boolean)newValue);
                 return;
             case ModelPackage.ITEM__LOCAL_MAX_ACK:
                 setLocalMaxAck((Boolean)newValue);
@@ -2812,6 +3003,12 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__SIMULATION_VALUE:
                 setSimulationValue((String)newValue);
                 return;
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                setRoundingAvailable((Boolean)newValue);
+                return;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                setRoundingValue((Rounding)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -2850,11 +3047,17 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_MIN:
                 setLocalMin(LOCAL_MIN_EDEFAULT);
                 return;
+            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
+                setLocalMinAvailable(LOCAL_MIN_AVAILABLE_EDEFAULT);
+                return;
             case ModelPackage.ITEM__LOCAL_MIN_ACK:
                 setLocalMinAck(LOCAL_MIN_ACK_EDEFAULT);
                 return;
             case ModelPackage.ITEM__LOCAL_MAX:
                 setLocalMax(LOCAL_MAX_EDEFAULT);
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
+                setLocalMaxAvailable(LOCAL_MAX_AVAILABLE_EDEFAULT);
                 return;
             case ModelPackage.ITEM__LOCAL_MAX_ACK:
                 setLocalMaxAck(LOCAL_MAX_ACK_EDEFAULT);
@@ -2994,6 +3197,12 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__SIMULATION_VALUE:
                 setSimulationValue(SIMULATION_VALUE_EDEFAULT);
                 return;
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                setRoundingAvailable(ROUNDING_AVAILABLE_EDEFAULT);
+                return;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                setRoundingValue(ROUNDING_VALUE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -3024,10 +3233,14 @@ public class ItemImpl extends EObjectImpl implements Item
                 return defaultChain != DEFAULT_CHAIN_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MIN:
                 return LOCAL_MIN_EDEFAULT == null ? localMin != null : !LOCAL_MIN_EDEFAULT.equals(localMin);
+            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
+                return localMinAvailable != LOCAL_MIN_AVAILABLE_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MIN_ACK:
                 return localMinAck != LOCAL_MIN_ACK_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MAX:
                 return LOCAL_MAX_EDEFAULT == null ? localMax != null : !LOCAL_MAX_EDEFAULT.equals(localMax);
+            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
+                return localMaxAvailable != LOCAL_MAX_AVAILABLE_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MAX_ACK:
                 return localMaxAck != LOCAL_MAX_ACK_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE:
@@ -3120,6 +3333,10 @@ public class ItemImpl extends EObjectImpl implements Item
                 return mapper != null && !mapper.isEmpty();
             case ModelPackage.ITEM__SIMULATION_VALUE:
                 return SIMULATION_VALUE_EDEFAULT == null ? simulationValue != null : !SIMULATION_VALUE_EDEFAULT.equals(simulationValue);
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                return roundingAvailable != ROUNDING_AVAILABLE_EDEFAULT;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                return roundingValue != ROUNDING_VALUE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -3151,10 +3368,14 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(defaultChain);
         result.append(", localMin: ");
         result.append(localMin);
+        result.append(", localMinAvailable: ");
+        result.append(localMinAvailable);
         result.append(", localMinAck: ");
         result.append(localMinAck);
         result.append(", localMax: ");
         result.append(localMax);
+        result.append(", localMaxAvailable: ");
+        result.append(localMaxAvailable);
         result.append(", localMaxAck: ");
         result.append(localMaxAck);
         result.append(", localHighHighAvailable: ");
@@ -3245,6 +3466,10 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(hdStorage);
         result.append(", simulationValue: ");
         result.append(simulationValue);
+        result.append(", roundingAvailable: ");
+        result.append(roundingAvailable);
+        result.append(", roundingValue: ");
+        result.append(roundingValue);
         result.append(')');
         return result.toString();
     }

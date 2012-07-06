@@ -22,6 +22,7 @@ import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
@@ -112,6 +113,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EEnum dataTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum roundingEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -271,7 +279,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMinAck()
+    public EAttribute getItem_LocalMinAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(8);
     }
@@ -281,7 +289,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMax()
+    public EAttribute getItem_LocalMinAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(9);
     }
@@ -291,7 +299,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMaxAck()
+    public EAttribute getItem_LocalMax()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(10);
     }
@@ -301,7 +309,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalHighHighAvailable()
+    public EAttribute getItem_LocalMaxAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(11);
     }
@@ -311,7 +319,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalHighHighAck()
+    public EAttribute getItem_LocalMaxAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(12);
     }
@@ -321,7 +329,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalHighHighPreset()
+    public EAttribute getItem_LocalHighHighAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(13);
     }
@@ -331,7 +339,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_EventCommand()
+    public EAttribute getItem_LocalHighHighAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(14);
     }
@@ -341,7 +349,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalManual()
+    public EAttribute getItem_LocalHighHighPreset()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(15);
     }
@@ -351,7 +359,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteManual()
+    public EAttribute getItem_EventCommand()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(16);
     }
@@ -361,7 +369,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_System()
+    public EAttribute getItem_LocalManual()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(17);
     }
@@ -371,7 +379,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Location()
+    public EAttribute getItem_RemoteManual()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(18);
     }
@@ -381,7 +389,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Component()
+    public EAttribute getItem_System()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(19);
     }
@@ -391,7 +399,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteMin()
+    public EAttribute getItem_Location()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(20);
     }
@@ -401,7 +409,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteMax()
+    public EAttribute getItem_Component()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(21);
     }
@@ -411,7 +419,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteHighHigh()
+    public EAttribute getItem_RemoteMin()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(22);
     }
@@ -421,7 +429,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteHigh()
+    public EAttribute getItem_RemoteMax()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(23);
     }
@@ -431,7 +439,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteLow()
+    public EAttribute getItem_RemoteHighHigh()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(24);
     }
@@ -441,7 +449,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteLowLow()
+    public EAttribute getItem_RemoteHigh()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(25);
     }
@@ -451,7 +459,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalHighAvailable()
+    public EAttribute getItem_RemoteLow()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(26);
     }
@@ -461,7 +469,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalHighAck()
+    public EAttribute getItem_RemoteLowLow()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(27);
     }
@@ -471,7 +479,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalHighPreset()
+    public EAttribute getItem_LocalHighAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(28);
     }
@@ -481,7 +489,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalLowAvailable()
+    public EAttribute getItem_LocalHighAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(29);
     }
@@ -491,7 +499,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalLowAck()
+    public EAttribute getItem_LocalHighPreset()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(30);
     }
@@ -501,7 +509,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalLowPreset()
+    public EAttribute getItem_LocalLowAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(31);
     }
@@ -511,7 +519,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalLowLowAvailable()
+    public EAttribute getItem_LocalLowAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(32);
     }
@@ -521,7 +529,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalLowLowAck()
+    public EAttribute getItem_LocalLowPreset()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(33);
     }
@@ -531,7 +539,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalLowLowPreset()
+    public EAttribute getItem_LocalLowLowAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(34);
     }
@@ -541,7 +549,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteBool()
+    public EAttribute getItem_LocalLowLowAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(35);
     }
@@ -551,7 +559,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_RemoteBoolAckValue()
+    public EAttribute getItem_LocalLowLowPreset()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(36);
     }
@@ -561,7 +569,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Input()
+    public EAttribute getItem_RemoteBool()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(37);
     }
@@ -571,7 +579,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Output()
+    public EAttribute getItem_RemoteBoolAckValue()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(38);
     }
@@ -581,7 +589,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalBool()
+    public EAttribute getItem_Input()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(39);
     }
@@ -591,7 +599,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalScaleAvailable()
+    public EAttribute getItem_Output()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(40);
     }
@@ -601,7 +609,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalScaleFactor()
+    public EAttribute getItem_LocalBool()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(41);
     }
@@ -611,7 +619,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalScaleOffset()
+    public EAttribute getItem_LocalScaleAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(42);
     }
@@ -621,7 +629,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_ListMonitorPreset()
+    public EAttribute getItem_LocalScaleFactor()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(43);
     }
@@ -631,7 +639,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_ListMonitorListIsAlarm()
+    public EAttribute getItem_LocalScaleOffset()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(44);
     }
@@ -641,7 +649,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_ListMonitorAckRequired()
+    public EAttribute getItem_ListMonitorPreset()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(45);
     }
@@ -651,7 +659,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_ListMonitorItems()
+    public EAttribute getItem_ListMonitorListIsAlarm()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(46);
     }
@@ -661,7 +669,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_DebugInformation()
+    public EAttribute getItem_ListMonitorAckRequired()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(47);
     }
@@ -671,7 +679,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalBoolAvailable()
+    public EAttribute getItem_ListMonitorItems()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(48);
     }
@@ -681,7 +689,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalBoolAck()
+    public EAttribute getItem_DebugInformation()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(49);
     }
@@ -691,7 +699,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_IgnoreSummary()
+    public EAttribute getItem_LocalBoolAvailable()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(50);
     }
@@ -701,7 +709,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Block()
+    public EAttribute getItem_LocalBoolAck()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(51);
     }
@@ -711,7 +719,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Enabled()
+    public EAttribute getItem_IgnoreSummary()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(52);
     }
@@ -721,7 +729,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_HdStorage()
+    public EAttribute getItem_Block()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures().get(53);
     }
@@ -731,9 +739,29 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getItem_Enabled()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(54);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItem_HdStorage()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(55);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EReference getItem_Mapper()
     {
-        return (EReference)itemEClass.getEStructuralFeatures().get(54);
+        return (EReference)itemEClass.getEStructuralFeatures().get(56);
     }
 
     /**
@@ -743,7 +771,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_SimulationValue()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(55);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(57);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItem_RoundingAvailable()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(58);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItem_RoundingValue()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(59);
     }
 
     /**
@@ -1181,6 +1229,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getRounding()
+    {
+        return roundingEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ModelFactory getModelFactory()
     {
         return (ModelFactory)getEFactoryInstance();
@@ -1215,8 +1273,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(itemEClass, ITEM__DESCRIPTION);
         createEAttribute(itemEClass, ITEM__DEFAULT_CHAIN);
         createEAttribute(itemEClass, ITEM__LOCAL_MIN);
+        createEAttribute(itemEClass, ITEM__LOCAL_MIN_AVAILABLE);
         createEAttribute(itemEClass, ITEM__LOCAL_MIN_ACK);
         createEAttribute(itemEClass, ITEM__LOCAL_MAX);
+        createEAttribute(itemEClass, ITEM__LOCAL_MAX_AVAILABLE);
         createEAttribute(itemEClass, ITEM__LOCAL_MAX_ACK);
         createEAttribute(itemEClass, ITEM__LOCAL_HIGH_HIGH_AVAILABLE);
         createEAttribute(itemEClass, ITEM__LOCAL_HIGH_HIGH_ACK);
@@ -1263,6 +1323,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(itemEClass, ITEM__HD_STORAGE);
         createEReference(itemEClass, ITEM__MAPPER);
         createEAttribute(itemEClass, ITEM__SIMULATION_VALUE);
+        createEAttribute(itemEClass, ITEM__ROUNDING_AVAILABLE);
+        createEAttribute(itemEClass, ITEM__ROUNDING_VALUE);
 
         summaryGroupEClass = createEClass(SUMMARY_GROUP);
         createEReference(summaryGroupEClass, SUMMARY_GROUP__ITEMS);
@@ -1317,6 +1379,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
         // Create enums
         dataTypeEEnum = createEEnum(DATA_TYPE);
+        roundingEEnum = createEEnum(ROUNDING);
     }
 
     /**
@@ -1361,8 +1424,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_DefaultChain(), ecorePackage.getEBoolean(), "defaultChain", "true", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalMin(), ecorePackage.getEDoubleObject(), "localMin", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getItem_LocalMinAvailable(), ecorePackage.getEBoolean(), "localMinAvailable", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalMinAck(), ecorePackage.getEBoolean(), "localMinAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalMax(), ecorePackage.getEDoubleObject(), "localMax", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getItem_LocalMaxAvailable(), ecorePackage.getEBoolean(), "localMaxAvailable", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalMaxAck(), ecorePackage.getEBoolean(), "localMaxAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalHighHighAvailable(), ecorePackage.getEBoolean(), "localHighHighAvailable", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalHighHighAck(), ecorePackage.getEBoolean(), "localHighHighAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1409,6 +1474,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getItem_HdStorage(), ecorePackage.getEString(), "hdStorage", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getItem_Mapper(), this.getMapper(), null, "mapper", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_SimulationValue(), ecorePackage.getEString(), "simulationValue", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getItem_RoundingAvailable(), ecorePackage.getEBoolean(), "roundingAvailable", "false", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getItem_RoundingValue(), this.getRounding(), "roundingValue", "NONE", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSummaryGroup_Items(), this.getSummaryItem(), null, "items", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1469,6 +1536,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         addEEnumLiteral(dataTypeEEnum, DataType.BOOLEAN);
         addEEnumLiteral(dataTypeEEnum, DataType.INTEGER);
         addEEnumLiteral(dataTypeEEnum, DataType.LONG_INTEGER);
+
+        initEEnum(roundingEEnum, Rounding.class, "Rounding");
+        addEEnumLiteral(roundingEEnum, Rounding.NONE);
+        addEEnumLiteral(roundingEEnum, Rounding.ROUND);
+        addEEnumLiteral(roundingEEnum, Rounding.CEIL);
+        addEEnumLiteral(roundingEEnum, Rounding.FLOOR);
 
         // Create resource
         createResource(eNS_URI);
