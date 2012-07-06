@@ -42,6 +42,7 @@ import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
@@ -419,6 +420,11 @@ public class Configuration extends GenericMasterConfiguration
                 addLocalScaleFeature ( item, reportItem );
             }
 
+            if ( item.isRoundingAvailable () )
+            {
+                addRounding ( masterId + ".round", masterId, item.getRoundingValue (), attributes );
+            }
+
             if ( item.isListMonitorPreset () )
             {
                 addListMonitor ( masterId + ".listMonitor", masterId, item.isListMonitorListIsAlarm (), item.getListMonitorItems (), item.isListMonitorAckRequired (), item.getDescription (), attributes ); //$NON-NLS-1$
@@ -739,6 +745,19 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.scale.input", id, data ); //$NON-NLS-1$
     }
 
+    private void addRounding ( final String id, final String masterId, final Rounding rounding, final Map<String, String> attributes )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        data.put ( "type", "" + rounding.getName () ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "active", "" + (rounding != Rounding.NONE) ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        applyInfoAttributes ( attributes, data );
+
+        addData ( "org.openscada.da.round", id, data ); //$NON-NLS-1$
+    }
+
     private void addNegate ( final String id, final String masterId, final boolean active )
     {
         final Map<String, String> data = new HashMap<String, String> ();
@@ -803,11 +822,11 @@ public class Configuration extends GenericMasterConfiguration
 
     private void makeLocalLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
-        if ( item.getLocalMin () != null )
+        if ( item.getLocalMin () != null || item.isLocalMinAvailable () )
         {
             makeLocalLevel ( reportItem, masterId, "floor", true, item.isLocalMinAck (), item.getLocalMin (), attributes ); //$NON-NLS-1$
         }
-        if ( item.getLocalMax () != null )
+        if ( item.getLocalMax () != null || item.isLocalMaxAvailable () )
         {
             makeLocalLevel ( reportItem, masterId, "ceil", true, item.isLocalMaxAck (), item.getLocalMax (), attributes ); //$NON-NLS-1$
         }
@@ -942,14 +961,11 @@ public class Configuration extends GenericMasterConfiguration
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
 
+        data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( preset != null )
         {
             data.put ( "preset", "" + preset ); //$NON-NLS-1$
             data.put ( "active", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
-        }
-        else
-        {
-            data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
         data.put ( "error", "" + error ); //$NON-NLS-1$ //$NON-NLS-2$
