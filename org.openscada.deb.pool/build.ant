@@ -38,7 +38,7 @@
     <target name="build">
     	<mkdir dir="${pool.root}"/>
 
-    	<shellscript shell="bash">
+    	<shellscript shell="bash" failifexecutionfails="true">
     		reprepro -Vb "${pool.root}" include stable "${input.dir}/openscada-ping_${openscada-ping}_amd64.changes"
     	</shellscript>
     </target>
