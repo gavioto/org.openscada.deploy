@@ -58,5 +58,17 @@
     	<get src="${jenkins.download.base}/job/openscada-ping/lastSuccessfulBuild/artifact/output/openscada-ping_${openscada-ping}_amd64.deb" dest="${input.dir}" usetimestamp="true"/>
     	<get src="${jenkins.download.base}/job/openscada-ping/lastSuccessfulBuild/artifact/output/openscada-ping_${openscada-ping}_amd64.changes" dest="${input.dir}" usetimestamp="true"/>
     </target>
+	
+	<!-- ================================= 
+          target: upload              
+         ================================= -->
+    <target name="upload">
+       	<exec executable="rsync">
+    		<arg value="-avz"/>
+    		<arg value="--delete"/>
+    		<arg value="${output.dir}/apt/"/>
+    		<arg value="${env.PUBLISH_TARGET}/apt/"/>
+    	</exec>
+    </target>
 
 </project>
