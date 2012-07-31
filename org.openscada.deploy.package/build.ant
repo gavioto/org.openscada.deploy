@@ -21,6 +21,7 @@
          ================================= -->
     <target name="default" depends="clean,init" >
     	<buildModule name="org.openscada"/>
+    	<buildModule name="org.openscada.bin"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =

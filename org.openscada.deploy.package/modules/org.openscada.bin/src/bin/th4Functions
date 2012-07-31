@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# $Id$
+
+# Reading system configuration
+
+[ -r /etc/sysconfig/th4 ] && . /etc/sysconfig/th4
+
+[ -z "$TH4_HOME" ] && TH4_HOME="/usr/local"
+export TH4_HOME
+
+[ ! -z "$JAVA_HOME" ] && export JAVA_HOME
+
+export PATH="$PATH:$TH4_HOME/bin"
+
+user () {
+	if [ -z "$TH4_USER" ]; then
+		echo "";
+	else
+		echo "--user=$TH4_USER";
+	fi
+}
+
+startModule () {
+	action $"Starting $1: " "$1"
+}
+
+stopModule () {
+	action $"Shutting down $1: " "$1" -stop
+}
