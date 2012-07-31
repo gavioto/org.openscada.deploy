@@ -25,6 +25,14 @@
     <target name="default" depends="clean,gather,build">
     </target>
 	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+    	<mkdir dir="${pool.root}"/>
+    	<mkdir dir="${output.dir}"/>
+    </target>
+
 	<!-- ================================= 
           target: clean              
          ================================= -->
@@ -36,9 +44,7 @@
 	<!-- ================================= 
           target: build              
          ================================= -->
-    <target name="build">
-    	<mkdir dir="${pool.root}"/>
-
+    <target name="build" depends="init">
     	<shellscript shell="bash" failifexecutionfails="true" failonerror="true">
     		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include stable "${input.dir}/openscada-ping_${openscada-ping}_amd64.changes"
     		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc stable "${input.dir}/openscada-ping_${openscada-ping}.dsc"
@@ -48,7 +54,7 @@
     <!-- ================================= 
           target: gather              
          ================================= -->
-    <target name="gather" depends="setup">
+    <target name="gather" depends="init,setup">
     	
     	<!-- setup pool -->
     	<mkdir dir="${pool.root}"/>
