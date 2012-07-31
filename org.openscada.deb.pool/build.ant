@@ -63,11 +63,24 @@
     		</fileset>
     	</copy>
     	
-    	<get src="${jenkins.download.base}/job/openscada-ping/lastSuccessfulBuild/artifact/output/openscada-ping_${openscada-ping}.tar.gz" dest="${input.dir}" usetimestamp="true"/>
-    	<get src="${jenkins.download.base}/job/openscada-ping/lastSuccessfulBuild/artifact/output/openscada-ping_${openscada-ping}.dsc" dest="${input.dir}" usetimestamp="true"/>
-    	<get src="${jenkins.download.base}/job/openscada-ping/lastSuccessfulBuild/artifact/output/openscada-ping_${openscada-ping}_amd64.deb" dest="${input.dir}" usetimestamp="true"/>
-    	<get src="${jenkins.download.base}/job/openscada-ping/lastSuccessfulBuild/artifact/output/openscada-ping_${openscada-ping}_amd64.changes" dest="${input.dir}" usetimestamp="true"/>
+    	<fetchDeb job="openscada-ping" package="openscada-ping"/>
+    	
     </target>
+	
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: fetchDeb          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="fetchDeb">
+        <attribute name="job" />
+    	<attribute name="package" />
+        <sequential>
+        	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}.tar.gz" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}.dsc" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}_amd64.deb" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}_amd64.changes" dest="${input.dir}" usetimestamp="true"/>
+        </sequential>
+    </macrodef>
+
 	
 	<!-- ================================= 
           target: upload              
