@@ -45,14 +45,41 @@
           target: build              
          ================================= -->
     <target name="build" depends="init">
-    	<shellscript shell="bash" failifexecutionfails="true" failonerror="true">
-    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include stable "${input.dir}/openscada-ping_${openscada-ping.version}_amd64.changes"
-    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc stable "${input.dir}/openscada-ping_${openscada-ping.version}.dsc"
-    		
-    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include unstable "${input.dir}/org.openscada_${openscada.version}_amd64.changes"
-    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc unstable "${input.dir}/org.openscada_${openscada.version}.dsc"
-    	</shellscript>
+    	<injectDeb repository="stable" name="openscada-ping" version="${openscada-ping.version}"/>
+    	<injectDeb repository="unstable" name="org.openscada" version="${openscada.version}"/>
+    	<injectDeb repository="unstable" name="org.openscada.bin" version="${openscada.version}"/>
+		<injectDeb repository="unstable" name="org.openscada.lib" version="${openscada.version}"/>
     </target>
+	
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: injectDeb          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="injectDeb">
+        <attribute name="name" />
+    	<attribute name="repository" />
+    	<attribute name="version" />
+        <sequential>
+        	<exec executable="reprepro">
+        		<arg value="--outdir"/>
+        		<arg file="${output.dir}"/>
+        		<arg value="-Vb"/>
+        		<arg file="${pool.root}"/>
+        		<arg value="include"/>
+        		<arg value="@{repository}"/>
+        		<arg file="${input.dir}/openscada-ping_${openscada-ping.version}_amd64.changes"/>
+        	</exec>
+        	<exec executable="reprepro">
+        		<arg value="--outdir"/>
+        		<arg file="${output.dir}"/>
+        		<arg value="-Vb"/>
+        		<arg file="${pool.root}"/>
+        		<arg value="includedsc"/>
+        		<arg value="@{repository}"/>
+        		<arg file="${input.dir}/openscada-ping_${openscada-ping.version}.dsc"/>
+        	</exec>
+        </sequential>
+    </macrodef>
+
 
     <!-- ================================= 
           target: gather              
@@ -67,6 +94,8 @@
     	</copy>
     	
     	<fetchDeb job="org.openscada.package-1.0" package="org.openscada" arch="all" version="1.0.0"/>
+    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.bin" arch="all" version="1.0.0"/>
+    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.lib" arch="all" version="1.0.0"/>
     	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
     	
     </target>
