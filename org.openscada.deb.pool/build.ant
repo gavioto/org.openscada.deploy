@@ -69,6 +69,8 @@
        	<exec executable="rsync">
     		<arg value="-avz"/>
     		<arg value="--delete"/>
+       		<arg value="--exclude-from"/>
+    		<arg value="exclude.apt.list"/>
     		<arg value="${output.dir}/"/>
     		<arg value="${env.PUBLISH_TARGET}/apt/"/>
     	</exec>
