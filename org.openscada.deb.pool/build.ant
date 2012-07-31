@@ -48,6 +48,9 @@
     	<shellscript shell="bash" failifexecutionfails="true" failonerror="true">
     		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include stable "${input.dir}/openscada-ping_${openscada-ping.version}_amd64.changes"
     		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc stable "${input.dir}/openscada-ping_${openscada-ping.version}.dsc"
+    		
+    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include unstable "${input.dir}/org.openscada_${openscada.version}_amd64.changes"
+    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc unstable "${input.dir}/org.openscada_${openscada.version}.dsc"
     	</shellscript>
     </target>
 
