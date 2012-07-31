@@ -1,0 +1,12 @@
+Source: org.openscada
+Maintainer: Jens Reimann <jens.reimann@th4-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: org.openscada
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: openSCADA base package
+ The base openSCADA package
