@@ -19,9 +19,10 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean,init" >
+    <target name="default" depends="clean,init,setup" >
     	<buildModule name="org.openscada"/>
     	<buildModule name="org.openscada.bin"/>
+    	<buildModule name="org.openscada.lib"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
@@ -30,6 +31,20 @@
     <macrodef name="buildModule">
         <attribute name="name"/>
         <sequential>
+        	
+        	<!-- trigger custom build first -->
+    		<if>
+    	        	
+        		<available file="modules/@{name}/customAssembly.xml"/>
+        		
+        		<then>
+	        		<echo message="Building by custom builder: modules/@{name}/customAssembly.xml"/>
+		        	<ant antfile="modules/@{name}/customAssembly.xml" inheritall="true">
+		        	</ant>
+				</then>
+
+        	</if>
+        	
         	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
 	    		<arg value="-us"/>
 	    		<arg value="-uc"/>
