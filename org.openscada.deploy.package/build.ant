@@ -6,23 +6,71 @@
     <description>
 		openSCADA source packages
     </description>
+	
+	<property name="output.dir" location="output"/>
+	<property name="rpm.base" location="rpm.build"/>
 
     <!-- ================================= 
           target: default              
          ================================= -->
     <target name="default" depends="clean,init" >
+    	<buildModule name="org.openscada"/>
     </target>
+	
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: buildModule          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="buildModule">
+        <attribute name="name"/>
+        <sequential>
+        	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
+	    		<arg value="-us"/>
+	    		<arg value="-uc"/>
+			</exec>
+	    	<move todir="${output.dir}">
+	    		<fileset dir="modules">
+	    			<include name="@{name}_*.dsc"/>
+	    			<include name="@{name}_*.tar.gz"/>
+	    			<include name="@{name}_*.changes"/>
+	    			<include name="@{name}_*.deb"/>
+				</fileset>
+	    	</move>
+	    	<copy file="modules/@{name}/@{name}.spec" todir="${rpm.base}/SPECS"/>
+        	<copy todir="${rpm.base}/SOURCES">
+        		<fileset dir="${output.dir}">
+        			<include name="@{name}_*.tar.gz"/>
+        		</fileset>
+    		</copy>
+	    	<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true"/>
+        </sequential>
+    </macrodef>
+
 
 	<!-- ================================= 
           target: clean              
          ================================= -->
     <target name="clean">
+    	<delete dir="${output.dir}"/>
+    	<delete dir="${rpm.base}"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: init                      
          - - - - - - - - - - - - - - - - - -->
-    <target name="init">
+    <target name="init" depends="rpm.init">
+    	<mkdir dir="${output.dir}"/>
     </target>
 
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: rpm.init
+         - - - - - - - - - - - - - - - - - -->
+    <target name="rpm.init">
+		<mkdir dir="${rpm.base}"/>
+    	<mkdir dir="${rpm.base}/SOURCES"/>
+    	<mkdir dir="${rpm.base}/RPMS"/>
+    	<mkdir dir="${rpm.base}/BUILD"/>
+    	<mkdir dir="${rpm.base}/SPECS"/>
+    	<mkdir dir="${rpm.base}/BUILDROOT"/>
+    </target>
+	
 </project>
