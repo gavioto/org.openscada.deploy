@@ -46,8 +46,8 @@
          ================================= -->
     <target name="build" depends="init">
     	<shellscript shell="bash" failifexecutionfails="true" failonerror="true">
-    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include stable "${input.dir}/openscada-ping_${openscada-ping}_amd64.changes"
-    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc stable "${input.dir}/openscada-ping_${openscada-ping}.dsc"
+    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" include stable "${input.dir}/openscada-ping_${openscada-ping.version}_amd64.changes"
+    		reprepro --outdir "${output.dir}" -Vb "${pool.root}" includedsc stable "${input.dir}/openscada-ping_${openscada-ping.version}.dsc"
     	</shellscript>
     </target>
 
@@ -63,7 +63,8 @@
     		</fileset>
     	</copy>
     	
-    	<fetchDeb job="openscada-ping" package="openscada-ping"/>
+    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada" arch="all" vesion="1.0.0"/>
+    	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
     	
     </target>
 	
@@ -73,11 +74,13 @@
     <macrodef name="fetchDeb">
         <attribute name="job" />
     	<attribute name="package" />
+    	<attribute name="arch" />
+    	<attribute name="version"/>
         <sequential>
-        	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}.tar.gz" dest="${input.dir}" usetimestamp="true"/>
-	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}.dsc" dest="${input.dir}" usetimestamp="true"/>
-	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}_amd64.deb" dest="${input.dir}" usetimestamp="true"/>
-	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_${openscada-ping}_amd64.changes" dest="${input.dir}" usetimestamp="true"/>
+        	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}.tar.gz" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}.dsc" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}_@{arch}.deb" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}_@{arch}.changes" dest="${input.dir}" usetimestamp="true"/>
         </sequential>
     </macrodef>
 
