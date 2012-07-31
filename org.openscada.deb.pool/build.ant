@@ -30,6 +30,7 @@
          ================================= -->
     <target name="clean">
         <delete dir="${pool.root}"/>
+    	<delete dir="${output.dir}"/>
     </target>
 	
 	<!-- ================================= 
