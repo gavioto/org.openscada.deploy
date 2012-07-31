@@ -1,13 +1,13 @@
 Origin: apt.openscada.org
 Label: openSCADA repository
 Codename: stable
-Architectures: amd64 i386 all source
+Architectures: amd64 i386 source
 Components: main
 Description: openSCADA main repository (stable)
 
 Origin: apt.openscada.org
 Label: openSCADA unstable repository
 Codename: unstable
-Architectures: amd64 i386 all source
+Architectures: amd64 i386 source
 Components: main
 Description: openSCADA main repository (unstable)
