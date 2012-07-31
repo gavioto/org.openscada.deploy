@@ -63,7 +63,7 @@
     		</fileset>
     	</copy>
     	
-    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada" arch="all" vesion="1.0.0"/>
+    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada" arch="all" version="1.0.0"/>
     	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
     	
     </target>
