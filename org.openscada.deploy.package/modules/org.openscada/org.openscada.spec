@@ -1,6 +1,8 @@
 %define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
 
 %define _profiledir /etc/profile.d
+%define _jardir /usr/jar
+%define _cfgdir /usr/configuration
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
@@ -39,6 +41,8 @@ cd ..
 %files
 %defattr(-,root,root)
 %attr(744,root,root) %{_profiledir}/th4.sh
+%dir %{_jardir}
+%dir %{_cfgdir}
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
