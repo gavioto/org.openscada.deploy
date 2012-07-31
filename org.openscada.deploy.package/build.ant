@@ -7,7 +7,13 @@
 		openSCADA source packages
     </description>
 	
-	<property name="output.dir" location="output"/>
+	<property name="build.root" location="."/>
+	
+	<property name="builder.profile" value="local"/>
+	<import file="global/profile.d/profile.${builder.profile}.ant"/>
+	
+	<import file="${build.root}/global/lib.xml"/>
+
 	<property name="rpm.base" location="rpm.build"/>
 
     <!-- ================================= 
