@@ -22,20 +22,26 @@
         	if you need a specific jdbc driver you will need to put it in
         	"/usr/jar" in order to load it.
          -->
-        
-        <!--
-        	<jdbc:connection uri="jdbc:abc" id="JDBC1">
-        		<jdbc:query period="1000" id="Q1">
-        			<jdbc:sql>select 1 from dual</jdbc:sql>
-        			<jdbc:columnMapping columnNumber="1" aliasName="FIRST"/>
-        		</jdbc:query>	
-        	</jdbc:connection>
-       	-->
-       	
+	
+		<jdbc:connection
+			id="JDBC1"
+			connectionClass="org.hsqldb.jdbcDriver"
+			uri="jdbc:hsqldb:mem:test"
+			username="SA"
+			password=""
+			timeout="1000">
+			
+			<jdbc:query period="100" id="TIME">
+				<jdbc:sql><![CDATA[call CURRENT_TIMESTAMP]]></jdbc:sql>
+				<jdbc:columnMapping columnNumber="1" aliasName="CURRENT_TIMESTAMP"/>
+			</jdbc:query>
+			
+		</jdbc:connection>
+
         </jdbc:root>
         
     </exporter:configuration>
-    <exporter:export uri="da:net://0.0.0.0:12029" />
+    <exporter:export uri="da:net://0.0.0.0:12021" />
 </exporter:hive>
 
 </exporter:configuration>
