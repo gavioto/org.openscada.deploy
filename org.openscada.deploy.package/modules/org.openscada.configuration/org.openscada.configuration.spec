@@ -10,7 +10,7 @@ License:   LGPLv3
 BuildArch: noarch
 Packager:  TH4 SYSTEMS GmbH <jens.reimann@th4-systems.com>
 Group:     Applications/System
-Source0:   %{name}_%{version}.tar.gz
+Source0:   %{name}_%{version}%{qualifier}.tar.gz
 BuildRoot: %{buildroot}
 Requires: org.openscada
 
