@@ -1,15 +1,3 @@
-org.openscada.bin (1.0.0build2) precise; urgency=low
-
-  * Automatic build: 2
-
- -- Jens Reimann <jens.reimann@th4-systems.com>  Wed, 01 Aug 2012 12:14:31 +0200
-
-org.openscada.bin (1.0.0build2) precise; urgency=low
-
-  * Automatic build: 2
-
- -- Jens Reimann <jens.reimann@th4-systems.com>  Wed, 01 Aug 2012 12:13:49 +0200
-
 org.openscada.bin (1.0.0) unstable; urgency=low
 
   * Initial release.
