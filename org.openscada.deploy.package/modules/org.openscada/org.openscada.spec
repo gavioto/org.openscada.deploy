@@ -1,5 +1,6 @@
 %define _profiledir /etc/profile.d
 %define _defaultdir /etc/default
+%define _datadir /usr/share
 %define _jardir /usr/jar
 %define _logdir /var/log
 %define _cfgdir /etc/openscada
@@ -45,6 +46,7 @@ cd ..
 %dir %{_jardir}
 %dir %{_cfgdir}
 %dir %{_logdir}/openscada
+%dir %{_datadir}/openscada
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
