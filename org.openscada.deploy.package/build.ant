@@ -23,6 +23,7 @@
     	<buildModule name="org.openscada"/>
     	<buildModule name="org.openscada.bin"/>
     	<buildModule name="org.openscada.lib"/>
+    	<buildModule name="org.openscada.configuration"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
