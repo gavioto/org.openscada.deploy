@@ -15,6 +15,8 @@ Packager:  TH4 SYSTEMS GmbH <jens.reimann@th4-systems.com>
 Group:     Applications/System
 Source0:   org.openscada.bin_%{version}.tar.gz
 BuildRoot: %{buildroot}
+Requires: org.openscada
+Requires: org.openscada.configuration
 
 %description
 
