@@ -7,6 +7,6 @@ Build-Depends: debhelper (>=8)
 
 Package: org.openscada.p2.bin
 Architecture: all
-Depends: ${misc:Depends}, python, p2director
+Depends: ${misc:Depends}, ${python:Depends}, p2director
 Description: openSCADA P2 bin package
  The P2 bin openSCADA package
