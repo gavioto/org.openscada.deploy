@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="customAssembly" default="default">
+	
+	<property name="gather.base" location="modules/p2director"/>
+	
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" description="Gather resources">
+    	<mkdir dir="${gather.base}/unpack"/>
+    	<copy todir="${gather.base}/unpack" file="${input.dir}/product/p2director-linux.gtk.x86_64.zip"/>
+    </target>
+
+</project>

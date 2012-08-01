@@ -25,12 +25,13 @@
           target: default              
          ================================= -->
     <target name="default" depends="clean,init,setup" >
-    	<buildModule name="org.openscada.p2.bin"/>
     	<buildModule name="org.openscada"/>
     	<buildModule name="org.openscada.bin"/>
     	<buildModule name="org.openscada.lib"/>
     	<buildModule name="org.openscada.configuration"/>
 		<buildModule name="org.openscada.drivers.common"/>
+    	<buildModule name="org.openscada.p2.bin"/>
+    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
@@ -38,11 +39,12 @@
          = = = = = = = = = = = = = = = = = -->
     <macrodef name="buildModule">
         <attribute name="name"/>
+    	<attribute name="skipChangelog" default="false" />
+    	<attribute name="qualifier" default=""/>
         <sequential>
         	
         	<!-- trigger custom build first -->
     		<if>
-    	        	
         		<available file="modules/@{name}/customAssembly.xml"/>
         		
         		<then>
@@ -53,13 +55,19 @@
 
         	</if>
         	
-        	<exec dir="modules/@{name}" executable="dch" failonerror="true">
-        		<arg value="-Mv"/>
-        		<arg value="${deploy.version}${buildTag}"/>
-        		<arg value="-D"/>
-        		<arg value="unstable"/>
-        		<arg value="Automatic build: ${buildNumber}"/>
-        	</exec>
+        	<if>
+        		<isfalse value="@{skipChangelog}" />
+        		<then>
+	        	<exec dir="modules/@{name}" executable="dch" failonerror="true">
+	        		<arg value="-Mv"/>
+	        		<arg value="${deploy.version}${buildTag}"/>
+	        		<arg value="-D"/>
+	        		<arg value="unstable"/>
+	        		<arg value="Automatic build: ${buildNumber}"/>
+	        	</exec>
+        		</then>	
+    		</if>
+        	
         	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
 	    		<arg value="-us"/>
 	    		<arg value="-uc"/>
@@ -78,10 +86,19 @@
         			<include name="@{name}_*.tar.gz"/>
         		</fileset>
     		</copy>
-	    	<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier ${buildTag}'"/>
+        	
+        	<if>
+        		<isfalse value="@{skipChangelog}" />
+        		<then>
+        			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier ${buildTag}'"/>
+        		</then>
+        		<else>
+        			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier @{qualifier}'"/>
+    			</else>
+        	</if>
+	    	
         </sequential>
     </macrodef>
-
 
 	<!-- ================================= 
           target: clean              
