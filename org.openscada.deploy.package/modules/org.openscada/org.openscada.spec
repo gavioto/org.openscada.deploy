@@ -3,7 +3,7 @@
 %define _profiledir /etc/profile.d
 %define _defaultdir /etc/default
 %define _jardir /usr/jar
-%define _cfgdir /usr/configuration
+%define _cfgdir /etc/openscada
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
