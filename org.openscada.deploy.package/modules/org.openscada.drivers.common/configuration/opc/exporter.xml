@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exporter:configuration
+    xmlns:exporter="http://openscada.org/DA/Server/Exporter"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:hive="http://openscada.org/DA/Hive"
+    xmlns:item="http://openscada.org/DA/Hive/DataItem"
+    xmlns:opc="http://openscada.org/DA/OPC/Configuration"
+    xmlns:chain="http://openscada.org/DA/Hive/ItemChain"
+    xmlns:proxy="http://openscada.org/DA/Proxy/Configuration"
+    xsi:schemaLocation="
+    http://openscada.org/DA/Server/Exporter /etc/openscada/schema/exporter.xsd
+    http://openscada.org/DA/Hive /etc/openscada/schema/Hive.xsd
+    http://openscada.org/Common /etc/openscada/schema/Common.xsd
+    http://openscada.org/DA/Hive/DataItem /etc/openscada/schema/DataItem.xsd
+    http://openscada.org/DA/OPC/Configuration /etc/openscada/schema/opc.xsd
+    http://openscada.org/DA/Proxy/Configuration /etc/openscada/schema/proxy.xsd
+    ">
+    
+<exporter:hive ref="org.openscada.da.server.opc.Hive">
+    <exporter:configuration>
+        <opc:root>
+            <opc:connections>
+
+<!--
+				<opc:configuration
+						host="192.168.0.1"
+						domain=""
+						user="user"
+						password="secret"
+						access="sync"
+						enabled="true"
+						tree-browser="true"
+						flat-browser="false"
+						refresh="250"
+						alias="OPC1">
+						<opc:clsid>00000000-0000-0000-0000-000000000000</opc:clsid>
+				</opc:configuration>
+-->
+            
+            </opc:connections>
+
+        </opc:root>
+        
+    </exporter:configuration>
+    <exporter:export uri="da:net://0.0.0.0:12027" />
+</exporter:hive>
+
+</exporter:configuration>

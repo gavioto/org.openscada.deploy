@@ -1,0 +1,12 @@
+-XX:+UseConcMarkSweepGC
+-XX:+CMSIncrementalMode
+-Xms384m
+-Xmx384m
+-XX:NewSize=128m
+-XX:MaxNewSize=128m
+-XX:SurvivorRatio=16
+-XX:PermSize=32m
+-XX:MaxPermSize=32m
+-XX:ReservedCodeCacheSize=8m
+-XX:ThreadStackSize=128
+-XX:GCTimeRatio=19
