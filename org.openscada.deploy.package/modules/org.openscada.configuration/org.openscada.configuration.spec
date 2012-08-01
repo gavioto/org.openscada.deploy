@@ -18,7 +18,7 @@ Requires: org.openscada
 
 %prep
 rm -Rf %{name}
-tar xpzf %_sourcedir/%{name}_%{version}.tar.gz
+tar xpzf %_sourcedir/%{name}_%{version}%{qualifier}.tar.gz
 
 %build
 
