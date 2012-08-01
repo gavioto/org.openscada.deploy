@@ -19,6 +19,11 @@
         <jdbc:root>
         
         <!--
+        	if you need a specific jdbc driver you will need to put it in
+        	"/usr/jar" in order to load it.
+         -->
+        
+        <!--
         	<jdbc:connection uri="jdbc:abc" id="JDBC1">
         		<jdbc:query period="1000" id="Q1">
         			<jdbc:sql>select 1 from dual</jdbc:sql>
