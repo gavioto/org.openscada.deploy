@@ -1,6 +1,7 @@
 %define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
 
 %define _profiledir /etc/profile.d
+%define _defaultdir /etc/default
 %define _jardir /usr/jar
 %define _cfgdir /usr/configuration
 %define version 1.0.0
@@ -41,6 +42,7 @@ cd ..
 %files
 %defattr(-,root,root)
 %attr(744,root,root) %{_profiledir}/th4.sh
+%config %{_defaultdir}/th4
 %dir %{_jardir}
 %dir %{_cfgdir}
 
