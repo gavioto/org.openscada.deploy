@@ -1,0 +1,4 @@
+Name: jenkinsbuild
+IncomingDir: @@@INPUTDIR@@@
+TempDir: /tmp/reprepro
+Allow: stable unstable

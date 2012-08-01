@@ -1,6 +1,0 @@
-Origin: apt.openscada.org
-Label: openSCADA repository
-Codename: stable
-Architectures: amd64 source
-Components: main
-Description: openSCADA main repository

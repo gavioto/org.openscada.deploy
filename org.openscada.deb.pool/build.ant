@@ -31,6 +31,14 @@
     <target name="init">
     	<mkdir dir="${pool.root}"/>
     	<mkdir dir="${output.dir}"/>
+    	
+		<!-- setup pool -->
+    	<mkdir dir="${pool.root}"/>
+    	<copy todir="${pool.root}">
+    		<fileset dir="${build.root}/pool">
+    		</fileset>
+    	</copy>
+		<replace file="${pool.root}/conf/incoming" token="@@@INPUTDIR@@@" value="${input.dir}"/>
     </target>
 
 	<!-- ================================= 
@@ -45,12 +53,14 @@
           target: build              
          ================================= -->
     <target name="build" depends="init">
-    	<injectDeb repository="stable" name="openscada-ping" version="${openscada-ping.version}"/>
-    	<injectDeb repository="unstable" name="org.openscada" version="${openscada.version}"/>
-    	<injectDeb repository="unstable" name="org.openscada.bin" version="${openscada.version}"/>
-		<injectDeb repository="unstable" name="org.openscada.lib" version="${openscada.version}"/>
-    	<injectDeb repository="unstable" name="org.openscada.configuration" version="${openscada.version}"/>
-		<injectDeb repository="unstable" name="org.openscada.drivers.common" version="${openscada.version}"/>
+    	<exec executable="reprepro">
+    		<arg value="--outdir"/>
+    		<arg file="${output.dir}"/>
+    		<arg value="-Vb"/>
+    		<arg file="${pool.root}"/>
+    		<arg value="processincoming"/>
+    		<arg value="jenkinsbuild"/>
+    	</exec>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
@@ -88,19 +98,13 @@
          ================================= -->
     <target name="gather" depends="init,setup">
     	
-    	<!-- setup pool -->
-    	<mkdir dir="${pool.root}"/>
-    	<copy todir="${pool.root}">
-    		<fileset dir="${build.root}/pool">
-    		</fileset>
-    	</copy>
+    	<get src="http://builder.intra/view/1.0/job/org.openscada.package-1.0/lastSuccessfulBuild/artifact/output/*zip*/output.zip" dest="${input.dir}"/>
+    	<unzip dest="${input.dir}" src="${input.dir}/output.zip">
+    		<mapper type="flatten"/>
+		</unzip>
+    	<delete file="${input.dir}/output.zip" />
     	
     	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
-    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada" arch="all" version="${openscada.version}"/>
-    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.bin" arch="all" version="${openscada.version}"/>
-    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.lib" arch="all" version="${openscada.version}"/>
-    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.configuration" arch="all" version="${openscada.version}"/>
-    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.drivers.common" arch="all" version="${openscada.version}"/>
     	
     </target>
 	
