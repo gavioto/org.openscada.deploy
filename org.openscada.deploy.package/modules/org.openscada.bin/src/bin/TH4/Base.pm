@@ -38,5 +38,10 @@ sub configurationRoot () {
   return "/etc/openscada";
 }
 
+sub pidfileRoot () {
+  return $ENV{'TH4_PIDFILE_ROOT'} if $ENV{'TH4_PIDFILE_ROOT'};
+  return "/var/run";
+}
+
 1;
 __END__

@@ -13,7 +13,7 @@ require Exporter;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 sub new {
     my $class = shift;
@@ -172,7 +172,7 @@ sub gatherArgs {
   push @args, "-Xdebug", "-Xrunjdwp:transport=dt_socket,address=1303,server=y,suspend=n" if $self->{'debug'};
   
   # add pid file
-  push @args, "-pidfile", TH4::Base->home () . "/run/" . $self->{'instanceName'} . ".pid";
+  push @args, "-pidfile", TH4::Base->pidfileRoot () . "/" . $self->{'instanceName'} . ".pid";
   
   # add the class name
   push @args, $self->{'className'};
