@@ -55,6 +55,8 @@
         	<exec dir="modules/@{name}" executable="dch" failonerror="true">
         		<arg value="-Mv"/>
         		<arg value="${deploy.version}${buildTag}"/>
+        		<arg value="-D"/>
+        		<arg value="unstable"/>
         		<arg value="Automatic build: ${buildNumber}"/>
         	</exec>
         	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
