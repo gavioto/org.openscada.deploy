@@ -25,6 +25,7 @@
           target: default              
          ================================= -->
     <target name="default" depends="clean,init,setup" >
+    	<buildModule name="org.openscada.p2.profiles"/>
     	<buildModule name="org.openscada"/>
     	<buildModule name="org.openscada.bin"/>
     	<buildModule name="org.openscada.lib"/>
