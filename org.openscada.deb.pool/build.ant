@@ -120,7 +120,7 @@
 	<!-- ================================= 
           target: upload              
          ================================= -->
-    <target name="upload">
+    <target name="upload" if="enable.upload">
        	<exec executable="rsync">
     		<arg value="-avz"/>
     		<arg value="--delete"/>
