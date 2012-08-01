@@ -63,36 +63,6 @@
     	</exec>
     </target>
 	
-	<!-- = = = = = = = = = = = = = = = = =
-          macrodef: injectDeb          
-         = = = = = = = = = = = = = = = = = -->
-    <macrodef name="injectDeb">
-        <attribute name="name" />
-    	<attribute name="repository" />
-    	<attribute name="version" />
-        <sequential>
-        	<exec executable="reprepro">
-        		<arg value="--outdir"/>
-        		<arg file="${output.dir}"/>
-        		<arg value="-Vb"/>
-        		<arg file="${pool.root}"/>
-        		<arg value="include"/>
-        		<arg value="@{repository}"/>
-        		<arg file="${input.dir}/@{name}_@{version}_amd64.changes"/>
-        	</exec>
-        	<exec executable="reprepro">
-        		<arg value="--outdir"/>
-        		<arg file="${output.dir}"/>
-        		<arg value="-Vb"/>
-        		<arg file="${pool.root}"/>
-        		<arg value="includedsc"/>
-        		<arg value="@{repository}"/>
-        		<arg file="${input.dir}/@{name}_@{version}.dsc"/>
-        	</exec>
-        </sequential>
-    </macrodef>
-
-
     <!-- ================================= 
           target: gather              
          ================================= -->
