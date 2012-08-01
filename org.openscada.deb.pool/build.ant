@@ -49,6 +49,8 @@
     	<injectDeb repository="unstable" name="org.openscada" version="${openscada.version}"/>
     	<injectDeb repository="unstable" name="org.openscada.bin" version="${openscada.version}"/>
 		<injectDeb repository="unstable" name="org.openscada.lib" version="${openscada.version}"/>
+    	<injectDeb repository="unstable" name="org.openscada.configuration" version="${openscada.version}"/>
+		<injectDeb repository="unstable" name="org.openscada.drivers.common" version="${openscada.version}"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
@@ -93,10 +95,12 @@
     		</fileset>
     	</copy>
     	
+    	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
     	<fetchDeb job="org.openscada.package-1.0" package="org.openscada" arch="all" version="${openscada.version}"/>
     	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.bin" arch="all" version="${openscada.version}"/>
     	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.lib" arch="all" version="${openscada.version}"/>
-    	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
+    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.configuration" arch="all" version="${openscada.version}"/>
+    	<fetchDeb job="org.openscada.package-1.0" package="org.openscada.drivers.common" arch="all" version="${openscada.version}"/>
     	
     </target>
 	
