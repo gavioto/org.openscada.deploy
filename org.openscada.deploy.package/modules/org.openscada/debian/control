@@ -7,6 +7,6 @@ Build-Depends: debhelper (>=8)
 
 Package: org.openscada
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, default-jre-headless
 Description: openSCADA base package
  The base openSCADA package
