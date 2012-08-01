@@ -7,6 +7,6 @@ Build-Depends: debhelper (>=8)
 
 Package: org.openscada.bin
 Architecture: all
-Depends: ${misc:Depends}, jsvc, org.openscada
+Depends: ${misc:Depends}, jsvc, org.openscada, org.openscada.configuration
 Description: openSCADA bin package
  The bin openSCADA package

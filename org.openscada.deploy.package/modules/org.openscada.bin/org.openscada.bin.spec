@@ -16,6 +16,7 @@ Group:     Applications/System
 Source0:   org.openscada.bin_%{version}.tar.gz
 BuildRoot: %{buildroot}
 Requires: org.openscada
+Requires: org.openscada.lib
 Requires: org.openscada.configuration
 
 %description
