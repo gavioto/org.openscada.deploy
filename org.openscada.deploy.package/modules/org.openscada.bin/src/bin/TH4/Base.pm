@@ -12,7 +12,7 @@ require Carp;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 sub classpath () {
    my @classpath = ();
@@ -31,6 +31,11 @@ sub classpath () {
 sub home () {
   Carp::croak ( "'TH4_HOME' not set") unless $ENV{"TH4_HOME"};
   return $ENV{'TH4_HOME'};
+}
+
+sub configurationRoot () {
+  return $ENV{'TH4_CONFIGURATION_ROOT'} if $ENV{'TH4_CONFIGURATION_ROOT'};
+  return "/etc/openscada";
 }
 
 1;

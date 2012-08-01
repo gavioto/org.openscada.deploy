@@ -2,7 +2,7 @@
 
 # $Id$
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 use lib $ENV{TH4_HOME} . "/bin";
 use strict;
@@ -40,25 +40,21 @@ $app->stop ( $stop );
 $app->attach ( $attach );
 
 $app->classpath ( TH4::Base->classpath () );
-$app->appendClasspath ( TH4::Base::home () . "/configuration/log" );
-$app->appendClasspath ( TH4::Base::home () . "/configuration/cls" );
+$app->appendClasspath ( TH4::Base::configurationRoot () . "/drivers/" . $app->instanceName() . "/cls" );
 
-$propertiesFile = TH4::Base::home() . "/configuration/" . $app->instanceName () . ".properties";
+$propertiesFile = TH4::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.properties";
 
-if ( $propertiesFile )
+if ( open FILE, "<$propertiesFile" )
 {
-  if ( open FILE, "<$propertiesFile" )
+  while ( my $line = <FILE> )
   {
-    while ( my $line = <FILE> )
-    {
-        if ( $line =~ /(.*?)=(.*)/ )
-        { 
-          $app->addProperty ( $1, $2 );
-        }
-    }
-    close FILE;
-  }  
-}
+      if ( $line =~ /(.*?)=(.*)/ )
+      { 
+        $app->addProperty ( $1, $2 );
+      }
+  }
+  close FILE;
+}  
 
 sub trim($)
 {
@@ -69,7 +65,7 @@ sub trim($)
 }
 
 # replace default java args if available
-if ( open FILE, "<" . TH4::Base::home() . "/configuration/" . $app->instanceName () . ".jvm" )
+if ( open FILE, "<" . TH4::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/jvm.args" )
 {
   my @args;
   while ( my $line = <FILE> )
@@ -82,14 +78,10 @@ if ( open FILE, "<" . TH4::Base::home() . "/configuration/" . $app->instanceName
 
 my $logFile;
 
-# check for a log4j configuration script
-$logFile = $app->instanceName () . ".properties";
--r TH4::Base::home () . "/configuration/log/" . $logFile && $app->log4jConfiguration ( $logFile );
-
 # check for a logback configuration script ( common first, then override )
-$logFile = TH4::Base::home () . "/configuration/log/logback.xml";
+$logFile = TH4::Base::configurationRoot () . "/log/logback.xml";
 -r $logFile && $app->logbackConfiguration ( $logFile );
-$logFile = TH4::Base::home () . "/configuration/log/" . $app->instanceName () . ".logback.xml";
+$logFile = TH4::Base::configurationRoot () . "/drivers/" . $app->instanceName () . "/logback.xml";
 -r $logFile && $app->logbackConfiguration ( $logFile );
 
 $app->setArgs ( @ARGV ) if @ARGV;

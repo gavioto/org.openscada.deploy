@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. th4Functions
+
+cfg="/etc/openscada"
+if [ -z "$TH4_CONFIGURATION_ROOT" ]; then
+	cfg="$TH4_CONFIGURATION_ROOT"
+fi
+
+th4Service org.openscada.da.utils.daemon.ExporterDaemon "$1" "$cfg/drivers/$1/exporter.xml" `user` "$@"
+ 

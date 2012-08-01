@@ -24,6 +24,7 @@
     	<buildModule name="org.openscada.bin"/>
     	<buildModule name="org.openscada.lib"/>
     	<buildModule name="org.openscada.configuration"/>
+		<buildModule name="org.openscada.drivers.common"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
