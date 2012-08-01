@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exporter:configuration
+	xmlns:exporter="http://openscada.org/DA/Server/Exporter"
+	xmlns:exec="http://openscada.org/DA/Exec/Configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:opc="http://openscada.org/DA/OPC/Configuration"
+	xmlns:snmp="http://openscada.org/DA/SNMP/Configuration"
+	xmlns:proxy="http://openscada.org/DA/Proxy/Configuration"
+	xmlns:jdbc="http://openscada.org/DA/JDBC/Configuration"
+	xmlns:chain="http://openscada.org/DA/Hive/ItemChain"
+	xsi:schemaLocation="
+	http://openscada.org/DA/Server/Exporter /etc/openscada/schema/exporter.xsd
+	http://openscada.org/DA/Exec/Configuration /etc/openscada/schema/exec.xsd
+	http://openscada.org/DA/OPC/Configuration /etc/openscada/schema/opc.xsd
+	http://openscada.org/DA/SNMP/Configuration /etc/openscada/schema/snmp.xsd
+	http://openscada.org/DA/Proxy/Configuration /etc/openscada/schema/proxy.xsd
+	http://openscada.org/DA/JDBC/Configuration /etc/openscada/schema/jdbc.xsd
+	http://openscada.org/DA/Hive/ItemChain /etc/openscada/schema/ItemChain.xsd
+	">
+	
+	
+	<!--
+	  - 
+	  - Exec Driver
+	  - 
+	  -->
+	
+	<exporter:hive ref="org.openscada.da.server.exec.Hive">
+		<exporter:configuration>
+			<exec:root xmlns:exec="http://openscada.org/DA/Exec/Configuration" >
+			
+	<!--
+	  - periodic queue #1 
+	  -->			
+	<exec:queue name="Q1">
+	
+	    <!--
+	      - run "date" command 
+	      -->
+		<exec:command id="DATE" period="500">
+			<exec:process exec="date"/>
+			<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
+		</exec:command>
+		
+	
+		<!--
+		  - count users from "who" command 
+		  -->
+		<exec:command id="WHO_COUNT" period="1000">
+			<exec:process exec="/bin/bash">
+				<exec:argument>-c</exec:argument>
+				<exec:argument>who | wc</exec:argument>
+			</exec:process>
+			<exec:extractor name="DEFAULT" xsi:type="exec:SplitterExtractorType"
+				splitExpression="[ \t]+">
+				<exec:field name="COUNT" variantType="INTEGER"/>
+			</exec:extractor>
+		</exec:command>
+		
+		<!--
+		  - use nagios plugin 
+		  -->
+		<exec:command id="NAGIOS_USERS">
+			<exec:process exec="/usr/lib/nagios/plugins/check_users">
+				<exec:argument>-w</exec:argument>
+				<exec:argument>20</exec:argument>
+				<exec:argument>-c</exec:argument>
+				<exec:argument>30</exec:argument>
+			</exec:process>
+			<exec:extractor name="NAGIOS" xsi:type="exec:NagiosReturnCodeExtractorType"/>
+			<exec:extractor name="STREAM" xsi:type="exec:PlainStreamExtractorType"/>
+		</exec:command>
+		
+	</exec:queue>
+
+	<!--
+	  - periodic queue #2 
+	  -->
+	<exec:queue name="Q2">
+		<!--
+		  - interpret output from the "uptime" command 
+		  -->
+		<exec:command id="uptime" period="1000">
+			<exec:process exec="uptime">
+				<exec:env name="LANG" value="en_US"/>
+			</exec:process>
+			
+			<exec:extractor name="A" xsi:type="exec:RegExExtractorType" requireFullMatch="false">
+	
+				<exec:field/>
+				<exec:field name="users" variantType="INTEGER"/>
+				<exec:field name="loadAvg1" variantType="DOUBLE"/>
+				<exec:field name="loadAvg5" variantType="DOUBLE"/>
+				<exec:field name="loadAvg15" variantType="DOUBLE"/>
+				 
+				<exec:expression><![CDATA[([0-9]+) users?.*averages?: +([0-9]+[,\.][0-9]*),? +([0-9]+[,\.][0-9]*),? +([0-9]+[,\.][0-9]*)]]></exec:expression>
+			</exec:extractor>
+		</exec:command>
+	</exec:queue>
+		
+	<exec:hiveProcess id="PING"
+		restartDelay="10000"
+	 	maxInputBuffer="10000">
+		<exec:process exec="openscada_ping">
+			<exec:argument>google.com=GOOGLE</exec:argument>
+			<exec:argument>yahoo.com=YAHOO</exec:argument>
+			<exec:argument>ibm.com=IBM</exec:argument>
+			<exec:argument>heise.com=HEISE</exec:argument>
+		</exec:process>
+	</exec:hiveProcess>
+
+	<!--
+	  - continuously running command - vmstat
+	  -->
+	<exec:command restartDelay="1000" id="vmstat" ignoreStartLines="2" maxInputBuffer="2000">
+		<exec:process exec="vmstat">
+			<exec:argument>-n</exec:argument>
+			<exec:argument>1</exec:argument>
+		</exec:process>
+		<exec:extractor name="B" xsi:type="exec:SplitterExtractorType" splitExpression=" ">
+			<exec:field name="procs.read" variantType="LONG"/>
+			<exec:field name="procs.write" variantType="LONG"/>
+			<exec:field name="memory.swapped" variantType="LONG"/>
+			<exec:field name="memory.free" variantType="LONG"/>
+			<exec:field name="memory.buffers" variantType="LONG"/>
+			<exec:field name="memory.caches" variantType="LONG"/>
+			<exec:field name="swap.in" variantType="LONG"/>
+			<exec:field name="swap.out" variantType="LONG"/>
+			<exec:field name="io.blockIn" variantType="LONG"/>
+			<exec:field name="io.blockOut" variantType="LONG"/>
+			<exec:field name="system.interrupts" variantType="LONG"/>
+			<exec:field name="system.cs" variantType="LONG"/>
+			<exec:field name="cpu.user" variantType="LONG"/>
+			<exec:field name="cpu.system" variantType="LONG"/>
+			<exec:field name="cpu.idle" variantType="LONG"/>
+			<exec:field name="cpu.wait" variantType="LONG"/>
+		</exec:extractor>
+		<exec:splitter type="newline"/>
+	</exec:command>
+
+	<!--
+	  - A trigger that acts when a value is written to the dataitem
+	  -->
+	
+	<exec:trigger id="TRIGGER1"
+		argumentPlaceholder="__VALUE__"
+		fork="false"
+		skipIfNull="true"
+		>
+		<exec:process exec="echo">
+			<exec:argument>Hello: __VALUE__</exec:argument>
+		</exec:process>
+		<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
+		<exec:extractor name="RC" xsi:type="exec:ReturnCodeExtractorType"/>
+	</exec:trigger>
+
+			</exec:root>
+			
+		</exporter:configuration>
+		
+		<!--
+		  - the communication endpoint 
+		  -->
+		<exporter:export uri="da:net://0.0.0.0:12020"/>
+	</exporter:hive>
+	
+</exporter:configuration>
