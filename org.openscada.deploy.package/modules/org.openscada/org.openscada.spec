@@ -3,6 +3,7 @@
 %define _profiledir /etc/profile.d
 %define _defaultdir /etc/default
 %define _jardir /usr/jar
+%define _logdir /var/log
 %define _cfgdir /etc/openscada
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
@@ -45,6 +46,7 @@ cd ..
 %config %{_defaultdir}/th4
 %dir %{_jardir}
 %dir %{_cfgdir}
+%dir %{_logdir}/openscada
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
