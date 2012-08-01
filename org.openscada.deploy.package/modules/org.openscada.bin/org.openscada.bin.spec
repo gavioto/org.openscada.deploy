@@ -1,5 +1,3 @@
-%define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
-
 %define _bindir /usr/bin
 %define _perllibdir /usr/lib/perl5
 %define version 1.0.0

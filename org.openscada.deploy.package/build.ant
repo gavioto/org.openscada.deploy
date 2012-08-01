@@ -10,6 +10,7 @@
 	<property environment="env"/>
 	
 	<property name="buildNumber" value="${env.BUILD_NUMBER}"/>
+	<property name="buildTag" value="build${buildNumber}"/>
 	
 	<property name="build.root" location="."/>
 	
@@ -53,7 +54,7 @@
         	
         	<exec dir="modules/@{name}" executable="dch" failonerror="true">
         		<arg value="-Mv"/>
-        		<arg value="${deploy.version}build${buildNumber}"/>
+        		<arg value="${deploy.version}${buildTag}"/>
         		<arg value="Automatic build: ${buildNumber}"/>
         	</exec>
         	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
@@ -74,7 +75,7 @@
         			<include name="@{name}_*.tar.gz"/>
         		</fileset>
     		</copy>
-	    	<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true"/>
+	    	<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier ${buildTag}'"/>
         </sequential>
     </macrodef>
 

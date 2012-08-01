@@ -1,5 +1,3 @@
-%define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
-
 %define _profiledir /etc/profile.d
 %define _defaultdir /etc/default
 %define _jardir /usr/jar
@@ -23,7 +21,7 @@ BuildRoot: %{buildroot}
 
 %prep
 rm -Rf %{name}
-tar xpzf %_sourcedir/org.openscada_%{version}.tar.gz
+tar xpzf %_sourcedir/org.openscada_%{version}%{qualifier}.tar.gz
 
 %build
 

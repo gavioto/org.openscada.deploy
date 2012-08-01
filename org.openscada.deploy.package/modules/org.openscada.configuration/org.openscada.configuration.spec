@@ -1,5 +1,3 @@
-%define qualifier %(date +%%Y%%m%%d%%H%%M%%S)
-
 %define _cfgdir /etc/openscada
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
