@@ -42,6 +42,7 @@ cd ..
 
 %files
 %defattr(-,root,root)
+%attr(744,root,root) %{_bindir}/driverExporter
 %attr(744,root,root) %{_bindir}/th4Functions
 %attr(744,root,root) %{_bindir}/th4Service
 %dir %{_perllibdir}/TH4
