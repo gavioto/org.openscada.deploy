@@ -8,5 +8,6 @@ Build-Depends: debhelper (>=8)
 Package: org.openscada.drivers.common
 Architecture: all
 Depends: ${misc:Depends}, org.openscada, org.openscada.bin, org.openscada.lib, org.openscada.configuration
+Suggests: openscada-ping
 Description: openSCADA common drivers package
  Common openSCADA drivers like OPC, JDBC, Proxy, ...
