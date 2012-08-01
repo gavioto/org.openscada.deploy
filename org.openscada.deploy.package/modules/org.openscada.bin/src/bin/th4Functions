@@ -7,7 +7,7 @@
 [ -r /etc/sysconfig/th4 ] && . /etc/sysconfig/th4
 [ -r /etc/default/th4 ] && . /etc/default/th4
 
-[ -z "$TH4_HOME" ] && TH4_HOME="/usr/local"
+[ -z "$TH4_HOME" ] && TH4_HOME="/usr"
 export TH4_HOME
 
 [ -z "$TH4_CONFIGURATION_ROOT" ] && TH4_CONFIGURATION_ROOT="/etc/openscada"
