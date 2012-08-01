@@ -1,4 +1,5 @@
 %define _bindir /usr/bin
+%define _datadir /usr/share
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
@@ -37,6 +38,8 @@ cd ..
 %files
 %defattr(-,root,root)
 %attr(744,root,root) %{_bindir}/*
+%dir %{_datadir}/openscada/profiles
+%dir %{_datadir}/openscada/p2
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
