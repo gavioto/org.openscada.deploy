@@ -116,11 +116,14 @@
         </sequential>
     </macrodef>
 
+	<condition property="do.upload">
+		<istrue value="${enable.upload}"/>
+	</condition>
 	
 	<!-- ================================= 
           target: upload              
          ================================= -->
-    <target name="upload" if="enable.upload">
+    <target name="upload" if="do.upload">
        	<exec executable="rsync">
     		<arg value="-avz"/>
     		<arg value="--delete"/>
