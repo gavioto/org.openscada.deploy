@@ -7,6 +7,10 @@
 		openSCADA source packages
     </description>
 	
+	<property environment="env"/>
+	
+	<property name="buildNumber" value="${env.BUILD_NUMBER}"/>
+	
 	<property name="build.root" location="."/>
 	
 	<property name="builder.profile" value="local"/>
@@ -47,6 +51,11 @@
 
         	</if>
         	
+        	<exec dir="modules/@{name}" executable="dch" failonerror="true">
+        		<arg value="-Mv"/>
+        		<arg value="${deploy.version}build${buildNumber}"/>
+        		<arg value="Automatic build: ${buildNumber}"/>
+        	</exec>
         	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
 	    		<arg value="-us"/>
 	    		<arg value="-uc"/>
