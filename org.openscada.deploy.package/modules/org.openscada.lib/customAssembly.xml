@@ -12,6 +12,7 @@
 		<unzip dest="${gather.base}/jar">
 			<fileset dir="${input.dir}">
 				<include name="**/*-p2repo.zip"/>
+				<exclude name="**/*external*-p2repo.zip"/>
 			</fileset>
     		<patternset includes="plugins/*.jar"/>
     		<mapper type="flatten"/>
