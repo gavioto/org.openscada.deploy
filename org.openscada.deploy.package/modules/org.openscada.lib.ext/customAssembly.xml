@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="customAssembly" default="default">
+	
+	<property name="gather.base" location="modules/org.openscada.lib"/>
+	
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" description="Gather resources">
+    	<mkdir dir="${gather.base}/jar"/>
+		<unzip dest="${gather.base}/jar">
+			<fileset dir="${input.dir}">
+				<include name="**/*external*-p2repo.zip"/>
+			</fileset>
+    		<patternset includes="plugins/*.jar"/>
+    		<mapper type="flatten"/>
+		</unzip>    	
+    </target>
+
+</project>
