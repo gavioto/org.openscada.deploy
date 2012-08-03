@@ -11,8 +11,7 @@
     	<mkdir dir="${gather.base}/repos"/>
 		<copy todir="${gather.base}/repos">
 			<fileset dir="${input.dir}/repos">
-				<include name="*.zip"/>
-				<exclude name="*-p2repo.zip"/>
+				<include name="*-p2repo.zip"/>
 			</fileset>
     	</copy>
     </target>
