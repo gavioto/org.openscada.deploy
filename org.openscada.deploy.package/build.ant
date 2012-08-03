@@ -34,6 +34,7 @@
     	<buildModule name="org.openscada.p2.bin"/>
     	<buildModule name="org.openscada.p2.profiles"/>
     	<buildModule name="org.openscada.p2.repo.main"/>
+    	<buildModule name="org.openscada.p2.repo.eclipse"/>
     	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
     </target>
 	
@@ -59,7 +60,11 @@
         	</if>
         	
         	<if>
-        		<isfalse value="@{skipChangelog}" />
+        		<and>
+        			<isfalse value="@{skipChangelog}" />
+        			<not><isset property="preventChangelogUpgrade"/></not>
+    			</and>
+        		
         		<then>
 	        	<exec dir="modules/@{name}" executable="dch" failonerror="true">
 	        		<arg value="-Mv"/>
