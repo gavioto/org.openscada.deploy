@@ -53,7 +53,7 @@
           target: build              
          ================================= -->
     <target name="build" depends="init">
-    	<exec executable="reprepro">
+    	<exec executable="reprepro" failonerror="true">
     		<arg value="--outdir"/>
     		<arg file="${output.dir}"/>
     		<arg value="-Vb"/>
