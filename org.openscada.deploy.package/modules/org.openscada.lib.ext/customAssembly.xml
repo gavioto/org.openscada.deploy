@@ -11,7 +11,7 @@
     	<mkdir dir="${gather.base}/jar"/>
 		<unzip dest="${gather.base}/jar">
 			<fileset dir="${input.dir}/repos">
-				<include name="**/*external*-p2repo.zip"/>
+				<exclude name="**/*external.sdk-*-p2repo.zip"/>
 			</fileset>
     		<patternset includes="plugins/*.jar"/>
     		<mapper type="flatten"/>
