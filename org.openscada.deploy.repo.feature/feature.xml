@@ -204,6 +204,10 @@ Library.
          id="org.openscada.deploy"
          version="0.0.0"/>
 
+   <includes
+         id="org.openscada.configurator"
+         version="0.0.0"/>
+
    <plugin
          id="org.openscada.deploy.iolist.model"
          download-size="0"
