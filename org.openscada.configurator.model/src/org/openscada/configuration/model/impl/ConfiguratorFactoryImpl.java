@@ -70,6 +70,8 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
         {
             case ConfiguratorPackage.PROJECT:
                 return createProject ();
+            case ConfiguratorPackage.PARENT:
+                return createParent ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -84,6 +86,17 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         ProjectImpl project = new ProjectImpl ();
         return project;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Parent createParent ()
+    {
+        ParentImpl parent = new ParentImpl ();
+        return parent;
     }
 
     /**

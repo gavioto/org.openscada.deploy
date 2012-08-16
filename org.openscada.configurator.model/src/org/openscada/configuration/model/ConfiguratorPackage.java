@@ -88,6 +88,25 @@ public interface ConfiguratorPackage extends EPackage
     int PROJECT_FEATURE_COUNT = 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.configuration.model.impl.ParentImpl <em>Parent</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.impl.ParentImpl
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getParent()
+     * @generated
+     */
+    int PARENT = 1;
+
+    /**
+     * The number of structural features of the '<em>Parent</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARENT_FEATURE_COUNT = 0;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -107,6 +126,16 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     EAttribute getProject_JsonBase ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configuration.model.Parent <em>Parent</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Parent</em>'.
+     * @see org.openscada.configuration.model.Parent
+     * @generated
+     */
+    EClass getParent ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -148,6 +177,16 @@ public interface ConfiguratorPackage extends EPackage
          * @generated
          */
         EAttribute PROJECT__JSON_BASE = eINSTANCE.getProject_JsonBase ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configuration.model.impl.ParentImpl <em>Parent</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configuration.model.impl.ParentImpl
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getParent()
+         * @generated
+         */
+        EClass PARENT = eINSTANCE.getParent ();
 
     }
 

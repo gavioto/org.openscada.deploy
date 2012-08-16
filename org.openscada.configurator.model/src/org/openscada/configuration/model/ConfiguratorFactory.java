@@ -36,6 +36,15 @@ public interface ConfiguratorFactory extends EFactory
     Project createProject ();
 
     /**
+     * Returns a new object of class '<em>Parent</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Parent</em>'.
+     * @generated
+     */
+    Parent createParent ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

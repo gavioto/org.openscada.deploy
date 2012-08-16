@@ -83,6 +83,12 @@ public class ConfiguratorAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseParent ( Parent object )
+        {
+            return createParentAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -114,6 +120,21 @@ public class ConfiguratorAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createProjectAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.Parent <em>Parent</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.Parent
+     * @generated
+     */
+    public Adapter createParentAdapter ()
     {
         return null;
     }
