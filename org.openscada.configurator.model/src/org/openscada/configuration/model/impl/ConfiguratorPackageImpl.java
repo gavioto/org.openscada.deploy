@@ -105,13 +105,63 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProject_MainConfiguration ()
+    {
+        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     @Override
     public EAttribute getProject_JsonBase ()
     {
-        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProject_OutputBase ()
+    {
+        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProject_ScriptOverrideDirectory ()
+    {
+        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProject_LegacyBaseDirectory ()
+    {
+        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProject_IoListFile ()
+    {
+        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
@@ -154,7 +204,12 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Create classes and their features
         projectEClass = createEClass ( PROJECT );
+        createEAttribute ( projectEClass, PROJECT__MAIN_CONFIGURATION );
         createEAttribute ( projectEClass, PROJECT__JSON_BASE );
+        createEAttribute ( projectEClass, PROJECT__OUTPUT_BASE );
+        createEAttribute ( projectEClass, PROJECT__SCRIPT_OVERRIDE_DIRECTORY );
+        createEAttribute ( projectEClass, PROJECT__LEGACY_BASE_DIRECTORY );
+        createEAttribute ( projectEClass, PROJECT__IO_LIST_FILE );
 
         parentEClass = createEClass ( PARENT );
     }
@@ -190,7 +245,12 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Initialize classes and features; add operations and parameters
         initEClass ( projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getProject_MainConfiguration (), ecorePackage.getEString (), "mainConfiguration", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getProject_JsonBase (), ecorePackage.getEString (), "jsonBase", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getProject_OutputBase (), ecorePackage.getEString (), "outputBase", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getProject_ScriptOverrideDirectory (), ecorePackage.getEString (), "scriptOverrideDirectory", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getProject_LegacyBaseDirectory (), ecorePackage.getEString (), "legacyBaseDirectory", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getProject_IoListFile (), ecorePackage.getEString (), "ioListFile", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 

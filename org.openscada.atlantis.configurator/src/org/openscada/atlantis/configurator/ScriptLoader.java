@@ -84,6 +84,11 @@ public class ScriptLoader
 
     public static String loadScript ( final Configuration cfg, final File file, final File scriptBase, final File itemFile ) throws Exception
     {
+        if ( !file.exists () )
+        {
+            return null;
+        }
+
         final List<Item> items = new LinkedList<Item> ();
 
         final LineNumberReader reader = new LineNumberReader ( new FileReader ( file ) );

@@ -30,6 +30,11 @@ public class SumLoader
 
     public static String convertGroups ( final Configuration cfg, final File file, final File generatedFile, final int requiredSize ) throws Exception
     {
+        if ( !file.exists () )
+        {
+            return null;
+        }
+
         final Collection<Item> items = new LinkedList<Item> ();
         configureGroups ( cfg, loadGroups ( file ), items, requiredSize );
         SpreadSheetPoiHelper.writeSpreadsheet ( generatedFile, items );

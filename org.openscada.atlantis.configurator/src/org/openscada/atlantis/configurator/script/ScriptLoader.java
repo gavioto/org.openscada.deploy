@@ -8,8 +8,13 @@ import org.openscada.atlantis.configurator.common.DataLoader;
 public class ScriptLoader
 {
 
-    public static String loadScripts ( final GenericMasterConfiguration cfg, final File file, final File generatedFile, final File outputDir ) throws Exception
+    public static void loadScripts ( final GenericMasterConfiguration cfg, final File file, final File generatedFile, final File outputDir ) throws Exception
     {
+        if ( !file.exists () )
+        {
+            return;
+        }
+
         final File scriptBase = file.getParentFile ();
 
         final DataLoader loader = new DataLoader ( file, true );
@@ -19,8 +24,6 @@ public class ScriptLoader
         // SpreadSheetPoiHelper.writeSpreadsheet ( generatedFile.getAbsolutePath (), handler.getItems () );
 
         ScriptModule.create ( new File ( outputDir, "generated-scripts.xmi" ), handler.getItems () );
-
-        return generatedFile.getAbsolutePath ();
     }
 
 }

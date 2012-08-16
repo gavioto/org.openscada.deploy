@@ -70,13 +70,58 @@ public interface ConfiguratorPackage extends EPackage
     int PROJECT = 0;
 
     /**
+     * The feature id for the '<em><b>Main Configuration</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__MAIN_CONFIGURATION = 0;
+
+    /**
      * The feature id for the '<em><b>Json Base</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROJECT__JSON_BASE = 0;
+    int PROJECT__JSON_BASE = 1;
+
+    /**
+     * The feature id for the '<em><b>Output Base</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__OUTPUT_BASE = 2;
+
+    /**
+     * The feature id for the '<em><b>Script Override Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__SCRIPT_OVERRIDE_DIRECTORY = 3;
+
+    /**
+     * The feature id for the '<em><b>Legacy Base Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__LEGACY_BASE_DIRECTORY = 4;
+
+    /**
+     * The feature id for the '<em><b>Io List File</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__IO_LIST_FILE = 5;
 
     /**
      * The number of structural features of the '<em>Project</em>' class.
@@ -85,7 +130,7 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      * @ordered
      */
-    int PROJECT_FEATURE_COUNT = 1;
+    int PROJECT_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.openscada.configuration.model.impl.ParentImpl <em>Parent</em>}' class.
@@ -117,6 +162,17 @@ public interface ConfiguratorPackage extends EPackage
     EClass getProject ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.configuration.model.Project#getMainConfiguration <em>Main Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Main Configuration</em>'.
+     * @see org.openscada.configuration.model.Project#getMainConfiguration()
+     * @see #getProject()
+     * @generated
+     */
+    EAttribute getProject_MainConfiguration ();
+
+    /**
      * Returns the meta object for the attribute list '{@link org.openscada.configuration.model.Project#getJsonBase <em>Json Base</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -126,6 +182,50 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     EAttribute getProject_JsonBase ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configuration.model.Project#getOutputBase <em>Output Base</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Output Base</em>'.
+     * @see org.openscada.configuration.model.Project#getOutputBase()
+     * @see #getProject()
+     * @generated
+     */
+    EAttribute getProject_OutputBase ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configuration.model.Project#getScriptOverrideDirectory <em>Script Override Directory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Script Override Directory</em>'.
+     * @see org.openscada.configuration.model.Project#getScriptOverrideDirectory()
+     * @see #getProject()
+     * @generated
+     */
+    EAttribute getProject_ScriptOverrideDirectory ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configuration.model.Project#getLegacyBaseDirectory <em>Legacy Base Directory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Legacy Base Directory</em>'.
+     * @see org.openscada.configuration.model.Project#getLegacyBaseDirectory()
+     * @see #getProject()
+     * @generated
+     */
+    EAttribute getProject_LegacyBaseDirectory ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configuration.model.Project#getIoListFile <em>Io List File</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Io List File</em>'.
+     * @see org.openscada.configuration.model.Project#getIoListFile()
+     * @see #getProject()
+     * @generated
+     */
+    EAttribute getProject_IoListFile ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Parent <em>Parent</em>}'.
@@ -171,12 +271,52 @@ public interface ConfiguratorPackage extends EPackage
         EClass PROJECT = eINSTANCE.getProject ();
 
         /**
+         * The meta object literal for the '<em><b>Main Configuration</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROJECT__MAIN_CONFIGURATION = eINSTANCE.getProject_MainConfiguration ();
+
+        /**
          * The meta object literal for the '<em><b>Json Base</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EAttribute PROJECT__JSON_BASE = eINSTANCE.getProject_JsonBase ();
+
+        /**
+         * The meta object literal for the '<em><b>Output Base</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROJECT__OUTPUT_BASE = eINSTANCE.getProject_OutputBase ();
+
+        /**
+         * The meta object literal for the '<em><b>Script Override Directory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROJECT__SCRIPT_OVERRIDE_DIRECTORY = eINSTANCE.getProject_ScriptOverrideDirectory ();
+
+        /**
+         * The meta object literal for the '<em><b>Legacy Base Directory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROJECT__LEGACY_BASE_DIRECTORY = eINSTANCE.getProject_LegacyBaseDirectory ();
+
+        /**
+         * The meta object literal for the '<em><b>Io List File</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROJECT__IO_LIST_FILE = eINSTANCE.getProject_IoListFile ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configuration.model.impl.ParentImpl <em>Parent</em>}' class.

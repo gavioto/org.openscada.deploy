@@ -103,6 +103,31 @@ public class ConfiguratorItemProviderAdapterFactory extends ConfiguratorAdapterF
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configuration.model.Parent} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ParentItemProvider parentItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configuration.model.Parent}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createParentAdapter ()
+    {
+        if ( parentItemProvider == null )
+        {
+            parentItemProvider = new ParentItemProvider ( this );
+        }
+
+        return parentItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -215,6 +240,8 @@ public class ConfiguratorItemProviderAdapterFactory extends ConfiguratorAdapterF
     {
         if ( projectItemProvider != null )
             projectItemProvider.dispose ();
+        if ( parentItemProvider != null )
+            parentItemProvider.dispose ();
     }
 
 }

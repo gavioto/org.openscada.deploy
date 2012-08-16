@@ -585,18 +585,18 @@ public class Configuration extends GenericMasterConfiguration
     {
         switch ( type )
         {
-        case BOOLEAN:
-            return VariantType.BOOLEAN.name ();
-        case INTEGER:
-            return VariantType.INT32.name ();
-        case LONG_INTEGER:
-            return VariantType.INT64.name ();
-        case STRING:
-            return VariantType.STRING.name ();
-        case FLOAT:
-            return VariantType.DOUBLE.name ();
-        case VARIANT:
-            return null;
+            case BOOLEAN:
+                return VariantType.BOOLEAN.name ();
+            case INTEGER:
+                return VariantType.INT32.name ();
+            case LONG_INTEGER:
+                return VariantType.INT64.name ();
+            case STRING:
+                return VariantType.STRING.name ();
+            case FLOAT:
+                return VariantType.DOUBLE.name ();
+            case VARIANT:
+                return null;
         }
         return null;
     }
@@ -751,7 +751,7 @@ public class Configuration extends GenericMasterConfiguration
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "type", "" + rounding.getName () ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "active", "" + (rounding != Rounding.NONE) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "active", "" + ( rounding != Rounding.NONE ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
         applyInfoAttributes ( attributes, data );
 
@@ -1067,16 +1067,16 @@ public class Configuration extends GenericMasterConfiguration
     }
 
     @Override
-    public void write ( final File baseDir, final File inputDir ) throws Exception
+    public void write ( final File baseDir ) throws Exception
     {
         SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
-        super.write ( baseDir, inputDir );
+        super.write ( baseDir );
 
         if ( !Boolean.getBoolean ( "skipReport" ) )
         {
             this.logStream.println ( "   ** Writing report" ); //$NON-NLS-1$
             final long start = System.currentTimeMillis ();
-            this.report.write ( new File ( baseDir, "report.odt" ), inputDir ); //$NON-NLS-1$
+            this.report.write ( new File ( baseDir, "report.odt" ), new File ( baseDir, "input" ) ); //$NON-NLS-1$
             this.logStream.println ( String.format ( "   ** Writing took %s ms", System.currentTimeMillis () - start ) );
         }
     }
