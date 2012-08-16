@@ -3,5 +3,13 @@
    <feature url="features/org.openscada.deploy_1.0.0.qualifier.jar" id="org.openscada.deploy" version="1.0.0.qualifier">
       <category name="org.openscada.deploy"/>
    </feature>
+   <feature url="features/org.openscada.configurator_1.0.0.qualifier.jar" id="org.openscada.configurator" version="1.0.0.qualifier">
+      <category name="org.openscada.configurator"/>
+   </feature>
    <category-def name="org.openscada.deploy" label="openSCADA Deploy"/>
+   <category-def name="org.openscada.configurator" label="openSCADA Configurator">
+      <description>
+         Tools for the Eclipse IDE to start configuring openSCADA setups.
+      </description>
+   </category-def>
 </site>
