@@ -32,7 +32,7 @@ public class LegacyForumalsLoader
             final File inputFile = new File ( FileLocator.toFileURL ( new URL ( module.getFormulaFile () ) ).getFile () );
             final File scriptBase = inputFile.getParentFile ();
 
-            final File outputFile = new File ( new File ( FileLocator.toFileURL ( new URL ( project.getGeneratedDirectory () ) ).getFile () ), "IOList-legacy-formulas-generated.xls" );
+            final File outputFile = new File ( new File ( FileLocator.toFileURL ( new URL ( project.getGeneratedDirectory () ) ).getFile () ), "IOList-generated-legacy-formulas.xls" );
 
             final LineNumberReader reader = new LineNumberReader ( new FileReader ( inputFile ) );
             try
