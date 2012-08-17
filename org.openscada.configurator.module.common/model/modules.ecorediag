@@ -14,6 +14,10 @@
             <element xmi:type="ecore:EAttribute" href="modules.ecore#//network/NetworkModule/networkFile"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_zO-Akeg-EeGGKrxCjAQP1Q"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_YqW7oOhNEeGGKrxCjAQP1Q" type="2001">
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//network/NetworkModule/overrideGeneratedFile"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_YqW7oehNEeGGKrxCjAQP1Q"/>
+          </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_TZJkIeeyEeGGKrxCjAQP1Q"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_TZJkIueyEeGGKrxCjAQP1Q"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_TZJkI-eyEeGGKrxCjAQP1Q"/>
@@ -25,7 +29,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_TZHu8eeyEeGGKrxCjAQP1Q" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="modules.ecore#//network/NetworkModule"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TZHu8ueyEeGGKrxCjAQP1Q" x="120" y="111" width="190" height="88"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TZHu8ueyEeGGKrxCjAQP1Q" x="91" y="64" width="339" height="171"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ShWZceeyEeGGKrxCjAQP1Q"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ShWZcueyEeGGKrxCjAQP1Q"/>
@@ -34,7 +38,7 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ShVLUeeyEeGGKrxCjAQP1Q" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
     <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_ShVLUueyEeGGKrxCjAQP1Q"/>
     <element xmi:type="ecore:EPackage" href="modules.ecore#//network"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ShVLU-eyEeGGKrxCjAQP1Q" width="591" height="483"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ShVLU-eyEeGGKrxCjAQP1Q" x="-12" y="-24" width="591" height="483"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_ShSIAeeyEeGGKrxCjAQP1Q"/>
   <element xmi:type="ecore:EPackage" href="modules.ecore#/"/>

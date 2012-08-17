@@ -28,7 +28,15 @@ public class Application
             final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
             loader.load ( 0, handler );
 
-            final File file = new File ( generatedDir, "IOList-exec-generated.xls" );
+            final File file;
+            if ( module.getOverrideGeneratedFile () != null )
+            {
+                file = new File ( FileLocator.toFileURL ( new URL ( module.getOverrideGeneratedFile () ) ).getFile () );
+            }
+            else
+            {
+                file = new File ( generatedDir, "IOList-exec-generated.xls" );
+            }
             SpreadSheetPoiHelper.writeSpreadsheet ( file, convertDevices ( module.getPrefix (), handler.getDevices () ) );
 
             project.getIoListFile ().add ( file.toURI ().toString () );

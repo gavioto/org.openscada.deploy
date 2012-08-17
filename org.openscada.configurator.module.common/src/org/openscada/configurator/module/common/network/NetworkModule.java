@@ -18,6 +18,7 @@ import org.openscada.configuration.model.Module;
  * <ul>
  *   <li>{@link org.openscada.configurator.module.common.network.NetworkModule#getNetworkFile <em>Network File</em>}</li>
  *   <li>{@link org.openscada.configurator.module.common.network.NetworkModule#getPrefix <em>Prefix</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.network.NetworkModule#getOverrideGeneratedFile <em>Override Generated File</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,5 +80,30 @@ public interface NetworkModule extends Module
      * @generated
      */
     void setPrefix ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Override Generated File</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Override the absolute name of the generated IO list file. The default is "IOList-generated-network.xls" in the projects generated directory.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Override Generated File</em>' attribute.
+     * @see #setOverrideGeneratedFile(String)
+     * @see org.openscada.configurator.module.common.network.NetworkPackage#getNetworkModule_OverrideGeneratedFile()
+     * @model
+     * @generated
+     */
+    String getOverrideGeneratedFile ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.module.common.network.NetworkModule#getOverrideGeneratedFile <em>Override Generated File</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Override Generated File</em>' attribute.
+     * @see #getOverrideGeneratedFile()
+     * @generated
+     */
+    void setOverrideGeneratedFile ( String value );
 
 } // NetworkModule
