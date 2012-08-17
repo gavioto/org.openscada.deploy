@@ -164,6 +164,7 @@ public class Application implements IApplication
 
         for ( final Module module : project.getModules () )
         {
+            log.println ( " ** Running module: " + module );
             module.process ( cfg, project );
         }
 
