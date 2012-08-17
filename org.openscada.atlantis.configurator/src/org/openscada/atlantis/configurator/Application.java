@@ -188,9 +188,10 @@ public class Application implements IApplication
             log.println ( " * Processing " + url );
 
             final String file;
-            if ( url.startsWith ( "/" ) )
+            if ( new File ( url ).exists () )
             {
                 // check needed since the "old way" uses plain file names
+                // and the check for "starting with /" does not work on "win32" platforms
                 file = url;
             }
             else
