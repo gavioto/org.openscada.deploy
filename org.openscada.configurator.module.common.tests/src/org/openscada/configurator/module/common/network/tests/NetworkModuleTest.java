@@ -20,7 +20,7 @@ import org.openscada.configurator.module.common.network.NetworkModule;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.Module#createModule() <em>Create Module</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.Module#process(org.openscada.configuration.model.Project) <em>Process</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -104,13 +104,13 @@ public class NetworkModuleTest extends TestCase
     }
 
     /**
-     * Tests the '{@link org.openscada.configuration.model.Module#createModule() <em>Create Module</em>}' operation.
+     * Tests the '{@link org.openscada.configuration.model.Module#process(org.openscada.configuration.model.Project) <em>Process</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.Module#createModule()
+     * @see org.openscada.configuration.model.Module#process(org.openscada.configuration.model.Project)
      * @generated
      */
-    public void testCreateModule ()
+    public void testProcess__Project ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

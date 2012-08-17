@@ -8,6 +8,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="NetworkModule" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

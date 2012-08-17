@@ -6,6 +6,14 @@
       <children xmi:type="notation:Node" xmi:id="_TZHu8OeyEeGGKrxCjAQP1Q" type="2003">
         <children xmi:type="notation:Node" xmi:id="_TZI9EOeyEeGGKrxCjAQP1Q" type="4002"/>
         <children xmi:type="notation:Node" xmi:id="_TZJkIOeyEeGGKrxCjAQP1Q" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_bkdAIOhLEeGGKrxCjAQP1Q" type="2001">
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//network/NetworkModule/prefix"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_bkdAIehLEeGGKrxCjAQP1Q"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_zO-AkOg-EeGGKrxCjAQP1Q" type="2001">
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//network/NetworkModule/networkFile"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_zO-Akeg-EeGGKrxCjAQP1Q"/>
+          </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_TZJkIeeyEeGGKrxCjAQP1Q"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_TZJkIueyEeGGKrxCjAQP1Q"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_TZJkI-eyEeGGKrxCjAQP1Q"/>

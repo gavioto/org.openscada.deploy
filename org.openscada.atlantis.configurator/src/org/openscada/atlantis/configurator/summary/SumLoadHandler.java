@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.openscada.atlantis.configurator.common.RowHandler;
+import org.openscada.configurator.RowHandler;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.SummaryGroup;
 import org.openscada.deploy.iolist.model.SummaryItem;

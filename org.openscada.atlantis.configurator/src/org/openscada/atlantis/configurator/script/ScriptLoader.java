@@ -3,7 +3,7 @@ package org.openscada.atlantis.configurator.script;
 import java.io.File;
 
 import org.openscada.atlantis.configurator.GenericMasterConfiguration;
-import org.openscada.atlantis.configurator.common.DataLoader;
+import org.openscada.configurator.DataLoader;
 
 public class ScriptLoader
 {

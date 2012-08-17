@@ -135,13 +135,22 @@ public interface ConfiguratorPackage extends EPackage
     int PROJECT__MODULES = 6;
 
     /**
+     * The feature id for the '<em><b>Generated Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__GENERATED_DIRECTORY = 7;
+
+    /**
      * The number of structural features of the '<em>Project</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROJECT_FEATURE_COUNT = 7;
+    int PROJECT_FEATURE_COUNT = 8;
 
     /**
      * The meta object id for the '{@link org.openscada.configuration.model.Module <em>Module</em>}' class.
@@ -161,16 +170,6 @@ public interface ConfiguratorPackage extends EPackage
      * @ordered
      */
     int MODULE_FEATURE_COUNT = 0;
-
-    /**
-     * The meta object id for the '<em>Module</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configurator.ConfiguratorModule
-     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguratorModule()
-     * @generated
-     */
-    int CONFIGURATOR_MODULE = 2;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
@@ -260,6 +259,17 @@ public interface ConfiguratorPackage extends EPackage
     EReference getProject_Modules ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.configuration.model.Project#getGeneratedDirectory <em>Generated Directory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Generated Directory</em>'.
+     * @see org.openscada.configuration.model.Project#getGeneratedDirectory()
+     * @see #getProject()
+     * @generated
+     */
+    EAttribute getProject_GeneratedDirectory ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Module <em>Module</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -268,17 +278,6 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     EClass getModule ();
-
-    /**
-     * Returns the meta object for data type '{@link org.openscada.configurator.ConfiguratorModule <em>Module</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>Module</em>'.
-     * @see org.openscada.configurator.ConfiguratorModule
-     * @model instanceClass="org.openscada.configurator.ConfiguratorModule" serializeable="false"
-     * @generated
-     */
-    EDataType getConfiguratorModule ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -370,6 +369,14 @@ public interface ConfiguratorPackage extends EPackage
         EReference PROJECT__MODULES = eINSTANCE.getProject_Modules ();
 
         /**
+         * The meta object literal for the '<em><b>Generated Directory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROJECT__GENERATED_DIRECTORY = eINSTANCE.getProject_GeneratedDirectory ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configuration.model.Module <em>Module</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -378,16 +385,6 @@ public interface ConfiguratorPackage extends EPackage
          * @generated
          */
         EClass MODULE = eINSTANCE.getModule ();
-
-        /**
-         * The meta object literal for the '<em>Module</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configurator.ConfiguratorModule
-         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguratorModule()
-         * @generated
-         */
-        EDataType CONFIGURATOR_MODULE = eINSTANCE.getConfiguratorModule ();
 
     }
 

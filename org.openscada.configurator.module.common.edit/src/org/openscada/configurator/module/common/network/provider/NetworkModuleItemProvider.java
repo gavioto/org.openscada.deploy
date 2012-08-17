@@ -63,6 +63,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
             super.getPropertyDescriptors ( object );
 
             addNetworkFilePropertyDescriptor ( object );
+            addPrefixPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -76,6 +77,17 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
     protected void addNetworkFilePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NetworkModule_networkFile_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_NetworkModule_networkFile_feature", "_UI_NetworkModule_type" ), NetworkPackage.Literals.NETWORK_MODULE__NETWORK_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Prefix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPrefixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NetworkModule_prefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_NetworkModule_prefix_feature", "_UI_NetworkModule_type" ), NetworkPackage.Literals.NETWORK_MODULE__PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -118,6 +130,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
         switch ( notification.getFeatureID ( NetworkModule.class ) )
         {
             case NetworkPackage.NETWORK_MODULE__NETWORK_FILE:
+            case NetworkPackage.NETWORK_MODULE__PREFIX:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

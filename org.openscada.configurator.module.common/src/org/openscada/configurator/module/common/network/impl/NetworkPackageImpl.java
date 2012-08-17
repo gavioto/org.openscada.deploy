@@ -124,6 +124,16 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getNetworkModule_Prefix ()
+    {
+        return (EAttribute)networkModuleEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public NetworkFactory getNetworkFactory ()
     {
         return (NetworkFactory)getEFactoryInstance ();
@@ -152,6 +162,7 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         // Create classes and their features
         networkModuleEClass = createEClass ( NETWORK_MODULE );
         createEAttribute ( networkModuleEClass, NETWORK_MODULE__NETWORK_FILE );
+        createEAttribute ( networkModuleEClass, NETWORK_MODULE__PREFIX );
     }
 
     /**
@@ -192,6 +203,7 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         // Initialize classes and features; add operations and parameters
         initEClass ( networkModuleEClass, NetworkModule.class, "NetworkModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getNetworkModule_NetworkFile (), ecorePackage.getEString (), "networkFile", "", 0, 1, NetworkModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getNetworkModule_Prefix (), ecorePackage.getEString (), "prefix", null, 1, 1, NetworkModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Create resource
         createResource ( eNS_URI );

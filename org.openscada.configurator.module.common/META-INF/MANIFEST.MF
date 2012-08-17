@@ -12,6 +12,8 @@ Export-Package: org.openscada.configurator.module.common.network,
  org.openscada.configurator.module.common.network.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.openscada.configurator.model;visibility:=reexport
+ org.openscada.configurator.model;visibility:=reexport,
+ org.openscada.deploy.iolist.model;bundle-version="1.0.1",
+ org.openscada.deploy.iolist.utils;bundle-version="1.0.1"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.openscada.configurator;version="1.0.0"

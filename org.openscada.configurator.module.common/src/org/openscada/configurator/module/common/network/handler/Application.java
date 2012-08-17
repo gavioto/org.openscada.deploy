@@ -1,19 +1,15 @@
-package org.openscada.atlantis.configurator.exec;
+package org.openscada.configurator.module.common.network.handler;
 
 import java.io.File;
-import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import org.apache.xmlbeans.XmlOptions;
+import org.eclipse.core.runtime.FileLocator;
+import org.openscada.configuration.model.Project;
 import org.openscada.configurator.DataLoader;
-import org.openscada.da.server.exec.configuration.model.HiveProcessCommandType;
-import org.openscada.da.server.exec.configuration.model.ProcessType;
-import org.openscada.da.server.exec.configuration.model.RootDocument;
-import org.openscada.da.server.exec.configuration.model.RootType;
+import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
@@ -21,54 +17,26 @@ import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application
 {
-    public static void process ( final String prefix, final String outList, final String sourceFile, final String xmlOutFile ) throws IOException, Exception
+    public static void process ( final Project project, final NetworkModule module )
     {
-        final DataLoader loader = new DataLoader ( new File ( sourceFile ) );
-
-        final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
-        loader.load ( 0, handler );
-
-        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( outList ), convertDevices ( prefix, handler.getDevices () ) );
-
-        final RootDocument doc = createDoc ( handler.getDevices () );
-
-        saveConfiguration ( new File ( xmlOutFile ), doc );
-    }
-
-    private static void saveConfiguration ( final File file, final RootDocument doc ) throws IOException
-    {
-        final XmlOptions options = new XmlOptions ();
-        options.setCharacterEncoding ( "UTF-8" ); //$NON-NLS-1$
-        options.setSavePrettyPrint ();
-
-        final Map<Object, Object> suggestedPrefixes = new HashMap<Object, Object> ();
-        suggestedPrefixes.put ( "http://openscada.org/DA/Exec/Configuration", "exec" ); //$NON-NLS-1$ //$NON-NLS-2$
-
-        options.setSaveSuggestedPrefixes ( suggestedPrefixes );
-        doc.save ( file, options );
-    }
-
-    private static RootDocument createDoc ( final Set<NetworkDevice> devices )
-    {
-        final RootDocument doc = RootDocument.Factory.newInstance ();
-
-        final RootType root = RootType.Factory.newInstance ();
-
-        final HiveProcessCommandType hive = root.addNewHiveProcess ();
-        hive.setRestartDelay ( 5000 );
-        hive.setId ( "PING" ); //$NON-NLS-1$
-
-        final ProcessType proc = hive.addNewProcess ();
-        proc.setExec ( "openscada_ping" ); //$NON-NLS-1$
-
-        for ( final NetworkDevice device : devices )
+        try
         {
-            proc.addArgument ( String.format ( "%s=%s", device.getIp (), device.getHostname () ) ); //$NON-NLS-1$
+            final File generatedDir = new File ( FileLocator.toFileURL ( new URL ( project.getGeneratedDirectory () ) ).getFile () );
+
+            final DataLoader loader = new DataLoader ( new File ( FileLocator.toFileURL ( new URL ( module.getNetworkFile () ) ).getFile () ) );
+
+            final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
+            loader.load ( 0, handler );
+
+            final File file = new File ( generatedDir, "IOList-exec-generated.xls" );
+            SpreadSheetPoiHelper.writeSpreadsheet ( file, convertDevices ( module.getPrefix (), handler.getDevices () ) );
+
+            project.getIoListFile ().add ( file.toURI ().toString () );
         }
-
-        doc.setRoot ( root );
-
-        return doc;
+        catch ( final Exception e )
+        {
+            throw new RuntimeException ( e );
+        }
     }
 
     private static List<Item> convertDevices ( final String prefix, final Set<NetworkDevice> devices )

@@ -81,13 +81,22 @@ public interface NetworkPackage extends EPackage
     int NETWORK_MODULE__NETWORK_FILE = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NETWORK_MODULE__PREFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Module</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NETWORK_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int NETWORK_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.network.NetworkModule <em>Module</em>}'.
@@ -109,6 +118,17 @@ public interface NetworkPackage extends EPackage
      * @generated
      */
     EAttribute getNetworkModule_NetworkFile ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.network.NetworkModule#getPrefix <em>Prefix</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Prefix</em>'.
+     * @see org.openscada.configurator.module.common.network.NetworkModule#getPrefix()
+     * @see #getNetworkModule()
+     * @generated
+     */
+    EAttribute getNetworkModule_Prefix ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -150,6 +170,14 @@ public interface NetworkPackage extends EPackage
          * @generated
          */
         EAttribute NETWORK_MODULE__NETWORK_FILE = eINSTANCE.getNetworkModule_NetworkFile ();
+
+        /**
+         * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute NETWORK_MODULE__PREFIX = eINSTANCE.getNetworkModule_Prefix ();
 
     }
 

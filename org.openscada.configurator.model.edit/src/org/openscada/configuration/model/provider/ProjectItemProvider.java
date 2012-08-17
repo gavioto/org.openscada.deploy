@@ -69,6 +69,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
             addScriptOverrideDirectoryPropertyDescriptor ( object );
             addLegacyBaseDirectoryPropertyDescriptor ( object );
             addIoListFilePropertyDescriptor ( object );
+            addGeneratedDirectoryPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -137,6 +138,17 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     protected void addIoListFilePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Project_ioListFile_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Project_ioListFile_feature", "_UI_Project_type" ), ConfiguratorPackage.Literals.PROJECT__IO_LIST_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Generated Directory feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addGeneratedDirectoryPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Project_generatedDirectory_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Project_generatedDirectory_feature", "_UI_Project_type" ), ConfiguratorPackage.Literals.PROJECT__GENERATED_DIRECTORY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -217,6 +229,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
             case ConfiguratorPackage.PROJECT__OUTPUT_BASE:
             case ConfiguratorPackage.PROJECT__SCRIPT_OVERRIDE_DIRECTORY:
             case ConfiguratorPackage.PROJECT__LEGACY_BASE_DIRECTORY:
+            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ConfiguratorPackage.PROJECT__JSON_BASE:

@@ -21,10 +21,12 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
         eType="#//Module" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generatedDirectory" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true">
-    <eOperations name="createModule" lowerBound="1" eType="#//ConfiguratorModule"/>
+    <eOperations name="process">
+      <eParameters name="project" eType="#//Project"/>
+    </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ConfiguratorModule" instanceClassName="org.openscada.configurator.ConfiguratorModule"
-      serializable="false"/>
 </ecore:EPackage>

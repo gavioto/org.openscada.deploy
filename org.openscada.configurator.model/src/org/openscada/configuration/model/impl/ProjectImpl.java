@@ -42,6 +42,7 @@ import org.openscada.configuration.model.Project;
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getLegacyBaseDirectory <em>Legacy Base Directory</em>}</li>
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getIoListFile <em>Io List File</em>}</li>
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getGeneratedDirectory <em>Generated Directory</em>}</li>
  * </ul>
  * </p>
  *
@@ -158,6 +159,26 @@ public class ProjectImpl extends EObjectImpl implements Project
      * @ordered
      */
     protected EList<Module> modules;
+
+    /**
+     * The default value of the '{@link #getGeneratedDirectory() <em>Generated Directory</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getGeneratedDirectory()
+     * @generated
+     * @ordered
+     */
+    protected static final String GENERATED_DIRECTORY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getGeneratedDirectory() <em>Generated Directory</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getGeneratedDirectory()
+     * @generated
+     * @ordered
+     */
+    protected String generatedDirectory = GENERATED_DIRECTORY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -319,6 +340,29 @@ public class ProjectImpl extends EObjectImpl implements Project
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getGeneratedDirectory ()
+    {
+        return generatedDirectory;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setGeneratedDirectory ( String newGeneratedDirectory )
+    {
+        String oldGeneratedDirectory = generatedDirectory;
+        generatedDirectory = newGeneratedDirectory;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY, oldGeneratedDirectory, generatedDirectory ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -354,6 +398,8 @@ public class ProjectImpl extends EObjectImpl implements Project
                 return getIoListFile ();
             case ConfiguratorPackage.PROJECT__MODULES:
                 return getModules ();
+            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
+                return getGeneratedDirectory ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -393,6 +439,9 @@ public class ProjectImpl extends EObjectImpl implements Project
                 getModules ().clear ();
                 getModules ().addAll ( (Collection<? extends Module>)newValue );
                 return;
+            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
+                setGeneratedDirectory ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -428,6 +477,9 @@ public class ProjectImpl extends EObjectImpl implements Project
             case ConfiguratorPackage.PROJECT__MODULES:
                 getModules ().clear ();
                 return;
+            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
+                setGeneratedDirectory ( GENERATED_DIRECTORY_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -456,6 +508,8 @@ public class ProjectImpl extends EObjectImpl implements Project
                 return ioListFile != null && !ioListFile.isEmpty ();
             case ConfiguratorPackage.PROJECT__MODULES:
                 return modules != null && !modules.isEmpty ();
+            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
+                return GENERATED_DIRECTORY_EDEFAULT == null ? generatedDirectory != null : !GENERATED_DIRECTORY_EDEFAULT.equals ( generatedDirectory );
         }
         return super.eIsSet ( featureID );
     }
@@ -484,6 +538,8 @@ public class ProjectImpl extends EObjectImpl implements Project
         result.append ( legacyBaseDirectory );
         result.append ( ", ioListFile: " );
         result.append ( ioListFile );
+        result.append ( ", generatedDirectory: " );
+        result.append ( generatedDirectory );
         result.append ( ')' );
         return result.toString ();
     }

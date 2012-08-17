@@ -25,8 +25,8 @@ public interface Module extends EObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model dataType="org.openscada.configuration.model.ConfiguratorModule" required="true"
+     * @model
      * @generated
      */
-    ConfiguratorModule createModule ();
+    void process ( Project project );
 } // Module

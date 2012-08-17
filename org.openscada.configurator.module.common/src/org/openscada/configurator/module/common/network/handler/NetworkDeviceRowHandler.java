@@ -1,4 +1,4 @@
-package org.openscada.atlantis.configurator.exec;
+package org.openscada.configurator.module.common.network.handler;
 
 import java.util.HashSet;
 import java.util.Map;

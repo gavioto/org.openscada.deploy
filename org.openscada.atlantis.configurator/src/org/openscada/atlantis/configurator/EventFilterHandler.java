@@ -3,7 +3,7 @@ package org.openscada.atlantis.configurator;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openscada.atlantis.configurator.common.RowHandler;
+import org.openscada.configurator.RowHandler;
 
 public class EventFilterHandler implements RowHandler
 {

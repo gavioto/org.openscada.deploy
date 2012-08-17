@@ -1,4 +1,4 @@
-package org.openscada.atlantis.configurator.common;
+package org.openscada.configurator;
 
 import java.util.Map;
 

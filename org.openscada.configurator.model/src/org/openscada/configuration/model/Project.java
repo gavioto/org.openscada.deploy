@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.configuration.model.Project#getLegacyBaseDirectory <em>Legacy Base Directory</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getIoListFile <em>Io List File</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.Project#getGeneratedDirectory <em>Generated Directory</em>}</li>
  * </ul>
  * </p>
  *
@@ -188,5 +189,31 @@ public interface Project extends EObject
      * @generated
      */
     EList<Module> getModules ();
+
+    /**
+     * Returns the value of the '<em><b>Generated Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Generated Directory</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Generated Directory</em>' attribute.
+     * @see #setGeneratedDirectory(String)
+     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_GeneratedDirectory()
+     * @model required="true"
+     * @generated
+     */
+    String getGeneratedDirectory ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configuration.model.Project#getGeneratedDirectory <em>Generated Directory</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Generated Directory</em>' attribute.
+     * @see #getGeneratedDirectory()
+     * @generated
+     */
+    void setGeneratedDirectory ( String value );
 
 } // Project
