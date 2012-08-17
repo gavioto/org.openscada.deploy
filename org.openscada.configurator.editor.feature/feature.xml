@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.openscada.configurator.editor"
+      label="openSCADA Configurator Editor"
+      version="1.0.0.qualifier"
+      provider-name="TH4 SYSTEMS GmbH">
+
+   <description>
+      The configurator editor.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="http://opensource.org/licenses/lgpl-3.0.html">
+      %license
+   </license>
+
+   <plugin
+         id="org.openscada.configurator.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.model.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.model.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.module.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.module.common.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
