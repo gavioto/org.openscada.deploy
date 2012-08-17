@@ -7,6 +7,7 @@
 package org.openscada.configuration.model;
 
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.configurator.ConfiguratorModule;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.openscada.configuration.model.ConfiguratorPackage#getModule()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface Module extends EObject
@@ -24,8 +25,8 @@ public interface Module extends EObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model
+     * @model dataType="org.openscada.configuration.model.ConfiguratorModule" required="true"
      * @generated
      */
-    void setup ();
+    ConfiguratorModule createModule ();
 } // Module

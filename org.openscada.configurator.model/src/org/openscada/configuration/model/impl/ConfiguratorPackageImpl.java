@@ -8,6 +8,7 @@ package org.openscada.configuration.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -16,6 +17,7 @@ import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Module;
 import org.openscada.configuration.model.Parent;
 import org.openscada.configuration.model.Project;
+import org.openscada.configurator.ConfiguratorModule;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -35,6 +37,13 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * @generated
      */
     private EClass moduleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType configuratorModuleEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -187,6 +196,16 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EDataType getConfiguratorModule ()
+    {
+        return configuratorModuleEDataType;
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -225,6 +244,9 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         createEReference ( projectEClass, PROJECT__MODULES );
 
         moduleEClass = createEClass ( MODULE );
+
+        // Create data types
+        configuratorModuleEDataType = createEDataType ( CONFIGURATOR_MODULE );
     }
 
     /**
@@ -266,9 +288,12 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         initEAttribute ( getProject_IoListFile (), ecorePackage.getEString (), "ioListFile", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getProject_Modules (), this.getModule (), null, "modules", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        addEOperation ( moduleEClass, null, "setup", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEOperation ( moduleEClass, this.getConfiguratorModule (), "createModule", 1, 1, IS_UNIQUE, IS_ORDERED );
+
+        // Initialize data types
+        initEDataType ( configuratorModuleEDataType, ConfiguratorModule.class, "ConfiguratorModule", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
 
         // Create resource
         createResource ( eNS_URI );

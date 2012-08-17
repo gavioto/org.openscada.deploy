@@ -8,6 +8,7 @@ package org.openscada.configuration.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -143,10 +144,10 @@ public interface ConfiguratorPackage extends EPackage
     int PROJECT_FEATURE_COUNT = 7;
 
     /**
-     * The meta object id for the '{@link org.openscada.configuration.model.impl.ModuleImpl <em>Module</em>}' class.
+     * The meta object id for the '{@link org.openscada.configuration.model.Module <em>Module</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.impl.ModuleImpl
+     * @see org.openscada.configuration.model.Module
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModule()
      * @generated
      */
@@ -160,6 +161,16 @@ public interface ConfiguratorPackage extends EPackage
      * @ordered
      */
     int MODULE_FEATURE_COUNT = 0;
+
+    /**
+     * The meta object id for the '<em>Module</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.ConfiguratorModule
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguratorModule()
+     * @generated
+     */
+    int CONFIGURATOR_MODULE = 2;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
@@ -259,6 +270,17 @@ public interface ConfiguratorPackage extends EPackage
     EClass getModule ();
 
     /**
+     * Returns the meta object for data type '{@link org.openscada.configurator.ConfiguratorModule <em>Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Module</em>'.
+     * @see org.openscada.configurator.ConfiguratorModule
+     * @model instanceClass="org.openscada.configurator.ConfiguratorModule" serializeable="false"
+     * @generated
+     */
+    EDataType getConfiguratorModule ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -348,14 +370,24 @@ public interface ConfiguratorPackage extends EPackage
         EReference PROJECT__MODULES = eINSTANCE.getProject_Modules ();
 
         /**
-         * The meta object literal for the '{@link org.openscada.configuration.model.impl.ModuleImpl <em>Module</em>}' class.
+         * The meta object literal for the '{@link org.openscada.configuration.model.Module <em>Module</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.openscada.configuration.model.impl.ModuleImpl
+         * @see org.openscada.configuration.model.Module
          * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModule()
          * @generated
          */
         EClass MODULE = eINSTANCE.getModule ();
+
+        /**
+         * The meta object literal for the '<em>Module</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.ConfiguratorModule
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguratorModule()
+         * @generated
+         */
+        EDataType CONFIGURATOR_MODULE = eINSTANCE.getConfiguratorModule ();
 
     }
 

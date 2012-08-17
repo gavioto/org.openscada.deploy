@@ -22,7 +22,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
         eType="#//Module" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true">
-    <eOperations name="setup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true">
+    <eOperations name="createModule" lowerBound="1" eType="#//ConfiguratorModule"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ConfiguratorModule" instanceClassName="org.openscada.configurator.ConfiguratorModule"
+      serializable="false"/>
 </ecore:EPackage>

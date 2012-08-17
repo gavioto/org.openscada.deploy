@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.openscada.configurator.ConfiguratorModule;
 import org.openscada.configuration.model.impl.ModuleImpl;
 
 import org.openscada.configurator.module.common.network.NetworkModule;
@@ -30,7 +32,7 @@ import org.openscada.configurator.module.common.network.NetworkPackage;
  *
  * @generated
  */
-public class NetworkModuleImpl extends ModuleImpl implements NetworkModule
+public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 {
     /**
      * The default value of the '{@link #getNetworkFile() <em>Network File</em>}' attribute.
@@ -94,6 +96,18 @@ public class NetworkModuleImpl extends ModuleImpl implements NetworkModule
         networkFile = newNetworkFile;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__NETWORK_FILE, oldNetworkFile, networkFile ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ConfiguratorModule createModule ()
+    {
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException ();
     }
 
     /**

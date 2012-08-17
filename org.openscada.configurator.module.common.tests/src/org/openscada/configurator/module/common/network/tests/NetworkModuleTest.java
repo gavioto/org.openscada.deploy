@@ -17,6 +17,12 @@ import org.openscada.configurator.module.common.network.NetworkModule;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Module</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.openscada.configuration.model.Module#createModule() <em>Create Module</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NetworkModuleTest extends TestCase
@@ -95,6 +101,20 @@ public class NetworkModuleTest extends TestCase
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.openscada.configuration.model.Module#createModule() <em>Create Module</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.Module#createModule()
+     * @generated
+     */
+    public void testCreateModule ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //NetworkModuleTest

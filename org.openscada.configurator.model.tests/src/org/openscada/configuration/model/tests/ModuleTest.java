@@ -21,7 +21,7 @@ import org.openscada.configuration.model.Module;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.Module#setup() <em>Setup</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.Module#createModule() <em>Create Module</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -71,13 +71,13 @@ public abstract class ModuleTest extends TestCase
     }
 
     /**
-     * Tests the '{@link org.openscada.configuration.model.Module#setup() <em>Setup</em>}' operation.
+     * Tests the '{@link org.openscada.configuration.model.Module#createModule() <em>Create Module</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.Module#setup()
+     * @see org.openscada.configuration.model.Module#createModule()
      * @generated
      */
-    public void testSetup ()
+    public void testCreateModule ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT
