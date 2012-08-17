@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.xmlbeans.XmlOptions;
-import org.openscada.configurator.DataLoader;
+import org.openscada.configurator.data.DataLoader;
 import org.openscada.da.server.exec.configuration.model.HiveProcessCommandType;
 import org.openscada.da.server.exec.configuration.model.ProcessType;
 import org.openscada.da.server.exec.configuration.model.RootDocument;
@@ -19,6 +19,11 @@ import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
+/**
+ * @deprecated use the new module system instead
+ * @author Jens Reimann
+ */
+@Deprecated
 public class Application
 {
     public static void process ( final String prefix, final String outList, final String sourceFile, final String xmlOutFile ) throws IOException, Exception

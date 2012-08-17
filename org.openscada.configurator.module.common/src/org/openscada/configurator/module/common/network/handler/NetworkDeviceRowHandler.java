@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.openscada.configurator.RowHandler;
+import org.openscada.configurator.data.RowHandler;
 
 public class NetworkDeviceRowHandler implements RowHandler
 {

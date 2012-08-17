@@ -10,12 +10,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.openscada.configuration.model.*;
+import org.openscada.configuration.model.ConfiguratorFactory;
+import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.Project;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,6 +73,36 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
                 return createProject ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object createFromString ( EDataType eDataType, String initialValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String convertToString ( EDataType eDataType, Object instanceValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 

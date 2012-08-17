@@ -8,10 +8,10 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
-import org.openscada.atlantis.configurator.Configuration;
-import org.openscada.atlantis.configurator.report.DataItem;
-import org.openscada.atlantis.configurator.report.SummarySource;
-import org.openscada.configurator.DataLoader;
+import org.openscada.configurator.Configuration;
+import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.report.DataItem;
+import org.openscada.configurator.report.SummarySource;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;

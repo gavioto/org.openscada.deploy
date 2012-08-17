@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-import org.openscada.atlantis.configurator.Configuration;
-import org.openscada.atlantis.configurator.GenericMasterConfiguration;
-import org.openscada.configurator.RowHandler;
+import org.openscada.configurator.Configuration;
+import org.openscada.configurator.GenericMasterConfiguration;
+import org.openscada.configurator.data.RowHandler;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;

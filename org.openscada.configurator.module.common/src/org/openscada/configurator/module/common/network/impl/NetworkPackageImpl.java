@@ -17,6 +17,8 @@ import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configurator.module.common.network.NetworkFactory;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
+import org.openscada.configurator.module.common.scripts.ScriptsPackage;
+import org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,11 +87,16 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         // Initialize simple dependencies
         ConfiguratorPackage.eINSTANCE.eClass ();
 
+        // Obtain or create and register interdependencies
+        ScriptsPackageImpl theScriptsPackage = (ScriptsPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) instanceof ScriptsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) : ScriptsPackage.eINSTANCE );
+
         // Create package meta-data objects
         theNetworkPackage.createPackageContents ();
+        theScriptsPackage.createPackageContents ();
 
         // Initialize created meta-data
         theNetworkPackage.initializePackageContents ();
+        theScriptsPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theNetworkPackage.freeze ();

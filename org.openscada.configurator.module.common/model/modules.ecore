@@ -18,4 +18,12 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="scripts" nsURI="http://openscada.org/Configurator/Modules/Common/Scripts"
+      nsPrefix="scripts">
+    <eClassifiers xsi:type="ecore:EClass" name="ScriptsModule" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LegacyFormulaModule" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="formulaFile" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

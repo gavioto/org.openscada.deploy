@@ -8,17 +8,16 @@ package org.openscada.configuration.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Module;
-import org.openscada.configuration.model.Parent;
 import org.openscada.configuration.model.Project;
-import org.openscada.configurator.ConfiguratorModule;
+import org.openscada.configurator.Configuration;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -33,11 +32,17 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     private EClass projectEClass = null;
 
     /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass moduleEClass = null;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass moduleEClass = null;
+    private EDataType configurationEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -110,10 +115,10 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProject_MainConfiguration ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 0 );
@@ -130,63 +135,73 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProject_OutputBase ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProject_ScriptOverrideDirectory ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProject_LegacyBaseDirectory ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProject_IoListFile ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getProject_Modules ()
     {
         return (EReference)projectEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProject_GeneratedDirectory ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EClass getModule ()
+    {
+        return moduleEClass;
     }
 
     /**
@@ -194,9 +209,9 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getModule ()
+    public EDataType getConfiguration ()
     {
-        return moduleEClass;
+        return configurationEDataType;
     }
 
     /**
@@ -239,6 +254,9 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         createEAttribute ( projectEClass, PROJECT__GENERATED_DIRECTORY );
 
         moduleEClass = createEClass ( MODULE );
+
+        // Create data types
+        configurationEDataType = createEDataType ( CONFIGURATION );
     }
 
     /**
@@ -284,7 +302,11 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
         EOperation op = addEOperation ( moduleEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, this.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, this.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        // Initialize data types
+        initEDataType ( configurationEDataType, Configuration.class, "Configuration", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
 
         // Create resource
         createResource ( eNS_URI );

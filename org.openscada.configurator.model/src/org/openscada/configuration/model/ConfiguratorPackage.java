@@ -172,6 +172,16 @@ public interface ConfiguratorPackage extends EPackage
     int MODULE_FEATURE_COUNT = 0;
 
     /**
+     * The meta object id for the '<em>Configuration</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.Configuration
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguration()
+     * @generated
+     */
+    int CONFIGURATION = 2;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -280,6 +290,17 @@ public interface ConfiguratorPackage extends EPackage
     EClass getModule ();
 
     /**
+     * Returns the meta object for data type '{@link org.openscada.configurator.Configuration <em>Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Configuration</em>'.
+     * @see org.openscada.configurator.Configuration
+     * @model instanceClass="org.openscada.configurator.Configuration" serializeable="false"
+     * @generated
+     */
+    EDataType getConfiguration ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -385,6 +406,16 @@ public interface ConfiguratorPackage extends EPackage
          * @generated
          */
         EClass MODULE = eINSTANCE.getModule ();
+
+        /**
+         * The meta object literal for the '<em>Configuration</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.Configuration
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguration()
+         * @generated
+         */
+        EDataType CONFIGURATION = eINSTANCE.getConfiguration ();
 
     }
 

@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
@@ -24,24 +23,19 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.openscada.configuration.model.provider.ModuleItemProvider;
-
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configurator.module.common.network.NetworkModule} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
 public class NetworkModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     public NetworkModuleItemProvider ( AdapterFactory adapterFactory )
@@ -51,8 +45,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -71,8 +64,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This adds a property descriptor for the Network File feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     protected void addNetworkFilePropertyDescriptor ( Object object )
@@ -82,8 +74,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This adds a property descriptor for the Prefix feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     protected void addPrefixPropertyDescriptor ( Object object )
@@ -93,8 +84,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This adds a property descriptor for the Override Generated File feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     protected void addOverrideGeneratedFilePropertyDescriptor ( Object object )
@@ -104,8 +94,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This returns NetworkModule.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -116,8 +105,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -128,10 +116,9 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -153,8 +140,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -165,8 +151,7 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     @Override

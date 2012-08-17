@@ -2,7 +2,8 @@ package org.openscada.atlantis.configurator;
 
 import java.util.Map;
 
-import org.openscada.configurator.RowHandler;
+import org.openscada.configurator.Configuration;
+import org.openscada.configurator.data.RowHandler;
 
 public class AuthorizationHandler implements RowHandler
 {

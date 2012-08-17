@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.openscada.configuration.model.Project;
-import org.openscada.configurator.DataLoader;
+import org.openscada.configurator.data.DataLoader;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;

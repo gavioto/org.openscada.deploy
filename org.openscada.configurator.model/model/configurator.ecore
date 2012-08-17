@@ -26,7 +26,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true">
     <eOperations name="process">
+      <eParameters name="configuration" eType="#//Configuration"/>
       <eParameters name="project" eType="#//Project"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Configuration" instanceClassName="org.openscada.configurator.Configuration"
+      serializable="false"/>
 </ecore:EPackage>

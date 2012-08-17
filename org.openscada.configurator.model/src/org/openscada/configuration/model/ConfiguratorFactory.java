@@ -7,7 +7,6 @@
 package org.openscada.configuration.model;
 
 import org.eclipse.emf.ecore.EFactory;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

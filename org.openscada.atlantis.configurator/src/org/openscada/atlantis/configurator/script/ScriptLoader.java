@@ -2,8 +2,8 @@ package org.openscada.atlantis.configurator.script;
 
 import java.io.File;
 
-import org.openscada.atlantis.configurator.GenericMasterConfiguration;
-import org.openscada.configurator.DataLoader;
+import org.openscada.configurator.GenericMasterConfiguration;
+import org.openscada.configurator.data.DataLoader;
 
 public class ScriptLoader
 {

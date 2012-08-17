@@ -18,10 +18,12 @@ import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.atlantis.configurator.formula.FormulaModule;
 import org.openscada.atlantis.configurator.script.ScriptModule;
 import org.openscada.atlantis.configurator.summary.SumLoader;
+import org.openscada.atlantis.configurator.summary.SummaryGenerator;
 import org.openscada.configuration.model.Module;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
-import org.openscada.configurator.DataLoader;
+import org.openscada.configurator.Configuration;
+import org.openscada.configurator.data.DataLoader;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
@@ -77,7 +79,7 @@ public class Application implements IApplication
         log.println ( "*** 0a - Script Loader" );
         org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ), new File ( base, "input/scripts" ) );
         log.println ( "*** 0b - Formulas Loader" );
-        arguments.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
+        arguments.push ( LegacyForumalsLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
         log.println ( "*** 0c - Summary groups" );
         arguments.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ), SUMMARY_REQUIRED_SIZE ) );
 
@@ -122,7 +124,7 @@ public class Application implements IApplication
 
         log.println ( "** 3 - Process" );
         cfg.removeInactive ();
-        cfg.generateSummaryAlarms ( SUMMARY_REQUIRED_SIZE );
+        SummaryGenerator.generateSummaryAlarms ( cfg, cfg.getItems (), SUMMARY_REQUIRED_SIZE );
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 
@@ -160,14 +162,12 @@ public class Application implements IApplication
         log.println ( "** 0 - Loading scripts" );
         log.println ( "*** 0a - Script Loader" );
         org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ), new File ( base, "input/scripts" ) );
-        log.println ( "*** 0b - Formulas Loader" );
-        ioFiles.push ( ScriptLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
         log.println ( "*** 0c - Summary groups" );
         ioFiles.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ), SUMMARY_REQUIRED_SIZE ) );
 
         for ( final Module module : project.getModules () )
         {
-            module.process ( project );
+            module.process ( cfg, project );
         }
 
         final Collection<String> overrides = new LinkedList<String> ();
@@ -222,7 +222,7 @@ public class Application implements IApplication
 
         log.println ( "** 3 - Process" );
         cfg.removeInactive ();
-        cfg.generateSummaryAlarms ( SUMMARY_REQUIRED_SIZE );
+        SummaryGenerator.generateSummaryAlarms ( cfg, cfg.getItems (), SUMMARY_REQUIRED_SIZE );
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 

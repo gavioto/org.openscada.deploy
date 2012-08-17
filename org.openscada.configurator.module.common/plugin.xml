@@ -17,4 +17,11 @@
             genModel="model/modules.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Scripts"
+            class="org.openscada.configurator.module.common.scripts.ScriptsPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+
 </plugin>
