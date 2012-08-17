@@ -159,8 +159,6 @@ public class Application implements IApplication
         final String basicsFile = project.getMainConfiguration ();
 
         log.println ( "** 0 - Loading scripts" );
-        log.println ( "*** 0a - Script Loader" );
-        org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( new File ( base, "input/scripts.ods" ), new File ( base, "input/scripts" ) );
         log.println ( "*** 0c - Summary groups" );
         ioFiles.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ), SUMMARY_REQUIRED_SIZE ) );
 

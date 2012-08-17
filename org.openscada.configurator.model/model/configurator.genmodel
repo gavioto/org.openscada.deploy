@@ -9,6 +9,7 @@
   <genPackages prefix="Configurator" basePackage="org.openscada.configuration" disposableProviderFactory="true"
       extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier=""
       fileExtensions="oscm" ecorePackage="configurator.ecore#/">
+    <genDataTypes ecoreDataType="configurator.ecore#//Configuration"/>
     <genClasses ecoreClass="configurator.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configurator.ecore#//Project/mainConfiguration"/>
       <genFeatures children="true" createChild="true" propertyDescription="URI to another JSON file that should be added to the configuration"
@@ -19,9 +20,13 @@
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configurator.ecore#//Project/ioListFile"/>
       <genFeatures property="None" children="true" createChild="true" propertyDescription=""
           ecoreFeature="ecore:EReference configurator.ecore#//Project/modules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configurator.ecore#//Project/generatedDirectory"/>
     </genClasses>
     <genClasses ecoreClass="configurator.ecore#//Module">
-      <genOperations ecoreOperation="configurator.ecore#//Module/setup"/>
+      <genOperations ecoreOperation="configurator.ecore#//Module/process">
+        <genParameters ecoreParameter="configurator.ecore#//Module/process/configuration"/>
+        <genParameters ecoreParameter="configurator.ecore#//Module/process/project"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
