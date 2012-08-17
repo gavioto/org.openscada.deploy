@@ -10,6 +10,7 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
+import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.Project;
 

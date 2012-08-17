@@ -38,6 +38,7 @@ public class ConfiguratorAllTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new ConfiguratorAllTests ( "Configurator Tests" );
+        suite.addTest ( ConfiguratorTests.suite () );
         return suite;
     }
 

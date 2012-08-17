@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_ShSIAOeyEeGGKrxCjAQP1Q" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_ShVLUOeyEeGGKrxCjAQP1Q" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_ShVyYOeyEeGGKrxCjAQP1Q" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_ShWZcOeyEeGGKrxCjAQP1Q" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_TZHu8OeyEeGGKrxCjAQP1Q" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_TZI9EOeyEeGGKrxCjAQP1Q" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_TZJkIOeyEeGGKrxCjAQP1Q" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_TZJkIeeyEeGGKrxCjAQP1Q"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_TZJkIueyEeGGKrxCjAQP1Q"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_TZJkI-eyEeGGKrxCjAQP1Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_TZJkJOeyEeGGKrxCjAQP1Q" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_TZJkJeeyEeGGKrxCjAQP1Q"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_TZJkJueyEeGGKrxCjAQP1Q"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_TZJkJ-eyEeGGKrxCjAQP1Q"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_TZHu8eeyEeGGKrxCjAQP1Q" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="modules.ecore#//network/NetworkModule"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TZHu8ueyEeGGKrxCjAQP1Q" x="120" y="111" width="190" height="88"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ShWZceeyEeGGKrxCjAQP1Q"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ShWZcueyEeGGKrxCjAQP1Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ShWZc-eyEeGGKrxCjAQP1Q"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ShVLUeeyEeGGKrxCjAQP1Q" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_ShVLUueyEeGGKrxCjAQP1Q"/>
+    <element xmi:type="ecore:EPackage" href="modules.ecore#//network"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ShVLU-eyEeGGKrxCjAQP1Q" width="591" height="483"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_ShSIAeeyEeGGKrxCjAQP1Q"/>
+  <element xmi:type="ecore:EPackage" href="modules.ecore#/"/>
+</notation:Diagram>

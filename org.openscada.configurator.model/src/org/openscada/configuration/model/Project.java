@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.configuration.model.Project#getScriptOverrideDirectory <em>Script Override Directory</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getLegacyBaseDirectory <em>Legacy Base Directory</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getIoListFile <em>Io List File</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.Project#getModules <em>Modules</em>}</li>
  * </ul>
  * </p>
  *
@@ -171,5 +172,21 @@ public interface Project extends EObject
      * @generated
      */
     EList<String> getIoListFile ();
+
+    /**
+     * Returns the value of the '<em><b>Modules</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configuration.model.Module}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Modules</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Modules</em>' containment reference list.
+     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_Modules()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Module> getModules ();
 
 } // Project

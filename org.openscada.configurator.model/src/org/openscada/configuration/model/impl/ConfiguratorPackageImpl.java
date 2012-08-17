@@ -9,9 +9,11 @@ package org.openscada.configuration.model.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.Module;
 import org.openscada.configuration.model.Parent;
 import org.openscada.configuration.model.Project;
 
@@ -32,7 +34,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass parentEClass = null;
+    private EClass moduleEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -169,9 +171,19 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getParent ()
+    public EReference getProject_Modules ()
     {
-        return parentEClass;
+        return (EReference)projectEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModule ()
+    {
+        return moduleEClass;
     }
 
     /**
@@ -210,8 +222,9 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         createEAttribute ( projectEClass, PROJECT__SCRIPT_OVERRIDE_DIRECTORY );
         createEAttribute ( projectEClass, PROJECT__LEGACY_BASE_DIRECTORY );
         createEAttribute ( projectEClass, PROJECT__IO_LIST_FILE );
+        createEReference ( projectEClass, PROJECT__MODULES );
 
-        parentEClass = createEClass ( PARENT );
+        moduleEClass = createEClass ( MODULE );
     }
 
     /**
@@ -251,8 +264,11 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         initEAttribute ( getProject_ScriptOverrideDirectory (), ecorePackage.getEString (), "scriptOverrideDirectory", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getProject_LegacyBaseDirectory (), ecorePackage.getEString (), "legacyBaseDirectory", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getProject_IoListFile (), ecorePackage.getEString (), "ioListFile", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getProject_Modules (), this.getModule (), null, "modules", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        addEOperation ( moduleEClass, null, "setup", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         // Create resource
         createResource ( eNS_URI );

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -23,12 +24,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.configuration.model.Parent} object.
+ * This is the item provider adapter for a {@link org.openscada.configuration.model.Module} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParentItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -36,7 +37,7 @@ public class ParentItemProvider extends ItemProviderAdapter implements IEditingD
      * <!-- end-user-doc -->
      * @generated
      */
-    public ParentItemProvider ( AdapterFactory adapterFactory )
+    public ModuleItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -59,7 +60,7 @@ public class ParentItemProvider extends ItemProviderAdapter implements IEditingD
     }
 
     /**
-     * This returns Parent.gif.
+     * This returns Module.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -67,7 +68,7 @@ public class ParentItemProvider extends ItemProviderAdapter implements IEditingD
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Parent" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Module" ) );
     }
 
     /**
@@ -79,7 +80,7 @@ public class ParentItemProvider extends ItemProviderAdapter implements IEditingD
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_Parent_type" );
+        return getString ( "_UI_Module_type" );
     }
 
     /**
@@ -118,7 +119,7 @@ public class ParentItemProvider extends ItemProviderAdapter implements IEditingD
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ConfiguratorEditPlugin.INSTANCE;
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

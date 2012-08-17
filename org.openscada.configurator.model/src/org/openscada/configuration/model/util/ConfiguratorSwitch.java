@@ -84,10 +84,10 @@ public class ConfiguratorSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
-            case ConfiguratorPackage.PARENT:
+            case ConfiguratorPackage.MODULE:
             {
-                Parent parent = (Parent)theEObject;
-                T result = caseParent ( parent );
+                Module module = (Module)theEObject;
+                T result = caseModule ( module );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -114,17 +114,17 @@ public class ConfiguratorSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Parent</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Parent</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Module</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseParent ( Parent object )
+    public T caseModule ( Module object )
     {
         return null;
     }

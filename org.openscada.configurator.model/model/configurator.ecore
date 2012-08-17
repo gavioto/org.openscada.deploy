@@ -19,6 +19,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="legacyBaseDirectory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioListFile" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+        eType="#//Module" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true">
+    <eOperations name="setup"/>
+  </eClassifiers>
 </ecore:EPackage>

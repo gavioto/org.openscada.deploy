@@ -9,6 +9,7 @@ package org.openscada.configuration.model;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,32 +125,41 @@ public interface ConfiguratorPackage extends EPackage
     int PROJECT__IO_LIST_FILE = 5;
 
     /**
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROJECT__MODULES = 6;
+
+    /**
      * The number of structural features of the '<em>Project</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROJECT_FEATURE_COUNT = 6;
+    int PROJECT_FEATURE_COUNT = 7;
 
     /**
-     * The meta object id for the '{@link org.openscada.configuration.model.impl.ParentImpl <em>Parent</em>}' class.
+     * The meta object id for the '{@link org.openscada.configuration.model.impl.ModuleImpl <em>Module</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.impl.ParentImpl
-     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getParent()
+     * @see org.openscada.configuration.model.impl.ModuleImpl
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModule()
      * @generated
      */
-    int PARENT = 1;
+    int MODULE = 1;
 
     /**
-     * The number of structural features of the '<em>Parent</em>' class.
+     * The number of structural features of the '<em>Module</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PARENT_FEATURE_COUNT = 0;
+    int MODULE_FEATURE_COUNT = 0;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
@@ -228,14 +238,25 @@ public interface ConfiguratorPackage extends EPackage
     EAttribute getProject_IoListFile ();
 
     /**
-     * Returns the meta object for class '{@link org.openscada.configuration.model.Parent <em>Parent</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.openscada.configuration.model.Project#getModules <em>Modules</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Parent</em>'.
-     * @see org.openscada.configuration.model.Parent
+     * @return the meta object for the containment reference list '<em>Modules</em>'.
+     * @see org.openscada.configuration.model.Project#getModules()
+     * @see #getProject()
      * @generated
      */
-    EClass getParent ();
+    EReference getProject_Modules ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configuration.model.Module <em>Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Module</em>'.
+     * @see org.openscada.configuration.model.Module
+     * @generated
+     */
+    EClass getModule ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -319,14 +340,22 @@ public interface ConfiguratorPackage extends EPackage
         EAttribute PROJECT__IO_LIST_FILE = eINSTANCE.getProject_IoListFile ();
 
         /**
-         * The meta object literal for the '{@link org.openscada.configuration.model.impl.ParentImpl <em>Parent</em>}' class.
+         * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.openscada.configuration.model.impl.ParentImpl
-         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getParent()
          * @generated
          */
-        EClass PARENT = eINSTANCE.getParent ();
+        EReference PROJECT__MODULES = eINSTANCE.getProject_Modules ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configuration.model.impl.ModuleImpl <em>Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configuration.model.impl.ModuleImpl
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModule()
+         * @generated
+         */
+        EClass MODULE = eINSTANCE.getModule ();
 
     }
 

@@ -15,7 +15,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -153,6 +155,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__JSON_BASE );
             childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__IO_LIST_FILE );
+            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__MODULES );
         }
         return childrenFeatures;
     }
@@ -218,6 +221,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
                 return;
             case ConfiguratorPackage.PROJECT__JSON_BASE:
             case ConfiguratorPackage.PROJECT__IO_LIST_FILE:
+            case ConfiguratorPackage.PROJECT__MODULES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -250,7 +254,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ConfiguratorEditPlugin.INSTANCE;
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

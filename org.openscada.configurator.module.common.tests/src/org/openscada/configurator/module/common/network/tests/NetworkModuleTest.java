@@ -4,31 +4,31 @@
  *
  * $Id$
  */
-package org.openscada.configuration.model.tests;
+package org.openscada.configurator.module.common.network.tests;
 
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import org.openscada.configuration.model.ConfiguratorFactory;
-import org.openscada.configuration.model.Parent;
+import org.openscada.configurator.module.common.network.NetworkFactory;
+import org.openscada.configurator.module.common.network.NetworkModule;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Parent</b></em>'.
+ * A test case for the model object '<em><b>Module</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParentTest extends TestCase
+public class NetworkModuleTest extends TestCase
 {
 
     /**
-     * The fixture for this Parent test case.
+     * The fixture for this Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Parent fixture = null;
+    protected NetworkModule fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -37,38 +37,38 @@ public class ParentTest extends TestCase
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( ParentTest.class );
+        TestRunner.run ( NetworkModuleTest.class );
     }
 
     /**
-     * Constructs a new Parent test case with the given name.
+     * Constructs a new Module test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public ParentTest ( String name )
+    public NetworkModuleTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Sets the fixture for this Parent test case.
+     * Sets the fixture for this Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture ( Parent fixture )
+    protected void setFixture ( NetworkModule fixture )
     {
         this.fixture = fixture;
     }
 
     /**
-     * Returns the fixture for this Parent test case.
+     * Returns the fixture for this Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Parent getFixture ()
+    protected NetworkModule getFixture ()
     {
         return fixture;
     }
@@ -82,7 +82,7 @@ public class ParentTest extends TestCase
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( ConfiguratorFactory.eINSTANCE.createParent () );
+        setFixture ( NetworkFactory.eINSTANCE.createNetworkModule () );
     }
 
     /**
@@ -97,4 +97,4 @@ public class ParentTest extends TestCase
         setFixture ( null );
     }
 
-} //ParentTest
+} //NetworkModuleTest

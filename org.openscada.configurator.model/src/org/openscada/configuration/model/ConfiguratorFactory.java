@@ -7,6 +7,7 @@
 package org.openscada.configuration.model;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,15 +35,6 @@ public interface ConfiguratorFactory extends EFactory
      * @generated
      */
     Project createProject ();
-
-    /**
-     * Returns a new object of class '<em>Parent</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Parent</em>'.
-     * @generated
-     */
-    Parent createParent ();
 
     /**
      * Returns the package supported by this factory.
