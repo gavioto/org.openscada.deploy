@@ -103,13 +103,13 @@
   	<openscada.builder.copyFeature id="org.openscada.deploy.p2"/>
   	
   	<openscada.builder.copyFeature id="org.openscada.configurator"/>
+  	<openscada.builder.copyPlugin id="org.openscada.atlantis.configurator"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.model"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.model.edit"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.model.editor"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.module.common"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.module.common.edit"/>
-  	
   	
   	<openscada.builder.copyFeature id="org.openscada.deploy.da.connector"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.ui.da.connector"/>
