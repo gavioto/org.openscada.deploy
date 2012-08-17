@@ -35,5 +35,13 @@
             contributorClass="org.openscada.configuration.model.presentation.ConfiguratorActionBarContributor">
       </editor>
    </extension>
+   
+  <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="oscm">
+      </file-association>
+   </extension>
 
 </plugin>
