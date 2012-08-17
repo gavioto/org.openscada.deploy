@@ -20,10 +20,28 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean,openscada.build.profile.setup">
+    <target name="default" depends="clean,openscada.build.profile.setup, build.default, build.daserver, build.p2directory">
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: build.default
+         - - - - - - - - - - - - - - - - - -->
+    <target name="build.default" unless="skip.default">
     	<openscada.bundleBuild builder="builder"/>
-    	<openscada.productBuild builder="builder.daserver"/>
-    	<openscada.productBuild builder="builder.p2director"/>
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: build.daserver
+         - - - - - - - - - - - - - - - - - -->
+    <target name="build.daserver" unless="skip.daserver">
+    	<openscada.bundleBuild builder="builder.daserver"/>
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: build.p2directory
+         - - - - - - - - - - - - - - - - - -->
+    <target name="build.p2directory" unless="skip.p2director">
+    	<openscada.bundleBuild builder="builder.p2director"/>
     </target>
 	
 	<!-- ================================= 
