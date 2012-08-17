@@ -21,19 +21,19 @@ import org.openscada.configurator.module.common.network.handler.Application;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getNetworkFile <em>Network File</em>}</li>
- * <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getPrefix <em>Prefix</em>}</li>
- * <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getOverrideGeneratedFile <em>Override Generated File</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getNetworkFile <em>Network File</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getPrefix <em>Prefix</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getOverrideGeneratedFile <em>Override Generated File</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 {
     /**
-     * The default value of the '{@link #getNetworkFile() <em>Network File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getNetworkFile() <em>Network File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getNetworkFile()
      * @generated
      * @ordered
@@ -41,8 +41,8 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
     protected static final String NETWORK_FILE_EDEFAULT = "";
 
     /**
-     * The cached value of the '{@link #getNetworkFile() <em>Network File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getNetworkFile() <em>Network File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getNetworkFile()
      * @generated
      * @ordered
@@ -50,8 +50,8 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
     protected String networkFile = NETWORK_FILE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getPrefix()
      * @generated
      * @ordered
@@ -59,8 +59,8 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
     protected static final String PREFIX_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getPrefix()
      * @generated
      * @ordered
@@ -68,8 +68,8 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
     protected String prefix = PREFIX_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getOverrideGeneratedFile() <em>Override Generated File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getOverrideGeneratedFile() <em>Override Generated File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getOverrideGeneratedFile()
      * @generated
      * @ordered
@@ -77,8 +77,8 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
     protected static final String OVERRIDE_GENERATED_FILE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getOverrideGeneratedFile() <em>Override Generated File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getOverrideGeneratedFile() <em>Override Generated File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getOverrideGeneratedFile()
      * @generated
      * @ordered
@@ -87,7 +87,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected NetworkModuleImpl ()
@@ -97,7 +96,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -108,83 +106,71 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getNetworkFile ()
     {
-        return this.networkFile;
+        return networkFile;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setNetworkFile ( final String newNetworkFile )
+    public void setNetworkFile ( String newNetworkFile )
     {
-        final String oldNetworkFile = this.networkFile;
-        this.networkFile = newNetworkFile;
+        String oldNetworkFile = networkFile;
+        networkFile = newNetworkFile;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__NETWORK_FILE, oldNetworkFile, this.networkFile ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__NETWORK_FILE, oldNetworkFile, networkFile ) );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getPrefix ()
     {
-        return this.prefix;
+        return prefix;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setPrefix ( final String newPrefix )
+    public void setPrefix ( String newPrefix )
     {
-        final String oldPrefix = this.prefix;
-        this.prefix = newPrefix;
+        String oldPrefix = prefix;
+        prefix = newPrefix;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__PREFIX, oldPrefix, this.prefix ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__PREFIX, oldPrefix, prefix ) );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getOverrideGeneratedFile ()
     {
-        return this.overrideGeneratedFile;
+        return overrideGeneratedFile;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setOverrideGeneratedFile ( final String newOverrideGeneratedFile )
+    public void setOverrideGeneratedFile ( String newOverrideGeneratedFile )
     {
-        final String oldOverrideGeneratedFile = this.overrideGeneratedFile;
-        this.overrideGeneratedFile = newOverrideGeneratedFile;
+        String oldOverrideGeneratedFile = overrideGeneratedFile;
+        overrideGeneratedFile = newOverrideGeneratedFile;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE, oldOverrideGeneratedFile, this.overrideGeneratedFile ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE, oldOverrideGeneratedFile, overrideGeneratedFile ) );
     }
 
     /**
@@ -200,11 +186,10 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -220,11 +205,10 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -243,11 +227,10 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -266,44 +249,40 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case NetworkPackage.NETWORK_MODULE__NETWORK_FILE:
-                return NETWORK_FILE_EDEFAULT == null ? this.networkFile != null : !NETWORK_FILE_EDEFAULT.equals ( this.networkFile );
+                return NETWORK_FILE_EDEFAULT == null ? networkFile != null : !NETWORK_FILE_EDEFAULT.equals ( networkFile );
             case NetworkPackage.NETWORK_MODULE__PREFIX:
-                return PREFIX_EDEFAULT == null ? this.prefix != null : !PREFIX_EDEFAULT.equals ( this.prefix );
+                return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
             case NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE:
-                return OVERRIDE_GENERATED_FILE_EDEFAULT == null ? this.overrideGeneratedFile != null : !OVERRIDE_GENERATED_FILE_EDEFAULT.equals ( this.overrideGeneratedFile );
+                return OVERRIDE_GENERATED_FILE_EDEFAULT == null ? overrideGeneratedFile != null : !OVERRIDE_GENERATED_FILE_EDEFAULT.equals ( overrideGeneratedFile );
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (networkFile: " );
-        result.append ( this.networkFile );
+        result.append ( networkFile );
         result.append ( ", prefix: " );
-        result.append ( this.prefix );
+        result.append ( prefix );
         result.append ( ", overrideGeneratedFile: " );
-        result.append ( this.overrideGeneratedFile );
+        result.append ( overrideGeneratedFile );
         result.append ( ')' );
         return result.toString ();
     }

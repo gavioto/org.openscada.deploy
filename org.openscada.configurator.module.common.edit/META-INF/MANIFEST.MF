@@ -9,6 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.openscada.configurator.module.common.network.provider,
+ org.openscada.configurator.module.common.processing.provider,
  org.openscada.configurator.module.common.scripts.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.openscada.configurator.module.common;visibility:=reexport,

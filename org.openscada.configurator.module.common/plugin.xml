@@ -24,4 +24,11 @@
             genModel="model/modules.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Processing"
+            class="org.openscada.configurator.module.common.processing.ProcessingPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+
 </plugin>

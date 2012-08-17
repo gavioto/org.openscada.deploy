@@ -9,15 +9,12 @@ package org.openscada.configurator.module.common.scripts.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
-
 import org.openscada.configurator.module.common.network.NetworkPackage;
-
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
-
+import org.openscada.configurator.module.common.processing.ProcessingPackage;
+import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsFactory;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
@@ -99,14 +96,17 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         // Obtain or create and register interdependencies
         NetworkPackageImpl theNetworkPackage = (NetworkPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) instanceof NetworkPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) : NetworkPackage.eINSTANCE );
+        ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
 
         // Create package meta-data objects
         theScriptsPackage.createPackageContents ();
         theNetworkPackage.createPackageContents ();
+        theProcessingPackage.createPackageContents ();
 
         // Initialize created meta-data
         theScriptsPackage.initializePackageContents ();
         theNetworkPackage.initializePackageContents ();
+        theProcessingPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theScriptsPackage.freeze ();
@@ -124,6 +124,16 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
     public EClass getScriptsModule ()
     {
         return scriptsModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptsModule_ScriptsFile ()
+    {
+        return (EAttribute)scriptsModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -178,6 +188,7 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         // Create classes and their features
         scriptsModuleEClass = createEClass ( SCRIPTS_MODULE );
+        createEAttribute ( scriptsModuleEClass, SCRIPTS_MODULE__SCRIPTS_FILE );
 
         legacyFormulaModuleEClass = createEClass ( LEGACY_FORMULA_MODULE );
         createEAttribute ( legacyFormulaModuleEClass, LEGACY_FORMULA_MODULE__FORMULA_FILE );
@@ -221,6 +232,7 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         // Initialize classes and features; add operations and parameters
         initEClass ( scriptsModuleEClass, ScriptsModule.class, "ScriptsModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getScriptsModule_ScriptsFile (), ecorePackage.getEString (), "scriptsFile", null, 1, 1, ScriptsModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( legacyFormulaModuleEClass, LegacyFormulaModule.class, "LegacyFormulaModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getLegacyFormulaModule_FormulaFile (), ecorePackage.getEString (), "formulaFile", null, 1, 1, LegacyFormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

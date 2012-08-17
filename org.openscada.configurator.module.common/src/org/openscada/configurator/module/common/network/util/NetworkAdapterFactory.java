@@ -8,14 +8,11 @@ package org.openscada.configurator.module.common.network.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.openscada.configuration.model.Module;
-
-import org.openscada.configurator.module.common.network.*;
+import org.openscada.configurator.module.common.network.NetworkModule;
+import org.openscada.configurator.module.common.network.NetworkPackage;
 
 /**
  * <!-- begin-user-doc -->

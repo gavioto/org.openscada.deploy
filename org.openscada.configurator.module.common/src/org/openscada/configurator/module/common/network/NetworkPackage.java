@@ -9,7 +9,6 @@ package org.openscada.configurator.module.common.network;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
 
 /**

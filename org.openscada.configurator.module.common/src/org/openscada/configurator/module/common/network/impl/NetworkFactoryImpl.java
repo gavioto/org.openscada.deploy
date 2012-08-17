@@ -9,12 +9,11 @@ package org.openscada.configurator.module.common.network.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.openscada.configurator.module.common.network.*;
+import org.openscada.configurator.module.common.network.NetworkFactory;
+import org.openscada.configurator.module.common.network.NetworkModule;
+import org.openscada.configurator.module.common.network.NetworkPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -10,14 +10,18 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.openscada.configurator.module.common.network,
  org.openscada.configurator.module.common.network.impl,
  org.openscada.configurator.module.common.network.util,
+ org.openscada.configurator.module.common.processing,
+ org.openscada.configurator.module.common.processing.impl,
+ org.openscada.configurator.module.common.processing.util,
  org.openscada.configurator.module.common.scripts,
  org.openscada.configurator.module.common.scripts.impl,
  org.openscada.configurator.module.common.scripts.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.openscada.configurator.model;visibility:=reexport
+ org.openscada.configurator.model;visibility:=reexport,
+ org.openscada.deploy.iolist.model;bundle-version="1.0.1",
+ org.openscada.deploy.iolist.utils;bundle-version="1.0.1",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.openscada.configurator;version="1.0.0",
- org.openscada.configurator.data;version="1.0.0",
- org.openscada.deploy.iolist.model;version="1.0.1",
- org.openscada.deploy.iolist.utils;version="1.0.1"
+ org.openscada.configurator.data;version="1.0.0"

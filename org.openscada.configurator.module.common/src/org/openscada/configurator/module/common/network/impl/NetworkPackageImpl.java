@@ -9,14 +9,13 @@ package org.openscada.configurator.module.common.network.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
-
 import org.openscada.configurator.module.common.network.NetworkFactory;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
+import org.openscada.configurator.module.common.processing.ProcessingPackage;
+import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 import org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl;
 
@@ -89,14 +88,17 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
 
         // Obtain or create and register interdependencies
         ScriptsPackageImpl theScriptsPackage = (ScriptsPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) instanceof ScriptsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) : ScriptsPackage.eINSTANCE );
+        ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
 
         // Create package meta-data objects
         theNetworkPackage.createPackageContents ();
         theScriptsPackage.createPackageContents ();
+        theProcessingPackage.createPackageContents ();
 
         // Initialize created meta-data
         theNetworkPackage.initializePackageContents ();
         theScriptsPackage.initializePackageContents ();
+        theProcessingPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theNetworkPackage.freeze ();

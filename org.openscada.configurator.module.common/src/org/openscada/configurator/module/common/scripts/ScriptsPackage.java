@@ -9,7 +9,6 @@ package org.openscada.configurator.module.common.scripts;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
 
 /**
@@ -72,13 +71,22 @@ public interface ScriptsPackage extends EPackage
     int SCRIPTS_MODULE = 0;
 
     /**
+     * The feature id for the '<em><b>Scripts File</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPTS_MODULE__SCRIPTS_FILE = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Module</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPTS_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int SCRIPTS_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.scripts.impl.LegacyFormulaModuleImpl <em>Legacy Formula Module</em>}' class.
@@ -117,6 +125,17 @@ public interface ScriptsPackage extends EPackage
      * @generated
      */
     EClass getScriptsModule ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.scripts.ScriptsModule#getScriptsFile <em>Scripts File</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Scripts File</em>'.
+     * @see org.openscada.configurator.module.common.scripts.ScriptsModule#getScriptsFile()
+     * @see #getScriptsModule()
+     * @generated
+     */
+    EAttribute getScriptsModule_ScriptsFile ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.scripts.LegacyFormulaModule <em>Legacy Formula Module</em>}'.
@@ -171,6 +190,14 @@ public interface ScriptsPackage extends EPackage
          * @generated
          */
         EClass SCRIPTS_MODULE = eINSTANCE.getScriptsModule ();
+
+        /**
+         * The meta object literal for the '<em><b>Scripts File</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPTS_MODULE__SCRIPTS_FILE = eINSTANCE.getScriptsModule_ScriptsFile ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.module.common.scripts.impl.LegacyFormulaModuleImpl <em>Legacy Formula Module</em>}' class.

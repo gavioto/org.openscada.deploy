@@ -8,12 +8,11 @@ package org.openscada.configurator.module.common.scripts.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.openscada.configuration.model.Module;
-
-import org.openscada.configurator.module.common.scripts.*;
+import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
+import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
  * <!-- begin-user-doc -->

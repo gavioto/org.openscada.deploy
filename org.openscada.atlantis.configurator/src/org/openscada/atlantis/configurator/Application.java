@@ -77,7 +77,7 @@ public class Application implements IApplication
 
         log.println ( "** 0 - Loading scripts" );
         log.println ( "*** 0a - Script Loader" );
-        org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ), new File ( base, "input/scripts" ) );
+        org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( new File ( base, "input/scripts.ods" ), new File ( base, "input/scripts" ) );
         log.println ( "*** 0b - Formulas Loader" );
         arguments.push ( LegacyForumalsLoader.loadScript ( cfg, new File ( base, "input/PARSERformulas" ), scriptBase, new File ( generatedBase, "IOList-generated-formulas-script.xls" ) ) );
         log.println ( "*** 0c - Summary groups" );
@@ -144,8 +144,7 @@ public class Application implements IApplication
 
         final LinkedList<String> ioFiles = new LinkedList<String> ();
 
-        final File base = new File ( project.getLegacyBaseDirectory () );
-        final File scriptBase = new File ( base, "script/js" );
+        final File base = new File ( FileLocator.toFileURL ( new URL ( project.getLegacyBaseDirectory () ) ).getFile () );
         final File generatedBase = new File ( base, "generated" );
 
         final Configuration cfg = new Configuration ( base );
@@ -161,7 +160,7 @@ public class Application implements IApplication
 
         log.println ( "** 0 - Loading scripts" );
         log.println ( "*** 0a - Script Loader" );
-        org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( cfg, new File ( base, "input/scripts.ods" ), new File ( generatedBase, "IOList-generated-script.xls" ), new File ( base, "input/scripts" ) );
+        org.openscada.atlantis.configurator.script.ScriptLoader.loadScripts ( new File ( base, "input/scripts.ods" ), new File ( base, "input/scripts" ) );
         log.println ( "*** 0c - Summary groups" );
         ioFiles.push ( SumLoader.convertGroups ( cfg, new File ( base, "input/summary.ods" ), new File ( generatedBase, "IOList-generated-sum.xls" ), SUMMARY_REQUIRED_SIZE ) );
 
@@ -187,7 +186,18 @@ public class Application implements IApplication
                 continue;
             }
 
-            final String file = FileLocator.toFileURL ( new URL ( url ) ).getFile ();
+            log.println ( " * Processing " + url );
+
+            final String file;
+            if ( url.startsWith ( "/" ) )
+            {
+                // check needed since the "old way" uses plain file names
+                file = url;
+            }
+            else
+            {
+                file = FileLocator.toFileURL ( new URL ( url ) ).getFile ();
+            }
 
             if ( !file.contains ( "override" ) )
             {
@@ -201,12 +211,6 @@ public class Application implements IApplication
                 overrides.add ( file );
             }
         }
-
-        log.println ( "*** 1c - Process Formulas" );
-        FormulaModule.process ( new File ( base, "input/formulas" ), cfg );
-
-        log.println ( "*** 1d - Process Scripts" );
-        ScriptModule.process ( new File ( base, "input/scripts" ), cfg );
 
         log.println ( "*** 1e - Apply overrides" );
         for ( final String file : overrides )
@@ -277,6 +281,11 @@ public class Application implements IApplication
         loader.load ( 4, new EventFilterHandler ( cfg ) );
     }
 
+    /**
+     * @deprecated use the new module system instead
+     * @author Jens Reimann
+     */
+    @Deprecated
     private static String processNetwork ( final PrintStream log, final String prefix, final File base, final File generatedBase ) throws Exception
     {
         log.println ( "*** 0d - Processing network" );

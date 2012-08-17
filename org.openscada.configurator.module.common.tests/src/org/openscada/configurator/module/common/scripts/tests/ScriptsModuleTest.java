@@ -110,7 +110,7 @@ public class ScriptsModuleTest extends TestCase
      * @see org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project)
      * @generated
      */
-    public void testProcess__Project ()
+    public void testProcess__Configuration_Project ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

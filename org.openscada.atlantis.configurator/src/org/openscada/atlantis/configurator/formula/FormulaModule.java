@@ -23,6 +23,11 @@ import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
+/**
+ * @deprecated use the new module system instead
+ * @author Jens Reimann
+ */
+@Deprecated
 public class FormulaModule
 {
     public static void process ( final File base, final Configuration cfg ) throws IOException

@@ -21,17 +21,17 @@ import org.openscada.configurator.module.common.scripts.handler.LegacyForumalsLo
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configurator.module.common.scripts.impl.LegacyFormulaModuleImpl#getFormulaFile <em>Formula File</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.scripts.impl.LegacyFormulaModuleImpl#getFormulaFile <em>Formula File</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormulaModule
 {
     /**
-     * The default value of the '{@link #getFormulaFile() <em>Formula File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getFormulaFile() <em>Formula File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getFormulaFile()
      * @generated
      * @ordered
@@ -39,8 +39,8 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
     protected static final String FORMULA_FILE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFormulaFile() <em>Formula File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getFormulaFile() <em>Formula File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getFormulaFile()
      * @generated
      * @ordered
@@ -49,7 +49,6 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected LegacyFormulaModuleImpl ()
@@ -59,7 +58,6 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -70,29 +68,25 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getFormulaFile ()
     {
-        return this.formulaFile;
+        return formulaFile;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setFormulaFile ( final String newFormulaFile )
+    public void setFormulaFile ( String newFormulaFile )
     {
-        final String oldFormulaFile = this.formulaFile;
-        this.formulaFile = newFormulaFile;
+        String oldFormulaFile = formulaFile;
+        formulaFile = newFormulaFile;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ScriptsPackage.LEGACY_FORMULA_MODULE__FORMULA_FILE, oldFormulaFile, this.formulaFile ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ScriptsPackage.LEGACY_FORMULA_MODULE__FORMULA_FILE, oldFormulaFile, formulaFile ) );
     }
 
     /**
@@ -108,11 +102,10 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -124,11 +117,10 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -141,11 +133,10 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -158,36 +149,32 @@ public class LegacyFormulaModuleImpl extends EObjectImpl implements LegacyFormul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ScriptsPackage.LEGACY_FORMULA_MODULE__FORMULA_FILE:
-                return FORMULA_FILE_EDEFAULT == null ? this.formulaFile != null : !FORMULA_FILE_EDEFAULT.equals ( this.formulaFile );
+                return FORMULA_FILE_EDEFAULT == null ? formulaFile != null : !FORMULA_FILE_EDEFAULT.equals ( formulaFile );
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (formulaFile: " );
-        result.append ( this.formulaFile );
+        result.append ( formulaFile );
         result.append ( ')' );
         return result.toString ();
     }

@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.openscada.configuration.model.*;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;

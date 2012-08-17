@@ -10,6 +10,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
+import org.openscada.configurator.module.common.processing.tests.ProcessingTests;
 import org.openscada.configurator.module.common.scripts.tests.ScriptsTests;
 
 /**
@@ -41,6 +42,7 @@ public class ModulesAllTests extends TestSuite
         TestSuite suite = new ModulesAllTests ( "Modules Tests" );
         suite.addTest ( NetworkTests.suite () );
         suite.addTest ( ScriptsTests.suite () );
+        suite.addTest ( ProcessingTests.suite () );
         return suite;
     }
 

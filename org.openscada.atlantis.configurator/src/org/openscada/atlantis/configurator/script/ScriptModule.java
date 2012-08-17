@@ -23,6 +23,11 @@ import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.ScriptItem;
 
+/**
+ * @deprecated use the new module system instead
+ * @author Jens Reimann
+ */
+@Deprecated
 public class ScriptModule
 {
     public static void process ( final File base, final Configuration cfg ) throws IOException
@@ -32,9 +37,9 @@ public class ScriptModule
             return;
         }
 
-        if ( !new File ( base, "scripts.xmi" ).exists () )
+        if ( !new File ( base, "template-scripts.xmi" ).exists () )
         {
-            create ( new File ( base, "scripts.xmi" ) );
+            create ( new File ( base, "template-scripts.xmi" ) );
         }
 
         for ( final File file : base.listFiles ( new FileFilter () {
@@ -113,28 +118,28 @@ public class ScriptModule
     {
         final Model model = ModelFactory.eINSTANCE.createModel ();
         model.getItems ().addAll ( items );
-    
+
         final ResourceSet rs = new ResourceSetImpl ();
         final URI uri1 = URI.createURI ( ModelFactory.eINSTANCE.getModelPackage ().getNsURI () );
         final URI uri2 = URI.createPlatformPluginURI ( "/org.openscada.deploy.iolist.model/model/model.ecore", true );
-    
+
         System.out.println ( uri1 );
-    
+
         rs.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( "xmi", new XMIResourceFactoryImpl () );
-    
+
         final URI fileUri = URI.createFileURI ( filename.getAbsolutePath () );
         System.out.println ( "output: " + fileUri );
         System.out.println ( "NS: " + ModelFactory.eINSTANCE.getModelPackage ().eResource ().getURI () );
         ModelFactory.eINSTANCE.getModelPackage ().eResource ().setURI ( uri2 );
         final Resource resource = rs.createResource ( fileUri );
-    
+
         resource.getContents ().add ( model );
-    
+
         // plant.eResource ().setURI ( uri2 );
-    
+
         final Map<Object, Object> options = new HashMap<Object, Object> ();
         options.put ( XMLResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE );
-    
+
         resource.save ( options );
     }
 }

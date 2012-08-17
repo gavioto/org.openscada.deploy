@@ -8,14 +8,12 @@ package org.openscada.configurator.module.common.scripts.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.openscada.configuration.model.Module;
-
-import org.openscada.configurator.module.common.scripts.*;
+import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
+import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
  * <!-- begin-user-doc -->

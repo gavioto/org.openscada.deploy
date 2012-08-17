@@ -11,18 +11,20 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
-import org.openscada.configurator.module.common.network.provider.ModulesEditPlugin;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configurator.module.common.scripts.ScriptsModule} object.
@@ -56,8 +58,20 @@ public class ScriptsModuleItemProvider extends ItemProviderAdapter implements IE
         {
             super.getPropertyDescriptors ( object );
 
+            addScriptsFilePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Scripts File feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addScriptsFilePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptsModule_scriptsFile_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptsModule_scriptsFile_feature", "_UI_ScriptsModule_type" ), ScriptsPackage.Literals.SCRIPTS_MODULE__SCRIPTS_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -81,7 +95,8 @@ public class ScriptsModuleItemProvider extends ItemProviderAdapter implements IE
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_ScriptsModule_type" );
+        String label = ( (ScriptsModule)object ).getScriptsFile ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ScriptsModule_type" ) : getString ( "_UI_ScriptsModule_type" ) + " " + label;
     }
 
     /**
@@ -95,6 +110,13 @@ public class ScriptsModuleItemProvider extends ItemProviderAdapter implements IE
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
+
+        switch ( notification.getFeatureID ( ScriptsModule.class ) )
+        {
+            case ScriptsPackage.SCRIPTS_MODULE__SCRIPTS_FILE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+        }
         super.notifyChanged ( notification );
     }
 
@@ -120,7 +142,7 @@ public class ScriptsModuleItemProvider extends ItemProviderAdapter implements IE
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ModulesEditPlugin.INSTANCE;
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

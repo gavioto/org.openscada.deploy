@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.GenericMasterConfiguration;
 import org.openscada.configurator.data.RowHandler;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.Item;
@@ -21,7 +20,7 @@ public class ScriptLoadHandler implements RowHandler
 
     private final File scriptBase;
 
-    public ScriptLoadHandler ( final GenericMasterConfiguration cfg, final File scriptBase )
+    public ScriptLoadHandler ( final File scriptBase )
     {
         this.scriptBase = scriptBase;
     }

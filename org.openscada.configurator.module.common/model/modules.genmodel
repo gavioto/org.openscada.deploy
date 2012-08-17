@@ -12,6 +12,23 @@
         childCreationExtenders="true" ecorePackage="modules.ecore#//network">
       <genClasses ecoreClass="modules.ecore#//network/NetworkModule">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//network/NetworkModule/networkFile"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//network/NetworkModule/prefix"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//network/NetworkModule/overrideGeneratedFile"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Scripts" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="modules.ecore#//scripts">
+      <genClasses ecoreClass="modules.ecore#//scripts/ScriptsModule">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//scripts/ScriptsModule/scriptsFile"/>
+      </genClasses>
+      <genClasses ecoreClass="modules.ecore#//scripts/LegacyFormulaModule">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//scripts/LegacyFormulaModule/formulaFile"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Processing" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="modules.ecore#//processing">
+      <genClasses ecoreClass="modules.ecore#//processing/ImportModule">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//processing/ImportModule/path"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>
