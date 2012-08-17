@@ -35,7 +35,7 @@ public class Application
             }
             else
             {
-                file = new File ( generatedDir, "IOList-exec-generated.xls" );
+                file = new File ( generatedDir, "IOList-generated-exec.xls" );
             }
             SpreadSheetPoiHelper.writeSpreadsheet ( file, convertDevices ( module.getPrefix (), handler.getDevices () ) );
 
