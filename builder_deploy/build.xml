@@ -26,21 +26,21 @@
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.default
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.default" unless="skip.default">
+    <target name="build.default">
     	<openscada.bundleBuild builder="builder"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.daserver
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.daserver" unless="skip.daserver">
+    <target name="build.daserver">
     	<openscada.bundleBuild builder="builder.daserver"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.p2directory
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.p2directory" unless="skip.p2director">
+    <target name="build.p2directory">
     	<openscada.bundleBuild builder="builder.p2director"/>
     </target>
 	
