@@ -34,14 +34,14 @@
           target: build.daserver
          - - - - - - - - - - - - - - - - - -->
     <target name="build.daserver">
-    	<openscada.bundleProduct builder="builder.daserver"/>
+    	<openscada.productBuild builder="builder.daserver"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.p2directory
          - - - - - - - - - - - - - - - - - -->
     <target name="build.p2directory">
-    	<openscada.bundleProduct builder="builder.p2director"/>
+    	<openscada.productBuild builder="builder.p2director"/>
     </target>
 	
 	<!-- ================================= 
