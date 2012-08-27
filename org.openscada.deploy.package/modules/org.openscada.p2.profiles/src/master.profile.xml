@@ -19,6 +19,7 @@
 	<start>org.openscada.da.datasource.sum</start>
 	<start>org.openscada.da.datasource.ds</start>
 	<start>org.openscada.da.datasource.average</start>
+	<start>org.openscada.da.datasource.movingaverage</start>
 	<start>org.openscada.ca.servlet.jaxws</start>
 	<start>org.openscada.ca.servlet</start>
 	<start>org.openscada.ca.jdbc</start>
@@ -56,7 +57,7 @@
 	<property key="logback.configurationFile" eval="true">TARGET_DIR + &quot;/logback.xml&quot;</property>
 	<note>If you move the installation directory also remember to fix the property &quot;logback.configurationFile&quot;</note>
 	
-	<property key="com.sun.management.jmxremote.port">9030</property>
+	<property key="com.sun.management.jmxremote.port">9040</property>
 	<property key="com.sun.management.jmxremote.authenticate">false</property>
 	<property key="com.sun.management.jmxremote.ssl">false</property>
 	
