@@ -1,7 +1,6 @@
 package org.openscada.atlantis.configurator.summary;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.configurator.report.DataItem;
 import org.openscada.configurator.report.SummarySource;
 import org.openscada.deploy.iolist.model.DataType;
@@ -20,9 +19,9 @@ import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class SumLoader
 {
-    public static Collection<SummaryGroup> loadGroups ( final File file ) throws IOException
+    public static Collection<SummaryGroup> loadGroups ( final File file ) throws Exception
     {
-        final DataLoader loader = new DataLoader ( file, false );
+        final DataLoaderOdfDom loader = new DataLoaderOdfDom ( file, false );
         final SumLoadHandler handler = new SumLoadHandler ();
         loader.load ( 0, handler );
         return handler.getGroups ();

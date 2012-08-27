@@ -6,7 +6,7 @@ import java.net.URL;
 import org.eclipse.core.runtime.FileLocator;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
 
 public class ScriptLoader
@@ -20,7 +20,7 @@ public class ScriptLoader
 
             final File scriptBase = file.getParentFile ();
 
-            final DataLoader loader = new DataLoader ( file, true );
+            final DataLoaderOdfDom loader = new DataLoaderOdfDom ( file, true );
             final ScriptLoadHandler handler = new ScriptLoadHandler ( scriptBase );
             loader.load ( 0, handler );
 

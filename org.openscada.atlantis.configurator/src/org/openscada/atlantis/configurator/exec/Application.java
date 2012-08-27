@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.xmlbeans.XmlOptions;
-import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.da.server.exec.configuration.model.HiveProcessCommandType;
 import org.openscada.da.server.exec.configuration.model.ProcessType;
 import org.openscada.da.server.exec.configuration.model.RootDocument;
@@ -28,7 +28,7 @@ public class Application
 {
     public static void process ( final String prefix, final String outList, final String sourceFile, final String xmlOutFile ) throws IOException, Exception
     {
-        final DataLoader loader = new DataLoader ( new File ( sourceFile ) );
+        final DataLoaderOdfDom loader = new DataLoaderOdfDom ( new File ( sourceFile ) );
 
         final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
         loader.load ( 0, handler );

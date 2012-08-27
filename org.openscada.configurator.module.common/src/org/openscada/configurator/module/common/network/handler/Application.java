@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.openscada.configuration.model.Project;
-import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
@@ -23,7 +23,7 @@ public class Application
         {
             final File generatedDir = new File ( FileLocator.toFileURL ( new URL ( project.getGeneratedDirectory () ) ).getFile () );
 
-            final DataLoader loader = new DataLoader ( new File ( FileLocator.toFileURL ( new URL ( module.getNetworkFile () ) ).getFile () ) );
+            final DataLoaderOdfDom loader = new DataLoaderOdfDom ( new File ( FileLocator.toFileURL ( new URL ( module.getNetworkFile () ) ).getFile () ) );
 
             final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
             loader.load ( 0, handler );

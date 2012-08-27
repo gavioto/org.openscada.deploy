@@ -2,7 +2,6 @@ package org.openscada.atlantis.configurator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URL;
 import java.util.Arrays;
@@ -23,7 +22,7 @@ import org.openscada.configuration.model.Module;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
@@ -260,10 +259,10 @@ public class Application implements IApplication
 
     }
 
-    private static void loadBasics ( final PrintStream log, final Configuration cfg, final File file ) throws IOException
+    private static void loadBasics ( final PrintStream log, final Configuration cfg, final File file ) throws Exception
     {
         log.println ( "Loading basics from: " + file );
-        final DataLoader loader = new DataLoader ( file );
+        final DataLoaderOdfDom loader = new DataLoaderOdfDom ( file );
 
         log.println ( "**** 1aa - Loading basic configuration - Connections" );
         loader.load ( 0, new ConnectionHandler ( cfg ) );

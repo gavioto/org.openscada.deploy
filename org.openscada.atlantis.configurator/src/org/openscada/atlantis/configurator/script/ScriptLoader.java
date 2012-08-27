@@ -2,7 +2,7 @@ package org.openscada.atlantis.configurator.script;
 
 import java.io.File;
 
-import org.openscada.configurator.data.DataLoader;
+import org.openscada.configurator.data.DataLoaderOdfDom;
 
 public class ScriptLoader
 {
@@ -16,7 +16,7 @@ public class ScriptLoader
 
         final File scriptBase = file.getParentFile ();
 
-        final DataLoader loader = new DataLoader ( file, true );
+        final DataLoaderOdfDom loader = new DataLoaderOdfDom ( file, true );
         final ScriptLoadHandler handler = new ScriptLoadHandler ( scriptBase );
         loader.load ( 0, handler );
 

@@ -16,7 +16,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: com.google.common.collect;version="0.6.0",
  org.apache.xmlbeans;version="2.4.0",
- org.jopendocument.dom.spreadsheet;version="1.1.0",
  org.openscada.ae.monitor;version="0.15.0",
  org.openscada.core;version="0.15.0",
  org.openscada.da.server.exec.configuration.model;version="0.16.0",
