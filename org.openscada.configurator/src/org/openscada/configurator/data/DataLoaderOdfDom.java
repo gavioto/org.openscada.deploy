@@ -33,7 +33,7 @@ public class DataLoaderOdfDom
 
     public void load ( final int sheetIdx, final RowHandler rowHandler )
     {
-        final OdfTable sheet = this.spreadSheet.getTableList ().get ( 0 );
+        final OdfTable sheet = this.spreadSheet.getTableList ().get ( sheetIdx );
 
         Map<Integer, String> header = new HashMap<Integer, String> ();
 
