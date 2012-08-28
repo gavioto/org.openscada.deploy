@@ -113,7 +113,6 @@ public class ItemListWriter
             }
         } );
 
-        // remote bool
         this.columns.add ( new BooleanEcoreColumn ( "REMOTE_MANUAL", ModelPackage.Literals.ITEM__REMOTE_MANUAL ) );
 
         this.columns.add ( new BooleanEcoreColumn ( "EVENT_WRITE", ModelPackage.Literals.ITEM__EVENT_COMMAND ) );

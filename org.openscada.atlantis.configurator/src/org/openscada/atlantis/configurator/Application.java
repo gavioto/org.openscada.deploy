@@ -24,6 +24,7 @@ import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
+import org.openscada.deploy.iolist.utils.ItemListReader;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application implements IApplication
@@ -123,7 +124,15 @@ public class Application implements IApplication
             if ( !file.contains ( "override" ) )
             {
                 log.println ( " ** Loading: " + file );
-                final List<Item> loadedItems = SpreadSheetPoiHelper.loadExcel ( file );
+                final List<Item> loadedItems;
+                if ( file.endsWith ( ".ods" ) )
+                {
+                    loadedItems = new ItemListReader ( new File ( file ) ).getItems ();
+                }
+                else
+                {
+                    loadedItems = SpreadSheetPoiHelper.loadExcel ( file );
+                }
                 cfg.addItems ( loadedItems );
                 log.println ( String.format ( " ** Loaded %s items from %s", loadedItems.size (), file ) );
             }
@@ -136,7 +145,14 @@ public class Application implements IApplication
         log.println ( "*** 1e - Apply overrides" );
         for ( final String file : overrides )
         {
-            cfg.applyOverrides ( SpreadSheetPoiHelper.loadExcel ( file ) );
+            if ( file.endsWith ( ".ods" ) )
+            {
+                cfg.applyOverrides ( new ItemListReader ( new File ( file ) ).getItems () );
+            }
+            else
+            {
+                cfg.applyOverrides ( SpreadSheetPoiHelper.loadExcel ( file ) );
+            }
         }
 
         if ( project.getScriptOverrideDirectory () != null )
