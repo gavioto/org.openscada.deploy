@@ -61,7 +61,7 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      * @ordered
      */
-    protected static final boolean ACK_EDEFAULT = false;
+    protected static final boolean ACK_EDEFAULT = true;
 
     /**
      * The cached value of the '{@link #isAck() <em>Ack</em>}' attribute.
