@@ -4,6 +4,7 @@
 	<start>org.openscada.utils.osgi.pidfile</start>
 	<start>org.openscada.external.postgresql</start>
 	<start>org.openscada.sec.provider.script</start>
+	<start>org.openscada.sec.provider.jdbc</start>
 	<start>org.openscada.da.server.osgi.exporter.net</start>
 	<start>org.openscada.da.client.net</start>
 	<start>org.openscada.da.server.common.osgi</start>
