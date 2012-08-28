@@ -23,6 +23,15 @@ import org.odftoolkit.odfdom.incubator.doc.style.OdfStylePageLayout;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.utils.column.BooleanEcoreColumn;
+import org.openscada.deploy.iolist.utils.column.BooleanMonitorColumn;
+import org.openscada.deploy.iolist.utils.column.ColumnWriter;
+import org.openscada.deploy.iolist.utils.column.LevelMonitorColumn;
+import org.openscada.deploy.iolist.utils.column.ListMonitorColumn;
+import org.openscada.deploy.iolist.utils.column.OptionalNumericColumn;
+import org.openscada.deploy.iolist.utils.column.OptionalTextColumn;
+import org.openscada.deploy.iolist.utils.column.TextColumn;
+import org.openscada.deploy.iolist.utils.column.TextEcoreColumn;
 import org.w3c.dom.Node;
 
 // TODO: add auto filter

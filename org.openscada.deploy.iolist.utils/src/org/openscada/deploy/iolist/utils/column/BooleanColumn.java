@@ -1,4 +1,4 @@
-package org.openscada.deploy.iolist.utils;
+package org.openscada.deploy.iolist.utils.column;
 
 import org.odftoolkit.odfdom.doc.table.OdfTableCell;
 import org.odftoolkit.odfdom.dom.attribute.office.OfficeValueTypeAttribute;

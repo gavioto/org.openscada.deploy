@@ -1,4 +1,4 @@
-package org.openscada.deploy.iolist.utils;
+package org.openscada.deploy.iolist.utils.column;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.odftoolkit.odfdom.doc.table.OdfTableCell;

@@ -1,4 +1,4 @@
-package org.openscada.deploy.iolist.utils;
+package org.openscada.deploy.iolist.utils.column;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.openscada.deploy.iolist.model.Item;
