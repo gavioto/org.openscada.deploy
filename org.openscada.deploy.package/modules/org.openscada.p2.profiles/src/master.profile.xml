@@ -41,7 +41,7 @@
 	<start>org.openscada.ae.monitor</start>
 	<start>org.openscada.ae.server.common.event</start>
 	<start>org.openscada.da.master.mapper</start>
-	<start>org.openscada.da.mapper.osgi.configuredMapper</start>
+	<start>org.openscada.da.mapper.osgi</start>
 	<start>org.openscada.da.server.osgi</start>
 	<start>org.openscada.ae.server.http</start>
 	<start>org.mortbay.jetty.server</start>
