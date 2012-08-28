@@ -148,6 +148,37 @@ public class ModelSwitch<T> extends Switch<T>
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case ModelPackage.MONITOR:
+            {
+                Monitor monitor = (Monitor)theEObject;
+                T result = caseMonitor(monitor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.LEVEL_MONITOR:
+            {
+                LevelMonitor levelMonitor = (LevelMonitor)theEObject;
+                T result = caseLevelMonitor(levelMonitor);
+                if (result == null) result = caseMonitor(levelMonitor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.LIST_MONITOR:
+            {
+                ListMonitor listMonitor = (ListMonitor)theEObject;
+                T result = caseListMonitor(listMonitor);
+                if (result == null) result = caseMonitor(listMonitor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case ModelPackage.BOOLEAN_MONITOR:
+            {
+                BooleanMonitor booleanMonitor = (BooleanMonitor)theEObject;
+                T result = caseBooleanMonitor(booleanMonitor);
+                if (result == null) result = caseMonitor(booleanMonitor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
     }
@@ -308,6 +339,70 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMapper(Mapper object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Monitor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMonitor(Monitor object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Level Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Level Monitor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseLevelMonitor(LevelMonitor object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>List Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>List Monitor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseListMonitor(ListMonitor object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Boolean Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Boolean Monitor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBooleanMonitor(BooleanMonitor object)
     {
         return null;
     }

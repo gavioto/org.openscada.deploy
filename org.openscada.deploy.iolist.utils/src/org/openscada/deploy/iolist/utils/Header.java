@@ -101,7 +101,22 @@ public enum Header
         @Override
         public void apply ( final Item item, final Value value )
         {
-            item.setLocation ( value.getValue () );
+            if ( item.getHierarchy ().isEmpty () )
+            {
+                item.getHierarchy ().add ( value.getValue () );
+            }
+            else if ( item.getHierarchy ().size () == 1 )
+            {
+                item.getHierarchy ().add ( 0, value.getValue () );
+            }
+            else if ( item.getHierarchy ().size () > 2 )
+            {
+                while ( item.getHierarchy ().size () > 2 )
+                {
+                    item.getHierarchy ().remove ( 0 );
+                }
+                item.getHierarchy ().add ( 0, value.getValue () );
+            }
         }
     },
     COMPONENT
@@ -109,7 +124,15 @@ public enum Header
         @Override
         public void apply ( final Item item, final Value value )
         {
-            item.setComponent ( value.getValue () );
+            if ( item.getHierarchy ().isEmpty () )
+            {
+                item.getHierarchy ().add ( "" );
+                item.getHierarchy ().add ( value.getValue () );
+            }
+            else
+            {
+                item.getHierarchy ().add ( value.getValue () );
+            }
         }
     },
     ALIAS
@@ -128,9 +151,14 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalMinAvailable ( true );
-                item.setLocalMin ( makeDouble ( value ) );
-                item.setLocalMinAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalMin ( ModelFactory.eINSTANCE.createLevelMonitor () );
+                item.getLocalMin ().setActive ( true );
+                item.getLocalMin ().setAck ( value.getBackgroundColor ().isRed () );
+                item.getLocalMin ().setPreset ( makeDouble ( value ) );
+            }
+            else
+            {
+                item.setLocalMin ( null );
             }
         }
     },
@@ -141,9 +169,14 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalMaxAvailable ( true );
-                item.setLocalMax ( makeDouble ( value ) );
-                item.setLocalMaxAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
+                item.getLocalMax ().setActive ( true );
+                item.getLocalMax ().setAck ( value.getBackgroundColor ().isRed () );
+                item.getLocalMax ().setPreset ( makeDouble ( value ) );
+            }
+            else
+            {
+                item.setLocalMax ( null );
             }
         }
     },
@@ -154,13 +187,14 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalLowLowAvailable ( true );
-                item.setLocalLowLowPreset ( makeDouble ( value ) );
-                item.setLocalLowLowAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalLowLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
+                item.getLocalLowLow ().setActive ( true );
+                item.getLocalLowLow ().setAck ( value.getBackgroundColor ().isRed () );
+                item.getLocalLowLow ().setPreset ( makeDouble ( value ) );
             }
             else
             {
-                item.setLocalLowLowAvailable ( false );
+                item.setLocalLowLow ( null );
             }
         }
     },
@@ -171,13 +205,14 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalLowAvailable ( true );
-                item.setLocalLowPreset ( makeDouble ( value ) );
-                item.setLocalLowAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
+                item.getLocalLow ().setActive ( true );
+                item.getLocalLow ().setAck ( value.getBackgroundColor ().isRed () );
+                item.getLocalLow ().setPreset ( makeDouble ( value ) );
             }
             else
             {
-                item.setLocalLowAvailable ( false );
+                item.setLocalLow ( null );
             }
         }
     },
@@ -188,13 +223,14 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalHighAvailable ( true );
-                item.setLocalHighPreset ( makeDouble ( value ) );
-                item.setLocalHighAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
+                item.getLocalHigh ().setActive ( true );
+                item.getLocalHigh ().setAck ( value.getBackgroundColor ().isRed () );
+                item.getLocalHigh ().setPreset ( makeDouble ( value ) );
             }
             else
             {
-                item.setLocalHighAvailable ( false );
+                item.setLocalHigh ( null );
             }
         }
     },
@@ -205,13 +241,14 @@ public enum Header
         {
             if ( value != null && value.length () != 0 )
             {
-                item.setLocalHighHighAvailable ( true );
-                item.setLocalHighHighPreset ( makeDouble ( value ) );
-                item.setLocalHighHighAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalHighHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
+                item.getLocalHighHigh ().setActive ( true );
+                item.getLocalHighHigh ().setAck ( value.getBackgroundColor ().isRed () );
+                item.getLocalHighHigh ().setPreset ( makeDouble ( value ) );
             }
             else
             {
-                item.setLocalHighHighAvailable ( false );
+                item.setLocalHighHigh ( null );
             }
         }
     },
@@ -220,15 +257,17 @@ public enum Header
         @Override
         public void apply ( final Item item, final Value value )
         {
-            if ( value != null && value.length () != 0 )
+            final Boolean okValue = asOptionalBoolean ( value );
+            if ( value != null && value.length () != 0 && okValue != null )
             {
-                item.setLocalBoolAvailable ( true );
-                item.setLocalBool ( asOptionalBoolean ( value ) );
-                item.setLocalBoolAck ( value.getBackgroundColor ().isRed () );
+                item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
+                item.getLocalBooleanMonitor ().setActive ( true );
+                item.getLocalBooleanMonitor ().setOkValue ( okValue );
+                item.getLocalBooleanMonitor ().setAck ( value.getBackgroundColor ().isRed () );
             }
             else
             {
-                item.setLocalBoolAvailable ( false );
+                item.setLocalBooleanMonitor ( null );
             }
         }
     },
@@ -241,31 +280,34 @@ public enum Header
         {
             if ( cValue != null && cValue.length () != 0 )
             {
+                item.setLocalListMonitor ( ModelFactory.eINSTANCE.createListMonitor () );
+                item.getLocalListMonitor ().setActive ( true );
+                item.getLocalListMonitor ().setAck ( cValue.getBackgroundColor ().isRed () );
+
                 final String value = cValue.getValue ();
-                item.setListMonitorPreset ( true );
                 final String toks[] = value.split ( ":", 2 );
                 if ( toks.length > 1 )
                 {
-                    item.setListMonitorListIsAlarm ( toks[0].toUpperCase ().equals ( "ALARM" ) );
+                    item.getLocalListMonitor ().setListIsAlarm ( toks[0].toUpperCase ().equals ( "ALARM" ) );
                     for ( final String valueEntry : this.splitPattern.split ( toks[1] ) )
                     {
-                        item.getListMonitorItems ().add ( valueEntry );
+                        item.getLocalListMonitor ().getValues ().add ( valueEntry );
                     }
                 }
                 else
                 {
                     for ( final String valueEntry : this.splitPattern.split ( value ) )
                     {
-                        item.getListMonitorItems ().add ( valueEntry );
+                        item.getLocalListMonitor ().getValues ().add ( valueEntry );
                     }
 
                 }
             }
             else
             {
-                item.setListMonitorPreset ( false );
+                item.setLocalListMonitor ( null );
             }
-            item.setListMonitorAckRequired ( cValue.getBackgroundColor ().isRed () );
+
         }
     },
     REMOTE_MIN

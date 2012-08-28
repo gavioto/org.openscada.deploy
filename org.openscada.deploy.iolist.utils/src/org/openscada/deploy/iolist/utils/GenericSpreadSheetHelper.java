@@ -1,9 +1,11 @@
 package org.openscada.deploy.iolist.utils;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.utils.str.StringHelper;
 
@@ -31,24 +33,23 @@ public abstract class GenericSpreadSheetHelper
 
             addData ( row, Header.DESCRIPTION.ordinal (), item.getDescription () );
             addData ( row, Header.SYSTEM.ordinal (), item.getSystem () );
-            addData ( row, Header.LOCATION.ordinal (), item.getLocation () );
-            addData ( row, Header.COMPONENT.ordinal (), item.getComponent () );
+            addHierarchy ( row, item );
             addData ( row, Header.ALIAS.ordinal (), item.getAlias () );
 
             addFlag ( row, Header.DEFAULT_CHAIN.ordinal (), item.isDefaultChain (), false );
 
-            addSelectiveDataAck ( row, Header.MIN.ordinal (), item.isLocalMinAvailable (), item.getLocalMin (), item.isLocalMinAck () );
-            addSelectiveDataAck ( row, Header.MAX.ordinal (), item.isLocalMaxAvailable (), item.getLocalMax (), item.isLocalMaxAck () );
-            addSelectiveDataAck ( row, Header.LIMIT_HH.ordinal (), item.isLocalHighHighAvailable (), item.getLocalHighHighPreset (), item.isLocalHighHighAck () );
-            addSelectiveDataAck ( row, Header.LIMIT_H.ordinal (), item.isLocalHighAvailable (), item.getLocalHighPreset (), item.isLocalHighAck () );
-            addSelectiveDataAck ( row, Header.LIMIT_L.ordinal (), item.isLocalLowAvailable (), item.getLocalLowPreset (), item.isLocalLowAck () );
-            addSelectiveDataAck ( row, Header.LIMIT_LL.ordinal (), item.isLocalLowLowAvailable (), item.getLocalLowLowPreset (), item.isLocalLowLowAck () );
+            addSelectiveDataAck ( row, Header.MAX.ordinal (), item.getLocalMax () );
+            addSelectiveDataAck ( row, Header.MIN.ordinal (), item.getLocalMin () );
+            addSelectiveDataAck ( row, Header.LIMIT_HH.ordinal (), item.getLocalHighHigh () );
+            addSelectiveDataAck ( row, Header.LIMIT_H.ordinal (), item.getLocalHigh () );
+            addSelectiveDataAck ( row, Header.LIMIT_L.ordinal (), item.getLocalLow () );
+            addSelectiveDataAck ( row, Header.LIMIT_LL.ordinal (), item.getLocalLowLow () );
 
             addFlag ( row, Header.EVENT_WRITE.ordinal (), item.isEventCommand (), false );
             addFlag ( row, Header.MANUAL.ordinal (), item.isLocalManual (), false );
-            addSelectiveOptionalFlag ( row, Header.MONITOR_BOOL.ordinal (), item.isLocalBoolAvailable (), item.getLocalBool (), item.isLocalBoolAck () );
+            addSelectiveOptionalFlag ( row, Header.MONITOR_BOOL.ordinal (), item.getLocalListMonitor () != null, item.getLocalListMonitor () != null ? item.getLocalBooleanMonitor ().isOkValue () : false, item.getLocalListMonitor () != null ? item.getLocalBooleanMonitor ().isAck () : false );
 
-            addSelectiveData ( row, Header.LIST_MONITOR.ordinal (), item.isListMonitorPreset (), makeListData ( item ), item.isListMonitorAckRequired () );
+            addSelectiveData ( row, Header.LIST_MONITOR.ordinal (), item.getLocalListMonitor () != null, item.getLocalListMonitor () != null ? makeListData ( item ) : null, item.getLocalListMonitor () != null ? item.getLocalListMonitor ().isAck () : false );
 
             addFlag ( row, Header.REMOTE_MIN.ordinal (), item.isRemoteMin (), false );
             addFlag ( row, Header.REMOTE_MAX.ordinal (), item.isRemoteMax (), false );
@@ -85,6 +86,22 @@ public abstract class GenericSpreadSheetHelper
         }
     }
 
+    private void addHierarchy ( final int row, final Item item ) throws Exception
+    {
+        final List<String> h = item.getHierarchy ();
+        if ( h.isEmpty () )
+        {
+            return;
+        }
+
+        addData ( row, Header.LOCATION.ordinal (), h.get ( 0 ) );
+
+        if ( h.size () > 1 )
+        {
+            addData ( row, Header.COMPONENT.ordinal (), h.get ( 1 ) );
+        }
+    }
+
     private String makeMapper ( final EList<Mapper> mapper )
     {
         if ( mapper == null )
@@ -117,7 +134,7 @@ public abstract class GenericSpreadSheetHelper
     {
         final StringBuilder sb = new StringBuilder ();
 
-        if ( item.isListMonitorListIsAlarm () )
+        if ( item.getLocalListMonitor ().isListIsAlarm () )
         {
             sb.append ( "ALARM:" );
         }
@@ -126,7 +143,7 @@ public abstract class GenericSpreadSheetHelper
             sb.append ( "EVENT:" );
         }
 
-        sb.append ( StringHelper.join ( item.getListMonitorItems (), "," ) );
+        sb.append ( StringHelper.join ( item.getLocalListMonitor ().getValues (), "," ) );
 
         return sb.toString ();
     }
@@ -179,7 +196,9 @@ public abstract class GenericSpreadSheetHelper
 
     protected abstract void addData ( final int row, final int column, final Double data, final boolean ack ) throws Exception;
 
-    protected abstract void addSelectiveDataAck ( final int row, final int column, final boolean available, final Double value, final boolean ack ) throws Exception;
+    protected abstract void addSelectiveDataAck ( final int row, final int column, LevelMonitor levelMonitor ) throws Exception;
+
+    protected abstract void addSelectiveDataAck ( final int row, final int column, boolean available, Double preset, boolean ackRequired ) throws Exception;
 
     protected abstract void addSelectiveData ( final int row, final int column, final boolean available, final String value, final boolean ackRequired ) throws Exception;
 }

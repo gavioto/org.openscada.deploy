@@ -55,8 +55,8 @@ public class SumLoader
             item.setDataType ( DataType.INTEGER );
             item.setLocalManual ( false );
             item.setDefaultChain ( false );
-            item.setLocation ( group.getLocation () );
-            item.setComponent ( group.getComponent () );
+            item.getHierarchy ().clear ();
+            item.getHierarchy ().addAll ( group.getHierarchy () );
 
             if ( group.getItems ().size () >= requiredSize )
             {

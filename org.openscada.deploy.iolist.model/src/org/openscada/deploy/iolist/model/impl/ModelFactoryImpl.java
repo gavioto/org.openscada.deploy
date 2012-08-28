@@ -79,6 +79,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
             case ModelPackage.SCRIPT_ITEM: return createScriptItem();
             case ModelPackage.SCRIPT_OUTPUT: return createScriptOutput();
             case ModelPackage.MAPPER: return createMapper();
+            case ModelPackage.LEVEL_MONITOR: return createLevelMonitor();
+            case ModelPackage.LIST_MONITOR: return createListMonitor();
+            case ModelPackage.BOOLEAN_MONITOR: return createBooleanMonitor();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -230,6 +233,39 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         MapperImpl mapper = new MapperImpl();
         return mapper;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LevelMonitor createLevelMonitor()
+    {
+        LevelMonitorImpl levelMonitor = new LevelMonitorImpl();
+        return levelMonitor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ListMonitor createListMonitor()
+    {
+        ListMonitorImpl listMonitor = new ListMonitorImpl();
+        return listMonitor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BooleanMonitor createBooleanMonitor()
+    {
+        BooleanMonitorImpl booleanMonitor = new BooleanMonitorImpl();
+        return booleanMonitor;
     }
 
     /**

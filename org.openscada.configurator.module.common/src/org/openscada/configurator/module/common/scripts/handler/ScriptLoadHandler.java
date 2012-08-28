@@ -172,14 +172,16 @@ public class ScriptLoadHandler implements RowHandler
         item.setAlias ( alias );
         item.setDevice ( null );
         item.setName ( alias + ".script" );
-        item.setLocalHighAvailable ( true );
-        item.setLocalLowAvailable ( true );
-        item.setLocalHighHighAvailable ( true );
-        item.setLocalLowLowAvailable ( true );
+
+        item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalHighHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalLowLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalMin ( ModelFactory.eINSTANCE.createLevelMonitor () );
+
         item.setSystem ( "SCRIPT" );
-        item.setComponent ( "" );
         item.setDevice ( "" );
-        item.setLocation ( "" );
         item.setDescription ( "" );
         return item;
     }

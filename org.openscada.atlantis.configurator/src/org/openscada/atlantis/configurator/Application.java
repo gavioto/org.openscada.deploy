@@ -147,7 +147,7 @@ public class Application implements IApplication
 
         log.println ( "** 3 - Process" );
         cfg.removeInactive ();
-        SummaryGenerator.generateSummaryAlarms ( cfg, cfg.getItems (), SUMMARY_REQUIRED_SIZE );
+        SummaryGenerator.generateSummaryAlarms ( project, cfg, cfg.getItems (), SUMMARY_REQUIRED_SIZE );
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 

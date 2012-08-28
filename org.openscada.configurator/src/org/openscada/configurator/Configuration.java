@@ -40,6 +40,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
@@ -47,8 +48,8 @@ import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
+import org.openscada.deploy.iolist.utils.ItemListWriter;
 import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
-import org.openscada.utils.lang.Pair;
 import org.openscada.utils.str.StringHelper;
 
 import com.google.common.collect.HashMultimap;
@@ -216,28 +217,20 @@ public class Configuration extends GenericMasterConfiguration
      */
     public void generateSummeryBlocks ()
     {
-        final Multimap<Pair<String, String>, String> locMap = HashMultimap.create ();
+        final Multimap<List<String>, String> locMap = HashMultimap.create ();
 
         for ( final Item item : this.items )
         {
-            if ( item.getLocation () == null || item.getComponent () == null || item.getLocation ().length () == 0 || item.getComponent ().length () == 0 )
-            {
-                continue;
-            }
-
-            final Pair<String, String> loc = new Pair<String, String> ( item.getLocation (), item.getComponent () );
-
-            locMap.put ( loc, makeMasterId ( item ) );
+            locMap.put ( item.getHierarchy (), makeMasterId ( item ) );
         }
 
-        for ( final Pair<String, String> key : locMap.keySet () )
+        for ( final List<String> key : locMap.keySet () )
         {
             final Collection<String> values = locMap.get ( key );
 
             final Map<String, String> attributes = new HashMap<String, String> ();
 
-            attributes.put ( "location", key.first );
-            attributes.put ( "component", key.second );
+            convertHierarchyToInfoAttributes ( key, attributes );
 
             addBlock ( key + ".block", new ArrayList<String> ( values ), attributes ); //$NON-NLS-1$
         }
@@ -355,8 +348,9 @@ public class Configuration extends GenericMasterConfiguration
             }
 
             final Map<String, String> attributes = new HashMap<String, String> ();
-            attributes.put ( "location", item.getLocation () ); //$NON-NLS-1$
-            attributes.put ( "component", item.getComponent () ); //$NON-NLS-1$
+
+            convertHierarchyToInfoAttributes ( item.getHierarchy (), attributes );
+
             if ( item.getDevice () != null )
             {
                 attributes.put ( "hive", item.getDevice ().toUpperCase () ); //$NON-NLS-1$
@@ -374,20 +368,12 @@ public class Configuration extends GenericMasterConfiguration
             {
                 addRemoteValueMonitor ( masterId + ".remote.monitor", masterId, "remote.ackRequired", "remote.ackRequired.timestamp", "ALM", attributes, item.getRemoteBoolAckValue () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
             }
-            if ( item.isLocalBoolAvailable () )
+            if ( item.getLocalBooleanMonitor () != null )
             {
-                String reference;
-                if ( item.getLocalBool () == null )
-                {
-                    reference = null;
-                }
-                else
-                {
-                    reference = item.getLocalBool () ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
-                }
+                final String reference = item.getLocalBooleanMonitor ().isOkValue () ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
 
-                addLocalMonitor ( masterId + ".local.monitor", masterId, reference, item.isLocalBoolAck (), item.getDescription (), attributes ); //$NON-NLS-1$
-                reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.isLocalBoolAck () ) );
+                addLocalMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().isAck (), item.getDescription (), attributes ); //$NON-NLS-1$
+                reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.getLocalBooleanMonitor ().isAck () ) );
             }
             makeRemoteLevels ( item, reportItem, masterId, attributes );
             makeLocalLevels ( item, reportItem, masterId, attributes );
@@ -416,9 +402,9 @@ public class Configuration extends GenericMasterConfiguration
                 addRounding ( masterId + ".round", masterId, item.getRoundingValue (), attributes );
             }
 
-            if ( item.isListMonitorPreset () )
+            if ( item.getLocalListMonitor () != null )
             {
-                addListMonitor ( masterId + ".listMonitor", masterId, item.isListMonitorListIsAlarm (), item.getListMonitorItems (), item.isListMonitorAckRequired (), item.getDescription (), attributes ); //$NON-NLS-1$
+                addListMonitor ( masterId + ".listMonitor", masterId, item.getLocalListMonitor ().isListIsAlarm (), item.getLocalListMonitor ().getValues (), item.getLocalListMonitor ().isAck (), item.getDescription (), attributes ); //$NON-NLS-1$
             }
 
             if ( item.isBlock () )
@@ -437,6 +423,27 @@ public class Configuration extends GenericMasterConfiguration
         }
 
         validateConnections ( connections );
+    }
+
+    private static void convertHierarchyToInfoAttributes ( final List<String> levels, final Map<String, String> attributes )
+    {
+        // instead of location and component
+        int i = 0;
+        for ( final String level : levels )
+        {
+            attributes.put ( "level." + i, level );
+            if ( i == 0 )
+            {
+                // a legacy
+                attributes.put ( "location", level );
+            }
+            if ( i == 1 )
+            {
+                // a legacy
+                attributes.put ( "component", level );
+            }
+            i++;
+        }
     }
 
     private String makeMapperHandlerName ( final String masterId, final Mapper mapper )
@@ -813,29 +820,29 @@ public class Configuration extends GenericMasterConfiguration
 
     private void makeLocalLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
-        if ( item.getLocalMin () != null || item.isLocalMinAvailable () )
+        if ( item.getLocalMax () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "floor", true, item.isLocalMinAck (), item.getLocalMin (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "ceil", true, item.getLocalMax (), attributes ); //$NON-NLS-1$
         }
-        if ( item.getLocalMax () != null || item.isLocalMaxAvailable () )
+        if ( item.getLocalHighHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "ceil", true, item.isLocalMaxAck (), item.getLocalMax (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "highhigh", false, item.getLocalHighHigh (), attributes ); //$NON-NLS-1$
         }
-        if ( item.isLocalHighHighAvailable () )
+        if ( item.getLocalHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "highhigh", false, item.isLocalHighHighAck (), item.getLocalHighHighPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "high", false, item.getLocalHigh (), attributes ); //$NON-NLS-1$
         }
-        if ( item.isLocalHighAvailable () )
+        if ( item.getLocalLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "high", false, item.isLocalHighAck (), item.getLocalHighPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "low", false, item.getLocalLow (), attributes ); //$NON-NLS-1$
         }
-        if ( item.isLocalLowAvailable () )
+        if ( item.getLocalLowLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "low", false, item.isLocalLowAck (), item.getLocalLowPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "lowlow", false, item.getLocalLowLow (), attributes ); //$NON-NLS-1$
         }
-        if ( item.isLocalLowLowAvailable () )
+        if ( item.getLocalMin () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "lowlow", false, item.isLocalLowLowAck (), item.getLocalLowLowPreset (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "floor", true, item.getLocalMin (), attributes ); //$NON-NLS-1$
         }
     }
 
@@ -937,8 +944,11 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data ); //$NON-NLS-1$
     }
 
-    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final boolean error, final boolean requireAck, final Double preset, Map<String, String> attributes )
+    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final boolean error, final LevelMonitor levelMonitor, Map<String, String> attributes )
     {
+        final boolean requireAck = levelMonitor.isAck ();
+        final Double preset = levelMonitor.getPreset ();
+
         attributes = new HashMap<String, String> ( attributes );
         attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
         addLocalLevelMonitor ( masterId + ".local.level." + type, error, requireAck, masterId, type, preset, attributes ); //$NON-NLS-1$
@@ -1061,6 +1071,9 @@ public class Configuration extends GenericMasterConfiguration
     public void write ( final File baseDir ) throws Exception
     {
         SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
+
+        new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) );
+
         super.write ( baseDir );
 
         if ( !Boolean.getBoolean ( "skipReport" ) )

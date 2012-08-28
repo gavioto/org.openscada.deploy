@@ -23,8 +23,11 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Rounding;
@@ -43,51 +46,25 @@ import org.openscada.deploy.iolist.model.Rounding;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isDefaultChain <em>Default Chain</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMin <em>Local Min</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMinAvailable <em>Local Min Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMinAck <em>Local Min Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMax <em>Local Max</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMaxAvailable <em>Local Max Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalMaxAck <em>Local Max Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalHighHighAvailable <em>Local High High Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalHighHighAck <em>Local High High Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalHighHighPreset <em>Local High High Preset</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEventCommand <em>Event Command</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalManual <em>Local Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteManual <em>Remote Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getSystem <em>System</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getComponent <em>Component</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteMin <em>Remote Min</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteMax <em>Remote Max</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteHighHigh <em>Remote High High</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteHigh <em>Remote High</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteLow <em>Remote Low</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteLowLow <em>Remote Low Low</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalHighAvailable <em>Local High Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalHighAck <em>Local High Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalHighPreset <em>Local High Preset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalLowAvailable <em>Local Low Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalLowAck <em>Local Low Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalLowPreset <em>Local Low Preset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalLowLowAvailable <em>Local Low Low Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalLowLowAck <em>Local Low Low Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalLowLowPreset <em>Local Low Low Preset</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteBool <em>Remote Bool</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getRemoteBoolAckValue <em>Remote Bool Ack Value</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isInput <em>Input</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isOutput <em>Output</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalBool <em>Local Bool</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalScaleAvailable <em>Local Scale Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalScaleFactor <em>Local Scale Factor</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalScaleOffset <em>Local Scale Offset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isListMonitorPreset <em>List Monitor Preset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isListMonitorListIsAlarm <em>List Monitor List Is Alarm</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isListMonitorAckRequired <em>List Monitor Ack Required</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getListMonitorItems <em>List Monitor Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getDebugInformation <em>Debug Information</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalBoolAvailable <em>Local Bool Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalBoolAck <em>Local Bool Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isIgnoreSummary <em>Ignore Summary</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isBlock <em>Block</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEnabled <em>Enabled</em>}</li>
@@ -96,6 +73,14 @@ import org.openscada.deploy.iolist.model.Rounding;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getSimulationValue <em>Simulation Value</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRoundingAvailable <em>Rounding Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getRoundingValue <em>Rounding Value</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalHighHigh <em>Local High High</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalHigh <em>Local High</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalLow <em>Local Low</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalLowLow <em>Local Low Low</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMin <em>Local Min</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMax <em>Local Max</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalListMonitor <em>Local List Monitor</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}</li>
  * </ul>
  * </p>
  *
@@ -244,186 +229,6 @@ public class ItemImpl extends EObjectImpl implements Item
     protected boolean defaultChain = DEFAULT_CHAIN_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLocalMin() <em>Local Min</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalMin()
-     * @generated
-     * @ordered
-     */
-    protected static final Double LOCAL_MIN_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalMin() <em>Local Min</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalMin()
-     * @generated
-     * @ordered
-     */
-    protected Double localMin = LOCAL_MIN_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalMinAvailable() <em>Local Min Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMinAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_MIN_AVAILABLE_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isLocalMinAvailable() <em>Local Min Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMinAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localMinAvailable = LOCAL_MIN_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalMinAck() <em>Local Min Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMinAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_MIN_ACK_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isLocalMinAck() <em>Local Min Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMinAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localMinAck = LOCAL_MIN_ACK_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocalMax() <em>Local Max</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalMax()
-     * @generated
-     * @ordered
-     */
-    protected static final Double LOCAL_MAX_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalMax() <em>Local Max</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalMax()
-     * @generated
-     * @ordered
-     */
-    protected Double localMax = LOCAL_MAX_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalMaxAvailable() <em>Local Max Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMaxAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_MAX_AVAILABLE_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isLocalMaxAvailable() <em>Local Max Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMaxAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localMaxAvailable = LOCAL_MAX_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalMaxAck() <em>Local Max Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMaxAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_MAX_ACK_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isLocalMaxAck() <em>Local Max Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalMaxAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localMaxAck = LOCAL_MAX_ACK_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalHighHighAvailable() <em>Local High High Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighHighAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_HIGH_HIGH_AVAILABLE_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalHighHighAvailable() <em>Local High High Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighHighAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localHighHighAvailable = LOCAL_HIGH_HIGH_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalHighHighAck() <em>Local High High Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighHighAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_HIGH_HIGH_ACK_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isLocalHighHighAck() <em>Local High High Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighHighAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localHighHighAck = LOCAL_HIGH_HIGH_ACK_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocalHighHighPreset() <em>Local High High Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalHighHighPreset()
-     * @generated
-     * @ordered
-     */
-    protected static final Double LOCAL_HIGH_HIGH_PRESET_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalHighHighPreset() <em>Local High High Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalHighHighPreset()
-     * @generated
-     * @ordered
-     */
-    protected Double localHighHighPreset = LOCAL_HIGH_HIGH_PRESET_EDEFAULT;
-
-    /**
      * The default value of the '{@link #isEventCommand() <em>Event Command</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -504,44 +309,14 @@ public class ItemImpl extends EObjectImpl implements Item
     protected String system = SYSTEM_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+     * The cached value of the '{@link #getHierarchy() <em>Hierarchy</em>}' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getLocation()
+     * @see #getHierarchy()
      * @generated
      * @ordered
      */
-    protected static final String LOCATION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocation()
-     * @generated
-     * @ordered
-     */
-    protected String location = LOCATION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getComponent() <em>Component</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getComponent()
-     * @generated
-     * @ordered
-     */
-    protected static final String COMPONENT_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getComponent() <em>Component</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getComponent()
-     * @generated
-     * @ordered
-     */
-    protected String component = COMPONENT_EDEFAULT;
+    protected EList<String> hierarchy;
 
     /**
      * The default value of the '{@link #isRemoteMin() <em>Remote Min</em>}' attribute.
@@ -664,186 +439,6 @@ public class ItemImpl extends EObjectImpl implements Item
     protected boolean remoteLowLow = REMOTE_LOW_LOW_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isLocalHighAvailable() <em>Local High Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_HIGH_AVAILABLE_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalHighAvailable() <em>Local High Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localHighAvailable = LOCAL_HIGH_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalHighAck() <em>Local High Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_HIGH_ACK_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalHighAck() <em>Local High Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalHighAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localHighAck = LOCAL_HIGH_ACK_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocalHighPreset() <em>Local High Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalHighPreset()
-     * @generated
-     * @ordered
-     */
-    protected static final Double LOCAL_HIGH_PRESET_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalHighPreset() <em>Local High Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalHighPreset()
-     * @generated
-     * @ordered
-     */
-    protected Double localHighPreset = LOCAL_HIGH_PRESET_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalLowAvailable() <em>Local Low Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_LOW_AVAILABLE_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalLowAvailable() <em>Local Low Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localLowAvailable = LOCAL_LOW_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalLowAck() <em>Local Low Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_LOW_ACK_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalLowAck() <em>Local Low Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localLowAck = LOCAL_LOW_ACK_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocalLowPreset() <em>Local Low Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalLowPreset()
-     * @generated
-     * @ordered
-     */
-    protected static final Double LOCAL_LOW_PRESET_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalLowPreset() <em>Local Low Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalLowPreset()
-     * @generated
-     * @ordered
-     */
-    protected Double localLowPreset = LOCAL_LOW_PRESET_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalLowLowAvailable() <em>Local Low Low Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowLowAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_LOW_LOW_AVAILABLE_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalLowLowAvailable() <em>Local Low Low Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowLowAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localLowLowAvailable = LOCAL_LOW_LOW_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalLowLowAck() <em>Local Low Low Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowLowAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_LOW_LOW_ACK_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isLocalLowLowAck() <em>Local Low Low Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalLowLowAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localLowLowAck = LOCAL_LOW_LOW_ACK_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLocalLowLowPreset() <em>Local Low Low Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalLowLowPreset()
-     * @generated
-     * @ordered
-     */
-    protected static final Double LOCAL_LOW_LOW_PRESET_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalLowLowPreset() <em>Local Low Low Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalLowLowPreset()
-     * @generated
-     * @ordered
-     */
-    protected Double localLowLowPreset = LOCAL_LOW_LOW_PRESET_EDEFAULT;
-
-    /**
      * The default value of the '{@link #isRemoteBool() <em>Remote Bool</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -924,26 +519,6 @@ public class ItemImpl extends EObjectImpl implements Item
     protected boolean output = OUTPUT_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLocalBool() <em>Local Bool</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalBool()
-     * @generated
-     * @ordered
-     */
-    protected static final Boolean LOCAL_BOOL_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLocalBool() <em>Local Bool</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalBool()
-     * @generated
-     * @ordered
-     */
-    protected Boolean localBool = LOCAL_BOOL_EDEFAULT;
-
-    /**
      * The default value of the '{@link #isLocalScaleAvailable() <em>Local Scale Available</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1004,76 +579,6 @@ public class ItemImpl extends EObjectImpl implements Item
     protected Double localScaleOffset = LOCAL_SCALE_OFFSET_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isListMonitorPreset() <em>List Monitor Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isListMonitorPreset()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LIST_MONITOR_PRESET_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isListMonitorPreset() <em>List Monitor Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isListMonitorPreset()
-     * @generated
-     * @ordered
-     */
-    protected boolean listMonitorPreset = LIST_MONITOR_PRESET_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isListMonitorListIsAlarm() <em>List Monitor List Is Alarm</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isListMonitorListIsAlarm()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LIST_MONITOR_LIST_IS_ALARM_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isListMonitorListIsAlarm() <em>List Monitor List Is Alarm</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isListMonitorListIsAlarm()
-     * @generated
-     * @ordered
-     */
-    protected boolean listMonitorListIsAlarm = LIST_MONITOR_LIST_IS_ALARM_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isListMonitorAckRequired() <em>List Monitor Ack Required</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isListMonitorAckRequired()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LIST_MONITOR_ACK_REQUIRED_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isListMonitorAckRequired() <em>List Monitor Ack Required</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isListMonitorAckRequired()
-     * @generated
-     * @ordered
-     */
-    protected boolean listMonitorAckRequired = LIST_MONITOR_ACK_REQUIRED_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getListMonitorItems() <em>List Monitor Items</em>}' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getListMonitorItems()
-     * @generated
-     * @ordered
-     */
-    protected EList<String> listMonitorItems;
-
-    /**
      * The default value of the '{@link #getDebugInformation() <em>Debug Information</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1092,46 +597,6 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected String debugInformation = DEBUG_INFORMATION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalBoolAvailable() <em>Local Bool Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalBoolAvailable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_BOOL_AVAILABLE_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalBoolAvailable() <em>Local Bool Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalBoolAvailable()
-     * @generated
-     * @ordered
-     */
-    protected boolean localBoolAvailable = LOCAL_BOOL_AVAILABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isLocalBoolAck() <em>Local Bool Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalBoolAck()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean LOCAL_BOOL_ACK_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isLocalBoolAck() <em>Local Bool Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isLocalBoolAck()
-     * @generated
-     * @ordered
-     */
-    protected boolean localBoolAck = LOCAL_BOOL_ACK_EDEFAULT;
 
     /**
      * The default value of the '{@link #isIgnoreSummary() <em>Ignore Summary</em>}' attribute.
@@ -1282,6 +747,86 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected Rounding roundingValue = ROUNDING_VALUE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getLocalHighHigh() <em>Local High High</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalHighHigh()
+     * @generated
+     * @ordered
+     */
+    protected LevelMonitor localHighHigh;
+
+    /**
+     * The cached value of the '{@link #getLocalHigh() <em>Local High</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalHigh()
+     * @generated
+     * @ordered
+     */
+    protected LevelMonitor localHigh;
+
+    /**
+     * The cached value of the '{@link #getLocalLow() <em>Local Low</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalLow()
+     * @generated
+     * @ordered
+     */
+    protected LevelMonitor localLow;
+
+    /**
+     * The cached value of the '{@link #getLocalLowLow() <em>Local Low Low</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalLowLow()
+     * @generated
+     * @ordered
+     */
+    protected LevelMonitor localLowLow;
+
+    /**
+     * The cached value of the '{@link #getLocalMin() <em>Local Min</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalMin()
+     * @generated
+     * @ordered
+     */
+    protected LevelMonitor localMin;
+
+    /**
+     * The cached value of the '{@link #getLocalMax() <em>Local Max</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalMax()
+     * @generated
+     * @ordered
+     */
+    protected LevelMonitor localMax;
+
+    /**
+     * The cached value of the '{@link #getLocalListMonitor() <em>Local List Monitor</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalListMonitor()
+     * @generated
+     * @ordered
+     */
+    protected ListMonitor localListMonitor;
+
+    /**
+     * The cached value of the '{@link #getLocalBooleanMonitor() <em>Local Boolean Monitor</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalBooleanMonitor()
+     * @generated
+     * @ordered
+     */
+    protected BooleanMonitor localBooleanMonitor;
 
     /**
      * <!-- begin-user-doc -->
@@ -1470,7 +1015,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getLocalMin()
+    public LevelMonitor getLocalMin()
     {
         return localMin;
     }
@@ -1480,12 +1025,16 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMin(Double newLocalMin)
+    public NotificationChain basicSetLocalMin(LevelMonitor newLocalMin, NotificationChain msgs)
     {
-        Double oldLocalMin = localMin;
+        LevelMonitor oldLocalMin = localMin;
         localMin = newLocalMin;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, oldLocalMin, localMin));
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, oldLocalMin, newLocalMin);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -1493,9 +1042,20 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalMinAvailable()
+    public void setLocalMin(LevelMonitor newLocalMin)
     {
-        return localMinAvailable;
+        if (newLocalMin != localMin)
+        {
+            NotificationChain msgs = null;
+            if (localMin != null)
+                msgs = ((InternalEObject)localMin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MIN, null, msgs);
+            if (newLocalMin != null)
+                msgs = ((InternalEObject)newLocalMin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MIN, null, msgs);
+            msgs = basicSetLocalMin(newLocalMin, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, newLocalMin, newLocalMin));
     }
 
     /**
@@ -1503,43 +1063,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMinAvailable(boolean newLocalMinAvailable)
-    {
-        boolean oldLocalMinAvailable = localMinAvailable;
-        localMinAvailable = newLocalMinAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN_AVAILABLE, oldLocalMinAvailable, localMinAvailable));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalMinAck()
-    {
-        return localMinAck;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalMinAck(boolean newLocalMinAck)
-    {
-        boolean oldLocalMinAck = localMinAck;
-        localMinAck = newLocalMinAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN_ACK, oldLocalMinAck, localMinAck));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Double getLocalMax()
+    public LevelMonitor getLocalMax()
     {
         return localMax;
     }
@@ -1549,12 +1073,16 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMax(Double newLocalMax)
+    public NotificationChain basicSetLocalMax(LevelMonitor newLocalMax, NotificationChain msgs)
     {
-        Double oldLocalMax = localMax;
+        LevelMonitor oldLocalMax = localMax;
         localMax = newLocalMax;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, oldLocalMax, localMax));
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, oldLocalMax, newLocalMax);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -1562,9 +1090,20 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalMaxAvailable()
+    public void setLocalMax(LevelMonitor newLocalMax)
     {
-        return localMaxAvailable;
+        if (newLocalMax != localMax)
+        {
+            NotificationChain msgs = null;
+            if (localMax != null)
+                msgs = ((InternalEObject)localMax).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MAX, null, msgs);
+            if (newLocalMax != null)
+                msgs = ((InternalEObject)newLocalMax).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MAX, null, msgs);
+            msgs = basicSetLocalMax(newLocalMax, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, newLocalMax, newLocalMax));
     }
 
     /**
@@ -1572,12 +1111,26 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMaxAvailable(boolean newLocalMaxAvailable)
+    public ListMonitor getLocalListMonitor()
     {
-        boolean oldLocalMaxAvailable = localMaxAvailable;
-        localMaxAvailable = newLocalMaxAvailable;
+        return localListMonitor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLocalListMonitor(ListMonitor newLocalListMonitor, NotificationChain msgs)
+    {
+        ListMonitor oldLocalListMonitor = localListMonitor;
+        localListMonitor = newLocalListMonitor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX_AVAILABLE, oldLocalMaxAvailable, localMaxAvailable));
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LIST_MONITOR, oldLocalListMonitor, newLocalListMonitor);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -1585,9 +1138,20 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalMaxAck()
+    public void setLocalListMonitor(ListMonitor newLocalListMonitor)
     {
-        return localMaxAck;
+        if (newLocalListMonitor != localListMonitor)
+        {
+            NotificationChain msgs = null;
+            if (localListMonitor != null)
+                msgs = ((InternalEObject)localListMonitor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LIST_MONITOR, null, msgs);
+            if (newLocalListMonitor != null)
+                msgs = ((InternalEObject)newLocalListMonitor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LIST_MONITOR, null, msgs);
+            msgs = basicSetLocalListMonitor(newLocalListMonitor, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LIST_MONITOR, newLocalListMonitor, newLocalListMonitor));
     }
 
     /**
@@ -1595,12 +1159,26 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMaxAck(boolean newLocalMaxAck)
+    public BooleanMonitor getLocalBooleanMonitor()
     {
-        boolean oldLocalMaxAck = localMaxAck;
-        localMaxAck = newLocalMaxAck;
+        return localBooleanMonitor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLocalBooleanMonitor(BooleanMonitor newLocalBooleanMonitor, NotificationChain msgs)
+    {
+        BooleanMonitor oldLocalBooleanMonitor = localBooleanMonitor;
+        localBooleanMonitor = newLocalBooleanMonitor;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX_ACK, oldLocalMaxAck, localMaxAck));
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, oldLocalBooleanMonitor, newLocalBooleanMonitor);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -1608,68 +1186,20 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalHighHighAvailable()
+    public void setLocalBooleanMonitor(BooleanMonitor newLocalBooleanMonitor)
     {
-        return localHighHighAvailable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalHighHighAvailable(boolean newLocalHighHighAvailable)
-    {
-        boolean oldLocalHighHighAvailable = localHighHighAvailable;
-        localHighHighAvailable = newLocalHighHighAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE, oldLocalHighHighAvailable, localHighHighAvailable));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalHighHighAck()
-    {
-        return localHighHighAck;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalHighHighAck(boolean newLocalHighHighAck)
-    {
-        boolean oldLocalHighHighAck = localHighHighAck;
-        localHighHighAck = newLocalHighHighAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH_ACK, oldLocalHighHighAck, localHighHighAck));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Double getLocalHighHighPreset()
-    {
-        return localHighHighPreset;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalHighHighPreset(Double newLocalHighHighPreset)
-    {
-        Double oldLocalHighHighPreset = localHighHighPreset;
-        localHighHighPreset = newLocalHighHighPreset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH_PRESET, oldLocalHighHighPreset, localHighHighPreset));
+        if (newLocalBooleanMonitor != localBooleanMonitor)
+        {
+            NotificationChain msgs = null;
+            if (localBooleanMonitor != null)
+                msgs = ((InternalEObject)localBooleanMonitor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, null, msgs);
+            if (newLocalBooleanMonitor != null)
+                msgs = ((InternalEObject)newLocalBooleanMonitor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, null, msgs);
+            msgs = basicSetLocalBooleanMonitor(newLocalBooleanMonitor, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, newLocalBooleanMonitor, newLocalBooleanMonitor));
     }
 
     /**
@@ -1769,45 +1299,13 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLocation()
+    public EList<String> getHierarchy()
     {
-        return location;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocation(String newLocation)
-    {
-        String oldLocation = location;
-        location = newLocation;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCATION, oldLocation, location));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getComponent()
-    {
-        return component;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setComponent(String newComponent)
-    {
-        String oldComponent = component;
-        component = newComponent;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__COMPONENT, oldComponent, component));
+        if (hierarchy == null)
+        {
+            hierarchy = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.ITEM__HIERARCHY);
+        }
+        return hierarchy;
     }
 
     /**
@@ -1953,213 +1451,6 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalHighAvailable()
-    {
-        return localHighAvailable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalHighAvailable(boolean newLocalHighAvailable)
-    {
-        boolean oldLocalHighAvailable = localHighAvailable;
-        localHighAvailable = newLocalHighAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_AVAILABLE, oldLocalHighAvailable, localHighAvailable));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalHighAck()
-    {
-        return localHighAck;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalHighAck(boolean newLocalHighAck)
-    {
-        boolean oldLocalHighAck = localHighAck;
-        localHighAck = newLocalHighAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_ACK, oldLocalHighAck, localHighAck));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Double getLocalHighPreset()
-    {
-        return localHighPreset;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalHighPreset(Double newLocalHighPreset)
-    {
-        Double oldLocalHighPreset = localHighPreset;
-        localHighPreset = newLocalHighPreset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_PRESET, oldLocalHighPreset, localHighPreset));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalLowAvailable()
-    {
-        return localLowAvailable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalLowAvailable(boolean newLocalLowAvailable)
-    {
-        boolean oldLocalLowAvailable = localLowAvailable;
-        localLowAvailable = newLocalLowAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_AVAILABLE, oldLocalLowAvailable, localLowAvailable));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalLowAck()
-    {
-        return localLowAck;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalLowAck(boolean newLocalLowAck)
-    {
-        boolean oldLocalLowAck = localLowAck;
-        localLowAck = newLocalLowAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_ACK, oldLocalLowAck, localLowAck));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Double getLocalLowPreset()
-    {
-        return localLowPreset;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalLowPreset(Double newLocalLowPreset)
-    {
-        Double oldLocalLowPreset = localLowPreset;
-        localLowPreset = newLocalLowPreset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_PRESET, oldLocalLowPreset, localLowPreset));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalLowLowAvailable()
-    {
-        return localLowLowAvailable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalLowLowAvailable(boolean newLocalLowLowAvailable)
-    {
-        boolean oldLocalLowLowAvailable = localLowLowAvailable;
-        localLowLowAvailable = newLocalLowLowAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW_AVAILABLE, oldLocalLowLowAvailable, localLowLowAvailable));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalLowLowAck()
-    {
-        return localLowLowAck;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalLowLowAck(boolean newLocalLowLowAck)
-    {
-        boolean oldLocalLowLowAck = localLowLowAck;
-        localLowLowAck = newLocalLowLowAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW_ACK, oldLocalLowLowAck, localLowLowAck));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Double getLocalLowLowPreset()
-    {
-        return localLowLowPreset;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalLowLowPreset(Double newLocalLowLowPreset)
-    {
-        Double oldLocalLowLowPreset = localLowLowPreset;
-        localLowLowPreset = newLocalLowLowPreset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW_PRESET, oldLocalLowLowPreset, localLowLowPreset));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean isRemoteBool()
     {
         return remoteBool;
@@ -2252,29 +1543,6 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public Boolean getLocalBool()
-    {
-        return localBool;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalBool(Boolean newLocalBool)
-    {
-        Boolean oldLocalBool = localBool;
-        localBool = newLocalBool;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOL, oldLocalBool, localBool));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean isLocalScaleAvailable()
     {
         return localScaleAvailable;
@@ -2344,89 +1612,6 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isListMonitorPreset()
-    {
-        return listMonitorPreset;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setListMonitorPreset(boolean newListMonitorPreset)
-    {
-        boolean oldListMonitorPreset = listMonitorPreset;
-        listMonitorPreset = newListMonitorPreset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LIST_MONITOR_PRESET, oldListMonitorPreset, listMonitorPreset));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isListMonitorListIsAlarm()
-    {
-        return listMonitorListIsAlarm;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setListMonitorListIsAlarm(boolean newListMonitorListIsAlarm)
-    {
-        boolean oldListMonitorListIsAlarm = listMonitorListIsAlarm;
-        listMonitorListIsAlarm = newListMonitorListIsAlarm;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LIST_MONITOR_LIST_IS_ALARM, oldListMonitorListIsAlarm, listMonitorListIsAlarm));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isListMonitorAckRequired()
-    {
-        return listMonitorAckRequired;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setListMonitorAckRequired(boolean newListMonitorAckRequired)
-    {
-        boolean oldListMonitorAckRequired = listMonitorAckRequired;
-        listMonitorAckRequired = newListMonitorAckRequired;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LIST_MONITOR_ACK_REQUIRED, oldListMonitorAckRequired, listMonitorAckRequired));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<String> getListMonitorItems()
-    {
-        if (listMonitorItems == null)
-        {
-            listMonitorItems = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.ITEM__LIST_MONITOR_ITEMS);
-        }
-        return listMonitorItems;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public String getDebugInformation()
     {
         return debugInformation;
@@ -2443,52 +1628,6 @@ public class ItemImpl extends EObjectImpl implements Item
         debugInformation = newDebugInformation;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__DEBUG_INFORMATION, oldDebugInformation, debugInformation));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalBoolAvailable()
-    {
-        return localBoolAvailable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalBoolAvailable(boolean newLocalBoolAvailable)
-    {
-        boolean oldLocalBoolAvailable = localBoolAvailable;
-        localBoolAvailable = newLocalBoolAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOL_AVAILABLE, oldLocalBoolAvailable, localBoolAvailable));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isLocalBoolAck()
-    {
-        return localBoolAck;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalBoolAck(boolean newLocalBoolAck)
-    {
-        boolean oldLocalBoolAck = localBoolAck;
-        localBoolAck = newLocalBoolAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOL_ACK, oldLocalBoolAck, localBoolAck));
     }
 
     /**
@@ -2671,6 +1810,198 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public LevelMonitor getLocalHighHigh()
+    {
+        return localHighHigh;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLocalHighHigh(LevelMonitor newLocalHighHigh, NotificationChain msgs)
+    {
+        LevelMonitor oldLocalHighHigh = localHighHigh;
+        localHighHigh = newLocalHighHigh;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH, oldLocalHighHigh, newLocalHighHigh);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalHighHigh(LevelMonitor newLocalHighHigh)
+    {
+        if (newLocalHighHigh != localHighHigh)
+        {
+            NotificationChain msgs = null;
+            if (localHighHigh != null)
+                msgs = ((InternalEObject)localHighHigh).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH_HIGH, null, msgs);
+            if (newLocalHighHigh != null)
+                msgs = ((InternalEObject)newLocalHighHigh).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH_HIGH, null, msgs);
+            msgs = basicSetLocalHighHigh(newLocalHighHigh, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH, newLocalHighHigh, newLocalHighHigh));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LevelMonitor getLocalHigh()
+    {
+        return localHigh;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLocalHigh(LevelMonitor newLocalHigh, NotificationChain msgs)
+    {
+        LevelMonitor oldLocalHigh = localHigh;
+        localHigh = newLocalHigh;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH, oldLocalHigh, newLocalHigh);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalHigh(LevelMonitor newLocalHigh)
+    {
+        if (newLocalHigh != localHigh)
+        {
+            NotificationChain msgs = null;
+            if (localHigh != null)
+                msgs = ((InternalEObject)localHigh).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH, null, msgs);
+            if (newLocalHigh != null)
+                msgs = ((InternalEObject)newLocalHigh).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH, null, msgs);
+            msgs = basicSetLocalHigh(newLocalHigh, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH, newLocalHigh, newLocalHigh));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LevelMonitor getLocalLow()
+    {
+        return localLow;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLocalLow(LevelMonitor newLocalLow, NotificationChain msgs)
+    {
+        LevelMonitor oldLocalLow = localLow;
+        localLow = newLocalLow;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW, oldLocalLow, newLocalLow);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalLow(LevelMonitor newLocalLow)
+    {
+        if (newLocalLow != localLow)
+        {
+            NotificationChain msgs = null;
+            if (localLow != null)
+                msgs = ((InternalEObject)localLow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW, null, msgs);
+            if (newLocalLow != null)
+                msgs = ((InternalEObject)newLocalLow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW, null, msgs);
+            msgs = basicSetLocalLow(newLocalLow, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW, newLocalLow, newLocalLow));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public LevelMonitor getLocalLowLow()
+    {
+        return localLowLow;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetLocalLowLow(LevelMonitor newLocalLowLow, NotificationChain msgs)
+    {
+        LevelMonitor oldLocalLowLow = localLowLow;
+        localLowLow = newLocalLowLow;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW, oldLocalLowLow, newLocalLowLow);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalLowLow(LevelMonitor newLocalLowLow)
+    {
+        if (newLocalLowLow != localLowLow)
+        {
+            NotificationChain msgs = null;
+            if (localLowLow != null)
+                msgs = ((InternalEObject)localLowLow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW_LOW, null, msgs);
+            if (newLocalLowLow != null)
+                msgs = ((InternalEObject)newLocalLowLow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW_LOW, null, msgs);
+            msgs = basicSetLocalLowLow(newLocalLowLow, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW, newLocalLowLow, newLocalLowLow));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -2678,6 +2009,22 @@ public class ItemImpl extends EObjectImpl implements Item
         {
             case ModelPackage.ITEM__MAPPER:
                 return ((InternalEList<?>)getMapper()).basicRemove(otherEnd, msgs);
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                return basicSetLocalHighHigh(null, msgs);
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                return basicSetLocalHigh(null, msgs);
+            case ModelPackage.ITEM__LOCAL_LOW:
+                return basicSetLocalLow(null, msgs);
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                return basicSetLocalLowLow(null, msgs);
+            case ModelPackage.ITEM__LOCAL_MIN:
+                return basicSetLocalMin(null, msgs);
+            case ModelPackage.ITEM__LOCAL_MAX:
+                return basicSetLocalMax(null, msgs);
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                return basicSetLocalListMonitor(null, msgs);
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                return basicSetLocalBooleanMonitor(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -2706,24 +2053,6 @@ public class ItemImpl extends EObjectImpl implements Item
                 return getDescription();
             case ModelPackage.ITEM__DEFAULT_CHAIN:
                 return isDefaultChain();
-            case ModelPackage.ITEM__LOCAL_MIN:
-                return getLocalMin();
-            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
-                return isLocalMinAvailable();
-            case ModelPackage.ITEM__LOCAL_MIN_ACK:
-                return isLocalMinAck();
-            case ModelPackage.ITEM__LOCAL_MAX:
-                return getLocalMax();
-            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
-                return isLocalMaxAvailable();
-            case ModelPackage.ITEM__LOCAL_MAX_ACK:
-                return isLocalMaxAck();
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE:
-                return isLocalHighHighAvailable();
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_ACK:
-                return isLocalHighHighAck();
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_PRESET:
-                return getLocalHighHighPreset();
             case ModelPackage.ITEM__EVENT_COMMAND:
                 return isEventCommand();
             case ModelPackage.ITEM__LOCAL_MANUAL:
@@ -2732,10 +2061,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isRemoteManual();
             case ModelPackage.ITEM__SYSTEM:
                 return getSystem();
-            case ModelPackage.ITEM__LOCATION:
-                return getLocation();
-            case ModelPackage.ITEM__COMPONENT:
-                return getComponent();
+            case ModelPackage.ITEM__HIERARCHY:
+                return getHierarchy();
             case ModelPackage.ITEM__REMOTE_MIN:
                 return isRemoteMin();
             case ModelPackage.ITEM__REMOTE_MAX:
@@ -2748,24 +2075,6 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isRemoteLow();
             case ModelPackage.ITEM__REMOTE_LOW_LOW:
                 return isRemoteLowLow();
-            case ModelPackage.ITEM__LOCAL_HIGH_AVAILABLE:
-                return isLocalHighAvailable();
-            case ModelPackage.ITEM__LOCAL_HIGH_ACK:
-                return isLocalHighAck();
-            case ModelPackage.ITEM__LOCAL_HIGH_PRESET:
-                return getLocalHighPreset();
-            case ModelPackage.ITEM__LOCAL_LOW_AVAILABLE:
-                return isLocalLowAvailable();
-            case ModelPackage.ITEM__LOCAL_LOW_ACK:
-                return isLocalLowAck();
-            case ModelPackage.ITEM__LOCAL_LOW_PRESET:
-                return getLocalLowPreset();
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_AVAILABLE:
-                return isLocalLowLowAvailable();
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_ACK:
-                return isLocalLowLowAck();
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_PRESET:
-                return getLocalLowLowPreset();
             case ModelPackage.ITEM__REMOTE_BOOL:
                 return isRemoteBool();
             case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
@@ -2774,28 +2083,14 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isInput();
             case ModelPackage.ITEM__OUTPUT:
                 return isOutput();
-            case ModelPackage.ITEM__LOCAL_BOOL:
-                return getLocalBool();
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
                 return isLocalScaleAvailable();
             case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
                 return getLocalScaleFactor();
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
                 return getLocalScaleOffset();
-            case ModelPackage.ITEM__LIST_MONITOR_PRESET:
-                return isListMonitorPreset();
-            case ModelPackage.ITEM__LIST_MONITOR_LIST_IS_ALARM:
-                return isListMonitorListIsAlarm();
-            case ModelPackage.ITEM__LIST_MONITOR_ACK_REQUIRED:
-                return isListMonitorAckRequired();
-            case ModelPackage.ITEM__LIST_MONITOR_ITEMS:
-                return getListMonitorItems();
             case ModelPackage.ITEM__DEBUG_INFORMATION:
                 return getDebugInformation();
-            case ModelPackage.ITEM__LOCAL_BOOL_AVAILABLE:
-                return isLocalBoolAvailable();
-            case ModelPackage.ITEM__LOCAL_BOOL_ACK:
-                return isLocalBoolAck();
             case ModelPackage.ITEM__IGNORE_SUMMARY:
                 return isIgnoreSummary();
             case ModelPackage.ITEM__BLOCK:
@@ -2812,6 +2107,22 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isRoundingAvailable();
             case ModelPackage.ITEM__ROUNDING_VALUE:
                 return getRoundingValue();
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                return getLocalHighHigh();
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                return getLocalHigh();
+            case ModelPackage.ITEM__LOCAL_LOW:
+                return getLocalLow();
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                return getLocalLowLow();
+            case ModelPackage.ITEM__LOCAL_MIN:
+                return getLocalMin();
+            case ModelPackage.ITEM__LOCAL_MAX:
+                return getLocalMax();
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                return getLocalListMonitor();
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                return getLocalBooleanMonitor();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -2848,33 +2159,6 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__DEFAULT_CHAIN:
                 setDefaultChain((Boolean)newValue);
                 return;
-            case ModelPackage.ITEM__LOCAL_MIN:
-                setLocalMin((Double)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
-                setLocalMinAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MIN_ACK:
-                setLocalMinAck((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX:
-                setLocalMax((Double)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
-                setLocalMaxAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX_ACK:
-                setLocalMaxAck((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE:
-                setLocalHighHighAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_ACK:
-                setLocalHighHighAck((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_PRESET:
-                setLocalHighHighPreset((Double)newValue);
-                return;
             case ModelPackage.ITEM__EVENT_COMMAND:
                 setEventCommand((Boolean)newValue);
                 return;
@@ -2887,11 +2171,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__SYSTEM:
                 setSystem((String)newValue);
                 return;
-            case ModelPackage.ITEM__LOCATION:
-                setLocation((String)newValue);
-                return;
-            case ModelPackage.ITEM__COMPONENT:
-                setComponent((String)newValue);
+            case ModelPackage.ITEM__HIERARCHY:
+                getHierarchy().clear();
+                getHierarchy().addAll((Collection<? extends String>)newValue);
                 return;
             case ModelPackage.ITEM__REMOTE_MIN:
                 setRemoteMin((Boolean)newValue);
@@ -2911,33 +2193,6 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__REMOTE_LOW_LOW:
                 setRemoteLowLow((Boolean)newValue);
                 return;
-            case ModelPackage.ITEM__LOCAL_HIGH_AVAILABLE:
-                setLocalHighAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_ACK:
-                setLocalHighAck((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_PRESET:
-                setLocalHighPreset((Double)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_AVAILABLE:
-                setLocalLowAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_ACK:
-                setLocalLowAck((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_PRESET:
-                setLocalLowPreset((Double)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_AVAILABLE:
-                setLocalLowLowAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_ACK:
-                setLocalLowLowAck((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_PRESET:
-                setLocalLowLowPreset((Double)newValue);
-                return;
             case ModelPackage.ITEM__REMOTE_BOOL:
                 setRemoteBool((Boolean)newValue);
                 return;
@@ -2950,9 +2205,6 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__OUTPUT:
                 setOutput((Boolean)newValue);
                 return;
-            case ModelPackage.ITEM__LOCAL_BOOL:
-                setLocalBool((Boolean)newValue);
-                return;
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
                 setLocalScaleAvailable((Boolean)newValue);
                 return;
@@ -2962,27 +2214,8 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
                 setLocalScaleOffset((Double)newValue);
                 return;
-            case ModelPackage.ITEM__LIST_MONITOR_PRESET:
-                setListMonitorPreset((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LIST_MONITOR_LIST_IS_ALARM:
-                setListMonitorListIsAlarm((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LIST_MONITOR_ACK_REQUIRED:
-                setListMonitorAckRequired((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LIST_MONITOR_ITEMS:
-                getListMonitorItems().clear();
-                getListMonitorItems().addAll((Collection<? extends String>)newValue);
-                return;
             case ModelPackage.ITEM__DEBUG_INFORMATION:
                 setDebugInformation((String)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_BOOL_AVAILABLE:
-                setLocalBoolAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_BOOL_ACK:
-                setLocalBoolAck((Boolean)newValue);
                 return;
             case ModelPackage.ITEM__IGNORE_SUMMARY:
                 setIgnoreSummary((Boolean)newValue);
@@ -3008,6 +2241,30 @@ public class ItemImpl extends EObjectImpl implements Item
                 return;
             case ModelPackage.ITEM__ROUNDING_VALUE:
                 setRoundingValue((Rounding)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                setLocalHighHigh((LevelMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                setLocalHigh((LevelMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                setLocalLow((LevelMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                setLocalLowLow((LevelMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                setLocalMin((LevelMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                setLocalMax((LevelMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                setLocalListMonitor((ListMonitor)newValue);
+                return;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                setLocalBooleanMonitor((BooleanMonitor)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -3044,33 +2301,6 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__DEFAULT_CHAIN:
                 setDefaultChain(DEFAULT_CHAIN_EDEFAULT);
                 return;
-            case ModelPackage.ITEM__LOCAL_MIN:
-                setLocalMin(LOCAL_MIN_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
-                setLocalMinAvailable(LOCAL_MIN_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_MIN_ACK:
-                setLocalMinAck(LOCAL_MIN_ACK_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX:
-                setLocalMax(LOCAL_MAX_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
-                setLocalMaxAvailable(LOCAL_MAX_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX_ACK:
-                setLocalMaxAck(LOCAL_MAX_ACK_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE:
-                setLocalHighHighAvailable(LOCAL_HIGH_HIGH_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_ACK:
-                setLocalHighHighAck(LOCAL_HIGH_HIGH_ACK_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_PRESET:
-                setLocalHighHighPreset(LOCAL_HIGH_HIGH_PRESET_EDEFAULT);
-                return;
             case ModelPackage.ITEM__EVENT_COMMAND:
                 setEventCommand(EVENT_COMMAND_EDEFAULT);
                 return;
@@ -3083,11 +2313,8 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__SYSTEM:
                 setSystem(SYSTEM_EDEFAULT);
                 return;
-            case ModelPackage.ITEM__LOCATION:
-                setLocation(LOCATION_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__COMPONENT:
-                setComponent(COMPONENT_EDEFAULT);
+            case ModelPackage.ITEM__HIERARCHY:
+                getHierarchy().clear();
                 return;
             case ModelPackage.ITEM__REMOTE_MIN:
                 setRemoteMin(REMOTE_MIN_EDEFAULT);
@@ -3107,33 +2334,6 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__REMOTE_LOW_LOW:
                 setRemoteLowLow(REMOTE_LOW_LOW_EDEFAULT);
                 return;
-            case ModelPackage.ITEM__LOCAL_HIGH_AVAILABLE:
-                setLocalHighAvailable(LOCAL_HIGH_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_ACK:
-                setLocalHighAck(LOCAL_HIGH_ACK_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_PRESET:
-                setLocalHighPreset(LOCAL_HIGH_PRESET_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_AVAILABLE:
-                setLocalLowAvailable(LOCAL_LOW_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_ACK:
-                setLocalLowAck(LOCAL_LOW_ACK_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_PRESET:
-                setLocalLowPreset(LOCAL_LOW_PRESET_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_AVAILABLE:
-                setLocalLowLowAvailable(LOCAL_LOW_LOW_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_ACK:
-                setLocalLowLowAck(LOCAL_LOW_LOW_ACK_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_PRESET:
-                setLocalLowLowPreset(LOCAL_LOW_LOW_PRESET_EDEFAULT);
-                return;
             case ModelPackage.ITEM__REMOTE_BOOL:
                 setRemoteBool(REMOTE_BOOL_EDEFAULT);
                 return;
@@ -3146,9 +2346,6 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__OUTPUT:
                 setOutput(OUTPUT_EDEFAULT);
                 return;
-            case ModelPackage.ITEM__LOCAL_BOOL:
-                setLocalBool(LOCAL_BOOL_EDEFAULT);
-                return;
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
                 setLocalScaleAvailable(LOCAL_SCALE_AVAILABLE_EDEFAULT);
                 return;
@@ -3158,26 +2355,8 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
                 setLocalScaleOffset(LOCAL_SCALE_OFFSET_EDEFAULT);
                 return;
-            case ModelPackage.ITEM__LIST_MONITOR_PRESET:
-                setListMonitorPreset(LIST_MONITOR_PRESET_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LIST_MONITOR_LIST_IS_ALARM:
-                setListMonitorListIsAlarm(LIST_MONITOR_LIST_IS_ALARM_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LIST_MONITOR_ACK_REQUIRED:
-                setListMonitorAckRequired(LIST_MONITOR_ACK_REQUIRED_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LIST_MONITOR_ITEMS:
-                getListMonitorItems().clear();
-                return;
             case ModelPackage.ITEM__DEBUG_INFORMATION:
                 setDebugInformation(DEBUG_INFORMATION_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_BOOL_AVAILABLE:
-                setLocalBoolAvailable(LOCAL_BOOL_AVAILABLE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__LOCAL_BOOL_ACK:
-                setLocalBoolAck(LOCAL_BOOL_ACK_EDEFAULT);
                 return;
             case ModelPackage.ITEM__IGNORE_SUMMARY:
                 setIgnoreSummary(IGNORE_SUMMARY_EDEFAULT);
@@ -3202,6 +2381,30 @@ public class ItemImpl extends EObjectImpl implements Item
                 return;
             case ModelPackage.ITEM__ROUNDING_VALUE:
                 setRoundingValue(ROUNDING_VALUE_EDEFAULT);
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                setLocalHighHigh((LevelMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                setLocalHigh((LevelMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                setLocalLow((LevelMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                setLocalLowLow((LevelMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                setLocalMin((LevelMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                setLocalMax((LevelMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                setLocalListMonitor((ListMonitor)null);
+                return;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                setLocalBooleanMonitor((BooleanMonitor)null);
                 return;
         }
         super.eUnset(featureID);
@@ -3231,24 +2434,6 @@ public class ItemImpl extends EObjectImpl implements Item
                 return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
             case ModelPackage.ITEM__DEFAULT_CHAIN:
                 return defaultChain != DEFAULT_CHAIN_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_MIN:
-                return LOCAL_MIN_EDEFAULT == null ? localMin != null : !LOCAL_MIN_EDEFAULT.equals(localMin);
-            case ModelPackage.ITEM__LOCAL_MIN_AVAILABLE:
-                return localMinAvailable != LOCAL_MIN_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_MIN_ACK:
-                return localMinAck != LOCAL_MIN_ACK_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_MAX:
-                return LOCAL_MAX_EDEFAULT == null ? localMax != null : !LOCAL_MAX_EDEFAULT.equals(localMax);
-            case ModelPackage.ITEM__LOCAL_MAX_AVAILABLE:
-                return localMaxAvailable != LOCAL_MAX_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_MAX_ACK:
-                return localMaxAck != LOCAL_MAX_ACK_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_AVAILABLE:
-                return localHighHighAvailable != LOCAL_HIGH_HIGH_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_ACK:
-                return localHighHighAck != LOCAL_HIGH_HIGH_ACK_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH_PRESET:
-                return LOCAL_HIGH_HIGH_PRESET_EDEFAULT == null ? localHighHighPreset != null : !LOCAL_HIGH_HIGH_PRESET_EDEFAULT.equals(localHighHighPreset);
             case ModelPackage.ITEM__EVENT_COMMAND:
                 return eventCommand != EVENT_COMMAND_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MANUAL:
@@ -3257,10 +2442,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return remoteManual != REMOTE_MANUAL_EDEFAULT;
             case ModelPackage.ITEM__SYSTEM:
                 return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
-            case ModelPackage.ITEM__LOCATION:
-                return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
-            case ModelPackage.ITEM__COMPONENT:
-                return COMPONENT_EDEFAULT == null ? component != null : !COMPONENT_EDEFAULT.equals(component);
+            case ModelPackage.ITEM__HIERARCHY:
+                return hierarchy != null && !hierarchy.isEmpty();
             case ModelPackage.ITEM__REMOTE_MIN:
                 return remoteMin != REMOTE_MIN_EDEFAULT;
             case ModelPackage.ITEM__REMOTE_MAX:
@@ -3273,24 +2456,6 @@ public class ItemImpl extends EObjectImpl implements Item
                 return remoteLow != REMOTE_LOW_EDEFAULT;
             case ModelPackage.ITEM__REMOTE_LOW_LOW:
                 return remoteLowLow != REMOTE_LOW_LOW_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_HIGH_AVAILABLE:
-                return localHighAvailable != LOCAL_HIGH_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_HIGH_ACK:
-                return localHighAck != LOCAL_HIGH_ACK_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_HIGH_PRESET:
-                return LOCAL_HIGH_PRESET_EDEFAULT == null ? localHighPreset != null : !LOCAL_HIGH_PRESET_EDEFAULT.equals(localHighPreset);
-            case ModelPackage.ITEM__LOCAL_LOW_AVAILABLE:
-                return localLowAvailable != LOCAL_LOW_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_LOW_ACK:
-                return localLowAck != LOCAL_LOW_ACK_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_LOW_PRESET:
-                return LOCAL_LOW_PRESET_EDEFAULT == null ? localLowPreset != null : !LOCAL_LOW_PRESET_EDEFAULT.equals(localLowPreset);
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_AVAILABLE:
-                return localLowLowAvailable != LOCAL_LOW_LOW_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_ACK:
-                return localLowLowAck != LOCAL_LOW_LOW_ACK_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW_PRESET:
-                return LOCAL_LOW_LOW_PRESET_EDEFAULT == null ? localLowLowPreset != null : !LOCAL_LOW_LOW_PRESET_EDEFAULT.equals(localLowLowPreset);
             case ModelPackage.ITEM__REMOTE_BOOL:
                 return remoteBool != REMOTE_BOOL_EDEFAULT;
             case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
@@ -3299,28 +2464,14 @@ public class ItemImpl extends EObjectImpl implements Item
                 return input != INPUT_EDEFAULT;
             case ModelPackage.ITEM__OUTPUT:
                 return output != OUTPUT_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_BOOL:
-                return LOCAL_BOOL_EDEFAULT == null ? localBool != null : !LOCAL_BOOL_EDEFAULT.equals(localBool);
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
                 return localScaleAvailable != LOCAL_SCALE_AVAILABLE_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
                 return LOCAL_SCALE_FACTOR_EDEFAULT == null ? localScaleFactor != null : !LOCAL_SCALE_FACTOR_EDEFAULT.equals(localScaleFactor);
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
                 return LOCAL_SCALE_OFFSET_EDEFAULT == null ? localScaleOffset != null : !LOCAL_SCALE_OFFSET_EDEFAULT.equals(localScaleOffset);
-            case ModelPackage.ITEM__LIST_MONITOR_PRESET:
-                return listMonitorPreset != LIST_MONITOR_PRESET_EDEFAULT;
-            case ModelPackage.ITEM__LIST_MONITOR_LIST_IS_ALARM:
-                return listMonitorListIsAlarm != LIST_MONITOR_LIST_IS_ALARM_EDEFAULT;
-            case ModelPackage.ITEM__LIST_MONITOR_ACK_REQUIRED:
-                return listMonitorAckRequired != LIST_MONITOR_ACK_REQUIRED_EDEFAULT;
-            case ModelPackage.ITEM__LIST_MONITOR_ITEMS:
-                return listMonitorItems != null && !listMonitorItems.isEmpty();
             case ModelPackage.ITEM__DEBUG_INFORMATION:
                 return DEBUG_INFORMATION_EDEFAULT == null ? debugInformation != null : !DEBUG_INFORMATION_EDEFAULT.equals(debugInformation);
-            case ModelPackage.ITEM__LOCAL_BOOL_AVAILABLE:
-                return localBoolAvailable != LOCAL_BOOL_AVAILABLE_EDEFAULT;
-            case ModelPackage.ITEM__LOCAL_BOOL_ACK:
-                return localBoolAck != LOCAL_BOOL_ACK_EDEFAULT;
             case ModelPackage.ITEM__IGNORE_SUMMARY:
                 return ignoreSummary != IGNORE_SUMMARY_EDEFAULT;
             case ModelPackage.ITEM__BLOCK:
@@ -3337,6 +2488,22 @@ public class ItemImpl extends EObjectImpl implements Item
                 return roundingAvailable != ROUNDING_AVAILABLE_EDEFAULT;
             case ModelPackage.ITEM__ROUNDING_VALUE:
                 return roundingValue != ROUNDING_VALUE_EDEFAULT;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                return localHighHigh != null;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                return localHigh != null;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                return localLow != null;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                return localLowLow != null;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                return localMin != null;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                return localMax != null;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                return localListMonitor != null;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                return localBooleanMonitor != null;
         }
         return super.eIsSet(featureID);
     }
@@ -3366,24 +2533,6 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(description);
         result.append(", defaultChain: ");
         result.append(defaultChain);
-        result.append(", localMin: ");
-        result.append(localMin);
-        result.append(", localMinAvailable: ");
-        result.append(localMinAvailable);
-        result.append(", localMinAck: ");
-        result.append(localMinAck);
-        result.append(", localMax: ");
-        result.append(localMax);
-        result.append(", localMaxAvailable: ");
-        result.append(localMaxAvailable);
-        result.append(", localMaxAck: ");
-        result.append(localMaxAck);
-        result.append(", localHighHighAvailable: ");
-        result.append(localHighHighAvailable);
-        result.append(", localHighHighAck: ");
-        result.append(localHighHighAck);
-        result.append(", localHighHighPreset: ");
-        result.append(localHighHighPreset);
         result.append(", eventCommand: ");
         result.append(eventCommand);
         result.append(", localManual: ");
@@ -3392,10 +2541,8 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(remoteManual);
         result.append(", system: ");
         result.append(system);
-        result.append(", location: ");
-        result.append(location);
-        result.append(", component: ");
-        result.append(component);
+        result.append(", hierarchy: ");
+        result.append(hierarchy);
         result.append(", remoteMin: ");
         result.append(remoteMin);
         result.append(", remoteMax: ");
@@ -3408,24 +2555,6 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(remoteLow);
         result.append(", remoteLowLow: ");
         result.append(remoteLowLow);
-        result.append(", localHighAvailable: ");
-        result.append(localHighAvailable);
-        result.append(", localHighAck: ");
-        result.append(localHighAck);
-        result.append(", localHighPreset: ");
-        result.append(localHighPreset);
-        result.append(", localLowAvailable: ");
-        result.append(localLowAvailable);
-        result.append(", localLowAck: ");
-        result.append(localLowAck);
-        result.append(", localLowPreset: ");
-        result.append(localLowPreset);
-        result.append(", localLowLowAvailable: ");
-        result.append(localLowLowAvailable);
-        result.append(", localLowLowAck: ");
-        result.append(localLowLowAck);
-        result.append(", localLowLowPreset: ");
-        result.append(localLowLowPreset);
         result.append(", remoteBool: ");
         result.append(remoteBool);
         result.append(", remoteBoolAckValue: ");
@@ -3434,28 +2563,14 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append(input);
         result.append(", output: ");
         result.append(output);
-        result.append(", localBool: ");
-        result.append(localBool);
         result.append(", localScaleAvailable: ");
         result.append(localScaleAvailable);
         result.append(", localScaleFactor: ");
         result.append(localScaleFactor);
         result.append(", localScaleOffset: ");
         result.append(localScaleOffset);
-        result.append(", listMonitorPreset: ");
-        result.append(listMonitorPreset);
-        result.append(", listMonitorListIsAlarm: ");
-        result.append(listMonitorListIsAlarm);
-        result.append(", listMonitorAckRequired: ");
-        result.append(listMonitorAckRequired);
-        result.append(", listMonitorItems: ");
-        result.append(listMonitorItems);
         result.append(", debugInformation: ");
         result.append(debugInformation);
-        result.append(", localBoolAvailable: ");
-        result.append(localBoolAvailable);
-        result.append(", localBoolAck: ");
-        result.append(localBoolAck);
         result.append(", ignoreSummary: ");
         result.append(ignoreSummary);
         result.append(", block: ");

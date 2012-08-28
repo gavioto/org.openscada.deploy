@@ -55,7 +55,7 @@ public class Application
         {
             {
                 final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () / 100.0, device.getAlarmLoss () / 100.0 );
-                item.setAlias ( String.format ( "%s.%s.%s.AVAIL.V", prefix, item.getLocation (), item.getComponent () ) ); //$NON-NLS-1$
+                item.setAlias ( String.format ( "%s.%s.%s.AVAIL.V", prefix, device.getLocation (), device.getComponent () ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_PacketLoss_Description, device.getDescription () ) );
                 item.setUnit ( "%" ); //$NON-NLS-1$
@@ -63,7 +63,7 @@ public class Application
             }
             {
                 final Item item = createDeviceItem ( device, device.getWarnRtt (), device.getAlarmRtt (), null, null );
-                item.setAlias ( String.format ( "%s.%s.%s.P_RT.V", prefix, item.getLocation (), item.getComponent () ) ); //$NON-NLS-1$
+                item.setAlias ( String.format ( "%s.%s.%s.P_RT.V", prefix, device.getLocation (), device.getComponent () ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.rtt", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_RTT_Description, device.getDescription () ) );
                 item.setUnit ( "ms" ); //$NON-NLS-1$
@@ -83,32 +83,38 @@ public class Application
 
         item.setDataType ( DataType.FLOAT );
 
-        item.setLocation ( device.getLocation () );
-        item.setComponent ( device.getComponent () );
+        // TODO: allow hierarchy for network devices
+        item.getHierarchy ().add ( device.getLocation () );
+        item.getHierarchy ().add ( device.getComponent () );
 
-        item.setLocalLowAvailable ( true );
+        item.setLocalMin ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalLowLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalHighHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
+        item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
+
         if ( warnLow != null )
         {
-            item.setLocalLowPreset ( warnLow );
+            item.getLocalLow ().setPreset ( warnLow );
         }
-        item.setLocalLowLowAvailable ( true );
         if ( alarmLow != null )
         {
-            item.setLocalLowLowPreset ( alarmLow );
+            item.getLocalLowLow ().setPreset ( alarmLow );
+            item.getLocalLowLow ().setAck ( true );
         }
-
-        item.setLocalHighAvailable ( true );
         if ( warnHigh != null )
         {
-            item.setLocalHighPreset ( warnHigh );
+            item.getLocalHigh ().setPreset ( alarmLow );
         }
-        item.setLocalHighHighAvailable ( true );
         if ( alarmHigh != null )
         {
-            item.setLocalHighHighPreset ( alarmHigh );
+            item.getLocalHighHigh ().setPreset ( alarmLow );
+            item.getLocalHighHigh ().setAck ( true );
         }
 
-        item.setLocalMin ( 0.0 );
+        item.getLocalMin ().setPreset ( 0.0 );
+        item.getLocalMin ().setAck ( true );
 
         return item;
     }

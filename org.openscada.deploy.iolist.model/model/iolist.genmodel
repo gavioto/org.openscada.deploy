@@ -4,78 +4,78 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.deploy.iolist.model/src"
     modelPluginID="org.openscada.deploy.iolist.model" modelName="Iolist" modelPluginClass=""
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
-  <foreignModel>model.ecore</foreignModel>
+  <foreignModel>iolist.ecore</foreignModel>
   <genPackages prefix="Model" basePackage="org.openscada.deploy.iolist" disposableProviderFactory="true"
-      ecorePackage="model.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//DataType">
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/Variant"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/Float"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/String"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/Boolean"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/Integer"/>
-      <genEnumLiterals ecoreEnumLiteral="model.ecore#//DataType/LongInteger"/>
+      ecorePackage="iolist.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iolist.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Variant"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Float"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/LongInteger"/>
     </genEnums>
-    <genClasses ecoreClass="model.ecore#//Item">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/device"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/dataType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/unit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/alias"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/defaultChain"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localMin"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localMinAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localMax"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localMaxAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localHighHighAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localHighHighAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localHighHighPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/eventCommand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localManual"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteManual"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/system"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/component"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteMin"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteMax"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteHighHigh"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteHigh"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteLow"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteLowLow"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localHighAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localHighAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localHighPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localLowAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localLowAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localLowPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localLowLowAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localLowLowAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localLowLowPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/remoteBool"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/input"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/output"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localBool"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localScaleAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localScaleFactor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localScaleOffset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/listMonitorPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/listMonitorListIsAlarm"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/listMonitorAckRequired"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/listMonitorItems"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/debugInformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localBoolAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/localBoolAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/ignoreSummary"/>
+    <genClasses ecoreClass="iolist.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/defaultChain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMinAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMaxAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighHighAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighHighAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighHighPreset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/eventCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localManual"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteManual"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/system"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteHighHigh"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteHigh"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteLow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteLowLow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighPreset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowPreset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowLowAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowLowAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowLowPreset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteBool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localBool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleFactor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleOffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorPreset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorListIsAlarm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorAckRequired"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/debugInformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localBoolAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localBoolAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/ignoreSummary"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//SummaryGroup">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//SummaryGroup/items"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//SummaryGroup/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//SummaryGroup/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//SummaryGroup/component"/>
+    <genClasses ecoreClass="iolist.ecore#//SummaryGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//SummaryGroup/items"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/component"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//SummaryItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//SummaryItem/dataSourceId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//SummaryItem/type"/>
+    <genClasses ecoreClass="iolist.ecore#//SummaryItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/dataSourceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

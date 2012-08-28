@@ -135,94 +135,13 @@ public interface ModelPackage extends EPackage
     int ITEM__DEFAULT_CHAIN = 6;
 
     /**
-     * The feature id for the '<em><b>Local Min</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_MIN = 7;
-
-    /**
-     * The feature id for the '<em><b>Local Min Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_MIN_AVAILABLE = 8;
-
-    /**
-     * The feature id for the '<em><b>Local Min Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_MIN_ACK = 9;
-
-    /**
-     * The feature id for the '<em><b>Local Max</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_MAX = 10;
-
-    /**
-     * The feature id for the '<em><b>Local Max Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_MAX_AVAILABLE = 11;
-
-    /**
-     * The feature id for the '<em><b>Local Max Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_MAX_ACK = 12;
-
-    /**
-     * The feature id for the '<em><b>Local High High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_HIGH_HIGH_AVAILABLE = 13;
-
-    /**
-     * The feature id for the '<em><b>Local High High Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_HIGH_HIGH_ACK = 14;
-
-    /**
-     * The feature id for the '<em><b>Local High High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_HIGH_HIGH_PRESET = 15;
-
-    /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM__EVENT_COMMAND = 16;
+    int ITEM__EVENT_COMMAND = 7;
 
     /**
      * The feature id for the '<em><b>Local Manual</b></em>' attribute.
@@ -231,7 +150,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_MANUAL = 17;
+    int ITEM__LOCAL_MANUAL = 8;
 
     /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
@@ -240,7 +159,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_MANUAL = 18;
+    int ITEM__REMOTE_MANUAL = 9;
 
     /**
      * The feature id for the '<em><b>System</b></em>' attribute.
@@ -249,25 +168,16 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__SYSTEM = 19;
+    int ITEM__SYSTEM = 10;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM__LOCATION = 20;
-
-    /**
-     * The feature id for the '<em><b>Component</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__COMPONENT = 21;
+    int ITEM__HIERARCHY = 11;
 
     /**
      * The feature id for the '<em><b>Remote Min</b></em>' attribute.
@@ -276,7 +186,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_MIN = 22;
+    int ITEM__REMOTE_MIN = 12;
 
     /**
      * The feature id for the '<em><b>Remote Max</b></em>' attribute.
@@ -285,7 +195,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_MAX = 23;
+    int ITEM__REMOTE_MAX = 13;
 
     /**
      * The feature id for the '<em><b>Remote High High</b></em>' attribute.
@@ -294,7 +204,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_HIGH_HIGH = 24;
+    int ITEM__REMOTE_HIGH_HIGH = 14;
 
     /**
      * The feature id for the '<em><b>Remote High</b></em>' attribute.
@@ -303,7 +213,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_HIGH = 25;
+    int ITEM__REMOTE_HIGH = 15;
 
     /**
      * The feature id for the '<em><b>Remote Low</b></em>' attribute.
@@ -312,7 +222,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_LOW = 26;
+    int ITEM__REMOTE_LOW = 16;
 
     /**
      * The feature id for the '<em><b>Remote Low Low</b></em>' attribute.
@@ -321,88 +231,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_LOW_LOW = 27;
-
-    /**
-     * The feature id for the '<em><b>Local High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_HIGH_AVAILABLE = 28;
-
-    /**
-     * The feature id for the '<em><b>Local High Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_HIGH_ACK = 29;
-
-    /**
-     * The feature id for the '<em><b>Local High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_HIGH_PRESET = 30;
-
-    /**
-     * The feature id for the '<em><b>Local Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_LOW_AVAILABLE = 31;
-
-    /**
-     * The feature id for the '<em><b>Local Low Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_LOW_ACK = 32;
-
-    /**
-     * The feature id for the '<em><b>Local Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_LOW_PRESET = 33;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_LOW_LOW_AVAILABLE = 34;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_LOW_LOW_ACK = 35;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_LOW_LOW_PRESET = 36;
+    int ITEM__REMOTE_LOW_LOW = 17;
 
     /**
      * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
@@ -411,7 +240,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_BOOL = 37;
+    int ITEM__REMOTE_BOOL = 18;
 
     /**
      * The feature id for the '<em><b>Remote Bool Ack Value</b></em>' attribute.
@@ -420,7 +249,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_BOOL_ACK_VALUE = 38;
+    int ITEM__REMOTE_BOOL_ACK_VALUE = 19;
 
     /**
      * The feature id for the '<em><b>Input</b></em>' attribute.
@@ -429,7 +258,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__INPUT = 39;
+    int ITEM__INPUT = 20;
 
     /**
      * The feature id for the '<em><b>Output</b></em>' attribute.
@@ -438,16 +267,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__OUTPUT = 40;
-
-    /**
-     * The feature id for the '<em><b>Local Bool</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_BOOL = 41;
+    int ITEM__OUTPUT = 21;
 
     /**
      * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
@@ -456,7 +276,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_SCALE_AVAILABLE = 42;
+    int ITEM__LOCAL_SCALE_AVAILABLE = 22;
 
     /**
      * The feature id for the '<em><b>Local Scale Factor</b></em>' attribute.
@@ -465,7 +285,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_SCALE_FACTOR = 43;
+    int ITEM__LOCAL_SCALE_FACTOR = 23;
 
     /**
      * The feature id for the '<em><b>Local Scale Offset</b></em>' attribute.
@@ -474,43 +294,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_SCALE_OFFSET = 44;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LIST_MONITOR_PRESET = 45;
-
-    /**
-     * The feature id for the '<em><b>List Monitor List Is Alarm</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LIST_MONITOR_LIST_IS_ALARM = 46;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Ack Required</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LIST_MONITOR_ACK_REQUIRED = 47;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Items</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LIST_MONITOR_ITEMS = 48;
+    int ITEM__LOCAL_SCALE_OFFSET = 24;
 
     /**
      * The feature id for the '<em><b>Debug Information</b></em>' attribute.
@@ -519,25 +303,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__DEBUG_INFORMATION = 49;
-
-    /**
-     * The feature id for the '<em><b>Local Bool Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_BOOL_AVAILABLE = 50;
-
-    /**
-     * The feature id for the '<em><b>Local Bool Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ITEM__LOCAL_BOOL_ACK = 51;
+    int ITEM__DEBUG_INFORMATION = 25;
 
     /**
      * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
@@ -546,7 +312,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__IGNORE_SUMMARY = 52;
+    int ITEM__IGNORE_SUMMARY = 26;
 
     /**
      * The feature id for the '<em><b>Block</b></em>' attribute.
@@ -555,7 +321,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__BLOCK = 53;
+    int ITEM__BLOCK = 27;
 
     /**
      * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -564,7 +330,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__ENABLED = 54;
+    int ITEM__ENABLED = 28;
 
     /**
      * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
@@ -573,7 +339,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__HD_STORAGE = 55;
+    int ITEM__HD_STORAGE = 29;
 
     /**
      * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
@@ -582,7 +348,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__MAPPER = 56;
+    int ITEM__MAPPER = 30;
 
     /**
      * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
@@ -591,7 +357,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__SIMULATION_VALUE = 57;
+    int ITEM__SIMULATION_VALUE = 31;
 
     /**
      * The feature id for the '<em><b>Rounding Available</b></em>' attribute.
@@ -600,7 +366,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__ROUNDING_AVAILABLE = 58;
+    int ITEM__ROUNDING_AVAILABLE = 32;
 
     /**
      * The feature id for the '<em><b>Rounding Value</b></em>' attribute.
@@ -609,7 +375,79 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__ROUNDING_VALUE = 59;
+    int ITEM__ROUNDING_VALUE = 33;
+
+    /**
+     * The feature id for the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_HIGH_HIGH = 34;
+
+    /**
+     * The feature id for the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_HIGH = 35;
+
+    /**
+     * The feature id for the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_LOW = 36;
+
+    /**
+     * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_LOW_LOW = 37;
+
+    /**
+     * The feature id for the '<em><b>Local Min</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_MIN = 38;
+
+    /**
+     * The feature id for the '<em><b>Local Max</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_MAX = 39;
+
+    /**
+     * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_LIST_MONITOR = 40;
+
+    /**
+     * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_BOOLEAN_MONITOR = 41;
 
     /**
      * The number of structural features of the '<em>Item</em>' class.
@@ -618,7 +456,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM_FEATURE_COUNT = 60;
+    int ITEM_FEATURE_COUNT = 42;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -649,22 +487,13 @@ public interface ModelPackage extends EPackage
     int SUMMARY_GROUP__ID = 1;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP__LOCATION = 2;
-
-    /**
-     * The feature id for the '<em><b>Component</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_GROUP__COMPONENT = 3;
+    int SUMMARY_GROUP__HIERARCHY = 2;
 
     /**
      * The number of structural features of the '<em>Summary Group</em>' class.
@@ -673,7 +502,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP_FEATURE_COUNT = 4;
+    int SUMMARY_GROUP_FEATURE_COUNT = 3;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryItemImpl <em>Summary Item</em>}' class.
@@ -786,87 +615,6 @@ public interface ModelPackage extends EPackage
     int FORMULA_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
 
     /**
-     * The feature id for the '<em><b>Local Min</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
-
-    /**
-     * The feature id for the '<em><b>Local Min Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_MIN_AVAILABLE = ITEM__LOCAL_MIN_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Min Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_MIN_ACK = ITEM__LOCAL_MIN_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local Max</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
-
-    /**
-     * The feature id for the '<em><b>Local Max Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_MAX_AVAILABLE = ITEM__LOCAL_MAX_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Max Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_MAX_ACK = ITEM__LOCAL_MAX_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local High High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_HIGH_HIGH_AVAILABLE = ITEM__LOCAL_HIGH_HIGH_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local High High Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_HIGH_HIGH_ACK = ITEM__LOCAL_HIGH_HIGH_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local High High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_HIGH_HIGH_PRESET = ITEM__LOCAL_HIGH_HIGH_PRESET;
-
-    /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -903,22 +651,13 @@ public interface ModelPackage extends EPackage
     int FORMULA_ITEM__SYSTEM = ITEM__SYSTEM;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FORMULA_ITEM__LOCATION = ITEM__LOCATION;
-
-    /**
-     * The feature id for the '<em><b>Component</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__COMPONENT = ITEM__COMPONENT;
+    int FORMULA_ITEM__HIERARCHY = ITEM__HIERARCHY;
 
     /**
      * The feature id for the '<em><b>Remote Min</b></em>' attribute.
@@ -975,87 +714,6 @@ public interface ModelPackage extends EPackage
     int FORMULA_ITEM__REMOTE_LOW_LOW = ITEM__REMOTE_LOW_LOW;
 
     /**
-     * The feature id for the '<em><b>Local High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_HIGH_AVAILABLE = ITEM__LOCAL_HIGH_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local High Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_HIGH_ACK = ITEM__LOCAL_HIGH_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_HIGH_PRESET = ITEM__LOCAL_HIGH_PRESET;
-
-    /**
-     * The feature id for the '<em><b>Local Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_LOW_AVAILABLE = ITEM__LOCAL_LOW_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Low Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_LOW_ACK = ITEM__LOCAL_LOW_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_LOW_PRESET = ITEM__LOCAL_LOW_PRESET;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_LOW_LOW_AVAILABLE = ITEM__LOCAL_LOW_LOW_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_LOW_LOW_ACK = ITEM__LOCAL_LOW_LOW_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_LOW_LOW_PRESET = ITEM__LOCAL_LOW_LOW_PRESET;
-
-    /**
      * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1092,15 +750,6 @@ public interface ModelPackage extends EPackage
     int FORMULA_ITEM__OUTPUT = ITEM__OUTPUT;
 
     /**
-     * The feature id for the '<em><b>Local Bool</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_BOOL = ITEM__LOCAL_BOOL;
-
-    /**
      * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1128,42 +777,6 @@ public interface ModelPackage extends EPackage
     int FORMULA_ITEM__LOCAL_SCALE_OFFSET = ITEM__LOCAL_SCALE_OFFSET;
 
     /**
-     * The feature id for the '<em><b>List Monitor Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LIST_MONITOR_PRESET = ITEM__LIST_MONITOR_PRESET;
-
-    /**
-     * The feature id for the '<em><b>List Monitor List Is Alarm</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LIST_MONITOR_LIST_IS_ALARM = ITEM__LIST_MONITOR_LIST_IS_ALARM;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Ack Required</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LIST_MONITOR_ACK_REQUIRED = ITEM__LIST_MONITOR_ACK_REQUIRED;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Items</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LIST_MONITOR_ITEMS = ITEM__LIST_MONITOR_ITEMS;
-
-    /**
      * The feature id for the '<em><b>Debug Information</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1171,24 +784,6 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__DEBUG_INFORMATION = ITEM__DEBUG_INFORMATION;
-
-    /**
-     * The feature id for the '<em><b>Local Bool Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_BOOL_AVAILABLE = ITEM__LOCAL_BOOL_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Bool Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int FORMULA_ITEM__LOCAL_BOOL_ACK = ITEM__LOCAL_BOOL_ACK;
 
     /**
      * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
@@ -1261,6 +856,78 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__ROUNDING_VALUE = ITEM__ROUNDING_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_HIGH_HIGH = ITEM__LOCAL_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_HIGH = ITEM__LOCAL_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_LOW = ITEM__LOCAL_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_LOW_LOW = ITEM__LOCAL_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Min</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
+
+    /**
+     * The feature id for the '<em><b>Local Max</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
+
+    /**
+     * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_LIST_MONITOR = ITEM__LOCAL_LIST_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
 
     /**
      * The feature id for the '<em><b>Input Formula</b></em>' attribute.
@@ -1528,87 +1195,6 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
 
     /**
-     * The feature id for the '<em><b>Local Min</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
-
-    /**
-     * The feature id for the '<em><b>Local Min Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_MIN_AVAILABLE = ITEM__LOCAL_MIN_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Min Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_MIN_ACK = ITEM__LOCAL_MIN_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local Max</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
-
-    /**
-     * The feature id for the '<em><b>Local Max Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_MAX_AVAILABLE = ITEM__LOCAL_MAX_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Max Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_MAX_ACK = ITEM__LOCAL_MAX_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local High High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_HIGH_HIGH_AVAILABLE = ITEM__LOCAL_HIGH_HIGH_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local High High Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_HIGH_HIGH_ACK = ITEM__LOCAL_HIGH_HIGH_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local High High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_HIGH_HIGH_PRESET = ITEM__LOCAL_HIGH_HIGH_PRESET;
-
-    /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1645,22 +1231,13 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__SYSTEM = ITEM__SYSTEM;
 
     /**
-     * The feature id for the '<em><b>Location</b></em>' attribute.
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_ITEM__LOCATION = ITEM__LOCATION;
-
-    /**
-     * The feature id for the '<em><b>Component</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__COMPONENT = ITEM__COMPONENT;
+    int SCRIPT_ITEM__HIERARCHY = ITEM__HIERARCHY;
 
     /**
      * The feature id for the '<em><b>Remote Min</b></em>' attribute.
@@ -1717,87 +1294,6 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__REMOTE_LOW_LOW = ITEM__REMOTE_LOW_LOW;
 
     /**
-     * The feature id for the '<em><b>Local High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_HIGH_AVAILABLE = ITEM__LOCAL_HIGH_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local High Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_HIGH_ACK = ITEM__LOCAL_HIGH_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_HIGH_PRESET = ITEM__LOCAL_HIGH_PRESET;
-
-    /**
-     * The feature id for the '<em><b>Local Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_LOW_AVAILABLE = ITEM__LOCAL_LOW_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Low Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_LOW_ACK = ITEM__LOCAL_LOW_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_LOW_PRESET = ITEM__LOCAL_LOW_PRESET;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_LOW_LOW_AVAILABLE = ITEM__LOCAL_LOW_LOW_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_LOW_LOW_ACK = ITEM__LOCAL_LOW_LOW_ACK;
-
-    /**
-     * The feature id for the '<em><b>Local Low Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_LOW_LOW_PRESET = ITEM__LOCAL_LOW_LOW_PRESET;
-
-    /**
      * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1834,15 +1330,6 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__OUTPUT = ITEM__OUTPUT;
 
     /**
-     * The feature id for the '<em><b>Local Bool</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_BOOL = ITEM__LOCAL_BOOL;
-
-    /**
      * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1870,42 +1357,6 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__LOCAL_SCALE_OFFSET = ITEM__LOCAL_SCALE_OFFSET;
 
     /**
-     * The feature id for the '<em><b>List Monitor Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LIST_MONITOR_PRESET = ITEM__LIST_MONITOR_PRESET;
-
-    /**
-     * The feature id for the '<em><b>List Monitor List Is Alarm</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LIST_MONITOR_LIST_IS_ALARM = ITEM__LIST_MONITOR_LIST_IS_ALARM;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Ack Required</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LIST_MONITOR_ACK_REQUIRED = ITEM__LIST_MONITOR_ACK_REQUIRED;
-
-    /**
-     * The feature id for the '<em><b>List Monitor Items</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LIST_MONITOR_ITEMS = ITEM__LIST_MONITOR_ITEMS;
-
-    /**
      * The feature id for the '<em><b>Debug Information</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1913,24 +1364,6 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int SCRIPT_ITEM__DEBUG_INFORMATION = ITEM__DEBUG_INFORMATION;
-
-    /**
-     * The feature id for the '<em><b>Local Bool Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_BOOL_AVAILABLE = ITEM__LOCAL_BOOL_AVAILABLE;
-
-    /**
-     * The feature id for the '<em><b>Local Bool Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_ITEM__LOCAL_BOOL_ACK = ITEM__LOCAL_BOOL_ACK;
 
     /**
      * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
@@ -2003,6 +1436,78 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int SCRIPT_ITEM__ROUNDING_VALUE = ITEM__ROUNDING_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_HIGH_HIGH = ITEM__LOCAL_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_HIGH = ITEM__LOCAL_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_LOW = ITEM__LOCAL_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_LOW_LOW = ITEM__LOCAL_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Min</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
+
+    /**
+     * The feature id for the '<em><b>Local Max</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
+
+    /**
+     * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_LIST_MONITOR = ITEM__LOCAL_LIST_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
 
     /**
      * The feature id for the '<em><b>Script Engine</b></em>' attribute.
@@ -2169,6 +1674,226 @@ public interface ModelPackage extends EPackage
     int MAPPER_FEATURE_COUNT = 3;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.MonitorImpl <em>Monitor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.MonitorImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMonitor()
+     * @generated
+     */
+    int MONITOR = 10;
+
+    /**
+     * The feature id for the '<em><b>Active</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR__ACTIVE = 0;
+
+    /**
+     * The feature id for the '<em><b>Ack</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR__ACK = 1;
+
+    /**
+     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR__PRIORITY = 2;
+
+    /**
+     * The number of structural features of the '<em>Monitor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR_FEATURE_COUNT = 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.LevelMonitorImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getLevelMonitor()
+     * @generated
+     */
+    int LEVEL_MONITOR = 11;
+
+    /**
+     * The feature id for the '<em><b>Active</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL_MONITOR__ACTIVE = MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Ack</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL_MONITOR__ACK = MONITOR__ACK;
+
+    /**
+     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL_MONITOR__PRIORITY = MONITOR__PRIORITY;
+
+    /**
+     * The feature id for the '<em><b>Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL_MONITOR__PRESET = MONITOR_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Level Monitor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl <em>List Monitor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.ListMonitorImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitor()
+     * @generated
+     */
+    int LIST_MONITOR = 12;
+
+    /**
+     * The feature id for the '<em><b>Active</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__ACTIVE = MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Ack</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__ACK = MONITOR__ACK;
+
+    /**
+     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__PRIORITY = MONITOR__PRIORITY;
+
+    /**
+     * The feature id for the '<em><b>Values</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__VALUES = MONITOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>List Is Alarm</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__LIST_IS_ALARM = MONITOR_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>List Monitor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 2;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBooleanMonitor()
+     * @generated
+     */
+    int BOOLEAN_MONITOR = 13;
+
+    /**
+     * The feature id for the '<em><b>Active</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOLEAN_MONITOR__ACTIVE = MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Ack</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOLEAN_MONITOR__ACK = MONITOR__ACK;
+
+    /**
+     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOLEAN_MONITOR__PRIORITY = MONITOR__PRIORITY;
+
+    /**
+     * The feature id for the '<em><b>Ok Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOLEAN_MONITOR__OK_VALUE = MONITOR_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Boolean Monitor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOLEAN_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2176,7 +1901,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 10;
+    int DATA_TYPE = 14;
 
 
     /**
@@ -2187,7 +1912,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 11;
+    int ROUNDING = 15;
 
 
     /**
@@ -2278,103 +2003,48 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_DefaultChain();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Min</em>'.
+     * @return the meta object for the containment reference '<em>Local Min</em>'.
      * @see org.openscada.deploy.iolist.model.Item#getLocalMin()
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalMin();
+    EReference getItem_LocalMin();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalMinAvailable <em>Local Min Available</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Min Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalMinAvailable()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalMinAvailable();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalMinAck <em>Local Min Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Min Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalMinAck()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalMinAck();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Max</em>'.
+     * @return the meta object for the containment reference '<em>Local Max</em>'.
      * @see org.openscada.deploy.iolist.model.Item#getLocalMax()
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalMax();
+    EReference getItem_LocalMax();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAvailable <em>Local Max Available</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalListMonitor <em>Local List Monitor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Max Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalMaxAvailable()
+     * @return the meta object for the containment reference '<em>Local List Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalListMonitor()
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalMaxAvailable();
+    EReference getItem_LocalListMonitor();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAck <em>Local Max Ack</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Max Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalMaxAck()
+     * @return the meta object for the containment reference '<em>Local Boolean Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor()
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalMaxAck();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAvailable <em>Local High High Available</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local High High Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalHighHighAvailable()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalHighHighAvailable();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAck <em>Local High High Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local High High Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalHighHighAck()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalHighHighAck();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalHighHighPreset <em>Local High High Preset</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local High High Preset</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getLocalHighHighPreset()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalHighHighPreset();
+    EReference getItem_LocalBooleanMonitor();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}'.
@@ -2421,26 +2091,15 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_System();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocation <em>Location</em>}'.
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.Item#getHierarchy <em>Hierarchy</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Location</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getLocation()
+     * @return the meta object for the attribute list '<em>Hierarchy</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getHierarchy()
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Location();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getComponent <em>Component</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Component</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getComponent()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_Component();
+    EAttribute getItem_Hierarchy();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteMin <em>Remote Min</em>}'.
@@ -2509,105 +2168,6 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_RemoteLowLow();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalHighAvailable <em>Local High Available</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local High Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalHighAvailable()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalHighAvailable();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalHighAck <em>Local High Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local High Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalHighAck()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalHighAck();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalHighPreset <em>Local High Preset</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local High Preset</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getLocalHighPreset()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalHighPreset();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalLowAvailable <em>Local Low Available</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Low Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalLowAvailable()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalLowAvailable();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalLowAck <em>Local Low Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Low Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalLowAck()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalLowAck();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalLowPreset <em>Local Low Preset</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Low Preset</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getLocalLowPreset()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalLowPreset();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalLowLowAvailable <em>Local Low Low Available</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Low Low Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalLowLowAvailable()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalLowLowAvailable();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalLowLowAck <em>Local Low Low Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Low Low Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalLowLowAck()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalLowLowAck();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalLowLowPreset <em>Local Low Low Preset</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Low Low Preset</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getLocalLowLowPreset()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalLowLowPreset();
-
-    /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteBool <em>Remote Bool</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2652,17 +2212,6 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_Output();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalBool <em>Local Bool</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Bool</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getLocalBool()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalBool();
-
-    /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalScaleAvailable <em>Local Scale Available</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2696,50 +2245,6 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_LocalScaleOffset();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isListMonitorPreset <em>List Monitor Preset</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>List Monitor Preset</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isListMonitorPreset()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_ListMonitorPreset();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isListMonitorListIsAlarm <em>List Monitor List Is Alarm</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>List Monitor List Is Alarm</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isListMonitorListIsAlarm()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_ListMonitorListIsAlarm();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isListMonitorAckRequired <em>List Monitor Ack Required</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>List Monitor Ack Required</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isListMonitorAckRequired()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_ListMonitorAckRequired();
-
-    /**
-     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.Item#getListMonitorItems <em>List Monitor Items</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>List Monitor Items</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#getListMonitorItems()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_ListMonitorItems();
-
-    /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getDebugInformation <em>Debug Information</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2749,28 +2254,6 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EAttribute getItem_DebugInformation();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalBoolAvailable <em>Local Bool Available</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Bool Available</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalBoolAvailable()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalBoolAvailable();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalBoolAck <em>Local Bool Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Local Bool Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isLocalBoolAck()
-     * @see #getItem()
-     * @generated
-     */
-    EAttribute getItem_LocalBoolAck();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isIgnoreSummary <em>Ignore Summary</em>}'.
@@ -2861,6 +2344,50 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_RoundingValue();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalHighHigh <em>Local High High</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Local High High</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalHighHigh()
+     * @see #getItem()
+     * @generated
+     */
+    EReference getItem_LocalHighHigh();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalHigh <em>Local High</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Local High</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalHigh()
+     * @see #getItem()
+     * @generated
+     */
+    EReference getItem_LocalHigh();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalLow <em>Local Low</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Local Low</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalLow()
+     * @see #getItem()
+     * @generated
+     */
+    EReference getItem_LocalLow();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalLowLow <em>Local Low Low</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Local Low Low</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalLowLow()
+     * @see #getItem()
+     * @generated
+     */
+    EReference getItem_LocalLowLow();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryGroup <em>Summary Group</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2893,26 +2420,15 @@ public interface ModelPackage extends EPackage
     EAttribute getSummaryGroup_Id();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#getLocation <em>Location</em>}'.
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Location</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#getLocation()
+     * @return the meta object for the attribute list '<em>Hierarchy</em>'.
+     * @see org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy()
      * @see #getSummaryGroup()
      * @generated
      */
-    EAttribute getSummaryGroup_Location();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#getComponent <em>Component</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Component</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#getComponent()
-     * @see #getSummaryGroup()
-     * @generated
-     */
-    EAttribute getSummaryGroup_Component();
+    EAttribute getSummaryGroup_Hierarchy();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryItem <em>Summary Item</em>}'.
@@ -3314,6 +2830,123 @@ public interface ModelPackage extends EPackage
     EAttribute getMapper_ToAttribute();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Monitor <em>Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.Monitor
+     * @generated
+     */
+    EClass getMonitor();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#isActive <em>Active</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Active</em>'.
+     * @see org.openscada.deploy.iolist.model.Monitor#isActive()
+     * @see #getMonitor()
+     * @generated
+     */
+    EAttribute getMonitor_Active();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#isAck <em>Ack</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ack</em>'.
+     * @see org.openscada.deploy.iolist.model.Monitor#isAck()
+     * @see #getMonitor()
+     * @generated
+     */
+    EAttribute getMonitor_Ack();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#getPriority <em>Priority</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Priority</em>'.
+     * @see org.openscada.deploy.iolist.model.Monitor#getPriority()
+     * @see #getMonitor()
+     * @generated
+     */
+    EAttribute getMonitor_Priority();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.LevelMonitor <em>Level Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Level Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.LevelMonitor
+     * @generated
+     */
+    EClass getLevelMonitor();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.LevelMonitor#getPreset <em>Preset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Preset</em>'.
+     * @see org.openscada.deploy.iolist.model.LevelMonitor#getPreset()
+     * @see #getLevelMonitor()
+     * @generated
+     */
+    EAttribute getLevelMonitor_Preset();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ListMonitor <em>List Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>List Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor
+     * @generated
+     */
+    EClass getListMonitor();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.ListMonitor#getValues <em>Values</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Values</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor#getValues()
+     * @see #getListMonitor()
+     * @generated
+     */
+    EAttribute getListMonitor_Values();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm <em>List Is Alarm</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>List Is Alarm</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm()
+     * @see #getListMonitor()
+     * @generated
+     */
+    EAttribute getListMonitor_ListIsAlarm();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.BooleanMonitor <em>Boolean Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Boolean Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.BooleanMonitor
+     * @generated
+     */
+    EClass getBooleanMonitor();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.BooleanMonitor#isOkValue <em>Ok Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ok Value</em>'.
+     * @see org.openscada.deploy.iolist.model.BooleanMonitor#isOkValue()
+     * @see #getBooleanMonitor()
+     * @generated
+     */
+    EAttribute getBooleanMonitor_OkValue();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3423,76 +3056,36 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__DEFAULT_CHAIN = eINSTANCE.getItem_DefaultChain();
 
         /**
-         * The meta object literal for the '<em><b>Local Min</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Local Min</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_MIN = eINSTANCE.getItem_LocalMin();
+        EReference ITEM__LOCAL_MIN = eINSTANCE.getItem_LocalMin();
 
         /**
-         * The meta object literal for the '<em><b>Local Min Available</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Local Max</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_MIN_AVAILABLE = eINSTANCE.getItem_LocalMinAvailable();
+        EReference ITEM__LOCAL_MAX = eINSTANCE.getItem_LocalMax();
 
         /**
-         * The meta object literal for the '<em><b>Local Min Ack</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Local List Monitor</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_MIN_ACK = eINSTANCE.getItem_LocalMinAck();
+        EReference ITEM__LOCAL_LIST_MONITOR = eINSTANCE.getItem_LocalListMonitor();
 
         /**
-         * The meta object literal for the '<em><b>Local Max</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Local Boolean Monitor</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_MAX = eINSTANCE.getItem_LocalMax();
-
-        /**
-         * The meta object literal for the '<em><b>Local Max Available</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_MAX_AVAILABLE = eINSTANCE.getItem_LocalMaxAvailable();
-
-        /**
-         * The meta object literal for the '<em><b>Local Max Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_MAX_ACK = eINSTANCE.getItem_LocalMaxAck();
-
-        /**
-         * The meta object literal for the '<em><b>Local High High Available</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_HIGH_HIGH_AVAILABLE = eINSTANCE.getItem_LocalHighHighAvailable();
-
-        /**
-         * The meta object literal for the '<em><b>Local High High Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_HIGH_HIGH_ACK = eINSTANCE.getItem_LocalHighHighAck();
-
-        /**
-         * The meta object literal for the '<em><b>Local High High Preset</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_HIGH_HIGH_PRESET = eINSTANCE.getItem_LocalHighHighPreset();
+        EReference ITEM__LOCAL_BOOLEAN_MONITOR = eINSTANCE.getItem_LocalBooleanMonitor();
 
         /**
          * The meta object literal for the '<em><b>Event Command</b></em>' attribute feature.
@@ -3527,20 +3120,12 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__SYSTEM = eINSTANCE.getItem_System();
 
         /**
-         * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCATION = eINSTANCE.getItem_Location();
-
-        /**
-         * The meta object literal for the '<em><b>Component</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__COMPONENT = eINSTANCE.getItem_Component();
+        EAttribute ITEM__HIERARCHY = eINSTANCE.getItem_Hierarchy();
 
         /**
          * The meta object literal for the '<em><b>Remote Min</b></em>' attribute feature.
@@ -3591,78 +3176,6 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__REMOTE_LOW_LOW = eINSTANCE.getItem_RemoteLowLow();
 
         /**
-         * The meta object literal for the '<em><b>Local High Available</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_HIGH_AVAILABLE = eINSTANCE.getItem_LocalHighAvailable();
-
-        /**
-         * The meta object literal for the '<em><b>Local High Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_HIGH_ACK = eINSTANCE.getItem_LocalHighAck();
-
-        /**
-         * The meta object literal for the '<em><b>Local High Preset</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_HIGH_PRESET = eINSTANCE.getItem_LocalHighPreset();
-
-        /**
-         * The meta object literal for the '<em><b>Local Low Available</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_LOW_AVAILABLE = eINSTANCE.getItem_LocalLowAvailable();
-
-        /**
-         * The meta object literal for the '<em><b>Local Low Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_LOW_ACK = eINSTANCE.getItem_LocalLowAck();
-
-        /**
-         * The meta object literal for the '<em><b>Local Low Preset</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_LOW_PRESET = eINSTANCE.getItem_LocalLowPreset();
-
-        /**
-         * The meta object literal for the '<em><b>Local Low Low Available</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_LOW_LOW_AVAILABLE = eINSTANCE.getItem_LocalLowLowAvailable();
-
-        /**
-         * The meta object literal for the '<em><b>Local Low Low Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_LOW_LOW_ACK = eINSTANCE.getItem_LocalLowLowAck();
-
-        /**
-         * The meta object literal for the '<em><b>Local Low Low Preset</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_LOW_LOW_PRESET = eINSTANCE.getItem_LocalLowLowPreset();
-
-        /**
          * The meta object literal for the '<em><b>Remote Bool</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3695,14 +3208,6 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__OUTPUT = eINSTANCE.getItem_Output();
 
         /**
-         * The meta object literal for the '<em><b>Local Bool</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_BOOL = eINSTANCE.getItem_LocalBool();
-
-        /**
          * The meta object literal for the '<em><b>Local Scale Available</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3727,60 +3232,12 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__LOCAL_SCALE_OFFSET = eINSTANCE.getItem_LocalScaleOffset();
 
         /**
-         * The meta object literal for the '<em><b>List Monitor Preset</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LIST_MONITOR_PRESET = eINSTANCE.getItem_ListMonitorPreset();
-
-        /**
-         * The meta object literal for the '<em><b>List Monitor List Is Alarm</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LIST_MONITOR_LIST_IS_ALARM = eINSTANCE.getItem_ListMonitorListIsAlarm();
-
-        /**
-         * The meta object literal for the '<em><b>List Monitor Ack Required</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LIST_MONITOR_ACK_REQUIRED = eINSTANCE.getItem_ListMonitorAckRequired();
-
-        /**
-         * The meta object literal for the '<em><b>List Monitor Items</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LIST_MONITOR_ITEMS = eINSTANCE.getItem_ListMonitorItems();
-
-        /**
          * The meta object literal for the '<em><b>Debug Information</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EAttribute ITEM__DEBUG_INFORMATION = eINSTANCE.getItem_DebugInformation();
-
-        /**
-         * The meta object literal for the '<em><b>Local Bool Available</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_BOOL_AVAILABLE = eINSTANCE.getItem_LocalBoolAvailable();
-
-        /**
-         * The meta object literal for the '<em><b>Local Bool Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute ITEM__LOCAL_BOOL_ACK = eINSTANCE.getItem_LocalBoolAck();
 
         /**
          * The meta object literal for the '<em><b>Ignore Summary</b></em>' attribute feature.
@@ -3847,6 +3304,38 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__ROUNDING_VALUE = eINSTANCE.getItem_RoundingValue();
 
         /**
+         * The meta object literal for the '<em><b>Local High High</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM__LOCAL_HIGH_HIGH = eINSTANCE.getItem_LocalHighHigh();
+
+        /**
+         * The meta object literal for the '<em><b>Local High</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM__LOCAL_HIGH = eINSTANCE.getItem_LocalHigh();
+
+        /**
+         * The meta object literal for the '<em><b>Local Low</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM__LOCAL_LOW = eINSTANCE.getItem_LocalLow();
+
+        /**
+         * The meta object literal for the '<em><b>Local Low Low</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM__LOCAL_LOW_LOW = eINSTANCE.getItem_LocalLowLow();
+
+        /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3873,20 +3362,12 @@ public interface ModelPackage extends EPackage
         EAttribute SUMMARY_GROUP__ID = eINSTANCE.getSummaryGroup_Id();
 
         /**
-         * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_GROUP__LOCATION = eINSTANCE.getSummaryGroup_Location();
-
-        /**
-         * The meta object literal for the '<em><b>Component</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SUMMARY_GROUP__COMPONENT = eINSTANCE.getSummaryGroup_Component();
+        EAttribute SUMMARY_GROUP__HIERARCHY = eINSTANCE.getSummaryGroup_Hierarchy();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryItemImpl <em>Summary Item</em>}' class.
@@ -4199,6 +3680,102 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute MAPPER__TO_ATTRIBUTE = eINSTANCE.getMapper_ToAttribute();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.MonitorImpl <em>Monitor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.MonitorImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMonitor()
+         * @generated
+         */
+        EClass MONITOR = eINSTANCE.getMonitor();
+
+        /**
+         * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MONITOR__ACTIVE = eINSTANCE.getMonitor_Active();
+
+        /**
+         * The meta object literal for the '<em><b>Ack</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MONITOR__ACK = eINSTANCE.getMonitor_Ack();
+
+        /**
+         * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MONITOR__PRIORITY = eINSTANCE.getMonitor_Priority();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.LevelMonitorImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getLevelMonitor()
+         * @generated
+         */
+        EClass LEVEL_MONITOR = eINSTANCE.getLevelMonitor();
+
+        /**
+         * The meta object literal for the '<em><b>Preset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LEVEL_MONITOR__PRESET = eINSTANCE.getLevelMonitor_Preset();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl <em>List Monitor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.ListMonitorImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitor()
+         * @generated
+         */
+        EClass LIST_MONITOR = eINSTANCE.getListMonitor();
+
+        /**
+         * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR__VALUES = eINSTANCE.getListMonitor_Values();
+
+        /**
+         * The meta object literal for the '<em><b>List Is Alarm</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR__LIST_IS_ALARM = eINSTANCE.getListMonitor_ListIsAlarm();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBooleanMonitor()
+         * @generated
+         */
+        EClass BOOLEAN_MONITOR = eINSTANCE.getBooleanMonitor();
+
+        /**
+         * The meta object literal for the '<em><b>Ok Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BOOLEAN_MONITOR__OK_VALUE = eINSTANCE.getBooleanMonitor_OkValue();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.

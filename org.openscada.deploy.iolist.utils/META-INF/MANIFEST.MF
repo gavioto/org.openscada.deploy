@@ -17,3 +17,7 @@ Import-Package: com.google.gson;version="1.4.0",
  com.google.gson.reflect;version="1.4.0",
  org.openscada.ca.oscar;version="1.0.0",
  org.openscada.utils.str;version="0.15.0"
+Bundle-ClassPath: lib/xercesImpl.jar,
+ lib/xml-apis.jar,
+ lib/odfdom-java-0.8.7.jar,
+ .

@@ -25,51 +25,25 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getDescription <em>Description</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMinAvailable <em>Local Min Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMinAck <em>Local Min Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAvailable <em>Local Max Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAck <em>Local Max Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAvailable <em>Local High High Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAck <em>Local High High Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalHighHighPreset <em>Local High High Preset</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalManual <em>Local Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteManual <em>Remote Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getSystem <em>System</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocation <em>Location</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getComponent <em>Component</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteMin <em>Remote Min</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteMax <em>Remote Max</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteHighHigh <em>Remote High High</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteHigh <em>Remote High</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteLow <em>Remote Low</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteLowLow <em>Remote Low Low</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalHighAvailable <em>Local High Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalHighAck <em>Local High Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalHighPreset <em>Local High Preset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalLowAvailable <em>Local Low Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalLowAck <em>Local Low Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalLowPreset <em>Local Low Preset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalLowLowAvailable <em>Local Low Low Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalLowLowAck <em>Local Low Low Ack</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalLowLowPreset <em>Local Low Low Preset</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteBool <em>Remote Bool</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getRemoteBoolAckValue <em>Remote Bool Ack Value</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isInput <em>Input</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isOutput <em>Output</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalBool <em>Local Bool</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalScaleAvailable <em>Local Scale Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalScaleFactor <em>Local Scale Factor</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalScaleOffset <em>Local Scale Offset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isListMonitorPreset <em>List Monitor Preset</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isListMonitorListIsAlarm <em>List Monitor List Is Alarm</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isListMonitorAckRequired <em>List Monitor Ack Required</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#getListMonitorItems <em>List Monitor Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getDebugInformation <em>Debug Information</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalBoolAvailable <em>Local Bool Available</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalBoolAck <em>Local Bool Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isIgnoreSummary <em>Ignore Summary</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isBlock <em>Block</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEnabled <em>Enabled</em>}</li>
@@ -78,6 +52,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRoundingAvailable <em>Rounding Available</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getRoundingValue <em>Rounding Value</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalHighHigh <em>Local High High</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalHigh <em>Local High</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalLow <em>Local Low</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalLowLow <em>Local Low Low</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalListMonitor <em>Local List Monitor</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}</li>
  * </ul>
  * </p>
  *
@@ -274,244 +256,108 @@ public interface Item extends EObject
     void setDefaultChain(boolean value);
 
     /**
-     * Returns the value of the '<em><b>Local Min</b></em>' attribute.
+     * Returns the value of the '<em><b>Local Min</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Local Min</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Min</em>' attribute.
-     * @see #setLocalMin(Double)
+     * @return the value of the '<em>Local Min</em>' containment reference.
+     * @see #setLocalMin(LevelMonitor)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMin()
-     * @model
+     * @model containment="true"
      * @generated
      */
-    Double getLocalMin();
+    LevelMonitor getLocalMin();
 
     /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Min</em>' attribute.
+     * @param value the new value of the '<em>Local Min</em>' containment reference.
      * @see #getLocalMin()
      * @generated
      */
-    void setLocalMin(Double value);
+    void setLocalMin(LevelMonitor value);
 
     /**
-     * Returns the value of the '<em><b>Local Min Available</b></em>' attribute.
-     * The default value is <code>"true"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Min Available</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Min Available</em>' attribute.
-     * @see #setLocalMinAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMinAvailable()
-     * @model default="true" required="true"
-     * @generated
-     */
-    boolean isLocalMinAvailable();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalMinAvailable <em>Local Min Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Min Available</em>' attribute.
-     * @see #isLocalMinAvailable()
-     * @generated
-     */
-    void setLocalMinAvailable(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Min Ack</b></em>' attribute.
-     * The default value is <code>"true"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Min Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Min Ack</em>' attribute.
-     * @see #setLocalMinAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMinAck()
-     * @model default="true" required="true"
-     * @generated
-     */
-    boolean isLocalMinAck();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalMinAck <em>Local Min Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Min Ack</em>' attribute.
-     * @see #isLocalMinAck()
-     * @generated
-     */
-    void setLocalMinAck(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Max</b></em>' attribute.
+     * Returns the value of the '<em><b>Local Max</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Local Max</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Max</em>' attribute.
-     * @see #setLocalMax(Double)
+     * @return the value of the '<em>Local Max</em>' containment reference.
+     * @see #setLocalMax(LevelMonitor)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMax()
-     * @model
+     * @model containment="true"
      * @generated
      */
-    Double getLocalMax();
+    LevelMonitor getLocalMax();
 
     /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Max</em>' attribute.
+     * @param value the new value of the '<em>Local Max</em>' containment reference.
      * @see #getLocalMax()
      * @generated
      */
-    void setLocalMax(Double value);
+    void setLocalMax(LevelMonitor value);
 
     /**
-     * Returns the value of the '<em><b>Local Max Available</b></em>' attribute.
-     * The default value is <code>"true"</code>.
+     * Returns the value of the '<em><b>Local List Monitor</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Local Max Available</em>' attribute isn't clear,
+     * If the meaning of the '<em>Local List Monitor</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Max Available</em>' attribute.
-     * @see #setLocalMaxAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMaxAvailable()
-     * @model default="true" required="true"
+     * @return the value of the '<em>Local List Monitor</em>' containment reference.
+     * @see #setLocalListMonitor(ListMonitor)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalListMonitor()
+     * @model containment="true"
      * @generated
      */
-    boolean isLocalMaxAvailable();
+    ListMonitor getLocalListMonitor();
 
     /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAvailable <em>Local Max Available</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalListMonitor <em>Local List Monitor</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Max Available</em>' attribute.
-     * @see #isLocalMaxAvailable()
+     * @param value the new value of the '<em>Local List Monitor</em>' containment reference.
+     * @see #getLocalListMonitor()
      * @generated
      */
-    void setLocalMaxAvailable(boolean value);
+    void setLocalListMonitor(ListMonitor value);
 
     /**
-     * Returns the value of the '<em><b>Local Max Ack</b></em>' attribute.
-     * The default value is <code>"true"</code>.
+     * Returns the value of the '<em><b>Local Boolean Monitor</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Local Max Ack</em>' attribute isn't clear,
+     * If the meaning of the '<em>Local Boolean Monitor</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Max Ack</em>' attribute.
-     * @see #setLocalMaxAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalMaxAck()
-     * @model default="true" required="true"
+     * @return the value of the '<em>Local Boolean Monitor</em>' containment reference.
+     * @see #setLocalBooleanMonitor(BooleanMonitor)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalBooleanMonitor()
+     * @model containment="true"
      * @generated
      */
-    boolean isLocalMaxAck();
+    BooleanMonitor getLocalBooleanMonitor();
 
     /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalMaxAck <em>Local Max Ack</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Max Ack</em>' attribute.
-     * @see #isLocalMaxAck()
+     * @param value the new value of the '<em>Local Boolean Monitor</em>' containment reference.
+     * @see #getLocalBooleanMonitor()
      * @generated
      */
-    void setLocalMaxAck(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local High High Available</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local High High Available</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local High High Available</em>' attribute.
-     * @see #setLocalHighHighAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighHighAvailable()
-     * @model default="false" required="true"
-     * @generated
-     */
-    boolean isLocalHighHighAvailable();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAvailable <em>Local High High Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local High High Available</em>' attribute.
-     * @see #isLocalHighHighAvailable()
-     * @generated
-     */
-    void setLocalHighHighAvailable(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local High High Ack</b></em>' attribute.
-     * The default value is <code>"true"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local High High Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local High High Ack</em>' attribute.
-     * @see #setLocalHighHighAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighHighAck()
-     * @model default="true" required="true"
-     * @generated
-     */
-    boolean isLocalHighHighAck();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalHighHighAck <em>Local High High Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local High High Ack</em>' attribute.
-     * @see #isLocalHighHighAck()
-     * @generated
-     */
-    void setLocalHighHighAck(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local High High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local High High Preset</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local High High Preset</em>' attribute.
-     * @see #setLocalHighHighPreset(Double)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighHighPreset()
-     * @model
-     * @generated
-     */
-    Double getLocalHighHighPreset();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalHighHighPreset <em>Local High High Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local High High Preset</em>' attribute.
-     * @see #getLocalHighHighPreset()
-     * @generated
-     */
-    void setLocalHighHighPreset(Double value);
+    void setLocalBooleanMonitor(BooleanMonitor value);
 
     /**
      * Returns the value of the '<em><b>Event Command</b></em>' attribute.
@@ -621,56 +467,20 @@ public interface Item extends EObject
     void setSystem(String value);
 
     /**
-     * Returns the value of the '<em><b>Location</b></em>' attribute.
+     * Returns the value of the '<em><b>Hierarchy</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Location</em>' attribute isn't clear,
+     * If the meaning of the '<em>Hierarchy</em>' attribute list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Location</em>' attribute.
-     * @see #setLocation(String)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Location()
+     * @return the value of the '<em>Hierarchy</em>' attribute list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Hierarchy()
      * @model
      * @generated
      */
-    String getLocation();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocation <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Location</em>' attribute.
-     * @see #getLocation()
-     * @generated
-     */
-    void setLocation(String value);
-
-    /**
-     * Returns the value of the '<em><b>Component</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Component</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Component</em>' attribute.
-     * @see #setComponent(String)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Component()
-     * @model
-     * @generated
-     */
-    String getComponent();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getComponent <em>Component</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Component</em>' attribute.
-     * @see #getComponent()
-     * @generated
-     */
-    void setComponent(String value);
+    EList<String> getHierarchy();
 
     /**
      * Returns the value of the '<em><b>Remote Min</b></em>' attribute.
@@ -831,243 +641,6 @@ public interface Item extends EObject
     void setRemoteLowLow(boolean value);
 
     /**
-     * Returns the value of the '<em><b>Local High Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local High Available</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local High Available</em>' attribute.
-     * @see #setLocalHighAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighAvailable()
-     * @model required="true"
-     * @generated
-     */
-    boolean isLocalHighAvailable();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalHighAvailable <em>Local High Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local High Available</em>' attribute.
-     * @see #isLocalHighAvailable()
-     * @generated
-     */
-    void setLocalHighAvailable(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local High Ack</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local High Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local High Ack</em>' attribute.
-     * @see #setLocalHighAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighAck()
-     * @model default="false" required="true"
-     * @generated
-     */
-    boolean isLocalHighAck();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalHighAck <em>Local High Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local High Ack</em>' attribute.
-     * @see #isLocalHighAck()
-     * @generated
-     */
-    void setLocalHighAck(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local High Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local High Preset</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local High Preset</em>' attribute.
-     * @see #setLocalHighPreset(Double)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighPreset()
-     * @model
-     * @generated
-     */
-    Double getLocalHighPreset();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalHighPreset <em>Local High Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local High Preset</em>' attribute.
-     * @see #getLocalHighPreset()
-     * @generated
-     */
-    void setLocalHighPreset(Double value);
-
-    /**
-     * Returns the value of the '<em><b>Local Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Low Available</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Low Available</em>' attribute.
-     * @see #setLocalLowAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowAvailable()
-     * @model required="true"
-     * @generated
-     */
-    boolean isLocalLowAvailable();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalLowAvailable <em>Local Low Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Low Available</em>' attribute.
-     * @see #isLocalLowAvailable()
-     * @generated
-     */
-    void setLocalLowAvailable(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Low Ack</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Low Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Low Ack</em>' attribute.
-     * @see #setLocalLowAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowAck()
-     * @model default="false" required="true"
-     * @generated
-     */
-    boolean isLocalLowAck();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalLowAck <em>Local Low Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Low Ack</em>' attribute.
-     * @see #isLocalLowAck()
-     * @generated
-     */
-    void setLocalLowAck(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Low Preset</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Low Preset</em>' attribute.
-     * @see #setLocalLowPreset(Double)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowPreset()
-     * @model
-     * @generated
-     */
-    Double getLocalLowPreset();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalLowPreset <em>Local Low Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Low Preset</em>' attribute.
-     * @see #getLocalLowPreset()
-     * @generated
-     */
-    void setLocalLowPreset(Double value);
-
-    /**
-     * Returns the value of the '<em><b>Local Low Low Available</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Low Low Available</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Low Low Available</em>' attribute.
-     * @see #setLocalLowLowAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowLowAvailable()
-     * @model required="true"
-     * @generated
-     */
-    boolean isLocalLowLowAvailable();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalLowLowAvailable <em>Local Low Low Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Low Low Available</em>' attribute.
-     * @see #isLocalLowLowAvailable()
-     * @generated
-     */
-    void setLocalLowLowAvailable(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Low Low Ack</b></em>' attribute.
-     * The default value is <code>"true"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Low Low Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Low Low Ack</em>' attribute.
-     * @see #setLocalLowLowAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowLowAck()
-     * @model default="true" required="true"
-     * @generated
-     */
-    boolean isLocalLowLowAck();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalLowLowAck <em>Local Low Low Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Low Low Ack</em>' attribute.
-     * @see #isLocalLowLowAck()
-     * @generated
-     */
-    void setLocalLowLowAck(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Low Low Preset</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Low Low Preset</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Low Low Preset</em>' attribute.
-     * @see #setLocalLowLowPreset(Double)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowLowPreset()
-     * @model
-     * @generated
-     */
-    Double getLocalLowLowPreset();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalLowLowPreset <em>Local Low Low Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Low Low Preset</em>' attribute.
-     * @see #getLocalLowLowPreset()
-     * @generated
-     */
-    void setLocalLowLowPreset(Double value);
-
-    /**
      * Returns the value of the '<em><b>Remote Bool</b></em>' attribute.
      * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
@@ -1175,32 +748,6 @@ public interface Item extends EObject
     void setOutput(boolean value);
 
     /**
-     * Returns the value of the '<em><b>Local Bool</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Bool</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Bool</em>' attribute.
-     * @see #setLocalBool(Boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalBool()
-     * @model
-     * @generated
-     */
-    Boolean getLocalBool();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalBool <em>Local Bool</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Bool</em>' attribute.
-     * @see #getLocalBool()
-     * @generated
-     */
-    void setLocalBool(Boolean value);
-
-    /**
      * Returns the value of the '<em><b>Local Scale Available</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
@@ -1279,103 +826,6 @@ public interface Item extends EObject
     void setLocalScaleOffset(Double value);
 
     /**
-     * Returns the value of the '<em><b>List Monitor Preset</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>List Monitor Preset</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>List Monitor Preset</em>' attribute.
-     * @see #setListMonitorPreset(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_ListMonitorPreset()
-     * @model default="false"
-     * @generated
-     */
-    boolean isListMonitorPreset();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isListMonitorPreset <em>List Monitor Preset</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>List Monitor Preset</em>' attribute.
-     * @see #isListMonitorPreset()
-     * @generated
-     */
-    void setListMonitorPreset(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>List Monitor List Is Alarm</b></em>' attribute.
-     * The default value is <code>"true"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>List Monitor List Is Alarm</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>List Monitor List Is Alarm</em>' attribute.
-     * @see #setListMonitorListIsAlarm(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_ListMonitorListIsAlarm()
-     * @model default="true"
-     * @generated
-     */
-    boolean isListMonitorListIsAlarm();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isListMonitorListIsAlarm <em>List Monitor List Is Alarm</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>List Monitor List Is Alarm</em>' attribute.
-     * @see #isListMonitorListIsAlarm()
-     * @generated
-     */
-    void setListMonitorListIsAlarm(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>List Monitor Ack Required</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>List Monitor Ack Required</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>List Monitor Ack Required</em>' attribute.
-     * @see #setListMonitorAckRequired(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_ListMonitorAckRequired()
-     * @model default="false" required="true"
-     * @generated
-     */
-    boolean isListMonitorAckRequired();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isListMonitorAckRequired <em>List Monitor Ack Required</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>List Monitor Ack Required</em>' attribute.
-     * @see #isListMonitorAckRequired()
-     * @generated
-     */
-    void setListMonitorAckRequired(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>List Monitor Items</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>List Monitor Items</em>' attribute list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>List Monitor Items</em>' attribute list.
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_ListMonitorItems()
-     * @model
-     * @generated
-     */
-    EList<String> getListMonitorItems();
-
-    /**
      * Returns the value of the '<em><b>Debug Information</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
@@ -1400,60 +850,6 @@ public interface Item extends EObject
      * @generated
      */
     void setDebugInformation(String value);
-
-    /**
-     * Returns the value of the '<em><b>Local Bool Available</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Bool Available</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Bool Available</em>' attribute.
-     * @see #setLocalBoolAvailable(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalBoolAvailable()
-     * @model default="false" required="true"
-     * @generated
-     */
-    boolean isLocalBoolAvailable();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalBoolAvailable <em>Local Bool Available</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Bool Available</em>' attribute.
-     * @see #isLocalBoolAvailable()
-     * @generated
-     */
-    void setLocalBoolAvailable(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Local Bool Ack</b></em>' attribute.
-     * The default value is <code>"false"</code>.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Bool Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Bool Ack</em>' attribute.
-     * @see #setLocalBoolAck(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalBoolAck()
-     * @model default="false" required="true"
-     * @generated
-     */
-    boolean isLocalBoolAck();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalBoolAck <em>Local Bool Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Bool Ack</em>' attribute.
-     * @see #isLocalBoolAck()
-     * @generated
-     */
-    void setLocalBoolAck(boolean value);
 
     /**
      * Returns the value of the '<em><b>Ignore Summary</b></em>' attribute.
@@ -1660,5 +1056,109 @@ public interface Item extends EObject
      * @generated
      */
     void setRoundingValue(Rounding value);
+
+    /**
+     * Returns the value of the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local High High</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local High High</em>' containment reference.
+     * @see #setLocalHighHigh(LevelMonitor)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHighHigh()
+     * @model containment="true"
+     * @generated
+     */
+    LevelMonitor getLocalHighHigh();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalHighHigh <em>Local High High</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local High High</em>' containment reference.
+     * @see #getLocalHighHigh()
+     * @generated
+     */
+    void setLocalHighHigh(LevelMonitor value);
+
+    /**
+     * Returns the value of the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local High</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local High</em>' containment reference.
+     * @see #setLocalHigh(LevelMonitor)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalHigh()
+     * @model containment="true"
+     * @generated
+     */
+    LevelMonitor getLocalHigh();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalHigh <em>Local High</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local High</em>' containment reference.
+     * @see #getLocalHigh()
+     * @generated
+     */
+    void setLocalHigh(LevelMonitor value);
+
+    /**
+     * Returns the value of the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local Low</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local Low</em>' containment reference.
+     * @see #setLocalLow(LevelMonitor)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLow()
+     * @model containment="true"
+     * @generated
+     */
+    LevelMonitor getLocalLow();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalLow <em>Local Low</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local Low</em>' containment reference.
+     * @see #getLocalLow()
+     * @generated
+     */
+    void setLocalLow(LevelMonitor value);
+
+    /**
+     * Returns the value of the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local Low Low</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local Low Low</em>' containment reference.
+     * @see #setLocalLowLow(LevelMonitor)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalLowLow()
+     * @model containment="true"
+     * @generated
+     */
+    LevelMonitor getLocalLowLow();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalLowLow <em>Local Low Low</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local Low Low</em>' containment reference.
+     * @see #getLocalLowLow()
+     * @generated
+     */
+    void setLocalLowLow(LevelMonitor value);
 
 } // Item

@@ -20,8 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getLocation <em>Location</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getComponent <em>Component</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,55 +73,19 @@ public interface SummaryGroup extends EObject
     void setId(String value);
 
     /**
-     * Returns the value of the '<em><b>Location</b></em>' attribute.
+     * Returns the value of the '<em><b>Hierarchy</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Location</em>' attribute isn't clear,
+     * If the meaning of the '<em>Hierarchy</em>' attribute list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Location</em>' attribute.
-     * @see #setLocation(String)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_Location()
+     * @return the value of the '<em>Hierarchy</em>' attribute list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_Hierarchy()
      * @model
      * @generated
      */
-    String getLocation();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.SummaryGroup#getLocation <em>Location</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Location</em>' attribute.
-     * @see #getLocation()
-     * @generated
-     */
-    void setLocation(String value);
-
-    /**
-     * Returns the value of the '<em><b>Component</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Component</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Component</em>' attribute.
-     * @see #setComponent(String)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_Component()
-     * @model
-     * @generated
-     */
-    String getComponent();
-
-    /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.SummaryGroup#getComponent <em>Component</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Component</em>' attribute.
-     * @see #getComponent()
-     * @generated
-     */
-    void setComponent(String value);
+    EList<String> getHierarchy();
 
 } // SummaryGroup

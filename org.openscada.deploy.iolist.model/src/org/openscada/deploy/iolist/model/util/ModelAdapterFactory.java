@@ -129,6 +129,26 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
                 return createMapperAdapter();
             }
             @Override
+            public Adapter caseMonitor(Monitor object)
+            {
+                return createMonitorAdapter();
+            }
+            @Override
+            public Adapter caseLevelMonitor(LevelMonitor object)
+            {
+                return createLevelMonitorAdapter();
+            }
+            @Override
+            public Adapter caseListMonitor(ListMonitor object)
+            {
+                return createListMonitorAdapter();
+            }
+            @Override
+            public Adapter caseBooleanMonitor(BooleanMonitor object)
+            {
+                return createBooleanMonitorAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object)
             {
                 return createEObjectAdapter();
@@ -296,6 +316,66 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createMapperAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.Monitor <em>Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.Monitor
+     * @generated
+     */
+    public Adapter createMonitorAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.LevelMonitor <em>Level Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.LevelMonitor
+     * @generated
+     */
+    public Adapter createLevelMonitorAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.ListMonitor <em>List Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.ListMonitor
+     * @generated
+     */
+    public Adapter createListMonitorAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.BooleanMonitor <em>Boolean Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.BooleanMonitor
+     * @generated
+     */
+    public Adapter createBooleanMonitorAdapter()
     {
         return null;
     }

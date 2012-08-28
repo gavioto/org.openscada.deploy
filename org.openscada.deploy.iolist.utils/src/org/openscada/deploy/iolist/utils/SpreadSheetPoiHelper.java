@@ -28,6 +28,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ModelFactory;
 
 public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
@@ -207,6 +208,15 @@ public class SpreadSheetPoiHelper extends GenericSpreadSheetHelper
         {
             cell.setCellType ( Cell.CELL_TYPE_BLANK );
         }
+    }
+
+    @Override
+    protected void addSelectiveDataAck ( final int row, final int column, final LevelMonitor levelMonitor )
+    {
+        final boolean available = levelMonitor != null;
+        final Double value = available ? levelMonitor.getPreset () : null;
+        final boolean ack = available ? levelMonitor.isAck () : false;
+        addSelectiveDataAck ( row, column, available, value, ack );
     }
 
     @Override

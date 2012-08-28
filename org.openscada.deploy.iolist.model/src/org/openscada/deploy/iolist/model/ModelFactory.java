@@ -117,6 +117,33 @@ public interface ModelFactory extends EFactory
     Mapper createMapper();
 
     /**
+     * Returns a new object of class '<em>Level Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Level Monitor</em>'.
+     * @generated
+     */
+    LevelMonitor createLevelMonitor();
+
+    /**
+     * Returns a new object of class '<em>List Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>List Monitor</em>'.
+     * @generated
+     */
+    ListMonitor createListMonitor();
+
+    /**
+     * Returns a new object of class '<em>Boolean Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Boolean Monitor</em>'.
+     * @generated
+     */
+    BooleanMonitor createBooleanMonitor();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

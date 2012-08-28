@@ -14,14 +14,18 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Monitor;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
@@ -106,6 +110,34 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EClass mapperEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass monitorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass levelMonitorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass listMonitorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass booleanMonitorEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -269,9 +301,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMin()
+    public EReference getItem_LocalMin()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(7);
+        return (EReference)itemEClass.getEStructuralFeatures().get(38);
     }
 
     /**
@@ -279,9 +311,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMinAvailable()
+    public EReference getItem_LocalMax()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(8);
+        return (EReference)itemEClass.getEStructuralFeatures().get(39);
     }
 
     /**
@@ -289,9 +321,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMinAck()
+    public EReference getItem_LocalListMonitor()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(9);
+        return (EReference)itemEClass.getEStructuralFeatures().get(40);
     }
 
     /**
@@ -299,59 +331,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_LocalMax()
+    public EReference getItem_LocalBooleanMonitor()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(10);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalMaxAvailable()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(11);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalMaxAck()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(12);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalHighHighAvailable()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(13);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalHighHighAck()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(14);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalHighHighPreset()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(15);
+        return (EReference)itemEClass.getEStructuralFeatures().get(41);
     }
 
     /**
@@ -361,7 +343,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_EventCommand()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(16);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -371,7 +353,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_LocalManual()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(17);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(8);
     }
 
     /**
@@ -381,7 +363,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteManual()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(18);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(9);
     }
 
     /**
@@ -391,7 +373,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_System()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(19);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(10);
     }
 
     /**
@@ -399,19 +381,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getItem_Location()
+    public EAttribute getItem_Hierarchy()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(20);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_Component()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(21);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(11);
     }
 
     /**
@@ -421,7 +393,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteMin()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(22);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(12);
     }
 
     /**
@@ -431,7 +403,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteMax()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(23);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(13);
     }
 
     /**
@@ -441,7 +413,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteHighHigh()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(24);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(14);
     }
 
     /**
@@ -451,7 +423,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteHigh()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(25);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(15);
     }
 
     /**
@@ -461,7 +433,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteLow()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(26);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(16);
     }
 
     /**
@@ -471,97 +443,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteLowLow()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(27);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalHighAvailable()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(28);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalHighAck()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(29);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalHighPreset()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(30);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalLowAvailable()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(31);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalLowAck()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(32);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalLowPreset()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(33);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalLowLowAvailable()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(34);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalLowLowAck()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(35);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalLowLowPreset()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(36);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(17);
     }
 
     /**
@@ -571,7 +453,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteBool()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(37);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(18);
     }
 
     /**
@@ -581,7 +463,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RemoteBoolAckValue()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(38);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(19);
     }
 
     /**
@@ -591,7 +473,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_Input()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(39);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(20);
     }
 
     /**
@@ -601,17 +483,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_Output()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(40);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalBool()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(41);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(21);
     }
 
     /**
@@ -621,7 +493,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_LocalScaleAvailable()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(42);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(22);
     }
 
     /**
@@ -631,7 +503,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_LocalScaleFactor()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(43);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(23);
     }
 
     /**
@@ -641,47 +513,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_LocalScaleOffset()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(44);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_ListMonitorPreset()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(45);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_ListMonitorListIsAlarm()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(46);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_ListMonitorAckRequired()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(47);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_ListMonitorItems()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(48);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(24);
     }
 
     /**
@@ -691,27 +523,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_DebugInformation()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(49);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalBoolAvailable()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(50);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getItem_LocalBoolAck()
-    {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(51);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(25);
     }
 
     /**
@@ -721,7 +533,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_IgnoreSummary()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(52);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(26);
     }
 
     /**
@@ -731,7 +543,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_Block()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(53);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(27);
     }
 
     /**
@@ -741,7 +553,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_Enabled()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(54);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(28);
     }
 
     /**
@@ -751,7 +563,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_HdStorage()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(55);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(29);
     }
 
     /**
@@ -761,7 +573,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EReference getItem_Mapper()
     {
-        return (EReference)itemEClass.getEStructuralFeatures().get(56);
+        return (EReference)itemEClass.getEStructuralFeatures().get(30);
     }
 
     /**
@@ -771,7 +583,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_SimulationValue()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(57);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(31);
     }
 
     /**
@@ -781,7 +593,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RoundingAvailable()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(58);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(32);
     }
 
     /**
@@ -791,7 +603,47 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_RoundingValue()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures().get(59);
+        return (EAttribute)itemEClass.getEStructuralFeatures().get(33);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getItem_LocalHighHigh()
+    {
+        return (EReference)itemEClass.getEStructuralFeatures().get(34);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getItem_LocalHigh()
+    {
+        return (EReference)itemEClass.getEStructuralFeatures().get(35);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getItem_LocalLow()
+    {
+        return (EReference)itemEClass.getEStructuralFeatures().get(36);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getItem_LocalLowLow()
+    {
+        return (EReference)itemEClass.getEStructuralFeatures().get(37);
     }
 
     /**
@@ -829,19 +681,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSummaryGroup_Location()
+    public EAttribute getSummaryGroup_Hierarchy()
     {
         return (EAttribute)summaryGroupEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getSummaryGroup_Component()
-    {
-        return (EAttribute)summaryGroupEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1219,6 +1061,116 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getMonitor()
+    {
+        return monitorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMonitor_Active()
+    {
+        return (EAttribute)monitorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMonitor_Ack()
+    {
+        return (EAttribute)monitorEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMonitor_Priority()
+    {
+        return (EAttribute)monitorEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getLevelMonitor()
+    {
+        return levelMonitorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getLevelMonitor_Preset()
+    {
+        return (EAttribute)levelMonitorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getListMonitor()
+    {
+        return listMonitorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getListMonitor_Values()
+    {
+        return (EAttribute)listMonitorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getListMonitor_ListIsAlarm()
+    {
+        return (EAttribute)listMonitorEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getBooleanMonitor()
+    {
+        return booleanMonitorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBooleanMonitor_OkValue()
+    {
+        return (EAttribute)booleanMonitorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getDataType()
     {
         return dataTypeEEnum;
@@ -1272,51 +1224,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(itemEClass, ITEM__ALIAS);
         createEAttribute(itemEClass, ITEM__DESCRIPTION);
         createEAttribute(itemEClass, ITEM__DEFAULT_CHAIN);
-        createEAttribute(itemEClass, ITEM__LOCAL_MIN);
-        createEAttribute(itemEClass, ITEM__LOCAL_MIN_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_MIN_ACK);
-        createEAttribute(itemEClass, ITEM__LOCAL_MAX);
-        createEAttribute(itemEClass, ITEM__LOCAL_MAX_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_MAX_ACK);
-        createEAttribute(itemEClass, ITEM__LOCAL_HIGH_HIGH_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_HIGH_HIGH_ACK);
-        createEAttribute(itemEClass, ITEM__LOCAL_HIGH_HIGH_PRESET);
         createEAttribute(itemEClass, ITEM__EVENT_COMMAND);
         createEAttribute(itemEClass, ITEM__LOCAL_MANUAL);
         createEAttribute(itemEClass, ITEM__REMOTE_MANUAL);
         createEAttribute(itemEClass, ITEM__SYSTEM);
-        createEAttribute(itemEClass, ITEM__LOCATION);
-        createEAttribute(itemEClass, ITEM__COMPONENT);
+        createEAttribute(itemEClass, ITEM__HIERARCHY);
         createEAttribute(itemEClass, ITEM__REMOTE_MIN);
         createEAttribute(itemEClass, ITEM__REMOTE_MAX);
         createEAttribute(itemEClass, ITEM__REMOTE_HIGH_HIGH);
         createEAttribute(itemEClass, ITEM__REMOTE_HIGH);
         createEAttribute(itemEClass, ITEM__REMOTE_LOW);
         createEAttribute(itemEClass, ITEM__REMOTE_LOW_LOW);
-        createEAttribute(itemEClass, ITEM__LOCAL_HIGH_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_HIGH_ACK);
-        createEAttribute(itemEClass, ITEM__LOCAL_HIGH_PRESET);
-        createEAttribute(itemEClass, ITEM__LOCAL_LOW_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_LOW_ACK);
-        createEAttribute(itemEClass, ITEM__LOCAL_LOW_PRESET);
-        createEAttribute(itemEClass, ITEM__LOCAL_LOW_LOW_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_LOW_LOW_ACK);
-        createEAttribute(itemEClass, ITEM__LOCAL_LOW_LOW_PRESET);
         createEAttribute(itemEClass, ITEM__REMOTE_BOOL);
         createEAttribute(itemEClass, ITEM__REMOTE_BOOL_ACK_VALUE);
         createEAttribute(itemEClass, ITEM__INPUT);
         createEAttribute(itemEClass, ITEM__OUTPUT);
-        createEAttribute(itemEClass, ITEM__LOCAL_BOOL);
         createEAttribute(itemEClass, ITEM__LOCAL_SCALE_AVAILABLE);
         createEAttribute(itemEClass, ITEM__LOCAL_SCALE_FACTOR);
         createEAttribute(itemEClass, ITEM__LOCAL_SCALE_OFFSET);
-        createEAttribute(itemEClass, ITEM__LIST_MONITOR_PRESET);
-        createEAttribute(itemEClass, ITEM__LIST_MONITOR_LIST_IS_ALARM);
-        createEAttribute(itemEClass, ITEM__LIST_MONITOR_ACK_REQUIRED);
-        createEAttribute(itemEClass, ITEM__LIST_MONITOR_ITEMS);
         createEAttribute(itemEClass, ITEM__DEBUG_INFORMATION);
-        createEAttribute(itemEClass, ITEM__LOCAL_BOOL_AVAILABLE);
-        createEAttribute(itemEClass, ITEM__LOCAL_BOOL_ACK);
         createEAttribute(itemEClass, ITEM__IGNORE_SUMMARY);
         createEAttribute(itemEClass, ITEM__BLOCK);
         createEAttribute(itemEClass, ITEM__ENABLED);
@@ -1325,12 +1251,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(itemEClass, ITEM__SIMULATION_VALUE);
         createEAttribute(itemEClass, ITEM__ROUNDING_AVAILABLE);
         createEAttribute(itemEClass, ITEM__ROUNDING_VALUE);
+        createEReference(itemEClass, ITEM__LOCAL_HIGH_HIGH);
+        createEReference(itemEClass, ITEM__LOCAL_HIGH);
+        createEReference(itemEClass, ITEM__LOCAL_LOW);
+        createEReference(itemEClass, ITEM__LOCAL_LOW_LOW);
+        createEReference(itemEClass, ITEM__LOCAL_MIN);
+        createEReference(itemEClass, ITEM__LOCAL_MAX);
+        createEReference(itemEClass, ITEM__LOCAL_LIST_MONITOR);
+        createEReference(itemEClass, ITEM__LOCAL_BOOLEAN_MONITOR);
 
         summaryGroupEClass = createEClass(SUMMARY_GROUP);
         createEReference(summaryGroupEClass, SUMMARY_GROUP__ITEMS);
         createEAttribute(summaryGroupEClass, SUMMARY_GROUP__ID);
-        createEAttribute(summaryGroupEClass, SUMMARY_GROUP__LOCATION);
-        createEAttribute(summaryGroupEClass, SUMMARY_GROUP__COMPONENT);
+        createEAttribute(summaryGroupEClass, SUMMARY_GROUP__HIERARCHY);
 
         summaryItemEClass = createEClass(SUMMARY_ITEM);
         createEAttribute(summaryItemEClass, SUMMARY_ITEM__DATA_SOURCE_ID);
@@ -1377,6 +1310,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute(mapperEClass, MAPPER__FROM_ATTRIBUTE);
         createEAttribute(mapperEClass, MAPPER__TO_ATTRIBUTE);
 
+        monitorEClass = createEClass(MONITOR);
+        createEAttribute(monitorEClass, MONITOR__ACTIVE);
+        createEAttribute(monitorEClass, MONITOR__ACK);
+        createEAttribute(monitorEClass, MONITOR__PRIORITY);
+
+        levelMonitorEClass = createEClass(LEVEL_MONITOR);
+        createEAttribute(levelMonitorEClass, LEVEL_MONITOR__PRESET);
+
+        listMonitorEClass = createEClass(LIST_MONITOR);
+        createEAttribute(listMonitorEClass, LIST_MONITOR__VALUES);
+        createEAttribute(listMonitorEClass, LIST_MONITOR__LIST_IS_ALARM);
+
+        booleanMonitorEClass = createEClass(BOOLEAN_MONITOR);
+        createEAttribute(booleanMonitorEClass, BOOLEAN_MONITOR__OK_VALUE);
+
         // Create enums
         dataTypeEEnum = createEEnum(DATA_TYPE);
         roundingEEnum = createEEnum(ROUNDING);
@@ -1413,6 +1361,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         // Add supertypes to classes
         formulaItemEClass.getESuperTypes().add(this.getItem());
         scriptItemEClass.getESuperTypes().add(this.getItem());
+        levelMonitorEClass.getESuperTypes().add(this.getMonitor());
+        listMonitorEClass.getESuperTypes().add(this.getMonitor());
+        booleanMonitorEClass.getESuperTypes().add(this.getMonitor());
 
         // Initialize classes and features; add operations and parameters
         initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1423,51 +1374,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getItem_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_DefaultChain(), ecorePackage.getEBoolean(), "defaultChain", "true", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalMin(), ecorePackage.getEDoubleObject(), "localMin", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalMinAvailable(), ecorePackage.getEBoolean(), "localMinAvailable", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalMinAck(), ecorePackage.getEBoolean(), "localMinAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalMax(), ecorePackage.getEDoubleObject(), "localMax", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalMaxAvailable(), ecorePackage.getEBoolean(), "localMaxAvailable", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalMaxAck(), ecorePackage.getEBoolean(), "localMaxAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalHighHighAvailable(), ecorePackage.getEBoolean(), "localHighHighAvailable", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalHighHighAck(), ecorePackage.getEBoolean(), "localHighHighAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalHighHighPreset(), ecorePackage.getEDoubleObject(), "localHighHighPreset", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_EventCommand(), ecorePackage.getEBoolean(), "eventCommand", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalManual(), ecorePackage.getEBoolean(), "localManual", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteManual(), ecorePackage.getEBoolean(), "remoteManual", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_System(), ecorePackage.getEString(), "system", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_Location(), ecorePackage.getEString(), "location", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_Component(), ecorePackage.getEString(), "component", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getItem_Hierarchy(), ecorePackage.getEString(), "hierarchy", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteMin(), ecorePackage.getEBoolean(), "remoteMin", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteMax(), ecorePackage.getEBoolean(), "remoteMax", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteHighHigh(), ecorePackage.getEBoolean(), "remoteHighHigh", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteHigh(), ecorePackage.getEBoolean(), "remoteHigh", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteLow(), ecorePackage.getEBoolean(), "remoteLow", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteLowLow(), ecorePackage.getEBoolean(), "remoteLowLow", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalHighAvailable(), ecorePackage.getEBoolean(), "localHighAvailable", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalHighAck(), ecorePackage.getEBoolean(), "localHighAck", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalHighPreset(), ecorePackage.getEDoubleObject(), "localHighPreset", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalLowAvailable(), ecorePackage.getEBoolean(), "localLowAvailable", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalLowAck(), ecorePackage.getEBoolean(), "localLowAck", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalLowPreset(), ecorePackage.getEDoubleObject(), "localLowPreset", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalLowLowAvailable(), ecorePackage.getEBoolean(), "localLowLowAvailable", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalLowLowAck(), ecorePackage.getEBoolean(), "localLowLowAck", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalLowLowPreset(), ecorePackage.getEDoubleObject(), "localLowLowPreset", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteBool(), ecorePackage.getEBoolean(), "remoteBool", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RemoteBoolAckValue(), ecorePackage.getEBooleanObject(), "remoteBoolAckValue", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_Input(), ecorePackage.getEBoolean(), "input", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_Output(), ecorePackage.getEBoolean(), "output", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalBool(), ecorePackage.getEBooleanObject(), "localBool", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalScaleAvailable(), ecorePackage.getEBoolean(), "localScaleAvailable", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalScaleFactor(), ecorePackage.getEDoubleObject(), "localScaleFactor", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_LocalScaleOffset(), ecorePackage.getEDoubleObject(), "localScaleOffset", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_ListMonitorPreset(), ecorePackage.getEBoolean(), "listMonitorPreset", "false", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_ListMonitorListIsAlarm(), ecorePackage.getEBoolean(), "listMonitorListIsAlarm", "true", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_ListMonitorAckRequired(), ecorePackage.getEBoolean(), "listMonitorAckRequired", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_ListMonitorItems(), ecorePackage.getEString(), "listMonitorItems", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_DebugInformation(), ecorePackage.getEString(), "debugInformation", null, 0, 1, Item.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalBoolAvailable(), ecorePackage.getEBoolean(), "localBoolAvailable", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getItem_LocalBoolAck(), ecorePackage.getEBoolean(), "localBoolAck", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_IgnoreSummary(), ecorePackage.getEBoolean(), "ignoreSummary", "false", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_Block(), ecorePackage.getEBoolean(), "block", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1476,12 +1401,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getItem_SimulationValue(), ecorePackage.getEString(), "simulationValue", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RoundingAvailable(), ecorePackage.getEBoolean(), "roundingAvailable", "false", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getItem_RoundingValue(), this.getRounding(), "roundingValue", "NONE", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalHighHigh(), this.getLevelMonitor(), null, "localHighHigh", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalHigh(), this.getLevelMonitor(), null, "localHigh", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalLow(), this.getLevelMonitor(), null, "localLow", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalLowLow(), this.getLevelMonitor(), null, "localLowLow", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalMin(), this.getLevelMonitor(), null, "localMin", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalMax(), this.getLevelMonitor(), null, "localMax", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalListMonitor(), this.getListMonitor(), null, "localListMonitor", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getItem_LocalBooleanMonitor(), this.getBooleanMonitor(), null, "localBooleanMonitor", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSummaryGroup_Items(), this.getSummaryItem(), null, "items", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSummaryGroup_Id(), ecorePackage.getEString(), "id", null, 1, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getSummaryGroup_Location(), ecorePackage.getEString(), "location", null, 0, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getSummaryGroup_Component(), ecorePackage.getEString(), "component", null, 0, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSummaryGroup_Hierarchy(), ecorePackage.getEString(), "hierarchy", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(summaryItemEClass, SummaryItem.class, "SummaryItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSummaryItem_DataSourceId(), ecorePackage.getEString(), "dataSourceId", null, 1, 1, SummaryItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1527,6 +1459,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute(getMapper_MapperId(), ecorePackage.getEString(), "mapperId", null, 1, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getMapper_FromAttribute(), ecorePackage.getEString(), "fromAttribute", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getMapper_ToAttribute(), ecorePackage.getEString(), "toAttribute", null, 0, 1, Mapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(monitorEClass, Monitor.class, "Monitor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getMonitor_Active(), ecorePackage.getEBoolean(), "active", "true", 1, 1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getMonitor_Ack(), ecorePackage.getEBoolean(), "ack", "false", 1, 1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getMonitor_Priority(), ecorePackage.getEString(), "priority", null, 1, 1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(levelMonitorEClass, LevelMonitor.class, "LevelMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getLevelMonitor_Preset(), ecorePackage.getEDoubleObject(), "preset", null, 0, 1, LevelMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(listMonitorEClass, ListMonitor.class, "ListMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getListMonitor_Values(), ecorePackage.getEString(), "values", null, 0, -1, ListMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getListMonitor_ListIsAlarm(), ecorePackage.getEBoolean(), "listIsAlarm", null, 1, 1, ListMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(booleanMonitorEClass, BooleanMonitor.class, "BooleanMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getBooleanMonitor_OkValue(), ecorePackage.getEBoolean(), "okValue", null, 1, 1, BooleanMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(dataTypeEEnum, DataType.class, "DataType");
