@@ -1070,7 +1070,10 @@ public class Configuration extends GenericMasterConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
-        SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
+        if ( Boolean.getBoolean ( "enableXls" ) )
+        {
+            SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
+        }
 
         new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) );
 
