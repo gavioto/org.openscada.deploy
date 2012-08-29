@@ -425,24 +425,42 @@ public class Configuration extends GenericMasterConfiguration
         validateConnections ( connections );
     }
 
+    private static final boolean skipNewHierarchy = Boolean.getBoolean ( "skipNewHierarchy" );
+
+    private static final boolean skipOldHierarchy = Boolean.getBoolean ( "skipOldHierarchy" );
+
     private static void convertHierarchyToInfoAttributes ( final List<String> levels, final Map<String, String> attributes )
     {
         // instead of location and component
         int i = 0;
         for ( final String level : levels )
         {
-            attributes.put ( "level." + i, level );
-            if ( i == 0 )
+            if ( !skipNewHierarchy )
             {
-                // a legacy
-                attributes.put ( "location", level );
+                attributes.put ( "level." + i, level );
             }
-            if ( i == 1 )
+            if ( !skipOldHierarchy )
             {
-                // a legacy
-                attributes.put ( "component", level );
+                if ( i == 0 )
+                {
+                    // a legacy
+                    attributes.put ( "location", level );
+                }
+                if ( i == 1 )
+                {
+                    // a legacy
+                    attributes.put ( "component", level );
+                }
             }
             i++;
+        }
+
+        if ( !skipOldHierarchy )
+        {
+            if ( !attributes.containsKey ( "component" ) )
+            {
+                attributes.put ( "component", "" );
+            }
         }
     }
 
@@ -1067,10 +1085,15 @@ public class Configuration extends GenericMasterConfiguration
     {
         if ( Boolean.getBoolean ( "enableXls" ) )
         {
+            System.out.println ( "Start writing XLS" );
             SpreadSheetPoiHelper.writeSpreadsheet ( new File ( baseDir, "IOList-generated.xls" ), this.items ); //$NON-NLS-1$
         }
 
-        new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) );
+        if ( !Boolean.getBoolean ( "skipIoList" ) )
+        {
+            System.out.println ( "Start writing ODS" );
+            new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) );
+        }
 
         super.write ( baseDir );
 
