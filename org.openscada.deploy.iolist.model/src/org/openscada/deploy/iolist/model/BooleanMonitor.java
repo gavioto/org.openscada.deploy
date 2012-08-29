@@ -6,7 +6,6 @@
  */
 package org.openscada.deploy.iolist.model;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Boolean Monitor</b></em>'.
@@ -39,7 +38,7 @@ public interface BooleanMonitor extends Monitor
      * @model required="true"
      * @generated
      */
-    boolean isOkValue();
+    boolean isOkValue ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.BooleanMonitor#isOkValue <em>Ok Value</em>}' attribute.
@@ -49,6 +48,6 @@ public interface BooleanMonitor extends Monitor
      * @see #isOkValue()
      * @generated
      */
-    void setOkValue(boolean value);
+    void setOkValue ( boolean value );
 
 } // BooleanMonitor

@@ -41,7 +41,7 @@ public interface ListMonitor extends Monitor
      * @model
      * @generated
      */
-    EList<String> getValues();
+    EList<String> getValues ();
 
     /**
      * Returns the value of the '<em><b>List Is Alarm</b></em>' attribute.
@@ -57,7 +57,7 @@ public interface ListMonitor extends Monitor
      * @model required="true"
      * @generated
      */
-    boolean isListIsAlarm();
+    boolean isListIsAlarm ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm <em>List Is Alarm</em>}' attribute.
@@ -67,6 +67,6 @@ public interface ListMonitor extends Monitor
      * @see #isListIsAlarm()
      * @generated
      */
-    void setListIsAlarm(boolean value);
+    void setListIsAlarm ( boolean value );
 
 } // ListMonitor

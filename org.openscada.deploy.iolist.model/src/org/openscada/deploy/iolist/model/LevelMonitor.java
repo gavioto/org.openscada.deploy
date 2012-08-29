@@ -6,7 +6,6 @@
  */
 package org.openscada.deploy.iolist.model;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Level Monitor</b></em>'.
@@ -39,7 +38,7 @@ public interface LevelMonitor extends Monitor
      * @model
      * @generated
      */
-    Double getPreset();
+    Double getPreset ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.LevelMonitor#getPreset <em>Preset</em>}' attribute.
@@ -49,6 +48,6 @@ public interface LevelMonitor extends Monitor
      * @see #getPreset()
      * @generated
      */
-    void setPreset(Double value);
+    void setPreset ( Double value );
 
 } // LevelMonitor

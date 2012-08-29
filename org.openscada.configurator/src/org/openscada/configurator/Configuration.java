@@ -1,3 +1,22 @@
+/*
+ * This file is part of the openSCADA project
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ *
+ * openSCADA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License version 3
+ * only, as published by the Free Software Foundation.
+ *
+ * openSCADA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License version 3 for more details
+ * (a copy is included in the LICENSE file that accompanied this code).
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * version 3 along with openSCADA. If not, see
+ * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
+ */
+
 package org.openscada.configurator;
 
 import java.io.BufferedReader;
@@ -39,6 +58,8 @@ import org.openscada.configurator.report.Report;
 import org.openscada.configurator.report.ScriptSource;
 import org.openscada.configurator.report.Source;
 import org.openscada.core.VariantType;
+import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
@@ -63,11 +84,11 @@ public class Configuration extends GenericMasterConfiguration
 
     private final List<Item> items = new ArrayList<Item> ();
 
+    private final List<Average> averages = new ArrayList<Average> ();
+
     private final PrintStream logStream;
 
     private final Report report;
-
-    private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null ); //$NON-NLS-1$
 
     public Configuration () throws Exception
     {
@@ -117,21 +138,11 @@ public class Configuration extends GenericMasterConfiguration
 
     public void addItems ( final List<? extends Item> items )
     {
-        if ( maxItemLimit == null )
+        if ( items == null )
         {
-            this.items.addAll ( items );
+            return;
         }
-        else
-        {
-            for ( final Item item : items )
-            {
-                if ( this.items.size () > maxItemLimit )
-                {
-                    break;
-                }
-                this.items.add ( item );
-            }
-        }
+        this.items.addAll ( items );
     }
 
     public void addMonitorQuery ( final String id, final String filter )
@@ -281,6 +292,14 @@ public class Configuration extends GenericMasterConfiguration
         return this.report.getItem ( id );
     }
 
+    public void generateAverages ()
+    {
+        for ( final Average average : this.averages )
+        {
+            addAverage ( average );
+        }
+    }
+
     /**
      * Generate configuration for currently known items
      * 
@@ -319,6 +338,11 @@ public class Configuration extends GenericMasterConfiguration
                 processScriptItem ( sourceId, (ScriptItem)item );
 
                 reportItem.setValueSource ( createScriptSource ( (ScriptItem)item ) );
+            }
+            else if ( item instanceof AverageItem )
+            {
+                final String averageId = ( (AverageItem)item ).getAverage ().getId ();
+                sourceId = averageId + "." + ( (AverageItem)item ).getType ().getLiteral (); //$NON-NLS-1$
             }
             else if ( "ds".equalsIgnoreCase ( item.getDevice () ) ) //$NON-NLS-1$
             {
@@ -1213,6 +1237,31 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "type", type );
         data.put ( "id", id ); // for now ...
         addData ( "org.openscada.ae.server.http.eventFilter", id, data );
+    }
+
+    public void addAverage ( final Average average )
+    {
+        final String id = average.getId ();
+
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "validSourcesRequired", String.format ( "%d%%", Math.round ( average.getPercentRequired () * 100.0 ) ) );
+
+        final List<String> sources = new ArrayList<String> ( average.getSources () );
+        Collections.sort ( sources );
+
+        data.put ( "sources", StringHelper.join ( sources, ", " ) );
+
+        addData ( "org.openscada.da.datasource.average", id, data );
+    }
+
+    public void addAverages ( final List<Average> averages )
+    {
+        if ( averages == null )
+        {
+            return;
+        }
+        this.averages.addAll ( averages );
     }
 
 }

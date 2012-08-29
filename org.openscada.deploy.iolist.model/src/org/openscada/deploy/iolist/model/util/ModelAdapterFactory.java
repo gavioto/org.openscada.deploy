@@ -8,12 +8,26 @@ package org.openscada.deploy.iolist.model.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.openscada.deploy.iolist.model.*;
+import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.BooleanMonitor;
+import org.openscada.deploy.iolist.model.FormulaInput;
+import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Model;
+import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Monitor;
+import org.openscada.deploy.iolist.model.ScriptItem;
+import org.openscada.deploy.iolist.model.ScriptModule;
+import org.openscada.deploy.iolist.model.ScriptOutput;
+import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,9 +53,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public ModelAdapterFactory()
+    public ModelAdapterFactory ()
     {
-        if (modelPackage == null)
+        if ( modelPackage == null )
         {
             modelPackage = ModelPackage.eINSTANCE;
         }
@@ -56,15 +70,15 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object)
+    public boolean isFactoryForType ( Object object )
     {
-        if (object == modelPackage)
+        if ( object == modelPackage )
         {
             return true;
         }
-        if (object instanceof EObject)
+        if ( object instanceof EObject )
         {
-            return ((EObject)object).eClass().getEPackage() == modelPackage;
+            return ( (EObject)object ).eClass ().getEPackage () == modelPackage;
         }
         return false;
     }
@@ -75,85 +89,109 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ModelSwitch<Adapter> modelSwitch =
-        new ModelSwitch<Adapter>()
+    protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<Adapter> () {
+        @Override
+        public Adapter caseItem ( Item object )
         {
-            @Override
-            public Adapter caseItem(Item object)
-            {
-                return createItemAdapter();
-            }
-            @Override
-            public Adapter caseSummaryGroup(SummaryGroup object)
-            {
-                return createSummaryGroupAdapter();
-            }
-            @Override
-            public Adapter caseSummaryItem(SummaryItem object)
-            {
-                return createSummaryItemAdapter();
-            }
-            @Override
-            public Adapter caseFormulaItem(FormulaItem object)
-            {
-                return createFormulaItemAdapter();
-            }
-            @Override
-            public Adapter caseFormulaInput(FormulaInput object)
-            {
-                return createFormulaInputAdapter();
-            }
-            @Override
-            public Adapter caseScriptModule(ScriptModule object)
-            {
-                return createScriptModuleAdapter();
-            }
-            @Override
-            public Adapter caseModel(Model object)
-            {
-                return createModelAdapter();
-            }
-            @Override
-            public Adapter caseScriptItem(ScriptItem object)
-            {
-                return createScriptItemAdapter();
-            }
-            @Override
-            public Adapter caseScriptOutput(ScriptOutput object)
-            {
-                return createScriptOutputAdapter();
-            }
-            @Override
-            public Adapter caseMapper(Mapper object)
-            {
-                return createMapperAdapter();
-            }
-            @Override
-            public Adapter caseMonitor(Monitor object)
-            {
-                return createMonitorAdapter();
-            }
-            @Override
-            public Adapter caseLevelMonitor(LevelMonitor object)
-            {
-                return createLevelMonitorAdapter();
-            }
-            @Override
-            public Adapter caseListMonitor(ListMonitor object)
-            {
-                return createListMonitorAdapter();
-            }
-            @Override
-            public Adapter caseBooleanMonitor(BooleanMonitor object)
-            {
-                return createBooleanMonitorAdapter();
-            }
-            @Override
-            public Adapter defaultCase(EObject object)
-            {
-                return createEObjectAdapter();
-            }
-        };
+            return createItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseSummaryGroup ( SummaryGroup object )
+        {
+            return createSummaryGroupAdapter ();
+        }
+
+        @Override
+        public Adapter caseSummaryItem ( SummaryItem object )
+        {
+            return createSummaryItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseFormulaItem ( FormulaItem object )
+        {
+            return createFormulaItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseFormulaInput ( FormulaInput object )
+        {
+            return createFormulaInputAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptModule ( ScriptModule object )
+        {
+            return createScriptModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseModel ( Model object )
+        {
+            return createModelAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptItem ( ScriptItem object )
+        {
+            return createScriptItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptOutput ( ScriptOutput object )
+        {
+            return createScriptOutputAdapter ();
+        }
+
+        @Override
+        public Adapter caseMapper ( Mapper object )
+        {
+            return createMapperAdapter ();
+        }
+
+        @Override
+        public Adapter caseMonitor ( Monitor object )
+        {
+            return createMonitorAdapter ();
+        }
+
+        @Override
+        public Adapter caseLevelMonitor ( LevelMonitor object )
+        {
+            return createLevelMonitorAdapter ();
+        }
+
+        @Override
+        public Adapter caseListMonitor ( ListMonitor object )
+        {
+            return createListMonitorAdapter ();
+        }
+
+        @Override
+        public Adapter caseBooleanMonitor ( BooleanMonitor object )
+        {
+            return createBooleanMonitorAdapter ();
+        }
+
+        @Override
+        public Adapter caseAverage ( Average object )
+        {
+            return createAverageAdapter ();
+        }
+
+        @Override
+        public Adapter caseAverageItem ( AverageItem object )
+        {
+            return createAverageItemAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.
@@ -164,11 +202,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target)
+    public Adapter createAdapter ( Notifier target )
     {
-        return modelSwitch.doSwitch((EObject)target);
+        return modelSwitch.doSwitch ( (EObject)target );
     }
-
 
     /**
      * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -180,7 +217,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.Item
      * @generated
      */
-    public Adapter createItemAdapter()
+    public Adapter createItemAdapter ()
     {
         return null;
     }
@@ -195,7 +232,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.SummaryGroup
      * @generated
      */
-    public Adapter createSummaryGroupAdapter()
+    public Adapter createSummaryGroupAdapter ()
     {
         return null;
     }
@@ -210,7 +247,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.SummaryItem
      * @generated
      */
-    public Adapter createSummaryItemAdapter()
+    public Adapter createSummaryItemAdapter ()
     {
         return null;
     }
@@ -225,7 +262,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.FormulaItem
      * @generated
      */
-    public Adapter createFormulaItemAdapter()
+    public Adapter createFormulaItemAdapter ()
     {
         return null;
     }
@@ -240,7 +277,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.FormulaInput
      * @generated
      */
-    public Adapter createFormulaInputAdapter()
+    public Adapter createFormulaInputAdapter ()
     {
         return null;
     }
@@ -255,7 +292,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.ScriptModule
      * @generated
      */
-    public Adapter createScriptModuleAdapter()
+    public Adapter createScriptModuleAdapter ()
     {
         return null;
     }
@@ -270,7 +307,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.Model
      * @generated
      */
-    public Adapter createModelAdapter()
+    public Adapter createModelAdapter ()
     {
         return null;
     }
@@ -285,7 +322,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.ScriptItem
      * @generated
      */
-    public Adapter createScriptItemAdapter()
+    public Adapter createScriptItemAdapter ()
     {
         return null;
     }
@@ -300,7 +337,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.ScriptOutput
      * @generated
      */
-    public Adapter createScriptOutputAdapter()
+    public Adapter createScriptOutputAdapter ()
     {
         return null;
     }
@@ -315,7 +352,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.Mapper
      * @generated
      */
-    public Adapter createMapperAdapter()
+    public Adapter createMapperAdapter ()
     {
         return null;
     }
@@ -330,7 +367,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.Monitor
      * @generated
      */
-    public Adapter createMonitorAdapter()
+    public Adapter createMonitorAdapter ()
     {
         return null;
     }
@@ -345,7 +382,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.LevelMonitor
      * @generated
      */
-    public Adapter createLevelMonitorAdapter()
+    public Adapter createLevelMonitorAdapter ()
     {
         return null;
     }
@@ -360,7 +397,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.ListMonitor
      * @generated
      */
-    public Adapter createListMonitorAdapter()
+    public Adapter createListMonitorAdapter ()
     {
         return null;
     }
@@ -375,7 +412,37 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.deploy.iolist.model.BooleanMonitor
      * @generated
      */
-    public Adapter createBooleanMonitorAdapter()
+    public Adapter createBooleanMonitorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.Average <em>Average</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.Average
+     * @generated
+     */
+    public Adapter createAverageAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.AverageItem <em>Average Item</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.AverageItem
+     * @generated
+     */
+    public Adapter createAverageItemAdapter ()
     {
         return null;
     }
@@ -388,7 +455,7 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @return the new adapter.
      * @generated
      */
-    public Adapter createEObjectAdapter()
+    public Adapter createEObjectAdapter ()
     {
         return null;
     }

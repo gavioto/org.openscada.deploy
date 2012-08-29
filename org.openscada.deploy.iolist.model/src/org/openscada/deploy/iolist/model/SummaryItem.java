@@ -41,7 +41,7 @@ public interface SummaryItem extends EObject
      * @model required="true"
      * @generated
      */
-    String getDataSourceId();
+    String getDataSourceId ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.SummaryItem#getDataSourceId <em>Data Source Id</em>}' attribute.
@@ -51,7 +51,7 @@ public interface SummaryItem extends EObject
      * @see #getDataSourceId()
      * @generated
      */
-    void setDataSourceId(String value);
+    void setDataSourceId ( String value );
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -67,7 +67,7 @@ public interface SummaryItem extends EObject
      * @model required="true"
      * @generated
      */
-    String getType();
+    String getType ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.SummaryItem#getType <em>Type</em>}' attribute.
@@ -77,6 +77,6 @@ public interface SummaryItem extends EObject
      * @see #getType()
      * @generated
      */
-    void setType(String value);
+    void setType ( String value );
 
 } // SummaryItem

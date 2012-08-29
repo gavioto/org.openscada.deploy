@@ -47,7 +47,7 @@ public interface ScriptItem extends Item
      * @model
      * @generated
      */
-    String getScriptEngine();
+    String getScriptEngine ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptItem#getScriptEngine <em>Script Engine</em>}' attribute.
@@ -57,7 +57,7 @@ public interface ScriptItem extends Item
      * @see #getScriptEngine()
      * @generated
      */
-    void setScriptEngine(String value);
+    void setScriptEngine ( String value );
 
     /**
      * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
@@ -73,7 +73,7 @@ public interface ScriptItem extends Item
      * @model containment="true"
      * @generated
      */
-    EList<FormulaInput> getInputs();
+    EList<FormulaInput> getInputs ();
 
     /**
      * Returns the value of the '<em><b>Init Script</b></em>' attribute.
@@ -89,7 +89,7 @@ public interface ScriptItem extends Item
      * @model
      * @generated
      */
-    String getInitScript();
+    String getInitScript ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptItem#getInitScript <em>Init Script</em>}' attribute.
@@ -99,7 +99,7 @@ public interface ScriptItem extends Item
      * @see #getInitScript()
      * @generated
      */
-    void setInitScript(String value);
+    void setInitScript ( String value );
 
     /**
      * Returns the value of the '<em><b>Update Script</b></em>' attribute.
@@ -115,7 +115,7 @@ public interface ScriptItem extends Item
      * @model
      * @generated
      */
-    String getUpdateScript();
+    String getUpdateScript ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptItem#getUpdateScript <em>Update Script</em>}' attribute.
@@ -125,7 +125,7 @@ public interface ScriptItem extends Item
      * @see #getUpdateScript()
      * @generated
      */
-    void setUpdateScript(String value);
+    void setUpdateScript ( String value );
 
     /**
      * Returns the value of the '<em><b>Timer Script</b></em>' attribute.
@@ -141,7 +141,7 @@ public interface ScriptItem extends Item
      * @model
      * @generated
      */
-    String getTimerScript();
+    String getTimerScript ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptItem#getTimerScript <em>Timer Script</em>}' attribute.
@@ -151,7 +151,7 @@ public interface ScriptItem extends Item
      * @see #getTimerScript()
      * @generated
      */
-    void setTimerScript(String value);
+    void setTimerScript ( String value );
 
     /**
      * Returns the value of the '<em><b>Timer Period</b></em>' attribute.
@@ -167,7 +167,7 @@ public interface ScriptItem extends Item
      * @model
      * @generated
      */
-    Long getTimerPeriod();
+    Long getTimerPeriod ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptItem#getTimerPeriod <em>Timer Period</em>}' attribute.
@@ -177,7 +177,7 @@ public interface ScriptItem extends Item
      * @see #getTimerPeriod()
      * @generated
      */
-    void setTimerPeriod(Long value);
+    void setTimerPeriod ( Long value );
 
     /**
      * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.
@@ -193,7 +193,7 @@ public interface ScriptItem extends Item
      * @model containment="true"
      * @generated
      */
-    EList<ScriptOutput> getOutputs();
+    EList<ScriptOutput> getOutputs ();
 
     /**
      * Returns the value of the '<em><b>Write Command</b></em>' attribute.
@@ -209,7 +209,7 @@ public interface ScriptItem extends Item
      * @model
      * @generated
      */
-    String getWriteCommand();
+    String getWriteCommand ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptItem#getWriteCommand <em>Write Command</em>}' attribute.
@@ -219,6 +219,6 @@ public interface ScriptItem extends Item
      * @see #getWriteCommand()
      * @generated
      */
-    void setWriteCommand(String value);
+    void setWriteCommand ( String value );
 
 } // ScriptItem

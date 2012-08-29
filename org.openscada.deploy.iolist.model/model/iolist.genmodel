@@ -3,10 +3,11 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.deploy.iolist.model/src"
     modelPluginID="org.openscada.deploy.iolist.model" modelName="Iolist" modelPluginClass=""
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>iolist.ecore</foreignModel>
   <genPackages prefix="Model" basePackage="org.openscada.deploy.iolist" disposableProviderFactory="true"
-      ecorePackage="iolist.ecore#/">
+      fileExtensions="iolist" ecorePackage="iolist.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="iolist.ecore#//DataType">
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Variant"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Float"/>
@@ -14,6 +15,12 @@
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Boolean"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/Integer"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//DataType/LongInteger"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iolist.ecore#//Rounding">
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//Rounding/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//Rounding/ROUND"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//Rounding/CEIL"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//Rounding/FLOOR"/>
     </genEnums>
     <genClasses ecoreClass="iolist.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/device"/>
@@ -23,59 +30,117 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/alias"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/defaultChain"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMin"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMinAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMax"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localMaxAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighHighAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighHighAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighHighPreset"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/eventCommand"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localManual"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteManual"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/system"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/hierarchy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteMin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteMax"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteHighHigh"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteHigh"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteLow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteLowLow"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localHighPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowLowAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowLowAck"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localLowLowPreset"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteBool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/remoteBoolAckValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/input"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/output"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localBool"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleAvailable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleFactor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleOffset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorPreset"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorListIsAlarm"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorAckRequired"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/listMonitorItems"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/debugInformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localBoolAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localBoolAck"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/ignoreSummary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/block"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/hdStorage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/mapper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/simulationValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/roundingAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/roundingValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/localHighHigh"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/localHigh"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/localLow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/localLowLow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference iolist.ecore#//Item/localMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference iolist.ecore#//Item/localMax"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/localListMonitor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Item/localBooleanMonitor"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//SummaryGroup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//SummaryGroup/items"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/hierarchy"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//SummaryItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/dataSourceId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/type"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//FormulaItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/inputFormula"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/outputFormula"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//FormulaItem/inputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/outputDatasourceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/writeValueName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/initScript"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/outputDatasourceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//FormulaItem/scriptModules"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//FormulaInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaInput/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaInput/datasourceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaInput/type"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//ScriptModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptModule/data"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptModule/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/items"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/averages"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//ScriptItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/scriptEngine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//ScriptItem/inputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/initScript"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/updateScript"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/timerScript"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/timerPeriod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//ScriptItem/outputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/writeCommand"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//ScriptOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptOutput/datasourceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptOutput/name"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//Mapper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Mapper/mapperId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Mapper/fromAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Mapper/toAttribute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="iolist.ecore#//Monitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Monitor/active"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Monitor/ack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Monitor/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//LevelMonitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//LevelMonitor/preset"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//ListMonitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitor/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitor/listIsAlarm"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//BooleanMonitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//BooleanMonitor/okValue"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//Average">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/sources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/percentRequired"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//AverageItem">
+      <genFeatures notify="false" createChild="false" propertyCategory="average" propertyDescription=""
+          propertySortChoices="true" ecoreFeature="ecore:EReference iolist.ecore#//AverageItem/average"/>
+      <genFeatures createChild="false" propertyCategory="average" ecoreFeature="ecore:EAttribute iolist.ecore#//AverageItem/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

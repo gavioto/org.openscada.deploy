@@ -18,12 +18,14 @@ import org.openscada.deploy.iolist.model.ModelPackage;
 public class ImportHandler extends AbstractFileHandler<ImportModule>
 {
 
+    @Override
     protected void loadFile ( final Configuration configuration, final ImportModule module, final File file )
     {
         System.out.print ( " * Importing items from " + file );
 
         final ResourceSet rs = new ResourceSetImpl ();
         rs.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( "xmi", new XMIResourceFactoryImpl () );
+        rs.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( "iolist", new XMIResourceFactoryImpl () );
 
         final URI uri1 = URI.createURI ( ModelFactory.eINSTANCE.getModelPackage ().getNsURI () );
         final URI uri2 = URI.createPlatformPluginURI ( "/org.openscada.deploy.iolist.model/model/model.ecore", true );
@@ -34,6 +36,7 @@ public class ImportHandler extends AbstractFileHandler<ImportModule>
         final Model model = (Model)EcoreUtil.getObjectByType ( resource.getContents (), ModelPackage.Literals.MODEL );
 
         configuration.addItems ( model.getItems () );
+        configuration.addAverages ( model.getAverages () );
         System.out.println ( String.format ( " ... found %s items", model.getItems ().size () ) );
     }
 

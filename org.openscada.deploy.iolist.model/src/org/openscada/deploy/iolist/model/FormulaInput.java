@@ -42,7 +42,7 @@ public interface FormulaInput extends EObject
      * @model required="true"
      * @generated
      */
-    String getName();
+    String getName ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaInput#getName <em>Name</em>}' attribute.
@@ -52,7 +52,7 @@ public interface FormulaInput extends EObject
      * @see #getName()
      * @generated
      */
-    void setName(String value);
+    void setName ( String value );
 
     /**
      * Returns the value of the '<em><b>Datasource Id</b></em>' attribute.
@@ -68,7 +68,7 @@ public interface FormulaInput extends EObject
      * @model required="true"
      * @generated
      */
-    String getDatasourceId();
+    String getDatasourceId ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaInput#getDatasourceId <em>Datasource Id</em>}' attribute.
@@ -78,7 +78,7 @@ public interface FormulaInput extends EObject
      * @see #getDatasourceId()
      * @generated
      */
-    void setDatasourceId(String value);
+    void setDatasourceId ( String value );
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -96,7 +96,7 @@ public interface FormulaInput extends EObject
      * @model required="true"
      * @generated
      */
-    DataType getType();
+    DataType getType ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaInput#getType <em>Type</em>}' attribute.
@@ -107,6 +107,6 @@ public interface FormulaInput extends EObject
      * @see #getType()
      * @generated
      */
-    void setType(DataType value);
+    void setType ( DataType value );
 
 } // FormulaInput

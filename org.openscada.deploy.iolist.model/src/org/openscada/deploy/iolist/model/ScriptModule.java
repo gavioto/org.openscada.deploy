@@ -41,7 +41,7 @@ public interface ScriptModule extends EObject
      * @model required="true"
      * @generated
      */
-    String getData();
+    String getData ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptModule#getData <em>Data</em>}' attribute.
@@ -51,7 +51,7 @@ public interface ScriptModule extends EObject
      * @see #getData()
      * @generated
      */
-    void setData(String value);
+    void setData ( String value );
 
     /**
      * Returns the value of the '<em><b>Resource</b></em>' attribute.
@@ -68,7 +68,7 @@ public interface ScriptModule extends EObject
      * @model default="false" required="true"
      * @generated
      */
-    boolean isResource();
+    boolean isResource ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptModule#isResource <em>Resource</em>}' attribute.
@@ -78,6 +78,6 @@ public interface ScriptModule extends EObject
      * @see #isResource()
      * @generated
      */
-    void setResource(boolean value);
+    void setResource ( boolean value );
 
 } // ScriptModule

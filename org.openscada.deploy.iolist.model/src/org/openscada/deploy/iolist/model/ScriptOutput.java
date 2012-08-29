@@ -41,7 +41,7 @@ public interface ScriptOutput extends EObject
      * @model required="true"
      * @generated
      */
-    String getDatasourceId();
+    String getDatasourceId ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptOutput#getDatasourceId <em>Datasource Id</em>}' attribute.
@@ -51,7 +51,7 @@ public interface ScriptOutput extends EObject
      * @see #getDatasourceId()
      * @generated
      */
-    void setDatasourceId(String value);
+    void setDatasourceId ( String value );
 
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -67,7 +67,7 @@ public interface ScriptOutput extends EObject
      * @model required="true"
      * @generated
      */
-    String getName();
+    String getName ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.ScriptOutput#getName <em>Name</em>}' attribute.
@@ -77,6 +77,6 @@ public interface ScriptOutput extends EObject
      * @see #getName()
      * @generated
      */
-    void setName(String value);
+    void setName ( String value );
 
 } // ScriptOutput

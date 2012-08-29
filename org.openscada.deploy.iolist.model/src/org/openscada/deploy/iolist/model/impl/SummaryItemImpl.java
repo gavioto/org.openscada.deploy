@@ -7,12 +7,9 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.SummaryItem;
 
@@ -77,9 +74,9 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SummaryItemImpl()
+    protected SummaryItemImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -88,7 +85,7 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.SUMMARY_ITEM;
     }
@@ -98,7 +95,7 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDataSourceId()
+    public String getDataSourceId ()
     {
         return dataSourceId;
     }
@@ -108,12 +105,12 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDataSourceId(String newDataSourceId)
+    public void setDataSourceId ( String newDataSourceId )
     {
         String oldDataSourceId = dataSourceId;
         dataSourceId = newDataSourceId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID, oldDataSourceId, dataSourceId));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID, oldDataSourceId, dataSourceId ) );
     }
 
     /**
@@ -121,7 +118,7 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getType()
+    public String getType ()
     {
         return type;
     }
@@ -131,12 +128,12 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setType(String newType)
+    public void setType ( String newType )
     {
         String oldType = type;
         type = newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SUMMARY_ITEM__TYPE, oldType, type));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SUMMARY_ITEM__TYPE, oldType, type ) );
     }
 
     /**
@@ -145,16 +142,16 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID:
-                return getDataSourceId();
+                return getDataSourceId ();
             case ModelPackage.SUMMARY_ITEM__TYPE:
-                return getType();
+                return getType ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -163,18 +160,18 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID:
-                setDataSourceId((String)newValue);
+                setDataSourceId ( (String)newValue );
                 return;
             case ModelPackage.SUMMARY_ITEM__TYPE:
-                setType((String)newValue);
+                setType ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -183,18 +180,18 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID:
-                setDataSourceId(DATA_SOURCE_ID_EDEFAULT);
+                setDataSourceId ( DATA_SOURCE_ID_EDEFAULT );
                 return;
             case ModelPackage.SUMMARY_ITEM__TYPE:
-                setType(TYPE_EDEFAULT);
+                setType ( TYPE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -203,16 +200,16 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID:
-                return DATA_SOURCE_ID_EDEFAULT == null ? dataSourceId != null : !DATA_SOURCE_ID_EDEFAULT.equals(dataSourceId);
+                return DATA_SOURCE_ID_EDEFAULT == null ? dataSourceId != null : !DATA_SOURCE_ID_EDEFAULT.equals ( dataSourceId );
             case ModelPackage.SUMMARY_ITEM__TYPE:
-                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals ( type );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -221,17 +218,18 @@ public class SummaryItemImpl extends EObjectImpl implements SummaryItem
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (dataSourceId: ");
-        result.append(dataSourceId);
-        result.append(", type: ");
-        result.append(type);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (dataSourceId: " );
+        result.append ( dataSourceId );
+        result.append ( ", type: " );
+        result.append ( type );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //SummaryItemImpl

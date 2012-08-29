@@ -7,7 +7,6 @@
 package org.openscada.deploy.iolist.model;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -44,7 +43,7 @@ public interface SummaryGroup extends EObject
      * @model containment="true"
      * @generated
      */
-    EList<SummaryItem> getItems();
+    EList<SummaryItem> getItems ();
 
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -60,7 +59,7 @@ public interface SummaryGroup extends EObject
      * @model id="true" required="true"
      * @generated
      */
-    String getId();
+    String getId ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}' attribute.
@@ -70,7 +69,7 @@ public interface SummaryGroup extends EObject
      * @see #getId()
      * @generated
      */
-    void setId(String value);
+    void setId ( String value );
 
     /**
      * Returns the value of the '<em><b>Hierarchy</b></em>' attribute list.
@@ -86,6 +85,6 @@ public interface SummaryGroup extends EObject
      * @model
      * @generated
      */
-    EList<String> getHierarchy();
+    EList<String> getHierarchy ();
 
 } // SummaryGroup

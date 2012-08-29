@@ -7,11 +7,8 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
@@ -55,9 +52,9 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LevelMonitorImpl()
+    protected LevelMonitorImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,7 +63,7 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.LEVEL_MONITOR;
     }
@@ -76,7 +73,7 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getPreset()
+    public Double getPreset ()
     {
         return preset;
     }
@@ -86,12 +83,12 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPreset(Double newPreset)
+    public void setPreset ( Double newPreset )
     {
         Double oldPreset = preset;
         preset = newPreset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.LEVEL_MONITOR__PRESET, oldPreset, preset));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.LEVEL_MONITOR__PRESET, oldPreset, preset ) );
     }
 
     /**
@@ -100,14 +97,14 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LEVEL_MONITOR__PRESET:
-                return getPreset();
+                return getPreset ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -116,15 +113,15 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LEVEL_MONITOR__PRESET:
-                setPreset((Double)newValue);
+                setPreset ( (Double)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -133,15 +130,15 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LEVEL_MONITOR__PRESET:
-                setPreset(PRESET_EDEFAULT);
+                setPreset ( PRESET_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -150,14 +147,14 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LEVEL_MONITOR__PRESET:
-                return PRESET_EDEFAULT == null ? preset != null : !PRESET_EDEFAULT.equals(preset);
+                return PRESET_EDEFAULT == null ? preset != null : !PRESET_EDEFAULT.equals ( preset );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -166,15 +163,16 @@ public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (preset: ");
-        result.append(preset);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (preset: " );
+        result.append ( preset );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //LevelMonitorImpl

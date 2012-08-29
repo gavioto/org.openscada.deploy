@@ -7,12 +7,9 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
@@ -98,9 +95,9 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    protected MapperImpl()
+    protected MapperImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -109,7 +106,7 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.MAPPER;
     }
@@ -119,7 +116,7 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getMapperId()
+    public String getMapperId ()
     {
         return mapperId;
     }
@@ -129,12 +126,12 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setMapperId(String newMapperId)
+    public void setMapperId ( String newMapperId )
     {
         String oldMapperId = mapperId;
         mapperId = newMapperId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPER__MAPPER_ID, oldMapperId, mapperId));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MAPPER__MAPPER_ID, oldMapperId, mapperId ) );
     }
 
     /**
@@ -142,7 +139,7 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFromAttribute()
+    public String getFromAttribute ()
     {
         return fromAttribute;
     }
@@ -152,12 +149,12 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFromAttribute(String newFromAttribute)
+    public void setFromAttribute ( String newFromAttribute )
     {
         String oldFromAttribute = fromAttribute;
         fromAttribute = newFromAttribute;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPER__FROM_ATTRIBUTE, oldFromAttribute, fromAttribute));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MAPPER__FROM_ATTRIBUTE, oldFromAttribute, fromAttribute ) );
     }
 
     /**
@@ -165,7 +162,7 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getToAttribute()
+    public String getToAttribute ()
     {
         return toAttribute;
     }
@@ -175,12 +172,12 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setToAttribute(String newToAttribute)
+    public void setToAttribute ( String newToAttribute )
     {
         String oldToAttribute = toAttribute;
         toAttribute = newToAttribute;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MAPPER__TO_ATTRIBUTE, oldToAttribute, toAttribute));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MAPPER__TO_ATTRIBUTE, oldToAttribute, toAttribute ) );
     }
 
     /**
@@ -189,18 +186,18 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MAPPER__MAPPER_ID:
-                return getMapperId();
+                return getMapperId ();
             case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-                return getFromAttribute();
+                return getFromAttribute ();
             case ModelPackage.MAPPER__TO_ATTRIBUTE:
-                return getToAttribute();
+                return getToAttribute ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -209,21 +206,21 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MAPPER__MAPPER_ID:
-                setMapperId((String)newValue);
+                setMapperId ( (String)newValue );
                 return;
             case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-                setFromAttribute((String)newValue);
+                setFromAttribute ( (String)newValue );
                 return;
             case ModelPackage.MAPPER__TO_ATTRIBUTE:
-                setToAttribute((String)newValue);
+                setToAttribute ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -232,21 +229,21 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MAPPER__MAPPER_ID:
-                setMapperId(MAPPER_ID_EDEFAULT);
+                setMapperId ( MAPPER_ID_EDEFAULT );
                 return;
             case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-                setFromAttribute(FROM_ATTRIBUTE_EDEFAULT);
+                setFromAttribute ( FROM_ATTRIBUTE_EDEFAULT );
                 return;
             case ModelPackage.MAPPER__TO_ATTRIBUTE:
-                setToAttribute(TO_ATTRIBUTE_EDEFAULT);
+                setToAttribute ( TO_ATTRIBUTE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -255,18 +252,18 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MAPPER__MAPPER_ID:
-                return MAPPER_ID_EDEFAULT == null ? mapperId != null : !MAPPER_ID_EDEFAULT.equals(mapperId);
+                return MAPPER_ID_EDEFAULT == null ? mapperId != null : !MAPPER_ID_EDEFAULT.equals ( mapperId );
             case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-                return FROM_ATTRIBUTE_EDEFAULT == null ? fromAttribute != null : !FROM_ATTRIBUTE_EDEFAULT.equals(fromAttribute);
+                return FROM_ATTRIBUTE_EDEFAULT == null ? fromAttribute != null : !FROM_ATTRIBUTE_EDEFAULT.equals ( fromAttribute );
             case ModelPackage.MAPPER__TO_ATTRIBUTE:
-                return TO_ATTRIBUTE_EDEFAULT == null ? toAttribute != null : !TO_ATTRIBUTE_EDEFAULT.equals(toAttribute);
+                return TO_ATTRIBUTE_EDEFAULT == null ? toAttribute != null : !TO_ATTRIBUTE_EDEFAULT.equals ( toAttribute );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -275,19 +272,20 @@ public class MapperImpl extends EObjectImpl implements Mapper
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (mapperId: ");
-        result.append(mapperId);
-        result.append(", fromAttribute: ");
-        result.append(fromAttribute);
-        result.append(", toAttribute: ");
-        result.append(toAttribute);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (mapperId: " );
+        result.append ( mapperId );
+        result.append ( ", fromAttribute: " );
+        result.append ( fromAttribute );
+        result.append ( ", toAttribute: " );
+        result.append ( toAttribute );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //MapperImpl

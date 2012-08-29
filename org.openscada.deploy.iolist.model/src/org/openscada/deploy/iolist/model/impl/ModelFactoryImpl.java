@@ -10,12 +10,28 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.openscada.deploy.iolist.model.*;
+import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.BooleanMonitor;
+import org.openscada.deploy.iolist.model.DataType;
+import org.openscada.deploy.iolist.model.FormulaInput;
+import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Model;
+import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Rounding;
+import org.openscada.deploy.iolist.model.ScriptItem;
+import org.openscada.deploy.iolist.model.ScriptModule;
+import org.openscada.deploy.iolist.model.ScriptOutput;
+import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,21 +47,21 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public static ModelFactory init()
+    public static ModelFactory init ()
     {
         try
         {
-            ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory("http:///org/openscada/deploy/iolist/model.ecore"); 
-            if (theModelFactory != null)
+            ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory ( "http:///org/openscada/deploy/iolist/model.ecore" );
+            if ( theModelFactory != null )
             {
                 return theModelFactory;
             }
         }
-        catch (Exception exception)
+        catch ( Exception exception )
         {
-            EcorePlugin.INSTANCE.log(exception);
+            EcorePlugin.INSTANCE.log ( exception );
         }
-        return new ModelFactoryImpl();
+        return new ModelFactoryImpl ();
     }
 
     /**
@@ -54,9 +70,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public ModelFactoryImpl()
+    public ModelFactoryImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -65,25 +81,42 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * @generated
      */
     @Override
-    public EObject create(EClass eClass)
+    public EObject create ( EClass eClass )
     {
-        switch (eClass.getClassifierID())
+        switch ( eClass.getClassifierID () )
         {
-            case ModelPackage.ITEM: return createItem();
-            case ModelPackage.SUMMARY_GROUP: return createSummaryGroup();
-            case ModelPackage.SUMMARY_ITEM: return createSummaryItem();
-            case ModelPackage.FORMULA_ITEM: return createFormulaItem();
-            case ModelPackage.FORMULA_INPUT: return createFormulaInput();
-            case ModelPackage.SCRIPT_MODULE: return createScriptModule();
-            case ModelPackage.MODEL: return createModel();
-            case ModelPackage.SCRIPT_ITEM: return createScriptItem();
-            case ModelPackage.SCRIPT_OUTPUT: return createScriptOutput();
-            case ModelPackage.MAPPER: return createMapper();
-            case ModelPackage.LEVEL_MONITOR: return createLevelMonitor();
-            case ModelPackage.LIST_MONITOR: return createListMonitor();
-            case ModelPackage.BOOLEAN_MONITOR: return createBooleanMonitor();
+            case ModelPackage.ITEM:
+                return createItem ();
+            case ModelPackage.SUMMARY_GROUP:
+                return createSummaryGroup ();
+            case ModelPackage.SUMMARY_ITEM:
+                return createSummaryItem ();
+            case ModelPackage.FORMULA_ITEM:
+                return createFormulaItem ();
+            case ModelPackage.FORMULA_INPUT:
+                return createFormulaInput ();
+            case ModelPackage.SCRIPT_MODULE:
+                return createScriptModule ();
+            case ModelPackage.MODEL:
+                return createModel ();
+            case ModelPackage.SCRIPT_ITEM:
+                return createScriptItem ();
+            case ModelPackage.SCRIPT_OUTPUT:
+                return createScriptOutput ();
+            case ModelPackage.MAPPER:
+                return createMapper ();
+            case ModelPackage.LEVEL_MONITOR:
+                return createLevelMonitor ();
+            case ModelPackage.LIST_MONITOR:
+                return createListMonitor ();
+            case ModelPackage.BOOLEAN_MONITOR:
+                return createBooleanMonitor ();
+            case ModelPackage.AVERAGE:
+                return createAverage ();
+            case ModelPackage.AVERAGE_ITEM:
+                return createAverageItem ();
             default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -93,35 +126,18 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * @generated
      */
     @Override
-    public Object createFromString(EDataType eDataType, String initialValue)
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
-        switch (eDataType.getClassifierID())
-        {
-            case ModelPackage.DATA_TYPE:
-                return createDataTypeFromString(eDataType, initialValue);
-            case ModelPackage.ROUNDING:
-                return createRoundingFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String convertToString(EDataType eDataType, Object instanceValue)
-    {
-        switch (eDataType.getClassifierID())
+        switch ( eDataType.getClassifierID () )
         {
             case ModelPackage.DATA_TYPE:
-                return convertDataTypeToString(eDataType, instanceValue);
+                return createDataTypeFromString ( eDataType, initialValue );
             case ModelPackage.ROUNDING:
-                return convertRoundingToString(eDataType, instanceValue);
+                return createRoundingFromString ( eDataType, initialValue );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return createAverageReferenceTypeFromString ( eDataType, initialValue );
             default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -130,9 +146,30 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Item createItem()
+    @Override
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
-        ItemImpl item = new ItemImpl();
+        switch ( eDataType.getClassifierID () )
+        {
+            case ModelPackage.DATA_TYPE:
+                return convertDataTypeToString ( eDataType, instanceValue );
+            case ModelPackage.ROUNDING:
+                return convertRoundingToString ( eDataType, instanceValue );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return convertAverageReferenceTypeToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Item createItem ()
+    {
+        ItemImpl item = new ItemImpl ();
         return item;
     }
 
@@ -141,9 +178,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public SummaryGroup createSummaryGroup()
+    public SummaryGroup createSummaryGroup ()
     {
-        SummaryGroupImpl summaryGroup = new SummaryGroupImpl();
+        SummaryGroupImpl summaryGroup = new SummaryGroupImpl ();
         return summaryGroup;
     }
 
@@ -152,9 +189,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public SummaryItem createSummaryItem()
+    public SummaryItem createSummaryItem ()
     {
-        SummaryItemImpl summaryItem = new SummaryItemImpl();
+        SummaryItemImpl summaryItem = new SummaryItemImpl ();
         return summaryItem;
     }
 
@@ -163,9 +200,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public FormulaItem createFormulaItem()
+    public FormulaItem createFormulaItem ()
     {
-        FormulaItemImpl formulaItem = new FormulaItemImpl();
+        FormulaItemImpl formulaItem = new FormulaItemImpl ();
         return formulaItem;
     }
 
@@ -174,9 +211,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public FormulaInput createFormulaInput()
+    public FormulaInput createFormulaInput ()
     {
-        FormulaInputImpl formulaInput = new FormulaInputImpl();
+        FormulaInputImpl formulaInput = new FormulaInputImpl ();
         return formulaInput;
     }
 
@@ -185,9 +222,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public ScriptModule createScriptModule()
+    public ScriptModule createScriptModule ()
     {
-        ScriptModuleImpl scriptModule = new ScriptModuleImpl();
+        ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
         return scriptModule;
     }
 
@@ -196,9 +233,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Model createModel()
+    public Model createModel ()
     {
-        ModelImpl model = new ModelImpl();
+        ModelImpl model = new ModelImpl ();
         return model;
     }
 
@@ -207,9 +244,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public ScriptItem createScriptItem()
+    public ScriptItem createScriptItem ()
     {
-        ScriptItemImpl scriptItem = new ScriptItemImpl();
+        ScriptItemImpl scriptItem = new ScriptItemImpl ();
         return scriptItem;
     }
 
@@ -218,9 +255,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public ScriptOutput createScriptOutput()
+    public ScriptOutput createScriptOutput ()
     {
-        ScriptOutputImpl scriptOutput = new ScriptOutputImpl();
+        ScriptOutputImpl scriptOutput = new ScriptOutputImpl ();
         return scriptOutput;
     }
 
@@ -229,9 +266,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Mapper createMapper()
+    public Mapper createMapper ()
     {
-        MapperImpl mapper = new MapperImpl();
+        MapperImpl mapper = new MapperImpl ();
         return mapper;
     }
 
@@ -240,9 +277,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor createLevelMonitor()
+    public LevelMonitor createLevelMonitor ()
     {
-        LevelMonitorImpl levelMonitor = new LevelMonitorImpl();
+        LevelMonitorImpl levelMonitor = new LevelMonitorImpl ();
         return levelMonitor;
     }
 
@@ -251,9 +288,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public ListMonitor createListMonitor()
+    public ListMonitor createListMonitor ()
     {
-        ListMonitorImpl listMonitor = new ListMonitorImpl();
+        ListMonitorImpl listMonitor = new ListMonitorImpl ();
         return listMonitor;
     }
 
@@ -262,9 +299,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public BooleanMonitor createBooleanMonitor()
+    public BooleanMonitor createBooleanMonitor ()
     {
-        BooleanMonitorImpl booleanMonitor = new BooleanMonitorImpl();
+        BooleanMonitorImpl booleanMonitor = new BooleanMonitorImpl ();
         return booleanMonitor;
     }
 
@@ -273,10 +310,33 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataType createDataTypeFromString(EDataType eDataType, String initialValue)
+    public Average createAverage ()
     {
-        DataType result = DataType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        AverageImpl average = new AverageImpl ();
+        return average;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AverageItem createAverageItem ()
+    {
+        AverageItemImpl averageItem = new AverageItemImpl ();
+        return averageItem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataType createDataTypeFromString ( EDataType eDataType, String initialValue )
+    {
+        DataType result = DataType.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
         return result;
     }
 
@@ -285,9 +345,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDataTypeToString(EDataType eDataType, Object instanceValue)
+    public String convertDataTypeToString ( EDataType eDataType, Object instanceValue )
     {
-        return instanceValue == null ? null : instanceValue.toString();
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
@@ -295,10 +355,11 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Rounding createRoundingFromString(EDataType eDataType, String initialValue)
+    public Rounding createRoundingFromString ( EDataType eDataType, String initialValue )
     {
-        Rounding result = Rounding.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        Rounding result = Rounding.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
         return result;
     }
 
@@ -307,9 +368,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertRoundingToString(EDataType eDataType, Object instanceValue)
+    public String convertRoundingToString ( EDataType eDataType, Object instanceValue )
     {
-        return instanceValue == null ? null : instanceValue.toString();
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
@@ -317,9 +378,32 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public ModelPackage getModelPackage()
+    public AverageReferenceType createAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
     {
-        return (ModelPackage)getEPackage();
+        AverageReferenceType result = AverageReferenceType.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModelPackage getModelPackage ()
+    {
+        return (ModelPackage)getEPackage ();
     }
 
     /**
@@ -329,7 +413,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * @generated
      */
     @Deprecated
-    public static ModelPackage getPackage()
+    public static ModelPackage getPackage ()
     {
         return ModelPackage.eINSTANCE;
     }

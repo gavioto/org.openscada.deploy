@@ -69,6 +69,7 @@ public class Application implements IApplication
 
         log.println ( "** 3 - Process" );
 
+        cfg.generateAverages ();
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 

@@ -10,19 +10,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.SummaryGroup;
 import org.openscada.deploy.iolist.model.SummaryItem;
@@ -89,9 +84,9 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SummaryGroupImpl()
+    protected SummaryGroupImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -100,7 +95,7 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.SUMMARY_GROUP;
     }
@@ -110,11 +105,11 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<SummaryItem> getItems()
+    public EList<SummaryItem> getItems ()
     {
-        if (items == null)
+        if ( items == null )
         {
-            items = new EObjectContainmentEList<SummaryItem>(SummaryItem.class, this, ModelPackage.SUMMARY_GROUP__ITEMS);
+            items = new EObjectContainmentEList<SummaryItem> ( SummaryItem.class, this, ModelPackage.SUMMARY_GROUP__ITEMS );
         }
         return items;
     }
@@ -124,7 +119,7 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getId()
+    public String getId ()
     {
         return id;
     }
@@ -134,12 +129,12 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setId(String newId)
+    public void setId ( String newId )
     {
         String oldId = id;
         id = newId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SUMMARY_GROUP__ID, oldId, id));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SUMMARY_GROUP__ID, oldId, id ) );
     }
 
     /**
@@ -147,11 +142,11 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getHierarchy()
+    public EList<String> getHierarchy ()
     {
-        if (hierarchy == null)
+        if ( hierarchy == null )
         {
-            hierarchy = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.SUMMARY_GROUP__HIERARCHY);
+            hierarchy = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.SUMMARY_GROUP__HIERARCHY );
         }
         return hierarchy;
     }
@@ -162,14 +157,14 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_GROUP__ITEMS:
-                return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -178,18 +173,18 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_GROUP__ITEMS:
-                return getItems();
+                return getItems ();
             case ModelPackage.SUMMARY_GROUP__ID:
-                return getId();
+                return getId ();
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-                return getHierarchy();
+                return getHierarchy ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -197,48 +192,25 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_GROUP__ITEMS:
-                getItems().clear();
-                getItems().addAll((Collection<? extends SummaryItem>)newValue);
-                return;
-            case ModelPackage.SUMMARY_GROUP__ID:
-                setId((String)newValue);
-                return;
-            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-                getHierarchy().clear();
-                getHierarchy().addAll((Collection<? extends String>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
-                getItems().clear();
+                getItems ().clear ();
+                getItems ().addAll ( (Collection<? extends SummaryItem>)newValue );
                 return;
             case ModelPackage.SUMMARY_GROUP__ID:
-                setId(ID_EDEFAULT);
+                setId ( (String)newValue );
                 return;
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-                getHierarchy().clear();
+                getHierarchy ().clear ();
+                getHierarchy ().addAll ( (Collection<? extends String>)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -247,18 +219,21 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SUMMARY_GROUP__ITEMS:
-                return items != null && !items.isEmpty();
+                getItems ().clear ();
+                return;
             case ModelPackage.SUMMARY_GROUP__ID:
-                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+                setId ( ID_EDEFAULT );
+                return;
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-                return hierarchy != null && !hierarchy.isEmpty();
+                getHierarchy ().clear ();
+                return;
         }
-        return super.eIsSet(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -267,17 +242,38 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * @generated
      */
     @Override
-    public String toString()
+    public boolean eIsSet ( int featureID )
     {
-        if (eIsProxy()) return super.toString();
+        switch ( featureID )
+        {
+            case ModelPackage.SUMMARY_GROUP__ITEMS:
+                return items != null && !items.isEmpty ();
+            case ModelPackage.SUMMARY_GROUP__ID:
+                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                return hierarchy != null && !hierarchy.isEmpty ();
+        }
+        return super.eIsSet ( featureID );
+    }
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (id: ");
-        result.append(id);
-        result.append(", hierarchy: ");
-        result.append(hierarchy);
-        result.append(')');
-        return result.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (id: " );
+        result.append ( id );
+        result.append ( ", hierarchy: " );
+        result.append ( hierarchy );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //SummaryGroupImpl

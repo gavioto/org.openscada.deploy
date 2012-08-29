@@ -43,7 +43,7 @@ public interface Monitor extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isActive();
+    boolean isActive ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Monitor#isActive <em>Active</em>}' attribute.
@@ -53,7 +53,7 @@ public interface Monitor extends EObject
      * @see #isActive()
      * @generated
      */
-    void setActive(boolean value);
+    void setActive ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Ack</b></em>' attribute.
@@ -70,7 +70,7 @@ public interface Monitor extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isAck();
+    boolean isAck ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Monitor#isAck <em>Ack</em>}' attribute.
@@ -80,7 +80,7 @@ public interface Monitor extends EObject
      * @see #isAck()
      * @generated
      */
-    void setAck(boolean value);
+    void setAck ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Priority</b></em>' attribute.
@@ -96,7 +96,7 @@ public interface Monitor extends EObject
      * @model required="true"
      * @generated
      */
-    String getPriority();
+    String getPriority ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Monitor#getPriority <em>Priority</em>}' attribute.
@@ -106,6 +106,6 @@ public interface Monitor extends EObject
      * @see #getPriority()
      * @generated
      */
-    void setPriority(String value);
+    void setPriority ( String value );
 
 } // Monitor

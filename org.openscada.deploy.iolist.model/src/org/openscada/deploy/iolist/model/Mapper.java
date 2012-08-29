@@ -42,7 +42,7 @@ public interface Mapper extends EObject
      * @model required="true"
      * @generated
      */
-    String getMapperId();
+    String getMapperId ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Mapper#getMapperId <em>Mapper Id</em>}' attribute.
@@ -52,7 +52,7 @@ public interface Mapper extends EObject
      * @see #getMapperId()
      * @generated
      */
-    void setMapperId(String value);
+    void setMapperId ( String value );
 
     /**
      * Returns the value of the '<em><b>From Attribute</b></em>' attribute.
@@ -68,7 +68,7 @@ public interface Mapper extends EObject
      * @model
      * @generated
      */
-    String getFromAttribute();
+    String getFromAttribute ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Mapper#getFromAttribute <em>From Attribute</em>}' attribute.
@@ -78,7 +78,7 @@ public interface Mapper extends EObject
      * @see #getFromAttribute()
      * @generated
      */
-    void setFromAttribute(String value);
+    void setFromAttribute ( String value );
 
     /**
      * Returns the value of the '<em><b>To Attribute</b></em>' attribute.
@@ -94,7 +94,7 @@ public interface Mapper extends EObject
      * @model
      * @generated
      */
-    String getToAttribute();
+    String getToAttribute ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Mapper#getToAttribute <em>To Attribute</em>}' attribute.
@@ -104,6 +104,6 @@ public interface Mapper extends EObject
      * @see #getToAttribute()
      * @generated
      */
-    void setToAttribute(String value);
+    void setToAttribute ( String value );
 
 } // Mapper

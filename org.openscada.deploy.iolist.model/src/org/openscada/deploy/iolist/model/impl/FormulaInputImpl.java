@@ -7,12 +7,9 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.ModelPackage;
@@ -99,9 +96,9 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FormulaInputImpl()
+    protected FormulaInputImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -110,7 +107,7 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.FORMULA_INPUT;
     }
@@ -120,7 +117,7 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -130,12 +127,12 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_INPUT__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_INPUT__NAME, oldName, name ) );
     }
 
     /**
@@ -143,7 +140,7 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDatasourceId()
+    public String getDatasourceId ()
     {
         return datasourceId;
     }
@@ -153,12 +150,12 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDatasourceId(String newDatasourceId)
+    public void setDatasourceId ( String newDatasourceId )
     {
         String oldDatasourceId = datasourceId;
         datasourceId = newDatasourceId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_INPUT__DATASOURCE_ID, oldDatasourceId, datasourceId));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_INPUT__DATASOURCE_ID, oldDatasourceId, datasourceId ) );
     }
 
     /**
@@ -166,7 +163,7 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataType getType()
+    public DataType getType ()
     {
         return type;
     }
@@ -176,12 +173,12 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setType(DataType newType)
+    public void setType ( DataType newType )
     {
         DataType oldType = type;
         type = newType == null ? TYPE_EDEFAULT : newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_INPUT__TYPE, oldType, type));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_INPUT__TYPE, oldType, type ) );
     }
 
     /**
@@ -190,18 +187,18 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_INPUT__NAME:
-                return getName();
+                return getName ();
             case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                return getDatasourceId();
+                return getDatasourceId ();
             case ModelPackage.FORMULA_INPUT__TYPE:
-                return getType();
+                return getType ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -210,44 +207,21 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_INPUT__NAME:
-                setName((String)newValue);
+                setName ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                setDatasourceId((String)newValue);
-                return;
-            case ModelPackage.FORMULA_INPUT__TYPE:
-                setType((DataType)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case ModelPackage.FORMULA_INPUT__NAME:
-                setName(NAME_EDEFAULT);
-                return;
-            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                setDatasourceId(DATASOURCE_ID_EDEFAULT);
+                setDatasourceId ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_INPUT__TYPE:
-                setType(TYPE_EDEFAULT);
+                setType ( (DataType)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -256,18 +230,41 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_INPUT__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
             case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                return DATASOURCE_ID_EDEFAULT == null ? datasourceId != null : !DATASOURCE_ID_EDEFAULT.equals(datasourceId);
+                setDatasourceId ( DATASOURCE_ID_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_INPUT__TYPE:
+                setType ( TYPE_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ModelPackage.FORMULA_INPUT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
+                return DATASOURCE_ID_EDEFAULT == null ? datasourceId != null : !DATASOURCE_ID_EDEFAULT.equals ( datasourceId );
             case ModelPackage.FORMULA_INPUT__TYPE:
                 return type != TYPE_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -276,19 +273,20 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(", datasourceId: ");
-        result.append(datasourceId);
-        result.append(", type: ");
-        result.append(type);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " );
+        result.append ( name );
+        result.append ( ", datasourceId: " );
+        result.append ( datasourceId );
+        result.append ( ", type: " );
+        result.append ( type );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //FormulaInputImpl

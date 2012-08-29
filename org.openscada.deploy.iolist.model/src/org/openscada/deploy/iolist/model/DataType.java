@@ -31,7 +31,7 @@ public enum DataType implements Enumerator
      * @generated
      * @ordered
      */
-    VARIANT(0, "Variant", "VARIANT"),
+    VARIANT ( 0, "Variant", "VARIANT" ),
 
     /**
      * The '<em><b>Float</b></em>' literal object.
@@ -41,7 +41,7 @@ public enum DataType implements Enumerator
      * @generated
      * @ordered
      */
-    FLOAT(1, "Float", "FLOAT"),
+    FLOAT ( 1, "Float", "FLOAT" ),
 
     /**
      * The '<em><b>String</b></em>' literal object.
@@ -51,7 +51,7 @@ public enum DataType implements Enumerator
      * @generated
      * @ordered
      */
-    STRING(2, "String", "STRING"),
+    STRING ( 2, "String", "STRING" ),
 
     /**
      * The '<em><b>Boolean</b></em>' literal object.
@@ -61,7 +61,7 @@ public enum DataType implements Enumerator
      * @generated
      * @ordered
      */
-    BOOLEAN(3, "Boolean", "BOOL"),
+    BOOLEAN ( 3, "Boolean", "BOOL" ),
 
     /**
      * The '<em><b>Integer</b></em>' literal object.
@@ -71,7 +71,7 @@ public enum DataType implements Enumerator
      * @generated
      * @ordered
      */
-    INTEGER(4, "Integer", "INT32"),
+    INTEGER ( 4, "Integer", "INT32" ),
 
     /**
      * The '<em><b>Long Integer</b></em>' literal object.
@@ -81,7 +81,7 @@ public enum DataType implements Enumerator
      * @generated
      * @ordered
      */
-    LONG_INTEGER(5, "LongInteger", "INT64");
+    LONG_INTEGER ( 5, "LongInteger", "INT64" );
 
     /**
      * The '<em><b>Variant</b></em>' literal value.
@@ -179,16 +179,7 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final DataType[] VALUES_ARRAY =
-        new DataType[]
-        {
-            VARIANT,
-            FLOAT,
-            STRING,
-            BOOLEAN,
-            INTEGER,
-            LONG_INTEGER,
-        };
+    private static final DataType[] VALUES_ARRAY = new DataType[] { VARIANT, FLOAT, STRING, BOOLEAN, INTEGER, LONG_INTEGER, };
 
     /**
      * A public read-only list of all the '<em><b>Data Type</b></em>' enumerators.
@@ -196,7 +187,7 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<DataType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<DataType> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
      * Returns the '<em><b>Data Type</b></em>' literal with the specified literal value.
@@ -204,12 +195,12 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static DataType get(String literal)
+    public static DataType get ( String literal )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             DataType result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal))
+            if ( result.toString ().equals ( literal ) )
             {
                 return result;
             }
@@ -223,12 +214,12 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static DataType getByName(String name)
+    public static DataType getByName ( String name )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             DataType result = VALUES_ARRAY[i];
-            if (result.getName().equals(name))
+            if ( result.getName ().equals ( name ) )
             {
                 return result;
             }
@@ -242,16 +233,22 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static DataType get(int value)
+    public static DataType get ( int value )
     {
-        switch (value)
+        switch ( value )
         {
-            case VARIANT_VALUE: return VARIANT;
-            case FLOAT_VALUE: return FLOAT;
-            case STRING_VALUE: return STRING;
-            case BOOLEAN_VALUE: return BOOLEAN;
-            case INTEGER_VALUE: return INTEGER;
-            case LONG_INTEGER_VALUE: return LONG_INTEGER;
+            case VARIANT_VALUE:
+                return VARIANT;
+            case FLOAT_VALUE:
+                return FLOAT;
+            case STRING_VALUE:
+                return STRING;
+            case BOOLEAN_VALUE:
+                return BOOLEAN;
+            case INTEGER_VALUE:
+                return INTEGER;
+            case LONG_INTEGER_VALUE:
+                return LONG_INTEGER;
         }
         return null;
     }
@@ -283,7 +280,7 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private DataType(int value, String name, String literal)
+    private DataType ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -295,9 +292,9 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getValue()
+    public int getValue ()
     {
-      return value;
+        return value;
     }
 
     /**
@@ -305,9 +302,9 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
-      return name;
+        return name;
     }
 
     /**
@@ -315,9 +312,9 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLiteral()
+    public String getLiteral ()
     {
-      return literal;
+        return literal;
     }
 
     /**
@@ -327,9 +324,9 @@ public enum DataType implements Enumerator
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return literal;
     }
-    
+
 } //DataType

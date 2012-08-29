@@ -9,15 +9,10 @@ package org.openscada.deploy.iolist.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
 import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
@@ -72,9 +67,9 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ListMonitorImpl()
+    protected ListMonitorImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -83,7 +78,7 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.LIST_MONITOR;
     }
@@ -93,11 +88,11 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getValues()
+    public EList<String> getValues ()
     {
-        if (values == null)
+        if ( values == null )
         {
-            values = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.LIST_MONITOR__VALUES);
+            values = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.LIST_MONITOR__VALUES );
         }
         return values;
     }
@@ -107,7 +102,7 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isListIsAlarm()
+    public boolean isListIsAlarm ()
     {
         return listIsAlarm;
     }
@@ -117,12 +112,12 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setListIsAlarm(boolean newListIsAlarm)
+    public void setListIsAlarm ( boolean newListIsAlarm )
     {
         boolean oldListIsAlarm = listIsAlarm;
         listIsAlarm = newListIsAlarm;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.LIST_MONITOR__LIST_IS_ALARM, oldListIsAlarm, listIsAlarm));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.LIST_MONITOR__LIST_IS_ALARM, oldListIsAlarm, listIsAlarm ) );
     }
 
     /**
@@ -131,16 +126,16 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LIST_MONITOR__VALUES:
-                return getValues();
+                return getValues ();
             case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                return isListIsAlarm();
+                return isListIsAlarm ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -148,41 +143,21 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LIST_MONITOR__VALUES:
-                getValues().clear();
-                getValues().addAll((Collection<? extends String>)newValue);
-                return;
-            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                setListIsAlarm((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case ModelPackage.LIST_MONITOR__VALUES:
-                getValues().clear();
+                getValues ().clear ();
+                getValues ().addAll ( (Collection<? extends String>)newValue );
                 return;
             case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                setListIsAlarm(LIST_IS_ALARM_EDEFAULT);
+                setListIsAlarm ( (Boolean)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -191,16 +166,36 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.LIST_MONITOR__VALUES:
-                return values != null && !values.isEmpty();
+                getValues ().clear ();
+                return;
+            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
+                setListIsAlarm ( LIST_IS_ALARM_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ModelPackage.LIST_MONITOR__VALUES:
+                return values != null && !values.isEmpty ();
             case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
                 return listIsAlarm != LIST_IS_ALARM_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -209,17 +204,18 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (values: ");
-        result.append(values);
-        result.append(", listIsAlarm: ");
-        result.append(listIsAlarm);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (values: " );
+        result.append ( values );
+        result.append ( ", listIsAlarm: " );
+        result.append ( listIsAlarm );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ListMonitorImpl

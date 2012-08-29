@@ -7,11 +7,8 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
@@ -55,9 +52,9 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BooleanMonitorImpl()
+    protected BooleanMonitorImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,7 +63,7 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.BOOLEAN_MONITOR;
     }
@@ -76,7 +73,7 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isOkValue()
+    public boolean isOkValue ()
     {
         return okValue;
     }
@@ -86,12 +83,12 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOkValue(boolean newOkValue)
+    public void setOkValue ( boolean newOkValue )
     {
         boolean oldOkValue = okValue;
         okValue = newOkValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOOLEAN_MONITOR__OK_VALUE, oldOkValue, okValue));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.BOOLEAN_MONITOR__OK_VALUE, oldOkValue, okValue ) );
     }
 
     /**
@@ -100,14 +97,14 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                return isOkValue();
+                return isOkValue ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -116,15 +113,15 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                setOkValue((Boolean)newValue);
+                setOkValue ( (Boolean)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -133,15 +130,15 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                setOkValue(OK_VALUE_EDEFAULT);
+                setOkValue ( OK_VALUE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -150,14 +147,14 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
                 return okValue != OK_VALUE_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -166,15 +163,16 @@ public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (okValue: ");
-        result.append(okValue);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (okValue: " );
+        result.append ( okValue );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //BooleanMonitorImpl

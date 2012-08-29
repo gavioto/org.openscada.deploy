@@ -10,17 +10,12 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.ScriptItem;
@@ -193,9 +188,9 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ScriptItemImpl()
+    protected ScriptItemImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -204,7 +199,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.SCRIPT_ITEM;
     }
@@ -214,7 +209,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getScriptEngine()
+    public String getScriptEngine ()
     {
         return scriptEngine;
     }
@@ -224,12 +219,12 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setScriptEngine(String newScriptEngine)
+    public void setScriptEngine ( String newScriptEngine )
     {
         String oldScriptEngine = scriptEngine;
         scriptEngine = newScriptEngine;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE, oldScriptEngine, scriptEngine));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE, oldScriptEngine, scriptEngine ) );
     }
 
     /**
@@ -237,11 +232,11 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<FormulaInput> getInputs()
+    public EList<FormulaInput> getInputs ()
     {
-        if (inputs == null)
+        if ( inputs == null )
         {
-            inputs = new EObjectContainmentEList<FormulaInput>(FormulaInput.class, this, ModelPackage.SCRIPT_ITEM__INPUTS);
+            inputs = new EObjectContainmentEList<FormulaInput> ( FormulaInput.class, this, ModelPackage.SCRIPT_ITEM__INPUTS );
         }
         return inputs;
     }
@@ -251,7 +246,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getInitScript()
+    public String getInitScript ()
     {
         return initScript;
     }
@@ -261,12 +256,12 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInitScript(String newInitScript)
+    public void setInitScript ( String newInitScript )
     {
         String oldInitScript = initScript;
         initScript = newInitScript;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_ITEM__INIT_SCRIPT, oldInitScript, initScript));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_ITEM__INIT_SCRIPT, oldInitScript, initScript ) );
     }
 
     /**
@@ -274,7 +269,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getUpdateScript()
+    public String getUpdateScript ()
     {
         return updateScript;
     }
@@ -284,12 +279,12 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setUpdateScript(String newUpdateScript)
+    public void setUpdateScript ( String newUpdateScript )
     {
         String oldUpdateScript = updateScript;
         updateScript = newUpdateScript;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT, oldUpdateScript, updateScript));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT, oldUpdateScript, updateScript ) );
     }
 
     /**
@@ -297,7 +292,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getTimerScript()
+    public String getTimerScript ()
     {
         return timerScript;
     }
@@ -307,12 +302,12 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTimerScript(String newTimerScript)
+    public void setTimerScript ( String newTimerScript )
     {
         String oldTimerScript = timerScript;
         timerScript = newTimerScript;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT, oldTimerScript, timerScript));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT, oldTimerScript, timerScript ) );
     }
 
     /**
@@ -320,7 +315,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public Long getTimerPeriod()
+    public Long getTimerPeriod ()
     {
         return timerPeriod;
     }
@@ -330,12 +325,12 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTimerPeriod(Long newTimerPeriod)
+    public void setTimerPeriod ( Long newTimerPeriod )
     {
         Long oldTimerPeriod = timerPeriod;
         timerPeriod = newTimerPeriod;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_ITEM__TIMER_PERIOD, oldTimerPeriod, timerPeriod));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_ITEM__TIMER_PERIOD, oldTimerPeriod, timerPeriod ) );
     }
 
     /**
@@ -343,11 +338,11 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ScriptOutput> getOutputs()
+    public EList<ScriptOutput> getOutputs ()
     {
-        if (outputs == null)
+        if ( outputs == null )
         {
-            outputs = new EObjectContainmentEList<ScriptOutput>(ScriptOutput.class, this, ModelPackage.SCRIPT_ITEM__OUTPUTS);
+            outputs = new EObjectContainmentEList<ScriptOutput> ( ScriptOutput.class, this, ModelPackage.SCRIPT_ITEM__OUTPUTS );
         }
         return outputs;
     }
@@ -357,7 +352,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getWriteCommand()
+    public String getWriteCommand ()
     {
         return writeCommand;
     }
@@ -367,12 +362,12 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWriteCommand(String newWriteCommand)
+    public void setWriteCommand ( String newWriteCommand )
     {
         String oldWriteCommand = writeCommand;
         writeCommand = newWriteCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_ITEM__WRITE_COMMAND, oldWriteCommand, writeCommand));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_ITEM__WRITE_COMMAND, oldWriteCommand, writeCommand ) );
     }
 
     /**
@@ -381,16 +376,16 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_ITEM__INPUTS:
-                return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
             case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getOutputs () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -399,69 +394,28 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
-        {
-            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                return getScriptEngine();
-            case ModelPackage.SCRIPT_ITEM__INPUTS:
-                return getInputs();
-            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                return getInitScript();
-            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                return getUpdateScript();
-            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                return getTimerScript();
-            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                return getTimerPeriod();
-            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                return getOutputs();
-            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                return getWriteCommand();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue)
-    {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                setScriptEngine((String)newValue);
-                return;
+                return getScriptEngine ();
             case ModelPackage.SCRIPT_ITEM__INPUTS:
-                getInputs().clear();
-                getInputs().addAll((Collection<? extends FormulaInput>)newValue);
-                return;
+                return getInputs ();
             case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                setInitScript((String)newValue);
-                return;
+                return getInitScript ();
             case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                setUpdateScript((String)newValue);
-                return;
+                return getUpdateScript ();
             case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                setTimerScript((String)newValue);
-                return;
+                return getTimerScript ();
             case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                setTimerPeriod((Long)newValue);
-                return;
+                return getTimerPeriod ();
             case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                getOutputs().clear();
-                getOutputs().addAll((Collection<? extends ScriptOutput>)newValue);
-                return;
+                return getOutputs ();
             case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                setWriteCommand((String)newValue);
-                return;
+                return getWriteCommand ();
         }
-        super.eSet(featureID, newValue);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -469,37 +423,40 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eUnset(int featureID)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                setScriptEngine(SCRIPT_ENGINE_EDEFAULT);
+                setScriptEngine ( (String)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__INPUTS:
-                getInputs().clear();
+                getInputs ().clear ();
+                getInputs ().addAll ( (Collection<? extends FormulaInput>)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                setInitScript(INIT_SCRIPT_EDEFAULT);
+                setInitScript ( (String)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                setUpdateScript(UPDATE_SCRIPT_EDEFAULT);
+                setUpdateScript ( (String)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                setTimerScript(TIMER_SCRIPT_EDEFAULT);
+                setTimerScript ( (String)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                setTimerPeriod(TIMER_PERIOD_EDEFAULT);
+                setTimerPeriod ( (Long)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                getOutputs().clear();
+                getOutputs ().clear ();
+                getOutputs ().addAll ( (Collection<? extends ScriptOutput>)newValue );
                 return;
             case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                setWriteCommand(WRITE_COMMAND_EDEFAULT);
+                setWriteCommand ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -508,28 +465,36 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                return SCRIPT_ENGINE_EDEFAULT == null ? scriptEngine != null : !SCRIPT_ENGINE_EDEFAULT.equals(scriptEngine);
+                setScriptEngine ( SCRIPT_ENGINE_EDEFAULT );
+                return;
             case ModelPackage.SCRIPT_ITEM__INPUTS:
-                return inputs != null && !inputs.isEmpty();
+                getInputs ().clear ();
+                return;
             case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals(initScript);
+                setInitScript ( INIT_SCRIPT_EDEFAULT );
+                return;
             case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                return UPDATE_SCRIPT_EDEFAULT == null ? updateScript != null : !UPDATE_SCRIPT_EDEFAULT.equals(updateScript);
+                setUpdateScript ( UPDATE_SCRIPT_EDEFAULT );
+                return;
             case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                return TIMER_SCRIPT_EDEFAULT == null ? timerScript != null : !TIMER_SCRIPT_EDEFAULT.equals(timerScript);
+                setTimerScript ( TIMER_SCRIPT_EDEFAULT );
+                return;
             case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                return TIMER_PERIOD_EDEFAULT == null ? timerPeriod != null : !TIMER_PERIOD_EDEFAULT.equals(timerPeriod);
+                setTimerPeriod ( TIMER_PERIOD_EDEFAULT );
+                return;
             case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                return outputs != null && !outputs.isEmpty();
+                getOutputs ().clear ();
+                return;
             case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                return WRITE_COMMAND_EDEFAULT == null ? writeCommand != null : !WRITE_COMMAND_EDEFAULT.equals(writeCommand);
+                setWriteCommand ( WRITE_COMMAND_EDEFAULT );
+                return;
         }
-        return super.eIsSet(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -538,25 +503,56 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @generated
      */
     @Override
-    public String toString()
+    public boolean eIsSet ( int featureID )
     {
-        if (eIsProxy()) return super.toString();
+        switch ( featureID )
+        {
+            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
+                return SCRIPT_ENGINE_EDEFAULT == null ? scriptEngine != null : !SCRIPT_ENGINE_EDEFAULT.equals ( scriptEngine );
+            case ModelPackage.SCRIPT_ITEM__INPUTS:
+                return inputs != null && !inputs.isEmpty ();
+            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
+                return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals ( initScript );
+            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
+                return UPDATE_SCRIPT_EDEFAULT == null ? updateScript != null : !UPDATE_SCRIPT_EDEFAULT.equals ( updateScript );
+            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
+                return TIMER_SCRIPT_EDEFAULT == null ? timerScript != null : !TIMER_SCRIPT_EDEFAULT.equals ( timerScript );
+            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
+                return TIMER_PERIOD_EDEFAULT == null ? timerPeriod != null : !TIMER_PERIOD_EDEFAULT.equals ( timerPeriod );
+            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+                return outputs != null && !outputs.isEmpty ();
+            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
+                return WRITE_COMMAND_EDEFAULT == null ? writeCommand != null : !WRITE_COMMAND_EDEFAULT.equals ( writeCommand );
+        }
+        return super.eIsSet ( featureID );
+    }
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (scriptEngine: ");
-        result.append(scriptEngine);
-        result.append(", initScript: ");
-        result.append(initScript);
-        result.append(", updateScript: ");
-        result.append(updateScript);
-        result.append(", timerScript: ");
-        result.append(timerScript);
-        result.append(", timerPeriod: ");
-        result.append(timerPeriod);
-        result.append(", writeCommand: ");
-        result.append(writeCommand);
-        result.append(')');
-        return result.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (scriptEngine: " );
+        result.append ( scriptEngine );
+        result.append ( ", initScript: " );
+        result.append ( initScript );
+        result.append ( ", updateScript: " );
+        result.append ( updateScript );
+        result.append ( ", timerScript: " );
+        result.append ( timerScript );
+        result.append ( ", timerPeriod: " );
+        result.append ( timerPeriod );
+        result.append ( ", writeCommand: " );
+        result.append ( writeCommand );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ScriptItemImpl

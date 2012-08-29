@@ -46,6 +46,7 @@ public class ItemListWriter
 
     private void setupColumns ( final int maxLevel )
     {
+        this.columns.add ( new TypeColumnWriter ( "TYPE" ) );
         this.columns.add ( new TextEcoreColumn ( "CONNECTION", ModelPackage.Literals.ITEM__DEVICE ) );
         this.columns.add ( new TextEcoreColumn ( "SOURCE_NAME", ModelPackage.Literals.ITEM__NAME ) );
 

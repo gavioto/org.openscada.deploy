@@ -8,10 +8,25 @@ package org.openscada.deploy.iolist.model.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.openscada.deploy.iolist.model.*;
+import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.BooleanMonitor;
+import org.openscada.deploy.iolist.model.FormulaInput;
+import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Model;
+import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Monitor;
+import org.openscada.deploy.iolist.model.ScriptItem;
+import org.openscada.deploy.iolist.model.ScriptModule;
+import org.openscada.deploy.iolist.model.ScriptOutput;
+import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,9 +57,9 @@ public class ModelSwitch<T> extends Switch<T>
      * <!-- end-user-doc -->
      * @generated
      */
-    public ModelSwitch()
+    public ModelSwitch ()
     {
-        if (modelPackage == null)
+        if ( modelPackage == null )
         {
             modelPackage = ModelPackage.eINSTANCE;
         }
@@ -59,7 +74,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     @Override
-    protected boolean isSwitchFor(EPackage ePackage)
+    protected boolean isSwitchFor ( EPackage ePackage )
     {
         return ePackage == modelPackage;
     }
@@ -72,114 +87,152 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     @Override
-    protected T doSwitch(int classifierID, EObject theEObject)
+    protected T doSwitch ( int classifierID, EObject theEObject )
     {
-        switch (classifierID)
+        switch ( classifierID )
         {
             case ModelPackage.ITEM:
             {
                 Item item = (Item)theEObject;
-                T result = caseItem(item);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseItem ( item );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.SUMMARY_GROUP:
             {
                 SummaryGroup summaryGroup = (SummaryGroup)theEObject;
-                T result = caseSummaryGroup(summaryGroup);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseSummaryGroup ( summaryGroup );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.SUMMARY_ITEM:
             {
                 SummaryItem summaryItem = (SummaryItem)theEObject;
-                T result = caseSummaryItem(summaryItem);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseSummaryItem ( summaryItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.FORMULA_ITEM:
             {
                 FormulaItem formulaItem = (FormulaItem)theEObject;
-                T result = caseFormulaItem(formulaItem);
-                if (result == null) result = caseItem(formulaItem);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseFormulaItem ( formulaItem );
+                if ( result == null )
+                    result = caseItem ( formulaItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.FORMULA_INPUT:
             {
                 FormulaInput formulaInput = (FormulaInput)theEObject;
-                T result = caseFormulaInput(formulaInput);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseFormulaInput ( formulaInput );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.SCRIPT_MODULE:
             {
                 ScriptModule scriptModule = (ScriptModule)theEObject;
-                T result = caseScriptModule(scriptModule);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseScriptModule ( scriptModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.MODEL:
             {
                 Model model = (Model)theEObject;
-                T result = caseModel(model);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseModel ( model );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.SCRIPT_ITEM:
             {
                 ScriptItem scriptItem = (ScriptItem)theEObject;
-                T result = caseScriptItem(scriptItem);
-                if (result == null) result = caseItem(scriptItem);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseScriptItem ( scriptItem );
+                if ( result == null )
+                    result = caseItem ( scriptItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.SCRIPT_OUTPUT:
             {
                 ScriptOutput scriptOutput = (ScriptOutput)theEObject;
-                T result = caseScriptOutput(scriptOutput);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseScriptOutput ( scriptOutput );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.MAPPER:
             {
                 Mapper mapper = (Mapper)theEObject;
-                T result = caseMapper(mapper);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseMapper ( mapper );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.MONITOR:
             {
                 Monitor monitor = (Monitor)theEObject;
-                T result = caseMonitor(monitor);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseMonitor ( monitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.LEVEL_MONITOR:
             {
                 LevelMonitor levelMonitor = (LevelMonitor)theEObject;
-                T result = caseLevelMonitor(levelMonitor);
-                if (result == null) result = caseMonitor(levelMonitor);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseLevelMonitor ( levelMonitor );
+                if ( result == null )
+                    result = caseMonitor ( levelMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.LIST_MONITOR:
             {
                 ListMonitor listMonitor = (ListMonitor)theEObject;
-                T result = caseListMonitor(listMonitor);
-                if (result == null) result = caseMonitor(listMonitor);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseListMonitor ( listMonitor );
+                if ( result == null )
+                    result = caseMonitor ( listMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case ModelPackage.BOOLEAN_MONITOR:
             {
                 BooleanMonitor booleanMonitor = (BooleanMonitor)theEObject;
-                T result = caseBooleanMonitor(booleanMonitor);
-                if (result == null) result = caseMonitor(booleanMonitor);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseBooleanMonitor ( booleanMonitor );
+                if ( result == null )
+                    result = caseMonitor ( booleanMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
-            default: return defaultCase(theEObject);
+            case ModelPackage.AVERAGE:
+            {
+                Average average = (Average)theEObject;
+                T result = caseAverage ( average );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.AVERAGE_ITEM:
+            {
+                AverageItem averageItem = (AverageItem)theEObject;
+                T result = caseAverageItem ( averageItem );
+                if ( result == null )
+                    result = caseItem ( averageItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            default:
+                return defaultCase ( theEObject );
         }
     }
 
@@ -194,7 +247,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseItem(Item object)
+    public T caseItem ( Item object )
     {
         return null;
     }
@@ -210,7 +263,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSummaryGroup(SummaryGroup object)
+    public T caseSummaryGroup ( SummaryGroup object )
     {
         return null;
     }
@@ -226,7 +279,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSummaryItem(SummaryItem object)
+    public T caseSummaryItem ( SummaryItem object )
     {
         return null;
     }
@@ -242,7 +295,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFormulaItem(FormulaItem object)
+    public T caseFormulaItem ( FormulaItem object )
     {
         return null;
     }
@@ -258,7 +311,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFormulaInput(FormulaInput object)
+    public T caseFormulaInput ( FormulaInput object )
     {
         return null;
     }
@@ -274,7 +327,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScriptModule(ScriptModule object)
+    public T caseScriptModule ( ScriptModule object )
     {
         return null;
     }
@@ -290,7 +343,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseModel(Model object)
+    public T caseModel ( Model object )
     {
         return null;
     }
@@ -306,7 +359,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScriptItem(ScriptItem object)
+    public T caseScriptItem ( ScriptItem object )
     {
         return null;
     }
@@ -322,7 +375,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScriptOutput(ScriptOutput object)
+    public T caseScriptOutput ( ScriptOutput object )
     {
         return null;
     }
@@ -338,7 +391,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseMapper(Mapper object)
+    public T caseMapper ( Mapper object )
     {
         return null;
     }
@@ -354,7 +407,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseMonitor(Monitor object)
+    public T caseMonitor ( Monitor object )
     {
         return null;
     }
@@ -370,7 +423,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLevelMonitor(LevelMonitor object)
+    public T caseLevelMonitor ( LevelMonitor object )
     {
         return null;
     }
@@ -386,7 +439,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseListMonitor(ListMonitor object)
+    public T caseListMonitor ( ListMonitor object )
     {
         return null;
     }
@@ -402,7 +455,39 @@ public class ModelSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBooleanMonitor(BooleanMonitor object)
+    public T caseBooleanMonitor ( BooleanMonitor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Average</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Average</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAverage ( Average object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Average Item</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Average Item</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAverageItem ( AverageItem object )
     {
         return null;
     }
@@ -419,7 +504,7 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     @Override
-    public T defaultCase(EObject object)
+    public T defaultCase ( EObject object )
     {
         return null;
     }

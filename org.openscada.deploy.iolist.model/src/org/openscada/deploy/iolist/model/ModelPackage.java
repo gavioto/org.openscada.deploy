@@ -59,7 +59,7 @@ public interface ModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    ModelPackage eINSTANCE = org.openscada.deploy.iolist.model.impl.ModelPackageImpl.init();
+    ModelPackage eINSTANCE = org.openscada.deploy.iolist.model.impl.ModelPackageImpl.init ();
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ItemImpl <em>Item</em>}' class.
@@ -1113,13 +1113,22 @@ public interface ModelPackage extends EPackage
     int MODEL__ITEMS = 0;
 
     /**
+     * The feature id for the '<em><b>Averages</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODEL__AVERAGES = 1;
+
+    /**
      * The number of structural features of the '<em>Model</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_FEATURE_COUNT = 1;
+    int MODEL_FEATURE_COUNT = 2;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
@@ -1894,6 +1903,467 @@ public interface ModelPackage extends EPackage
     int BOOLEAN_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.AverageImpl <em>Average</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.AverageImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverage()
+     * @generated
+     */
+    int AVERAGE = 14;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE__ID = 0;
+
+    /**
+     * The feature id for the '<em><b>Sources</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE__SOURCES = 1;
+
+    /**
+     * The feature id for the '<em><b>Percent Required</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE__PERCENT_REQUIRED = 2;
+
+    /**
+     * The number of structural features of the '<em>Average</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_FEATURE_COUNT = 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.AverageItemImpl <em>Average Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.AverageItemImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageItem()
+     * @generated
+     */
+    int AVERAGE_ITEM = 15;
+
+    /**
+     * The feature id for the '<em><b>Device</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__DEVICE = ITEM__DEVICE;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__NAME = ITEM__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__DATA_TYPE = ITEM__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Unit</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__UNIT = ITEM__UNIT;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__ALIAS = ITEM__ALIAS;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+
+    /**
+     * The feature id for the '<em><b>Event Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__EVENT_COMMAND = ITEM__EVENT_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Local Manual</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_MANUAL = ITEM__REMOTE_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>System</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__SYSTEM = ITEM__SYSTEM;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__HIERARCHY = ITEM__HIERARCHY;
+
+    /**
+     * The feature id for the '<em><b>Remote Min</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_MIN = ITEM__REMOTE_MIN;
+
+    /**
+     * The feature id for the '<em><b>Remote Max</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_MAX = ITEM__REMOTE_MAX;
+
+    /**
+     * The feature id for the '<em><b>Remote High High</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_HIGH_HIGH = ITEM__REMOTE_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Remote High</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_HIGH = ITEM__REMOTE_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Remote Low</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_LOW = ITEM__REMOTE_LOW;
+
+    /**
+     * The feature id for the '<em><b>Remote Low Low</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_LOW_LOW = ITEM__REMOTE_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_BOOL = ITEM__REMOTE_BOOL;
+
+    /**
+     * The feature id for the '<em><b>Remote Bool Ack Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__REMOTE_BOOL_ACK_VALUE = ITEM__REMOTE_BOOL_ACK_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Input</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__INPUT = ITEM__INPUT;
+
+    /**
+     * The feature id for the '<em><b>Output</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__OUTPUT = ITEM__OUTPUT;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_SCALE_AVAILABLE = ITEM__LOCAL_SCALE_AVAILABLE;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Factor</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_SCALE_FACTOR = ITEM__LOCAL_SCALE_FACTOR;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Offset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_SCALE_OFFSET = ITEM__LOCAL_SCALE_OFFSET;
+
+    /**
+     * The feature id for the '<em><b>Debug Information</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__DEBUG_INFORMATION = ITEM__DEBUG_INFORMATION;
+
+    /**
+     * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__IGNORE_SUMMARY = ITEM__IGNORE_SUMMARY;
+
+    /**
+     * The feature id for the '<em><b>Block</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__BLOCK = ITEM__BLOCK;
+
+    /**
+     * The feature id for the '<em><b>Enabled</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__ENABLED = ITEM__ENABLED;
+
+    /**
+     * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
+
+    /**
+     * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__MAPPER = ITEM__MAPPER;
+
+    /**
+     * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__SIMULATION_VALUE = ITEM__SIMULATION_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Rounding Available</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__ROUNDING_AVAILABLE = ITEM__ROUNDING_AVAILABLE;
+
+    /**
+     * The feature id for the '<em><b>Rounding Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__ROUNDING_VALUE = ITEM__ROUNDING_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_HIGH_HIGH = ITEM__LOCAL_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_HIGH = ITEM__LOCAL_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_LOW = ITEM__LOCAL_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_LOW_LOW = ITEM__LOCAL_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Min</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
+
+    /**
+     * The feature id for the '<em><b>Local Max</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
+
+    /**
+     * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_LIST_MONITOR = ITEM__LOCAL_LIST_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Average</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__AVERAGE = ITEM_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__TYPE = ITEM_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Average Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 2;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1901,8 +2371,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 14;
-
+    int DATA_TYPE = 16;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -1912,8 +2381,17 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 15;
+    int ROUNDING = 17;
 
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.AverageReferenceType
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
+     * @generated
+     */
+    int AVERAGE_REFERENCE_TYPE = 18;
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -1923,7 +2401,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.Item
      * @generated
      */
-    EClass getItem();
+    EClass getItem ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getDevice <em>Device</em>}'.
@@ -1934,7 +2412,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Device();
+    EAttribute getItem_Device ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getName <em>Name</em>}'.
@@ -1945,7 +2423,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Name();
+    EAttribute getItem_Name ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getDataType <em>Data Type</em>}'.
@@ -1956,7 +2434,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_DataType();
+    EAttribute getItem_DataType ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getUnit <em>Unit</em>}'.
@@ -1967,7 +2445,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Unit();
+    EAttribute getItem_Unit ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getAlias <em>Alias</em>}'.
@@ -1978,7 +2456,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Alias();
+    EAttribute getItem_Alias ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getDescription <em>Description</em>}'.
@@ -1989,7 +2467,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Description();
+    EAttribute getItem_Description ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}'.
@@ -2000,7 +2478,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_DefaultChain();
+    EAttribute getItem_DefaultChain ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}'.
@@ -2011,7 +2489,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalMin();
+    EReference getItem_LocalMin ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}'.
@@ -2022,7 +2500,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalMax();
+    EReference getItem_LocalMax ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalListMonitor <em>Local List Monitor</em>}'.
@@ -2033,7 +2511,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalListMonitor();
+    EReference getItem_LocalListMonitor ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}'.
@@ -2044,7 +2522,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalBooleanMonitor();
+    EReference getItem_LocalBooleanMonitor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}'.
@@ -2055,7 +2533,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_EventCommand();
+    EAttribute getItem_EventCommand ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalManual <em>Local Manual</em>}'.
@@ -2066,7 +2544,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalManual();
+    EAttribute getItem_LocalManual ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteManual <em>Remote Manual</em>}'.
@@ -2077,7 +2555,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteManual();
+    EAttribute getItem_RemoteManual ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getSystem <em>System</em>}'.
@@ -2088,7 +2566,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_System();
+    EAttribute getItem_System ();
 
     /**
      * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.Item#getHierarchy <em>Hierarchy</em>}'.
@@ -2099,7 +2577,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Hierarchy();
+    EAttribute getItem_Hierarchy ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteMin <em>Remote Min</em>}'.
@@ -2110,7 +2588,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteMin();
+    EAttribute getItem_RemoteMin ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteMax <em>Remote Max</em>}'.
@@ -2121,7 +2599,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteMax();
+    EAttribute getItem_RemoteMax ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteHighHigh <em>Remote High High</em>}'.
@@ -2132,7 +2610,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteHighHigh();
+    EAttribute getItem_RemoteHighHigh ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteHigh <em>Remote High</em>}'.
@@ -2143,7 +2621,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteHigh();
+    EAttribute getItem_RemoteHigh ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteLow <em>Remote Low</em>}'.
@@ -2154,7 +2632,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteLow();
+    EAttribute getItem_RemoteLow ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteLowLow <em>Remote Low Low</em>}'.
@@ -2165,7 +2643,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteLowLow();
+    EAttribute getItem_RemoteLowLow ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteBool <em>Remote Bool</em>}'.
@@ -2176,7 +2654,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteBool();
+    EAttribute getItem_RemoteBool ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getRemoteBoolAckValue <em>Remote Bool Ack Value</em>}'.
@@ -2187,7 +2665,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RemoteBoolAckValue();
+    EAttribute getItem_RemoteBoolAckValue ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isInput <em>Input</em>}'.
@@ -2198,7 +2676,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Input();
+    EAttribute getItem_Input ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isOutput <em>Output</em>}'.
@@ -2209,7 +2687,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Output();
+    EAttribute getItem_Output ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isLocalScaleAvailable <em>Local Scale Available</em>}'.
@@ -2220,7 +2698,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalScaleAvailable();
+    EAttribute getItem_LocalScaleAvailable ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalScaleFactor <em>Local Scale Factor</em>}'.
@@ -2231,7 +2709,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalScaleFactor();
+    EAttribute getItem_LocalScaleFactor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalScaleOffset <em>Local Scale Offset</em>}'.
@@ -2242,7 +2720,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_LocalScaleOffset();
+    EAttribute getItem_LocalScaleOffset ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getDebugInformation <em>Debug Information</em>}'.
@@ -2253,7 +2731,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_DebugInformation();
+    EAttribute getItem_DebugInformation ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isIgnoreSummary <em>Ignore Summary</em>}'.
@@ -2264,7 +2742,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_IgnoreSummary();
+    EAttribute getItem_IgnoreSummary ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isBlock <em>Block</em>}'.
@@ -2275,7 +2753,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Block();
+    EAttribute getItem_Block ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isEnabled <em>Enabled</em>}'.
@@ -2286,7 +2764,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_Enabled();
+    EAttribute getItem_Enabled ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}'.
@@ -2297,7 +2775,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_HdStorage();
+    EAttribute getItem_HdStorage ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Item#getMapper <em>Mapper</em>}'.
@@ -2308,7 +2786,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_Mapper();
+    EReference getItem_Mapper ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}'.
@@ -2319,7 +2797,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_SimulationValue();
+    EAttribute getItem_SimulationValue ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRoundingAvailable <em>Rounding Available</em>}'.
@@ -2330,7 +2808,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RoundingAvailable();
+    EAttribute getItem_RoundingAvailable ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getRoundingValue <em>Rounding Value</em>}'.
@@ -2341,7 +2819,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_RoundingValue();
+    EAttribute getItem_RoundingValue ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalHighHigh <em>Local High High</em>}'.
@@ -2352,7 +2830,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalHighHigh();
+    EReference getItem_LocalHighHigh ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalHigh <em>Local High</em>}'.
@@ -2363,7 +2841,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalHigh();
+    EReference getItem_LocalHigh ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalLow <em>Local Low</em>}'.
@@ -2374,7 +2852,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalLow();
+    EReference getItem_LocalLow ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalLowLow <em>Local Low Low</em>}'.
@@ -2385,7 +2863,7 @@ public interface ModelPackage extends EPackage
      * @see #getItem()
      * @generated
      */
-    EReference getItem_LocalLowLow();
+    EReference getItem_LocalLowLow ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryGroup <em>Summary Group</em>}'.
@@ -2395,7 +2873,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.SummaryGroup
      * @generated
      */
-    EClass getSummaryGroup();
+    EClass getSummaryGroup ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getItems <em>Items</em>}'.
@@ -2406,7 +2884,7 @@ public interface ModelPackage extends EPackage
      * @see #getSummaryGroup()
      * @generated
      */
-    EReference getSummaryGroup_Items();
+    EReference getSummaryGroup_Items ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}'.
@@ -2417,7 +2895,7 @@ public interface ModelPackage extends EPackage
      * @see #getSummaryGroup()
      * @generated
      */
-    EAttribute getSummaryGroup_Id();
+    EAttribute getSummaryGroup_Id ();
 
     /**
      * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}'.
@@ -2428,7 +2906,7 @@ public interface ModelPackage extends EPackage
      * @see #getSummaryGroup()
      * @generated
      */
-    EAttribute getSummaryGroup_Hierarchy();
+    EAttribute getSummaryGroup_Hierarchy ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryItem <em>Summary Item</em>}'.
@@ -2438,7 +2916,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.SummaryItem
      * @generated
      */
-    EClass getSummaryItem();
+    EClass getSummaryItem ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryItem#getDataSourceId <em>Data Source Id</em>}'.
@@ -2449,7 +2927,7 @@ public interface ModelPackage extends EPackage
      * @see #getSummaryItem()
      * @generated
      */
-    EAttribute getSummaryItem_DataSourceId();
+    EAttribute getSummaryItem_DataSourceId ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryItem#getType <em>Type</em>}'.
@@ -2460,7 +2938,7 @@ public interface ModelPackage extends EPackage
      * @see #getSummaryItem()
      * @generated
      */
-    EAttribute getSummaryItem_Type();
+    EAttribute getSummaryItem_Type ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.FormulaItem <em>Formula Item</em>}'.
@@ -2470,7 +2948,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.FormulaItem
      * @generated
      */
-    EClass getFormulaItem();
+    EClass getFormulaItem ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaItem#getInputFormula <em>Input Formula</em>}'.
@@ -2481,7 +2959,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EAttribute getFormulaItem_InputFormula();
+    EAttribute getFormulaItem_InputFormula ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaItem#getOutputFormula <em>Output Formula</em>}'.
@@ -2492,7 +2970,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EAttribute getFormulaItem_OutputFormula();
+    EAttribute getFormulaItem_OutputFormula ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.FormulaItem#getInputs <em>Inputs</em>}'.
@@ -2503,7 +2981,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EReference getFormulaItem_Inputs();
+    EReference getFormulaItem_Inputs ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaItem#getOutputDatasourceId <em>Output Datasource Id</em>}'.
@@ -2514,7 +2992,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EAttribute getFormulaItem_OutputDatasourceId();
+    EAttribute getFormulaItem_OutputDatasourceId ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaItem#getWriteValueName <em>Write Value Name</em>}'.
@@ -2525,7 +3003,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EAttribute getFormulaItem_WriteValueName();
+    EAttribute getFormulaItem_WriteValueName ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaItem#getInitScript <em>Init Script</em>}'.
@@ -2536,7 +3014,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EAttribute getFormulaItem_InitScript();
+    EAttribute getFormulaItem_InitScript ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaItem#getOutputDatasourceType <em>Output Datasource Type</em>}'.
@@ -2547,7 +3025,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EAttribute getFormulaItem_OutputDatasourceType();
+    EAttribute getFormulaItem_OutputDatasourceType ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.FormulaItem#getScriptModules <em>Script Modules</em>}'.
@@ -2558,7 +3036,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaItem()
      * @generated
      */
-    EReference getFormulaItem_ScriptModules();
+    EReference getFormulaItem_ScriptModules ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.FormulaInput <em>Formula Input</em>}'.
@@ -2568,7 +3046,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.FormulaInput
      * @generated
      */
-    EClass getFormulaInput();
+    EClass getFormulaInput ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaInput#getName <em>Name</em>}'.
@@ -2579,7 +3057,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaInput()
      * @generated
      */
-    EAttribute getFormulaInput_Name();
+    EAttribute getFormulaInput_Name ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaInput#getDatasourceId <em>Datasource Id</em>}'.
@@ -2590,7 +3068,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaInput()
      * @generated
      */
-    EAttribute getFormulaInput_DatasourceId();
+    EAttribute getFormulaInput_DatasourceId ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.FormulaInput#getType <em>Type</em>}'.
@@ -2601,7 +3079,7 @@ public interface ModelPackage extends EPackage
      * @see #getFormulaInput()
      * @generated
      */
-    EAttribute getFormulaInput_Type();
+    EAttribute getFormulaInput_Type ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ScriptModule <em>Script Module</em>}'.
@@ -2611,7 +3089,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.ScriptModule
      * @generated
      */
-    EClass getScriptModule();
+    EClass getScriptModule ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptModule#getData <em>Data</em>}'.
@@ -2622,7 +3100,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptModule()
      * @generated
      */
-    EAttribute getScriptModule_Data();
+    EAttribute getScriptModule_Data ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptModule#isResource <em>Resource</em>}'.
@@ -2633,7 +3111,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptModule()
      * @generated
      */
-    EAttribute getScriptModule_Resource();
+    EAttribute getScriptModule_Resource ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Model <em>Model</em>}'.
@@ -2643,7 +3121,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.Model
      * @generated
      */
-    EClass getModel();
+    EClass getModel ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Model#getItems <em>Items</em>}'.
@@ -2654,7 +3132,18 @@ public interface ModelPackage extends EPackage
      * @see #getModel()
      * @generated
      */
-    EReference getModel_Items();
+    EReference getModel_Items ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Model#getAverages <em>Averages</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Averages</em>'.
+     * @see org.openscada.deploy.iolist.model.Model#getAverages()
+     * @see #getModel()
+     * @generated
+     */
+    EReference getModel_Averages ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ScriptItem <em>Script Item</em>}'.
@@ -2664,7 +3153,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.ScriptItem
      * @generated
      */
-    EClass getScriptItem();
+    EClass getScriptItem ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptItem#getScriptEngine <em>Script Engine</em>}'.
@@ -2675,7 +3164,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EAttribute getScriptItem_ScriptEngine();
+    EAttribute getScriptItem_ScriptEngine ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.ScriptItem#getInputs <em>Inputs</em>}'.
@@ -2686,7 +3175,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EReference getScriptItem_Inputs();
+    EReference getScriptItem_Inputs ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptItem#getInitScript <em>Init Script</em>}'.
@@ -2697,7 +3186,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EAttribute getScriptItem_InitScript();
+    EAttribute getScriptItem_InitScript ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptItem#getUpdateScript <em>Update Script</em>}'.
@@ -2708,7 +3197,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EAttribute getScriptItem_UpdateScript();
+    EAttribute getScriptItem_UpdateScript ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptItem#getTimerScript <em>Timer Script</em>}'.
@@ -2719,7 +3208,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EAttribute getScriptItem_TimerScript();
+    EAttribute getScriptItem_TimerScript ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptItem#getTimerPeriod <em>Timer Period</em>}'.
@@ -2730,7 +3219,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EAttribute getScriptItem_TimerPeriod();
+    EAttribute getScriptItem_TimerPeriod ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.ScriptItem#getOutputs <em>Outputs</em>}'.
@@ -2741,7 +3230,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EReference getScriptItem_Outputs();
+    EReference getScriptItem_Outputs ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptItem#getWriteCommand <em>Write Command</em>}'.
@@ -2752,7 +3241,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptItem()
      * @generated
      */
-    EAttribute getScriptItem_WriteCommand();
+    EAttribute getScriptItem_WriteCommand ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ScriptOutput <em>Script Output</em>}'.
@@ -2762,7 +3251,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.ScriptOutput
      * @generated
      */
-    EClass getScriptOutput();
+    EClass getScriptOutput ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptOutput#getDatasourceId <em>Datasource Id</em>}'.
@@ -2773,7 +3262,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptOutput()
      * @generated
      */
-    EAttribute getScriptOutput_DatasourceId();
+    EAttribute getScriptOutput_DatasourceId ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ScriptOutput#getName <em>Name</em>}'.
@@ -2784,7 +3273,7 @@ public interface ModelPackage extends EPackage
      * @see #getScriptOutput()
      * @generated
      */
-    EAttribute getScriptOutput_Name();
+    EAttribute getScriptOutput_Name ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Mapper <em>Mapper</em>}'.
@@ -2794,7 +3283,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.Mapper
      * @generated
      */
-    EClass getMapper();
+    EClass getMapper ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Mapper#getMapperId <em>Mapper Id</em>}'.
@@ -2805,7 +3294,7 @@ public interface ModelPackage extends EPackage
      * @see #getMapper()
      * @generated
      */
-    EAttribute getMapper_MapperId();
+    EAttribute getMapper_MapperId ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Mapper#getFromAttribute <em>From Attribute</em>}'.
@@ -2816,7 +3305,7 @@ public interface ModelPackage extends EPackage
      * @see #getMapper()
      * @generated
      */
-    EAttribute getMapper_FromAttribute();
+    EAttribute getMapper_FromAttribute ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Mapper#getToAttribute <em>To Attribute</em>}'.
@@ -2827,7 +3316,7 @@ public interface ModelPackage extends EPackage
      * @see #getMapper()
      * @generated
      */
-    EAttribute getMapper_ToAttribute();
+    EAttribute getMapper_ToAttribute ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Monitor <em>Monitor</em>}'.
@@ -2837,7 +3326,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.Monitor
      * @generated
      */
-    EClass getMonitor();
+    EClass getMonitor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#isActive <em>Active</em>}'.
@@ -2848,7 +3337,7 @@ public interface ModelPackage extends EPackage
      * @see #getMonitor()
      * @generated
      */
-    EAttribute getMonitor_Active();
+    EAttribute getMonitor_Active ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#isAck <em>Ack</em>}'.
@@ -2859,7 +3348,7 @@ public interface ModelPackage extends EPackage
      * @see #getMonitor()
      * @generated
      */
-    EAttribute getMonitor_Ack();
+    EAttribute getMonitor_Ack ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#getPriority <em>Priority</em>}'.
@@ -2870,7 +3359,7 @@ public interface ModelPackage extends EPackage
      * @see #getMonitor()
      * @generated
      */
-    EAttribute getMonitor_Priority();
+    EAttribute getMonitor_Priority ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.LevelMonitor <em>Level Monitor</em>}'.
@@ -2880,7 +3369,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.LevelMonitor
      * @generated
      */
-    EClass getLevelMonitor();
+    EClass getLevelMonitor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.LevelMonitor#getPreset <em>Preset</em>}'.
@@ -2891,7 +3380,7 @@ public interface ModelPackage extends EPackage
      * @see #getLevelMonitor()
      * @generated
      */
-    EAttribute getLevelMonitor_Preset();
+    EAttribute getLevelMonitor_Preset ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ListMonitor <em>List Monitor</em>}'.
@@ -2901,7 +3390,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.ListMonitor
      * @generated
      */
-    EClass getListMonitor();
+    EClass getListMonitor ();
 
     /**
      * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.ListMonitor#getValues <em>Values</em>}'.
@@ -2912,7 +3401,7 @@ public interface ModelPackage extends EPackage
      * @see #getListMonitor()
      * @generated
      */
-    EAttribute getListMonitor_Values();
+    EAttribute getListMonitor_Values ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm <em>List Is Alarm</em>}'.
@@ -2923,7 +3412,7 @@ public interface ModelPackage extends EPackage
      * @see #getListMonitor()
      * @generated
      */
-    EAttribute getListMonitor_ListIsAlarm();
+    EAttribute getListMonitor_ListIsAlarm ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.BooleanMonitor <em>Boolean Monitor</em>}'.
@@ -2933,7 +3422,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.BooleanMonitor
      * @generated
      */
-    EClass getBooleanMonitor();
+    EClass getBooleanMonitor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.BooleanMonitor#isOkValue <em>Ok Value</em>}'.
@@ -2944,7 +3433,82 @@ public interface ModelPackage extends EPackage
      * @see #getBooleanMonitor()
      * @generated
      */
-    EAttribute getBooleanMonitor_OkValue();
+    EAttribute getBooleanMonitor_OkValue ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Average <em>Average</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Average</em>'.
+     * @see org.openscada.deploy.iolist.model.Average
+     * @generated
+     */
+    EClass getAverage ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Average#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.openscada.deploy.iolist.model.Average#getId()
+     * @see #getAverage()
+     * @generated
+     */
+    EAttribute getAverage_Id ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.Average#getSources <em>Sources</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Sources</em>'.
+     * @see org.openscada.deploy.iolist.model.Average#getSources()
+     * @see #getAverage()
+     * @generated
+     */
+    EAttribute getAverage_Sources ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Average#getPercentRequired <em>Percent Required</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Percent Required</em>'.
+     * @see org.openscada.deploy.iolist.model.Average#getPercentRequired()
+     * @see #getAverage()
+     * @generated
+     */
+    EAttribute getAverage_PercentRequired ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.AverageItem <em>Average Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Average Item</em>'.
+     * @see org.openscada.deploy.iolist.model.AverageItem
+     * @generated
+     */
+    EClass getAverageItem ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.deploy.iolist.model.AverageItem#getAverage <em>Average</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Average</em>'.
+     * @see org.openscada.deploy.iolist.model.AverageItem#getAverage()
+     * @see #getAverageItem()
+     * @generated
+     */
+    EReference getAverageItem_Average ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.AverageItem#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.openscada.deploy.iolist.model.AverageItem#getType()
+     * @see #getAverageItem()
+     * @generated
+     */
+    EAttribute getAverageItem_Type ();
 
     /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
@@ -2954,7 +3518,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.DataType
      * @generated
      */
-    EEnum getDataType();
+    EEnum getDataType ();
 
     /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}'.
@@ -2964,7 +3528,17 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.Rounding
      * @generated
      */
-    EEnum getRounding();
+    EEnum getRounding ();
+
+    /**
+     * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Average Reference Type</em>'.
+     * @see org.openscada.deploy.iolist.model.AverageReferenceType
+     * @generated
+     */
+    EEnum getAverageReferenceType ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -2973,7 +3547,7 @@ public interface ModelPackage extends EPackage
      * @return the factory that creates the instances of the model.
      * @generated
      */
-    ModelFactory getModelFactory();
+    ModelFactory getModelFactory ();
 
     /**
      * <!-- begin-user-doc -->
@@ -2997,7 +3571,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getItem()
          * @generated
          */
-        EClass ITEM = eINSTANCE.getItem();
+        EClass ITEM = eINSTANCE.getItem ();
 
         /**
          * The meta object literal for the '<em><b>Device</b></em>' attribute feature.
@@ -3005,7 +3579,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__DEVICE = eINSTANCE.getItem_Device();
+        EAttribute ITEM__DEVICE = eINSTANCE.getItem_Device ();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3013,7 +3587,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__NAME = eINSTANCE.getItem_Name();
+        EAttribute ITEM__NAME = eINSTANCE.getItem_Name ();
 
         /**
          * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature.
@@ -3021,7 +3595,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__DATA_TYPE = eINSTANCE.getItem_DataType();
+        EAttribute ITEM__DATA_TYPE = eINSTANCE.getItem_DataType ();
 
         /**
          * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
@@ -3029,7 +3603,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__UNIT = eINSTANCE.getItem_Unit();
+        EAttribute ITEM__UNIT = eINSTANCE.getItem_Unit ();
 
         /**
          * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
@@ -3037,7 +3611,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__ALIAS = eINSTANCE.getItem_Alias();
+        EAttribute ITEM__ALIAS = eINSTANCE.getItem_Alias ();
 
         /**
          * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -3045,7 +3619,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__DESCRIPTION = eINSTANCE.getItem_Description();
+        EAttribute ITEM__DESCRIPTION = eINSTANCE.getItem_Description ();
 
         /**
          * The meta object literal for the '<em><b>Default Chain</b></em>' attribute feature.
@@ -3053,7 +3627,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__DEFAULT_CHAIN = eINSTANCE.getItem_DefaultChain();
+        EAttribute ITEM__DEFAULT_CHAIN = eINSTANCE.getItem_DefaultChain ();
 
         /**
          * The meta object literal for the '<em><b>Local Min</b></em>' containment reference feature.
@@ -3061,7 +3635,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_MIN = eINSTANCE.getItem_LocalMin();
+        EReference ITEM__LOCAL_MIN = eINSTANCE.getItem_LocalMin ();
 
         /**
          * The meta object literal for the '<em><b>Local Max</b></em>' containment reference feature.
@@ -3069,7 +3643,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_MAX = eINSTANCE.getItem_LocalMax();
+        EReference ITEM__LOCAL_MAX = eINSTANCE.getItem_LocalMax ();
 
         /**
          * The meta object literal for the '<em><b>Local List Monitor</b></em>' containment reference feature.
@@ -3077,7 +3651,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_LIST_MONITOR = eINSTANCE.getItem_LocalListMonitor();
+        EReference ITEM__LOCAL_LIST_MONITOR = eINSTANCE.getItem_LocalListMonitor ();
 
         /**
          * The meta object literal for the '<em><b>Local Boolean Monitor</b></em>' containment reference feature.
@@ -3085,7 +3659,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_BOOLEAN_MONITOR = eINSTANCE.getItem_LocalBooleanMonitor();
+        EReference ITEM__LOCAL_BOOLEAN_MONITOR = eINSTANCE.getItem_LocalBooleanMonitor ();
 
         /**
          * The meta object literal for the '<em><b>Event Command</b></em>' attribute feature.
@@ -3093,7 +3667,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__EVENT_COMMAND = eINSTANCE.getItem_EventCommand();
+        EAttribute ITEM__EVENT_COMMAND = eINSTANCE.getItem_EventCommand ();
 
         /**
          * The meta object literal for the '<em><b>Local Manual</b></em>' attribute feature.
@@ -3101,7 +3675,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_MANUAL = eINSTANCE.getItem_LocalManual();
+        EAttribute ITEM__LOCAL_MANUAL = eINSTANCE.getItem_LocalManual ();
 
         /**
          * The meta object literal for the '<em><b>Remote Manual</b></em>' attribute feature.
@@ -3109,7 +3683,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_MANUAL = eINSTANCE.getItem_RemoteManual();
+        EAttribute ITEM__REMOTE_MANUAL = eINSTANCE.getItem_RemoteManual ();
 
         /**
          * The meta object literal for the '<em><b>System</b></em>' attribute feature.
@@ -3117,7 +3691,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__SYSTEM = eINSTANCE.getItem_System();
+        EAttribute ITEM__SYSTEM = eINSTANCE.getItem_System ();
 
         /**
          * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
@@ -3125,7 +3699,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__HIERARCHY = eINSTANCE.getItem_Hierarchy();
+        EAttribute ITEM__HIERARCHY = eINSTANCE.getItem_Hierarchy ();
 
         /**
          * The meta object literal for the '<em><b>Remote Min</b></em>' attribute feature.
@@ -3133,7 +3707,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_MIN = eINSTANCE.getItem_RemoteMin();
+        EAttribute ITEM__REMOTE_MIN = eINSTANCE.getItem_RemoteMin ();
 
         /**
          * The meta object literal for the '<em><b>Remote Max</b></em>' attribute feature.
@@ -3141,7 +3715,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_MAX = eINSTANCE.getItem_RemoteMax();
+        EAttribute ITEM__REMOTE_MAX = eINSTANCE.getItem_RemoteMax ();
 
         /**
          * The meta object literal for the '<em><b>Remote High High</b></em>' attribute feature.
@@ -3149,7 +3723,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_HIGH_HIGH = eINSTANCE.getItem_RemoteHighHigh();
+        EAttribute ITEM__REMOTE_HIGH_HIGH = eINSTANCE.getItem_RemoteHighHigh ();
 
         /**
          * The meta object literal for the '<em><b>Remote High</b></em>' attribute feature.
@@ -3157,7 +3731,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_HIGH = eINSTANCE.getItem_RemoteHigh();
+        EAttribute ITEM__REMOTE_HIGH = eINSTANCE.getItem_RemoteHigh ();
 
         /**
          * The meta object literal for the '<em><b>Remote Low</b></em>' attribute feature.
@@ -3165,7 +3739,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_LOW = eINSTANCE.getItem_RemoteLow();
+        EAttribute ITEM__REMOTE_LOW = eINSTANCE.getItem_RemoteLow ();
 
         /**
          * The meta object literal for the '<em><b>Remote Low Low</b></em>' attribute feature.
@@ -3173,7 +3747,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_LOW_LOW = eINSTANCE.getItem_RemoteLowLow();
+        EAttribute ITEM__REMOTE_LOW_LOW = eINSTANCE.getItem_RemoteLowLow ();
 
         /**
          * The meta object literal for the '<em><b>Remote Bool</b></em>' attribute feature.
@@ -3181,7 +3755,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_BOOL = eINSTANCE.getItem_RemoteBool();
+        EAttribute ITEM__REMOTE_BOOL = eINSTANCE.getItem_RemoteBool ();
 
         /**
          * The meta object literal for the '<em><b>Remote Bool Ack Value</b></em>' attribute feature.
@@ -3189,7 +3763,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__REMOTE_BOOL_ACK_VALUE = eINSTANCE.getItem_RemoteBoolAckValue();
+        EAttribute ITEM__REMOTE_BOOL_ACK_VALUE = eINSTANCE.getItem_RemoteBoolAckValue ();
 
         /**
          * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
@@ -3197,7 +3771,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__INPUT = eINSTANCE.getItem_Input();
+        EAttribute ITEM__INPUT = eINSTANCE.getItem_Input ();
 
         /**
          * The meta object literal for the '<em><b>Output</b></em>' attribute feature.
@@ -3205,7 +3779,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__OUTPUT = eINSTANCE.getItem_Output();
+        EAttribute ITEM__OUTPUT = eINSTANCE.getItem_Output ();
 
         /**
          * The meta object literal for the '<em><b>Local Scale Available</b></em>' attribute feature.
@@ -3213,7 +3787,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_SCALE_AVAILABLE = eINSTANCE.getItem_LocalScaleAvailable();
+        EAttribute ITEM__LOCAL_SCALE_AVAILABLE = eINSTANCE.getItem_LocalScaleAvailable ();
 
         /**
          * The meta object literal for the '<em><b>Local Scale Factor</b></em>' attribute feature.
@@ -3221,7 +3795,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_SCALE_FACTOR = eINSTANCE.getItem_LocalScaleFactor();
+        EAttribute ITEM__LOCAL_SCALE_FACTOR = eINSTANCE.getItem_LocalScaleFactor ();
 
         /**
          * The meta object literal for the '<em><b>Local Scale Offset</b></em>' attribute feature.
@@ -3229,7 +3803,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__LOCAL_SCALE_OFFSET = eINSTANCE.getItem_LocalScaleOffset();
+        EAttribute ITEM__LOCAL_SCALE_OFFSET = eINSTANCE.getItem_LocalScaleOffset ();
 
         /**
          * The meta object literal for the '<em><b>Debug Information</b></em>' attribute feature.
@@ -3237,7 +3811,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__DEBUG_INFORMATION = eINSTANCE.getItem_DebugInformation();
+        EAttribute ITEM__DEBUG_INFORMATION = eINSTANCE.getItem_DebugInformation ();
 
         /**
          * The meta object literal for the '<em><b>Ignore Summary</b></em>' attribute feature.
@@ -3245,7 +3819,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__IGNORE_SUMMARY = eINSTANCE.getItem_IgnoreSummary();
+        EAttribute ITEM__IGNORE_SUMMARY = eINSTANCE.getItem_IgnoreSummary ();
 
         /**
          * The meta object literal for the '<em><b>Block</b></em>' attribute feature.
@@ -3253,7 +3827,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__BLOCK = eINSTANCE.getItem_Block();
+        EAttribute ITEM__BLOCK = eINSTANCE.getItem_Block ();
 
         /**
          * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
@@ -3261,7 +3835,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__ENABLED = eINSTANCE.getItem_Enabled();
+        EAttribute ITEM__ENABLED = eINSTANCE.getItem_Enabled ();
 
         /**
          * The meta object literal for the '<em><b>Hd Storage</b></em>' attribute feature.
@@ -3269,7 +3843,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__HD_STORAGE = eINSTANCE.getItem_HdStorage();
+        EAttribute ITEM__HD_STORAGE = eINSTANCE.getItem_HdStorage ();
 
         /**
          * The meta object literal for the '<em><b>Mapper</b></em>' containment reference list feature.
@@ -3277,7 +3851,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__MAPPER = eINSTANCE.getItem_Mapper();
+        EReference ITEM__MAPPER = eINSTANCE.getItem_Mapper ();
 
         /**
          * The meta object literal for the '<em><b>Simulation Value</b></em>' attribute feature.
@@ -3285,7 +3859,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__SIMULATION_VALUE = eINSTANCE.getItem_SimulationValue();
+        EAttribute ITEM__SIMULATION_VALUE = eINSTANCE.getItem_SimulationValue ();
 
         /**
          * The meta object literal for the '<em><b>Rounding Available</b></em>' attribute feature.
@@ -3293,7 +3867,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__ROUNDING_AVAILABLE = eINSTANCE.getItem_RoundingAvailable();
+        EAttribute ITEM__ROUNDING_AVAILABLE = eINSTANCE.getItem_RoundingAvailable ();
 
         /**
          * The meta object literal for the '<em><b>Rounding Value</b></em>' attribute feature.
@@ -3301,7 +3875,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__ROUNDING_VALUE = eINSTANCE.getItem_RoundingValue();
+        EAttribute ITEM__ROUNDING_VALUE = eINSTANCE.getItem_RoundingValue ();
 
         /**
          * The meta object literal for the '<em><b>Local High High</b></em>' containment reference feature.
@@ -3309,7 +3883,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_HIGH_HIGH = eINSTANCE.getItem_LocalHighHigh();
+        EReference ITEM__LOCAL_HIGH_HIGH = eINSTANCE.getItem_LocalHighHigh ();
 
         /**
          * The meta object literal for the '<em><b>Local High</b></em>' containment reference feature.
@@ -3317,7 +3891,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_HIGH = eINSTANCE.getItem_LocalHigh();
+        EReference ITEM__LOCAL_HIGH = eINSTANCE.getItem_LocalHigh ();
 
         /**
          * The meta object literal for the '<em><b>Local Low</b></em>' containment reference feature.
@@ -3325,7 +3899,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_LOW = eINSTANCE.getItem_LocalLow();
+        EReference ITEM__LOCAL_LOW = eINSTANCE.getItem_LocalLow ();
 
         /**
          * The meta object literal for the '<em><b>Local Low Low</b></em>' containment reference feature.
@@ -3333,7 +3907,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ITEM__LOCAL_LOW_LOW = eINSTANCE.getItem_LocalLowLow();
+        EReference ITEM__LOCAL_LOW_LOW = eINSTANCE.getItem_LocalLowLow ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -3343,7 +3917,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSummaryGroup()
          * @generated
          */
-        EClass SUMMARY_GROUP = eINSTANCE.getSummaryGroup();
+        EClass SUMMARY_GROUP = eINSTANCE.getSummaryGroup ();
 
         /**
          * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
@@ -3351,7 +3925,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SUMMARY_GROUP__ITEMS = eINSTANCE.getSummaryGroup_Items();
+        EReference SUMMARY_GROUP__ITEMS = eINSTANCE.getSummaryGroup_Items ();
 
         /**
          * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
@@ -3359,7 +3933,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_GROUP__ID = eINSTANCE.getSummaryGroup_Id();
+        EAttribute SUMMARY_GROUP__ID = eINSTANCE.getSummaryGroup_Id ();
 
         /**
          * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
@@ -3367,7 +3941,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_GROUP__HIERARCHY = eINSTANCE.getSummaryGroup_Hierarchy();
+        EAttribute SUMMARY_GROUP__HIERARCHY = eINSTANCE.getSummaryGroup_Hierarchy ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryItemImpl <em>Summary Item</em>}' class.
@@ -3377,7 +3951,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSummaryItem()
          * @generated
          */
-        EClass SUMMARY_ITEM = eINSTANCE.getSummaryItem();
+        EClass SUMMARY_ITEM = eINSTANCE.getSummaryItem ();
 
         /**
          * The meta object literal for the '<em><b>Data Source Id</b></em>' attribute feature.
@@ -3385,7 +3959,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_ITEM__DATA_SOURCE_ID = eINSTANCE.getSummaryItem_DataSourceId();
+        EAttribute SUMMARY_ITEM__DATA_SOURCE_ID = eINSTANCE.getSummaryItem_DataSourceId ();
 
         /**
          * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -3393,7 +3967,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_ITEM__TYPE = eINSTANCE.getSummaryItem_Type();
+        EAttribute SUMMARY_ITEM__TYPE = eINSTANCE.getSummaryItem_Type ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
@@ -3403,7 +3977,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getFormulaItem()
          * @generated
          */
-        EClass FORMULA_ITEM = eINSTANCE.getFormulaItem();
+        EClass FORMULA_ITEM = eINSTANCE.getFormulaItem ();
 
         /**
          * The meta object literal for the '<em><b>Input Formula</b></em>' attribute feature.
@@ -3411,7 +3985,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_ITEM__INPUT_FORMULA = eINSTANCE.getFormulaItem_InputFormula();
+        EAttribute FORMULA_ITEM__INPUT_FORMULA = eINSTANCE.getFormulaItem_InputFormula ();
 
         /**
          * The meta object literal for the '<em><b>Output Formula</b></em>' attribute feature.
@@ -3419,7 +3993,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_ITEM__OUTPUT_FORMULA = eINSTANCE.getFormulaItem_OutputFormula();
+        EAttribute FORMULA_ITEM__OUTPUT_FORMULA = eINSTANCE.getFormulaItem_OutputFormula ();
 
         /**
          * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
@@ -3427,7 +4001,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FORMULA_ITEM__INPUTS = eINSTANCE.getFormulaItem_Inputs();
+        EReference FORMULA_ITEM__INPUTS = eINSTANCE.getFormulaItem_Inputs ();
 
         /**
          * The meta object literal for the '<em><b>Output Datasource Id</b></em>' attribute feature.
@@ -3435,7 +4009,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_ITEM__OUTPUT_DATASOURCE_ID = eINSTANCE.getFormulaItem_OutputDatasourceId();
+        EAttribute FORMULA_ITEM__OUTPUT_DATASOURCE_ID = eINSTANCE.getFormulaItem_OutputDatasourceId ();
 
         /**
          * The meta object literal for the '<em><b>Write Value Name</b></em>' attribute feature.
@@ -3443,7 +4017,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_ITEM__WRITE_VALUE_NAME = eINSTANCE.getFormulaItem_WriteValueName();
+        EAttribute FORMULA_ITEM__WRITE_VALUE_NAME = eINSTANCE.getFormulaItem_WriteValueName ();
 
         /**
          * The meta object literal for the '<em><b>Init Script</b></em>' attribute feature.
@@ -3451,7 +4025,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_ITEM__INIT_SCRIPT = eINSTANCE.getFormulaItem_InitScript();
+        EAttribute FORMULA_ITEM__INIT_SCRIPT = eINSTANCE.getFormulaItem_InitScript ();
 
         /**
          * The meta object literal for the '<em><b>Output Datasource Type</b></em>' attribute feature.
@@ -3459,7 +4033,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE = eINSTANCE.getFormulaItem_OutputDatasourceType();
+        EAttribute FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE = eINSTANCE.getFormulaItem_OutputDatasourceType ();
 
         /**
          * The meta object literal for the '<em><b>Script Modules</b></em>' containment reference list feature.
@@ -3467,7 +4041,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference FORMULA_ITEM__SCRIPT_MODULES = eINSTANCE.getFormulaItem_ScriptModules();
+        EReference FORMULA_ITEM__SCRIPT_MODULES = eINSTANCE.getFormulaItem_ScriptModules ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.FormulaInputImpl <em>Formula Input</em>}' class.
@@ -3477,7 +4051,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getFormulaInput()
          * @generated
          */
-        EClass FORMULA_INPUT = eINSTANCE.getFormulaInput();
+        EClass FORMULA_INPUT = eINSTANCE.getFormulaInput ();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3485,7 +4059,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_INPUT__NAME = eINSTANCE.getFormulaInput_Name();
+        EAttribute FORMULA_INPUT__NAME = eINSTANCE.getFormulaInput_Name ();
 
         /**
          * The meta object literal for the '<em><b>Datasource Id</b></em>' attribute feature.
@@ -3493,7 +4067,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_INPUT__DATASOURCE_ID = eINSTANCE.getFormulaInput_DatasourceId();
+        EAttribute FORMULA_INPUT__DATASOURCE_ID = eINSTANCE.getFormulaInput_DatasourceId ();
 
         /**
          * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -3501,7 +4075,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute FORMULA_INPUT__TYPE = eINSTANCE.getFormulaInput_Type();
+        EAttribute FORMULA_INPUT__TYPE = eINSTANCE.getFormulaInput_Type ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ScriptModuleImpl <em>Script Module</em>}' class.
@@ -3511,7 +4085,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getScriptModule()
          * @generated
          */
-        EClass SCRIPT_MODULE = eINSTANCE.getScriptModule();
+        EClass SCRIPT_MODULE = eINSTANCE.getScriptModule ();
 
         /**
          * The meta object literal for the '<em><b>Data</b></em>' attribute feature.
@@ -3519,7 +4093,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_MODULE__DATA = eINSTANCE.getScriptModule_Data();
+        EAttribute SCRIPT_MODULE__DATA = eINSTANCE.getScriptModule_Data ();
 
         /**
          * The meta object literal for the '<em><b>Resource</b></em>' attribute feature.
@@ -3527,7 +4101,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_MODULE__RESOURCE = eINSTANCE.getScriptModule_Resource();
+        EAttribute SCRIPT_MODULE__RESOURCE = eINSTANCE.getScriptModule_Resource ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ModelImpl <em>Model</em>}' class.
@@ -3537,7 +4111,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getModel()
          * @generated
          */
-        EClass MODEL = eINSTANCE.getModel();
+        EClass MODEL = eINSTANCE.getModel ();
 
         /**
          * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
@@ -3545,7 +4119,15 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference MODEL__ITEMS = eINSTANCE.getModel_Items();
+        EReference MODEL__ITEMS = eINSTANCE.getModel_Items ();
+
+        /**
+         * The meta object literal for the '<em><b>Averages</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODEL__AVERAGES = eINSTANCE.getModel_Averages ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
@@ -3555,7 +4137,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getScriptItem()
          * @generated
          */
-        EClass SCRIPT_ITEM = eINSTANCE.getScriptItem();
+        EClass SCRIPT_ITEM = eINSTANCE.getScriptItem ();
 
         /**
          * The meta object literal for the '<em><b>Script Engine</b></em>' attribute feature.
@@ -3563,7 +4145,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_ITEM__SCRIPT_ENGINE = eINSTANCE.getScriptItem_ScriptEngine();
+        EAttribute SCRIPT_ITEM__SCRIPT_ENGINE = eINSTANCE.getScriptItem_ScriptEngine ();
 
         /**
          * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
@@ -3571,7 +4153,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_ITEM__INPUTS = eINSTANCE.getScriptItem_Inputs();
+        EReference SCRIPT_ITEM__INPUTS = eINSTANCE.getScriptItem_Inputs ();
 
         /**
          * The meta object literal for the '<em><b>Init Script</b></em>' attribute feature.
@@ -3579,7 +4161,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_ITEM__INIT_SCRIPT = eINSTANCE.getScriptItem_InitScript();
+        EAttribute SCRIPT_ITEM__INIT_SCRIPT = eINSTANCE.getScriptItem_InitScript ();
 
         /**
          * The meta object literal for the '<em><b>Update Script</b></em>' attribute feature.
@@ -3587,7 +4169,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_ITEM__UPDATE_SCRIPT = eINSTANCE.getScriptItem_UpdateScript();
+        EAttribute SCRIPT_ITEM__UPDATE_SCRIPT = eINSTANCE.getScriptItem_UpdateScript ();
 
         /**
          * The meta object literal for the '<em><b>Timer Script</b></em>' attribute feature.
@@ -3595,7 +4177,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_ITEM__TIMER_SCRIPT = eINSTANCE.getScriptItem_TimerScript();
+        EAttribute SCRIPT_ITEM__TIMER_SCRIPT = eINSTANCE.getScriptItem_TimerScript ();
 
         /**
          * The meta object literal for the '<em><b>Timer Period</b></em>' attribute feature.
@@ -3603,7 +4185,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_ITEM__TIMER_PERIOD = eINSTANCE.getScriptItem_TimerPeriod();
+        EAttribute SCRIPT_ITEM__TIMER_PERIOD = eINSTANCE.getScriptItem_TimerPeriod ();
 
         /**
          * The meta object literal for the '<em><b>Outputs</b></em>' containment reference list feature.
@@ -3611,7 +4193,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SCRIPT_ITEM__OUTPUTS = eINSTANCE.getScriptItem_Outputs();
+        EReference SCRIPT_ITEM__OUTPUTS = eINSTANCE.getScriptItem_Outputs ();
 
         /**
          * The meta object literal for the '<em><b>Write Command</b></em>' attribute feature.
@@ -3619,7 +4201,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_ITEM__WRITE_COMMAND = eINSTANCE.getScriptItem_WriteCommand();
+        EAttribute SCRIPT_ITEM__WRITE_COMMAND = eINSTANCE.getScriptItem_WriteCommand ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ScriptOutputImpl <em>Script Output</em>}' class.
@@ -3629,7 +4211,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getScriptOutput()
          * @generated
          */
-        EClass SCRIPT_OUTPUT = eINSTANCE.getScriptOutput();
+        EClass SCRIPT_OUTPUT = eINSTANCE.getScriptOutput ();
 
         /**
          * The meta object literal for the '<em><b>Datasource Id</b></em>' attribute feature.
@@ -3637,7 +4219,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_OUTPUT__DATASOURCE_ID = eINSTANCE.getScriptOutput_DatasourceId();
+        EAttribute SCRIPT_OUTPUT__DATASOURCE_ID = eINSTANCE.getScriptOutput_DatasourceId ();
 
         /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3645,7 +4227,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SCRIPT_OUTPUT__NAME = eINSTANCE.getScriptOutput_Name();
+        EAttribute SCRIPT_OUTPUT__NAME = eINSTANCE.getScriptOutput_Name ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.MapperImpl <em>Mapper</em>}' class.
@@ -3655,7 +4237,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMapper()
          * @generated
          */
-        EClass MAPPER = eINSTANCE.getMapper();
+        EClass MAPPER = eINSTANCE.getMapper ();
 
         /**
          * The meta object literal for the '<em><b>Mapper Id</b></em>' attribute feature.
@@ -3663,7 +4245,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MAPPER__MAPPER_ID = eINSTANCE.getMapper_MapperId();
+        EAttribute MAPPER__MAPPER_ID = eINSTANCE.getMapper_MapperId ();
 
         /**
          * The meta object literal for the '<em><b>From Attribute</b></em>' attribute feature.
@@ -3671,7 +4253,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MAPPER__FROM_ATTRIBUTE = eINSTANCE.getMapper_FromAttribute();
+        EAttribute MAPPER__FROM_ATTRIBUTE = eINSTANCE.getMapper_FromAttribute ();
 
         /**
          * The meta object literal for the '<em><b>To Attribute</b></em>' attribute feature.
@@ -3679,7 +4261,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MAPPER__TO_ATTRIBUTE = eINSTANCE.getMapper_ToAttribute();
+        EAttribute MAPPER__TO_ATTRIBUTE = eINSTANCE.getMapper_ToAttribute ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.MonitorImpl <em>Monitor</em>}' class.
@@ -3689,7 +4271,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMonitor()
          * @generated
          */
-        EClass MONITOR = eINSTANCE.getMonitor();
+        EClass MONITOR = eINSTANCE.getMonitor ();
 
         /**
          * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
@@ -3697,7 +4279,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MONITOR__ACTIVE = eINSTANCE.getMonitor_Active();
+        EAttribute MONITOR__ACTIVE = eINSTANCE.getMonitor_Active ();
 
         /**
          * The meta object literal for the '<em><b>Ack</b></em>' attribute feature.
@@ -3705,7 +4287,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MONITOR__ACK = eINSTANCE.getMonitor_Ack();
+        EAttribute MONITOR__ACK = eINSTANCE.getMonitor_Ack ();
 
         /**
          * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
@@ -3713,7 +4295,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute MONITOR__PRIORITY = eINSTANCE.getMonitor_Priority();
+        EAttribute MONITOR__PRIORITY = eINSTANCE.getMonitor_Priority ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.
@@ -3723,7 +4305,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getLevelMonitor()
          * @generated
          */
-        EClass LEVEL_MONITOR = eINSTANCE.getLevelMonitor();
+        EClass LEVEL_MONITOR = eINSTANCE.getLevelMonitor ();
 
         /**
          * The meta object literal for the '<em><b>Preset</b></em>' attribute feature.
@@ -3731,7 +4313,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LEVEL_MONITOR__PRESET = eINSTANCE.getLevelMonitor_Preset();
+        EAttribute LEVEL_MONITOR__PRESET = eINSTANCE.getLevelMonitor_Preset ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl <em>List Monitor</em>}' class.
@@ -3741,7 +4323,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitor()
          * @generated
          */
-        EClass LIST_MONITOR = eINSTANCE.getListMonitor();
+        EClass LIST_MONITOR = eINSTANCE.getListMonitor ();
 
         /**
          * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
@@ -3749,7 +4331,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIST_MONITOR__VALUES = eINSTANCE.getListMonitor_Values();
+        EAttribute LIST_MONITOR__VALUES = eINSTANCE.getListMonitor_Values ();
 
         /**
          * The meta object literal for the '<em><b>List Is Alarm</b></em>' attribute feature.
@@ -3757,7 +4339,7 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIST_MONITOR__LIST_IS_ALARM = eINSTANCE.getListMonitor_ListIsAlarm();
+        EAttribute LIST_MONITOR__LIST_IS_ALARM = eINSTANCE.getListMonitor_ListIsAlarm ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.
@@ -3767,7 +4349,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBooleanMonitor()
          * @generated
          */
-        EClass BOOLEAN_MONITOR = eINSTANCE.getBooleanMonitor();
+        EClass BOOLEAN_MONITOR = eINSTANCE.getBooleanMonitor ();
 
         /**
          * The meta object literal for the '<em><b>Ok Value</b></em>' attribute feature.
@@ -3775,7 +4357,67 @@ public interface ModelPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BOOLEAN_MONITOR__OK_VALUE = eINSTANCE.getBooleanMonitor_OkValue();
+        EAttribute BOOLEAN_MONITOR__OK_VALUE = eINSTANCE.getBooleanMonitor_OkValue ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.AverageImpl <em>Average</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.AverageImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverage()
+         * @generated
+         */
+        EClass AVERAGE = eINSTANCE.getAverage ();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AVERAGE__ID = eINSTANCE.getAverage_Id ();
+
+        /**
+         * The meta object literal for the '<em><b>Sources</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AVERAGE__SOURCES = eINSTANCE.getAverage_Sources ();
+
+        /**
+         * The meta object literal for the '<em><b>Percent Required</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AVERAGE__PERCENT_REQUIRED = eINSTANCE.getAverage_PercentRequired ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.AverageItemImpl <em>Average Item</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.AverageItemImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageItem()
+         * @generated
+         */
+        EClass AVERAGE_ITEM = eINSTANCE.getAverageItem ();
+
+        /**
+         * The meta object literal for the '<em><b>Average</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AVERAGE_ITEM__AVERAGE = eINSTANCE.getAverageItem_Average ();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AVERAGE_ITEM__TYPE = eINSTANCE.getAverageItem_Type ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
@@ -3785,7 +4427,7 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
          * @generated
          */
-        EEnum DATA_TYPE = eINSTANCE.getDataType();
+        EEnum DATA_TYPE = eINSTANCE.getDataType ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -3795,7 +4437,17 @@ public interface ModelPackage extends EPackage
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
          * @generated
          */
-        EEnum ROUNDING = eINSTANCE.getRounding();
+        EEnum ROUNDING = eINSTANCE.getRounding ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.AverageReferenceType
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
+         * @generated
+         */
+        EEnum AVERAGE_REFERENCE_TYPE = eINSTANCE.getAverageReferenceType ();
 
     }
 

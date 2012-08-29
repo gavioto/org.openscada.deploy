@@ -10,17 +10,12 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
@@ -194,9 +189,9 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FormulaItemImpl()
+    protected FormulaItemImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -205,7 +200,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.FORMULA_ITEM;
     }
@@ -215,7 +210,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getInputFormula()
+    public String getInputFormula ()
     {
         return inputFormula;
     }
@@ -225,12 +220,12 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInputFormula(String newInputFormula)
+    public void setInputFormula ( String newInputFormula )
     {
         String oldInputFormula = inputFormula;
         inputFormula = newInputFormula;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_ITEM__INPUT_FORMULA, oldInputFormula, inputFormula));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_ITEM__INPUT_FORMULA, oldInputFormula, inputFormula ) );
     }
 
     /**
@@ -238,7 +233,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOutputFormula()
+    public String getOutputFormula ()
     {
         return outputFormula;
     }
@@ -248,12 +243,12 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOutputFormula(String newOutputFormula)
+    public void setOutputFormula ( String newOutputFormula )
     {
         String oldOutputFormula = outputFormula;
         outputFormula = newOutputFormula;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA, oldOutputFormula, outputFormula));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA, oldOutputFormula, outputFormula ) );
     }
 
     /**
@@ -261,11 +256,11 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<FormulaInput> getInputs()
+    public EList<FormulaInput> getInputs ()
     {
-        if (inputs == null)
+        if ( inputs == null )
         {
-            inputs = new EObjectContainmentEList<FormulaInput>(FormulaInput.class, this, ModelPackage.FORMULA_ITEM__INPUTS);
+            inputs = new EObjectContainmentEList<FormulaInput> ( FormulaInput.class, this, ModelPackage.FORMULA_ITEM__INPUTS );
         }
         return inputs;
     }
@@ -275,7 +270,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOutputDatasourceId()
+    public String getOutputDatasourceId ()
     {
         return outputDatasourceId;
     }
@@ -285,12 +280,12 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOutputDatasourceId(String newOutputDatasourceId)
+    public void setOutputDatasourceId ( String newOutputDatasourceId )
     {
         String oldOutputDatasourceId = outputDatasourceId;
         outputDatasourceId = newOutputDatasourceId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID, oldOutputDatasourceId, outputDatasourceId));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID, oldOutputDatasourceId, outputDatasourceId ) );
     }
 
     /**
@@ -298,7 +293,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getWriteValueName()
+    public String getWriteValueName ()
     {
         return writeValueName;
     }
@@ -308,12 +303,12 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWriteValueName(String newWriteValueName)
+    public void setWriteValueName ( String newWriteValueName )
     {
         String oldWriteValueName = writeValueName;
         writeValueName = newWriteValueName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME, oldWriteValueName, writeValueName));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME, oldWriteValueName, writeValueName ) );
     }
 
     /**
@@ -321,7 +316,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getInitScript()
+    public String getInitScript ()
     {
         return initScript;
     }
@@ -331,12 +326,12 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInitScript(String newInitScript)
+    public void setInitScript ( String newInitScript )
     {
         String oldInitScript = initScript;
         initScript = newInitScript;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_ITEM__INIT_SCRIPT, oldInitScript, initScript));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_ITEM__INIT_SCRIPT, oldInitScript, initScript ) );
     }
 
     /**
@@ -344,7 +339,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataType getOutputDatasourceType()
+    public DataType getOutputDatasourceType ()
     {
         return outputDatasourceType;
     }
@@ -354,12 +349,12 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOutputDatasourceType(DataType newOutputDatasourceType)
+    public void setOutputDatasourceType ( DataType newOutputDatasourceType )
     {
         DataType oldOutputDatasourceType = outputDatasourceType;
         outputDatasourceType = newOutputDatasourceType == null ? OUTPUT_DATASOURCE_TYPE_EDEFAULT : newOutputDatasourceType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE, oldOutputDatasourceType, outputDatasourceType));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE, oldOutputDatasourceType, outputDatasourceType ) );
     }
 
     /**
@@ -367,11 +362,11 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ScriptModule> getScriptModules()
+    public EList<ScriptModule> getScriptModules ()
     {
-        if (scriptModules == null)
+        if ( scriptModules == null )
         {
-            scriptModules = new EObjectContainmentEList<ScriptModule>(ScriptModule.class, this, ModelPackage.FORMULA_ITEM__SCRIPT_MODULES);
+            scriptModules = new EObjectContainmentEList<ScriptModule> ( ScriptModule.class, this, ModelPackage.FORMULA_ITEM__SCRIPT_MODULES );
         }
         return scriptModules;
     }
@@ -382,16 +377,16 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_ITEM__INPUTS:
-                return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
             case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-                return ((InternalEList<?>)getScriptModules()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getScriptModules () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -400,28 +395,28 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-                return getInputFormula();
+                return getInputFormula ();
             case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-                return getOutputFormula();
+                return getOutputFormula ();
             case ModelPackage.FORMULA_ITEM__INPUTS:
-                return getInputs();
+                return getInputs ();
             case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-                return getOutputDatasourceId();
+                return getOutputDatasourceId ();
             case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-                return getWriteValueName();
+                return getWriteValueName ();
             case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-                return getInitScript();
+                return getInitScript ();
             case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-                return getOutputDatasourceType();
+                return getOutputDatasourceType ();
             case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-                return getScriptModules();
+                return getScriptModules ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -429,78 +424,40 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-                setInputFormula((String)newValue);
+                setInputFormula ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-                setOutputFormula((String)newValue);
+                setOutputFormula ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__INPUTS:
-                getInputs().clear();
-                getInputs().addAll((Collection<? extends FormulaInput>)newValue);
+                getInputs ().clear ();
+                getInputs ().addAll ( (Collection<? extends FormulaInput>)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-                setOutputDatasourceId((String)newValue);
+                setOutputDatasourceId ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-                setWriteValueName((String)newValue);
+                setWriteValueName ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-                setInitScript((String)newValue);
-                return;
-            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-                setOutputDatasourceType((DataType)newValue);
-                return;
-            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-                getScriptModules().clear();
-                getScriptModules().addAll((Collection<? extends ScriptModule>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-                setInputFormula(INPUT_FORMULA_EDEFAULT);
-                return;
-            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-                setOutputFormula(OUTPUT_FORMULA_EDEFAULT);
-                return;
-            case ModelPackage.FORMULA_ITEM__INPUTS:
-                getInputs().clear();
-                return;
-            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-                setOutputDatasourceId(OUTPUT_DATASOURCE_ID_EDEFAULT);
-                return;
-            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-                setWriteValueName(WRITE_VALUE_NAME_EDEFAULT);
-                return;
-            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-                setInitScript(INIT_SCRIPT_EDEFAULT);
+                setInitScript ( (String)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-                setOutputDatasourceType(OUTPUT_DATASOURCE_TYPE_EDEFAULT);
+                setOutputDatasourceType ( (DataType)newValue );
                 return;
             case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-                getScriptModules().clear();
+                getScriptModules ().clear ();
+                getScriptModules ().addAll ( (Collection<? extends ScriptModule>)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -509,28 +466,66 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-                return INPUT_FORMULA_EDEFAULT == null ? inputFormula != null : !INPUT_FORMULA_EDEFAULT.equals(inputFormula);
+                setInputFormula ( INPUT_FORMULA_EDEFAULT );
+                return;
             case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-                return OUTPUT_FORMULA_EDEFAULT == null ? outputFormula != null : !OUTPUT_FORMULA_EDEFAULT.equals(outputFormula);
+                setOutputFormula ( OUTPUT_FORMULA_EDEFAULT );
+                return;
             case ModelPackage.FORMULA_ITEM__INPUTS:
-                return inputs != null && !inputs.isEmpty();
+                getInputs ().clear ();
+                return;
             case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-                return OUTPUT_DATASOURCE_ID_EDEFAULT == null ? outputDatasourceId != null : !OUTPUT_DATASOURCE_ID_EDEFAULT.equals(outputDatasourceId);
+                setOutputDatasourceId ( OUTPUT_DATASOURCE_ID_EDEFAULT );
+                return;
             case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-                return WRITE_VALUE_NAME_EDEFAULT == null ? writeValueName != null : !WRITE_VALUE_NAME_EDEFAULT.equals(writeValueName);
+                setWriteValueName ( WRITE_VALUE_NAME_EDEFAULT );
+                return;
             case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-                return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals(initScript);
+                setInitScript ( INIT_SCRIPT_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
+                setOutputDatasourceType ( OUTPUT_DATASOURCE_TYPE_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+                getScriptModules ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
+                return INPUT_FORMULA_EDEFAULT == null ? inputFormula != null : !INPUT_FORMULA_EDEFAULT.equals ( inputFormula );
+            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
+                return OUTPUT_FORMULA_EDEFAULT == null ? outputFormula != null : !OUTPUT_FORMULA_EDEFAULT.equals ( outputFormula );
+            case ModelPackage.FORMULA_ITEM__INPUTS:
+                return inputs != null && !inputs.isEmpty ();
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
+                return OUTPUT_DATASOURCE_ID_EDEFAULT == null ? outputDatasourceId != null : !OUTPUT_DATASOURCE_ID_EDEFAULT.equals ( outputDatasourceId );
+            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
+                return WRITE_VALUE_NAME_EDEFAULT == null ? writeValueName != null : !WRITE_VALUE_NAME_EDEFAULT.equals ( writeValueName );
+            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
+                return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals ( initScript );
             case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
                 return outputDatasourceType != OUTPUT_DATASOURCE_TYPE_EDEFAULT;
             case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-                return scriptModules != null && !scriptModules.isEmpty();
+                return scriptModules != null && !scriptModules.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -539,25 +534,26 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (inputFormula: ");
-        result.append(inputFormula);
-        result.append(", outputFormula: ");
-        result.append(outputFormula);
-        result.append(", outputDatasourceId: ");
-        result.append(outputDatasourceId);
-        result.append(", writeValueName: ");
-        result.append(writeValueName);
-        result.append(", initScript: ");
-        result.append(initScript);
-        result.append(", outputDatasourceType: ");
-        result.append(outputDatasourceType);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (inputFormula: " );
+        result.append ( inputFormula );
+        result.append ( ", outputFormula: " );
+        result.append ( outputFormula );
+        result.append ( ", outputDatasourceId: " );
+        result.append ( outputDatasourceId );
+        result.append ( ", writeValueName: " );
+        result.append ( writeValueName );
+        result.append ( ", initScript: " );
+        result.append ( initScript );
+        result.append ( ", outputDatasourceType: " );
+        result.append ( outputDatasourceType );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //FormulaItemImpl

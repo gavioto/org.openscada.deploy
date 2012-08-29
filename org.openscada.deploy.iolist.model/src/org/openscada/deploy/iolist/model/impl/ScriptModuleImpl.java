@@ -7,12 +7,9 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.ScriptModule;
 
@@ -77,9 +74,9 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ScriptModuleImpl()
+    protected ScriptModuleImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -88,7 +85,7 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.SCRIPT_MODULE;
     }
@@ -98,7 +95,7 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getData()
+    public String getData ()
     {
         return data;
     }
@@ -108,12 +105,12 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setData(String newData)
+    public void setData ( String newData )
     {
         String oldData = data;
         data = newData;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_MODULE__DATA, oldData, data));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_MODULE__DATA, oldData, data ) );
     }
 
     /**
@@ -121,7 +118,7 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isResource()
+    public boolean isResource ()
     {
         return resource;
     }
@@ -131,12 +128,12 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setResource(boolean newResource)
+    public void setResource ( boolean newResource )
     {
         boolean oldResource = resource;
         resource = newResource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRIPT_MODULE__RESOURCE, oldResource, resource));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.SCRIPT_MODULE__RESOURCE, oldResource, resource ) );
     }
 
     /**
@@ -145,16 +142,16 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_MODULE__DATA:
-                return getData();
+                return getData ();
             case ModelPackage.SCRIPT_MODULE__RESOURCE:
-                return isResource();
+                return isResource ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -163,38 +160,18 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_MODULE__DATA:
-                setData((String)newValue);
-                return;
-            case ModelPackage.SCRIPT_MODULE__RESOURCE:
-                setResource((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case ModelPackage.SCRIPT_MODULE__DATA:
-                setData(DATA_EDEFAULT);
+                setData ( (String)newValue );
                 return;
             case ModelPackage.SCRIPT_MODULE__RESOURCE:
-                setResource(RESOURCE_EDEFAULT);
+                setResource ( (Boolean)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -203,16 +180,36 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.SCRIPT_MODULE__DATA:
-                return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals(data);
+                setData ( DATA_EDEFAULT );
+                return;
+            case ModelPackage.SCRIPT_MODULE__RESOURCE:
+                setResource ( RESOURCE_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ModelPackage.SCRIPT_MODULE__DATA:
+                return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals ( data );
             case ModelPackage.SCRIPT_MODULE__RESOURCE:
                 return resource != RESOURCE_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -221,17 +218,18 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (data: ");
-        result.append(data);
-        result.append(", resource: ");
-        result.append(resource);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (data: " );
+        result.append ( data );
+        result.append ( ", resource: " );
+        result.append ( resource );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ScriptModuleImpl

@@ -7,12 +7,9 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Monitor;
 
@@ -98,9 +95,9 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected MonitorImpl()
+    protected MonitorImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -109,7 +106,7 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.MONITOR;
     }
@@ -119,7 +116,7 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isActive()
+    public boolean isActive ()
     {
         return active;
     }
@@ -129,12 +126,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setActive(boolean newActive)
+    public void setActive ( boolean newActive )
     {
         boolean oldActive = active;
         active = newActive;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MONITOR__ACTIVE, oldActive, active));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MONITOR__ACTIVE, oldActive, active ) );
     }
 
     /**
@@ -142,7 +139,7 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isAck()
+    public boolean isAck ()
     {
         return ack;
     }
@@ -152,12 +149,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAck(boolean newAck)
+    public void setAck ( boolean newAck )
     {
         boolean oldAck = ack;
         ack = newAck;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MONITOR__ACK, oldAck, ack));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MONITOR__ACK, oldAck, ack ) );
     }
 
     /**
@@ -165,7 +162,7 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getPriority()
+    public String getPriority ()
     {
         return priority;
     }
@@ -175,12 +172,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPriority(String newPriority)
+    public void setPriority ( String newPriority )
     {
         String oldPriority = priority;
         priority = newPriority;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MONITOR__PRIORITY, oldPriority, priority));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MONITOR__PRIORITY, oldPriority, priority ) );
     }
 
     /**
@@ -189,18 +186,18 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MONITOR__ACTIVE:
-                return isActive();
+                return isActive ();
             case ModelPackage.MONITOR__ACK:
-                return isAck();
+                return isAck ();
             case ModelPackage.MONITOR__PRIORITY:
-                return getPriority();
+                return getPriority ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -209,21 +206,21 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MONITOR__ACTIVE:
-                setActive((Boolean)newValue);
+                setActive ( (Boolean)newValue );
                 return;
             case ModelPackage.MONITOR__ACK:
-                setAck((Boolean)newValue);
+                setAck ( (Boolean)newValue );
                 return;
             case ModelPackage.MONITOR__PRIORITY:
-                setPriority((String)newValue);
+                setPriority ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -232,21 +229,21 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MONITOR__ACTIVE:
-                setActive(ACTIVE_EDEFAULT);
+                setActive ( ACTIVE_EDEFAULT );
                 return;
             case ModelPackage.MONITOR__ACK:
-                setAck(ACK_EDEFAULT);
+                setAck ( ACK_EDEFAULT );
                 return;
             case ModelPackage.MONITOR__PRIORITY:
-                setPriority(PRIORITY_EDEFAULT);
+                setPriority ( PRIORITY_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -255,18 +252,18 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.MONITOR__ACTIVE:
                 return active != ACTIVE_EDEFAULT;
             case ModelPackage.MONITOR__ACK:
                 return ack != ACK_EDEFAULT;
             case ModelPackage.MONITOR__PRIORITY:
-                return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
+                return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals ( priority );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -275,19 +272,20 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (active: ");
-        result.append(active);
-        result.append(", ack: ");
-        result.append(ack);
-        result.append(", priority: ");
-        result.append(priority);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (active: " );
+        result.append ( active );
+        result.append ( ", ack: " );
+        result.append ( ack );
+        result.append ( ", priority: " );
+        result.append ( priority );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //MonitorImpl

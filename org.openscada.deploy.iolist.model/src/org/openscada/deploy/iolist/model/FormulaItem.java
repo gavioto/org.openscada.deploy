@@ -47,7 +47,7 @@ public interface FormulaItem extends Item
      * @model
      * @generated
      */
-    String getInputFormula();
+    String getInputFormula ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaItem#getInputFormula <em>Input Formula</em>}' attribute.
@@ -57,7 +57,7 @@ public interface FormulaItem extends Item
      * @see #getInputFormula()
      * @generated
      */
-    void setInputFormula(String value);
+    void setInputFormula ( String value );
 
     /**
      * Returns the value of the '<em><b>Output Formula</b></em>' attribute.
@@ -73,7 +73,7 @@ public interface FormulaItem extends Item
      * @model
      * @generated
      */
-    String getOutputFormula();
+    String getOutputFormula ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaItem#getOutputFormula <em>Output Formula</em>}' attribute.
@@ -83,7 +83,7 @@ public interface FormulaItem extends Item
      * @see #getOutputFormula()
      * @generated
      */
-    void setOutputFormula(String value);
+    void setOutputFormula ( String value );
 
     /**
      * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
@@ -99,7 +99,7 @@ public interface FormulaItem extends Item
      * @model containment="true"
      * @generated
      */
-    EList<FormulaInput> getInputs();
+    EList<FormulaInput> getInputs ();
 
     /**
      * Returns the value of the '<em><b>Output Datasource Id</b></em>' attribute.
@@ -115,7 +115,7 @@ public interface FormulaItem extends Item
      * @model
      * @generated
      */
-    String getOutputDatasourceId();
+    String getOutputDatasourceId ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaItem#getOutputDatasourceId <em>Output Datasource Id</em>}' attribute.
@@ -125,7 +125,7 @@ public interface FormulaItem extends Item
      * @see #getOutputDatasourceId()
      * @generated
      */
-    void setOutputDatasourceId(String value);
+    void setOutputDatasourceId ( String value );
 
     /**
      * Returns the value of the '<em><b>Write Value Name</b></em>' attribute.
@@ -141,7 +141,7 @@ public interface FormulaItem extends Item
      * @model
      * @generated
      */
-    String getWriteValueName();
+    String getWriteValueName ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaItem#getWriteValueName <em>Write Value Name</em>}' attribute.
@@ -151,7 +151,7 @@ public interface FormulaItem extends Item
      * @see #getWriteValueName()
      * @generated
      */
-    void setWriteValueName(String value);
+    void setWriteValueName ( String value );
 
     /**
      * Returns the value of the '<em><b>Init Script</b></em>' attribute.
@@ -167,7 +167,7 @@ public interface FormulaItem extends Item
      * @model
      * @generated
      */
-    String getInitScript();
+    String getInitScript ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaItem#getInitScript <em>Init Script</em>}' attribute.
@@ -177,7 +177,7 @@ public interface FormulaItem extends Item
      * @see #getInitScript()
      * @generated
      */
-    void setInitScript(String value);
+    void setInitScript ( String value );
 
     /**
      * Returns the value of the '<em><b>Output Datasource Type</b></em>' attribute.
@@ -195,7 +195,7 @@ public interface FormulaItem extends Item
      * @model
      * @generated
      */
-    DataType getOutputDatasourceType();
+    DataType getOutputDatasourceType ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.FormulaItem#getOutputDatasourceType <em>Output Datasource Type</em>}' attribute.
@@ -206,7 +206,7 @@ public interface FormulaItem extends Item
      * @see #getOutputDatasourceType()
      * @generated
      */
-    void setOutputDatasourceType(DataType value);
+    void setOutputDatasourceType ( DataType value );
 
     /**
      * Returns the value of the '<em><b>Script Modules</b></em>' containment reference list.
@@ -222,6 +222,6 @@ public interface FormulaItem extends Item
      * @model containment="true"
      * @generated
      */
-    EList<ScriptModule> getScriptModules();
+    EList<ScriptModule> getScriptModules ();
 
 } // FormulaItem

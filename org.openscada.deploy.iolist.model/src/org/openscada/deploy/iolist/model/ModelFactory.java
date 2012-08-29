@@ -24,7 +24,7 @@ public interface ModelFactory extends EFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    ModelFactory eINSTANCE = org.openscada.deploy.iolist.model.impl.ModelFactoryImpl.init();
+    ModelFactory eINSTANCE = org.openscada.deploy.iolist.model.impl.ModelFactoryImpl.init ();
 
     /**
      * Returns a new object of class '<em>Item</em>'.
@@ -33,7 +33,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Item</em>'.
      * @generated
      */
-    Item createItem();
+    Item createItem ();
 
     /**
      * Returns a new object of class '<em>Summary Group</em>'.
@@ -42,7 +42,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Summary Group</em>'.
      * @generated
      */
-    SummaryGroup createSummaryGroup();
+    SummaryGroup createSummaryGroup ();
 
     /**
      * Returns a new object of class '<em>Summary Item</em>'.
@@ -51,7 +51,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Summary Item</em>'.
      * @generated
      */
-    SummaryItem createSummaryItem();
+    SummaryItem createSummaryItem ();
 
     /**
      * Returns a new object of class '<em>Formula Item</em>'.
@@ -60,7 +60,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Formula Item</em>'.
      * @generated
      */
-    FormulaItem createFormulaItem();
+    FormulaItem createFormulaItem ();
 
     /**
      * Returns a new object of class '<em>Formula Input</em>'.
@@ -69,7 +69,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Formula Input</em>'.
      * @generated
      */
-    FormulaInput createFormulaInput();
+    FormulaInput createFormulaInput ();
 
     /**
      * Returns a new object of class '<em>Script Module</em>'.
@@ -78,7 +78,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Script Module</em>'.
      * @generated
      */
-    ScriptModule createScriptModule();
+    ScriptModule createScriptModule ();
 
     /**
      * Returns a new object of class '<em>Model</em>'.
@@ -87,7 +87,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Model</em>'.
      * @generated
      */
-    Model createModel();
+    Model createModel ();
 
     /**
      * Returns a new object of class '<em>Script Item</em>'.
@@ -96,7 +96,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Script Item</em>'.
      * @generated
      */
-    ScriptItem createScriptItem();
+    ScriptItem createScriptItem ();
 
     /**
      * Returns a new object of class '<em>Script Output</em>'.
@@ -105,7 +105,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Script Output</em>'.
      * @generated
      */
-    ScriptOutput createScriptOutput();
+    ScriptOutput createScriptOutput ();
 
     /**
      * Returns a new object of class '<em>Mapper</em>'.
@@ -114,7 +114,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Mapper</em>'.
      * @generated
      */
-    Mapper createMapper();
+    Mapper createMapper ();
 
     /**
      * Returns a new object of class '<em>Level Monitor</em>'.
@@ -123,7 +123,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Level Monitor</em>'.
      * @generated
      */
-    LevelMonitor createLevelMonitor();
+    LevelMonitor createLevelMonitor ();
 
     /**
      * Returns a new object of class '<em>List Monitor</em>'.
@@ -132,7 +132,7 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>List Monitor</em>'.
      * @generated
      */
-    ListMonitor createListMonitor();
+    ListMonitor createListMonitor ();
 
     /**
      * Returns a new object of class '<em>Boolean Monitor</em>'.
@@ -141,7 +141,25 @@ public interface ModelFactory extends EFactory
      * @return a new object of class '<em>Boolean Monitor</em>'.
      * @generated
      */
-    BooleanMonitor createBooleanMonitor();
+    BooleanMonitor createBooleanMonitor ();
+
+    /**
+     * Returns a new object of class '<em>Average</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Average</em>'.
+     * @generated
+     */
+    Average createAverage ();
+
+    /**
+     * Returns a new object of class '<em>Average Item</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Average Item</em>'.
+     * @generated
+     */
+    AverageItem createAverageItem ();
 
     /**
      * Returns the package supported by this factory.
@@ -150,6 +168,6 @@ public interface ModelFactory extends EFactory
      * @return the package supported by this factory.
      * @generated
      */
-    ModelPackage getModelPackage();
+    ModelPackage getModelPackage ();
 
 } //ModelFactory

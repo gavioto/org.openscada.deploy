@@ -7,7 +7,6 @@
 package org.openscada.deploy.iolist.model;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -83,7 +82,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    String getDevice();
+    String getDevice ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getDevice <em>Device</em>}' attribute.
@@ -93,7 +92,7 @@ public interface Item extends EObject
      * @see #getDevice()
      * @generated
      */
-    void setDevice(String value);
+    void setDevice ( String value );
 
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -109,7 +108,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    String getName();
+    String getName ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getName <em>Name</em>}' attribute.
@@ -119,7 +118,7 @@ public interface Item extends EObject
      * @see #getName()
      * @generated
      */
-    void setName(String value);
+    void setName ( String value );
 
     /**
      * Returns the value of the '<em><b>Data Type</b></em>' attribute.
@@ -137,7 +136,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    DataType getDataType();
+    DataType getDataType ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getDataType <em>Data Type</em>}' attribute.
@@ -148,7 +147,7 @@ public interface Item extends EObject
      * @see #getDataType()
      * @generated
      */
-    void setDataType(DataType value);
+    void setDataType ( DataType value );
 
     /**
      * Returns the value of the '<em><b>Unit</b></em>' attribute.
@@ -164,7 +163,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    String getUnit();
+    String getUnit ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getUnit <em>Unit</em>}' attribute.
@@ -174,7 +173,7 @@ public interface Item extends EObject
      * @see #getUnit()
      * @generated
      */
-    void setUnit(String value);
+    void setUnit ( String value );
 
     /**
      * Returns the value of the '<em><b>Alias</b></em>' attribute.
@@ -187,10 +186,11 @@ public interface Item extends EObject
      * @return the value of the '<em>Alias</em>' attribute.
      * @see #setAlias(String)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Alias()
-     * @model extendedMetaData="namespace=''"
+     * @model id="true"
+     *        extendedMetaData="namespace=''"
      * @generated
      */
-    String getAlias();
+    String getAlias ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getAlias <em>Alias</em>}' attribute.
@@ -200,7 +200,7 @@ public interface Item extends EObject
      * @see #getAlias()
      * @generated
      */
-    void setAlias(String value);
+    void setAlias ( String value );
 
     /**
      * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -216,7 +216,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    String getDescription();
+    String getDescription ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getDescription <em>Description</em>}' attribute.
@@ -226,7 +226,7 @@ public interface Item extends EObject
      * @see #getDescription()
      * @generated
      */
-    void setDescription(String value);
+    void setDescription ( String value );
 
     /**
      * Returns the value of the '<em><b>Default Chain</b></em>' attribute.
@@ -243,7 +243,7 @@ public interface Item extends EObject
      * @model default="true"
      * @generated
      */
-    boolean isDefaultChain();
+    boolean isDefaultChain ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}' attribute.
@@ -253,7 +253,7 @@ public interface Item extends EObject
      * @see #isDefaultChain()
      * @generated
      */
-    void setDefaultChain(boolean value);
+    void setDefaultChain ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Local Min</b></em>' containment reference.
@@ -269,7 +269,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    LevelMonitor getLocalMin();
+    LevelMonitor getLocalMin ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}' containment reference.
@@ -279,7 +279,7 @@ public interface Item extends EObject
      * @see #getLocalMin()
      * @generated
      */
-    void setLocalMin(LevelMonitor value);
+    void setLocalMin ( LevelMonitor value );
 
     /**
      * Returns the value of the '<em><b>Local Max</b></em>' containment reference.
@@ -295,7 +295,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    LevelMonitor getLocalMax();
+    LevelMonitor getLocalMax ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}' containment reference.
@@ -305,7 +305,7 @@ public interface Item extends EObject
      * @see #getLocalMax()
      * @generated
      */
-    void setLocalMax(LevelMonitor value);
+    void setLocalMax ( LevelMonitor value );
 
     /**
      * Returns the value of the '<em><b>Local List Monitor</b></em>' containment reference.
@@ -321,7 +321,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    ListMonitor getLocalListMonitor();
+    ListMonitor getLocalListMonitor ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalListMonitor <em>Local List Monitor</em>}' containment reference.
@@ -331,7 +331,7 @@ public interface Item extends EObject
      * @see #getLocalListMonitor()
      * @generated
      */
-    void setLocalListMonitor(ListMonitor value);
+    void setLocalListMonitor ( ListMonitor value );
 
     /**
      * Returns the value of the '<em><b>Local Boolean Monitor</b></em>' containment reference.
@@ -347,7 +347,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    BooleanMonitor getLocalBooleanMonitor();
+    BooleanMonitor getLocalBooleanMonitor ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}' containment reference.
@@ -357,7 +357,7 @@ public interface Item extends EObject
      * @see #getLocalBooleanMonitor()
      * @generated
      */
-    void setLocalBooleanMonitor(BooleanMonitor value);
+    void setLocalBooleanMonitor ( BooleanMonitor value );
 
     /**
      * Returns the value of the '<em><b>Event Command</b></em>' attribute.
@@ -374,7 +374,7 @@ public interface Item extends EObject
      * @model default="false" required="true"
      * @generated
      */
-    boolean isEventCommand();
+    boolean isEventCommand ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}' attribute.
@@ -384,7 +384,7 @@ public interface Item extends EObject
      * @see #isEventCommand()
      * @generated
      */
-    void setEventCommand(boolean value);
+    void setEventCommand ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Local Manual</b></em>' attribute.
@@ -401,7 +401,7 @@ public interface Item extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isLocalManual();
+    boolean isLocalManual ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalManual <em>Local Manual</em>}' attribute.
@@ -411,7 +411,7 @@ public interface Item extends EObject
      * @see #isLocalManual()
      * @generated
      */
-    void setLocalManual(boolean value);
+    void setLocalManual ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote Manual</b></em>' attribute.
@@ -428,7 +428,7 @@ public interface Item extends EObject
      * @model default="false" required="true"
      * @generated
      */
-    boolean isRemoteManual();
+    boolean isRemoteManual ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteManual <em>Remote Manual</em>}' attribute.
@@ -438,7 +438,7 @@ public interface Item extends EObject
      * @see #isRemoteManual()
      * @generated
      */
-    void setRemoteManual(boolean value);
+    void setRemoteManual ( boolean value );
 
     /**
      * Returns the value of the '<em><b>System</b></em>' attribute.
@@ -454,7 +454,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    String getSystem();
+    String getSystem ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getSystem <em>System</em>}' attribute.
@@ -464,7 +464,7 @@ public interface Item extends EObject
      * @see #getSystem()
      * @generated
      */
-    void setSystem(String value);
+    void setSystem ( String value );
 
     /**
      * Returns the value of the '<em><b>Hierarchy</b></em>' attribute list.
@@ -480,7 +480,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    EList<String> getHierarchy();
+    EList<String> getHierarchy ();
 
     /**
      * Returns the value of the '<em><b>Remote Min</b></em>' attribute.
@@ -497,7 +497,7 @@ public interface Item extends EObject
      * @model default="false" required="true"
      * @generated
      */
-    boolean isRemoteMin();
+    boolean isRemoteMin ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteMin <em>Remote Min</em>}' attribute.
@@ -507,7 +507,7 @@ public interface Item extends EObject
      * @see #isRemoteMin()
      * @generated
      */
-    void setRemoteMin(boolean value);
+    void setRemoteMin ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote Max</b></em>' attribute.
@@ -524,7 +524,7 @@ public interface Item extends EObject
      * @model default="false" required="true"
      * @generated
      */
-    boolean isRemoteMax();
+    boolean isRemoteMax ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteMax <em>Remote Max</em>}' attribute.
@@ -534,7 +534,7 @@ public interface Item extends EObject
      * @see #isRemoteMax()
      * @generated
      */
-    void setRemoteMax(boolean value);
+    void setRemoteMax ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote High High</b></em>' attribute.
@@ -550,7 +550,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    boolean isRemoteHighHigh();
+    boolean isRemoteHighHigh ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteHighHigh <em>Remote High High</em>}' attribute.
@@ -560,7 +560,7 @@ public interface Item extends EObject
      * @see #isRemoteHighHigh()
      * @generated
      */
-    void setRemoteHighHigh(boolean value);
+    void setRemoteHighHigh ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote High</b></em>' attribute.
@@ -576,7 +576,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    boolean isRemoteHigh();
+    boolean isRemoteHigh ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteHigh <em>Remote High</em>}' attribute.
@@ -586,7 +586,7 @@ public interface Item extends EObject
      * @see #isRemoteHigh()
      * @generated
      */
-    void setRemoteHigh(boolean value);
+    void setRemoteHigh ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote Low</b></em>' attribute.
@@ -602,7 +602,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    boolean isRemoteLow();
+    boolean isRemoteLow ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteLow <em>Remote Low</em>}' attribute.
@@ -612,7 +612,7 @@ public interface Item extends EObject
      * @see #isRemoteLow()
      * @generated
      */
-    void setRemoteLow(boolean value);
+    void setRemoteLow ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote Low Low</b></em>' attribute.
@@ -628,7 +628,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    boolean isRemoteLowLow();
+    boolean isRemoteLowLow ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteLowLow <em>Remote Low Low</em>}' attribute.
@@ -638,7 +638,7 @@ public interface Item extends EObject
      * @see #isRemoteLowLow()
      * @generated
      */
-    void setRemoteLowLow(boolean value);
+    void setRemoteLowLow ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote Bool</b></em>' attribute.
@@ -655,7 +655,7 @@ public interface Item extends EObject
      * @model default="false" required="true"
      * @generated
      */
-    boolean isRemoteBool();
+    boolean isRemoteBool ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRemoteBool <em>Remote Bool</em>}' attribute.
@@ -665,7 +665,7 @@ public interface Item extends EObject
      * @see #isRemoteBool()
      * @generated
      */
-    void setRemoteBool(boolean value);
+    void setRemoteBool ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Remote Bool Ack Value</b></em>' attribute.
@@ -681,7 +681,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    Boolean getRemoteBoolAckValue();
+    Boolean getRemoteBoolAckValue ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getRemoteBoolAckValue <em>Remote Bool Ack Value</em>}' attribute.
@@ -691,7 +691,7 @@ public interface Item extends EObject
      * @see #getRemoteBoolAckValue()
      * @generated
      */
-    void setRemoteBoolAckValue(Boolean value);
+    void setRemoteBoolAckValue ( Boolean value );
 
     /**
      * Returns the value of the '<em><b>Input</b></em>' attribute.
@@ -708,7 +708,7 @@ public interface Item extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isInput();
+    boolean isInput ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isInput <em>Input</em>}' attribute.
@@ -718,7 +718,7 @@ public interface Item extends EObject
      * @see #isInput()
      * @generated
      */
-    void setInput(boolean value);
+    void setInput ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Output</b></em>' attribute.
@@ -735,7 +735,7 @@ public interface Item extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isOutput();
+    boolean isOutput ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isOutput <em>Output</em>}' attribute.
@@ -745,7 +745,7 @@ public interface Item extends EObject
      * @see #isOutput()
      * @generated
      */
-    void setOutput(boolean value);
+    void setOutput ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Local Scale Available</b></em>' attribute.
@@ -761,7 +761,7 @@ public interface Item extends EObject
      * @model required="true"
      * @generated
      */
-    boolean isLocalScaleAvailable();
+    boolean isLocalScaleAvailable ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isLocalScaleAvailable <em>Local Scale Available</em>}' attribute.
@@ -771,7 +771,7 @@ public interface Item extends EObject
      * @see #isLocalScaleAvailable()
      * @generated
      */
-    void setLocalScaleAvailable(boolean value);
+    void setLocalScaleAvailable ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Local Scale Factor</b></em>' attribute.
@@ -787,7 +787,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    Double getLocalScaleFactor();
+    Double getLocalScaleFactor ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalScaleFactor <em>Local Scale Factor</em>}' attribute.
@@ -797,7 +797,7 @@ public interface Item extends EObject
      * @see #getLocalScaleFactor()
      * @generated
      */
-    void setLocalScaleFactor(Double value);
+    void setLocalScaleFactor ( Double value );
 
     /**
      * Returns the value of the '<em><b>Local Scale Offset</b></em>' attribute.
@@ -813,7 +813,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    Double getLocalScaleOffset();
+    Double getLocalScaleOffset ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalScaleOffset <em>Local Scale Offset</em>}' attribute.
@@ -823,7 +823,7 @@ public interface Item extends EObject
      * @see #getLocalScaleOffset()
      * @generated
      */
-    void setLocalScaleOffset(Double value);
+    void setLocalScaleOffset ( Double value );
 
     /**
      * Returns the value of the '<em><b>Debug Information</b></em>' attribute.
@@ -839,7 +839,7 @@ public interface Item extends EObject
      * @model transient="true"
      * @generated
      */
-    String getDebugInformation();
+    String getDebugInformation ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getDebugInformation <em>Debug Information</em>}' attribute.
@@ -849,7 +849,7 @@ public interface Item extends EObject
      * @see #getDebugInformation()
      * @generated
      */
-    void setDebugInformation(String value);
+    void setDebugInformation ( String value );
 
     /**
      * Returns the value of the '<em><b>Ignore Summary</b></em>' attribute.
@@ -866,7 +866,7 @@ public interface Item extends EObject
      * @model default="false"
      * @generated
      */
-    boolean isIgnoreSummary();
+    boolean isIgnoreSummary ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isIgnoreSummary <em>Ignore Summary</em>}' attribute.
@@ -876,7 +876,7 @@ public interface Item extends EObject
      * @see #isIgnoreSummary()
      * @generated
      */
-    void setIgnoreSummary(boolean value);
+    void setIgnoreSummary ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Block</b></em>' attribute.
@@ -893,7 +893,7 @@ public interface Item extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isBlock();
+    boolean isBlock ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isBlock <em>Block</em>}' attribute.
@@ -903,7 +903,7 @@ public interface Item extends EObject
      * @see #isBlock()
      * @generated
      */
-    void setBlock(boolean value);
+    void setBlock ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Enabled</b></em>' attribute.
@@ -920,7 +920,7 @@ public interface Item extends EObject
      * @model default="true" required="true"
      * @generated
      */
-    boolean isEnabled();
+    boolean isEnabled ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isEnabled <em>Enabled</em>}' attribute.
@@ -930,7 +930,7 @@ public interface Item extends EObject
      * @see #isEnabled()
      * @generated
      */
-    void setEnabled(boolean value);
+    void setEnabled ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Hd Storage</b></em>' attribute.
@@ -946,7 +946,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    String getHdStorage();
+    String getHdStorage ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getHdStorage <em>Hd Storage</em>}' attribute.
@@ -956,7 +956,7 @@ public interface Item extends EObject
      * @see #getHdStorage()
      * @generated
      */
-    void setHdStorage(String value);
+    void setHdStorage ( String value );
 
     /**
      * Returns the value of the '<em><b>Mapper</b></em>' containment reference list.
@@ -972,7 +972,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    EList<Mapper> getMapper();
+    EList<Mapper> getMapper ();
 
     /**
      * Returns the value of the '<em><b>Simulation Value</b></em>' attribute.
@@ -988,7 +988,7 @@ public interface Item extends EObject
      * @model
      * @generated
      */
-    String getSimulationValue();
+    String getSimulationValue ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getSimulationValue <em>Simulation Value</em>}' attribute.
@@ -998,7 +998,7 @@ public interface Item extends EObject
      * @see #getSimulationValue()
      * @generated
      */
-    void setSimulationValue(String value);
+    void setSimulationValue ( String value );
 
     /**
      * Returns the value of the '<em><b>Rounding Available</b></em>' attribute.
@@ -1015,7 +1015,7 @@ public interface Item extends EObject
      * @model default="false"
      * @generated
      */
-    boolean isRoundingAvailable();
+    boolean isRoundingAvailable ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isRoundingAvailable <em>Rounding Available</em>}' attribute.
@@ -1025,7 +1025,7 @@ public interface Item extends EObject
      * @see #isRoundingAvailable()
      * @generated
      */
-    void setRoundingAvailable(boolean value);
+    void setRoundingAvailable ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Rounding Value</b></em>' attribute.
@@ -1044,7 +1044,7 @@ public interface Item extends EObject
      * @model default="NONE"
      * @generated
      */
-    Rounding getRoundingValue();
+    Rounding getRoundingValue ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getRoundingValue <em>Rounding Value</em>}' attribute.
@@ -1055,7 +1055,7 @@ public interface Item extends EObject
      * @see #getRoundingValue()
      * @generated
      */
-    void setRoundingValue(Rounding value);
+    void setRoundingValue ( Rounding value );
 
     /**
      * Returns the value of the '<em><b>Local High High</b></em>' containment reference.
@@ -1071,7 +1071,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    LevelMonitor getLocalHighHigh();
+    LevelMonitor getLocalHighHigh ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalHighHigh <em>Local High High</em>}' containment reference.
@@ -1081,7 +1081,7 @@ public interface Item extends EObject
      * @see #getLocalHighHigh()
      * @generated
      */
-    void setLocalHighHigh(LevelMonitor value);
+    void setLocalHighHigh ( LevelMonitor value );
 
     /**
      * Returns the value of the '<em><b>Local High</b></em>' containment reference.
@@ -1097,7 +1097,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    LevelMonitor getLocalHigh();
+    LevelMonitor getLocalHigh ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalHigh <em>Local High</em>}' containment reference.
@@ -1107,7 +1107,7 @@ public interface Item extends EObject
      * @see #getLocalHigh()
      * @generated
      */
-    void setLocalHigh(LevelMonitor value);
+    void setLocalHigh ( LevelMonitor value );
 
     /**
      * Returns the value of the '<em><b>Local Low</b></em>' containment reference.
@@ -1123,7 +1123,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    LevelMonitor getLocalLow();
+    LevelMonitor getLocalLow ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalLow <em>Local Low</em>}' containment reference.
@@ -1133,7 +1133,7 @@ public interface Item extends EObject
      * @see #getLocalLow()
      * @generated
      */
-    void setLocalLow(LevelMonitor value);
+    void setLocalLow ( LevelMonitor value );
 
     /**
      * Returns the value of the '<em><b>Local Low Low</b></em>' containment reference.
@@ -1149,7 +1149,7 @@ public interface Item extends EObject
      * @model containment="true"
      * @generated
      */
-    LevelMonitor getLocalLowLow();
+    LevelMonitor getLocalLowLow ();
 
     /**
      * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalLowLow <em>Local Low Low</em>}' containment reference.
@@ -1159,6 +1159,6 @@ public interface Item extends EObject
      * @see #getLocalLowLow()
      * @generated
      */
-    void setLocalLowLow(LevelMonitor value);
+    void setLocalLowLow ( LevelMonitor value );
 
 } // Item

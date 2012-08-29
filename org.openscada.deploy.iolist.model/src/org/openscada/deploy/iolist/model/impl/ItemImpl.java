@@ -9,18 +9,13 @@ package org.openscada.deploy.iolist.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
@@ -833,9 +828,9 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ItemImpl()
+    protected ItemImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -844,7 +839,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.ITEM;
     }
@@ -854,7 +849,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDevice()
+    public String getDevice ()
     {
         return device;
     }
@@ -864,12 +859,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDevice(String newDevice)
+    public void setDevice ( String newDevice )
     {
         String oldDevice = device;
         device = newDevice;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__DEVICE, oldDevice, device));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DEVICE, oldDevice, device ) );
     }
 
     /**
@@ -877,7 +872,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -887,12 +882,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__NAME, oldName, name ) );
     }
 
     /**
@@ -900,7 +895,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataType getDataType()
+    public DataType getDataType ()
     {
         return dataType;
     }
@@ -910,12 +905,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDataType(DataType newDataType)
+    public void setDataType ( DataType newDataType )
     {
         DataType oldDataType = dataType;
         dataType = newDataType == null ? DATA_TYPE_EDEFAULT : newDataType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__DATA_TYPE, oldDataType, dataType));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DATA_TYPE, oldDataType, dataType ) );
     }
 
     /**
@@ -923,7 +918,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getUnit()
+    public String getUnit ()
     {
         return unit;
     }
@@ -933,12 +928,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setUnit(String newUnit)
+    public void setUnit ( String newUnit )
     {
         String oldUnit = unit;
         unit = newUnit;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__UNIT, oldUnit, unit));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__UNIT, oldUnit, unit ) );
     }
 
     /**
@@ -946,7 +941,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getAlias()
+    public String getAlias ()
     {
         return alias;
     }
@@ -956,12 +951,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAlias(String newAlias)
+    public void setAlias ( String newAlias )
     {
         String oldAlias = alias;
         alias = newAlias;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__ALIAS, oldAlias, alias));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__ALIAS, oldAlias, alias ) );
     }
 
     /**
@@ -969,7 +964,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescription()
+    public String getDescription ()
     {
         return description;
     }
@@ -979,12 +974,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescription(String newDescription)
+    public void setDescription ( String newDescription )
     {
         String oldDescription = description;
         description = newDescription;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__DESCRIPTION, oldDescription, description));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DESCRIPTION, oldDescription, description ) );
     }
 
     /**
@@ -992,7 +987,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isDefaultChain()
+    public boolean isDefaultChain ()
     {
         return defaultChain;
     }
@@ -1002,12 +997,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDefaultChain(boolean newDefaultChain)
+    public void setDefaultChain ( boolean newDefaultChain )
     {
         boolean oldDefaultChain = defaultChain;
         defaultChain = newDefaultChain;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__DEFAULT_CHAIN, oldDefaultChain, defaultChain));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DEFAULT_CHAIN, oldDefaultChain, defaultChain ) );
     }
 
     /**
@@ -1015,7 +1010,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor getLocalMin()
+    public LevelMonitor getLocalMin ()
     {
         return localMin;
     }
@@ -1025,14 +1020,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalMin(LevelMonitor newLocalMin, NotificationChain msgs)
+    public NotificationChain basicSetLocalMin ( LevelMonitor newLocalMin, NotificationChain msgs )
     {
         LevelMonitor oldLocalMin = localMin;
         localMin = newLocalMin;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, oldLocalMin, newLocalMin);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, oldLocalMin, newLocalMin );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1042,20 +1040,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMin(LevelMonitor newLocalMin)
+    public void setLocalMin ( LevelMonitor newLocalMin )
     {
-        if (newLocalMin != localMin)
+        if ( newLocalMin != localMin )
         {
             NotificationChain msgs = null;
-            if (localMin != null)
-                msgs = ((InternalEObject)localMin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MIN, null, msgs);
-            if (newLocalMin != null)
-                msgs = ((InternalEObject)newLocalMin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MIN, null, msgs);
-            msgs = basicSetLocalMin(newLocalMin, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localMin != null )
+                msgs = ( (InternalEObject)localMin ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MIN, null, msgs );
+            if ( newLocalMin != null )
+                msgs = ( (InternalEObject)newLocalMin ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MIN, null, msgs );
+            msgs = basicSetLocalMin ( newLocalMin, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, newLocalMin, newLocalMin));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_MIN, newLocalMin, newLocalMin ) );
     }
 
     /**
@@ -1063,7 +1062,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor getLocalMax()
+    public LevelMonitor getLocalMax ()
     {
         return localMax;
     }
@@ -1073,14 +1072,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalMax(LevelMonitor newLocalMax, NotificationChain msgs)
+    public NotificationChain basicSetLocalMax ( LevelMonitor newLocalMax, NotificationChain msgs )
     {
         LevelMonitor oldLocalMax = localMax;
         localMax = newLocalMax;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, oldLocalMax, newLocalMax);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, oldLocalMax, newLocalMax );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1090,20 +1092,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalMax(LevelMonitor newLocalMax)
+    public void setLocalMax ( LevelMonitor newLocalMax )
     {
-        if (newLocalMax != localMax)
+        if ( newLocalMax != localMax )
         {
             NotificationChain msgs = null;
-            if (localMax != null)
-                msgs = ((InternalEObject)localMax).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MAX, null, msgs);
-            if (newLocalMax != null)
-                msgs = ((InternalEObject)newLocalMax).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MAX, null, msgs);
-            msgs = basicSetLocalMax(newLocalMax, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localMax != null )
+                msgs = ( (InternalEObject)localMax ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MAX, null, msgs );
+            if ( newLocalMax != null )
+                msgs = ( (InternalEObject)newLocalMax ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_MAX, null, msgs );
+            msgs = basicSetLocalMax ( newLocalMax, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, newLocalMax, newLocalMax));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_MAX, newLocalMax, newLocalMax ) );
     }
 
     /**
@@ -1111,7 +1114,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public ListMonitor getLocalListMonitor()
+    public ListMonitor getLocalListMonitor ()
     {
         return localListMonitor;
     }
@@ -1121,14 +1124,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalListMonitor(ListMonitor newLocalListMonitor, NotificationChain msgs)
+    public NotificationChain basicSetLocalListMonitor ( ListMonitor newLocalListMonitor, NotificationChain msgs )
     {
         ListMonitor oldLocalListMonitor = localListMonitor;
         localListMonitor = newLocalListMonitor;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LIST_MONITOR, oldLocalListMonitor, newLocalListMonitor);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_LIST_MONITOR, oldLocalListMonitor, newLocalListMonitor );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1138,20 +1144,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalListMonitor(ListMonitor newLocalListMonitor)
+    public void setLocalListMonitor ( ListMonitor newLocalListMonitor )
     {
-        if (newLocalListMonitor != localListMonitor)
+        if ( newLocalListMonitor != localListMonitor )
         {
             NotificationChain msgs = null;
-            if (localListMonitor != null)
-                msgs = ((InternalEObject)localListMonitor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LIST_MONITOR, null, msgs);
-            if (newLocalListMonitor != null)
-                msgs = ((InternalEObject)newLocalListMonitor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LIST_MONITOR, null, msgs);
-            msgs = basicSetLocalListMonitor(newLocalListMonitor, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localListMonitor != null )
+                msgs = ( (InternalEObject)localListMonitor ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LIST_MONITOR, null, msgs );
+            if ( newLocalListMonitor != null )
+                msgs = ( (InternalEObject)newLocalListMonitor ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LIST_MONITOR, null, msgs );
+            msgs = basicSetLocalListMonitor ( newLocalListMonitor, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LIST_MONITOR, newLocalListMonitor, newLocalListMonitor));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_LIST_MONITOR, newLocalListMonitor, newLocalListMonitor ) );
     }
 
     /**
@@ -1159,7 +1166,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public BooleanMonitor getLocalBooleanMonitor()
+    public BooleanMonitor getLocalBooleanMonitor ()
     {
         return localBooleanMonitor;
     }
@@ -1169,14 +1176,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalBooleanMonitor(BooleanMonitor newLocalBooleanMonitor, NotificationChain msgs)
+    public NotificationChain basicSetLocalBooleanMonitor ( BooleanMonitor newLocalBooleanMonitor, NotificationChain msgs )
     {
         BooleanMonitor oldLocalBooleanMonitor = localBooleanMonitor;
         localBooleanMonitor = newLocalBooleanMonitor;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, oldLocalBooleanMonitor, newLocalBooleanMonitor);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, oldLocalBooleanMonitor, newLocalBooleanMonitor );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1186,20 +1196,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalBooleanMonitor(BooleanMonitor newLocalBooleanMonitor)
+    public void setLocalBooleanMonitor ( BooleanMonitor newLocalBooleanMonitor )
     {
-        if (newLocalBooleanMonitor != localBooleanMonitor)
+        if ( newLocalBooleanMonitor != localBooleanMonitor )
         {
             NotificationChain msgs = null;
-            if (localBooleanMonitor != null)
-                msgs = ((InternalEObject)localBooleanMonitor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, null, msgs);
-            if (newLocalBooleanMonitor != null)
-                msgs = ((InternalEObject)newLocalBooleanMonitor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, null, msgs);
-            msgs = basicSetLocalBooleanMonitor(newLocalBooleanMonitor, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localBooleanMonitor != null )
+                msgs = ( (InternalEObject)localBooleanMonitor ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, null, msgs );
+            if ( newLocalBooleanMonitor != null )
+                msgs = ( (InternalEObject)newLocalBooleanMonitor ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, null, msgs );
+            msgs = basicSetLocalBooleanMonitor ( newLocalBooleanMonitor, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, newLocalBooleanMonitor, newLocalBooleanMonitor));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, newLocalBooleanMonitor, newLocalBooleanMonitor ) );
     }
 
     /**
@@ -1207,7 +1218,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isEventCommand()
+    public boolean isEventCommand ()
     {
         return eventCommand;
     }
@@ -1217,12 +1228,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEventCommand(boolean newEventCommand)
+    public void setEventCommand ( boolean newEventCommand )
     {
         boolean oldEventCommand = eventCommand;
         eventCommand = newEventCommand;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__EVENT_COMMAND, oldEventCommand, eventCommand));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__EVENT_COMMAND, oldEventCommand, eventCommand ) );
     }
 
     /**
@@ -1230,7 +1241,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalManual()
+    public boolean isLocalManual ()
     {
         return localManual;
     }
@@ -1240,12 +1251,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalManual(boolean newLocalManual)
+    public void setLocalManual ( boolean newLocalManual )
     {
         boolean oldLocalManual = localManual;
         localManual = newLocalManual;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_MANUAL, oldLocalManual, localManual));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_MANUAL, oldLocalManual, localManual ) );
     }
 
     /**
@@ -1253,7 +1264,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteManual()
+    public boolean isRemoteManual ()
     {
         return remoteManual;
     }
@@ -1263,12 +1274,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteManual(boolean newRemoteManual)
+    public void setRemoteManual ( boolean newRemoteManual )
     {
         boolean oldRemoteManual = remoteManual;
         remoteManual = newRemoteManual;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_MANUAL, oldRemoteManual, remoteManual));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_MANUAL, oldRemoteManual, remoteManual ) );
     }
 
     /**
@@ -1276,7 +1287,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getSystem()
+    public String getSystem ()
     {
         return system;
     }
@@ -1286,12 +1297,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSystem(String newSystem)
+    public void setSystem ( String newSystem )
     {
         String oldSystem = system;
         system = newSystem;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__SYSTEM, oldSystem, system));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__SYSTEM, oldSystem, system ) );
     }
 
     /**
@@ -1299,11 +1310,11 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getHierarchy()
+    public EList<String> getHierarchy ()
     {
-        if (hierarchy == null)
+        if ( hierarchy == null )
         {
-            hierarchy = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.ITEM__HIERARCHY);
+            hierarchy = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.ITEM__HIERARCHY );
         }
         return hierarchy;
     }
@@ -1313,7 +1324,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteMin()
+    public boolean isRemoteMin ()
     {
         return remoteMin;
     }
@@ -1323,12 +1334,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteMin(boolean newRemoteMin)
+    public void setRemoteMin ( boolean newRemoteMin )
     {
         boolean oldRemoteMin = remoteMin;
         remoteMin = newRemoteMin;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_MIN, oldRemoteMin, remoteMin));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_MIN, oldRemoteMin, remoteMin ) );
     }
 
     /**
@@ -1336,7 +1347,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteMax()
+    public boolean isRemoteMax ()
     {
         return remoteMax;
     }
@@ -1346,12 +1357,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteMax(boolean newRemoteMax)
+    public void setRemoteMax ( boolean newRemoteMax )
     {
         boolean oldRemoteMax = remoteMax;
         remoteMax = newRemoteMax;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_MAX, oldRemoteMax, remoteMax));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_MAX, oldRemoteMax, remoteMax ) );
     }
 
     /**
@@ -1359,7 +1370,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteHighHigh()
+    public boolean isRemoteHighHigh ()
     {
         return remoteHighHigh;
     }
@@ -1369,12 +1380,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteHighHigh(boolean newRemoteHighHigh)
+    public void setRemoteHighHigh ( boolean newRemoteHighHigh )
     {
         boolean oldRemoteHighHigh = remoteHighHigh;
         remoteHighHigh = newRemoteHighHigh;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_HIGH_HIGH, oldRemoteHighHigh, remoteHighHigh));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_HIGH_HIGH, oldRemoteHighHigh, remoteHighHigh ) );
     }
 
     /**
@@ -1382,7 +1393,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteHigh()
+    public boolean isRemoteHigh ()
     {
         return remoteHigh;
     }
@@ -1392,12 +1403,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteHigh(boolean newRemoteHigh)
+    public void setRemoteHigh ( boolean newRemoteHigh )
     {
         boolean oldRemoteHigh = remoteHigh;
         remoteHigh = newRemoteHigh;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_HIGH, oldRemoteHigh, remoteHigh));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_HIGH, oldRemoteHigh, remoteHigh ) );
     }
 
     /**
@@ -1405,7 +1416,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteLow()
+    public boolean isRemoteLow ()
     {
         return remoteLow;
     }
@@ -1415,12 +1426,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteLow(boolean newRemoteLow)
+    public void setRemoteLow ( boolean newRemoteLow )
     {
         boolean oldRemoteLow = remoteLow;
         remoteLow = newRemoteLow;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_LOW, oldRemoteLow, remoteLow));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_LOW, oldRemoteLow, remoteLow ) );
     }
 
     /**
@@ -1428,7 +1439,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteLowLow()
+    public boolean isRemoteLowLow ()
     {
         return remoteLowLow;
     }
@@ -1438,12 +1449,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteLowLow(boolean newRemoteLowLow)
+    public void setRemoteLowLow ( boolean newRemoteLowLow )
     {
         boolean oldRemoteLowLow = remoteLowLow;
         remoteLowLow = newRemoteLowLow;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_LOW_LOW, oldRemoteLowLow, remoteLowLow));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_LOW_LOW, oldRemoteLowLow, remoteLowLow ) );
     }
 
     /**
@@ -1451,7 +1462,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRemoteBool()
+    public boolean isRemoteBool ()
     {
         return remoteBool;
     }
@@ -1461,12 +1472,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteBool(boolean newRemoteBool)
+    public void setRemoteBool ( boolean newRemoteBool )
     {
         boolean oldRemoteBool = remoteBool;
         remoteBool = newRemoteBool;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_BOOL, oldRemoteBool, remoteBool));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_BOOL, oldRemoteBool, remoteBool ) );
     }
 
     /**
@@ -1474,7 +1485,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public Boolean getRemoteBoolAckValue()
+    public Boolean getRemoteBoolAckValue ()
     {
         return remoteBoolAckValue;
     }
@@ -1484,12 +1495,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRemoteBoolAckValue(Boolean newRemoteBoolAckValue)
+    public void setRemoteBoolAckValue ( Boolean newRemoteBoolAckValue )
     {
         Boolean oldRemoteBoolAckValue = remoteBoolAckValue;
         remoteBoolAckValue = newRemoteBoolAckValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE, oldRemoteBoolAckValue, remoteBoolAckValue));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE, oldRemoteBoolAckValue, remoteBoolAckValue ) );
     }
 
     /**
@@ -1497,7 +1508,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isInput()
+    public boolean isInput ()
     {
         return input;
     }
@@ -1507,12 +1518,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInput(boolean newInput)
+    public void setInput ( boolean newInput )
     {
         boolean oldInput = input;
         input = newInput;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__INPUT, oldInput, input));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__INPUT, oldInput, input ) );
     }
 
     /**
@@ -1520,7 +1531,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isOutput()
+    public boolean isOutput ()
     {
         return output;
     }
@@ -1530,12 +1541,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOutput(boolean newOutput)
+    public void setOutput ( boolean newOutput )
     {
         boolean oldOutput = output;
         output = newOutput;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__OUTPUT, oldOutput, output));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__OUTPUT, oldOutput, output ) );
     }
 
     /**
@@ -1543,7 +1554,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isLocalScaleAvailable()
+    public boolean isLocalScaleAvailable ()
     {
         return localScaleAvailable;
     }
@@ -1553,12 +1564,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalScaleAvailable(boolean newLocalScaleAvailable)
+    public void setLocalScaleAvailable ( boolean newLocalScaleAvailable )
     {
         boolean oldLocalScaleAvailable = localScaleAvailable;
         localScaleAvailable = newLocalScaleAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE, oldLocalScaleAvailable, localScaleAvailable));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE, oldLocalScaleAvailable, localScaleAvailable ) );
     }
 
     /**
@@ -1566,7 +1577,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getLocalScaleFactor()
+    public Double getLocalScaleFactor ()
     {
         return localScaleFactor;
     }
@@ -1576,12 +1587,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalScaleFactor(Double newLocalScaleFactor)
+    public void setLocalScaleFactor ( Double newLocalScaleFactor )
     {
         Double oldLocalScaleFactor = localScaleFactor;
         localScaleFactor = newLocalScaleFactor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_SCALE_FACTOR, oldLocalScaleFactor, localScaleFactor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_SCALE_FACTOR, oldLocalScaleFactor, localScaleFactor ) );
     }
 
     /**
@@ -1589,7 +1600,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getLocalScaleOffset()
+    public Double getLocalScaleOffset ()
     {
         return localScaleOffset;
     }
@@ -1599,12 +1610,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalScaleOffset(Double newLocalScaleOffset)
+    public void setLocalScaleOffset ( Double newLocalScaleOffset )
     {
         Double oldLocalScaleOffset = localScaleOffset;
         localScaleOffset = newLocalScaleOffset;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_SCALE_OFFSET, oldLocalScaleOffset, localScaleOffset));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_SCALE_OFFSET, oldLocalScaleOffset, localScaleOffset ) );
     }
 
     /**
@@ -1612,7 +1623,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDebugInformation()
+    public String getDebugInformation ()
     {
         return debugInformation;
     }
@@ -1622,12 +1633,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDebugInformation(String newDebugInformation)
+    public void setDebugInformation ( String newDebugInformation )
     {
         String oldDebugInformation = debugInformation;
         debugInformation = newDebugInformation;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__DEBUG_INFORMATION, oldDebugInformation, debugInformation));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DEBUG_INFORMATION, oldDebugInformation, debugInformation ) );
     }
 
     /**
@@ -1635,7 +1646,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isIgnoreSummary()
+    public boolean isIgnoreSummary ()
     {
         return ignoreSummary;
     }
@@ -1645,12 +1656,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setIgnoreSummary(boolean newIgnoreSummary)
+    public void setIgnoreSummary ( boolean newIgnoreSummary )
     {
         boolean oldIgnoreSummary = ignoreSummary;
         ignoreSummary = newIgnoreSummary;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__IGNORE_SUMMARY, oldIgnoreSummary, ignoreSummary));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__IGNORE_SUMMARY, oldIgnoreSummary, ignoreSummary ) );
     }
 
     /**
@@ -1658,7 +1669,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isBlock()
+    public boolean isBlock ()
     {
         return block;
     }
@@ -1668,12 +1679,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBlock(boolean newBlock)
+    public void setBlock ( boolean newBlock )
     {
         boolean oldBlock = block;
         block = newBlock;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__BLOCK, oldBlock, block));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__BLOCK, oldBlock, block ) );
     }
 
     /**
@@ -1681,7 +1692,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isEnabled()
+    public boolean isEnabled ()
     {
         return enabled;
     }
@@ -1691,12 +1702,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEnabled(boolean newEnabled)
+    public void setEnabled ( boolean newEnabled )
     {
         boolean oldEnabled = enabled;
         enabled = newEnabled;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__ENABLED, oldEnabled, enabled));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__ENABLED, oldEnabled, enabled ) );
     }
 
     /**
@@ -1704,7 +1715,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getHdStorage()
+    public String getHdStorage ()
     {
         return hdStorage;
     }
@@ -1714,12 +1725,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHdStorage(String newHdStorage)
+    public void setHdStorage ( String newHdStorage )
     {
         String oldHdStorage = hdStorage;
         hdStorage = newHdStorage;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__HD_STORAGE, oldHdStorage, hdStorage));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__HD_STORAGE, oldHdStorage, hdStorage ) );
     }
 
     /**
@@ -1727,11 +1738,11 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Mapper> getMapper()
+    public EList<Mapper> getMapper ()
     {
-        if (mapper == null)
+        if ( mapper == null )
         {
-            mapper = new EObjectContainmentEList<Mapper>(Mapper.class, this, ModelPackage.ITEM__MAPPER);
+            mapper = new EObjectContainmentEList<Mapper> ( Mapper.class, this, ModelPackage.ITEM__MAPPER );
         }
         return mapper;
     }
@@ -1741,7 +1752,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getSimulationValue()
+    public String getSimulationValue ()
     {
         return simulationValue;
     }
@@ -1751,12 +1762,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSimulationValue(String newSimulationValue)
+    public void setSimulationValue ( String newSimulationValue )
     {
         String oldSimulationValue = simulationValue;
         simulationValue = newSimulationValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__SIMULATION_VALUE, oldSimulationValue, simulationValue));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__SIMULATION_VALUE, oldSimulationValue, simulationValue ) );
     }
 
     /**
@@ -1764,7 +1775,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isRoundingAvailable()
+    public boolean isRoundingAvailable ()
     {
         return roundingAvailable;
     }
@@ -1774,12 +1785,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRoundingAvailable(boolean newRoundingAvailable)
+    public void setRoundingAvailable ( boolean newRoundingAvailable )
     {
         boolean oldRoundingAvailable = roundingAvailable;
         roundingAvailable = newRoundingAvailable;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__ROUNDING_AVAILABLE, oldRoundingAvailable, roundingAvailable));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__ROUNDING_AVAILABLE, oldRoundingAvailable, roundingAvailable ) );
     }
 
     /**
@@ -1787,7 +1798,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public Rounding getRoundingValue()
+    public Rounding getRoundingValue ()
     {
         return roundingValue;
     }
@@ -1797,12 +1808,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRoundingValue(Rounding newRoundingValue)
+    public void setRoundingValue ( Rounding newRoundingValue )
     {
         Rounding oldRoundingValue = roundingValue;
         roundingValue = newRoundingValue == null ? ROUNDING_VALUE_EDEFAULT : newRoundingValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__ROUNDING_VALUE, oldRoundingValue, roundingValue));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__ROUNDING_VALUE, oldRoundingValue, roundingValue ) );
     }
 
     /**
@@ -1810,7 +1821,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor getLocalHighHigh()
+    public LevelMonitor getLocalHighHigh ()
     {
         return localHighHigh;
     }
@@ -1820,14 +1831,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalHighHigh(LevelMonitor newLocalHighHigh, NotificationChain msgs)
+    public NotificationChain basicSetLocalHighHigh ( LevelMonitor newLocalHighHigh, NotificationChain msgs )
     {
         LevelMonitor oldLocalHighHigh = localHighHigh;
         localHighHigh = newLocalHighHigh;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH, oldLocalHighHigh, newLocalHighHigh);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH, oldLocalHighHigh, newLocalHighHigh );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1837,20 +1851,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalHighHigh(LevelMonitor newLocalHighHigh)
+    public void setLocalHighHigh ( LevelMonitor newLocalHighHigh )
     {
-        if (newLocalHighHigh != localHighHigh)
+        if ( newLocalHighHigh != localHighHigh )
         {
             NotificationChain msgs = null;
-            if (localHighHigh != null)
-                msgs = ((InternalEObject)localHighHigh).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH_HIGH, null, msgs);
-            if (newLocalHighHigh != null)
-                msgs = ((InternalEObject)newLocalHighHigh).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH_HIGH, null, msgs);
-            msgs = basicSetLocalHighHigh(newLocalHighHigh, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localHighHigh != null )
+                msgs = ( (InternalEObject)localHighHigh ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH_HIGH, null, msgs );
+            if ( newLocalHighHigh != null )
+                msgs = ( (InternalEObject)newLocalHighHigh ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH_HIGH, null, msgs );
+            msgs = basicSetLocalHighHigh ( newLocalHighHigh, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH, newLocalHighHigh, newLocalHighHigh));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH_HIGH, newLocalHighHigh, newLocalHighHigh ) );
     }
 
     /**
@@ -1858,7 +1873,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor getLocalHigh()
+    public LevelMonitor getLocalHigh ()
     {
         return localHigh;
     }
@@ -1868,14 +1883,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalHigh(LevelMonitor newLocalHigh, NotificationChain msgs)
+    public NotificationChain basicSetLocalHigh ( LevelMonitor newLocalHigh, NotificationChain msgs )
     {
         LevelMonitor oldLocalHigh = localHigh;
         localHigh = newLocalHigh;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH, oldLocalHigh, newLocalHigh);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH, oldLocalHigh, newLocalHigh );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1885,20 +1903,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalHigh(LevelMonitor newLocalHigh)
+    public void setLocalHigh ( LevelMonitor newLocalHigh )
     {
-        if (newLocalHigh != localHigh)
+        if ( newLocalHigh != localHigh )
         {
             NotificationChain msgs = null;
-            if (localHigh != null)
-                msgs = ((InternalEObject)localHigh).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH, null, msgs);
-            if (newLocalHigh != null)
-                msgs = ((InternalEObject)newLocalHigh).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH, null, msgs);
-            msgs = basicSetLocalHigh(newLocalHigh, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localHigh != null )
+                msgs = ( (InternalEObject)localHigh ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH, null, msgs );
+            if ( newLocalHigh != null )
+                msgs = ( (InternalEObject)newLocalHigh ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_HIGH, null, msgs );
+            msgs = basicSetLocalHigh ( newLocalHigh, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH, newLocalHigh, newLocalHigh));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_HIGH, newLocalHigh, newLocalHigh ) );
     }
 
     /**
@@ -1906,7 +1925,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor getLocalLow()
+    public LevelMonitor getLocalLow ()
     {
         return localLow;
     }
@@ -1916,14 +1935,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalLow(LevelMonitor newLocalLow, NotificationChain msgs)
+    public NotificationChain basicSetLocalLow ( LevelMonitor newLocalLow, NotificationChain msgs )
     {
         LevelMonitor oldLocalLow = localLow;
         localLow = newLocalLow;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW, oldLocalLow, newLocalLow);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW, oldLocalLow, newLocalLow );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1933,20 +1955,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalLow(LevelMonitor newLocalLow)
+    public void setLocalLow ( LevelMonitor newLocalLow )
     {
-        if (newLocalLow != localLow)
+        if ( newLocalLow != localLow )
         {
             NotificationChain msgs = null;
-            if (localLow != null)
-                msgs = ((InternalEObject)localLow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW, null, msgs);
-            if (newLocalLow != null)
-                msgs = ((InternalEObject)newLocalLow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW, null, msgs);
-            msgs = basicSetLocalLow(newLocalLow, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localLow != null )
+                msgs = ( (InternalEObject)localLow ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW, null, msgs );
+            if ( newLocalLow != null )
+                msgs = ( (InternalEObject)newLocalLow ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW, null, msgs );
+            msgs = basicSetLocalLow ( newLocalLow, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW, newLocalLow, newLocalLow));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW, newLocalLow, newLocalLow ) );
     }
 
     /**
@@ -1954,7 +1977,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMonitor getLocalLowLow()
+    public LevelMonitor getLocalLowLow ()
     {
         return localLowLow;
     }
@@ -1964,14 +1987,17 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetLocalLowLow(LevelMonitor newLocalLowLow, NotificationChain msgs)
+    public NotificationChain basicSetLocalLowLow ( LevelMonitor newLocalLowLow, NotificationChain msgs )
     {
         LevelMonitor oldLocalLowLow = localLowLow;
         localLowLow = newLocalLowLow;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW, oldLocalLowLow, newLocalLowLow);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW, oldLocalLowLow, newLocalLowLow );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -1981,20 +2007,21 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocalLowLow(LevelMonitor newLocalLowLow)
+    public void setLocalLowLow ( LevelMonitor newLocalLowLow )
     {
-        if (newLocalLowLow != localLowLow)
+        if ( newLocalLowLow != localLowLow )
         {
             NotificationChain msgs = null;
-            if (localLowLow != null)
-                msgs = ((InternalEObject)localLowLow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW_LOW, null, msgs);
-            if (newLocalLowLow != null)
-                msgs = ((InternalEObject)newLocalLowLow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW_LOW, null, msgs);
-            msgs = basicSetLocalLowLow(newLocalLowLow, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( localLowLow != null )
+                msgs = ( (InternalEObject)localLowLow ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW_LOW, null, msgs );
+            if ( newLocalLowLow != null )
+                msgs = ( (InternalEObject)newLocalLowLow ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.ITEM__LOCAL_LOW_LOW, null, msgs );
+            msgs = basicSetLocalLowLow ( newLocalLowLow, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW, newLocalLowLow, newLocalLowLow));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_LOW_LOW, newLocalLowLow, newLocalLowLow ) );
     }
 
     /**
@@ -2003,30 +2030,30 @@ public class ItemImpl extends EObjectImpl implements Item
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.ITEM__MAPPER:
-                return ((InternalEList<?>)getMapper()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getMapper () ).basicRemove ( otherEnd, msgs );
             case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-                return basicSetLocalHighHigh(null, msgs);
+                return basicSetLocalHighHigh ( null, msgs );
             case ModelPackage.ITEM__LOCAL_HIGH:
-                return basicSetLocalHigh(null, msgs);
+                return basicSetLocalHigh ( null, msgs );
             case ModelPackage.ITEM__LOCAL_LOW:
-                return basicSetLocalLow(null, msgs);
+                return basicSetLocalLow ( null, msgs );
             case ModelPackage.ITEM__LOCAL_LOW_LOW:
-                return basicSetLocalLowLow(null, msgs);
+                return basicSetLocalLowLow ( null, msgs );
             case ModelPackage.ITEM__LOCAL_MIN:
-                return basicSetLocalMin(null, msgs);
+                return basicSetLocalMin ( null, msgs );
             case ModelPackage.ITEM__LOCAL_MAX:
-                return basicSetLocalMax(null, msgs);
+                return basicSetLocalMax ( null, msgs );
             case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-                return basicSetLocalListMonitor(null, msgs);
+                return basicSetLocalListMonitor ( null, msgs );
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-                return basicSetLocalBooleanMonitor(null, msgs);
+                return basicSetLocalBooleanMonitor ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -2035,96 +2062,96 @@ public class ItemImpl extends EObjectImpl implements Item
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.ITEM__DEVICE:
-                return getDevice();
+                return getDevice ();
             case ModelPackage.ITEM__NAME:
-                return getName();
+                return getName ();
             case ModelPackage.ITEM__DATA_TYPE:
-                return getDataType();
+                return getDataType ();
             case ModelPackage.ITEM__UNIT:
-                return getUnit();
+                return getUnit ();
             case ModelPackage.ITEM__ALIAS:
-                return getAlias();
+                return getAlias ();
             case ModelPackage.ITEM__DESCRIPTION:
-                return getDescription();
+                return getDescription ();
             case ModelPackage.ITEM__DEFAULT_CHAIN:
-                return isDefaultChain();
+                return isDefaultChain ();
             case ModelPackage.ITEM__EVENT_COMMAND:
-                return isEventCommand();
+                return isEventCommand ();
             case ModelPackage.ITEM__LOCAL_MANUAL:
-                return isLocalManual();
+                return isLocalManual ();
             case ModelPackage.ITEM__REMOTE_MANUAL:
-                return isRemoteManual();
+                return isRemoteManual ();
             case ModelPackage.ITEM__SYSTEM:
-                return getSystem();
+                return getSystem ();
             case ModelPackage.ITEM__HIERARCHY:
-                return getHierarchy();
+                return getHierarchy ();
             case ModelPackage.ITEM__REMOTE_MIN:
-                return isRemoteMin();
+                return isRemoteMin ();
             case ModelPackage.ITEM__REMOTE_MAX:
-                return isRemoteMax();
+                return isRemoteMax ();
             case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-                return isRemoteHighHigh();
+                return isRemoteHighHigh ();
             case ModelPackage.ITEM__REMOTE_HIGH:
-                return isRemoteHigh();
+                return isRemoteHigh ();
             case ModelPackage.ITEM__REMOTE_LOW:
-                return isRemoteLow();
+                return isRemoteLow ();
             case ModelPackage.ITEM__REMOTE_LOW_LOW:
-                return isRemoteLowLow();
+                return isRemoteLowLow ();
             case ModelPackage.ITEM__REMOTE_BOOL:
-                return isRemoteBool();
+                return isRemoteBool ();
             case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-                return getRemoteBoolAckValue();
+                return getRemoteBoolAckValue ();
             case ModelPackage.ITEM__INPUT:
-                return isInput();
+                return isInput ();
             case ModelPackage.ITEM__OUTPUT:
-                return isOutput();
+                return isOutput ();
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-                return isLocalScaleAvailable();
+                return isLocalScaleAvailable ();
             case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-                return getLocalScaleFactor();
+                return getLocalScaleFactor ();
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-                return getLocalScaleOffset();
+                return getLocalScaleOffset ();
             case ModelPackage.ITEM__DEBUG_INFORMATION:
-                return getDebugInformation();
+                return getDebugInformation ();
             case ModelPackage.ITEM__IGNORE_SUMMARY:
-                return isIgnoreSummary();
+                return isIgnoreSummary ();
             case ModelPackage.ITEM__BLOCK:
-                return isBlock();
+                return isBlock ();
             case ModelPackage.ITEM__ENABLED:
-                return isEnabled();
+                return isEnabled ();
             case ModelPackage.ITEM__HD_STORAGE:
-                return getHdStorage();
+                return getHdStorage ();
             case ModelPackage.ITEM__MAPPER:
-                return getMapper();
+                return getMapper ();
             case ModelPackage.ITEM__SIMULATION_VALUE:
-                return getSimulationValue();
+                return getSimulationValue ();
             case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-                return isRoundingAvailable();
+                return isRoundingAvailable ();
             case ModelPackage.ITEM__ROUNDING_VALUE:
-                return getRoundingValue();
+                return getRoundingValue ();
             case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-                return getLocalHighHigh();
+                return getLocalHighHigh ();
             case ModelPackage.ITEM__LOCAL_HIGH:
-                return getLocalHigh();
+                return getLocalHigh ();
             case ModelPackage.ITEM__LOCAL_LOW:
-                return getLocalLow();
+                return getLocalLow ();
             case ModelPackage.ITEM__LOCAL_LOW_LOW:
-                return getLocalLowLow();
+                return getLocalLowLow ();
             case ModelPackage.ITEM__LOCAL_MIN:
-                return getLocalMin();
+                return getLocalMin ();
             case ModelPackage.ITEM__LOCAL_MAX:
-                return getLocalMax();
+                return getLocalMax ();
             case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-                return getLocalListMonitor();
+                return getLocalListMonitor ();
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-                return getLocalBooleanMonitor();
+                return getLocalBooleanMonitor ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -2132,282 +2159,142 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.ITEM__DEVICE:
-                setDevice((String)newValue);
+                setDevice ( (String)newValue );
                 return;
             case ModelPackage.ITEM__NAME:
-                setName((String)newValue);
-                return;
-            case ModelPackage.ITEM__DATA_TYPE:
-                setDataType((DataType)newValue);
-                return;
-            case ModelPackage.ITEM__UNIT:
-                setUnit((String)newValue);
-                return;
-            case ModelPackage.ITEM__ALIAS:
-                setAlias((String)newValue);
-                return;
-            case ModelPackage.ITEM__DESCRIPTION:
-                setDescription((String)newValue);
-                return;
-            case ModelPackage.ITEM__DEFAULT_CHAIN:
-                setDefaultChain((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__EVENT_COMMAND:
-                setEventCommand((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MANUAL:
-                setLocalManual((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_MANUAL:
-                setRemoteManual((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__SYSTEM:
-                setSystem((String)newValue);
-                return;
-            case ModelPackage.ITEM__HIERARCHY:
-                getHierarchy().clear();
-                getHierarchy().addAll((Collection<? extends String>)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_MIN:
-                setRemoteMin((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_MAX:
-                setRemoteMax((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-                setRemoteHighHigh((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_HIGH:
-                setRemoteHigh((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_LOW:
-                setRemoteLow((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_LOW_LOW:
-                setRemoteLowLow((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_BOOL:
-                setRemoteBool((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-                setRemoteBoolAckValue((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__INPUT:
-                setInput((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__OUTPUT:
-                setOutput((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-                setLocalScaleAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-                setLocalScaleFactor((Double)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-                setLocalScaleOffset((Double)newValue);
-                return;
-            case ModelPackage.ITEM__DEBUG_INFORMATION:
-                setDebugInformation((String)newValue);
-                return;
-            case ModelPackage.ITEM__IGNORE_SUMMARY:
-                setIgnoreSummary((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__BLOCK:
-                setBlock((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__ENABLED:
-                setEnabled((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__HD_STORAGE:
-                setHdStorage((String)newValue);
-                return;
-            case ModelPackage.ITEM__MAPPER:
-                getMapper().clear();
-                getMapper().addAll((Collection<? extends Mapper>)newValue);
-                return;
-            case ModelPackage.ITEM__SIMULATION_VALUE:
-                setSimulationValue((String)newValue);
-                return;
-            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-                setRoundingAvailable((Boolean)newValue);
-                return;
-            case ModelPackage.ITEM__ROUNDING_VALUE:
-                setRoundingValue((Rounding)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-                setLocalHighHigh((LevelMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_HIGH:
-                setLocalHigh((LevelMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW:
-                setLocalLow((LevelMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LOW_LOW:
-                setLocalLowLow((LevelMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MIN:
-                setLocalMin((LevelMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_MAX:
-                setLocalMax((LevelMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-                setLocalListMonitor((ListMonitor)newValue);
-                return;
-            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-                setLocalBooleanMonitor((BooleanMonitor)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case ModelPackage.ITEM__DEVICE:
-                setDevice(DEVICE_EDEFAULT);
-                return;
-            case ModelPackage.ITEM__NAME:
-                setName(NAME_EDEFAULT);
+                setName ( (String)newValue );
                 return;
             case ModelPackage.ITEM__DATA_TYPE:
-                setDataType(DATA_TYPE_EDEFAULT);
+                setDataType ( (DataType)newValue );
                 return;
             case ModelPackage.ITEM__UNIT:
-                setUnit(UNIT_EDEFAULT);
+                setUnit ( (String)newValue );
                 return;
             case ModelPackage.ITEM__ALIAS:
-                setAlias(ALIAS_EDEFAULT);
+                setAlias ( (String)newValue );
                 return;
             case ModelPackage.ITEM__DESCRIPTION:
-                setDescription(DESCRIPTION_EDEFAULT);
+                setDescription ( (String)newValue );
                 return;
             case ModelPackage.ITEM__DEFAULT_CHAIN:
-                setDefaultChain(DEFAULT_CHAIN_EDEFAULT);
+                setDefaultChain ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__EVENT_COMMAND:
-                setEventCommand(EVENT_COMMAND_EDEFAULT);
+                setEventCommand ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_MANUAL:
-                setLocalManual(LOCAL_MANUAL_EDEFAULT);
+                setLocalManual ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_MANUAL:
-                setRemoteManual(REMOTE_MANUAL_EDEFAULT);
+                setRemoteManual ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__SYSTEM:
-                setSystem(SYSTEM_EDEFAULT);
+                setSystem ( (String)newValue );
                 return;
             case ModelPackage.ITEM__HIERARCHY:
-                getHierarchy().clear();
+                getHierarchy ().clear ();
+                getHierarchy ().addAll ( (Collection<? extends String>)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_MIN:
-                setRemoteMin(REMOTE_MIN_EDEFAULT);
+                setRemoteMin ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_MAX:
-                setRemoteMax(REMOTE_MAX_EDEFAULT);
+                setRemoteMax ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-                setRemoteHighHigh(REMOTE_HIGH_HIGH_EDEFAULT);
+                setRemoteHighHigh ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_HIGH:
-                setRemoteHigh(REMOTE_HIGH_EDEFAULT);
+                setRemoteHigh ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_LOW:
-                setRemoteLow(REMOTE_LOW_EDEFAULT);
+                setRemoteLow ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_LOW_LOW:
-                setRemoteLowLow(REMOTE_LOW_LOW_EDEFAULT);
+                setRemoteLowLow ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_BOOL:
-                setRemoteBool(REMOTE_BOOL_EDEFAULT);
+                setRemoteBool ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-                setRemoteBoolAckValue(REMOTE_BOOL_ACK_VALUE_EDEFAULT);
+                setRemoteBoolAckValue ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__INPUT:
-                setInput(INPUT_EDEFAULT);
+                setInput ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__OUTPUT:
-                setOutput(OUTPUT_EDEFAULT);
+                setOutput ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-                setLocalScaleAvailable(LOCAL_SCALE_AVAILABLE_EDEFAULT);
+                setLocalScaleAvailable ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-                setLocalScaleFactor(LOCAL_SCALE_FACTOR_EDEFAULT);
+                setLocalScaleFactor ( (Double)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-                setLocalScaleOffset(LOCAL_SCALE_OFFSET_EDEFAULT);
+                setLocalScaleOffset ( (Double)newValue );
                 return;
             case ModelPackage.ITEM__DEBUG_INFORMATION:
-                setDebugInformation(DEBUG_INFORMATION_EDEFAULT);
+                setDebugInformation ( (String)newValue );
                 return;
             case ModelPackage.ITEM__IGNORE_SUMMARY:
-                setIgnoreSummary(IGNORE_SUMMARY_EDEFAULT);
+                setIgnoreSummary ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__BLOCK:
-                setBlock(BLOCK_EDEFAULT);
+                setBlock ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__ENABLED:
-                setEnabled(ENABLED_EDEFAULT);
+                setEnabled ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__HD_STORAGE:
-                setHdStorage(HD_STORAGE_EDEFAULT);
+                setHdStorage ( (String)newValue );
                 return;
             case ModelPackage.ITEM__MAPPER:
-                getMapper().clear();
+                getMapper ().clear ();
+                getMapper ().addAll ( (Collection<? extends Mapper>)newValue );
                 return;
             case ModelPackage.ITEM__SIMULATION_VALUE:
-                setSimulationValue(SIMULATION_VALUE_EDEFAULT);
+                setSimulationValue ( (String)newValue );
                 return;
             case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-                setRoundingAvailable(ROUNDING_AVAILABLE_EDEFAULT);
+                setRoundingAvailable ( (Boolean)newValue );
                 return;
             case ModelPackage.ITEM__ROUNDING_VALUE:
-                setRoundingValue(ROUNDING_VALUE_EDEFAULT);
+                setRoundingValue ( (Rounding)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-                setLocalHighHigh((LevelMonitor)null);
+                setLocalHighHigh ( (LevelMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_HIGH:
-                setLocalHigh((LevelMonitor)null);
+                setLocalHigh ( (LevelMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_LOW:
-                setLocalLow((LevelMonitor)null);
+                setLocalLow ( (LevelMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_LOW_LOW:
-                setLocalLowLow((LevelMonitor)null);
+                setLocalLowLow ( (LevelMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_MIN:
-                setLocalMin((LevelMonitor)null);
+                setLocalMin ( (LevelMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_MAX:
-                setLocalMax((LevelMonitor)null);
+                setLocalMax ( (LevelMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-                setLocalListMonitor((ListMonitor)null);
+                setLocalListMonitor ( (ListMonitor)newValue );
                 return;
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-                setLocalBooleanMonitor((BooleanMonitor)null);
+                setLocalBooleanMonitor ( (BooleanMonitor)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -2416,22 +2303,162 @@ public class ItemImpl extends EObjectImpl implements Item
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case ModelPackage.ITEM__DEVICE:
-                return DEVICE_EDEFAULT == null ? device != null : !DEVICE_EDEFAULT.equals(device);
+                setDevice ( DEVICE_EDEFAULT );
+                return;
             case ModelPackage.ITEM__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DATA_TYPE:
+                setDataType ( DATA_TYPE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__UNIT:
+                setUnit ( UNIT_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ALIAS:
+                setAlias ( ALIAS_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DESCRIPTION:
+                setDescription ( DESCRIPTION_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DEFAULT_CHAIN:
+                setDefaultChain ( DEFAULT_CHAIN_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__EVENT_COMMAND:
+                setEventCommand ( EVENT_COMMAND_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+                setLocalManual ( LOCAL_MANUAL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+                setRemoteManual ( REMOTE_MANUAL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__SYSTEM:
+                setSystem ( SYSTEM_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__HIERARCHY:
+                getHierarchy ().clear ();
+                return;
+            case ModelPackage.ITEM__REMOTE_MIN:
+                setRemoteMin ( REMOTE_MIN_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_MAX:
+                setRemoteMax ( REMOTE_MAX_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+                setRemoteHighHigh ( REMOTE_HIGH_HIGH_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_HIGH:
+                setRemoteHigh ( REMOTE_HIGH_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_LOW:
+                setRemoteLow ( REMOTE_LOW_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+                setRemoteLowLow ( REMOTE_LOW_LOW_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_BOOL:
+                setRemoteBool ( REMOTE_BOOL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+                setRemoteBoolAckValue ( REMOTE_BOOL_ACK_VALUE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__INPUT:
+                setInput ( INPUT_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__OUTPUT:
+                setOutput ( OUTPUT_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+                setLocalScaleAvailable ( LOCAL_SCALE_AVAILABLE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+                setLocalScaleFactor ( LOCAL_SCALE_FACTOR_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+                setLocalScaleOffset ( LOCAL_SCALE_OFFSET_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+                setDebugInformation ( DEBUG_INFORMATION_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+                setIgnoreSummary ( IGNORE_SUMMARY_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__BLOCK:
+                setBlock ( BLOCK_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ENABLED:
+                setEnabled ( ENABLED_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__HD_STORAGE:
+                setHdStorage ( HD_STORAGE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__MAPPER:
+                getMapper ().clear ();
+                return;
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                setSimulationValue ( SIMULATION_VALUE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                setRoundingAvailable ( ROUNDING_AVAILABLE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                setRoundingValue ( ROUNDING_VALUE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                setLocalHighHigh ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                setLocalHigh ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                setLocalLow ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                setLocalLowLow ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                setLocalMin ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                setLocalMax ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                setLocalListMonitor ( (ListMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                setLocalBooleanMonitor ( (BooleanMonitor)null );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ModelPackage.ITEM__DEVICE:
+                return DEVICE_EDEFAULT == null ? device != null : !DEVICE_EDEFAULT.equals ( device );
+            case ModelPackage.ITEM__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ModelPackage.ITEM__DATA_TYPE:
                 return dataType != DATA_TYPE_EDEFAULT;
             case ModelPackage.ITEM__UNIT:
-                return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
+                return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals ( unit );
             case ModelPackage.ITEM__ALIAS:
-                return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
+                return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals ( alias );
             case ModelPackage.ITEM__DESCRIPTION:
-                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
             case ModelPackage.ITEM__DEFAULT_CHAIN:
                 return defaultChain != DEFAULT_CHAIN_EDEFAULT;
             case ModelPackage.ITEM__EVENT_COMMAND:
@@ -2441,9 +2468,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__REMOTE_MANUAL:
                 return remoteManual != REMOTE_MANUAL_EDEFAULT;
             case ModelPackage.ITEM__SYSTEM:
-                return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
+                return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals ( system );
             case ModelPackage.ITEM__HIERARCHY:
-                return hierarchy != null && !hierarchy.isEmpty();
+                return hierarchy != null && !hierarchy.isEmpty ();
             case ModelPackage.ITEM__REMOTE_MIN:
                 return remoteMin != REMOTE_MIN_EDEFAULT;
             case ModelPackage.ITEM__REMOTE_MAX:
@@ -2459,7 +2486,7 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__REMOTE_BOOL:
                 return remoteBool != REMOTE_BOOL_EDEFAULT;
             case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-                return REMOTE_BOOL_ACK_VALUE_EDEFAULT == null ? remoteBoolAckValue != null : !REMOTE_BOOL_ACK_VALUE_EDEFAULT.equals(remoteBoolAckValue);
+                return REMOTE_BOOL_ACK_VALUE_EDEFAULT == null ? remoteBoolAckValue != null : !REMOTE_BOOL_ACK_VALUE_EDEFAULT.equals ( remoteBoolAckValue );
             case ModelPackage.ITEM__INPUT:
                 return input != INPUT_EDEFAULT;
             case ModelPackage.ITEM__OUTPUT:
@@ -2467,11 +2494,11 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
                 return localScaleAvailable != LOCAL_SCALE_AVAILABLE_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-                return LOCAL_SCALE_FACTOR_EDEFAULT == null ? localScaleFactor != null : !LOCAL_SCALE_FACTOR_EDEFAULT.equals(localScaleFactor);
+                return LOCAL_SCALE_FACTOR_EDEFAULT == null ? localScaleFactor != null : !LOCAL_SCALE_FACTOR_EDEFAULT.equals ( localScaleFactor );
             case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-                return LOCAL_SCALE_OFFSET_EDEFAULT == null ? localScaleOffset != null : !LOCAL_SCALE_OFFSET_EDEFAULT.equals(localScaleOffset);
+                return LOCAL_SCALE_OFFSET_EDEFAULT == null ? localScaleOffset != null : !LOCAL_SCALE_OFFSET_EDEFAULT.equals ( localScaleOffset );
             case ModelPackage.ITEM__DEBUG_INFORMATION:
-                return DEBUG_INFORMATION_EDEFAULT == null ? debugInformation != null : !DEBUG_INFORMATION_EDEFAULT.equals(debugInformation);
+                return DEBUG_INFORMATION_EDEFAULT == null ? debugInformation != null : !DEBUG_INFORMATION_EDEFAULT.equals ( debugInformation );
             case ModelPackage.ITEM__IGNORE_SUMMARY:
                 return ignoreSummary != IGNORE_SUMMARY_EDEFAULT;
             case ModelPackage.ITEM__BLOCK:
@@ -2479,11 +2506,11 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__ENABLED:
                 return enabled != ENABLED_EDEFAULT;
             case ModelPackage.ITEM__HD_STORAGE:
-                return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals(hdStorage);
+                return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals ( hdStorage );
             case ModelPackage.ITEM__MAPPER:
-                return mapper != null && !mapper.isEmpty();
+                return mapper != null && !mapper.isEmpty ();
             case ModelPackage.ITEM__SIMULATION_VALUE:
-                return SIMULATION_VALUE_EDEFAULT == null ? simulationValue != null : !SIMULATION_VALUE_EDEFAULT.equals(simulationValue);
+                return SIMULATION_VALUE_EDEFAULT == null ? simulationValue != null : !SIMULATION_VALUE_EDEFAULT.equals ( simulationValue );
             case ModelPackage.ITEM__ROUNDING_AVAILABLE:
                 return roundingAvailable != ROUNDING_AVAILABLE_EDEFAULT;
             case ModelPackage.ITEM__ROUNDING_VALUE:
@@ -2505,7 +2532,7 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
                 return localBooleanMonitor != null;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -2514,79 +2541,80 @@ public class ItemImpl extends EObjectImpl implements Item
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (device: ");
-        result.append(device);
-        result.append(", name: ");
-        result.append(name);
-        result.append(", dataType: ");
-        result.append(dataType);
-        result.append(", unit: ");
-        result.append(unit);
-        result.append(", alias: ");
-        result.append(alias);
-        result.append(", description: ");
-        result.append(description);
-        result.append(", defaultChain: ");
-        result.append(defaultChain);
-        result.append(", eventCommand: ");
-        result.append(eventCommand);
-        result.append(", localManual: ");
-        result.append(localManual);
-        result.append(", remoteManual: ");
-        result.append(remoteManual);
-        result.append(", system: ");
-        result.append(system);
-        result.append(", hierarchy: ");
-        result.append(hierarchy);
-        result.append(", remoteMin: ");
-        result.append(remoteMin);
-        result.append(", remoteMax: ");
-        result.append(remoteMax);
-        result.append(", remoteHighHigh: ");
-        result.append(remoteHighHigh);
-        result.append(", remoteHigh: ");
-        result.append(remoteHigh);
-        result.append(", remoteLow: ");
-        result.append(remoteLow);
-        result.append(", remoteLowLow: ");
-        result.append(remoteLowLow);
-        result.append(", remoteBool: ");
-        result.append(remoteBool);
-        result.append(", remoteBoolAckValue: ");
-        result.append(remoteBoolAckValue);
-        result.append(", input: ");
-        result.append(input);
-        result.append(", output: ");
-        result.append(output);
-        result.append(", localScaleAvailable: ");
-        result.append(localScaleAvailable);
-        result.append(", localScaleFactor: ");
-        result.append(localScaleFactor);
-        result.append(", localScaleOffset: ");
-        result.append(localScaleOffset);
-        result.append(", debugInformation: ");
-        result.append(debugInformation);
-        result.append(", ignoreSummary: ");
-        result.append(ignoreSummary);
-        result.append(", block: ");
-        result.append(block);
-        result.append(", enabled: ");
-        result.append(enabled);
-        result.append(", hdStorage: ");
-        result.append(hdStorage);
-        result.append(", simulationValue: ");
-        result.append(simulationValue);
-        result.append(", roundingAvailable: ");
-        result.append(roundingAvailable);
-        result.append(", roundingValue: ");
-        result.append(roundingValue);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (device: " );
+        result.append ( device );
+        result.append ( ", name: " );
+        result.append ( name );
+        result.append ( ", dataType: " );
+        result.append ( dataType );
+        result.append ( ", unit: " );
+        result.append ( unit );
+        result.append ( ", alias: " );
+        result.append ( alias );
+        result.append ( ", description: " );
+        result.append ( description );
+        result.append ( ", defaultChain: " );
+        result.append ( defaultChain );
+        result.append ( ", eventCommand: " );
+        result.append ( eventCommand );
+        result.append ( ", localManual: " );
+        result.append ( localManual );
+        result.append ( ", remoteManual: " );
+        result.append ( remoteManual );
+        result.append ( ", system: " );
+        result.append ( system );
+        result.append ( ", hierarchy: " );
+        result.append ( hierarchy );
+        result.append ( ", remoteMin: " );
+        result.append ( remoteMin );
+        result.append ( ", remoteMax: " );
+        result.append ( remoteMax );
+        result.append ( ", remoteHighHigh: " );
+        result.append ( remoteHighHigh );
+        result.append ( ", remoteHigh: " );
+        result.append ( remoteHigh );
+        result.append ( ", remoteLow: " );
+        result.append ( remoteLow );
+        result.append ( ", remoteLowLow: " );
+        result.append ( remoteLowLow );
+        result.append ( ", remoteBool: " );
+        result.append ( remoteBool );
+        result.append ( ", remoteBoolAckValue: " );
+        result.append ( remoteBoolAckValue );
+        result.append ( ", input: " );
+        result.append ( input );
+        result.append ( ", output: " );
+        result.append ( output );
+        result.append ( ", localScaleAvailable: " );
+        result.append ( localScaleAvailable );
+        result.append ( ", localScaleFactor: " );
+        result.append ( localScaleFactor );
+        result.append ( ", localScaleOffset: " );
+        result.append ( localScaleOffset );
+        result.append ( ", debugInformation: " );
+        result.append ( debugInformation );
+        result.append ( ", ignoreSummary: " );
+        result.append ( ignoreSummary );
+        result.append ( ", block: " );
+        result.append ( block );
+        result.append ( ", enabled: " );
+        result.append ( enabled );
+        result.append ( ", hdStorage: " );
+        result.append ( hdStorage );
+        result.append ( ", simulationValue: " );
+        result.append ( simulationValue );
+        result.append ( ", roundingAvailable: " );
+        result.append ( roundingAvailable );
+        result.append ( ", roundingValue: " );
+        result.append ( roundingValue );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ItemImpl

@@ -31,7 +31,7 @@ public enum Rounding implements Enumerator
      * @generated
      * @ordered
      */
-    NONE(7, "NONE", "NONE"),
+    NONE ( 7, "NONE", "NONE" ),
 
     /**
      * The '<em><b>ROUND</b></em>' literal object.
@@ -41,7 +41,7 @@ public enum Rounding implements Enumerator
      * @generated
      * @ordered
      */
-    ROUND(4, "ROUND", "ROUND"),
+    ROUND ( 4, "ROUND", "ROUND" ),
 
     /**
      * The '<em><b>CEIL</b></em>' literal object.
@@ -51,7 +51,7 @@ public enum Rounding implements Enumerator
      * @generated
      * @ordered
      */
-    CEIL(2, "CEIL", "CEIL"),
+    CEIL ( 2, "CEIL", "CEIL" ),
 
     /**
      * The '<em><b>FLOOR</b></em>' literal object.
@@ -61,7 +61,7 @@ public enum Rounding implements Enumerator
      * @generated
      * @ordered
      */
-    FLOOR(3, "FLOOR", "FLOOR");
+    FLOOR ( 3, "FLOOR", "FLOOR" );
 
     /**
      * The '<em><b>NONE</b></em>' literal value.
@@ -129,14 +129,7 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Rounding[] VALUES_ARRAY =
-        new Rounding[]
-        {
-            NONE,
-            ROUND,
-            CEIL,
-            FLOOR,
-        };
+    private static final Rounding[] VALUES_ARRAY = new Rounding[] { NONE, ROUND, CEIL, FLOOR, };
 
     /**
      * A public read-only list of all the '<em><b>Rounding</b></em>' enumerators.
@@ -144,7 +137,7 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<Rounding> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<Rounding> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
      * Returns the '<em><b>Rounding</b></em>' literal with the specified literal value.
@@ -152,12 +145,12 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Rounding get(String literal)
+    public static Rounding get ( String literal )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             Rounding result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal))
+            if ( result.toString ().equals ( literal ) )
             {
                 return result;
             }
@@ -171,12 +164,12 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Rounding getByName(String name)
+    public static Rounding getByName ( String name )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             Rounding result = VALUES_ARRAY[i];
-            if (result.getName().equals(name))
+            if ( result.getName ().equals ( name ) )
             {
                 return result;
             }
@@ -190,14 +183,18 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Rounding get(int value)
+    public static Rounding get ( int value )
     {
-        switch (value)
+        switch ( value )
         {
-            case NONE_VALUE: return NONE;
-            case ROUND_VALUE: return ROUND;
-            case CEIL_VALUE: return CEIL;
-            case FLOOR_VALUE: return FLOOR;
+            case NONE_VALUE:
+                return NONE;
+            case ROUND_VALUE:
+                return ROUND;
+            case CEIL_VALUE:
+                return CEIL;
+            case FLOOR_VALUE:
+                return FLOOR;
         }
         return null;
     }
@@ -229,7 +226,7 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private Rounding(int value, String name, String literal)
+    private Rounding ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -241,9 +238,9 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getValue()
+    public int getValue ()
     {
-      return value;
+        return value;
     }
 
     /**
@@ -251,9 +248,9 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
-      return name;
+        return name;
     }
 
     /**
@@ -261,9 +258,9 @@ public enum Rounding implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLiteral()
+    public String getLiteral ()
     {
-      return literal;
+        return literal;
     }
 
     /**
@@ -273,9 +270,9 @@ public enum Rounding implements Enumerator
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return literal;
     }
-    
+
 } //Rounding
