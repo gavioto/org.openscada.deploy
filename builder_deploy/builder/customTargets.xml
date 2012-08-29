@@ -117,6 +117,9 @@
   	<openscada.builder.copyFeature id="org.openscada.deploy.ui.da.connector"/>
   	
   	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.model"/>
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.model.edit"/>
+	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.model.editor"/>
+  		
   	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.utils"/>
   	
   </target>
