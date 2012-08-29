@@ -2,13 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Utils
 Bundle-SymbolicName: org.openscada.deploy.iolist.utils
-Bundle-Version: 1.0.1.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.openscada.deploy.iolist.utils.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  org.openscada.deploy.iolist.model;bundle-version="1.0.0",
- org.openscada.external.apache.poi;bundle-version="3.7.0"
+ org.openscada.external.apache.poi;bundle-version="3.7.0",
+ org.openscada.external.odfdom;bundle-version="0.8.7",
+ org.apache.xerces;bundle-version="2.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.openscada.deploy.iolist.utils;version="1.0.1";uses:="org.eclipse.core.runtime,com.inavare.vims.iolist.model,org.osgi.framework"
@@ -17,7 +19,3 @@ Import-Package: com.google.gson;version="1.4.0",
  com.google.gson.reflect;version="1.4.0",
  org.openscada.ca.oscar;version="1.0.0",
  org.openscada.utils.str;version="0.15.0"
-Bundle-ClassPath: lib/xercesImpl.jar,
- lib/xml-apis.jar,
- lib/odfdom-java-0.8.7.jar,
- .
