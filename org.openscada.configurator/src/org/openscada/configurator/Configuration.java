@@ -454,14 +454,6 @@ public class Configuration extends GenericMasterConfiguration
             }
             i++;
         }
-
-        if ( !skipOldHierarchy )
-        {
-            if ( !attributes.containsKey ( "component" ) )
-            {
-                attributes.put ( "component", "" );
-            }
-        }
     }
 
     private String makeMapperHandlerName ( final String masterId, final Mapper mapper )
