@@ -98,7 +98,7 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * @generated NOT
      */
     @Override
     public void process ( final Configuration configuration, final Project project )
