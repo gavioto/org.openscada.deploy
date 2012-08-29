@@ -4,6 +4,7 @@
 	<start>org.openscada.utils.osgi.pidfile</start>
 	<start>org.openscada.external.postgresql</start>
 	<start>org.openscada.sec.provider.script</start>
+	<start>org.openscada.sec.provider.jdbc</start>
 	<start>org.openscada.da.server.osgi.exporter.net</start>
 	<start>org.openscada.da.client.net</start>
 	<start>org.openscada.da.server.common.osgi</start>
@@ -39,6 +40,8 @@
 	<start>org.openscada.ae.server.common.monitor</start>
 	<start>org.openscada.ae.monitor</start>
 	<start>org.openscada.ae.server.common.event</start>
+	<start>org.openscada.da.master.mapper</start>
+	<start>org.openscada.da.mapper.osgi</start>
 	<start>org.openscada.da.server.osgi</start>
 	<start>org.openscada.ae.server.http</start>
 	<start>org.mortbay.jetty.server</start>
