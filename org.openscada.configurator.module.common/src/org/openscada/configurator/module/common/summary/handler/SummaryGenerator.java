@@ -125,7 +125,7 @@ public class SummaryGenerator
     {
         final StringBuilder sb = new StringBuilder ();
 
-        // TODO: should fix prefix from project or module
+        // TODO: should fix prefix and suffix from project or module
 
         final String prefix = System.getProperty ( "prefix", null );
         if ( prefix != null )
@@ -144,6 +144,8 @@ public class SummaryGenerator
                 sb.append ( level );
             }
         }
+
+        sb.append ( ".SUM.V" );
 
         return sb.toString ();
     }
