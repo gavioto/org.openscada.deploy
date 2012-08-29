@@ -89,8 +89,8 @@ public class ItemListReader
             this.readers.put ( "LEVEL_" + i, new LevelColumnReader ( i ) );
         }
 
-        this.readers.put ( "LIMIT_MIN", new LevelMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_MIN ) );
-        this.readers.put ( "LIMIT_MAX", new LevelMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_MAX ) );
+        this.readers.put ( "MIN", new LevelMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_MIN ) );
+        this.readers.put ( "MAX", new LevelMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_MAX ) );
 
         this.readers.put ( "LIMIT_HH", new LevelMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH ) );
         this.readers.put ( "LIMIT_H", new LevelMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_HIGH ) );
