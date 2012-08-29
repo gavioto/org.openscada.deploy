@@ -1,6 +1,7 @@
 package org.openscada.deploy.iolist.utils;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,6 +50,14 @@ public class ItemListReader
     {
         this.input = OdfSpreadsheetDocument.loadDocument ( file );
         this.sourceName = file.getAbsolutePath ();
+
+        process ();
+    }
+
+    public ItemListReader ( final InputStream inputStream, final String sourceName ) throws Exception
+    {
+        this.input = OdfSpreadsheetDocument.loadDocument ( inputStream );
+        this.sourceName = sourceName;
 
         process ();
     }
