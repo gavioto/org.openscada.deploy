@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configurator.module.common.CommonPackage;
+import org.openscada.configurator.module.common.impl.CommonPackageImpl;
+import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkFactory;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
@@ -18,6 +22,8 @@ import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 import org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl;
+import org.openscada.configurator.module.common.summary.SummaryPackage;
+import org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,18 +93,27 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         ConfiguratorPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
+        CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) : CommonPackage.eINSTANCE );
         ScriptsPackageImpl theScriptsPackage = (ScriptsPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) instanceof ScriptsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) : ScriptsPackage.eINSTANCE );
         ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
+        SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
+        MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
 
         // Create package meta-data objects
         theNetworkPackage.createPackageContents ();
+        theCommonPackage.createPackageContents ();
         theScriptsPackage.createPackageContents ();
         theProcessingPackage.createPackageContents ();
+        theSummaryPackage.createPackageContents ();
+        theMainPackage.createPackageContents ();
 
         // Initialize created meta-data
         theNetworkPackage.initializePackageContents ();
+        theCommonPackage.initializePackageContents ();
         theScriptsPackage.initializePackageContents ();
         theProcessingPackage.initializePackageContents ();
+        theSummaryPackage.initializePackageContents ();
+        theMainPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theNetworkPackage.freeze ();
@@ -143,16 +158,6 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getNetworkModule_OverrideGeneratedFile ()
-    {
-        return (EAttribute)networkModuleEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public NetworkFactory getNetworkFactory ()
     {
         return (NetworkFactory)getEFactoryInstance ();
@@ -182,7 +187,6 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         networkModuleEClass = createEClass ( NETWORK_MODULE );
         createEAttribute ( networkModuleEClass, NETWORK_MODULE__NETWORK_FILE );
         createEAttribute ( networkModuleEClass, NETWORK_MODULE__PREFIX );
-        createEAttribute ( networkModuleEClass, NETWORK_MODULE__OVERRIDE_GENERATED_FILE );
     }
 
     /**
@@ -224,10 +228,6 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         initEClass ( networkModuleEClass, NetworkModule.class, "NetworkModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getNetworkModule_NetworkFile (), ecorePackage.getEString (), "networkFile", "", 0, 1, NetworkModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getNetworkModule_Prefix (), ecorePackage.getEString (), "prefix", null, 1, 1, NetworkModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getNetworkModule_OverrideGeneratedFile (), ecorePackage.getEString (), "overrideGeneratedFile", null, 0, 1, NetworkModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        // Create resource
-        createResource ( eNS_URI );
     }
 
 } //NetworkPackageImpl

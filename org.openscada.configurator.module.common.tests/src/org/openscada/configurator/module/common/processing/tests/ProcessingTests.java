@@ -39,6 +39,10 @@ public class ProcessingTests extends TestSuite
     {
         TestSuite suite = new ProcessingTests ( "processing Tests" );
         suite.addTestSuite ( ImportModuleTest.class );
+        suite.addTestSuite ( OverrideListModuleTest.class );
+        suite.addTestSuite ( ImportListModuleTest.class );
+        suite.addTestSuite ( ScriptOverridesTest.class );
+        suite.addTestSuite ( RemoveInactiveTest.class );
         return suite;
     }
 

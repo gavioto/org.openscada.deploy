@@ -8,38 +8,25 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.openscada.configuration.model.Project;
+import org.openscada.configurator.Configuration;
 import org.openscada.configurator.data.DataLoaderOdfDom;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class Application
 {
-    public static void process ( final Project project, final NetworkModule module )
+    public static void process ( final Configuration configuration, final Project project, final NetworkModule module )
     {
         try
         {
-            final File generatedDir = new File ( FileLocator.toFileURL ( new URL ( project.getGeneratedDirectory () ) ).getFile () );
-
             final DataLoaderOdfDom loader = new DataLoaderOdfDom ( new File ( FileLocator.toFileURL ( new URL ( module.getNetworkFile () ) ).getFile () ) );
 
             final NetworkDeviceRowHandler handler = new NetworkDeviceRowHandler ();
             loader.load ( 0, handler );
 
-            final File file;
-            if ( module.getOverrideGeneratedFile () != null )
-            {
-                file = new File ( FileLocator.toFileURL ( new URL ( module.getOverrideGeneratedFile () ) ).getFile () );
-            }
-            else
-            {
-                file = new File ( generatedDir, "IOList-generated-exec.xls" );
-            }
-            SpreadSheetPoiHelper.writeSpreadsheet ( file, convertDevices ( module.getPrefix (), handler.getDevices () ) );
-
-            project.getIoListFile ().add ( file.toURI ().toString () );
+            configuration.addItems ( convertDevices ( module.getPrefix (), handler.getDevices () ) );
         }
         catch ( final Exception e )
         {

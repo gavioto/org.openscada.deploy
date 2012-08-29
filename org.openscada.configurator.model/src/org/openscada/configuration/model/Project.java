@@ -7,7 +7,6 @@
 package org.openscada.configuration.model;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -21,11 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.configuration.model.Project#getMainConfiguration <em>Main Configuration</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getJsonBase <em>Json Base</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getOutputBase <em>Output Base</em>}</li>
- *   <li>{@link org.openscada.configuration.model.Project#getScriptOverrideDirectory <em>Script Override Directory</em>}</li>
- *   <li>{@link org.openscada.configuration.model.Project#getLegacyBaseDirectory <em>Legacy Base Directory</em>}</li>
- *   <li>{@link org.openscada.configuration.model.Project#getIoListFile <em>Io List File</em>}</li>
  *   <li>{@link org.openscada.configuration.model.Project#getModules <em>Modules</em>}</li>
- *   <li>{@link org.openscada.configuration.model.Project#getGeneratedDirectory <em>Generated Directory</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,74 +102,6 @@ public interface Project extends EObject
     void setOutputBase ( String value );
 
     /**
-     * Returns the value of the '<em><b>Script Override Directory</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Script Override Directory</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Script Override Directory</em>' attribute.
-     * @see #setScriptOverrideDirectory(String)
-     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_ScriptOverrideDirectory()
-     * @model
-     * @generated
-     */
-    String getScriptOverrideDirectory ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configuration.model.Project#getScriptOverrideDirectory <em>Script Override Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Script Override Directory</em>' attribute.
-     * @see #getScriptOverrideDirectory()
-     * @generated
-     */
-    void setScriptOverrideDirectory ( String value );
-
-    /**
-     * Returns the value of the '<em><b>Legacy Base Directory</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Legacy Base Directory</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Legacy Base Directory</em>' attribute.
-     * @see #setLegacyBaseDirectory(String)
-     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_LegacyBaseDirectory()
-     * @model
-     * @generated
-     */
-    String getLegacyBaseDirectory ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configuration.model.Project#getLegacyBaseDirectory <em>Legacy Base Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Legacy Base Directory</em>' attribute.
-     * @see #getLegacyBaseDirectory()
-     * @generated
-     */
-    void setLegacyBaseDirectory ( String value );
-
-    /**
-     * Returns the value of the '<em><b>Io List File</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Io List File</em>' attribute list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Io List File</em>' attribute list.
-     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_IoListFile()
-     * @model
-     * @generated
-     */
-    EList<String> getIoListFile ();
-
-    /**
      * Returns the value of the '<em><b>Modules</b></em>' containment reference list.
      * The list contents are of type {@link org.openscada.configuration.model.Module}.
      * <!-- begin-user-doc -->
@@ -189,31 +116,5 @@ public interface Project extends EObject
      * @generated
      */
     EList<Module> getModules ();
-
-    /**
-     * Returns the value of the '<em><b>Generated Directory</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Generated Directory</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Generated Directory</em>' attribute.
-     * @see #setGeneratedDirectory(String)
-     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_GeneratedDirectory()
-     * @model required="true"
-     * @generated
-     */
-    String getGeneratedDirectory ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configuration.model.Project#getGeneratedDirectory <em>Generated Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Generated Directory</em>' attribute.
-     * @see #getGeneratedDirectory()
-     * @generated
-     */
-    void setGeneratedDirectory ( String value );
 
 } // Project

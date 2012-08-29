@@ -36,6 +36,7 @@ import org.openscada.configuration.model.util.ConfiguratorSwitch;
 import org.openscada.configurator.module.common.network.NetworkFactory;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.util.NetworkAdapterFactory;
+import org.openscada.configurator.module.common.provider.ModulesEditPlugin;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

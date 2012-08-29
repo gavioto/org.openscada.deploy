@@ -32,11 +32,7 @@ import org.openscada.configuration.model.Project;
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getMainConfiguration <em>Main Configuration</em>}</li>
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getJsonBase <em>Json Base</em>}</li>
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getOutputBase <em>Output Base</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getScriptOverrideDirectory <em>Script Override Directory</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getLegacyBaseDirectory <em>Legacy Base Directory</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getIoListFile <em>Io List File</em>}</li>
  *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getModules <em>Modules</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getGeneratedDirectory <em>Generated Directory</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,56 +91,6 @@ public class ProjectImpl extends EObjectImpl implements Project
     protected String outputBase = OUTPUT_BASE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getScriptOverrideDirectory() <em>Script Override Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getScriptOverrideDirectory()
-     * @generated
-     * @ordered
-     */
-    protected static final String SCRIPT_OVERRIDE_DIRECTORY_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getScriptOverrideDirectory() <em>Script Override Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getScriptOverrideDirectory()
-     * @generated
-     * @ordered
-     */
-    protected String scriptOverrideDirectory = SCRIPT_OVERRIDE_DIRECTORY_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getLegacyBaseDirectory() <em>Legacy Base Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLegacyBaseDirectory()
-     * @generated
-     * @ordered
-     */
-    protected static final String LEGACY_BASE_DIRECTORY_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getLegacyBaseDirectory() <em>Legacy Base Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLegacyBaseDirectory()
-     * @generated
-     * @ordered
-     */
-    protected String legacyBaseDirectory = LEGACY_BASE_DIRECTORY_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getIoListFile() <em>Io List File</em>}' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getIoListFile()
-     * @generated
-     * @ordered
-     */
-    protected EList<String> ioListFile;
-
-    /**
      * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -153,26 +99,6 @@ public class ProjectImpl extends EObjectImpl implements Project
      * @ordered
      */
     protected EList<Module> modules;
-
-    /**
-     * The default value of the '{@link #getGeneratedDirectory() <em>Generated Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getGeneratedDirectory()
-     * @generated
-     * @ordered
-     */
-    protected static final String GENERATED_DIRECTORY_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getGeneratedDirectory() <em>Generated Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getGeneratedDirectory()
-     * @generated
-     * @ordered
-     */
-    protected String generatedDirectory = GENERATED_DIRECTORY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -260,66 +186,6 @@ public class ProjectImpl extends EObjectImpl implements Project
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getScriptOverrideDirectory ()
-    {
-        return scriptOverrideDirectory;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setScriptOverrideDirectory ( String newScriptOverrideDirectory )
-    {
-        String oldScriptOverrideDirectory = scriptOverrideDirectory;
-        scriptOverrideDirectory = newScriptOverrideDirectory;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.PROJECT__SCRIPT_OVERRIDE_DIRECTORY, oldScriptOverrideDirectory, scriptOverrideDirectory ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getLegacyBaseDirectory ()
-    {
-        return legacyBaseDirectory;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLegacyBaseDirectory ( String newLegacyBaseDirectory )
-    {
-        String oldLegacyBaseDirectory = legacyBaseDirectory;
-        legacyBaseDirectory = newLegacyBaseDirectory;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.PROJECT__LEGACY_BASE_DIRECTORY, oldLegacyBaseDirectory, legacyBaseDirectory ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<String> getIoListFile ()
-    {
-        if ( ioListFile == null )
-        {
-            ioListFile = new EDataTypeUniqueEList<String> ( String.class, this, ConfiguratorPackage.PROJECT__IO_LIST_FILE );
-        }
-        return ioListFile;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EList<Module> getModules ()
     {
         if ( modules == null )
@@ -327,29 +193,6 @@ public class ProjectImpl extends EObjectImpl implements Project
             modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, ConfiguratorPackage.PROJECT__MODULES );
         }
         return modules;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getGeneratedDirectory ()
-    {
-        return generatedDirectory;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setGeneratedDirectory ( String newGeneratedDirectory )
-    {
-        String oldGeneratedDirectory = generatedDirectory;
-        generatedDirectory = newGeneratedDirectory;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY, oldGeneratedDirectory, generatedDirectory ) );
     }
 
     /**
@@ -384,16 +227,8 @@ public class ProjectImpl extends EObjectImpl implements Project
                 return getJsonBase ();
             case ConfiguratorPackage.PROJECT__OUTPUT_BASE:
                 return getOutputBase ();
-            case ConfiguratorPackage.PROJECT__SCRIPT_OVERRIDE_DIRECTORY:
-                return getScriptOverrideDirectory ();
-            case ConfiguratorPackage.PROJECT__LEGACY_BASE_DIRECTORY:
-                return getLegacyBaseDirectory ();
-            case ConfiguratorPackage.PROJECT__IO_LIST_FILE:
-                return getIoListFile ();
             case ConfiguratorPackage.PROJECT__MODULES:
                 return getModules ();
-            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
-                return getGeneratedDirectory ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -419,22 +254,9 @@ public class ProjectImpl extends EObjectImpl implements Project
             case ConfiguratorPackage.PROJECT__OUTPUT_BASE:
                 setOutputBase ( (String)newValue );
                 return;
-            case ConfiguratorPackage.PROJECT__SCRIPT_OVERRIDE_DIRECTORY:
-                setScriptOverrideDirectory ( (String)newValue );
-                return;
-            case ConfiguratorPackage.PROJECT__LEGACY_BASE_DIRECTORY:
-                setLegacyBaseDirectory ( (String)newValue );
-                return;
-            case ConfiguratorPackage.PROJECT__IO_LIST_FILE:
-                getIoListFile ().clear ();
-                getIoListFile ().addAll ( (Collection<? extends String>)newValue );
-                return;
             case ConfiguratorPackage.PROJECT__MODULES:
                 getModules ().clear ();
                 getModules ().addAll ( (Collection<? extends Module>)newValue );
-                return;
-            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
-                setGeneratedDirectory ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -459,20 +281,8 @@ public class ProjectImpl extends EObjectImpl implements Project
             case ConfiguratorPackage.PROJECT__OUTPUT_BASE:
                 setOutputBase ( OUTPUT_BASE_EDEFAULT );
                 return;
-            case ConfiguratorPackage.PROJECT__SCRIPT_OVERRIDE_DIRECTORY:
-                setScriptOverrideDirectory ( SCRIPT_OVERRIDE_DIRECTORY_EDEFAULT );
-                return;
-            case ConfiguratorPackage.PROJECT__LEGACY_BASE_DIRECTORY:
-                setLegacyBaseDirectory ( LEGACY_BASE_DIRECTORY_EDEFAULT );
-                return;
-            case ConfiguratorPackage.PROJECT__IO_LIST_FILE:
-                getIoListFile ().clear ();
-                return;
             case ConfiguratorPackage.PROJECT__MODULES:
                 getModules ().clear ();
-                return;
-            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
-                setGeneratedDirectory ( GENERATED_DIRECTORY_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -494,16 +304,8 @@ public class ProjectImpl extends EObjectImpl implements Project
                 return jsonBase != null && !jsonBase.isEmpty ();
             case ConfiguratorPackage.PROJECT__OUTPUT_BASE:
                 return OUTPUT_BASE_EDEFAULT == null ? outputBase != null : !OUTPUT_BASE_EDEFAULT.equals ( outputBase );
-            case ConfiguratorPackage.PROJECT__SCRIPT_OVERRIDE_DIRECTORY:
-                return SCRIPT_OVERRIDE_DIRECTORY_EDEFAULT == null ? scriptOverrideDirectory != null : !SCRIPT_OVERRIDE_DIRECTORY_EDEFAULT.equals ( scriptOverrideDirectory );
-            case ConfiguratorPackage.PROJECT__LEGACY_BASE_DIRECTORY:
-                return LEGACY_BASE_DIRECTORY_EDEFAULT == null ? legacyBaseDirectory != null : !LEGACY_BASE_DIRECTORY_EDEFAULT.equals ( legacyBaseDirectory );
-            case ConfiguratorPackage.PROJECT__IO_LIST_FILE:
-                return ioListFile != null && !ioListFile.isEmpty ();
             case ConfiguratorPackage.PROJECT__MODULES:
                 return modules != null && !modules.isEmpty ();
-            case ConfiguratorPackage.PROJECT__GENERATED_DIRECTORY:
-                return GENERATED_DIRECTORY_EDEFAULT == null ? generatedDirectory != null : !GENERATED_DIRECTORY_EDEFAULT.equals ( generatedDirectory );
         }
         return super.eIsSet ( featureID );
     }
@@ -526,14 +328,6 @@ public class ProjectImpl extends EObjectImpl implements Project
         result.append ( jsonBase );
         result.append ( ", outputBase: " );
         result.append ( outputBase );
-        result.append ( ", scriptOverrideDirectory: " );
-        result.append ( scriptOverrideDirectory );
-        result.append ( ", legacyBaseDirectory: " );
-        result.append ( legacyBaseDirectory );
-        result.append ( ", ioListFile: " );
-        result.append ( ioListFile );
-        result.append ( ", generatedDirectory: " );
-        result.append ( generatedDirectory );
         result.append ( ')' );
         return result.toString ();
     }

@@ -11,8 +11,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
+import org.openscada.configurator.module.common.FileModule;
+import org.openscada.configurator.module.common.processing.ImportListModule;
 import org.openscada.configurator.module.common.processing.ImportModule;
+import org.openscada.configurator.module.common.processing.OverrideListModule;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
+import org.openscada.configurator.module.common.processing.RemoveInactive;
+import org.openscada.configurator.module.common.processing.ScriptOverrides;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,9 +87,39 @@ public class ProcessingAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseOverrideListModule ( OverrideListModule object )
+        {
+            return createOverrideListModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseImportListModule ( ImportListModule object )
+        {
+            return createImportListModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptOverrides ( ScriptOverrides object )
+        {
+            return createScriptOverridesAdapter ();
+        }
+
+        @Override
+        public Adapter caseRemoveInactive ( RemoveInactive object )
+        {
+            return createRemoveInactiveAdapter ();
+        }
+
+        @Override
         public Adapter caseModule ( Module object )
         {
             return createModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseFileModule ( FileModule object )
+        {
+            return createFileModuleAdapter ();
         }
 
         @Override
@@ -119,6 +154,81 @@ public class ProcessingAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createImportModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.processing.OverrideListModule <em>Override List Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.processing.OverrideListModule
+     * @generated
+     */
+    public Adapter createOverrideListModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.processing.ImportListModule <em>Import List Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.processing.ImportListModule
+     * @generated
+     */
+    public Adapter createImportListModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.processing.ScriptOverrides <em>Script Overrides</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.processing.ScriptOverrides
+     * @generated
+     */
+    public Adapter createScriptOverridesAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.processing.RemoveInactive <em>Remove Inactive</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.processing.RemoveInactive
+     * @generated
+     */
+    public Adapter createRemoveInactiveAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.FileModule
+     * @generated
+     */
+    public Adapter createFileModuleAdapter ()
     {
         return null;
     }

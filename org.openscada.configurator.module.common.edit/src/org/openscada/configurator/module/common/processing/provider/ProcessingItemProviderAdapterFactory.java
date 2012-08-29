@@ -33,10 +33,10 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.util.ConfiguratorSwitch;
-import org.openscada.configurator.module.common.network.provider.ModulesEditPlugin;
 import org.openscada.configurator.module.common.processing.ProcessingFactory;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.util.ProcessingAdapterFactory;
+import org.openscada.configurator.module.common.provider.ModulesEditPlugin;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -119,6 +119,106 @@ public class ProcessingItemProviderAdapterFactory extends ProcessingAdapterFacto
         }
 
         return importModuleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.processing.OverrideListModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected OverrideListModuleItemProvider overrideListModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.processing.OverrideListModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createOverrideListModuleAdapter ()
+    {
+        if ( overrideListModuleItemProvider == null )
+        {
+            overrideListModuleItemProvider = new OverrideListModuleItemProvider ( this );
+        }
+
+        return overrideListModuleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.processing.ImportListModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ImportListModuleItemProvider importListModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.processing.ImportListModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createImportListModuleAdapter ()
+    {
+        if ( importListModuleItemProvider == null )
+        {
+            importListModuleItemProvider = new ImportListModuleItemProvider ( this );
+        }
+
+        return importListModuleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.processing.ScriptOverrides} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptOverridesItemProvider scriptOverridesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.processing.ScriptOverrides}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptOverridesAdapter ()
+    {
+        if ( scriptOverridesItemProvider == null )
+        {
+            scriptOverridesItemProvider = new ScriptOverridesItemProvider ( this );
+        }
+
+        return scriptOverridesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.processing.RemoveInactive} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RemoveInactiveItemProvider removeInactiveItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.processing.RemoveInactive}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRemoveInactiveAdapter ()
+    {
+        if ( removeInactiveItemProvider == null )
+        {
+            removeInactiveItemProvider = new RemoveInactiveItemProvider ( this );
+        }
+
+        return removeInactiveItemProvider;
     }
 
     /**
@@ -264,6 +364,14 @@ public class ProcessingItemProviderAdapterFactory extends ProcessingAdapterFacto
     {
         if ( importModuleItemProvider != null )
             importModuleItemProvider.dispose ();
+        if ( overrideListModuleItemProvider != null )
+            overrideListModuleItemProvider.dispose ();
+        if ( importListModuleItemProvider != null )
+            importListModuleItemProvider.dispose ();
+        if ( scriptOverridesItemProvider != null )
+            scriptOverridesItemProvider.dispose ();
+        if ( removeInactiveItemProvider != null )
+            removeInactiveItemProvider.dispose ();
     }
 
     /**
@@ -319,6 +427,14 @@ public class ProcessingItemProviderAdapterFactory extends ProcessingAdapterFacto
             public Object caseProject ( Project object )
             {
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createImportModule () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createOverrideListModule () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createImportListModule () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createScriptOverrides () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createRemoveInactive () ) );
 
                 return null;
             }

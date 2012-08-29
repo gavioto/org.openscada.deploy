@@ -5,7 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.Reader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -62,15 +65,12 @@ public class Configuration extends GenericMasterConfiguration
 
     private final PrintStream logStream;
 
-    private final File base;
-
     private final Report report;
 
     private static Integer maxItemLimit = Integer.getInteger ( "maxItemLimit", null ); //$NON-NLS-1$
 
-    public Configuration ( final File base ) throws Exception
+    public Configuration () throws Exception
     {
-        this.base = base;
         this.logStream = System.out;
 
         this.report = new Report ();
@@ -538,7 +538,7 @@ public class Configuration extends GenericMasterConfiguration
         {
             if ( module.isResource () )
             {
-                data.put ( "init." + i, loadFromFile ( new File ( this.base, module.getData () ) ) ); //$NON-NLS-1$
+                data.put ( "init." + i, loadFromFile ( new InputStreamReader ( new URL ( module.getData () ).openStream () ) ) ); //$NON-NLS-1$
             }
             else
             {
@@ -685,11 +685,6 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.datasource.script", id, data ); //$NON-NLS-1$
     }
 
-    public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final File initFile, final File updateFile ) throws Exception
-    {
-        addScript ( id, engine, dataSources, null, loadFromFile ( initFile ), loadFromFile ( updateFile ), null, null, null );
-    }
-
     static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
 
     private static final String BOOLEAN_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.booleanAlarm"; //$NON-NLS-1$
@@ -703,14 +698,9 @@ public class Configuration extends GenericMasterConfiguration
      * @return
      * @throws Exception
      */
-    public static String loadFromFile ( final File file ) throws Exception
+    public static String loadFromFile ( final Reader sourceReader ) throws Exception
     {
-        if ( file == null )
-        {
-            return null;
-        }
-
-        final BufferedReader reader = new BufferedReader ( new FileReader ( file ) );
+        final BufferedReader reader = new BufferedReader ( sourceReader );
         try
         {
             final StringBuilder sb = new StringBuilder ();
@@ -727,6 +717,11 @@ public class Configuration extends GenericMasterConfiguration
         {
             reader.close ();
         }
+    }
+
+    public static String loadFromFile ( final File file ) throws Exception
+    {
+        return loadFromFile ( new FileReader ( file ) );
     }
 
     private void addLocalScale ( final String id, final String masterId, final Double localScaleFactor, final Double localScaleOffset, final Map<String, String> attributes )
@@ -1094,7 +1089,7 @@ public class Configuration extends GenericMasterConfiguration
         return toks[toks.length - 1];
     }
 
-    public void applyScriptOverride ( final File file, final File baseDir ) throws FileNotFoundException, ScriptException
+    public void applyScriptOverride ( final File file ) throws FileNotFoundException, ScriptException
     {
         if ( file.isDirectory () )
         {
@@ -1108,7 +1103,7 @@ public class Configuration extends GenericMasterConfiguration
         final ScriptEngine engine = manager.getEngineByExtension ( getExtension ( file ) );
         final ScriptContext context = engine.getContext ();
         context.setAttribute ( "items", this.items.toArray (), ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
-        context.setAttribute ( "baseDir", baseDir, ScriptContext.ENGINE_SCOPE );//$NON-NLS-1$
+        context.setAttribute ( "baseDir", file.getParent (), ScriptContext.ENGINE_SCOPE );//$NON-NLS-1$
 
         engine.eval ( new FileReader ( file ) );
     }

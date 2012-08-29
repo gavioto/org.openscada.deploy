@@ -36,6 +36,42 @@ public interface ProcessingFactory extends EFactory
     ImportModule createImportModule ();
 
     /**
+     * Returns a new object of class '<em>Override List Module</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Override List Module</em>'.
+     * @generated
+     */
+    OverrideListModule createOverrideListModule ();
+
+    /**
+     * Returns a new object of class '<em>Import List Module</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Import List Module</em>'.
+     * @generated
+     */
+    ImportListModule createImportListModule ();
+
+    /**
+     * Returns a new object of class '<em>Script Overrides</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Script Overrides</em>'.
+     * @generated
+     */
+    ScriptOverrides createScriptOverrides ();
+
+    /**
+     * Returns a new object of class '<em>Remove Inactive</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Remove Inactive</em>'.
+     * @generated
+     */
+    RemoveInactive createRemoveInactive ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

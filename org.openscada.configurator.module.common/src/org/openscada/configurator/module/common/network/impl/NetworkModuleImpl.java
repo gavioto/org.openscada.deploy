@@ -23,7 +23,6 @@ import org.openscada.configurator.module.common.network.handler.Application;
  * <ul>
  *   <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getNetworkFile <em>Network File</em>}</li>
  *   <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.openscada.configurator.module.common.network.impl.NetworkModuleImpl#getOverrideGeneratedFile <em>Override Generated File</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,24 +65,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
      * @ordered
      */
     protected String prefix = PREFIX_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getOverrideGeneratedFile() <em>Override Generated File</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getOverrideGeneratedFile()
-     * @generated
-     * @ordered
-     */
-    protected static final String OVERRIDE_GENERATED_FILE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getOverrideGeneratedFile() <em>Override Generated File</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #getOverrideGeneratedFile()
-     * @generated
-     * @ordered
-     */
-    protected String overrideGeneratedFile = OVERRIDE_GENERATED_FILE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -152,36 +133,13 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getOverrideGeneratedFile ()
-    {
-        return overrideGeneratedFile;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setOverrideGeneratedFile ( String newOverrideGeneratedFile )
-    {
-        String oldOverrideGeneratedFile = overrideGeneratedFile;
-        overrideGeneratedFile = newOverrideGeneratedFile;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE, oldOverrideGeneratedFile, overrideGeneratedFile ) );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated NOT
      */
     @Override
     public void process ( final Configuration cfg, final Project project )
     {
-        Application.process ( project, this );
+        Application.process ( cfg, project, this );
     }
 
     /**
@@ -197,8 +155,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
                 return getNetworkFile ();
             case NetworkPackage.NETWORK_MODULE__PREFIX:
                 return getPrefix ();
-            case NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE:
-                return getOverrideGeneratedFile ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -217,9 +173,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
                 return;
             case NetworkPackage.NETWORK_MODULE__PREFIX:
                 setPrefix ( (String)newValue );
-                return;
-            case NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE:
-                setOverrideGeneratedFile ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -240,9 +193,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
             case NetworkPackage.NETWORK_MODULE__PREFIX:
                 setPrefix ( PREFIX_EDEFAULT );
                 return;
-            case NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE:
-                setOverrideGeneratedFile ( OVERRIDE_GENERATED_FILE_EDEFAULT );
-                return;
         }
         super.eUnset ( featureID );
     }
@@ -260,8 +210,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
                 return NETWORK_FILE_EDEFAULT == null ? networkFile != null : !NETWORK_FILE_EDEFAULT.equals ( networkFile );
             case NetworkPackage.NETWORK_MODULE__PREFIX:
                 return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
-            case NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE:
-                return OVERRIDE_GENERATED_FILE_EDEFAULT == null ? overrideGeneratedFile != null : !OVERRIDE_GENERATED_FILE_EDEFAULT.equals ( overrideGeneratedFile );
         }
         return super.eIsSet ( featureID );
     }
@@ -281,8 +229,6 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
         result.append ( networkFile );
         result.append ( ", prefix: " );
         result.append ( prefix );
-        result.append ( ", overrideGeneratedFile: " );
-        result.append ( overrideGeneratedFile );
         result.append ( ')' );
         return result.toString ();
     }

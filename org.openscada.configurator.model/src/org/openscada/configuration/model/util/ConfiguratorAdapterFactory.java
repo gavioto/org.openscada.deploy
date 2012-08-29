@@ -8,12 +8,11 @@ package org.openscada.configuration.model.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.openscada.configuration.model.*;
+import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.Project;
 
 /**
  * <!-- begin-user-doc -->

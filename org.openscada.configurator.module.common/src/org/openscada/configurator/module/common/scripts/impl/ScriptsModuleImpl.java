@@ -21,17 +21,17 @@ import org.openscada.configurator.module.common.scripts.handler.ScriptLoader;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configurator.module.common.scripts.impl.ScriptsModuleImpl#getScriptsFile <em>Scripts File</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.scripts.impl.ScriptsModuleImpl#getScriptsFile <em>Scripts File</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 {
     /**
-     * The default value of the '{@link #getScriptsFile() <em>Scripts File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getScriptsFile() <em>Scripts File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getScriptsFile()
      * @generated
      * @ordered
@@ -39,8 +39,8 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
     protected static final String SCRIPTS_FILE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getScriptsFile() <em>Scripts File</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getScriptsFile() <em>Scripts File</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getScriptsFile()
      * @generated
      * @ordered
@@ -49,7 +49,6 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ScriptsModuleImpl ()
@@ -59,7 +58,6 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -70,29 +68,25 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getScriptsFile ()
     {
-        return this.scriptsFile;
+        return scriptsFile;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setScriptsFile ( final String newScriptsFile )
+    public void setScriptsFile ( String newScriptsFile )
     {
-        final String oldScriptsFile = this.scriptsFile;
-        this.scriptsFile = newScriptsFile;
+        String oldScriptsFile = scriptsFile;
+        scriptsFile = newScriptsFile;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ScriptsPackage.SCRIPTS_MODULE__SCRIPTS_FILE, oldScriptsFile, this.scriptsFile ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ScriptsPackage.SCRIPTS_MODULE__SCRIPTS_FILE, oldScriptsFile, scriptsFile ) );
     }
 
     /**
@@ -108,11 +102,10 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -124,11 +117,10 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -141,11 +133,10 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -158,36 +149,32 @@ public class ScriptsModuleImpl extends EObjectImpl implements ScriptsModule
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ScriptsPackage.SCRIPTS_MODULE__SCRIPTS_FILE:
-                return SCRIPTS_FILE_EDEFAULT == null ? this.scriptsFile != null : !SCRIPTS_FILE_EDEFAULT.equals ( this.scriptsFile );
+                return SCRIPTS_FILE_EDEFAULT == null ? scriptsFile != null : !SCRIPTS_FILE_EDEFAULT.equals ( scriptsFile );
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (scriptsFile: " );
-        result.append ( this.scriptsFile );
+        result.append ( scriptsFile );
         result.append ( ')' );
         return result.toString ();
     }

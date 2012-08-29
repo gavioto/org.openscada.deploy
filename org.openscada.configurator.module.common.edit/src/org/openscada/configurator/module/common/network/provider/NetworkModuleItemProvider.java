@@ -57,7 +57,6 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
 
             addNetworkFilePropertyDescriptor ( object );
             addPrefixPropertyDescriptor ( object );
-            addOverrideGeneratedFilePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -80,16 +79,6 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
     protected void addPrefixPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NetworkModule_prefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_NetworkModule_prefix_feature", "_UI_NetworkModule_type" ), NetworkPackage.Literals.NETWORK_MODULE__PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Override Generated File feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addOverrideGeneratedFilePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NetworkModule_overrideGeneratedFile_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_NetworkModule_overrideGeneratedFile_feature", "_UI_NetworkModule_type" ), NetworkPackage.Literals.NETWORK_MODULE__OVERRIDE_GENERATED_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -130,7 +119,6 @@ public class NetworkModuleItemProvider extends ItemProviderAdapter implements IE
         {
             case NetworkPackage.NETWORK_MODULE__NETWORK_FILE:
             case NetworkPackage.NETWORK_MODULE__PREFIX:
-            case NetworkPackage.NETWORK_MODULE__OVERRIDE_GENERATED_FILE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

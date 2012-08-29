@@ -11,9 +11,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.configurator.module.common.processing.ImportListModule;
 import org.openscada.configurator.module.common.processing.ImportModule;
+import org.openscada.configurator.module.common.processing.OverrideListModule;
 import org.openscada.configurator.module.common.processing.ProcessingFactory;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
+import org.openscada.configurator.module.common.processing.RemoveInactive;
+import org.openscada.configurator.module.common.processing.ScriptOverrides;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +73,14 @@ public class ProcessingFactoryImpl extends EFactoryImpl implements ProcessingFac
         {
             case ProcessingPackage.IMPORT_MODULE:
                 return createImportModule ();
+            case ProcessingPackage.OVERRIDE_LIST_MODULE:
+                return createOverrideListModule ();
+            case ProcessingPackage.IMPORT_LIST_MODULE:
+                return createImportListModule ();
+            case ProcessingPackage.SCRIPT_OVERRIDES:
+                return createScriptOverrides ();
+            case ProcessingPackage.REMOVE_INACTIVE:
+                return createRemoveInactive ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -83,6 +95,50 @@ public class ProcessingFactoryImpl extends EFactoryImpl implements ProcessingFac
     {
         ImportModuleImpl importModule = new ImportModuleImpl ();
         return importModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public OverrideListModule createOverrideListModule ()
+    {
+        OverrideListModuleImpl overrideListModule = new OverrideListModuleImpl ();
+        return overrideListModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ImportListModule createImportListModule ()
+    {
+        ImportListModuleImpl importListModule = new ImportListModuleImpl ();
+        return importListModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScriptOverrides createScriptOverrides ()
+    {
+        ScriptOverridesImpl scriptOverrides = new ScriptOverridesImpl ();
+        return scriptOverrides;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RemoveInactive createRemoveInactive ()
+    {
+        RemoveInactiveImpl removeInactive = new RemoveInactiveImpl ();
+        return removeInactive;
     }
 
     /**

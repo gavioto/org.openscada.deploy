@@ -8,12 +8,14 @@
   <foreignModel>modules.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="org.openscada.configurator.module" disposableProviderFactory="true"
       extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="modules.ecore#/">
+    <genClasses ecoreClass="modules.ecore#//FileModule">
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute modules.ecore#//FileModule/path"/>
+    </genClasses>
     <nestedGenPackages prefix="Network" disposableProviderFactory="true" extensibleProviderFactory="true"
         childCreationExtenders="true" ecorePackage="modules.ecore#//network">
       <genClasses ecoreClass="modules.ecore#//network/NetworkModule">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//network/NetworkModule/networkFile"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//network/NetworkModule/prefix"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//network/NetworkModule/overrideGeneratedFile"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Scripts" disposableProviderFactory="true" extensibleProviderFactory="true"
@@ -27,8 +29,25 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Processing" disposableProviderFactory="true" extensibleProviderFactory="true"
         childCreationExtenders="true" ecorePackage="modules.ecore#//processing">
-      <genClasses ecoreClass="modules.ecore#//processing/ImportModule">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//processing/ImportModule/path"/>
+      <genClasses ecoreClass="modules.ecore#//processing/ImportModule"/>
+      <genClasses ecoreClass="modules.ecore#//processing/OverrideListModule"/>
+      <genClasses ecoreClass="modules.ecore#//processing/ImportListModule"/>
+      <genClasses ecoreClass="modules.ecore#//processing/ScriptOverrides"/>
+      <genClasses ecoreClass="modules.ecore#//processing/RemoveInactive"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Summary" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="modules.ecore#//summary">
+      <genClasses ecoreClass="modules.ecore#//summary/SummaryFileLoader">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/SummaryFileLoader/requiredItems"/>
+      </genClasses>
+      <genClasses ecoreClass="modules.ecore#//summary/GenerateSummaries">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/GenerateSummaries/requiredItems"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Main" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="modules.ecore#//main">
+      <genClasses ecoreClass="modules.ecore#//main/MainLoader">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//main/MainLoader/file"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

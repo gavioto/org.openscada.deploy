@@ -7,15 +7,24 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.openscada.configurator.module.common.network,
- org.openscada.configurator.module.common.network.impl,
- org.openscada.configurator.module.common.network.util,
- org.openscada.configurator.module.common.processing,
- org.openscada.configurator.module.common.processing.impl,
- org.openscada.configurator.module.common.processing.util,
- org.openscada.configurator.module.common.scripts,
- org.openscada.configurator.module.common.scripts.impl,
- org.openscada.configurator.module.common.scripts.util
+Export-Package: org.openscada.configurator.module.common;version="1.0.0",
+ org.openscada.configurator.module.common.impl;version="1.0.0",
+ org.openscada.configurator.module.common.main;version="1.0.0",
+ org.openscada.configurator.module.common.main.impl;version="1.0.0",
+ org.openscada.configurator.module.common.main.util;version="1.0.0",
+ org.openscada.configurator.module.common.network;version="1.0.0",
+ org.openscada.configurator.module.common.network.impl;version="1.0.0",
+ org.openscada.configurator.module.common.network.util;version="1.0.0",
+ org.openscada.configurator.module.common.processing;version="1.0.0",
+ org.openscada.configurator.module.common.processing.impl;version="1.0.0",
+ org.openscada.configurator.module.common.processing.util;version="1.0.0",
+ org.openscada.configurator.module.common.scripts;version="1.0.0",
+ org.openscada.configurator.module.common.scripts.impl;version="1.0.0",
+ org.openscada.configurator.module.common.scripts.util;version="1.0.0",
+ org.openscada.configurator.module.common.summary;version="1.0.0",
+ org.openscada.configurator.module.common.summary.impl;version="1.0.0",
+ org.openscada.configurator.module.common.summary.util;version="1.0.0",
+ org.openscada.configurator.module.common.util;version="1.0.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.openscada.configurator.model;visibility:=reexport,
@@ -24,4 +33,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.openscada.configurator;version="1.0.0",
- org.openscada.configurator.data;version="1.0.0"
+ org.openscada.configurator.data;version="1.0.0",
+ org.openscada.configurator.report;version="1.0.0",
+ org.openscada.utils.str;version="1.0.0"

@@ -8,10 +8,10 @@ package org.openscada.configuration.model.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.openscada.configuration.model.*;
+import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.Project;
 
 /**
  * <!-- begin-user-doc -->

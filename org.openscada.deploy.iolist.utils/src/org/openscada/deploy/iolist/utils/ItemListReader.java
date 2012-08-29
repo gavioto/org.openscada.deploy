@@ -55,7 +55,10 @@ public class ItemListReader
 
     private void setup ( final int maxLevels )
     {
+        // HIVE and CONNECTION are the same. We simply read HIVE for legacy purposes
         this.readers.put ( "CONNECTION", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__DEVICE ) );
+        this.readers.put ( "HIVE", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__DEVICE ) );
+
         this.readers.put ( "SOURCE_NAME", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__NAME ) );
 
         this.readers.put ( "DATA_TYPE", new TextColumnReader () {

@@ -33,7 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.util.ConfiguratorSwitch;
-import org.openscada.configurator.module.common.network.provider.ModulesEditPlugin;
+import org.openscada.configurator.module.common.provider.ModulesEditPlugin;
 import org.openscada.configurator.module.common.scripts.ScriptsFactory;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 import org.openscada.configurator.module.common.scripts.util.ScriptsAdapterFactory;

@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configurator.module.common.CommonPackage;
+import org.openscada.configurator.module.common.impl.CommonPackageImpl;
+import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
@@ -19,6 +23,8 @@ import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsFactory;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
+import org.openscada.configurator.module.common.summary.SummaryPackage;
+import org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,18 +101,27 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
         ConfiguratorPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
+        CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) : CommonPackage.eINSTANCE );
         NetworkPackageImpl theNetworkPackage = (NetworkPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) instanceof NetworkPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) : NetworkPackage.eINSTANCE );
         ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
+        SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
+        MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
 
         // Create package meta-data objects
         theScriptsPackage.createPackageContents ();
+        theCommonPackage.createPackageContents ();
         theNetworkPackage.createPackageContents ();
         theProcessingPackage.createPackageContents ();
+        theSummaryPackage.createPackageContents ();
+        theMainPackage.createPackageContents ();
 
         // Initialize created meta-data
         theScriptsPackage.initializePackageContents ();
+        theCommonPackage.initializePackageContents ();
         theNetworkPackage.initializePackageContents ();
         theProcessingPackage.initializePackageContents ();
+        theSummaryPackage.initializePackageContents ();
+        theMainPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theScriptsPackage.freeze ();
@@ -236,9 +251,6 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         initEClass ( legacyFormulaModuleEClass, LegacyFormulaModule.class, "LegacyFormulaModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getLegacyFormulaModule_FormulaFile (), ecorePackage.getEString (), "formulaFile", null, 1, 1, LegacyFormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        // Create resource
-        createResource ( eNS_URI );
     }
 
 } //ScriptsPackageImpl

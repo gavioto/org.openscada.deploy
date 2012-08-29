@@ -6,18 +6,27 @@
  */
 package org.openscada.configurator.module.common.processing.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configurator.module.common.CommonPackage;
+import org.openscada.configurator.module.common.impl.CommonPackageImpl;
+import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
+import org.openscada.configurator.module.common.processing.ImportListModule;
 import org.openscada.configurator.module.common.processing.ImportModule;
+import org.openscada.configurator.module.common.processing.OverrideListModule;
 import org.openscada.configurator.module.common.processing.ProcessingFactory;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
+import org.openscada.configurator.module.common.processing.RemoveInactive;
+import org.openscada.configurator.module.common.processing.ScriptOverrides;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 import org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl;
+import org.openscada.configurator.module.common.summary.SummaryPackage;
+import org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +42,34 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
      * @generated
      */
     private EClass importModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass overrideListModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass importListModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass scriptOverridesEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass removeInactiveEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -87,18 +124,27 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
         ConfiguratorPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
+        CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) : CommonPackage.eINSTANCE );
         NetworkPackageImpl theNetworkPackage = (NetworkPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) instanceof NetworkPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) : NetworkPackage.eINSTANCE );
         ScriptsPackageImpl theScriptsPackage = (ScriptsPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) instanceof ScriptsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) : ScriptsPackage.eINSTANCE );
+        SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
+        MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
 
         // Create package meta-data objects
         theProcessingPackage.createPackageContents ();
+        theCommonPackage.createPackageContents ();
         theNetworkPackage.createPackageContents ();
         theScriptsPackage.createPackageContents ();
+        theSummaryPackage.createPackageContents ();
+        theMainPackage.createPackageContents ();
 
         // Initialize created meta-data
         theProcessingPackage.initializePackageContents ();
+        theCommonPackage.initializePackageContents ();
         theNetworkPackage.initializePackageContents ();
         theScriptsPackage.initializePackageContents ();
+        theSummaryPackage.initializePackageContents ();
+        theMainPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theProcessingPackage.freeze ();
@@ -123,9 +169,39 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getImportModule_Path ()
+    public EClass getOverrideListModule ()
     {
-        return (EAttribute)importModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return overrideListModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getImportListModule ()
+    {
+        return importListModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getScriptOverrides ()
+    {
+        return scriptOverridesEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getRemoveInactive ()
+    {
+        return removeInactiveEClass;
     }
 
     /**
@@ -160,7 +236,14 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
 
         // Create classes and their features
         importModuleEClass = createEClass ( IMPORT_MODULE );
-        createEAttribute ( importModuleEClass, IMPORT_MODULE__PATH );
+
+        overrideListModuleEClass = createEClass ( OVERRIDE_LIST_MODULE );
+
+        importListModuleEClass = createEClass ( IMPORT_LIST_MODULE );
+
+        scriptOverridesEClass = createEClass ( SCRIPT_OVERRIDES );
+
+        removeInactiveEClass = createEClass ( REMOVE_INACTIVE );
     }
 
     /**
@@ -190,6 +273,7 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
 
         // Obtain other dependent packages
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
 
         // Create type parameters
 
@@ -197,13 +281,22 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
 
         // Add supertypes to classes
         importModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        importModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
+        overrideListModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
+        importListModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
+        scriptOverridesEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
+        removeInactiveEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( importModuleEClass, ImportModule.class, "ImportModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getImportModule_Path (), ecorePackage.getEString (), "path", null, 1, 1, ImportModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        // Create resource
-        createResource ( eNS_URI );
+        initEClass ( overrideListModuleEClass, OverrideListModule.class, "OverrideListModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( importListModuleEClass, ImportListModule.class, "ImportListModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( scriptOverridesEClass, ScriptOverrides.class, "ScriptOverrides", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( removeInactiveEClass, RemoveInactive.class, "RemoveInactive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
     }
 
 } //ProcessingPackageImpl

@@ -16,19 +16,18 @@ public class LevelColumnReader extends TextColumnReader
     @Override
     public void setValue ( final Item item, final String value )
     {
+        if ( value == null || value.isEmpty () )
+        {
+            return;
+        }
+
         final EList<String> h = item.getHierarchy ();
 
-        while ( h.size () < this.levelIndex )
+        while ( h.size () <= this.levelIndex )
         {
             h.add ( null );
         }
-        if ( h.size () == this.levelIndex )
-        {
-            h.add ( value );
-        }
-        else
-        {
-            h.set ( this.levelIndex, value );
-        }
+
+        h.set ( this.levelIndex, value );
     }
 }

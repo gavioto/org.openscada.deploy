@@ -22,8 +22,8 @@ public abstract class AbstractColumn implements ColumnWriter
     {
         final OdfTableCell cell = table.getCellByPosition ( colIndex, 0 );
 
-        cell.getTableRow ().getOdfElement ().setStyleName ( "Default" );
-        cell.getTableColumn ().getOdfElement ().setStyleName ( "Default" );
+        // cell.getTableRow ().getOdfElement ().setStyleName ( "Default" );
+        // cell.getTableColumn ().getOdfElement ().setStyleName ( "Default" );
 
         cell.setValueType ( OfficeValueTypeAttribute.Value.STRING.toString () );
         cell.setStringValue ( this.name );

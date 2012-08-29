@@ -89,22 +89,13 @@ public interface NetworkPackage extends EPackage
     int NETWORK_MODULE__PREFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Override Generated File</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NETWORK_MODULE__OVERRIDE_GENERATED_FILE = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
-
-    /**
      * The number of structural features of the '<em>Module</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NETWORK_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 3;
+    int NETWORK_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.network.NetworkModule <em>Module</em>}'.
@@ -137,17 +128,6 @@ public interface NetworkPackage extends EPackage
      * @generated
      */
     EAttribute getNetworkModule_Prefix ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.network.NetworkModule#getOverrideGeneratedFile <em>Override Generated File</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Override Generated File</em>'.
-     * @see org.openscada.configurator.module.common.network.NetworkModule#getOverrideGeneratedFile()
-     * @see #getNetworkModule()
-     * @generated
-     */
-    EAttribute getNetworkModule_OverrideGeneratedFile ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -197,14 +177,6 @@ public interface NetworkPackage extends EPackage
          * @generated
          */
         EAttribute NETWORK_MODULE__PREFIX = eINSTANCE.getNetworkModule_Prefix ();
-
-        /**
-         * The meta object literal for the '<em><b>Override Generated File</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute NETWORK_MODULE__OVERRIDE_GENERATED_FILE = eINSTANCE.getNetworkModule_OverrideGeneratedFile ();
 
     }
 

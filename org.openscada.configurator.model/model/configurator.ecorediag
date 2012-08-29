@@ -3,10 +3,6 @@
   <children xmi:type="notation:Node" xmi:id="_78ry8KV0EeGWlc34FjPxxg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_7884sKV0EeGWlc34FjPxxg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_78-G0KV0EeGWlc34FjPxxg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_expAAOeqEeGGKrxCjAQP1Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/mainConfiguration"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_expAAeeqEeGGKrxCjAQP1Q"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_SiaCoKV1EeGWlc34FjPxxg" type="2001">
         <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/jsonBase"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_SiaCoaV1EeGWlc34FjPxxg"/>
@@ -14,22 +10,6 @@
       <children xmi:type="notation:Node" xmi:id="_AExU8eeoEeGGKrxCjAQP1Q" type="2001">
         <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/outputBase"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_AExU8ueoEeGGKrxCjAQP1Q"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_2dzIwOepEeGGKrxCjAQP1Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/scriptOverrideDirectory"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_2dzIweepEeGGKrxCjAQP1Q"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_xeHGMOeqEeGGKrxCjAQP1Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/legacyBaseDirectory"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_xeHGMeeqEeGGKrxCjAQP1Q"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_CfcOUOetEeGGKrxCjAQP1Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/ioListFile"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_CfcOUeetEeGGKrxCjAQP1Q"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_FCAt8OhLEeGGKrxCjAQP1Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configurator.ecore#//Project/generatedDirectory"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_FCAt8ehLEeGGKrxCjAQP1Q"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_78-G0aV0EeGWlc34FjPxxg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_78-G0qV0EeGWlc34FjPxxg"/>

@@ -18,7 +18,6 @@ import org.openscada.configurator.Configuration;
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.utils.SpreadSheetPoiHelper;
 
 public class LegacyForumalsLoader
 {
@@ -31,8 +30,6 @@ public class LegacyForumalsLoader
 
             final File inputFile = new File ( FileLocator.toFileURL ( new URL ( module.getFormulaFile () ) ).getFile () );
             final File scriptBase = inputFile.getParentFile ();
-
-            final File outputFile = new File ( new File ( FileLocator.toFileURL ( new URL ( project.getGeneratedDirectory () ) ).getFile () ), "IOList-generated-legacy-formulas.xls" );
 
             final LineNumberReader reader = new LineNumberReader ( new FileReader ( inputFile ) );
             try
@@ -82,9 +79,7 @@ public class LegacyForumalsLoader
                 reader.close ();
             }
 
-            SpreadSheetPoiHelper.writeSpreadsheet ( outputFile, items );
-
-            project.getIoListFile ().add ( outputFile.toURI ().toString () );
+            cfg.addItems ( items );
         }
         catch ( final Exception e )
         {
