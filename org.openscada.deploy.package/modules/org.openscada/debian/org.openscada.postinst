@@ -17,7 +17,7 @@ case "$1" in
 	fi
 
 # ...finally, ensure "/var/lib/$OS_USER" has the right permissions
-        chown -R openscada:openscada "/var/lib/$OS_USER"
+        chown -R $OS_USER:$OS_USER "/var/lib/$OS_USER"
 
 
         ;;
