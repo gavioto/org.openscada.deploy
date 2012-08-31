@@ -19,6 +19,7 @@
 	<start>org.openscada.da.datasource.item</start>
 	<start>org.openscada.da.datasource.sum</start>
 	<start>org.openscada.da.datasource.ds</start>
+	<start>org.openscada.da.datasource.constant</start>
 	<start>org.openscada.da.datasource.average</start>
 	<start>org.openscada.da.datasource.movingaverage</start>
 	<start>org.openscada.ca.servlet.jaxws</start>

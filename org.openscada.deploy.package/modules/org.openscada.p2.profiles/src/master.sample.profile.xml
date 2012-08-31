@@ -8,9 +8,9 @@
 	<!-- starting with dummy sec provider -->
 	<start>org.openscada.sec.provider.dummy</start>
 	
-	<property key="org.openscada.ds.storage.jdbc.instance">master.custom</property>
-	<property key="org.openscada.ca.jdbc.instance">master.custom</property>
-	<property key="org.openscada.ae.server.storage.jdbc.instance">master.custom</property>
+	<property key="org.openscada.ds.storage.jdbc.instance">master.sample</property>
+	<property key="org.openscada.ca.jdbc.instance">master.sample</property>
+	<property key="org.openscada.ae.server.storage.jdbc.instance">master.sample</property>
 	
 	<profile name="postgres.localhost" default="true" parent="postgres">
 		<property key="org.openscada.jdbc.properties.serverName">localhost</property>
