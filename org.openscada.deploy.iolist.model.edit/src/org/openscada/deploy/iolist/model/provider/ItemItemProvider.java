@@ -96,8 +96,6 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             addSimulationValuePropertyDescriptor ( object );
             addRoundingAvailablePropertyDescriptor ( object );
             addRoundingValuePropertyDescriptor ( object );
-            addLocalMinPropertyDescriptor ( object );
-            addLocalMaxPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -463,28 +461,6 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     protected void addRoundingValuePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_roundingValue_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_roundingValue_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ROUNDING_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Local Min feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addLocalMinPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localMin_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localMin_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MIN, true, false, false, null, getString ( "_UI_localMonitoringPropertyCategory" ), null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Local Max feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addLocalMaxPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localMax_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localMax_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MAX, true, false, false, null, getString ( "_UI_localMonitoringPropertyCategory" ), null ) );
     }
 
     /**

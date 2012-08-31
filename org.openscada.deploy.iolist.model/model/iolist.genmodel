@@ -72,8 +72,10 @@
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localLow"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localLowLow"/>
-      <genFeatures createChild="false" propertyCategory="localMonitoring" ecoreFeature="ecore:EReference iolist.ecore#//Item/localMin"/>
-      <genFeatures createChild="false" propertyCategory="localMonitoring" ecoreFeature="ecore:EReference iolist.ecore#//Item/localMax"/>
+      <genFeatures property="None" createChild="false" propertyCategory="localMonitoring"
+          ecoreFeature="ecore:EReference iolist.ecore#//Item/localMin"/>
+      <genFeatures property="None" createChild="false" propertyCategory="localMonitoring"
+          ecoreFeature="ecore:EReference iolist.ecore#//Item/localMax"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localListMonitor"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
