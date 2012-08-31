@@ -55,7 +55,7 @@
       <genFeatures createChild="false" propertyCategory="processing" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleAvailable"/>
       <genFeatures createChild="false" propertyCategory="processing" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleFactor"/>
       <genFeatures createChild="false" propertyCategory="processing" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/localScaleOffset"/>
-      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/debugInformation"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/debugInformation"/>
       <genFeatures createChild="false" propertyCategory="processing" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/ignoreSummary"/>
       <genFeatures createChild="false" propertyCategory="processing" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/block"/>
       <genFeatures createChild="false" propertyCategory="processing" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/enabled"/>

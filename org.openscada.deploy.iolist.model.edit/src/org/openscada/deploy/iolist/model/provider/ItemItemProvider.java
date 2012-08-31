@@ -383,7 +383,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addDebugInformationPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_debugInformation_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_debugInformation_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEBUG_INFORMATION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_debugInformation_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_debugInformation_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEBUG_INFORMATION, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
