@@ -110,7 +110,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addDevicePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_device_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_device_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEVICE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_device_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_device_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEVICE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), null ) );
     }
 
     /**
@@ -121,7 +121,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_name_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_name_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_name_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_name_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), null ) );
     }
 
     /**
@@ -132,7 +132,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addDataTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_dataType_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_dataType_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_dataType_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_dataType_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), null ) );
     }
 
     /**
@@ -143,7 +143,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addUnitPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_unit_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_unit_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__UNIT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_unit_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_unit_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__UNIT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_infoPropertyCategory" ), null ) );
     }
 
     /**
@@ -154,7 +154,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addAliasPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_alias_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_alias_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ALIAS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_alias_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_alias_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ALIAS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), null ) );
     }
 
     /**
@@ -165,7 +165,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_description_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_description_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_description_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_description_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), null ) );
     }
 
     /**
@@ -176,7 +176,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addDefaultChainPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_defaultChain_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_defaultChain_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEFAULT_CHAIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_defaultChain_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_defaultChain_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEFAULT_CHAIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -187,7 +187,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addEventCommandPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_eventCommand_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_eventCommand_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__EVENT_COMMAND, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_eventCommand_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_eventCommand_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__EVENT_COMMAND, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -198,7 +198,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addLocalManualPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localManual_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localManual_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MANUAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localManual_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localManual_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MANUAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -209,7 +209,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteManualPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteManual_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteManual_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_MANUAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteManual_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteManual_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_MANUAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -220,7 +220,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addSystemPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_system_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_system_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__SYSTEM, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_system_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_system_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__SYSTEM, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_infoPropertyCategory" ), null ) );
     }
 
     /**
@@ -231,7 +231,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addHierarchyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_hierarchy_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_hierarchy_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__HIERARCHY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_hierarchy_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_hierarchy_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__HIERARCHY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_infoPropertyCategory" ), null ) );
     }
 
     /**
@@ -242,7 +242,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteMinPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteMin_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteMin_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_MIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteMin_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteMin_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_MIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -253,7 +253,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteMaxPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteMax_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteMax_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_MAX, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteMax_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteMax_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_MAX, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -264,7 +264,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteHighHighPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteHighHigh_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteHighHigh_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_HIGH_HIGH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteHighHigh_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteHighHigh_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_HIGH_HIGH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -275,7 +275,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteHighPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteHigh_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteHigh_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_HIGH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteHigh_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteHigh_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_HIGH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -286,7 +286,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteLowPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteLow_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteLow_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_LOW, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteLow_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteLow_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_LOW, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -297,7 +297,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteLowLowPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteLowLow_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteLowLow_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_LOW_LOW, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteLowLow_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteLowLow_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_LOW_LOW, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -308,7 +308,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteBoolPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteBool_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteBool_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_BOOL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteBool_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteBool_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_BOOL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -319,7 +319,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRemoteBoolAckValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteBoolAckValue_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteBoolAckValue_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_BOOL_ACK_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_remoteBoolAckValue_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_remoteBoolAckValue_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__REMOTE_BOOL_ACK_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_remoteMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -330,7 +330,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addInputPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_input_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_input_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__INPUT, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_input_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_input_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__INPUT, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_infoPropertyCategory" ), null ) );
     }
 
     /**
@@ -341,7 +341,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addOutputPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_output_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_output_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__OUTPUT, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_output_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_output_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__OUTPUT, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_infoPropertyCategory" ), null ) );
     }
 
     /**
@@ -352,7 +352,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addLocalScaleAvailablePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localScaleAvailable_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localScaleAvailable_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_SCALE_AVAILABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localScaleAvailable_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localScaleAvailable_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_SCALE_AVAILABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -363,7 +363,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addLocalScaleFactorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localScaleFactor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localScaleFactor_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_SCALE_FACTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localScaleFactor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localScaleFactor_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_SCALE_FACTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -374,7 +374,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addLocalScaleOffsetPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localScaleOffset_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localScaleOffset_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_SCALE_OFFSET, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localScaleOffset_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localScaleOffset_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_SCALE_OFFSET, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -396,7 +396,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addIgnoreSummaryPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_ignoreSummary_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_ignoreSummary_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__IGNORE_SUMMARY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_ignoreSummary_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_ignoreSummary_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__IGNORE_SUMMARY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -407,7 +407,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addBlockPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_block_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_block_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__BLOCK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_block_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_block_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__BLOCK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -418,7 +418,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addEnabledPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_enabled_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_enabled_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ENABLED, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_enabled_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_enabled_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ENABLED, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -451,7 +451,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRoundingAvailablePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_roundingAvailable_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_roundingAvailable_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ROUNDING_AVAILABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_roundingAvailable_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_roundingAvailable_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ROUNDING_AVAILABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -462,7 +462,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addRoundingValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_roundingValue_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_roundingValue_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ROUNDING_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_roundingValue_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_roundingValue_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ROUNDING_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
     }
 
     /**
@@ -473,7 +473,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addLocalMinPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localMin_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localMin_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MIN, true, false, false, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localMin_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localMin_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MIN, true, false, false, null, getString ( "_UI_localMonitoringPropertyCategory" ), null ) );
     }
 
     /**
@@ -484,7 +484,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addLocalMaxPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localMax_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localMax_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MAX, true, false, false, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localMax_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localMax_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MAX, true, false, false, null, getString ( "_UI_localMonitoringPropertyCategory" ), null ) );
     }
 
     /**
