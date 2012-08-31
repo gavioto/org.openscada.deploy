@@ -105,7 +105,7 @@ public interface Item extends EObject
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Name()
-     * @model required="true"
+     * @model unique="false"
      * @generated
      */
     String getName ();

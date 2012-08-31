@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.emf.ecore.EClass;
 import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
 import org.odftoolkit.odfdom.doc.table.OdfTable;
 import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
@@ -65,7 +66,6 @@ public class ItemListReader
     private void setup ( final int maxLevels )
     {
         // HIVE and CONNECTION are the same. We simply read HIVE for legacy purposes
-        this.readers.put ( "TYPE", new TypeColumnReader () );
         this.readers.put ( "CONNECTION", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__DEVICE ) );
         this.readers.put ( "HIVE", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__DEVICE ) );
 
@@ -283,7 +283,10 @@ public class ItemListReader
 
     private void handleRow ( final String sourceName, final int rowIndex, final Map<String, Cell> row )
     {
-        final Item item = ModelFactory.eINSTANCE.createItem ();
+
+        final EClass itemClass = makeItemClass ( row.get ( "TYPE" ) );
+
+        final Item item = (Item)ModelFactory.eINSTANCE.create ( itemClass );
 
         item.setDebugInformation ( String.format ( "%s@%s", sourceName, rowIndex ) );
 
@@ -300,6 +303,27 @@ public class ItemListReader
         {
             this.items.add ( item );
         }
+    }
+
+    private EClass makeItemClass ( final Cell cell )
+    {
+        if ( cell == null )
+        {
+            return ModelPackage.Literals.ITEM;
+        }
+        final String type = cell.getText ();
+        if ( type == null || type.isEmpty () )
+        {
+            return ModelPackage.Literals.ITEM;
+        }
+
+        final EClass itemClass = (EClass)ModelPackage.eINSTANCE.getEClassifier ( type );
+        if ( itemClass != null )
+        {
+            return itemClass;
+        }
+
+        throw new IllegalArgumentException ( String.format ( "Item type '%s' is unknown", type ) );
     }
 
     private Map<Integer, String> makeHeader ( final Map<Integer, Cell> headerRow )

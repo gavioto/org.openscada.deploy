@@ -191,7 +191,7 @@ public class ScriptItemItemProvider extends ItemItemProvider implements IEditing
     @Override
     public String getText ( Object object )
     {
-        String label = ( (ScriptItem)object ).getName ();
+        String label = ( (ScriptItem)object ).getAlias ();
         return label == null || label.length () == 0 ? getString ( "_UI_ScriptItem_type" ) : getString ( "_UI_ScriptItem_type" ) + " " + label;
     }
 

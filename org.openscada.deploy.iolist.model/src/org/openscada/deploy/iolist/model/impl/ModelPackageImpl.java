@@ -16,6 +16,7 @@ import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.AverageReferenceType;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
+import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
@@ -153,6 +154,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EClass averageItemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass constantItemEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1273,6 +1281,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getConstantItem ()
+    {
+        return constantItemEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getDataType ()
     {
         return dataTypeEEnum;
@@ -1448,6 +1466,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEReference ( averageItemEClass, AVERAGE_ITEM__AVERAGE );
         createEAttribute ( averageItemEClass, AVERAGE_ITEM__TYPE );
 
+        constantItemEClass = createEClass ( CONSTANT_ITEM );
+
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
         roundingEEnum = createEEnum ( ROUNDING );
@@ -1490,11 +1510,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         listMonitorEClass.getESuperTypes ().add ( this.getMonitor () );
         booleanMonitorEClass.getESuperTypes ().add ( this.getMonitor () );
         averageItemEClass.getESuperTypes ().add ( this.getItem () );
+        constantItemEClass.getESuperTypes ().add ( this.getItem () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getItem_Device (), ecorePackage.getEString (), "device", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getItem_Name (), ecorePackage.getEString (), "name", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getItem_Name (), ecorePackage.getEString (), "name", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_DataType (), this.getDataType (), "dataType", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_Unit (), ecorePackage.getEString (), "unit", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_Alias (), ecorePackage.getEString (), "alias", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1611,6 +1632,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEReference ( getAverageItem_Average (), this.getAverage (), null, "average", null, 1, 1, AverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         getAverageItem_Average ().getEKeys ().add ( this.getAverage_Id () );
         initEAttribute ( getAverageItem_Type (), this.getAverageReferenceType (), "type", "MEAN", 0, 1, AverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( constantItemEClass, ConstantItem.class, "ConstantItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" );

@@ -6,7 +6,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//DataType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -204,4 +204,5 @@
     <eLiterals name="MEDIAN" value="3" literal="median"/>
     <eLiterals name="DEVIATION" value="4" literal="deviation"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantItem" eSuperTypes="#//Item"/>
 </ecore:EPackage>

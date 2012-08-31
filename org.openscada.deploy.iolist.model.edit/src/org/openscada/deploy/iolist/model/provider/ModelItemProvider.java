@@ -165,6 +165,8 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createAverageItem () ) );
 
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createConstantItem () ) );
+
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__AVERAGES, ModelFactory.eINSTANCE.createAverage () ) );
     }
 

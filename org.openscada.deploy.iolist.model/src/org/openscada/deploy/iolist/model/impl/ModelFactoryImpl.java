@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.deploy.iolist.model.*;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.AverageReferenceType;
@@ -115,6 +116,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
                 return createAverage ();
             case ModelPackage.AVERAGE_ITEM:
                 return createAverageItem ();
+            case ModelPackage.CONSTANT_ITEM:
+                return createConstantItem ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -325,6 +328,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         AverageItemImpl averageItem = new AverageItemImpl ();
         return averageItem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ConstantItem createConstantItem ()
+    {
+        ConstantItemImpl constantItem = new ConstantItemImpl ();
+        return constantItem;
     }
 
     /**

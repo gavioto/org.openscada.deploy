@@ -60,6 +60,7 @@ import org.openscada.configurator.report.Source;
 import org.openscada.core.VariantType;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
@@ -344,6 +345,11 @@ public class Configuration extends GenericMasterConfiguration
                 final String averageId = ( (AverageItem)item ).getAverage ().getId ();
                 sourceId = averageId + "." + ( (AverageItem)item ).getType ().getLiteral (); //$NON-NLS-1$
             }
+            else if ( item instanceof ConstantItem )
+            {
+                sourceId = internalItemId + ".const"; //$NON-NLS-1$
+                addConstantSource ( sourceId, item.getName () );
+            }
             else if ( "ds".equalsIgnoreCase ( item.getDevice () ) ) //$NON-NLS-1$
             {
                 sourceId = item.getName () + ".ds"; //$NON-NLS-1$
@@ -447,6 +453,15 @@ public class Configuration extends GenericMasterConfiguration
         }
 
         validateConnections ( connections );
+    }
+
+    private void addConstantSource ( final String id, final String valueString )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "value", valueString );
+
+        addData ( "org.openscada.da.datasource.constant", id, data ); //$NON-NLS-1$
     }
 
     private static final boolean skipNewHierarchy = Boolean.getBoolean ( "skipNewHierarchy" );

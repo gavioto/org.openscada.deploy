@@ -17,29 +17,30 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.configurator.loop;
+package org.openscada.configurator.loop.handler;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.openscada.configurator.loop.handler.NoOpHandler;
+import org.openscada.configurator.loop.DataSourceDescriptor;
 
-public class AverageHandler extends NoOpHandler
+public class SimpleHandler extends NoOpHandler implements LoopHandler
 {
+    private final String type;
+
+    public SimpleHandler ( final String type )
+    {
+        this.type = type;
+    }
 
     @Override
     public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, String> parameters )
     {
-        final Set<DataSourceDescriptor> result = new HashSet<DataSourceDescriptor> ();
+        final DataSourceDescriptor desc = new DataSourceDescriptor ( this.type, configurationId );
 
-        result.add ( new DataSourceDescriptor ( "datasource", configurationId + ".min" ) );
-        result.add ( new DataSourceDescriptor ( "datasource", configurationId + ".max" ) );
-        result.add ( new DataSourceDescriptor ( "datasource", configurationId + ".mean" ) );
-        result.add ( new DataSourceDescriptor ( "datasource", configurationId + ".median" ) );
-        result.add ( new DataSourceDescriptor ( "datasource", configurationId + ".deviation" ) );
-
-        return result;
+        return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }
 
     @Override
@@ -47,4 +48,5 @@ public class AverageHandler extends NoOpHandler
     {
         return true;
     }
+
 }

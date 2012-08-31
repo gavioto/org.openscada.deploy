@@ -162,6 +162,15 @@ public interface ModelFactory extends EFactory
     AverageItem createAverageItem ();
 
     /**
+     * Returns a new object of class '<em>Constant Item</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Constant Item</em>'.
+     * @generated
+     */
+    ConstantItem createConstantItem ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

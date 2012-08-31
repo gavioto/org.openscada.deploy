@@ -191,7 +191,7 @@ public class FormulaItemItemProvider extends ItemItemProvider implements IEditin
     @Override
     public String getText ( Object object )
     {
-        String label = ( (FormulaItem)object ).getName ();
+        String label = ( (FormulaItem)object ).getAlias ();
         return label == null || label.length () == 0 ? getString ( "_UI_FormulaItem_type" ) : getString ( "_UI_FormulaItem_type" ) + " " + label;
     }
 

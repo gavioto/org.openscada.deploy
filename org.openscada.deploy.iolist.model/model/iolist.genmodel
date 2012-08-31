@@ -29,7 +29,7 @@
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//AverageReferenceType/MEDIAN"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//AverageReferenceType/DEVIATION"/>
     </genEnums>
-    <genClasses ecoreClass="iolist.ecore#//Item">
+    <genClasses ecoreClass="iolist.ecore#//Item" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" propertyCategory="base" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/device"/>
       <genFeatures createChild="false" propertyCategory="base" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/name"/>
       <genFeatures createChild="false" propertyCategory="base" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/dataType"/>
@@ -90,7 +90,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/dataSourceId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/type"/>
     </genClasses>
-    <genClasses ecoreClass="iolist.ecore#//FormulaItem">
+    <genClasses ecoreClass="iolist.ecore#//FormulaItem" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/inputFormula"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/outputFormula"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//FormulaItem/inputs"/>
@@ -113,7 +113,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/averages"/>
     </genClasses>
-    <genClasses ecoreClass="iolist.ecore#//ScriptItem">
+    <genClasses ecoreClass="iolist.ecore#//ScriptItem" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/scriptEngine"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//ScriptItem/inputs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/initScript"/>
@@ -149,13 +149,14 @@
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//Average">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/sources"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/sources"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Average/percentRequired"/>
     </genClasses>
-    <genClasses ecoreClass="iolist.ecore#//AverageItem">
+    <genClasses ecoreClass="iolist.ecore#//AverageItem" labelFeature="#//model/Item/alias">
       <genFeatures notify="false" createChild="false" propertyCategory="average" propertyDescription=""
           propertySortChoices="true" ecoreFeature="ecore:EReference iolist.ecore#//AverageItem/average"/>
       <genFeatures createChild="false" propertyCategory="average" ecoreFeature="ecore:EAttribute iolist.ecore#//AverageItem/type"/>
     </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//ConstantItem" labelFeature="#//model/Item/alias"/>
   </genPackages>
 </genmodel:GenModel>

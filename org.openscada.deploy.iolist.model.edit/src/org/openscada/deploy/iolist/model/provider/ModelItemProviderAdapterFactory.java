@@ -453,6 +453,31 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.ConstantItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ConstantItemItemProvider constantItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.ConstantItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createConstantItemAdapter ()
+    {
+        if ( constantItemItemProvider == null )
+        {
+            constantItemItemProvider = new ConstantItemItemProvider ( this );
+        }
+
+        return constantItemItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -593,6 +618,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
             averageItemProvider.dispose ();
         if ( averageItemItemProvider != null )
             averageItemItemProvider.dispose ();
+        if ( constantItemItemProvider != null )
+            constantItemItemProvider.dispose ();
     }
 
 }

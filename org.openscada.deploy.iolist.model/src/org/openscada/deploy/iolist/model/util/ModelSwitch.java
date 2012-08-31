@@ -9,6 +9,7 @@ package org.openscada.deploy.iolist.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.openscada.deploy.iolist.model.*;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
@@ -226,6 +227,16 @@ public class ModelSwitch<T> extends Switch<T>
                 T result = caseAverageItem ( averageItem );
                 if ( result == null )
                     result = caseItem ( averageItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.CONSTANT_ITEM:
+            {
+                ConstantItem constantItem = (ConstantItem)theEObject;
+                T result = caseConstantItem ( constantItem );
+                if ( result == null )
+                    result = caseItem ( constantItem );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -487,6 +498,22 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseAverageItem ( AverageItem object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Constant Item</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Constant Item</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseConstantItem ( ConstantItem object )
     {
         return null;
     }

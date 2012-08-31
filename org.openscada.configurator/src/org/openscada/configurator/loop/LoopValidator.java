@@ -29,11 +29,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+import org.openscada.configurator.loop.handler.AverageHandler;
 import org.openscada.configurator.loop.handler.FormulaHandler;
 import org.openscada.configurator.loop.handler.LoopHandler;
 import org.openscada.configurator.loop.handler.MultiSourceAttributeHandler;
 import org.openscada.configurator.loop.handler.NoOpHandler;
 import org.openscada.configurator.loop.handler.SimpleAttributeHandler;
+import org.openscada.configurator.loop.handler.SimpleHandler;
 import org.openscada.configurator.loop.handler.SummaryHandler;
 import org.openscada.utils.str.StringHelper;
 
@@ -89,6 +91,7 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.datasource.sum", new MultiSourceAttributeHandler ( "datasource." ) );
 
         this.handlers.put ( "org.openscada.da.datasource.ds", new SimpleHandler ( "datasource" ) );
+        this.handlers.put ( "org.openscada.da.datasource.constant", new SimpleHandler ( "datasource" ) );
 
         this.handlers.put ( "org.openscada.da.server.osgi.summary.attribute", new SummaryHandler () );
         this.handlers.put ( "org.openscada.da.datasource.formula", new FormulaHandler () );

@@ -523,7 +523,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Item)object ).getName ();
+        String label = ( (Item)object ).getAlias ();
         return label == null || label.length () == 0 ? getString ( "_UI_Item_type" ) : getString ( "_UI_Item_type" ) + " " + label;
     }
 

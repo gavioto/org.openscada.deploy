@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.deploy.iolist.model.*;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
@@ -183,6 +184,12 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         public Adapter caseAverageItem ( AverageItem object )
         {
             return createAverageItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseConstantItem ( ConstantItem object )
+        {
+            return createConstantItemAdapter ();
         }
 
         @Override
@@ -442,6 +449,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createAverageItemAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.ConstantItem <em>Constant Item</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.ConstantItem
+     * @generated
+     */
+    public Adapter createConstantItemAdapter ()
     {
         return null;
     }
