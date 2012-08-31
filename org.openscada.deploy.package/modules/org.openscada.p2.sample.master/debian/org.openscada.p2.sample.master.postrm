@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+
+    purge)
+    	rm -Rf /var/lib/openscadad/p2/master.sample
+	;;
+	
+esac	
+
+#DEBHELPER#
+
+exit 0
