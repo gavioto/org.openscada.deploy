@@ -47,7 +47,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.openscada.configurator.loop.LoopValidator;
 import org.openscada.configurator.report.DataItem;
 import org.openscada.configurator.report.DataItemSource;
@@ -1176,10 +1176,10 @@ public class Configuration extends GenericMasterConfiguration
 
     private void applyOverrides ( final Item origItem, final Item item )
     {
-        for ( final EAttribute attr : item.eClass ().getEAllAttributes () )
+        for ( final EStructuralFeature feature : item.eClass ().getEAllStructuralFeatures () )
         {
-            final Object value = item.eGet ( attr );
-            origItem.eSet ( attr, value );
+            final Object value = item.eGet ( feature );
+            origItem.eSet ( feature, value );
         }
     }
 
