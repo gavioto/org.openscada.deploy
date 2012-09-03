@@ -3,7 +3,11 @@
 set -e
 
 case "$1" in
-    configure)    
+    configure)
+    	if [ -d /var/lib/openscadad/p2/master.sample ]; then
+    		rm -Rf /var/lib/openscadad/p2/master.sample
+    	fi
+    	
 	    mkdir -p /var/lib/openscadad/p2
 		cd /var/lib/openscadad/p2
 		su -s /bin/sh -c "p2.fromTemplate master.sample master.sample" openscadad
