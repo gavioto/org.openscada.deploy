@@ -7,7 +7,7 @@ case "$1" in
     
 	    mkdir -p /var/lib/openscadad/p2
 		cd /var/lib/openscadad/p2
-		su -c p2.fromTemplate master.sample master.sample openscadad
+		su -c "p2.fromTemplate master.sample master.sample" openscadad
 
 	;;
 esac	
