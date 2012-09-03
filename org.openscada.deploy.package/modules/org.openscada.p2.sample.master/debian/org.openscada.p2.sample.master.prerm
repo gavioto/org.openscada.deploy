@@ -5,9 +5,7 @@ set -e
 case "$1" in
 
     remove|deconfigure)
-    	if [ -f /etc/init/openscada.master.sample.conf ]; then
-    		stop openscada.master.sample
-    	fi
+		stop openscada.master.sample || true
 		;;
 	
 esac	
