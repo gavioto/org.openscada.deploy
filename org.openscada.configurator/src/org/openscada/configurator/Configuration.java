@@ -1136,7 +1136,9 @@ public class Configuration extends GenericMasterConfiguration
         if ( !Boolean.getBoolean ( "skipIoList" ) )
         {
             System.out.println ( "Start writing ODS" );
+            final long start = System.currentTimeMillis ();
             new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) );
+            System.out.println ( String.format ( "Writing ODS took %s ms", System.currentTimeMillis () - start ) );
         }
 
         super.write ( baseDir );
