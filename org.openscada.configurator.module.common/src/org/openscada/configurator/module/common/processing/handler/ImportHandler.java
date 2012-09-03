@@ -37,6 +37,7 @@ public class ImportHandler extends AbstractFileHandler<ImportModule>
 
         configuration.addItems ( model.getItems () );
         configuration.addAverages ( model.getAverages () );
+        configuration.addMovingAverages ( model.getMovingAverages () );
         System.out.println ( String.format ( " ... found %s items", model.getItems ().size () ) );
     }
 

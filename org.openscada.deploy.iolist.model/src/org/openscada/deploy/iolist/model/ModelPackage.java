@@ -1122,13 +1122,22 @@ public interface ModelPackage extends EPackage
     int MODEL__AVERAGES = 1;
 
     /**
+     * The feature id for the '<em><b>Moving Averages</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODEL__MOVING_AVERAGES = 2;
+
+    /**
      * The number of structural features of the '<em>Model</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_FEATURE_COUNT = 2;
+    int MODEL_FEATURE_COUNT = 3;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
@@ -2761,6 +2770,485 @@ public interface ModelPackage extends EPackage
     int CONSTANT_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.MovingAverageItemImpl <em>Moving Average Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.MovingAverageItemImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageItem()
+     * @generated
+     */
+    int MOVING_AVERAGE_ITEM = 17;
+
+    /**
+     * The feature id for the '<em><b>Device</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__DEVICE = ITEM__DEVICE;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__NAME = ITEM__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__DATA_TYPE = ITEM__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Unit</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__UNIT = ITEM__UNIT;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__ALIAS = ITEM__ALIAS;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+
+    /**
+     * The feature id for the '<em><b>Event Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__EVENT_COMMAND = ITEM__EVENT_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Local Manual</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_MANUAL = ITEM__REMOTE_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>System</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__SYSTEM = ITEM__SYSTEM;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__HIERARCHY = ITEM__HIERARCHY;
+
+    /**
+     * The feature id for the '<em><b>Remote Min</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_MIN = ITEM__REMOTE_MIN;
+
+    /**
+     * The feature id for the '<em><b>Remote Max</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_MAX = ITEM__REMOTE_MAX;
+
+    /**
+     * The feature id for the '<em><b>Remote High High</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_HIGH_HIGH = ITEM__REMOTE_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Remote High</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_HIGH = ITEM__REMOTE_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Remote Low</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_LOW = ITEM__REMOTE_LOW;
+
+    /**
+     * The feature id for the '<em><b>Remote Low Low</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_LOW_LOW = ITEM__REMOTE_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_BOOL = ITEM__REMOTE_BOOL;
+
+    /**
+     * The feature id for the '<em><b>Remote Bool Ack Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__REMOTE_BOOL_ACK_VALUE = ITEM__REMOTE_BOOL_ACK_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Input</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__INPUT = ITEM__INPUT;
+
+    /**
+     * The feature id for the '<em><b>Output</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__OUTPUT = ITEM__OUTPUT;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_SCALE_AVAILABLE = ITEM__LOCAL_SCALE_AVAILABLE;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Factor</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_SCALE_FACTOR = ITEM__LOCAL_SCALE_FACTOR;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Offset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_SCALE_OFFSET = ITEM__LOCAL_SCALE_OFFSET;
+
+    /**
+     * The feature id for the '<em><b>Debug Information</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__DEBUG_INFORMATION = ITEM__DEBUG_INFORMATION;
+
+    /**
+     * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__IGNORE_SUMMARY = ITEM__IGNORE_SUMMARY;
+
+    /**
+     * The feature id for the '<em><b>Block</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__BLOCK = ITEM__BLOCK;
+
+    /**
+     * The feature id for the '<em><b>Enabled</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__ENABLED = ITEM__ENABLED;
+
+    /**
+     * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
+
+    /**
+     * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__MAPPER = ITEM__MAPPER;
+
+    /**
+     * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__SIMULATION_VALUE = ITEM__SIMULATION_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Rounding Available</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__ROUNDING_AVAILABLE = ITEM__ROUNDING_AVAILABLE;
+
+    /**
+     * The feature id for the '<em><b>Rounding Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__ROUNDING_VALUE = ITEM__ROUNDING_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_HIGH_HIGH = ITEM__LOCAL_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_HIGH = ITEM__LOCAL_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_LOW = ITEM__LOCAL_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_LOW_LOW = ITEM__LOCAL_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Min</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
+
+    /**
+     * The feature id for the '<em><b>Local Max</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
+
+    /**
+     * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_LIST_MONITOR = ITEM__LOCAL_LIST_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Average</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__AVERAGE = ITEM_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__TYPE = ITEM_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Moving Average Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 2;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.MovingAverageImpl <em>Moving Average</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.MovingAverageImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverage()
+     * @generated
+     */
+    int MOVING_AVERAGE = 18;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__ID = 0;
+
+    /**
+     * The feature id for the '<em><b>Source</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__SOURCE = 1;
+
+    /**
+     * The feature id for the '<em><b>Trigger</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__TRIGGER = 2;
+
+    /**
+     * The feature id for the '<em><b>Range</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__RANGE = 3;
+
+    /**
+     * The feature id for the '<em><b>Null Range</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__NULL_RANGE = 4;
+
+    /**
+     * The number of structural features of the '<em>Moving Average</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_FEATURE_COUNT = 5;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2768,7 +3256,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 17;
+    int DATA_TYPE = 19;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -2778,7 +3266,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 18;
+    int ROUNDING = 20;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
@@ -2788,7 +3276,17 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 19;
+    int AVERAGE_REFERENCE_TYPE = 21;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.MovingAverageReferenceType
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageReferenceType()
+     * @generated
+     */
+    int MOVING_AVERAGE_REFERENCE_TYPE = 22;
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -3543,6 +4041,17 @@ public interface ModelPackage extends EPackage
     EReference getModel_Averages ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Model#getMovingAverages <em>Moving Averages</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Moving Averages</em>'.
+     * @see org.openscada.deploy.iolist.model.Model#getMovingAverages()
+     * @see #getModel()
+     * @generated
+     */
+    EReference getModel_MovingAverages ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ScriptItem <em>Script Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3918,6 +4427,103 @@ public interface ModelPackage extends EPackage
     EClass getConstantItem ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.MovingAverageItem <em>Moving Average Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Moving Average Item</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverageItem
+     * @generated
+     */
+    EClass getMovingAverageItem ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.deploy.iolist.model.MovingAverageItem#getAverage <em>Average</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Average</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverageItem#getAverage()
+     * @see #getMovingAverageItem()
+     * @generated
+     */
+    EReference getMovingAverageItem_Average ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverageItem#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverageItem#getType()
+     * @see #getMovingAverageItem()
+     * @generated
+     */
+    EAttribute getMovingAverageItem_Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.MovingAverage <em>Moving Average</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Moving Average</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage
+     * @generated
+     */
+    EClass getMovingAverage ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#getId()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_Id ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#getSource <em>Source</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Source</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#getSource()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_Source ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#getTrigger <em>Trigger</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#getTrigger()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_Trigger ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#getRange <em>Range</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Range</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#getRange()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_Range ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#getNullRange <em>Null Range</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Null Range</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#getNullRange()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_NullRange ();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3946,6 +4552,16 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EEnum getAverageReferenceType ();
+
+    /**
+     * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Moving Average Reference Type</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverageReferenceType
+     * @generated
+     */
+    EEnum getMovingAverageReferenceType ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -4537,6 +5153,14 @@ public interface ModelPackage extends EPackage
         EReference MODEL__AVERAGES = eINSTANCE.getModel_Averages ();
 
         /**
+         * The meta object literal for the '<em><b>Moving Averages</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODEL__MOVING_AVERAGES = eINSTANCE.getModel_MovingAverages ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4837,6 +5461,82 @@ public interface ModelPackage extends EPackage
         EClass CONSTANT_ITEM = eINSTANCE.getConstantItem ();
 
         /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.MovingAverageItemImpl <em>Moving Average Item</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.MovingAverageItemImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageItem()
+         * @generated
+         */
+        EClass MOVING_AVERAGE_ITEM = eINSTANCE.getMovingAverageItem ();
+
+        /**
+         * The meta object literal for the '<em><b>Average</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MOVING_AVERAGE_ITEM__AVERAGE = eINSTANCE.getMovingAverageItem_Average ();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE_ITEM__TYPE = eINSTANCE.getMovingAverageItem_Type ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.MovingAverageImpl <em>Moving Average</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.MovingAverageImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverage()
+         * @generated
+         */
+        EClass MOVING_AVERAGE = eINSTANCE.getMovingAverage ();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__ID = eINSTANCE.getMovingAverage_Id ();
+
+        /**
+         * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__SOURCE = eINSTANCE.getMovingAverage_Source ();
+
+        /**
+         * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__TRIGGER = eINSTANCE.getMovingAverage_Trigger ();
+
+        /**
+         * The meta object literal for the '<em><b>Range</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__RANGE = eINSTANCE.getMovingAverage_Range ();
+
+        /**
+         * The meta object literal for the '<em><b>Null Range</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__NULL_RANGE = eINSTANCE.getMovingAverage_NullRange ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4865,6 +5565,16 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EEnum AVERAGE_REFERENCE_TYPE = eINSTANCE.getAverageReferenceType ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.MovingAverageReferenceType
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageReferenceType()
+         * @generated
+         */
+        EEnum MOVING_AVERAGE_REFERENCE_TYPE = eINSTANCE.getMovingAverageReferenceType ();
 
     }
 

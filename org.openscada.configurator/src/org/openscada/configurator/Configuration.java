@@ -67,6 +67,8 @@ import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.MovingAverage;
+import org.openscada.deploy.iolist.model.MovingAverageItem;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
@@ -86,6 +88,8 @@ public class Configuration extends GenericMasterConfiguration
     private final List<Item> items = new ArrayList<Item> ();
 
     private final List<Average> averages = new ArrayList<Average> ();
+
+    private final List<MovingAverage> movingAverages = new ArrayList<MovingAverage> ();
 
     private final PrintStream logStream;
 
@@ -299,6 +303,10 @@ public class Configuration extends GenericMasterConfiguration
         {
             addAverage ( average );
         }
+        for ( final MovingAverage average : this.movingAverages )
+        {
+            addMovingAverage ( average );
+        }
     }
 
     /**
@@ -344,6 +352,11 @@ public class Configuration extends GenericMasterConfiguration
             {
                 final String averageId = ( (AverageItem)item ).getAverage ().getId ();
                 sourceId = averageId + "." + ( (AverageItem)item ).getType ().getLiteral (); //$NON-NLS-1$
+            }
+            else if ( item instanceof MovingAverageItem )
+            {
+                final String averageId = ( (MovingAverageItem)item ).getAverage ().getId ();
+                sourceId = averageId + "." + ( (MovingAverageItem)item ).getType ().getLiteral (); //$NON-NLS-1$
             }
             else if ( item instanceof ConstantItem )
             {
@@ -1270,6 +1283,20 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.datasource.average", id, data );
     }
 
+    public void addMovingAverage ( final MovingAverage average )
+    {
+        final String id = average.getId ();
+
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "datasource.id", average.getSource () );
+        data.put ( "trigger", "" + average.getTrigger () );
+        data.put ( "nullRange", "" + average.getNullRange () );
+        data.put ( "range", "" + average.getRange () );
+
+        addData ( "org.openscada.da.datasource.movingaverage", id, data );
+    }
+
     public void addAverages ( final List<Average> averages )
     {
         if ( averages == null )
@@ -1277,6 +1304,15 @@ public class Configuration extends GenericMasterConfiguration
             return;
         }
         this.averages.addAll ( averages );
+    }
+
+    public void addMovingAverages ( final List<MovingAverage> averages )
+    {
+        if ( averages == null )
+        {
+            return;
+        }
+        this.movingAverages.addAll ( averages );
     }
 
 }

@@ -81,6 +81,7 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( ModelPackage.Literals.MODEL__ITEMS );
             childrenFeatures.add ( ModelPackage.Literals.MODEL__AVERAGES );
+            childrenFeatures.add ( ModelPackage.Literals.MODEL__MOVING_AVERAGES );
         }
         return childrenFeatures;
     }
@@ -139,6 +140,7 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
         {
             case ModelPackage.MODEL__ITEMS:
             case ModelPackage.MODEL__AVERAGES:
+            case ModelPackage.MODEL__MOVING_AVERAGES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -167,7 +169,11 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createConstantItem () ) );
 
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createMovingAverageItem () ) );
+
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__AVERAGES, ModelFactory.eINSTANCE.createAverage () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__MOVING_AVERAGES, ModelFactory.eINSTANCE.createMovingAverage () ) );
     }
 
     /**

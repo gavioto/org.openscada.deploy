@@ -28,6 +28,9 @@ import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Monitor;
+import org.openscada.deploy.iolist.model.MovingAverage;
+import org.openscada.deploy.iolist.model.MovingAverageItem;
+import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
@@ -167,6 +170,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass movingAverageItemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass movingAverageEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum dataTypeEEnum = null;
 
     /**
@@ -182,6 +199,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EEnum averageReferenceTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum movingAverageReferenceTypeEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -941,6 +965,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getModel_MovingAverages ()
+    {
+        return (EReference)modelEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getScriptItem ()
     {
         return scriptItemEClass;
@@ -1291,6 +1325,96 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getMovingAverageItem ()
+    {
+        return movingAverageItemEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMovingAverageItem_Average ()
+    {
+        return (EReference)movingAverageItemEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverageItem_Type ()
+    {
+        return (EAttribute)movingAverageItemEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMovingAverage ()
+    {
+        return movingAverageEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_Id ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_Source ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_Trigger ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_Range ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_NullRange ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getDataType ()
     {
         return dataTypeEEnum;
@@ -1314,6 +1438,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     public EEnum getAverageReferenceType ()
     {
         return averageReferenceTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getMovingAverageReferenceType ()
+    {
+        return movingAverageReferenceTypeEEnum;
     }
 
     /**
@@ -1422,6 +1556,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         modelEClass = createEClass ( MODEL );
         createEReference ( modelEClass, MODEL__ITEMS );
         createEReference ( modelEClass, MODEL__AVERAGES );
+        createEReference ( modelEClass, MODEL__MOVING_AVERAGES );
 
         scriptItemEClass = createEClass ( SCRIPT_ITEM );
         createEAttribute ( scriptItemEClass, SCRIPT_ITEM__SCRIPT_ENGINE );
@@ -1468,10 +1603,22 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
         constantItemEClass = createEClass ( CONSTANT_ITEM );
 
+        movingAverageItemEClass = createEClass ( MOVING_AVERAGE_ITEM );
+        createEReference ( movingAverageItemEClass, MOVING_AVERAGE_ITEM__AVERAGE );
+        createEAttribute ( movingAverageItemEClass, MOVING_AVERAGE_ITEM__TYPE );
+
+        movingAverageEClass = createEClass ( MOVING_AVERAGE );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__ID );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__SOURCE );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__TRIGGER );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__RANGE );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__NULL_RANGE );
+
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
         roundingEEnum = createEEnum ( ROUNDING );
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
+        movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
     }
 
     /**
@@ -1511,6 +1658,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         booleanMonitorEClass.getESuperTypes ().add ( this.getMonitor () );
         averageItemEClass.getESuperTypes ().add ( this.getItem () );
         constantItemEClass.getESuperTypes ().add ( this.getItem () );
+        movingAverageItemEClass.getESuperTypes ().add ( this.getItem () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -1588,6 +1736,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass ( modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getModel_Items (), this.getItem (), null, "items", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getModel_Averages (), this.getAverage (), null, "averages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getModel_MovingAverages (), this.getMovingAverage (), null, "movingAverages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( scriptItemEClass, ScriptItem.class, "ScriptItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScriptItem_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", null, 0, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1635,6 +1784,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
         initEClass ( constantItemEClass, ConstantItem.class, "ConstantItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
+        initEClass ( movingAverageItemEClass, MovingAverageItem.class, "MovingAverageItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getMovingAverageItem_Average (), this.getMovingAverage (), null, "average", null, 1, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        getMovingAverageItem_Average ().getEKeys ().add ( this.getMovingAverage_Id () );
+        initEAttribute ( getMovingAverageItem_Type (), this.getMovingAverageReferenceType (), "type", null, 1, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( movingAverageEClass, MovingAverage.class, "MovingAverage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getMovingAverage_Id (), ecorePackage.getEString (), "id", null, 1, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverage_Source (), ecorePackage.getEString (), "source", null, 1, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverage_Trigger (), ecorePackage.getELongObject (), "trigger", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverage_Range (), ecorePackage.getELongObject (), "range", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverage_NullRange (), ecorePackage.getELongObject (), "nullRange", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" );
         addEEnumLiteral ( dataTypeEEnum, DataType.VARIANT );
@@ -1656,6 +1817,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         addEEnumLiteral ( averageReferenceTypeEEnum, AverageReferenceType.MEAN );
         addEEnumLiteral ( averageReferenceTypeEEnum, AverageReferenceType.MEDIAN );
         addEEnumLiteral ( averageReferenceTypeEEnum, AverageReferenceType.DEVIATION );
+        addEEnumLiteral ( averageReferenceTypeEEnum, AverageReferenceType.SUM );
+
+        initEEnum ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.class, "MovingAverageReferenceType" );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.MIN );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.MAX );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.MEDIAN );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.ARITHMETIC );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.WEIGHTED );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.DEVIATION_ARITHMETIC );
+        addEEnumLiteral ( movingAverageReferenceTypeEEnum, MovingAverageReferenceType.DEVIATION_WEIGHTED );
 
         // Create resource
         createResource ( eNS_URI );

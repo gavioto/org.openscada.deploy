@@ -32,6 +32,7 @@ import java.util.Stack;
 import org.openscada.configurator.loop.handler.AverageHandler;
 import org.openscada.configurator.loop.handler.FormulaHandler;
 import org.openscada.configurator.loop.handler.LoopHandler;
+import org.openscada.configurator.loop.handler.MovingAverageHandler;
 import org.openscada.configurator.loop.handler.MultiSourceAttributeHandler;
 import org.openscada.configurator.loop.handler.NoOpHandler;
 import org.openscada.configurator.loop.handler.SimpleAttributeHandler;
@@ -82,6 +83,7 @@ public class LoopValidator
         this.handlers.put ( "da.connection", new SimpleHandler ( "connection" ) );
 
         this.handlers.put ( "org.openscada.da.datasource.average", new AverageHandler () );
+        this.handlers.put ( "org.openscada.da.datasource.movingaverage", new MovingAverageHandler () );
 
         this.handlers.put ( "da.dataitem.datasource", new SimpleAttributeHandler ( "datasource", "connection", "connection.id" ) );
 

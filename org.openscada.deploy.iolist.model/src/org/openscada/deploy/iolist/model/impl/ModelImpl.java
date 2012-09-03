@@ -19,6 +19,7 @@ import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.MovingAverage;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  * <ul>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getAverages <em>Averages</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getMovingAverages <em>Moving Averages</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,6 +57,16 @@ public class ModelImpl extends EObjectImpl implements Model
      * @ordered
      */
     protected EList<Average> averages;
+
+    /**
+     * The cached value of the '{@link #getMovingAverages() <em>Moving Averages</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMovingAverages()
+     * @generated
+     * @ordered
+     */
+    protected EList<MovingAverage> movingAverages;
 
     /**
      * <!-- begin-user-doc -->
@@ -110,6 +122,20 @@ public class ModelImpl extends EObjectImpl implements Model
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<MovingAverage> getMovingAverages ()
+    {
+        if ( movingAverages == null )
+        {
+            movingAverages = new EObjectContainmentEList<MovingAverage> ( MovingAverage.class, this, ModelPackage.MODEL__MOVING_AVERAGES );
+        }
+        return movingAverages;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -119,6 +145,8 @@ public class ModelImpl extends EObjectImpl implements Model
                 return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
             case ModelPackage.MODEL__AVERAGES:
                 return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -137,6 +165,8 @@ public class ModelImpl extends EObjectImpl implements Model
                 return getItems ();
             case ModelPackage.MODEL__AVERAGES:
                 return getAverages ();
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return getMovingAverages ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -160,6 +190,10 @@ public class ModelImpl extends EObjectImpl implements Model
                 getAverages ().clear ();
                 getAverages ().addAll ( (Collection<? extends Average>)newValue );
                 return;
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                getMovingAverages ().clear ();
+                getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -180,6 +214,9 @@ public class ModelImpl extends EObjectImpl implements Model
             case ModelPackage.MODEL__AVERAGES:
                 getAverages ().clear ();
                 return;
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                getMovingAverages ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -198,6 +235,8 @@ public class ModelImpl extends EObjectImpl implements Model
                 return items != null && !items.isEmpty ();
             case ModelPackage.MODEL__AVERAGES:
                 return averages != null && !averages.isEmpty ();
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return movingAverages != null && !movingAverages.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

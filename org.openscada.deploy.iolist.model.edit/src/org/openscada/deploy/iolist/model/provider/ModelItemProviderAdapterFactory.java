@@ -478,6 +478,56 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.MovingAverageItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MovingAverageItemItemProvider movingAverageItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.MovingAverageItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMovingAverageItemAdapter ()
+    {
+        if ( movingAverageItemItemProvider == null )
+        {
+            movingAverageItemItemProvider = new MovingAverageItemItemProvider ( this );
+        }
+
+        return movingAverageItemItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.MovingAverage} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MovingAverageItemProvider movingAverageItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.MovingAverage}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMovingAverageAdapter ()
+    {
+        if ( movingAverageItemProvider == null )
+        {
+            movingAverageItemProvider = new MovingAverageItemProvider ( this );
+        }
+
+        return movingAverageItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -620,6 +670,10 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
             averageItemItemProvider.dispose ();
         if ( constantItemItemProvider != null )
             constantItemItemProvider.dispose ();
+        if ( movingAverageItemItemProvider != null )
+            movingAverageItemItemProvider.dispose ();
+        if ( movingAverageItemProvider != null )
+            movingAverageItemProvider.dispose ();
     }
 
 }

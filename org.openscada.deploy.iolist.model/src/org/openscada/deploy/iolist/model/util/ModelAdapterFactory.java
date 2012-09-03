@@ -193,6 +193,18 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseMovingAverageItem ( MovingAverageItem object )
+        {
+            return createMovingAverageItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseMovingAverage ( MovingAverage object )
+        {
+            return createMovingAverageAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -464,6 +476,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createConstantItemAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.MovingAverageItem <em>Moving Average Item</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.MovingAverageItem
+     * @generated
+     */
+    public Adapter createMovingAverageItemAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.MovingAverage <em>Moving Average</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.MovingAverage
+     * @generated
+     */
+    public Adapter createMovingAverageAdapter ()
     {
         return null;
     }

@@ -118,6 +118,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
                 return createAverageItem ();
             case ModelPackage.CONSTANT_ITEM:
                 return createConstantItem ();
+            case ModelPackage.MOVING_AVERAGE_ITEM:
+                return createMovingAverageItem ();
+            case ModelPackage.MOVING_AVERAGE:
+                return createMovingAverage ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -139,6 +143,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
                 return createRoundingFromString ( eDataType, initialValue );
             case ModelPackage.AVERAGE_REFERENCE_TYPE:
                 return createAverageReferenceTypeFromString ( eDataType, initialValue );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return createMovingAverageReferenceTypeFromString ( eDataType, initialValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
@@ -160,6 +166,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
                 return convertRoundingToString ( eDataType, instanceValue );
             case ModelPackage.AVERAGE_REFERENCE_TYPE:
                 return convertAverageReferenceTypeToString ( eDataType, instanceValue );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return convertMovingAverageReferenceTypeToString ( eDataType, instanceValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
@@ -346,6 +354,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    public MovingAverageItem createMovingAverageItem ()
+    {
+        MovingAverageItemImpl movingAverageItem = new MovingAverageItemImpl ();
+        return movingAverageItem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MovingAverage createMovingAverage ()
+    {
+        MovingAverageImpl movingAverage = new MovingAverageImpl ();
+        return movingAverage;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DataType createDataTypeFromString ( EDataType eDataType, String initialValue )
     {
         DataType result = DataType.get ( initialValue );
@@ -406,6 +436,29 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
      * @generated
      */
     public String convertAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MovingAverageReferenceType createMovingAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
+    {
+        MovingAverageReferenceType result = MovingAverageReferenceType.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertMovingAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

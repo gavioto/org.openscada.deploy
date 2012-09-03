@@ -14,14 +14,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Average Reference Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Moving Average Reference Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.openscada.deploy.iolist.model.ModelPackage#getAverageReferenceType()
+ * @see org.openscada.deploy.iolist.model.ModelPackage#getMovingAverageReferenceType()
  * @model
  * @generated
  */
-public enum AverageReferenceType implements Enumerator
+public enum MovingAverageReferenceType implements Enumerator
 {
     /**
      * The '<em><b>MIN</b></em>' literal object.
@@ -44,16 +44,6 @@ public enum AverageReferenceType implements Enumerator
     MAX ( 1, "MAX", "max" ),
 
     /**
-     * The '<em><b>MEAN</b></em>' literal object.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #MEAN_VALUE
-     * @generated
-     * @ordered
-     */
-    MEAN ( 2, "MEAN", "mean" ),
-
-    /**
      * The '<em><b>MEDIAN</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -61,26 +51,47 @@ public enum AverageReferenceType implements Enumerator
      * @generated
      * @ordered
      */
-    MEDIAN ( 3, "MEDIAN", "median" ),
+    MEDIAN ( 2, "MEDIAN", "median" ),
 
     /**
-     * The '<em><b>DEVIATION</b></em>' literal object.
+     * The '<em><b>ARITHMETIC</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #DEVIATION_VALUE
+     * @see #ARITHMETIC_VALUE
      * @generated
      * @ordered
      */
-    DEVIATION ( 4, "DEVIATION", "deviation" ),
+    ARITHMETIC ( 3, "ARITHMETIC", "arithmetic" ),
+
     /**
-     * The '<em><b>SUM</b></em>' literal object.
+     * The '<em><b>WEIGHTED</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #SUM_VALUE
+     * @see #WEIGHTED_VALUE
      * @generated
      * @ordered
      */
-    SUM ( 5, "SUM", "sum" );
+    WEIGHTED ( 4, "WEIGHTED", "weighted" ),
+
+    /**
+     * The '<em><b>DEVIATION ARITHMETIC</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #DEVIATION_ARITHMETIC_VALUE
+     * @generated
+     * @ordered
+     */
+    DEVIATION_ARITHMETIC ( 5, "DEVIATION_ARITHMETIC", "deviationArithmetic" ),
+
+    /**
+     * The '<em><b>DEVIATION WEIGHTED</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #DEVIATION_WEIGHTED_VALUE
+     * @generated
+     * @ordered
+     */
+    DEVIATION_WEIGHTED ( 6, "DEVIATION_WEIGHTED", "deviationWeighted" );
 
     /**
      * The '<em><b>MIN</b></em>' literal value.
@@ -113,21 +124,6 @@ public enum AverageReferenceType implements Enumerator
     public static final int MAX_VALUE = 1;
 
     /**
-     * The '<em><b>MEAN</b></em>' literal value.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of '<em><b>MEAN</b></em>' literal object isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @see #MEAN
-     * @model literal="mean"
-     * @generated
-     * @ordered
-     */
-    public static final int MEAN_VALUE = 2;
-
-    /**
      * The '<em><b>MEDIAN</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
@@ -140,65 +136,95 @@ public enum AverageReferenceType implements Enumerator
      * @generated
      * @ordered
      */
-    public static final int MEDIAN_VALUE = 3;
+    public static final int MEDIAN_VALUE = 2;
 
     /**
-     * The '<em><b>DEVIATION</b></em>' literal value.
+     * The '<em><b>ARITHMETIC</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of '<em><b>DEVIATION</b></em>' literal object isn't clear,
+     * If the meaning of '<em><b>ARITHMETIC</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #DEVIATION
-     * @model literal="deviation"
+     * @see #ARITHMETIC
+     * @model literal="arithmetic"
      * @generated
      * @ordered
      */
-    public static final int DEVIATION_VALUE = 4;
+    public static final int ARITHMETIC_VALUE = 3;
 
     /**
-     * The '<em><b>SUM</b></em>' literal value.
+     * The '<em><b>WEIGHTED</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of '<em><b>SUM</b></em>' literal object isn't clear,
+     * If the meaning of '<em><b>WEIGHTED</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #SUM
-     * @model literal="sum"
+     * @see #WEIGHTED
+     * @model literal="weighted"
      * @generated
      * @ordered
      */
-    public static final int SUM_VALUE = 5;
+    public static final int WEIGHTED_VALUE = 4;
 
     /**
-     * An array of all the '<em><b>Average Reference Type</b></em>' enumerators.
+     * The '<em><b>DEVIATION ARITHMETIC</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>DEVIATION ARITHMETIC</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #DEVIATION_ARITHMETIC
+     * @model literal="deviationArithmetic"
+     * @generated
+     * @ordered
+     */
+    public static final int DEVIATION_ARITHMETIC_VALUE = 5;
+
+    /**
+     * The '<em><b>DEVIATION WEIGHTED</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>DEVIATION WEIGHTED</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #DEVIATION_WEIGHTED
+     * @model literal="deviationWeighted"
+     * @generated
+     * @ordered
+     */
+    public static final int DEVIATION_WEIGHTED_VALUE = 6;
+
+    /**
+     * An array of all the '<em><b>Moving Average Reference Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final AverageReferenceType[] VALUES_ARRAY = new AverageReferenceType[] { MIN, MAX, MEAN, MEDIAN, DEVIATION, SUM, };
+    private static final MovingAverageReferenceType[] VALUES_ARRAY = new MovingAverageReferenceType[] { MIN, MAX, MEDIAN, ARITHMETIC, WEIGHTED, DEVIATION_ARITHMETIC, DEVIATION_WEIGHTED, };
 
     /**
-     * A public read-only list of all the '<em><b>Average Reference Type</b></em>' enumerators.
+     * A public read-only list of all the '<em><b>Moving Average Reference Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<AverageReferenceType> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
+    public static final List<MovingAverageReferenceType> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
-     * Returns the '<em><b>Average Reference Type</b></em>' literal with the specified literal value.
+     * Returns the '<em><b>Moving Average Reference Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static AverageReferenceType get ( String literal )
+    public static MovingAverageReferenceType get ( String literal )
     {
         for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
-            AverageReferenceType result = VALUES_ARRAY[i];
+            MovingAverageReferenceType result = VALUES_ARRAY[i];
             if ( result.toString ().equals ( literal ) )
             {
                 return result;
@@ -208,16 +234,16 @@ public enum AverageReferenceType implements Enumerator
     }
 
     /**
-     * Returns the '<em><b>Average Reference Type</b></em>' literal with the specified name.
+     * Returns the '<em><b>Moving Average Reference Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static AverageReferenceType getByName ( String name )
+    public static MovingAverageReferenceType getByName ( String name )
     {
         for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
-            AverageReferenceType result = VALUES_ARRAY[i];
+            MovingAverageReferenceType result = VALUES_ARRAY[i];
             if ( result.getName ().equals ( name ) )
             {
                 return result;
@@ -227,12 +253,12 @@ public enum AverageReferenceType implements Enumerator
     }
 
     /**
-     * Returns the '<em><b>Average Reference Type</b></em>' literal with the specified integer value.
+     * Returns the '<em><b>Moving Average Reference Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static AverageReferenceType get ( int value )
+    public static MovingAverageReferenceType get ( int value )
     {
         switch ( value )
         {
@@ -240,14 +266,16 @@ public enum AverageReferenceType implements Enumerator
                 return MIN;
             case MAX_VALUE:
                 return MAX;
-            case MEAN_VALUE:
-                return MEAN;
             case MEDIAN_VALUE:
                 return MEDIAN;
-            case DEVIATION_VALUE:
-                return DEVIATION;
-            case SUM_VALUE:
-                return SUM;
+            case ARITHMETIC_VALUE:
+                return ARITHMETIC;
+            case WEIGHTED_VALUE:
+                return WEIGHTED;
+            case DEVIATION_ARITHMETIC_VALUE:
+                return DEVIATION_ARITHMETIC;
+            case DEVIATION_WEIGHTED_VALUE:
+                return DEVIATION_WEIGHTED;
         }
         return null;
     }
@@ -279,7 +307,7 @@ public enum AverageReferenceType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private AverageReferenceType ( int value, String name, String literal )
+    private MovingAverageReferenceType ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -328,4 +356,4 @@ public enum AverageReferenceType implements Enumerator
         return literal;
     }
 
-} //AverageReferenceType
+} //MovingAverageReferenceType

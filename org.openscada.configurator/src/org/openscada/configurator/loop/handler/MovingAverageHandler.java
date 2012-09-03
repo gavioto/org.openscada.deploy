@@ -21,11 +21,12 @@ package org.openscada.configurator.loop.handler;
 
 import java.util.Arrays;
 
-public class AverageHandler extends ExpandHandler
+public class MovingAverageHandler extends ExpandHandler
 {
-    public AverageHandler ()
+
+    public MovingAverageHandler ()
     {
-        super ( "datasource", Arrays.asList ( "min", "max", "mean", "median", "deviation", "sum" ) );
+        super ( "datasource", Arrays.asList ( "min", "max", "median", "arithmetic", "weighted", "deviationArithmetic", "deviationWeighted" ) );
     }
 
 }

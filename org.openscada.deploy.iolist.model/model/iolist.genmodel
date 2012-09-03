@@ -28,6 +28,16 @@
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//AverageReferenceType/MEAN"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//AverageReferenceType/MEDIAN"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//AverageReferenceType/DEVIATION"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//AverageReferenceType/SUM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iolist.ecore#//MovingAverageReferenceType">
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/MIN"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/MAX"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/MEDIAN"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/ARITHMETIC"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/WEIGHTED"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/DEVIATION_ARITHMETIC"/>
+      <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/DEVIATION_WEIGHTED"/>
     </genEnums>
     <genClasses ecoreClass="iolist.ecore#//Item" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" propertyCategory="base" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/device"/>
@@ -112,6 +122,7 @@
     <genClasses ecoreClass="iolist.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/averages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/movingAverages"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//ScriptItem" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/scriptEngine"/>
@@ -158,5 +169,17 @@
       <genFeatures createChild="false" propertyCategory="average" ecoreFeature="ecore:EAttribute iolist.ecore#//AverageItem/type"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//ConstantItem" labelFeature="#//model/Item/alias"/>
+    <genClasses ecoreClass="iolist.ecore#//MovingAverageItem" labelFeature="#//model/Item/alias">
+      <genFeatures notify="false" createChild="false" propertyCategory="average" propertySortChoices="true"
+          ecoreFeature="ecore:EReference iolist.ecore#//MovingAverageItem/average"/>
+      <genFeatures createChild="false" propertyCategory="average" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverageItem/type"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//MovingAverage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/id"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/trigger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/nullRange"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

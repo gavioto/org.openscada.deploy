@@ -132,6 +132,8 @@
         eType="#//Item" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="averages" upperBound="-1"
         eType="#//Average" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="movingAverages" upperBound="-1"
+        eType="#//MovingAverage" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -203,6 +205,45 @@
     <eLiterals name="MEAN" value="2" literal="mean"/>
     <eLiterals name="MEDIAN" value="3" literal="median"/>
     <eLiterals name="DEVIATION" value="4" literal="deviation"/>
+    <eLiterals name="SUM" value="5" literal="sum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantItem" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MovingAverageItem" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="average" lowerBound="1"
+        eType="#//MovingAverage" eKeys="#//MovingAverage/id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//MovingAverageReferenceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MovingAverage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ID of the &quot;datasource&quot; to build the average from."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A period time in seconds when the average will be updated although no value has changed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of seconds the average will be calculated for."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullRange" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of seconds the average must have recorded valid data in order to provide a valid (non-error) value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MovingAverageReferenceType">
+    <eLiterals name="MIN" literal="min"/>
+    <eLiterals name="MAX" value="1" literal="max"/>
+    <eLiterals name="MEDIAN" value="2" literal="median"/>
+    <eLiterals name="ARITHMETIC" value="3" literal="arithmetic"/>
+    <eLiterals name="WEIGHTED" value="4" literal="weighted"/>
+    <eLiterals name="DEVIATION_ARITHMETIC" value="5" literal="deviationArithmetic"/>
+    <eLiterals name="DEVIATION_WEIGHTED" value="6" literal="deviationWeighted"/>
+  </eClassifiers>
 </ecore:EPackage>
