@@ -6,7 +6,7 @@ case "$1" in
     configure)    
 	    mkdir -p /var/lib/openscadad/p2
 		cd /var/lib/openscadad/p2
-		su -c "p2.fromTemplate master.sample master.sample" openscadad
+		su -s /bin/sh -c "p2.fromTemplate master.sample master.sample" openscadad
 		;;
 esac	
 
