@@ -45,7 +45,7 @@ cd ..
 %config %{_defaultdir}/th4
 %dir %{_jardir}
 %dir %{_cfgdir}
-%dir %{_logdir}/openscada
+%dir %attr(775,root,openscada) %{_logdir}/openscada
 %dir %{_datadir}/openscada
 
 %changelog

@@ -26,6 +26,11 @@ case "$1" in
         ;;
 esac
 
+if [ -d /var/log/openscada]; then
+	chgrp openscada /var/log/openscada
+	chmod g+w /var/log/openscada
+fi
+
 #DEBHELPER#
 
 exit 0
