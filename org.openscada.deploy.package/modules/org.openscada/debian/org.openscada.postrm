@@ -10,6 +10,8 @@ case "$1" in
 		if which deluser >/dev/null 2>&1; then
 			deluser --quiet "$OS_USER" > /dev/null || true
 		fi
+		
+		delgroup --quiet openscada > /dev/null || true
 
         rm -r "/var/lib/$OS_USER"
         ;;
