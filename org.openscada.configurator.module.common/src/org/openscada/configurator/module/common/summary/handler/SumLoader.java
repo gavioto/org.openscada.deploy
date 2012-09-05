@@ -38,7 +38,7 @@ public class SumLoader extends AbstractFileHandler<SummaryFileLoader>
 
     public static void configureGroups ( final Configuration cfg, final Collection<SummaryGroup> groups, final Collection<Item> items, final int requiredSize )
     {
-        final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+        final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 
         for ( final SummaryGroup group : groups )
         {
