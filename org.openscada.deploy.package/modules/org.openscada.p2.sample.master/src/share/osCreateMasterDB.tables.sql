@@ -276,4 +276,41 @@ CREATE INDEX openscada_ae_events_attr_idx_5
   USING btree
   (value_double );
 
+-- users
+
+CREATE TABLE os_groups
+(
+  group_id character varying(255) NOT NULL,
+  CONSTRAINT os_groups_pkey PRIMARY KEY (group_id )
+);
+ALTER TABLE os_groups OWNER TO openscada;
+
+CREATE TABLE os_group_assigns
+(
+  group_id character varying(255) NOT NULL,
+  user_id character varying(255) NOT NULL,
+  CONSTRAINT os_group_assigns_pkey PRIMARY KEY (group_id , user_id ),
+  CONSTRAINT os_group_assigns_group_id_fkey FOREIGN KEY (group_id)
+      REFERENCES os_groups (group_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+ALTER TABLE os_group_assigns OWNER TO openscada;
+
+CREATE TABLE os_users
+(
+  user_id character varying(255) NOT NULL,
+  password character varying(32),
+  enabled boolean NOT NULL DEFAULT true,
+  CONSTRAINT os_users_pkey PRIMARY KEY (user_id )
+);
+ALTER TABLE os_users OWNER TO openscada;
+
+CREATE TABLE os_role_assigns
+(
+  actor_id character varying(255) NOT NULL,
+  actor_type character varying(255) NOT NULL,
+  role_name character varying(255) NOT NULL,
+  CONSTRAINT os_role_assigns_pkey PRIMARY KEY (actor_id , actor_type , role_name )
+);
+ALTER TABLE os_role_assigns OWNER TO openscada;
 
