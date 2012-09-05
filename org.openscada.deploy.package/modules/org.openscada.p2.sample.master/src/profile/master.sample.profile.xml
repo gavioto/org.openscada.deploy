@@ -16,9 +16,9 @@
 		<property key="org.openscada.jdbc.properties.serverName">localhost</property>
 		<property key="org.openscada.jdbc.properties.user">openscada</property>
 		<property key="org.openscada.jdbc.properties.password">openscada</property>
-		<property key="org.openscada.jdbc.properties.databaseName">openscada</property>
+		<property key="org.openscada.jdbc.properties.databaseName">os_master_sample</property>
 
-		<note>You will need a postgres database set up on localhost</note>
+		<note>You will need a postgres database set up on localhost for this setup. You can use the script 'osCreateMasterDB'.</note>
 	</profile>
 	
 	<profile name="postgres.server1" parent="postgres">
