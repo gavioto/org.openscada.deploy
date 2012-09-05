@@ -200,6 +200,8 @@ public class Configuration extends GenericMasterConfiguration
         final Set<String> summaries = new HashSet<String> ();
         summaries.add ( "error" ); //$NON-NLS-1$
         summaries.add ( "alarm" ); //$NON-NLS-1$
+        summaries.add ( "warning" ); //$NON-NLS-1$
+        summaries.add ( "info" ); //$NON-NLS-1$
         summaries.add ( "manual" ); //$NON-NLS-1$
         summaries.add ( "blocked" ); //$NON-NLS-1$
 
