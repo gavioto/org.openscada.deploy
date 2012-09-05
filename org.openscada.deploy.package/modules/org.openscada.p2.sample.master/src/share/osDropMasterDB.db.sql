@@ -1,8 +1,8 @@
 
--- create user
-
-drop user openscada;
-
--- create database
+-- drop database
 
 drop database os_master_sample;
+
+-- drop user
+
+drop user openscada;
