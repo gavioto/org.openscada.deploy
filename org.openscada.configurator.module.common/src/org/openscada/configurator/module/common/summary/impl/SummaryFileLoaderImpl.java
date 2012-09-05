@@ -21,6 +21,7 @@ import org.openscada.configurator.module.common.summary.SummaryPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl#getRequiredItems <em>Required Items</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl#getPrefix <em>Prefix</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +48,26 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
      * @ordered
      */
     protected int requiredItems = REQUIRED_ITEMS_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPrefix()
+     * @generated
+     * @ordered
+     */
+    protected static final String PREFIX_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPrefix()
+     * @generated
+     * @ordered
+     */
+    protected String prefix = PREFIX_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -97,6 +118,29 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getPrefix ()
+    {
+        return prefix;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPrefix ( String newPrefix )
+    {
+        String oldPrefix = prefix;
+        prefix = newPrefix;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, SummaryPackage.SUMMARY_FILE_LOADER__PREFIX, oldPrefix, prefix ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -104,6 +148,8 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
         {
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 return getRequiredItems ();
+            case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
+                return getPrefix ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -120,6 +166,9 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
         {
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 setRequiredItems ( (Integer)newValue );
+                return;
+            case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
+                setPrefix ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -138,6 +187,9 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 setRequiredItems ( REQUIRED_ITEMS_EDEFAULT );
                 return;
+            case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
+                setPrefix ( PREFIX_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -154,6 +206,8 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
         {
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 return requiredItems != REQUIRED_ITEMS_EDEFAULT;
+            case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
+                return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
         }
         return super.eIsSet ( featureID );
     }
@@ -172,6 +226,8 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (requiredItems: " );
         result.append ( requiredItems );
+        result.append ( ", prefix: " );
+        result.append ( prefix );
         result.append ( ')' );
         return result.toString ();
     }

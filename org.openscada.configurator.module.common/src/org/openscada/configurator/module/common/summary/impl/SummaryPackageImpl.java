@@ -156,6 +156,16 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getSummaryFileLoader_Prefix ()
+    {
+        return (EAttribute)summaryFileLoaderEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getGenerateSummaries ()
     {
         return generateSummariesEClass;
@@ -204,6 +214,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         // Create classes and their features
         summaryFileLoaderEClass = createEClass ( SUMMARY_FILE_LOADER );
         createEAttribute ( summaryFileLoaderEClass, SUMMARY_FILE_LOADER__REQUIRED_ITEMS );
+        createEAttribute ( summaryFileLoaderEClass, SUMMARY_FILE_LOADER__PREFIX );
 
         generateSummariesEClass = createEClass ( GENERATE_SUMMARIES );
         createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__REQUIRED_ITEMS );
@@ -249,6 +260,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         // Initialize classes and features; add operations and parameters
         initEClass ( summaryFileLoaderEClass, SummaryFileLoader.class, "SummaryFileLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getSummaryFileLoader_RequiredItems (), ecorePackage.getEInt (), "requiredItems", "2", 1, 1, SummaryFileLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getSummaryFileLoader_Prefix (), ecorePackage.getEString (), "prefix", null, 0, 1, SummaryFileLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( generateSummariesEClass, GenerateSummaries.class, "GenerateSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getGenerateSummaries_RequiredItems (), ecorePackage.getEInt (), "requiredItems", "2", 1, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

@@ -90,13 +90,22 @@ public interface SummaryPackage extends EPackage
     int SUMMARY_FILE_LOADER__REQUIRED_ITEMS = CommonPackage.FILE_MODULE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUMMARY_FILE_LOADER__PREFIX = CommonPackage.FILE_MODULE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>File Loader</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_FILE_LOADER_FEATURE_COUNT = CommonPackage.FILE_MODULE_FEATURE_COUNT + 1;
+    int SUMMARY_FILE_LOADER_FEATURE_COUNT = CommonPackage.FILE_MODULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.GenerateSummariesImpl <em>Generate Summaries</em>}' class.
@@ -146,6 +155,17 @@ public interface SummaryPackage extends EPackage
      * @generated
      */
     EAttribute getSummaryFileLoader_RequiredItems ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.SummaryFileLoader#getPrefix <em>Prefix</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Prefix</em>'.
+     * @see org.openscada.configurator.module.common.summary.SummaryFileLoader#getPrefix()
+     * @see #getSummaryFileLoader()
+     * @generated
+     */
+    EAttribute getSummaryFileLoader_Prefix ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.summary.GenerateSummaries <em>Generate Summaries</em>}'.
@@ -208,6 +228,14 @@ public interface SummaryPackage extends EPackage
          * @generated
          */
         EAttribute SUMMARY_FILE_LOADER__REQUIRED_ITEMS = eINSTANCE.getSummaryFileLoader_RequiredItems ();
+
+        /**
+         * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SUMMARY_FILE_LOADER__PREFIX = eINSTANCE.getSummaryFileLoader_Prefix ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.module.common.summary.impl.GenerateSummariesImpl <em>Generate Summaries</em>}' class.

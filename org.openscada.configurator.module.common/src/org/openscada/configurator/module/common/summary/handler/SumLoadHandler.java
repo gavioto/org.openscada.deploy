@@ -16,6 +16,13 @@ public class SumLoadHandler implements RowHandler
 
     private final Map<String, SummaryGroup> groups = new HashMap<String, SummaryGroup> ();
 
+    private final String prefix;
+
+    public SumLoadHandler ( final String prefix )
+    {
+        this.prefix = prefix;
+    }
+
     @Override
     public void handleRow ( final int rowNumber, final Map<String, String> rowData )
     {
@@ -46,7 +53,7 @@ public class SumLoadHandler implements RowHandler
         group.getItems ().add ( item );
     }
 
-    private static String makeId ( final String id )
+    private String makeId ( final String id )
     {
         final Matcher m = Pattern.compile ( ".*/([^/]+).(grxs|gpp)" ).matcher ( id );
 
@@ -55,7 +62,7 @@ public class SumLoadHandler implements RowHandler
             return null;
         }
 
-        return System.getProperty ( "prefix", "BG_IPT" ) + ".DCS." + m.group ( 1 ) + ".SUM.V";
+        return this.prefix + ".DCS." + m.group ( 1 ) + ".SUM.V";
     }
 
     private String convertType ( String string )

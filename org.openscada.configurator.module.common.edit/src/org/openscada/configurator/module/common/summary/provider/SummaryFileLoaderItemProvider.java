@@ -57,6 +57,7 @@ public class SummaryFileLoaderItemProvider extends FileModuleItemProvider implem
             super.getPropertyDescriptors ( object );
 
             addRequiredItemsPropertyDescriptor ( object );
+            addPrefixPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -70,6 +71,17 @@ public class SummaryFileLoaderItemProvider extends FileModuleItemProvider implem
     protected void addRequiredItemsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryFileLoader_requiredItems_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryFileLoader_requiredItems_feature", "_UI_SummaryFileLoader_type" ), SummaryPackage.Literals.SUMMARY_FILE_LOADER__REQUIRED_ITEMS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Prefix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPrefixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryFileLoader_prefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryFileLoader_prefix_feature", "_UI_SummaryFileLoader_type" ), SummaryPackage.Literals.SUMMARY_FILE_LOADER__PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -112,6 +124,7 @@ public class SummaryFileLoaderItemProvider extends FileModuleItemProvider implem
         switch ( notification.getFeatureID ( SummaryFileLoader.class ) )
         {
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
+            case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

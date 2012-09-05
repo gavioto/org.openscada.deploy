@@ -190,6 +190,10 @@
             <element xmi:type="ecore:EAttribute" href="modules.ecore#//summary/SummaryFileLoader/requiredItems"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_raatgfGyEeGn_b4ceTt4mw"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_mIQkMPdAEeGBWcuRoiHTUw" type="2001">
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//summary/SummaryFileLoader/prefix"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_mIQkMfdAEeGBWcuRoiHTUw"/>
+          </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_G2Ff0fGwEeGn_b4ceTt4mw"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_G2Ff0vGwEeGn_b4ceTt4mw"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_G2Ff0_GwEeGn_b4ceTt4mw"/>

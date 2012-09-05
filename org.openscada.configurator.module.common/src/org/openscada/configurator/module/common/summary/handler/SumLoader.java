@@ -21,18 +21,18 @@ import org.openscada.deploy.iolist.model.SummaryGroup;
 
 public class SumLoader extends AbstractFileHandler<SummaryFileLoader>
 {
-    public static Collection<SummaryGroup> loadGroups ( final File file ) throws Exception
+    public static Collection<SummaryGroup> loadGroups ( final String prefix, final File file ) throws Exception
     {
         final DataLoaderOdfDom loader = new DataLoaderOdfDom ( file, false );
-        final SumLoadHandler handler = new SumLoadHandler ();
+        final SumLoadHandler handler = new SumLoadHandler ( prefix );
         loader.load ( 0, handler );
         return handler.getGroups ();
     }
 
-    public static void convertGroups ( final Configuration cfg, final File file, final int requiredSize ) throws Exception
+    public static void convertGroups ( final String prefix, final Configuration cfg, final File file, final int requiredSize ) throws Exception
     {
         final List<Item> items = new LinkedList<Item> ();
-        configureGroups ( cfg, loadGroups ( file ), items, requiredSize );
+        configureGroups ( cfg, loadGroups ( prefix, file ), items, requiredSize );
         cfg.addItems ( items );
     }
 
@@ -68,7 +68,7 @@ public class SumLoader extends AbstractFileHandler<SummaryFileLoader>
     @Override
     protected void loadFile ( final Configuration configuration, final SummaryFileLoader module, final File file ) throws Exception
     {
-        SumLoader.convertGroups ( configuration, file, module.getRequiredItems () );
+        SumLoader.convertGroups ( module.getPrefix (), configuration, file, module.getRequiredItems () );
     }
 
 }

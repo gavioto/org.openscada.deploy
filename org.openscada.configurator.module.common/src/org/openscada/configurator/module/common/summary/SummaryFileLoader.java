@@ -17,6 +17,7 @@ import org.openscada.configurator.module.common.FileModule;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.openscada.configurator.module.common.summary.SummaryFileLoader#getRequiredItems <em>Required Items</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.summary.SummaryFileLoader#getPrefix <em>Prefix</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,4 +54,30 @@ public interface SummaryFileLoader extends FileModule
      * @generated
      */
     void setRequiredItems ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Prefix</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Prefix</em>' attribute.
+     * @see #setPrefix(String)
+     * @see org.openscada.configurator.module.common.summary.SummaryPackage#getSummaryFileLoader_Prefix()
+     * @model
+     * @generated
+     */
+    String getPrefix ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.module.common.summary.SummaryFileLoader#getPrefix <em>Prefix</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Prefix</em>' attribute.
+     * @see #getPrefix()
+     * @generated
+     */
+    void setPrefix ( String value );
 } // SummaryFileLoader

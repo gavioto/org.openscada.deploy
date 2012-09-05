@@ -39,6 +39,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="SummaryFileLoader" eSuperTypes="#//FileModule">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredItems" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="2"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GenerateSummaries" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredItems" lowerBound="1"
