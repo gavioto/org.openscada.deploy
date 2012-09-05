@@ -1,4 +1,5 @@
 %define _datadir /usr/share
+%define _bindir /usr/bin
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
@@ -41,7 +42,9 @@ cd ..
 
 %files
 %defattr(-,root,root)
-#%attr(744,root,root) %{_datadir}/openscada/profiles/*
+%attr(755,root,root) %{_bindir}/osCreateMasterDB
+%attr(644,root,root) %{_datadir}/openscada/profiles/*
+%attr(644,root,root) %{_datadir}/openscada/samples/*
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
