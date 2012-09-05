@@ -28,7 +28,7 @@ esac
 
 if [ -d /var/log/openscada ]; then
 	chgrp openscada /var/log/openscada
-	chmod g+w /var/log/openscada
+	chmod 0770 /var/log/openscada
 fi
 
 #DEBHELPER#
