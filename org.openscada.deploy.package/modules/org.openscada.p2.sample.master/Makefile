@@ -12,6 +12,6 @@ install:
 	install -m 0644 src/share/osCreateMasterDB.db.sql "$(DESTDIR)/usr/share/openscada/samples/"
 	install -m 0644 src/share/osCreateMasterDB.tables.sql "$(DESTDIR)/usr/share/openscada/samples/"
 	
-	cp -av src/* "$(DESTDIR)/usr/share/openscada/profiles"
+	cp -av src/profile/* "$(DESTDIR)/usr/share/openscada/profiles"
 
 .PHONY: default install
