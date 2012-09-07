@@ -73,6 +73,8 @@ public class GenericMasterConfiguration extends GenericConfiguration
         addSum ( masterId + ".sum.manual", masterId, "manual", 5010, null ); //$NON-NLS-1$ //$NON-NLS-2$
         addSum ( masterId + ".sum.error.phase2", masterId, "error", 5000, "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         addSum ( masterId + ".sum.alarm", masterId, "alarm", 5020, null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.warning", masterId, "warning", 5021, null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.info", masterId, "info", 5022, null ); //$NON-NLS-1$ //$NON-NLS-2$
         addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", 5030, null ); //$NON-NLS-1$ //$NON-NLS-2$
         addSum ( masterId + ".sum.blocked", masterId, "blocked", 5040, null ); //$NON-NLS-1$ //$NON-NLS-2$
     }
