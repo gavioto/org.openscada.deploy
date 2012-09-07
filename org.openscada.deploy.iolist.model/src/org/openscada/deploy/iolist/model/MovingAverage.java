@@ -41,7 +41,7 @@ public interface MovingAverage extends EObject
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getMovingAverage_Id()
-     * @model required="true"
+     * @model id="true" required="true"
      * @generated
      */
     String getId ();
