@@ -22,7 +22,7 @@ public class SummaryGenerator
 
         public Location ( final List<String> hierarchy )
         {
-            this.hierarchy = hierarchy != null ? new LinkedList<String> ( hierarchy ) : Collections.<String> emptyList ();
+            this.hierarchy = hierarchy != null ? new LinkedList<String> ( hierarchy ) : new LinkedList<String> ( hierarchy );
         }
 
         public List<String> getHierarchy ()
