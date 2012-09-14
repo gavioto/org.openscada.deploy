@@ -25,7 +25,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *
  * @generated
  */
-public class BooleanMonitorImpl extends MonitorImpl implements BooleanMonitor
+public class BooleanMonitorImpl extends BasicMonitorImpl implements BooleanMonitor
 {
     /**
      * The default value of the '{@link #isOkValue() <em>Ok Value</em>}' attribute.

@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,7 +20,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
@@ -31,7 +29,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LevelMonitorItemProvider extends MonitorItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class LevelMonitorItemProvider extends BasicMonitorItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.

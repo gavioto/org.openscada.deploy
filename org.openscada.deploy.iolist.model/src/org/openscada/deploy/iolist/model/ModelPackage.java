@@ -8,6 +8,7 @@ package org.openscada.deploy.iolist.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1711,31 +1712,59 @@ public interface ModelPackage extends EPackage
     int MONITOR__ACTIVE = 0;
 
     /**
-     * The feature id for the '<em><b>Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MONITOR__ACK = 1;
-
-    /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MONITOR__PRIORITY = 2;
-
-    /**
      * The number of structural features of the '<em>Monitor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MONITOR_FEATURE_COUNT = 3;
+    int MONITOR_FEATURE_COUNT = 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.BasicMonitorImpl <em>Basic Monitor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.BasicMonitorImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBasicMonitor()
+     * @generated
+     */
+    int BASIC_MONITOR = 20;
+
+    /**
+     * The feature id for the '<em><b>Active</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_MONITOR__ACTIVE = MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Ack</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_MONITOR__ACK = MONITOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Severity</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_MONITOR__SEVERITY = MONITOR_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Basic Monitor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.
@@ -1754,7 +1783,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_MONITOR__ACTIVE = MONITOR__ACTIVE;
+    int LEVEL_MONITOR__ACTIVE = BASIC_MONITOR__ACTIVE;
 
     /**
      * The feature id for the '<em><b>Ack</b></em>' attribute.
@@ -1763,16 +1792,16 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_MONITOR__ACK = MONITOR__ACK;
+    int LEVEL_MONITOR__ACK = BASIC_MONITOR__ACK;
 
     /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * The feature id for the '<em><b>Severity</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LEVEL_MONITOR__PRIORITY = MONITOR__PRIORITY;
+    int LEVEL_MONITOR__SEVERITY = BASIC_MONITOR__SEVERITY;
 
     /**
      * The feature id for the '<em><b>Preset</b></em>' attribute.
@@ -1781,7 +1810,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_MONITOR__PRESET = MONITOR_FEATURE_COUNT + 0;
+    int LEVEL_MONITOR__PRESET = BASIC_MONITOR_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Level Monitor</em>' class.
@@ -1790,7 +1819,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 1;
+    int LEVEL_MONITOR_FEATURE_COUNT = BASIC_MONITOR_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl <em>List Monitor</em>}' class.
@@ -1812,40 +1841,31 @@ public interface ModelPackage extends EPackage
     int LIST_MONITOR__ACTIVE = MONITOR__ACTIVE;
 
     /**
-     * The feature id for the '<em><b>Ack</b></em>' attribute.
+     * The feature id for the '<em><b>Entries</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LIST_MONITOR__ACK = MONITOR__ACK;
+    int LIST_MONITOR__ENTRIES = MONITOR_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * The feature id for the '<em><b>Default Ack</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LIST_MONITOR__PRIORITY = MONITOR__PRIORITY;
+    int LIST_MONITOR__DEFAULT_ACK = MONITOR_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Values</b></em>' attribute list.
+     * The feature id for the '<em><b>Default Severity</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LIST_MONITOR__VALUES = MONITOR_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>List Is Alarm</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LIST_MONITOR__LIST_IS_ALARM = MONITOR_FEATURE_COUNT + 1;
+    int LIST_MONITOR__DEFAULT_SEVERITY = MONITOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>List Monitor</em>' class.
@@ -1854,7 +1874,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LIST_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 2;
+    int LIST_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.
@@ -1873,7 +1893,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BOOLEAN_MONITOR__ACTIVE = MONITOR__ACTIVE;
+    int BOOLEAN_MONITOR__ACTIVE = BASIC_MONITOR__ACTIVE;
 
     /**
      * The feature id for the '<em><b>Ack</b></em>' attribute.
@@ -1882,16 +1902,16 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BOOLEAN_MONITOR__ACK = MONITOR__ACK;
+    int BOOLEAN_MONITOR__ACK = BASIC_MONITOR__ACK;
 
     /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
+     * The feature id for the '<em><b>Severity</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BOOLEAN_MONITOR__PRIORITY = MONITOR__PRIORITY;
+    int BOOLEAN_MONITOR__SEVERITY = BASIC_MONITOR__SEVERITY;
 
     /**
      * The feature id for the '<em><b>Ok Value</b></em>' attribute.
@@ -1900,7 +1920,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BOOLEAN_MONITOR__OK_VALUE = MONITOR_FEATURE_COUNT + 0;
+    int BOOLEAN_MONITOR__OK_VALUE = BASIC_MONITOR_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Boolean Monitor</em>' class.
@@ -1909,7 +1929,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BOOLEAN_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 1;
+    int BOOLEAN_MONITOR_FEATURE_COUNT = BASIC_MONITOR_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.AverageImpl <em>Average</em>}' class.
@@ -3249,6 +3269,52 @@ public interface ModelPackage extends EPackage
     int MOVING_AVERAGE_FEATURE_COUNT = 5;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl <em>List Monitor Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitorEntry()
+     * @generated
+     */
+    int LIST_MONITOR_ENTRY = 19;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR_ENTRY__VALUE = 0;
+
+    /**
+     * The feature id for the '<em><b>Severity</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR_ENTRY__SEVERITY = 1;
+
+    /**
+     * The feature id for the '<em><b>Require Ack</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR_ENTRY__REQUIRE_ACK = 2;
+
+    /**
+     * The number of structural features of the '<em>List Monitor Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR_ENTRY_FEATURE_COUNT = 3;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3256,7 +3322,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 19;
+    int DATA_TYPE = 21;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -3266,7 +3332,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 20;
+    int ROUNDING = 22;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
@@ -3276,7 +3342,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 21;
+    int AVERAGE_REFERENCE_TYPE = 23;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -3286,7 +3352,37 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 22;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 24;
+
+    /**
+     * The meta object id for the '<em>List Severity</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.lang.String
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListSeverity()
+     * @generated
+     */
+    int LIST_SEVERITY = 26;
+
+    /**
+     * The meta object id for the '<em>Severity</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.ae.Severity
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
+     * @generated
+     */
+    int SEVERITY = 27;
+
+    /**
+     * The meta object id for the '<em>Variant</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.core.Variant
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
+     * @generated
+     */
+    int VARIANT = 25;
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -4246,28 +4342,6 @@ public interface ModelPackage extends EPackage
     EAttribute getMonitor_Active ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#isAck <em>Ack</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Ack</em>'.
-     * @see org.openscada.deploy.iolist.model.Monitor#isAck()
-     * @see #getMonitor()
-     * @generated
-     */
-    EAttribute getMonitor_Ack ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#getPriority <em>Priority</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Priority</em>'.
-     * @see org.openscada.deploy.iolist.model.Monitor#getPriority()
-     * @see #getMonitor()
-     * @generated
-     */
-    EAttribute getMonitor_Priority ();
-
-    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.LevelMonitor <em>Level Monitor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4299,26 +4373,37 @@ public interface ModelPackage extends EPackage
     EClass getListMonitor ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.ListMonitor#getValues <em>Values</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.ListMonitor#getEntries <em>Entries</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Values</em>'.
-     * @see org.openscada.deploy.iolist.model.ListMonitor#getValues()
+     * @return the meta object for the containment reference list '<em>Entries</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor#getEntries()
      * @see #getListMonitor()
      * @generated
      */
-    EAttribute getListMonitor_Values ();
+    EReference getListMonitor_Entries ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm <em>List Is Alarm</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitor#isDefaultAck <em>Default Ack</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>List Is Alarm</em>'.
-     * @see org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm()
+     * @return the meta object for the attribute '<em>Default Ack</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor#isDefaultAck()
      * @see #getListMonitor()
      * @generated
      */
-    EAttribute getListMonitor_ListIsAlarm ();
+    EAttribute getListMonitor_DefaultAck ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitor#getDefaultSeverity <em>Default Severity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Severity</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor#getDefaultSeverity()
+     * @see #getListMonitor()
+     * @generated
+     */
+    EAttribute getListMonitor_DefaultSeverity ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.BooleanMonitor <em>Boolean Monitor</em>}'.
@@ -4524,6 +4609,81 @@ public interface ModelPackage extends EPackage
     EAttribute getMovingAverage_NullRange ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ListMonitorEntry <em>List Monitor Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>List Monitor Entry</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitorEntry
+     * @generated
+     */
+    EClass getListMonitorEntry ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitorEntry#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitorEntry#getValue()
+     * @see #getListMonitorEntry()
+     * @generated
+     */
+    EAttribute getListMonitorEntry_Value ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitorEntry#getSeverity <em>Severity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Severity</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitorEntry#getSeverity()
+     * @see #getListMonitorEntry()
+     * @generated
+     */
+    EAttribute getListMonitorEntry_Severity ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitorEntry#getRequireAck <em>Require Ack</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Require Ack</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitorEntry#getRequireAck()
+     * @see #getListMonitorEntry()
+     * @generated
+     */
+    EAttribute getListMonitorEntry_RequireAck ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.BasicMonitor <em>Basic Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Basic Monitor</em>'.
+     * @see org.openscada.deploy.iolist.model.BasicMonitor
+     * @generated
+     */
+    EClass getBasicMonitor ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.BasicMonitor#isAck <em>Ack</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ack</em>'.
+     * @see org.openscada.deploy.iolist.model.BasicMonitor#isAck()
+     * @see #getBasicMonitor()
+     * @generated
+     */
+    EAttribute getBasicMonitor_Ack ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.BasicMonitor#getSeverity <em>Severity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Severity</em>'.
+     * @see org.openscada.deploy.iolist.model.BasicMonitor#getSeverity()
+     * @see #getBasicMonitor()
+     * @generated
+     */
+    EAttribute getBasicMonitor_Severity ();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4562,6 +4722,41 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EEnum getMovingAverageReferenceType ();
+
+    /**
+     * Returns the meta object for data type '{@link java.lang.String <em>List Severity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>List Severity</em>'.
+     * @see java.lang.String
+     * @model instanceClass="java.lang.String"
+     *        extendedMetaData="enumeration='OK INFORMATION WARNING ALARM ERROR'"
+     * @generated
+     */
+    EDataType getListSeverity ();
+
+    /**
+     * Returns the meta object for data type '{@link org.openscada.ae.Severity <em>Severity</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Severity</em>'.
+     * @see org.openscada.ae.Severity
+     * @model instanceClass="org.openscada.ae.Severity"
+     *        extendedMetaData="enumeration='INFORMATION WARNING ALARM ERROR'"
+     * @generated
+     */
+    EDataType getSeverity ();
+
+    /**
+     * Returns the meta object for data type '{@link org.openscada.core.Variant <em>Variant</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Variant</em>'.
+     * @see org.openscada.core.Variant
+     * @model instanceClass="org.openscada.core.Variant"
+     * @generated
+     */
+    EDataType getVariant ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -5313,22 +5508,6 @@ public interface ModelPackage extends EPackage
         EAttribute MONITOR__ACTIVE = eINSTANCE.getMonitor_Active ();
 
         /**
-         * The meta object literal for the '<em><b>Ack</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute MONITOR__ACK = eINSTANCE.getMonitor_Ack ();
-
-        /**
-         * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute MONITOR__PRIORITY = eINSTANCE.getMonitor_Priority ();
-
-        /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5357,20 +5536,28 @@ public interface ModelPackage extends EPackage
         EClass LIST_MONITOR = eINSTANCE.getListMonitor ();
 
         /**
-         * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+         * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIST_MONITOR__VALUES = eINSTANCE.getListMonitor_Values ();
+        EReference LIST_MONITOR__ENTRIES = eINSTANCE.getListMonitor_Entries ();
 
         /**
-         * The meta object literal for the '<em><b>List Is Alarm</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Default Ack</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LIST_MONITOR__LIST_IS_ALARM = eINSTANCE.getListMonitor_ListIsAlarm ();
+        EAttribute LIST_MONITOR__DEFAULT_ACK = eINSTANCE.getListMonitor_DefaultAck ();
+
+        /**
+         * The meta object literal for the '<em><b>Default Severity</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR__DEFAULT_SEVERITY = eINSTANCE.getListMonitor_DefaultSeverity ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.
@@ -5537,6 +5724,66 @@ public interface ModelPackage extends EPackage
         EAttribute MOVING_AVERAGE__NULL_RANGE = eINSTANCE.getMovingAverage_NullRange ();
 
         /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl <em>List Monitor Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitorEntry()
+         * @generated
+         */
+        EClass LIST_MONITOR_ENTRY = eINSTANCE.getListMonitorEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR_ENTRY__VALUE = eINSTANCE.getListMonitorEntry_Value ();
+
+        /**
+         * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR_ENTRY__SEVERITY = eINSTANCE.getListMonitorEntry_Severity ();
+
+        /**
+         * The meta object literal for the '<em><b>Require Ack</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR_ENTRY__REQUIRE_ACK = eINSTANCE.getListMonitorEntry_RequireAck ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.BasicMonitorImpl <em>Basic Monitor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.BasicMonitorImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBasicMonitor()
+         * @generated
+         */
+        EClass BASIC_MONITOR = eINSTANCE.getBasicMonitor ();
+
+        /**
+         * The meta object literal for the '<em><b>Ack</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BASIC_MONITOR__ACK = eINSTANCE.getBasicMonitor_Ack ();
+
+        /**
+         * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BASIC_MONITOR__SEVERITY = eINSTANCE.getBasicMonitor_Severity ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5575,6 +5822,36 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EEnum MOVING_AVERAGE_REFERENCE_TYPE = eINSTANCE.getMovingAverageReferenceType ();
+
+        /**
+         * The meta object literal for the '<em>List Severity</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see java.lang.String
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListSeverity()
+         * @generated
+         */
+        EDataType LIST_SEVERITY = eINSTANCE.getListSeverity ();
+
+        /**
+         * The meta object literal for the '<em>Severity</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.ae.Severity
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
+         * @generated
+         */
+        EDataType SEVERITY = eINSTANCE.getSeverity ();
+
+        /**
+         * The meta object literal for the '<em>Variant</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.core.Variant
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
+         * @generated
+         */
+        EDataType VARIANT = eINSTANCE.getVariant ();
 
     }
 

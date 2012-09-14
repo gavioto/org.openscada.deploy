@@ -1,42 +1,43 @@
 package org.openscada.deploy.iolist.utils.column;
 
 import org.odftoolkit.odfdom.doc.table.OdfTableCell;
-import org.odftoolkit.odfdom.dom.attribute.office.OfficeValueTypeAttribute;
 import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.model.ModelPackage;
-import org.openscada.utils.str.StringHelper;
+import org.openscada.deploy.iolist.model.ListMonitor;
 
-public class ListMonitorColumn extends MonitorColumn
+public abstract class ListMonitorColumn extends AbstractColumn
 {
 
     public ListMonitorColumn ( final String name )
     {
-        super ( name, ModelPackage.Literals.ITEM__LOCAL_LIST_MONITOR );
+        super ( name );
     }
 
     @Override
-    protected void updateSetValue ( final OdfTableCell cell, final Item item )
+    protected void update ( final OdfTableCell cell, final Item item )
     {
-        cell.setStringValue ( makeListData ( item ) );
-        cell.setValueType ( OfficeValueTypeAttribute.Value.STRING.toString () );
-    }
-
-    protected static String makeListData ( final Item item )
-    {
-        final StringBuilder sb = new StringBuilder ();
-
-        if ( item.getLocalListMonitor ().isListIsAlarm () )
+        final ListMonitor monitor = item.getLocalListMonitor ();
+        if ( monitor == null )
         {
-            sb.append ( "ALARM:" );
+            return;
+        }
+
+        final String severity = monitor.getDefaultSeverity ();
+        if ( severity.equals ( "WARNING" ) )
+        {
+            cell.setCellBackgroundColor ( "#FFFF00" );
+        }
+        else if ( severity.equals ( "ALARM" ) )
+        {
+            cell.setCellBackgroundColor ( "#FF0000" );
+        }
+        else if ( severity.equals ( "ERROR" ) )
+        {
+            cell.setCellBackgroundColor ( "#FF00FF" );
         }
         else
         {
-            sb.append ( "EVENT:" );
+            cell.setCellBackgroundColor ( "" );
         }
-
-        sb.append ( StringHelper.join ( item.getLocalListMonitor ().getValues (), "," ) );
-
-        return sb.toString ();
     }
 
 }

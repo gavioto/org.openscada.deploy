@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,8 +21,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
 /**
@@ -57,32 +57,65 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
         {
             super.getPropertyDescriptors ( object );
 
-            addValuesPropertyDescriptor ( object );
-            addListIsAlarmPropertyDescriptor ( object );
+            addDefaultAckPropertyDescriptor ( object );
+            addDefaultSeverityPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Values feature.
+     * This adds a property descriptor for the Default Ack feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addValuesPropertyDescriptor ( Object object )
+    protected void addDefaultAckPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitor_values_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitor_values_feature", "_UI_ListMonitor_type" ), ModelPackage.Literals.LIST_MONITOR__VALUES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitor_defaultAck_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitor_defaultAck_feature", "_UI_ListMonitor_type" ), ModelPackage.Literals.LIST_MONITOR__DEFAULT_ACK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
-     * This adds a property descriptor for the List Is Alarm feature.
+     * This adds a property descriptor for the Default Severity feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addListIsAlarmPropertyDescriptor ( Object object )
+    protected void addDefaultSeverityPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitor_listIsAlarm_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitor_listIsAlarm_feature", "_UI_ListMonitor_type" ), ModelPackage.Literals.LIST_MONITOR__LIST_IS_ALARM, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitor_defaultSeverity_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitor_defaultSeverity_feature", "_UI_ListMonitor_type" ), ModelPackage.Literals.LIST_MONITOR__DEFAULT_SEVERITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    {
+        if ( childrenFeatures == null )
+        {
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( ModelPackage.Literals.LIST_MONITOR__ENTRIES );
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -124,9 +157,12 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
 
         switch ( notification.getFeatureID ( ListMonitor.class ) )
         {
-            case ModelPackage.LIST_MONITOR__VALUES:
-            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
+            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -143,6 +179,8 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.LIST_MONITOR__ENTRIES, ModelFactory.eINSTANCE.createListMonitorEntry () ) );
     }
 
 }

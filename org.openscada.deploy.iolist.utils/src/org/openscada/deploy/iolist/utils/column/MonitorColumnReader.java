@@ -2,6 +2,8 @@ package org.openscada.deploy.iolist.utils.column;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.openscada.ae.Severity;
+import org.openscada.deploy.iolist.model.BasicMonitor;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.Monitor;
@@ -30,11 +32,25 @@ public class MonitorColumnReader implements ColumnReader
         }
 
         item.eSet ( this.feature, ModelFactory.eINSTANCE.create ( this.monitorClass ) );
-        final Monitor monitor = (Monitor)item.eGet ( this.feature );
+        final BasicMonitor monitor = (BasicMonitor)item.eGet ( this.feature );
 
         monitor.setActive ( true );
-        monitor.setPriority ( "" );
-        monitor.setAck ( "#FF0000".equalsIgnoreCase ( cell.getBackgroundColor () ) );
+
+        final String color = cell.getBackgroundColor ();
+        if ( "#FF00FF".equalsIgnoreCase ( color ) )
+        {
+            monitor.setSeverity ( Severity.ERROR );
+        }
+        else if ( "#FF0000".equalsIgnoreCase ( color ) )
+        {
+            monitor.setSeverity ( Severity.ALARM );
+        }
+        else if ( "#FFFF00".equalsIgnoreCase ( color ) )
+        {
+            monitor.setSeverity ( Severity.WARNING );
+        }
+
+        monitor.setAck ( cell.isBold () );
 
         readMonitor ( item, monitor, cell );
     }

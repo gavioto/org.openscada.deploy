@@ -20,6 +20,7 @@ import org.odftoolkit.odfdom.dom.style.props.OdfTableRowProperties;
 import org.odftoolkit.odfdom.incubator.doc.office.OdfOfficeStyles;
 import org.odftoolkit.odfdom.incubator.doc.style.OdfStyle;
 import org.odftoolkit.odfdom.incubator.doc.style.OdfStylePageLayout;
+import org.openscada.ae.monitor.datasource.common.ListSeverity;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;
@@ -27,11 +28,13 @@ import org.openscada.deploy.iolist.utils.column.BooleanEcoreColumn;
 import org.openscada.deploy.iolist.utils.column.BooleanMonitorColumn;
 import org.openscada.deploy.iolist.utils.column.ColumnWriter;
 import org.openscada.deploy.iolist.utils.column.LevelMonitorColumn;
-import org.openscada.deploy.iolist.utils.column.ListMonitorColumn;
+import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumn;
+import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumn;
 import org.openscada.deploy.iolist.utils.column.OptionalNumericColumn;
 import org.openscada.deploy.iolist.utils.column.OptionalTextColumn;
 import org.openscada.deploy.iolist.utils.column.TextColumn;
 import org.openscada.deploy.iolist.utils.column.TextEcoreColumn;
+import org.openscada.deploy.iolist.utils.column.TypeColumnWriter;
 import org.w3c.dom.Node;
 
 // TODO: add auto filter
@@ -43,6 +46,8 @@ public class ItemListWriter
     private final List<Item> items = new LinkedList<Item> ();
 
     private final List<ColumnWriter> columns = new LinkedList<ColumnWriter> ();
+
+    private OdfStyle cellStyle;
 
     private void setupColumns ( final int maxLevel )
     {
@@ -90,7 +95,13 @@ public class ItemListWriter
         this.columns.add ( new LevelMonitorColumn ( "LIMIT_HH", ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH ) );
 
         this.columns.add ( new BooleanMonitorColumn ( "MONITOR_BOOL", ModelPackage.Literals.ITEM__LOCAL_BOOLEAN_MONITOR ) );
-        this.columns.add ( new ListMonitorColumn ( "LIST_MONITOR" ) );
+        // this.columns.add ( new ListMonitorColumn ( "LIST_MONITOR" ) );
+        for ( final ListSeverity severity : ListSeverity.values () )
+        {
+            this.columns.add ( new ListMonitorSeverityColumn ( "LIST_MONITOR_" + severity, severity ) );
+        }
+        this.columns.add ( new ListMonitorAckColumn ( "LIST_MONITOR_ACK", true ) );
+        this.columns.add ( new ListMonitorAckColumn ( "LIST_MONITOR_NAK", false ) );
 
         this.columns.add ( new BooleanEcoreColumn ( "REMOTE_MIN", ModelPackage.Literals.ITEM__REMOTE_MIN ) );
         this.columns.add ( new BooleanEcoreColumn ( "REMOTE_MAX", ModelPackage.Literals.ITEM__REMOTE_MAX ) );
@@ -243,6 +254,7 @@ public class ItemListWriter
 
         final OdfTable sheet = OdfTable.newTable ( output );
         sheet.setTableName ( "Items" );
+
         processHeader ( sheet );
 
         int row = 1;
@@ -273,21 +285,26 @@ public class ItemListWriter
         final OdfStyle alarmStyle = styles.newStyle ( "Alarm", OdfStyleFamily.TableCell );
         alarmStyle.setProperty ( OdfTableCellProperties.BackgroundColor, "#FF0000" );
 
+        this.cellStyle = styles.newStyle ( "Default", OdfStyleFamily.TableCell );
+
         final OdfStyle columnStyle = styles.newStyle ( "Default", OdfStyleFamily.TableColumn );
         columnStyle.setProperty ( OdfTableColumnProperties.UseOptimalColumnWidth, "true" );
 
         final OdfStyle rowStyle = styles.newStyle ( "Default", OdfStyleFamily.TableRow );
         rowStyle.setProperty ( OdfTableRowProperties.UseOptimalRowHeight, "true" );
 
+        // set page style
         final StyleMasterPageElement defaultPage = output.getOfficeMasterStyles ().getMasterPage ( "Default" );
-
         final OdfStylePageLayout pageLayout = defaultPage.getAutomaticStyles ().getPageLayout ( defaultPage.getStylePageLayoutNameAttribute () );
         pageLayout.setProperty ( OdfPageLayoutProperties.PrintOrientation, "landscape" );
         pageLayout.setProperty ( OdfPageLayoutProperties.PageHeight, "210mm" );
         pageLayout.setProperty ( OdfPageLayoutProperties.PageWidth, "297mm" );
         pageLayout.setProperty ( OdfPageLayoutProperties.NumFormat, "1" );
 
+        // set locale
         output.setLocale ( Locale.ENGLISH );
+
+        // set metadata
         output.getOfficeMetadata ().setCreator ( "openSCADA Configurator" );
         output.getOfficeMetadata ().setGenerator ( "openSCADA Configurator" );
         output.getOfficeMetadata ().setTitle ( "IO List" );
@@ -296,7 +313,8 @@ public class ItemListWriter
 
     private void processItem ( final OdfTable sheet, final Item item, final int rowIndex )
     {
-        final OdfTableRow row = sheet.getRowByIndex ( 0 );
+        final OdfTableRow row = sheet.getRowByIndex ( rowIndex );
+        row.setDefaultCellStyle ( this.cellStyle );
         row.setUseOptimalHeight ( true );
 
         int i = 0;

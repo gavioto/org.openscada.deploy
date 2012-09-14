@@ -13,3 +13,5 @@ Export-Package: org.openscada.deploy.iolist.model;version="1.0.0",
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Import-Package: org.openscada.ae;version="1.0.0",
+ org.openscada.core;version="1.0.0"

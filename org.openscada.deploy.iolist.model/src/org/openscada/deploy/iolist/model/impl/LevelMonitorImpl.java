@@ -25,7 +25,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *
  * @generated
  */
-public class LevelMonitorImpl extends MonitorImpl implements LevelMonitor
+public class LevelMonitorImpl extends BasicMonitorImpl implements LevelMonitor
 {
     /**
      * The default value of the '{@link #getPreset() <em>Preset</em>}' attribute.

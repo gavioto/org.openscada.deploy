@@ -15,6 +15,7 @@ import org.odftoolkit.odfdom.doc.table.OdfTable;
 import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.odftoolkit.odfdom.dom.element.table.TableTableRowElement;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfWhitespaceProcessor;
+import org.openscada.ae.monitor.datasource.common.ListSeverity;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
@@ -28,7 +29,8 @@ import org.openscada.deploy.iolist.utils.column.BooleanEcoreColumnReader;
 import org.openscada.deploy.iolist.utils.column.ColumnReader;
 import org.openscada.deploy.iolist.utils.column.LevelColumnReader;
 import org.openscada.deploy.iolist.utils.column.LevelMonitorColumnReader;
-import org.openscada.deploy.iolist.utils.column.ListMonitorColumnReader;
+import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumnReader;
+import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumnReader;
 import org.openscada.deploy.iolist.utils.column.MonitorColumnReader;
 import org.openscada.deploy.iolist.utils.column.NumericColumnReader;
 import org.openscada.deploy.iolist.utils.column.TextColumnReader;
@@ -115,7 +117,13 @@ public class ItemListReader
                 ( (BooleanMonitor)monitor ).setOkValue ( BooleanColumnReader.makeBoolean ( cell, true ) );
             }
         } );
-        this.readers.put ( "LIST_MONITOR", new ListMonitorColumnReader ( ModelPackage.Literals.ITEM__LOCAL_LIST_MONITOR ) );
+
+        for ( final ListSeverity severity : ListSeverity.values () )
+        {
+            this.readers.put ( "LIST_MONITOR_" + severity, new ListMonitorSeverityColumnReader ( severity ) );
+        }
+        this.readers.put ( "LIST_MONITOR_ACK", new ListMonitorAckColumnReader ( true ) );
+        this.readers.put ( "LIST_MONITOR_NAK", new ListMonitorAckColumnReader ( false ) );
 
         this.readers.put ( "REMOTE_MIN", new BooleanEcoreColumnReader ( ModelPackage.Literals.ITEM__REMOTE_MIN ) );
         this.readers.put ( "REMOTE_MAX", new BooleanEcoreColumnReader ( ModelPackage.Literals.ITEM__REMOTE_MAX ) );

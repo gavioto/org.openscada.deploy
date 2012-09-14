@@ -1,56 +1,69 @@
 package org.openscada.deploy.iolist.utils.column;
 
-import java.util.regex.Pattern;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.openscada.core.Variant;
+import org.openscada.core.VariantEditor;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ListMonitor;
-import org.openscada.deploy.iolist.model.ModelPackage;
-import org.openscada.deploy.iolist.model.Monitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
+import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.utils.Cell;
 
-public class ListMonitorColumnReader extends MonitorColumnReader
+public abstract class ListMonitorColumnReader implements ColumnReader
 {
 
-    public ListMonitorColumnReader ( final EStructuralFeature feature )
-    {
-        super ( feature, ModelPackage.Literals.LIST_MONITOR );
-    }
-
-    private static final Pattern splitPattern = Pattern.compile ( "," );
-
     @Override
-    protected void readMonitor ( final Item item, final Monitor monitor, final Cell cell )
+    public void readItem ( final Item item, final Cell cell )
     {
-        final ListMonitor listMonitor = (ListMonitor)monitor;
+        final String data = cell.getText ();
 
-        final String value = cell.getText ();
-
-        if ( value != null && value.length () != 0 )
+        if ( data == null || data.isEmpty () )
         {
-            final String toks[] = value.split ( ":", 2 );
-            if ( toks.length > 1 )
-            {
-                listMonitor.setListIsAlarm ( toks[0].toUpperCase ().equals ( "ALARM" ) );
-                for ( final String valueEntry : ListMonitorColumnReader.splitPattern.split ( toks[1] ) )
-                {
-                    listMonitor.getValues ().add ( valueEntry );
-                }
-            }
-            else
-            {
-                for ( final String valueEntry : ListMonitorColumnReader.splitPattern.split ( value ) )
-                {
-                    listMonitor.getValues ().add ( valueEntry );
-                }
-
-            }
-        }
-        else
-        {
-            item.setLocalListMonitor ( null );
+            return;
         }
 
+        if ( item.getLocalListMonitor () == null )
+        {
+            item.setLocalListMonitor ( ModelFactory.eINSTANCE.createListMonitor () );
+        }
+
+        final ListMonitor monitor = item.getLocalListMonitor ();
+
+        if ( "#FFFF00".equalsIgnoreCase ( cell.getBackgroundColor () ) )
+        {
+            monitor.setDefaultSeverity ( "WARNING" );
+        }
+        else if ( "#FF0000".equalsIgnoreCase ( cell.getBackgroundColor () ) )
+        {
+            monitor.setDefaultSeverity ( "ALARM" );
+        }
+        else if ( "#FF00FF".equalsIgnoreCase ( cell.getBackgroundColor () ) )
+        {
+            monitor.setDefaultSeverity ( "ERROR" );
+        }
+
+        for ( final String tok : data.split ( ", *" ) )
+        {
+            final Variant value = VariantEditor.toVariant ( tok );
+            handleEntry ( item, findEntry ( item, value ), cell, value );
+        }
     }
 
+    protected ListMonitorEntry findEntry ( final Item item, final Variant value )
+    {
+        for ( final ListMonitorEntry entry : item.getLocalListMonitor ().getEntries () )
+        {
+            if ( entry.getValue ().equals ( value ) )
+            {
+                return entry;
+            }
+        }
+
+        final ListMonitorEntry entry = ModelFactory.eINSTANCE.createListMonitorEntry ();
+        entry.setValue ( value );
+        item.getLocalListMonitor ().getEntries ().add ( entry );
+
+        return entry;
+    }
+
+    protected abstract void handleEntry ( Item item, ListMonitorEntry listMonitorEntry, final Cell cell, final Variant value );
 }

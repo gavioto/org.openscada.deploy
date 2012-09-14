@@ -16,8 +16,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#getValues <em>Values</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm <em>List Is Alarm</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#isDefaultAck <em>Default Ack</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#getDefaultSeverity <em>Default Severity</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,45 +29,73 @@ import org.eclipse.emf.common.util.EList;
 public interface ListMonitor extends Monitor
 {
     /**
-     * Returns the value of the '<em><b>Values</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
+     * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.deploy.iolist.model.ListMonitorEntry}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Values</em>' attribute list isn't clear,
+     * If the meaning of the '<em>Entries</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Values</em>' attribute list.
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getListMonitor_Values()
-     * @model
+     * @return the value of the '<em>Entries</em>' containment reference list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getListMonitor_Entries()
+     * @model containment="true"
      * @generated
      */
-    EList<String> getValues ();
+    EList<ListMonitorEntry> getEntries ();
 
     /**
-     * Returns the value of the '<em><b>List Is Alarm</b></em>' attribute.
+     * Returns the value of the '<em><b>Default Ack</b></em>' attribute.
+     * The default value is <code>"false"</code>.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>List Is Alarm</em>' attribute isn't clear,
+     * If the meaning of the '<em>Default Ack</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>List Is Alarm</em>' attribute.
-     * @see #setListIsAlarm(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getListMonitor_ListIsAlarm()
-     * @model required="true"
+     * @return the value of the '<em>Default Ack</em>' attribute.
+     * @see #setDefaultAck(boolean)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getListMonitor_DefaultAck()
+     * @model default="false" required="true"
      * @generated
      */
-    boolean isListIsAlarm ();
+    boolean isDefaultAck ();
 
     /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.ListMonitor#isListIsAlarm <em>List Is Alarm</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.ListMonitor#isDefaultAck <em>Default Ack</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>List Is Alarm</em>' attribute.
-     * @see #isListIsAlarm()
+     * @param value the new value of the '<em>Default Ack</em>' attribute.
+     * @see #isDefaultAck()
      * @generated
      */
-    void setListIsAlarm ( boolean value );
+    void setDefaultAck ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Default Severity</b></em>' attribute.
+     * The default value is <code>"OK"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Severity</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Default Severity</em>' attribute.
+     * @see #setDefaultSeverity(String)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getListMonitor_DefaultSeverity()
+     * @model default="OK" dataType="org.openscada.deploy.iolist.model.ListSeverity" required="true"
+     * @generated
+     */
+    String getDefaultSeverity ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.ListMonitor#getDefaultSeverity <em>Default Severity</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Default Severity</em>' attribute.
+     * @see #getDefaultSeverity()
+     * @generated
+     */
+    void setDefaultSeverity ( String value );
 
 } // ListMonitor

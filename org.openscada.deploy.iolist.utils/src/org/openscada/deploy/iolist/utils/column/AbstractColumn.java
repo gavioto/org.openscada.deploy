@@ -33,6 +33,8 @@ public abstract class AbstractColumn implements ColumnWriter
     public void writeItem ( final OdfTable table, final int rowIndex, final int colIndex, final Item item )
     {
         final OdfTableCell cell = table.getCellByPosition ( colIndex, rowIndex );
+        cell.clearCellBackgroundColor ();
+        cell.clearFontWeight ();
         update ( cell, item );
     }
 

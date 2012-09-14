@@ -12,7 +12,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -24,7 +23,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.openscada.deploy.iolist.model.util.ModelAdapterFactory;
 
 /**
@@ -528,6 +526,31 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.ListMonitorEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ListMonitorEntryItemProvider listMonitorEntryItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.ListMonitorEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createListMonitorEntryAdapter ()
+    {
+        if ( listMonitorEntryItemProvider == null )
+        {
+            listMonitorEntryItemProvider = new ListMonitorEntryItemProvider ( this );
+        }
+
+        return listMonitorEntryItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -674,6 +697,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
             movingAverageItemItemProvider.dispose ();
         if ( movingAverageItemProvider != null )
             movingAverageItemProvider.dispose ();
+        if ( listMonitorEntryItemProvider != null )
+            listMonitorEntryItemProvider.dispose ();
     }
 
 }

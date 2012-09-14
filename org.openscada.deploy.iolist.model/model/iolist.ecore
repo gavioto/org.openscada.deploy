@@ -167,21 +167,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="Monitor" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ack" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LevelMonitor" eSuperTypes="#//Monitor">
+  <eClassifiers xsi:type="ecore:EClass" name="LevelMonitor" eSuperTypes="#//BasicMonitor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="preset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListMonitor" eSuperTypes="#//Monitor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="listIsAlarm" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//ListMonitorEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultAck" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultSeverity" lowerBound="1"
+        eType="#//ListSeverity" defaultValueLiteral="OK"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanMonitor" eSuperTypes="#//Monitor">
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanMonitor" eSuperTypes="#//BasicMonitor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="okValue" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
@@ -246,5 +244,27 @@
     <eLiterals name="WEIGHTED" value="4" literal="weighted"/>
     <eLiterals name="DEVIATION_ARITHMETIC" value="5" literal="deviationArithmetic"/>
     <eLiterals name="DEVIATION_WEIGHTED" value="6" literal="deviationWeighted"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListMonitorEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//ListSeverity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requireAck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Variant" instanceClassName="org.openscada.core.Variant"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ListSeverity" instanceClassName="java.lang.String">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="enumeration" value="OK INFORMATION WARNING ALARM ERROR"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicMonitor" abstract="true" eSuperTypes="#//Monitor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ack" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
+        eType="#//Severity" defaultValueLiteral="ERROR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Severity" instanceClassName="org.openscada.ae.Severity">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="enumeration" value="INFORMATION WARNING ALARM ERROR"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

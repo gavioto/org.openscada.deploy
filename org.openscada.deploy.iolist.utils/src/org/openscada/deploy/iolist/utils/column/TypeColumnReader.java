@@ -1,7 +1,7 @@
-package org.openscada.deploy.iolist.utils;
+package org.openscada.deploy.iolist.utils.column;
 
 import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.utils.column.ColumnReader;
+import org.openscada.deploy.iolist.utils.Cell;
 
 public class TypeColumnReader implements ColumnReader
 {

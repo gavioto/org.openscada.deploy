@@ -40,6 +40,21 @@ public class Cell
         return new OdfWhitespaceProcessor ().getText ( this.cell );
     }
 
+    public boolean isBold ()
+    {
+        final OdfStyle styleElement = getCellStyleElement ();
+        if ( styleElement == null )
+        {
+            return false;
+        }
+
+        final OdfStyleProperty fontWeightProperty = OdfStyleProperty.get ( OdfStylePropertiesSet.TextProperties, OdfName.newName ( OdfDocumentNamespace.FO, "font-weight" ) );
+
+        final String property = styleElement.getProperty ( fontWeightProperty );
+
+        return "bold".equalsIgnoreCase ( property );
+    }
+
     public String getBackgroundColor ()
     {
         String color = "#FFFFFF";

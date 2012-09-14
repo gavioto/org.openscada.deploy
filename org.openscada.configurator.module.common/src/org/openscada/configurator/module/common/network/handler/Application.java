@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.openscada.ae.Severity;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.data.DataLoaderOdfDom;
@@ -80,6 +81,11 @@ public class Application
         item.setLocalHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
         item.setLocalHighHigh ( ModelFactory.eINSTANCE.createLevelMonitor () );
         item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
+
+        item.getLocalLowLow ().setSeverity ( Severity.ALARM );
+        item.getLocalLow ().setSeverity ( Severity.ALARM );
+        item.getLocalHigh ().setSeverity ( Severity.ALARM );
+        item.getLocalHighHigh ().setSeverity ( Severity.ALARM );
 
         if ( warnLow != null )
         {

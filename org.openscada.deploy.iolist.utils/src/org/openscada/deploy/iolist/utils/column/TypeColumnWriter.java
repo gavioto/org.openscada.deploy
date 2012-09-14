@@ -1,8 +1,7 @@
-package org.openscada.deploy.iolist.utils;
+package org.openscada.deploy.iolist.utils.column;
 
 import org.odftoolkit.odfdom.doc.table.OdfTableCell;
 import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.utils.column.AbstractColumn;
 
 public class TypeColumnWriter extends AbstractColumn
 {

@@ -9,11 +9,15 @@ package org.openscada.deploy.iolist.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
 /**
@@ -23,8 +27,9 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#getValues <em>Values</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#isListIsAlarm <em>List Is Alarm</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#isDefaultAck <em>Default Ack</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#getDefaultSeverity <em>Default Severity</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,34 +38,54 @@ import org.openscada.deploy.iolist.model.ModelPackage;
 public class ListMonitorImpl extends MonitorImpl implements ListMonitor
 {
     /**
-     * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
+     * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getValues()
+     * @see #getEntries()
      * @generated
      * @ordered
      */
-    protected EList<String> values;
+    protected EList<ListMonitorEntry> entries;
 
     /**
-     * The default value of the '{@link #isListIsAlarm() <em>List Is Alarm</em>}' attribute.
+     * The default value of the '{@link #isDefaultAck() <em>Default Ack</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isListIsAlarm()
+     * @see #isDefaultAck()
      * @generated
      * @ordered
      */
-    protected static final boolean LIST_IS_ALARM_EDEFAULT = false;
+    protected static final boolean DEFAULT_ACK_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isListIsAlarm() <em>List Is Alarm</em>}' attribute.
+     * The cached value of the '{@link #isDefaultAck() <em>Default Ack</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isListIsAlarm()
+     * @see #isDefaultAck()
      * @generated
      * @ordered
      */
-    protected boolean listIsAlarm = LIST_IS_ALARM_EDEFAULT;
+    protected boolean defaultAck = DEFAULT_ACK_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getDefaultSeverity() <em>Default Severity</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultSeverity()
+     * @generated
+     * @ordered
+     */
+    protected static final String DEFAULT_SEVERITY_EDEFAULT = "OK";
+
+    /**
+     * The cached value of the '{@link #getDefaultSeverity() <em>Default Severity</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultSeverity()
+     * @generated
+     * @ordered
+     */
+    protected String defaultSeverity = DEFAULT_SEVERITY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -88,13 +113,13 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getValues ()
+    public EList<ListMonitorEntry> getEntries ()
     {
-        if ( values == null )
+        if ( entries == null )
         {
-            values = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.LIST_MONITOR__VALUES );
+            entries = new EObjectContainmentEList<ListMonitorEntry> ( ListMonitorEntry.class, this, ModelPackage.LIST_MONITOR__ENTRIES );
         }
-        return values;
+        return entries;
     }
 
     /**
@@ -102,9 +127,9 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isListIsAlarm ()
+    public boolean isDefaultAck ()
     {
-        return listIsAlarm;
+        return defaultAck;
     }
 
     /**
@@ -112,12 +137,51 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setListIsAlarm ( boolean newListIsAlarm )
+    public void setDefaultAck ( boolean newDefaultAck )
     {
-        boolean oldListIsAlarm = listIsAlarm;
-        listIsAlarm = newListIsAlarm;
+        boolean oldDefaultAck = defaultAck;
+        defaultAck = newDefaultAck;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.LIST_MONITOR__LIST_IS_ALARM, oldListIsAlarm, listIsAlarm ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.LIST_MONITOR__DEFAULT_ACK, oldDefaultAck, defaultAck ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getDefaultSeverity ()
+    {
+        return defaultSeverity;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDefaultSeverity ( String newDefaultSeverity )
+    {
+        String oldDefaultSeverity = defaultSeverity;
+        defaultSeverity = newDefaultSeverity;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY, oldDefaultSeverity, defaultSeverity ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                return ( (InternalEList<?>)getEntries () ).basicRemove ( otherEnd, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -130,10 +194,12 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__VALUES:
-                return getValues ();
-            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                return isListIsAlarm ();
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                return getEntries ();
+            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+                return isDefaultAck ();
+            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+                return getDefaultSeverity ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -149,12 +215,15 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__VALUES:
-                getValues ().clear ();
-                getValues ().addAll ( (Collection<? extends String>)newValue );
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                getEntries ().clear ();
+                getEntries ().addAll ( (Collection<? extends ListMonitorEntry>)newValue );
                 return;
-            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                setListIsAlarm ( (Boolean)newValue );
+            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+                setDefaultAck ( (Boolean)newValue );
+                return;
+            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+                setDefaultSeverity ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -170,11 +239,14 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__VALUES:
-                getValues ().clear ();
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                getEntries ().clear ();
                 return;
-            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                setListIsAlarm ( LIST_IS_ALARM_EDEFAULT );
+            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+                setDefaultAck ( DEFAULT_ACK_EDEFAULT );
+                return;
+            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+                setDefaultSeverity ( DEFAULT_SEVERITY_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -190,10 +262,12 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__VALUES:
-                return values != null && !values.isEmpty ();
-            case ModelPackage.LIST_MONITOR__LIST_IS_ALARM:
-                return listIsAlarm != LIST_IS_ALARM_EDEFAULT;
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                return entries != null && !entries.isEmpty ();
+            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+                return defaultAck != DEFAULT_ACK_EDEFAULT;
+            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+                return DEFAULT_SEVERITY_EDEFAULT == null ? defaultSeverity != null : !DEFAULT_SEVERITY_EDEFAULT.equals ( defaultSeverity );
         }
         return super.eIsSet ( featureID );
     }
@@ -210,10 +284,10 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (values: " );
-        result.append ( values );
-        result.append ( ", listIsAlarm: " );
-        result.append ( listIsAlarm );
+        result.append ( " (defaultAck: " );
+        result.append ( defaultAck );
+        result.append ( ", defaultSeverity: " );
+        result.append ( defaultSeverity );
         result.append ( ')' );
         return result.toString ();
     }

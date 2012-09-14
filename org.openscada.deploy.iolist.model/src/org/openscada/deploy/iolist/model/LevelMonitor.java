@@ -22,7 +22,7 @@ package org.openscada.deploy.iolist.model;
  * @model
  * @generated
  */
-public interface LevelMonitor extends Monitor
+public interface LevelMonitor extends BasicMonitor
 {
     /**
      * Returns the value of the '<em><b>Preset</b></em>' attribute.

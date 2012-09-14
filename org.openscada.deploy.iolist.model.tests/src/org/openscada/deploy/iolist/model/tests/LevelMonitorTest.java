@@ -17,7 +17,7 @@ import org.openscada.deploy.iolist.model.ModelFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LevelMonitorTest extends MonitorTest
+public class LevelMonitorTest extends BasicMonitorTest
 {
 
     /**

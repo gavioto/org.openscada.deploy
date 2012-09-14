@@ -189,6 +189,15 @@ public interface ModelFactory extends EFactory
     MovingAverage createMovingAverage ();
 
     /**
+     * Returns a new object of class '<em>List Monitor Entry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>List Monitor Entry</em>'.
+     * @generated
+     */
+    ListMonitorEntry createListMonitorEntry ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

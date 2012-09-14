@@ -11,9 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,7 +22,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Monitor;
 
@@ -61,8 +58,6 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
             super.getPropertyDescriptors ( object );
 
             addActivePropertyDescriptor ( object );
-            addAckPropertyDescriptor ( object );
-            addPriorityPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -76,28 +71,6 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
     protected void addActivePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Monitor_active_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Monitor_active_feature", "_UI_Monitor_type" ), ModelPackage.Literals.MONITOR__ACTIVE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Ack feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addAckPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Monitor_ack_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Monitor_ack_feature", "_UI_Monitor_type" ), ModelPackage.Literals.MONITOR__ACK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Priority feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPriorityPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Monitor_priority_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Monitor_priority_feature", "_UI_Monitor_type" ), ModelPackage.Literals.MONITOR__PRIORITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -128,8 +101,6 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
         switch ( notification.getFeatureID ( Monitor.class ) )
         {
             case ModelPackage.MONITOR__ACTIVE:
-            case ModelPackage.MONITOR__ACK:
-            case ModelPackage.MONITOR__PRIORITY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

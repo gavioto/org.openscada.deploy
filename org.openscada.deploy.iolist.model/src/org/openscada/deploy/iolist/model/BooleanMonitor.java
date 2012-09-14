@@ -22,7 +22,7 @@ package org.openscada.deploy.iolist.model;
  * @model
  * @generated
  */
-public interface BooleanMonitor extends Monitor
+public interface BooleanMonitor extends BasicMonitor
 {
     /**
      * Returns the value of the '<em><b>Ok Value</b></em>' attribute.

@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.BasicMonitor;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.FormulaInput;
@@ -19,6 +20,7 @@ import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelPackage;
@@ -204,6 +206,18 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         public Adapter caseMovingAverage ( MovingAverage object )
         {
             return createMovingAverageAdapter ();
+        }
+
+        @Override
+        public Adapter caseListMonitorEntry ( ListMonitorEntry object )
+        {
+            return createListMonitorEntryAdapter ();
+        }
+
+        @Override
+        public Adapter caseBasicMonitor ( BasicMonitor object )
+        {
+            return createBasicMonitorAdapter ();
         }
 
         @Override
@@ -508,6 +522,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createMovingAverageAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.ListMonitorEntry <em>List Monitor Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.ListMonitorEntry
+     * @generated
+     */
+    public Adapter createListMonitorEntryAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.BasicMonitor <em>Basic Monitor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.BasicMonitor
+     * @generated
+     */
+    public Adapter createBasicMonitorAdapter ()
     {
         return null;
     }

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.BasicMonitor;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.FormulaInput;
@@ -18,6 +19,7 @@ import org.openscada.deploy.iolist.model.FormulaItem;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelPackage;
@@ -190,6 +192,8 @@ public class ModelSwitch<T> extends Switch<T>
                 LevelMonitor levelMonitor = (LevelMonitor)theEObject;
                 T result = caseLevelMonitor ( levelMonitor );
                 if ( result == null )
+                    result = caseBasicMonitor ( levelMonitor );
+                if ( result == null )
                     result = caseMonitor ( levelMonitor );
                 if ( result == null )
                     result = defaultCase ( theEObject );
@@ -209,6 +213,8 @@ public class ModelSwitch<T> extends Switch<T>
             {
                 BooleanMonitor booleanMonitor = (BooleanMonitor)theEObject;
                 T result = caseBooleanMonitor ( booleanMonitor );
+                if ( result == null )
+                    result = caseBasicMonitor ( booleanMonitor );
                 if ( result == null )
                     result = caseMonitor ( booleanMonitor );
                 if ( result == null )
@@ -257,6 +263,24 @@ public class ModelSwitch<T> extends Switch<T>
             {
                 MovingAverage movingAverage = (MovingAverage)theEObject;
                 T result = caseMovingAverage ( movingAverage );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.LIST_MONITOR_ENTRY:
+            {
+                ListMonitorEntry listMonitorEntry = (ListMonitorEntry)theEObject;
+                T result = caseListMonitorEntry ( listMonitorEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.BASIC_MONITOR:
+            {
+                BasicMonitor basicMonitor = (BasicMonitor)theEObject;
+                T result = caseBasicMonitor ( basicMonitor );
+                if ( result == null )
+                    result = caseMonitor ( basicMonitor );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -566,6 +590,38 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMovingAverage ( MovingAverage object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>List Monitor Entry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>List Monitor Entry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseListMonitorEntry ( ListMonitorEntry object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Basic Monitor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Basic Monitor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBasicMonitor ( BasicMonitor object )
     {
         return null;
     }
