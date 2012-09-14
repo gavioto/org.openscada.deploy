@@ -477,7 +477,7 @@ public interface Item extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Hierarchy</em>' attribute list.
      * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_Hierarchy()
-     * @model
+     * @model unique="false"
      * @generated
      */
     EList<String> getHierarchy ();

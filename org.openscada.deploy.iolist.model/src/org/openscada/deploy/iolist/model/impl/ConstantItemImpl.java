@@ -7,7 +7,6 @@
 package org.openscada.deploy.iolist.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.ModelPackage;
 

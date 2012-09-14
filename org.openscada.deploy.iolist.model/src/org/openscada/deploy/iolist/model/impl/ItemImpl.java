@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
@@ -1314,7 +1314,7 @@ public class ItemImpl extends EObjectImpl implements Item
     {
         if ( hierarchy == null )
         {
-            hierarchy = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.ITEM__HIERARCHY );
+            hierarchy = new EDataTypeEList<String> ( String.class, this, ModelPackage.ITEM__HIERARCHY );
         }
         return hierarchy;
     }
