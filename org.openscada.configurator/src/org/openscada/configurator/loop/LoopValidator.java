@@ -32,6 +32,8 @@ import java.util.Stack;
 import org.openscada.configurator.loop.handler.AverageHandler;
 import org.openscada.configurator.loop.handler.FormulaHandler;
 import org.openscada.configurator.loop.handler.LoopHandler;
+import org.openscada.configurator.loop.handler.MapperHandler;
+import org.openscada.configurator.loop.handler.MasterHandler;
 import org.openscada.configurator.loop.handler.MovingAverageHandler;
 import org.openscada.configurator.loop.handler.MultiSourceAttributeHandler;
 import org.openscada.configurator.loop.handler.NoOpHandler;
@@ -87,7 +89,7 @@ public class LoopValidator
 
         this.handlers.put ( "da.dataitem.datasource", new SimpleAttributeHandler ( "datasource", "connection", "connection.id" ) );
 
-        this.handlers.put ( "master.item", new SimpleAttributeHandler ( "datasource", "datasource", "datasource.id" ) );
+        this.handlers.put ( "master.item", new MasterHandler () );
         this.handlers.put ( "da.datasource.dataitem", new SimpleHandler ( "datasource" ) );
         this.handlers.put ( "org.openscada.da.datasource.script", new MultiSourceAttributeHandler ( "datasource." ) );
         this.handlers.put ( "org.openscada.da.datasource.sum", new MultiSourceAttributeHandler ( "datasource." ) );
@@ -98,14 +100,16 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.server.osgi.summary.attribute", new SummaryHandler () );
         this.handlers.put ( "org.openscada.da.datasource.formula", new FormulaHandler () );
 
-        this.handlers.put ( "ae.monitor.da.booleanAlarm", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.ae.monitor.level", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.ae.monitor.bit", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.ae.monitor.list", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
 
-        this.handlers.put ( "org.openscada.da.level.floor", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.ceil", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.highhigh", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.high", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.low", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.lowlow", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+
         this.handlers.put ( "da.master.handler.sum", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.negate.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
         this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
@@ -113,8 +117,7 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.round", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
 
         this.handlers.put ( "org.openscada.da.mapper.osgi.configuredMapper", new SimpleHandler ( "mapper" ) );
-        this.handlers.put ( "org.openscada.da.master.mapper", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.master.mapper", new SimpleAttributeHandler ( "masterHandler", "mapper", "mapper.id" ) );
+        this.handlers.put ( "org.openscada.da.master.mapper", new MapperHandler () );
 
         this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
 
@@ -179,7 +182,7 @@ public class LoopValidator
             }
         }
 
-        this.logStream.println ( String.format ( "%s datasources in pool", this.descriptorPool.size () ) );
+        this.logStream.println ( String.format ( "%s nodes in validation pool", this.descriptorPool.size () ) );
 
         final Set<DataSourceNode> nodes = buildGraph ();
         return nodes;

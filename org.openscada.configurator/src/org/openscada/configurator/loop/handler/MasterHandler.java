@@ -19,43 +19,28 @@
 
 package org.openscada.configurator.loop.handler;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 import org.openscada.configurator.loop.DataSourceDescriptor;
 
-public class SimpleAttributeHandler extends NoOpHandler implements LoopHandler
+public class MasterHandler extends NoOpHandler implements LoopHandler
 {
-    private final String attributeName;
-
-    private final String type;
-
-    private final String referenceType;
-
-    public SimpleAttributeHandler ( final String type, final String referenceType, final String attributeName )
-    {
-        this.type = type;
-        this.referenceType = referenceType;
-        this.attributeName = attributeName;
-    }
-
     @Override
     public Set<DataSourceDescriptor> getNode ( final String configurationId, final Map<String, String> parameters )
     {
-        final DataSourceDescriptor desc = new DataSourceDescriptor ( this.type, configurationId );
-        final String reference = parameters.get ( this.attributeName );
+        final Set<DataSourceDescriptor> result = new HashSet<DataSourceDescriptor> ();
 
-        if ( reference == null || reference.isEmpty () )
-        {
-            return Collections.emptySet ();
-        }
+        final DataSourceDescriptor master = new DataSourceDescriptor ( "master", configurationId );
+        master.addReference ( "datasource", parameters.get ( "datasource.id" ) );
 
-        desc.addReference ( this.referenceType, reference );
+        final DataSourceDescriptor datasource = new DataSourceDescriptor ( "datasource", configurationId );
 
-        return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
+        result.add ( master );
+        result.add ( datasource );
+
+        return result;
     }
 
     @Override
@@ -63,5 +48,4 @@ public class SimpleAttributeHandler extends NoOpHandler implements LoopHandler
     {
         return true;
     }
-
 }
