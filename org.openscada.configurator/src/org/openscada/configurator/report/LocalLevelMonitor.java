@@ -27,16 +27,16 @@ public class LocalLevelMonitor implements Monitor
 
     private final String type;
 
-    private final boolean error;
+    private final boolean cap;
 
     private final boolean requireAck;
 
     private final Double preset;
 
-    public LocalLevelMonitor ( final String type, final boolean error, final boolean requireAck, final Double preset )
+    public LocalLevelMonitor ( final String type, final boolean cap, final boolean requireAck, final Double preset )
     {
         this.type = type;
-        this.error = error;
+        this.cap = cap;
         this.requireAck = requireAck;
         this.preset = preset;
     }
@@ -48,9 +48,9 @@ public class LocalLevelMonitor implements Monitor
 
         p.addContent ( String.format ( Messages.getString ( "LocalLevelMonitor.description" ), this.type ) ); //$NON-NLS-1$
 
-        if ( this.error )
+        if ( this.cap )
         {
-            p.addContent ( Messages.getString ( "LocalLevelMonitor.error" ) ); //$NON-NLS-1$
+            p.addContent ( Messages.getString ( "LocalLevelMonitor.cap" ) ); //$NON-NLS-1$
         }
 
         if ( this.requireAck )

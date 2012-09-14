@@ -48,6 +48,7 @@ import javax.script.ScriptException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.openscada.ae.Severity;
 import org.openscada.configurator.loop.LoopValidator;
 import org.openscada.configurator.report.DataItem;
 import org.openscada.configurator.report.DataItemSource;
@@ -881,27 +882,27 @@ public class Configuration extends GenericMasterConfiguration
     {
         if ( item.getLocalMax () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "ceil", true, item.getLocalMax (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "max", Severity.ERROR, "MAX", true, true, true, item.getLocalMax (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalHighHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "highhigh", false, item.getLocalHighHigh (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "highhigh", Severity.ALARM, "HH", false, true, false, item.getLocalHighHigh (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "high", false, item.getLocalHigh (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "high", Severity.ALARM, "H", false, true, false, item.getLocalHigh (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "low", false, item.getLocalLow (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "low", Severity.ALARM, "L", false, false, false, item.getLocalLow (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalLowLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "lowlow", false, item.getLocalLowLow (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "lowlow", Severity.ALARM, "LL", false, false, false, item.getLocalLowLow (), attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalMin () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "floor", true, item.getLocalMin (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "min", Severity.ERROR, "MIN", true, false, true, item.getLocalMin (), attributes ); //$NON-NLS-1$
         }
     }
 
@@ -1003,19 +1004,20 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data ); //$NON-NLS-1$
     }
 
-    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final boolean error, final LevelMonitor levelMonitor, Map<String, String> attributes )
+    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final Severity severity, final String monitorType, final boolean cap, final boolean lowerOk, final boolean includedOk, final LevelMonitor levelMonitor, Map<String, String> attributes )
     {
         final boolean requireAck = levelMonitor.isAck ();
         final Double preset = levelMonitor.getPreset ();
 
         attributes = new HashMap<String, String> ( attributes );
-        attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
-        addLocalLevelMonitor ( masterId + ".local.level." + type, error, requireAck, masterId, type, preset, attributes ); //$NON-NLS-1$
+        attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        reportItem.addMonitor ( new LocalLevelMonitor ( type, error, requireAck, preset ) );
+        addLocalLevelMonitor ( masterId + ".local.level." + type, cap, requireAck, masterId, severity, type, monitorType, lowerOk, includedOk, preset, attributes ); //$NON-NLS-1$
+
+        reportItem.addMonitor ( new LocalLevelMonitor ( type, cap, requireAck, preset ) );
     }
 
-    private void addLocalLevelMonitor ( final String id, final boolean error, final boolean requireAck, final String masterId, final String type, final Double preset, final Map<String, String> attributes )
+    private void addLocalLevelMonitor ( final String id, final boolean cap, final boolean requireAck, final String masterId, final Severity severity, final String type, final String monitorType, final boolean lowerOk, final boolean includedOk, final Double preset, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
@@ -1028,12 +1030,18 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "active", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
-        data.put ( "error", "" + error ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "cap", "" + cap ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "requireAck", "" + requireAck ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "severity", "" + severity ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "prefix", type ); //$NON-NLS-1$
+        data.put ( "monitorType", monitorType ); //$NON-NLS-1$
+
+        data.put ( "lowerOk", "" + lowerOk ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "includedOk", "" + includedOk ); //$NON-NLS-1$ //$NON-NLS-2$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.level." + type, id, data ); //$NON-NLS-1$
+        addData ( "org.openscada.ae.monitor.level", id, data ); //$NON-NLS-1$
     }
 
     private void makeRemoteLevel ( final DataItem reportItem, final String masterId, final String type, final String monitorType, Map<String, String> attributes )
