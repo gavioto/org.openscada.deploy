@@ -16,6 +16,8 @@ import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.FileModule;
 import org.openscada.configurator.module.common.main.MainPackage;
 import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
+import org.openscada.configurator.module.common.marker.MarkerPackage;
+import org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
@@ -98,6 +100,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
         SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
         MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
+        MarkerPackageImpl theMarkerPackage = (MarkerPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) instanceof MarkerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) : MarkerPackage.eINSTANCE );
 
         // Create package meta-data objects
         theCommonPackage.createPackageContents ();
@@ -106,6 +109,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         theProcessingPackage.createPackageContents ();
         theSummaryPackage.createPackageContents ();
         theMainPackage.createPackageContents ();
+        theMarkerPackage.createPackageContents ();
 
         // Initialize created meta-data
         theCommonPackage.initializePackageContents ();
@@ -114,6 +118,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         theProcessingPackage.initializePackageContents ();
         theSummaryPackage.initializePackageContents ();
         theMainPackage.initializePackageContents ();
+        theMarkerPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theCommonPackage.freeze ();
@@ -209,6 +214,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         ProcessingPackage theProcessingPackage = (ProcessingPackage)EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI );
         SummaryPackage theSummaryPackage = (SummaryPackage)EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI );
         MainPackage theMainPackage = (MainPackage)EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI );
+        MarkerPackage theMarkerPackage = (MarkerPackage)EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
 
         // Add subpackages
@@ -217,6 +223,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         getESubpackages ().add ( theProcessingPackage );
         getESubpackages ().add ( theSummaryPackage );
         getESubpackages ().add ( theMainPackage );
+        getESubpackages ().add ( theMarkerPackage );
 
         // Create type parameters
 

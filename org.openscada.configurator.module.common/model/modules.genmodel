@@ -39,6 +39,7 @@
         childCreationExtenders="true" ecorePackage="modules.ecore#//summary">
       <genClasses ecoreClass="modules.ecore#//summary/SummaryFileLoader">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/SummaryFileLoader/requiredItems"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/SummaryFileLoader/prefix"/>
       </genClasses>
       <genClasses ecoreClass="modules.ecore#//summary/GenerateSummaries">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/GenerateSummaries/requiredItems"/>
@@ -48,6 +49,17 @@
         childCreationExtenders="true" ecorePackage="modules.ecore#//main">
       <genClasses ecoreClass="modules.ecore#//main/MainLoader">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//main/MainLoader/file"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Marker" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="modules.ecore#//marker">
+      <genClasses ecoreClass="modules.ecore#//marker/LevelMarkerGenerator">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/LevelMarkerGenerator/markerName"/>
+        <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference modules.ecore#//marker/LevelMarkerGenerator/markers"/>
+      </genClasses>
+      <genClasses ecoreClass="modules.ecore#//marker/Marker">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/Marker/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/Marker/value"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

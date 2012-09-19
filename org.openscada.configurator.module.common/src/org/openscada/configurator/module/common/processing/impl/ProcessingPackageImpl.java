@@ -14,6 +14,8 @@ import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
 import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
+import org.openscada.configurator.module.common.marker.MarkerPackage;
+import org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
 import org.openscada.configurator.module.common.processing.ImportListModule;
@@ -129,6 +131,7 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
         ScriptsPackageImpl theScriptsPackage = (ScriptsPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) instanceof ScriptsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) : ScriptsPackage.eINSTANCE );
         SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
         MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
+        MarkerPackageImpl theMarkerPackage = (MarkerPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) instanceof MarkerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) : MarkerPackage.eINSTANCE );
 
         // Create package meta-data objects
         theProcessingPackage.createPackageContents ();
@@ -137,6 +140,7 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
         theScriptsPackage.createPackageContents ();
         theSummaryPackage.createPackageContents ();
         theMainPackage.createPackageContents ();
+        theMarkerPackage.createPackageContents ();
 
         // Initialize created meta-data
         theProcessingPackage.initializePackageContents ();
@@ -145,6 +149,7 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
         theScriptsPackage.initializePackageContents ();
         theSummaryPackage.initializePackageContents ();
         theMainPackage.initializePackageContents ();
+        theMarkerPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theProcessingPackage.freeze ();

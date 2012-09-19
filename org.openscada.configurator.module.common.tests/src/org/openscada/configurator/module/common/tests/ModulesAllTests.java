@@ -12,6 +12,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.module.common.main.tests.MainTests;
+import org.openscada.configurator.module.common.marker.tests.MarkerTests;
 import org.openscada.configurator.module.common.network.tests.NetworkTests;
 
 import org.openscada.configurator.module.common.processing.tests.ProcessingTests;
@@ -53,6 +54,7 @@ public class ModulesAllTests extends TestSuite
         suite.addTest ( ProcessingTests.suite () );
         suite.addTest ( SummaryTests.suite () );
         suite.addTest ( MainTests.suite () );
+        suite.addTest ( MarkerTests.suite () );
         return suite;
     }
 
