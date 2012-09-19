@@ -82,6 +82,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="localBooleanMonitor" eType="#//BooleanMonitor"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultMonitorDemote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="Variant" literal="VARIANT"/>

@@ -59,6 +59,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalMax <em>Local Max</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalListMonitor <em>Local List Monitor</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getDefaultMonitorDemote <em>Default Monitor Demote</em>}</li>
  * </ul>
  * </p>
  *
@@ -358,6 +359,32 @@ public interface Item extends EObject
      * @generated
      */
     void setLocalBooleanMonitor ( BooleanMonitor value );
+
+    /**
+     * Returns the value of the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Monitor Demote</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Default Monitor Demote</em>' attribute.
+     * @see #setDefaultMonitorDemote(String)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_DefaultMonitorDemote()
+     * @model
+     * @generated
+     */
+    String getDefaultMonitorDemote ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getDefaultMonitorDemote <em>Default Monitor Demote</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Default Monitor Demote</em>' attribute.
+     * @see #getDefaultMonitorDemote()
+     * @generated
+     */
+    void setDefaultMonitorDemote ( String value );
 
     /**
      * Returns the value of the '<em><b>Event Command</b></em>' attribute.

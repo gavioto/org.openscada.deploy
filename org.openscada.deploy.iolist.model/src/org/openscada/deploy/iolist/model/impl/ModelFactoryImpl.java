@@ -43,27 +43,26 @@ import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 {
     /**
-     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     public static ModelFactory init ()
     {
         try
         {
-            final ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory ( "http:///org/openscada/deploy/iolist/model.ecore" );
+            ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory ( "http:///org/openscada/deploy/iolist/model.ecore" );
             if ( theModelFactory != null )
             {
                 return theModelFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -71,8 +70,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     public ModelFactoryImpl ()
@@ -82,11 +81,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -135,11 +133,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -164,11 +161,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -193,368 +189,329 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Item createItem ()
     {
-        final ItemImpl item = new ItemImpl ();
+        ItemImpl item = new ItemImpl ();
         return item;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SummaryGroup createSummaryGroup ()
     {
-        final SummaryGroupImpl summaryGroup = new SummaryGroupImpl ();
+        SummaryGroupImpl summaryGroup = new SummaryGroupImpl ();
         return summaryGroup;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SummaryItem createSummaryItem ()
     {
-        final SummaryItemImpl summaryItem = new SummaryItemImpl ();
+        SummaryItemImpl summaryItem = new SummaryItemImpl ();
         return summaryItem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public FormulaItem createFormulaItem ()
     {
-        final FormulaItemImpl formulaItem = new FormulaItemImpl ();
+        FormulaItemImpl formulaItem = new FormulaItemImpl ();
         return formulaItem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public FormulaInput createFormulaInput ()
     {
-        final FormulaInputImpl formulaInput = new FormulaInputImpl ();
+        FormulaInputImpl formulaInput = new FormulaInputImpl ();
         return formulaInput;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ScriptModule createScriptModule ()
     {
-        final ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
+        ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
         return scriptModule;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Model createModel ()
     {
-        final ModelImpl model = new ModelImpl ();
+        ModelImpl model = new ModelImpl ();
         return model;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ScriptItem createScriptItem ()
     {
-        final ScriptItemImpl scriptItem = new ScriptItemImpl ();
+        ScriptItemImpl scriptItem = new ScriptItemImpl ();
         return scriptItem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ScriptOutput createScriptOutput ()
     {
-        final ScriptOutputImpl scriptOutput = new ScriptOutputImpl ();
+        ScriptOutputImpl scriptOutput = new ScriptOutputImpl ();
         return scriptOutput;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Mapper createMapper ()
     {
-        final MapperImpl mapper = new MapperImpl ();
+        MapperImpl mapper = new MapperImpl ();
         return mapper;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public LevelMonitor createLevelMonitor ()
     {
-        final LevelMonitorImpl levelMonitor = new LevelMonitorImpl ();
+        LevelMonitorImpl levelMonitor = new LevelMonitorImpl ();
         return levelMonitor;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ListMonitor createListMonitor ()
     {
-        final ListMonitorImpl listMonitor = new ListMonitorImpl ();
+        ListMonitorImpl listMonitor = new ListMonitorImpl ();
         return listMonitor;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public BooleanMonitor createBooleanMonitor ()
     {
-        final BooleanMonitorImpl booleanMonitor = new BooleanMonitorImpl ();
+        BooleanMonitorImpl booleanMonitor = new BooleanMonitorImpl ();
         return booleanMonitor;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Average createAverage ()
     {
-        final AverageImpl average = new AverageImpl ();
+        AverageImpl average = new AverageImpl ();
         return average;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public AverageItem createAverageItem ()
     {
-        final AverageItemImpl averageItem = new AverageItemImpl ();
+        AverageItemImpl averageItem = new AverageItemImpl ();
         return averageItem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ConstantItem createConstantItem ()
     {
-        final ConstantItemImpl constantItem = new ConstantItemImpl ();
+        ConstantItemImpl constantItem = new ConstantItemImpl ();
         return constantItem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public MovingAverageItem createMovingAverageItem ()
     {
-        final MovingAverageItemImpl movingAverageItem = new MovingAverageItemImpl ();
+        MovingAverageItemImpl movingAverageItem = new MovingAverageItemImpl ();
         return movingAverageItem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public MovingAverage createMovingAverage ()
     {
-        final MovingAverageImpl movingAverage = new MovingAverageImpl ();
+        MovingAverageImpl movingAverage = new MovingAverageImpl ();
         return movingAverage;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ListMonitorEntry createListMonitorEntry ()
     {
-        final ListMonitorEntryImpl listMonitorEntry = new ListMonitorEntryImpl ();
+        ListMonitorEntryImpl listMonitorEntry = new ListMonitorEntryImpl ();
         return listMonitorEntry;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public DataType createDataTypeFromString ( final EDataType eDataType, final String initialValue )
+    public DataType createDataTypeFromString ( EDataType eDataType, String initialValue )
     {
-        final DataType result = DataType.get ( initialValue );
+        DataType result = DataType.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertDataTypeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertDataTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public Rounding createRoundingFromString ( final EDataType eDataType, final String initialValue )
+    public Rounding createRoundingFromString ( EDataType eDataType, String initialValue )
     {
-        final Rounding result = Rounding.get ( initialValue );
+        Rounding result = Rounding.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertRoundingToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertRoundingToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public AverageReferenceType createAverageReferenceTypeFromString ( final EDataType eDataType, final String initialValue )
+    public AverageReferenceType createAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
     {
-        final AverageReferenceType result = AverageReferenceType.get ( initialValue );
+        AverageReferenceType result = AverageReferenceType.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertAverageReferenceTypeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public MovingAverageReferenceType createMovingAverageReferenceTypeFromString ( final EDataType eDataType, final String initialValue )
+    public MovingAverageReferenceType createMovingAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
     {
-        final MovingAverageReferenceType result = MovingAverageReferenceType.get ( initialValue );
+        MovingAverageReferenceType result = MovingAverageReferenceType.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertMovingAverageReferenceTypeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertMovingAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String createListSeverityFromString ( final EDataType eDataType, final String initialValue )
+    public String createListSeverityFromString ( EDataType eDataType, String initialValue )
     {
         return (String)super.createFromString ( eDataType, initialValue );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertListSeverityToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertListSeverityToString ( EDataType eDataType, Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public Severity createSeverityFromString ( final EDataType eDataType, final String initialValue )
+    public Severity createSeverityFromString ( EDataType eDataType, String initialValue )
     {
         return (Severity)super.createFromString ( eDataType, initialValue );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertSeverityToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertSeverityToString ( EDataType eDataType, Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
@@ -571,17 +528,15 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertVariantToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertVariantToString ( EDataType eDataType, Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -592,7 +547,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

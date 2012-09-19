@@ -92,6 +92,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             addSimulationValuePropertyDescriptor ( object );
             addRoundingAvailablePropertyDescriptor ( object );
             addRoundingValuePropertyDescriptor ( object );
+            addDefaultMonitorDemotePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -460,6 +461,17 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     }
 
     /**
+     * This adds a property descriptor for the Default Monitor Demote feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDefaultMonitorDemotePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_defaultMonitorDemote_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_defaultMonitorDemote_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEFAULT_MONITOR_DEMOTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -572,6 +584,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             case ModelPackage.ITEM__ROUNDING_VALUE:
             case ModelPackage.ITEM__LOCAL_MIN:
             case ModelPackage.ITEM__LOCAL_MAX:
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModelPackage.ITEM__MAPPER:

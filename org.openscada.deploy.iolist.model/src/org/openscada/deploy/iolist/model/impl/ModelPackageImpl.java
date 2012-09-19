@@ -408,6 +408,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItem_DefaultMonitorDemote ()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 42 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1629,6 +1639,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEReference ( itemEClass, ITEM__LOCAL_MAX );
         createEReference ( itemEClass, ITEM__LOCAL_LIST_MONITOR );
         createEReference ( itemEClass, ITEM__LOCAL_BOOLEAN_MONITOR );
+        createEAttribute ( itemEClass, ITEM__DEFAULT_MONITOR_DEMOTE );
 
         summaryGroupEClass = createEClass ( SUMMARY_GROUP );
         createEReference ( summaryGroupEClass, SUMMARY_GROUP__ITEMS );
@@ -1821,6 +1832,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEReference ( getItem_LocalMax (), this.getLevelMonitor (), null, "localMax", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getItem_LocalListMonitor (), this.getListMonitor (), null, "localListMonitor", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getItem_LocalBooleanMonitor (), this.getBooleanMonitor (), null, "localBooleanMonitor", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getItem_DefaultMonitorDemote (), ecorePackage.getEString (), "defaultMonitorDemote", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getSummaryGroup_Items (), this.getSummaryItem (), null, "items", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

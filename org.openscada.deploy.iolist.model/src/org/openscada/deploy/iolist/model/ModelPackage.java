@@ -451,13 +451,22 @@ public interface ModelPackage extends EPackage
     int ITEM__LOCAL_BOOLEAN_MONITOR = 41;
 
     /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__DEFAULT_MONITOR_DEMOTE = 42;
+
+    /**
      * The number of structural features of the '<em>Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_FEATURE_COUNT = 42;
+    int ITEM_FEATURE_COUNT = 43;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -929,6 +938,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__DEFAULT_MONITOR_DEMOTE = ITEM__DEFAULT_MONITOR_DEMOTE;
 
     /**
      * The feature id for the '<em><b>Input Formula</b></em>' attribute.
@@ -1527,6 +1545,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int SCRIPT_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__DEFAULT_MONITOR_DEMOTE = ITEM__DEFAULT_MONITOR_DEMOTE;
 
     /**
      * The feature id for the '<em><b>Script Engine</b></em>' attribute.
@@ -2366,6 +2393,15 @@ public interface ModelPackage extends EPackage
     int AVERAGE_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
 
     /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__DEFAULT_MONITOR_DEMOTE = ITEM__DEFAULT_MONITOR_DEMOTE;
+
+    /**
      * The feature id for the '<em><b>Average</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2781,6 +2817,15 @@ public interface ModelPackage extends EPackage
     int CONSTANT_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
 
     /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_ITEM__DEFAULT_MONITOR_DEMOTE = ITEM__DEFAULT_MONITOR_DEMOTE;
+
+    /**
      * The number of structural features of the '<em>Constant Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3178,6 +3223,15 @@ public interface ModelPackage extends EPackage
     int MOVING_AVERAGE_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
 
     /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__DEFAULT_MONITOR_DEMOTE = ITEM__DEFAULT_MONITOR_DEMOTE;
+
+    /**
      * The feature id for the '<em><b>Average</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3514,6 +3568,17 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference getItem_LocalBooleanMonitor ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getDefaultMonitorDemote <em>Default Monitor Demote</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Default Monitor Demote</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getDefaultMonitorDemote()
+     * @see #getItem()
+     * @generated
+     */
+    EAttribute getItem_DefaultMonitorDemote ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}'.
@@ -4878,6 +4943,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EReference ITEM__LOCAL_BOOLEAN_MONITOR = eINSTANCE.getItem_LocalBooleanMonitor ();
+
+        /**
+         * The meta object literal for the '<em><b>Default Monitor Demote</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM__DEFAULT_MONITOR_DEMOTE = eINSTANCE.getItem_DefaultMonitorDemote ();
 
         /**
          * The meta object literal for the '<em><b>Event Command</b></em>' attribute feature.

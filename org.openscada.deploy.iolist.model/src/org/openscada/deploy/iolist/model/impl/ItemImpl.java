@@ -76,6 +76,7 @@ import org.openscada.deploy.iolist.model.Rounding;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalMax <em>Local Max</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalListMonitor <em>Local List Monitor</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalBooleanMonitor <em>Local Boolean Monitor</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getDefaultMonitorDemote <em>Default Monitor Demote</em>}</li>
  * </ul>
  * </p>
  *
@@ -824,6 +825,26 @@ public class ItemImpl extends EObjectImpl implements Item
     protected BooleanMonitor localBooleanMonitor;
 
     /**
+     * The default value of the '{@link #getDefaultMonitorDemote() <em>Default Monitor Demote</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultMonitorDemote()
+     * @generated
+     * @ordered
+     */
+    protected static final String DEFAULT_MONITOR_DEMOTE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getDefaultMonitorDemote() <em>Default Monitor Demote</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultMonitorDemote()
+     * @generated
+     * @ordered
+     */
+    protected String defaultMonitorDemote = DEFAULT_MONITOR_DEMOTE_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1211,6 +1232,29 @@ public class ItemImpl extends EObjectImpl implements Item
         }
         else if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR, newLocalBooleanMonitor, newLocalBooleanMonitor ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getDefaultMonitorDemote ()
+    {
+        return defaultMonitorDemote;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDefaultMonitorDemote ( String newDefaultMonitorDemote )
+    {
+        String oldDefaultMonitorDemote = defaultMonitorDemote;
+        defaultMonitorDemote = newDefaultMonitorDemote;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE, oldDefaultMonitorDemote, defaultMonitorDemote ) );
     }
 
     /**
@@ -2150,6 +2194,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return getLocalListMonitor ();
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
                 return getLocalBooleanMonitor ();
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                return getDefaultMonitorDemote ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -2293,6 +2339,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
                 setLocalBooleanMonitor ( (BooleanMonitor)newValue );
                 return;
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                setDefaultMonitorDemote ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -2433,6 +2482,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
                 setLocalBooleanMonitor ( (BooleanMonitor)null );
                 return;
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                setDefaultMonitorDemote ( DEFAULT_MONITOR_DEMOTE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -2531,6 +2583,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return localListMonitor != null;
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
                 return localBooleanMonitor != null;
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                return DEFAULT_MONITOR_DEMOTE_EDEFAULT == null ? defaultMonitorDemote != null : !DEFAULT_MONITOR_DEMOTE_EDEFAULT.equals ( defaultMonitorDemote );
         }
         return super.eIsSet ( featureID );
     }
@@ -2613,6 +2667,8 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append ( roundingAvailable );
         result.append ( ", roundingValue: " );
         result.append ( roundingValue );
+        result.append ( ", defaultMonitorDemote: " );
+        result.append ( defaultMonitorDemote );
         result.append ( ')' );
         return result.toString ();
     }
