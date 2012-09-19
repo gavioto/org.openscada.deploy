@@ -24,15 +24,51 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.openscada.deploy.iolist.utils.GenericConfiguration;
 import org.openscada.utils.str.StringHelper;
 
 public class GenericMasterConfiguration extends GenericConfiguration
 {
+
+    private static class PriorityEntry
+    {
+        private final String factoryId;
+
+        private final Pattern configurationFilter;
+
+        private final int defaultPriority;
+
+        public PriorityEntry ( final String factoryId, final Pattern configurationFilter, final int defaultPriority )
+        {
+            super ();
+            this.factoryId = factoryId;
+            this.configurationFilter = configurationFilter;
+            this.defaultPriority = defaultPriority;
+        }
+
+        public Pattern getConfigurationFilter ()
+        {
+            return this.configurationFilter;
+        }
+
+        public int getDefaultPriority ()
+        {
+            return this.defaultPriority;
+        }
+
+        public String getFactoryId ()
+        {
+            return this.factoryId;
+        }
+    }
+
+    private final List<PriorityEntry> priorities = new LinkedList<GenericMasterConfiguration.PriorityEntry> ();
 
     public void addMaster ( final String id, final String dataSourceId )
     {
@@ -82,7 +118,10 @@ public class GenericMasterConfiguration extends GenericConfiguration
     protected void addSum ( final String id, final String masterId, final String type, final int priority, final String prefix )
     {
         final Map<String, String> data = new HashMap<String, String> ();
+
         data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandlerPriority ( "da.master.handler.sum", id, data, null );
+
         data.put ( "tag", type ); //$NON-NLS-1$
 
         data.put ( "handlerPriority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -137,6 +176,45 @@ public class GenericMasterConfiguration extends GenericConfiguration
         }
 
         addData ( "org.openscada.da.master.mapper", id, data );
+    }
+
+    protected void fillMasterHandlerPriority ( final String factoryId, final String configurationId, final Map<String, String> data, final Integer handlerPriority )
+    {
+        if ( handlerPriority != null )
+        {
+            data.put ( "handlerPriority", "" + handlerPriority ); //$NON-NLS-1$
+        }
+        else
+        {
+            final Integer priority = getDefaultPriority ( factoryId, configurationId, null );
+            if ( priority != null )
+            {
+                data.put ( "handlerPriority", "" + priority );
+            }
+        }
+    }
+
+    public void addPriority ( final String factoryId, final Pattern configurationFilter, final int defaultPriority )
+    {
+        this.priorities.add ( new PriorityEntry ( factoryId, configurationFilter, defaultPriority ) );
+    }
+
+    protected Integer getDefaultPriority ( final String factoryId, final String configurationId, final Integer defaultPriority )
+    {
+        for ( final PriorityEntry entry : this.priorities )
+        {
+            if ( entry.getFactoryId () != null && !entry.getFactoryId ().equals ( factoryId ) )
+            {
+                continue;
+            }
+            if ( entry.getConfigurationFilter () != null && !entry.getConfigurationFilter ().matcher ( configurationId ).matches () )
+            {
+                continue;
+            }
+            return entry.getDefaultPriority ();
+        }
+        System.out.println ( String.format ( "WARN: no defaultPriority for %s / %s", factoryId, configurationId ) );
+        return defaultPriority;
     }
 
 }

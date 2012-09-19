@@ -28,6 +28,9 @@ public class MainLoaderHandler
 
         log.println ( "**** 1ae - Loading basic configuration - AE Filter" );
         loader.load ( 4, new EventFilterHandler ( cfg ) );
+
+        log.println ( "**** 1af - Loading basic configuration - Master Handler Priorities" );
+        loader.load ( 5, new PrioritiesHandler ( cfg ) );
     }
 
 }

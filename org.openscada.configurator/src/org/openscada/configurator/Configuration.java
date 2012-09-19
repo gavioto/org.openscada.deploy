@@ -88,6 +88,28 @@ import com.google.common.collect.Multimap;
 public class Configuration extends GenericMasterConfiguration
 {
 
+    private static final String FACTORY_MASTER_HANDLER_BLOCK = "org.openscada.da.master.common.block";
+
+    private static final String FACTORY_AE_MONITOR_REMOTE_ATTR = "ae.monitor.da.remote.booleanAttributeAlarm";
+
+    private static final String FACTORY_AE_MONITOR_REMOTE_BOOLEAN = "ae.monitor.da.remote.booleanValueAlarm";
+
+    private static final String FACTORY_AE_MONITOR_BIT = "org.openscada.ae.monitor.bit"; //$NON-NLS-1$
+
+    private static final String FACTORY_MASTER_HANDLER_LOGGER = "org.openscada.ae.event.logger";
+
+    private static final String FACTORY_MASTER_HANDLER_NEGATE = "org.openscada.da.negate.input";
+
+    private static final String FACTORY_MASTER_HANDLER_ROUND = "org.openscada.da.round";
+
+    private static final String FACTORY_MASTER_HANDLER_SCALE = "org.openscada.da.scale.input";
+
+    private static final String FACTORY_MASTER_HANDLER_MANUAL = "org.openscada.da.manual";
+
+    private static final String FACTORY_AE_MONITOR_LEVEL = "org.openscada.ae.monitor.level";
+
+    private static final String FACTORY_AE_MONITOR_LIST = "org.openscada.ae.monitor.list";
+
     private final List<Item> items = new ArrayList<Item> ();
 
     private final List<Average> averages = new ArrayList<Average> ();
@@ -106,17 +128,14 @@ public class Configuration extends GenericMasterConfiguration
 
         // add ignore fields
 
-        addIgnoreFields ( "org.openscada.da.manual", "value", "user", "reason", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
-        addIgnoreFields ( "org.openscada.da.master.common.block", "note", "active", "user", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+        addIgnoreFields ( FACTORY_MASTER_HANDLER_MANUAL, "value", "user", "reason", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ 
+        addIgnoreFields ( FACTORY_MASTER_HANDLER_BLOCK, "note", "active", "user", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ 
 
-        addIgnoreFields ( "org.openscada.da.level.high", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addIgnoreFields ( "org.openscada.da.level.highhigh", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addIgnoreFields ( "org.openscada.da.level.low", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addIgnoreFields ( "org.openscada.da.level.lowlow", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addIgnoreFields ( "org.openscada.da.level.ceil", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addIgnoreFields ( "org.openscada.da.level.floor", "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( FACTORY_AE_MONITOR_LEVEL, "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
-        addIgnoreFields ( "org.openscada.da.scale.input", "active", "factor" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addIgnoreFields ( "org.openscada.da.master.common.marker", "active" );
+
+        addIgnoreFields ( FACTORY_MASTER_HANDLER_SCALE, "active", "factor" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
         addAEInfo ();
     }
@@ -273,11 +292,13 @@ public class Configuration extends GenericMasterConfiguration
 
         final Map<String, String> data = new HashMap<String, String> ();
 
+        fillMasterHandlerPriority ( FACTORY_MASTER_HANDLER_BLOCK, blockId, data, null );
+
         data.put ( "master.id", StringHelper.join ( masterIds, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
         injectAttributes ( attributes, "info.", data );
 
-        addData ( "org.openscada.da.master.common.block", blockId, data ); //$NON-NLS-1$
+        addData ( FACTORY_MASTER_HANDLER_BLOCK, blockId, data );
     }
 
     public String makeInternalItemId ( final Item item )
@@ -420,7 +441,7 @@ public class Configuration extends GenericMasterConfiguration
             {
                 final String reference = item.getLocalBooleanMonitor ().isOkValue () ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
 
-                addLocalMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().isAck (), item.getDescription (), attributes ); //$NON-NLS-1$
+                addLocalBitMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().getSeverity (), item.getLocalBooleanMonitor ().isAck (), item.getDescription (), item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
                 reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.getLocalBooleanMonitor ().isAck () ) );
             }
             makeRemoteLevels ( item, reportItem, masterId, attributes );
@@ -453,7 +474,7 @@ public class Configuration extends GenericMasterConfiguration
             if ( item.getLocalListMonitor () != null )
             {
                 final ListMonitor m = item.getLocalListMonitor ();
-                addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), item.getDescription (), attributes );
+                addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), item.getDescription (), item.getDefaultMonitorDemote (), attributes );
             }
 
             if ( item.isBlock () )
@@ -722,11 +743,11 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_MASTER_HANDLER_MANUAL, id, data, masterId, null );
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.manual", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_MASTER_HANDLER_MANUAL, id, data );
     }
 
     public void addScript ( final String id, final String engine, final Map<String, String> dataSources, final Map<String, String> outputs, final String init, final String update, final String timerCommand, final Long timer, final String write )
@@ -785,8 +806,6 @@ public class Configuration extends GenericMasterConfiguration
 
     static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
 
-    private static final String BOOLEAN_ALARM_MONITOR_FACTORY_ID = "ae.monitor.da.booleanAlarm"; //$NON-NLS-1$
-
     /**
      * Loads text data from a file
      * 
@@ -824,44 +843,48 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_MASTER_HANDLER_SCALE, id, data, masterId, null );
+
         data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.scale.input", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_MASTER_HANDLER_SCALE, id, data );
     }
 
     private void addRounding ( final String id, final String masterId, final Rounding rounding, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_MASTER_HANDLER_ROUND, id, data, masterId, null );
+
         data.put ( "type", "" + rounding.getName () ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "active", "" + ( rounding != Rounding.NONE ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.da.round", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_MASTER_HANDLER_ROUND, id, data );
     }
 
     private void addNegate ( final String id, final String masterId, final boolean active )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_MASTER_HANDLER_NEGATE, id, data, masterId, null );
+
         data.put ( "active", "" + active ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addData ( "org.openscada.da.negate.input", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_MASTER_HANDLER_NEGATE, id, data );
     }
 
     private void addWriteLogger ( final String id, final String masterId, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_MASTER_HANDLER_LOGGER, id, data, masterId, null );
+
         data.put ( "source", masterId ); //$NON-NLS-1$
         data.put ( "logValue", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "logAttributes", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -869,7 +892,7 @@ public class Configuration extends GenericMasterConfiguration
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.ae.event.logger", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_MASTER_HANDLER_LOGGER, id, data );
     }
 
     public void validate ()
@@ -911,29 +934,31 @@ public class Configuration extends GenericMasterConfiguration
 
     private void makeLocalLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
+        final String demotePrefix = item.getDefaultMonitorDemote ();
+
         if ( item.getLocalMax () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "max", Severity.ERROR, "MAX", 1400, true, true, true, item.getLocalMax (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "max", Severity.ERROR, "MAX", true, true, true, item.getLocalMax (), demotePrefix, attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalHighHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "highhigh", Severity.ALARM, "HH", 1300, false, true, false, item.getLocalHighHigh (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "highhigh", Severity.ALARM, "HH", false, true, false, item.getLocalHighHigh (), demotePrefix, attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "high", Severity.ALARM, "H", 1300, false, true, false, item.getLocalHigh (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "high", Severity.ALARM, "H", false, true, false, item.getLocalHigh (), demotePrefix, attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "low", Severity.ALARM, "L", 1300, false, false, false, item.getLocalLow (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "low", Severity.ALARM, "L", false, false, false, item.getLocalLow (), demotePrefix, attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalLowLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "lowlow", Severity.ALARM, "LL", 1300, false, false, false, item.getLocalLowLow (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "lowlow", Severity.ALARM, "LL", false, false, false, item.getLocalLowLow (), demotePrefix, attributes ); //$NON-NLS-1$
         }
         if ( item.getLocalMin () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "min", Severity.ERROR, "MIN", 1400, true, false, true, item.getLocalMin (), attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "min", Severity.ERROR, "MIN", true, false, true, item.getLocalMin (), demotePrefix, attributes ); //$NON-NLS-1$
         }
     }
 
@@ -965,9 +990,11 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private void addLocalMonitor ( final String id, final String masterId, final String reference, final boolean ack, final String message, final Map<String, String> attributes )
+    private void addLocalBitMonitor ( final String id, final String masterId, final String reference, final Severity severity, final boolean ack, final String message, final String demotePrefix, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
+
+        fillMasterHandler ( FACTORY_AE_MONITOR_BIT, id, data, masterId, null );
 
         if ( reference != null )
         {
@@ -978,31 +1005,40 @@ public class Configuration extends GenericMasterConfiguration
         {
             data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
         data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "severity", "" + Severity.ERROR ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "severity", "" + severity ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( message != null )
         {
             data.put ( "message", message ); //$NON-NLS-1$
         }
+        if ( demotePrefix != null )
+        {
+            data.put ( "demote.prefix", demotePrefix ); //$NON-NLS-1$
+        }
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( BOOLEAN_ALARM_MONITOR_FACTORY_ID, id, data );
+        addData ( FACTORY_AE_MONITOR_BIT, id, data );
     }
 
-    private void fillMasterHandler ( final Map<String, String> data, final String masterId, final int handlerPriority )
+    private void fillMasterHandler ( final String factoryId, final String configurationId, final Map<String, String> data, final String masterId, final Integer handlerPriority )
     {
         data.put ( "master.id", masterId ); //$NON-NLS-1$
-        data.put ( "handlerPriority", "" + handlerPriority ); //$NON-NLS-1$
+
+        fillMasterHandlerPriority ( factoryId, configurationId, data, handlerPriority );
     }
 
-    private void addListMonitor ( final String id, final String masterId, final boolean ack, final String severity, final Map<Variant, String> severityMap, final Map<Variant, Boolean> ackMap, final String message, final Map<String, String> attributes )
+    private void addListMonitor ( final String id, final String masterId, final boolean ack, final String severity, final Map<Variant, String> severityMap, final Map<Variant, Boolean> ackMap, final String message, final String demotePrefix, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        fillMasterHandler ( data, masterId, 1000 );
+        fillMasterHandler ( FACTORY_AE_MONITOR_LIST, id, data, masterId, 1000 );
         data.put ( "monitorType", "BOOL" ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        if ( demotePrefix != null )
+        {
+            data.put ( "demote.prefix", demotePrefix ); //$NON-NLS-1$
+        }
 
         data.put ( "defaultAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "defaultSeverity", "" + severity ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1042,7 +1078,7 @@ public class Configuration extends GenericMasterConfiguration
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.ae.monitor.list", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_AE_MONITOR_LIST, id, data );
     }
 
     private void addRemoteValueMonitor ( final String id, final String masterId, final String attributeAck, final String attributeAckTimestamp, final String monitorType, Map<String, String> attributes, final Boolean ackValue )
@@ -1059,7 +1095,8 @@ public class Configuration extends GenericMasterConfiguration
         attributes.put ( "monitorType", monitorType ); //$NON-NLS-1$
         applyInfoAttributes ( attributes, data );
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_AE_MONITOR_REMOTE_BOOLEAN, id, data, masterId, null );
+
         data.put ( "attribute.ack.name", attributeAck ); //$NON-NLS-1$
         data.put ( "attribute.ack.timestamp.name", attributeAckTimestamp ); //$NON-NLS-1$
         if ( ackValue != null )
@@ -1067,27 +1104,36 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "attribute.ack.value", String.format ( "BOOL#%s", ackValue ) ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
-        addData ( "ae.monitor.da.remote.booleanValueAlarm", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_AE_MONITOR_REMOTE_BOOLEAN, id, data );
     }
 
-    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final Severity severity, final String monitorType, final int handlerPriority, final boolean cap, final boolean lowerOk, final boolean includedOk, final LevelMonitor levelMonitor, Map<String, String> attributes )
+    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final Severity severity, final String monitorType, final boolean cap, final boolean lowerOk, final boolean includedOk, final LevelMonitor levelMonitor, final String demotePrefix, Map<String, String> attributes )
     {
         final boolean requireAck = levelMonitor.isAck ();
         final Double preset = levelMonitor.getPreset ();
+        Severity localSeverity;
+        if ( levelMonitor.getSeverity () != null )
+        {
+            localSeverity = levelMonitor.getSeverity ();
+        }
+        else
+        {
+            localSeverity = severity;
+        }
 
         attributes = new HashMap<String, String> ( attributes );
         attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addLocalLevelMonitor ( masterId + ".local.level." + type, cap, requireAck, masterId, severity, type, monitorType, handlerPriority, lowerOk, includedOk, preset, attributes ); //$NON-NLS-1$
+        addLocalLevelMonitor ( masterId + ".local.level." + type, cap, requireAck, masterId, localSeverity, type, monitorType, lowerOk, includedOk, preset, demotePrefix, attributes ); //$NON-NLS-1$
 
         reportItem.addMonitor ( new LocalLevelMonitor ( type, cap, requireAck, preset ) );
     }
 
-    private void addLocalLevelMonitor ( final String id, final boolean cap, final boolean requireAck, final String masterId, final Severity severity, final String type, final String monitorType, final int handlerPriority, final boolean lowerOk, final boolean includedOk, final Double preset, final Map<String, String> attributes )
+    private void addLocalLevelMonitor ( final String id, final boolean cap, final boolean requireAck, final String masterId, final Severity severity, final String type, final String monitorType, final boolean lowerOk, final boolean includedOk, final Double preset, final String demotePrefix, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        fillMasterHandler ( data, masterId, handlerPriority );
+        fillMasterHandler ( FACTORY_AE_MONITOR_LEVEL, id, data, masterId, null );
 
         data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( preset != null )
@@ -1105,9 +1151,14 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "lowerOk", "" + lowerOk ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "includedOk", "" + includedOk ); //$NON-NLS-1$ //$NON-NLS-2$
 
+        if ( demotePrefix != null )
+        {
+            data.put ( "demote.prefix", demotePrefix ); //$NON-NLS-1$
+        }
+
         applyInfoAttributes ( attributes, data );
 
-        addData ( "org.openscada.ae.monitor.level", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_AE_MONITOR_LEVEL, id, data );
     }
 
     private void makeRemoteLevel ( final DataItem reportItem, final String masterId, final String type, final String monitorType, Map<String, String> attributes )
@@ -1130,7 +1181,8 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "master.id", masterId ); //$NON-NLS-1$
+        fillMasterHandler ( FACTORY_AE_MONITOR_REMOTE_ATTR, id, data, masterId, null );
+
         data.put ( "attribute.value.name", attributeValue ); //$NON-NLS-1$
         data.put ( "attribute.ack.name", attributeAck ); //$NON-NLS-1$
         data.put ( "attribute.active.name", attributeActive ); //$NON-NLS-1$
@@ -1139,7 +1191,7 @@ public class Configuration extends GenericMasterConfiguration
 
         applyInfoAttributes ( attributes, data );
 
-        addData ( "ae.monitor.da.remote.booleanAttributeAlarm", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_AE_MONITOR_REMOTE_ATTR, id, data );
     }
 
     private void injectAttributes ( final Map<String, String> attributes, final String prefix, final Map<String, String> data )
@@ -1385,6 +1437,21 @@ public class Configuration extends GenericMasterConfiguration
             return;
         }
         this.movingAverages.addAll ( averages );
+    }
+
+    public void addMarker ( final String id, final Set<Item> value, final Map<String, String> markers )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "exportAttribute", "true" );
+        data.put ( "alwaysExport", "true" );
+
+        for ( final Map.Entry<String, String> entry : markers.entrySet () )
+        {
+            data.put ( "marker." + entry.getKey (), entry.getValue () == null ? "" : entry.getValue () );
+        }
+
+        addData ( "org.openscada.da.master.common.marker", id, data );
     }
 
 }
