@@ -60,7 +60,7 @@ public class LevelMarkerHandler
         {
             System.out.println ( String.format ( "Marker group %s -> %s entries - > %s", entry.getKey (), entry.getValue ().size (), entry.getValue () ) );
 
-            this.configuration.addMarker ( this.module.getMarkerName () + "." + StringHelper.join ( entry.getKey (), "." ), entry.getValue (), markers );
+            this.configuration.addMarker ( this.module.getMarkerName () + "." + StringHelper.join ( entry.getKey (), "_" ), entry.getValue (), markers );
         }
     }
 
