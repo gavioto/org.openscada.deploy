@@ -40,6 +40,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
@@ -88,6 +89,8 @@ import com.google.common.collect.Multimap;
 public class Configuration extends GenericMasterConfiguration
 {
 
+    private static final String FACTORY_MASTER_HANDLER_MARKER = "org.openscada.da.master.common.marker";
+
     private static final String FACTORY_MASTER_HANDLER_BLOCK = "org.openscada.da.master.common.block";
 
     private static final String FACTORY_AE_MONITOR_REMOTE_ATTR = "ae.monitor.da.remote.booleanAttributeAlarm";
@@ -133,7 +136,7 @@ public class Configuration extends GenericMasterConfiguration
 
         addIgnoreFields ( FACTORY_AE_MONITOR_LEVEL, "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
-        addIgnoreFields ( "org.openscada.da.master.common.marker", "active" );
+        addIgnoreFields ( FACTORY_MASTER_HANDLER_MARKER, "active" );
 
         addIgnoreFields ( FACTORY_MASTER_HANDLER_SCALE, "active", "factor" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
@@ -1439,10 +1442,19 @@ public class Configuration extends GenericMasterConfiguration
         this.movingAverages.addAll ( averages );
     }
 
-    public void addMarker ( final String id, final Set<Item> value, final Map<String, String> markers )
+    public void addMarker ( final String id, final Set<Item> items, final Map<String, String> markers )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
+        fillMasterHandlerPriority ( FACTORY_MASTER_HANDLER_MARKER, id, data, null );
+
+        final Set<String> masterIds = new TreeSet<String> ();
+        for ( final Item item : items )
+        {
+            masterIds.add ( makeMasterId ( item ) );
+        }
+
+        data.put ( "master.id", StringHelper.join ( masterIds, ", " ) );
         data.put ( "exportAttribute", "true" );
         data.put ( "alwaysExport", "true" );
 
@@ -1451,7 +1463,6 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "marker." + entry.getKey (), entry.getValue () == null ? "" : entry.getValue () );
         }
 
-        addData ( "org.openscada.da.master.common.marker", id, data );
+        addData ( FACTORY_MASTER_HANDLER_MARKER, id, data );
     }
-
 }
