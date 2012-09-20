@@ -18,7 +18,7 @@ public abstract class AbstractFileHandler<M extends FileModule>
             {
                 System.out.println ( " * Processing path : " + path );
                 final File dir = new File ( FileLocator.toFileURL ( new URL ( path ) ).getFile () );
-                if ( dir.isFile () )
+                if ( dir.isFile () && dir.canRead () && !isHidden(dir) )
                 {
                     loadFile ( configuration, module, dir );
                 }
@@ -27,7 +27,7 @@ public abstract class AbstractFileHandler<M extends FileModule>
                     System.out.println ( " * Loading directory : " + dir );
                     for ( final File file : dir.listFiles () )
                     {
-                        if ( file.isFile () )
+                        if ( file.isFile () && file.canRead () && !isHidden ( file ) )
                         {
                             loadFile ( configuration, module, file );
                         }
@@ -39,6 +39,11 @@ public abstract class AbstractFileHandler<M extends FileModule>
         {
             throw new RuntimeException ( e );
         }
+    }
+
+    private boolean isHidden ( File file )
+    {
+        return file.getName ().startsWith ( "." );
     }
 
     protected abstract void loadFile ( final Configuration configuration, M module, final File file ) throws Exception;
