@@ -8,7 +8,6 @@ package org.openscada.configurator.module.common.marker.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
@@ -38,7 +37,7 @@ public class MarkerTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new MarkerTests ( "marker Tests" );
-        suite.addTestSuite ( LevelMarkerGeneratorTest.class );
+        suite.addTestSuite ( HierarchyMarkerGeneratorTest.class );
         return suite;
     }
 

@@ -24,17 +24,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator} object.
+ * This is the item provider adapter for a {@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class HierarchyMarkerGeneratorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -42,7 +42,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMarkerGeneratorItemProvider ( AdapterFactory adapterFactory )
+    public HierarchyMarkerGeneratorItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -74,7 +74,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
      */
     protected void addMarkerNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_LevelMarkerGenerator_markerName_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_LevelMarkerGenerator_markerName_feature", "_UI_LevelMarkerGenerator_type" ), MarkerPackage.Literals.LEVEL_MARKER_GENERATOR__MARKER_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HierarchyMarkerGenerator_markerName_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_HierarchyMarkerGenerator_markerName_feature", "_UI_HierarchyMarkerGenerator_type" ), MarkerPackage.Literals.HIERARCHY_MARKER_GENERATOR__MARKER_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -85,7 +85,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
      */
     protected void addMarkersPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_LevelMarkerGenerator_markers_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_LevelMarkerGenerator_markers_feature", "_UI_LevelMarkerGenerator_type" ), MarkerPackage.Literals.LEVEL_MARKER_GENERATOR__MARKERS, false, false, false, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HierarchyMarkerGenerator_markers_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_HierarchyMarkerGenerator_markers_feature", "_UI_HierarchyMarkerGenerator_type" ), MarkerPackage.Literals.HIERARCHY_MARKER_GENERATOR__MARKERS, false, false, false, null, null, null ) );
     }
 
     /**
@@ -102,7 +102,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( MarkerPackage.Literals.LEVEL_MARKER_GENERATOR__MARKERS );
+            childrenFeatures.add ( MarkerPackage.Literals.HIERARCHY_MARKER_GENERATOR__MARKERS );
         }
         return childrenFeatures;
     }
@@ -122,7 +122,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
     }
 
     /**
-     * This returns LevelMarkerGenerator.gif.
+     * This returns HierarchyMarkerGenerator.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -130,7 +130,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/LevelMarkerGenerator" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/HierarchyMarkerGenerator" ) );
     }
 
     /**
@@ -142,8 +142,8 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
     @Override
     public String getText ( Object object )
     {
-        String label = ( (LevelMarkerGenerator)object ).getMarkerName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_LevelMarkerGenerator_type" ) : getString ( "_UI_LevelMarkerGenerator_type" ) + " " + label;
+        String label = ( (HierarchyMarkerGenerator)object ).getMarkerName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_HierarchyMarkerGenerator_type" ) : getString ( "_UI_HierarchyMarkerGenerator_type" ) + " " + label;
     }
 
     /**
@@ -158,12 +158,12 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( LevelMarkerGenerator.class ) )
+        switch ( notification.getFeatureID ( HierarchyMarkerGenerator.class ) )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKER_NAME:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -182,7 +182,7 @@ public class LevelMarkerGeneratorItemProvider extends ItemProviderAdapter implem
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( MarkerPackage.Literals.LEVEL_MARKER_GENERATOR__MARKERS, MarkerFactory.eINSTANCE.createMarker () ) );
+        newChildDescriptors.add ( createChildParameter ( MarkerPackage.Literals.HIERARCHY_MARKER_GENERATOR__MARKERS, MarkerFactory.eINSTANCE.createMarker () ) );
     }
 
     /**

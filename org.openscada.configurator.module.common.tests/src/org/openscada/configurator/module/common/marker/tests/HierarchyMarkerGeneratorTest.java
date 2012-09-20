@@ -7,15 +7,14 @@
 package org.openscada.configurator.module.common.marker.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Level Marker Generator</b></em>'.
+ * A test case for the model object '<em><b>Hierarchy Marker Generator</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -25,16 +24,16 @@ import org.openscada.configurator.module.common.marker.MarkerFactory;
  * </p>
  * @generated
  */
-public class LevelMarkerGeneratorTest extends TestCase
+public class HierarchyMarkerGeneratorTest extends TestCase
 {
 
     /**
-     * The fixture for this Level Marker Generator test case.
+     * The fixture for this Hierarchy Marker Generator test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LevelMarkerGenerator fixture = null;
+    protected HierarchyMarkerGenerator fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -43,38 +42,38 @@ public class LevelMarkerGeneratorTest extends TestCase
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( LevelMarkerGeneratorTest.class );
+        TestRunner.run ( HierarchyMarkerGeneratorTest.class );
     }
 
     /**
-     * Constructs a new Level Marker Generator test case with the given name.
+     * Constructs a new Hierarchy Marker Generator test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMarkerGeneratorTest ( String name )
+    public HierarchyMarkerGeneratorTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Sets the fixture for this Level Marker Generator test case.
+     * Sets the fixture for this Hierarchy Marker Generator test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture ( LevelMarkerGenerator fixture )
+    protected void setFixture ( HierarchyMarkerGenerator fixture )
     {
         this.fixture = fixture;
     }
 
     /**
-     * Returns the fixture for this Level Marker Generator test case.
+     * Returns the fixture for this Hierarchy Marker Generator test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LevelMarkerGenerator getFixture ()
+    protected HierarchyMarkerGenerator getFixture ()
     {
         return fixture;
     }
@@ -88,7 +87,7 @@ public class LevelMarkerGeneratorTest extends TestCase
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( MarkerFactory.eINSTANCE.createLevelMarkerGenerator () );
+        setFixture ( MarkerFactory.eINSTANCE.createHierarchyMarkerGenerator () );
     }
 
     /**
@@ -117,4 +116,4 @@ public class LevelMarkerGeneratorTest extends TestCase
         fail ();
     }
 
-} //LevelMarkerGeneratorTest
+} //HierarchyMarkerGeneratorTest

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
@@ -68,8 +68,8 @@ public class MarkerFactoryImpl extends EFactoryImpl implements MarkerFactory
     {
         switch ( eClass.getClassifierID () )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR:
-                return createLevelMarkerGenerator ();
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR:
+                return createHierarchyMarkerGenerator ();
             case MarkerPackage.MARKER:
                 return createMarker ();
             default:
@@ -82,10 +82,10 @@ public class MarkerFactoryImpl extends EFactoryImpl implements MarkerFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public LevelMarkerGenerator createLevelMarkerGenerator ()
+    public HierarchyMarkerGenerator createHierarchyMarkerGenerator ()
     {
-        LevelMarkerGeneratorImpl levelMarkerGenerator = new LevelMarkerGeneratorImpl ();
-        return levelMarkerGenerator;
+        HierarchyMarkerGeneratorImpl hierarchyMarkerGenerator = new HierarchyMarkerGeneratorImpl ();
+        return hierarchyMarkerGenerator;
     }
 
     /**

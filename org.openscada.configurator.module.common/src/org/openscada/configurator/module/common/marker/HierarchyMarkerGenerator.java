@@ -11,22 +11,22 @@ import org.openscada.configuration.model.Module;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Level Marker Generator</b></em>'.
+ * A representation of the model object '<em><b>Hierarchy Marker Generator</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkerName <em>Marker Name</em>}</li>
- *   <li>{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkers <em>Markers</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkerName <em>Marker Name</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkers <em>Markers</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.openscada.configurator.module.common.marker.MarkerPackage#getLevelMarkerGenerator()
+ * @see org.openscada.configurator.module.common.marker.MarkerPackage#getHierarchyMarkerGenerator()
  * @model
  * @generated
  */
-public interface LevelMarkerGenerator extends Module
+public interface HierarchyMarkerGenerator extends Module
 {
     /**
      * Returns the value of the '<em><b>Marker Name</b></em>' attribute.
@@ -38,14 +38,14 @@ public interface LevelMarkerGenerator extends Module
      * <!-- end-user-doc -->
      * @return the value of the '<em>Marker Name</em>' attribute.
      * @see #setMarkerName(String)
-     * @see org.openscada.configurator.module.common.marker.MarkerPackage#getLevelMarkerGenerator_MarkerName()
+     * @see org.openscada.configurator.module.common.marker.MarkerPackage#getHierarchyMarkerGenerator_MarkerName()
      * @model required="true"
      * @generated
      */
     String getMarkerName ();
 
     /**
-     * Sets the value of the '{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkerName <em>Marker Name</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkerName <em>Marker Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Marker Name</em>' attribute.
@@ -64,10 +64,10 @@ public interface LevelMarkerGenerator extends Module
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Markers</em>' containment reference list.
-     * @see org.openscada.configurator.module.common.marker.MarkerPackage#getLevelMarkerGenerator_Markers()
+     * @see org.openscada.configurator.module.common.marker.MarkerPackage#getHierarchyMarkerGenerator_Markers()
      * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<Marker> getMarkers ();
 
-} // LevelMarkerGenerator
+} // HierarchyMarkerGenerator

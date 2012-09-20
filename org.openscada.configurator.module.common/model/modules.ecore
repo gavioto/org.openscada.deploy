@@ -55,7 +55,7 @@
   </eSubpackages>
   <eSubpackages name="marker" nsURI="http://openscada.org/Configurator/Modules/Common/Marker"
       nsPrefix="marker">
-    <eClassifiers xsi:type="ecore:EClass" name="LevelMarkerGenerator" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+    <eClassifiers xsi:type="ecore:EClass" name="HierarchyMarkerGenerator" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="markerName" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="markers" upperBound="-1"

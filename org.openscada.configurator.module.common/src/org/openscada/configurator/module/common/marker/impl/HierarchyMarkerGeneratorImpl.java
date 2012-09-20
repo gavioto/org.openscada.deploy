@@ -19,28 +19,30 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
-import org.openscada.configurator.module.common.marker.handler.LevelMarkerHandler;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Level Marker Generator</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Hierarchy Marker Generator</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.module.common.marker.impl.LevelMarkerGeneratorImpl#getMarkerName <em>Marker Name</em>}</li>
- *   <li>{@link org.openscada.configurator.module.common.marker.impl.LevelMarkerGeneratorImpl#getMarkers <em>Markers</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl#getMarkerName <em>Marker Name</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl#getMarkers <em>Markers</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarkerGenerator
+public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements HierarchyMarkerGenerator
 {
     /**
      * The default value of the '{@link #getMarkerName() <em>Marker Name</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getMarkerName()
      * @generated
      * @ordered
@@ -49,7 +51,8 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
 
     /**
      * The cached value of the '{@link #getMarkerName() <em>Marker Name</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getMarkerName()
      * @generated
      * @ordered
@@ -67,45 +70,47 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     protected EList<Marker> markers;
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    protected LevelMarkerGeneratorImpl ()
+    protected HierarchyMarkerGeneratorImpl ()
     {
         super ();
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
     protected EClass eStaticClass ()
     {
-        return MarkerPackage.Literals.LEVEL_MARKER_GENERATOR;
+        return MarkerPackage.Literals.HIERARCHY_MARKER_GENERATOR;
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public String getMarkerName ()
     {
         return markerName;
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public void setMarkerName ( String newMarkerName )
     {
         String oldMarkerName = markerName;
         markerName = newMarkerName;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MarkerPackage.LEVEL_MARKER_GENERATOR__MARKER_NAME, oldMarkerName, markerName ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME, oldMarkerName, markerName ) );
     }
 
     /**
@@ -117,20 +122,21 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     {
         if ( markers == null )
         {
-            markers = new EObjectContainmentEList.Resolving<Marker> ( Marker.class, this, MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS );
+            markers = new EObjectContainmentEList.Resolving<Marker> ( Marker.class, this, MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS );
         }
         return markers;
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated NOT
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
      */
-    @Override
-    public void process ( final Configuration configuration, final Project project )
+    public void process ( Configuration configuration, Project project )
     {
-        new LevelMarkerHandler ( configuration, project, this ).process ();
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException ();
     }
 
     /**
@@ -143,14 +149,15 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     {
         switch ( featureID )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
                 return ( (InternalEList<?>)getMarkers () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -158,16 +165,17 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     {
         switch ( featureID )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKER_NAME:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME:
                 return getMarkerName ();
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
                 return getMarkers ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
@@ -176,10 +184,10 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     {
         switch ( featureID )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKER_NAME:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME:
                 setMarkerName ( (String)newValue );
                 return;
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
                 getMarkers ().clear ();
                 getMarkers ().addAll ( (Collection<? extends Marker>)newValue );
                 return;
@@ -188,7 +196,8 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -196,10 +205,10 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     {
         switch ( featureID )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKER_NAME:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME:
                 setMarkerName ( MARKER_NAME_EDEFAULT );
                 return;
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
                 getMarkers ().clear ();
                 return;
         }
@@ -207,7 +216,8 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -215,16 +225,17 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
     {
         switch ( featureID )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKER_NAME:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME:
                 return MARKER_NAME_EDEFAULT == null ? markerName != null : !MARKER_NAME_EDEFAULT.equals ( markerName );
-            case MarkerPackage.LEVEL_MARKER_GENERATOR__MARKERS:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
                 return markers != null && !markers.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -240,4 +251,4 @@ public class LevelMarkerGeneratorImpl extends EObjectImpl implements LevelMarker
         return result.toString ();
     }
 
-} //LevelMarkerGeneratorImpl
+} //HierarchyMarkerGeneratorImpl

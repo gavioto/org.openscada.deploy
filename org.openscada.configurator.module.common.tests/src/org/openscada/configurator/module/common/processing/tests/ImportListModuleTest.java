@@ -10,7 +10,6 @@ import junit.textui.TestRunner;
 
 import org.openscada.configurator.module.common.processing.ImportListModule;
 import org.openscada.configurator.module.common.processing.ProcessingFactory;
-
 import org.openscada.configurator.module.common.tests.FileModuleTest;
 
 /**

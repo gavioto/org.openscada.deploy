@@ -11,7 +11,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
 
@@ -77,9 +77,9 @@ public class MarkerAdapterFactory extends AdapterFactoryImpl
      */
     protected MarkerSwitch<Adapter> modelSwitch = new MarkerSwitch<Adapter> () {
         @Override
-        public Adapter caseLevelMarkerGenerator ( LevelMarkerGenerator object )
+        public Adapter caseHierarchyMarkerGenerator ( HierarchyMarkerGenerator object )
         {
-            return createLevelMarkerGeneratorAdapter ();
+            return createHierarchyMarkerGeneratorAdapter ();
         }
 
         @Override
@@ -116,16 +116,16 @@ public class MarkerAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator <em>Level Marker Generator</em>}'.
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator <em>Hierarchy Marker Generator</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.openscada.configurator.module.common.marker.LevelMarkerGenerator
+     * @see org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator
      * @generated
      */
-    public Adapter createLevelMarkerGeneratorAdapter ()
+    public Adapter createHierarchyMarkerGeneratorAdapter ()
     {
         return null;
     }

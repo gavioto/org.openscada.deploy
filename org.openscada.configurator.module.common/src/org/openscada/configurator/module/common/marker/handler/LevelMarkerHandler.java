@@ -11,7 +11,7 @@ import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.utils.str.StringHelper;
@@ -21,9 +21,9 @@ public class LevelMarkerHandler
 
     private final Configuration configuration;
 
-    private final LevelMarkerGenerator module;
+    private final HierarchyMarkerGenerator module;
 
-    public LevelMarkerHandler ( final Configuration configuration, final Project project, final LevelMarkerGenerator module )
+    public LevelMarkerHandler ( final Configuration configuration, final Project project, final HierarchyMarkerGenerator module )
     {
         this.configuration = configuration;
         this.module = module;

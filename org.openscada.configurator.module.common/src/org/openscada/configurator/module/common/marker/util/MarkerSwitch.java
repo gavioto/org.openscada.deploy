@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
 
@@ -77,12 +77,12 @@ public class MarkerSwitch<T> extends Switch<T>
     {
         switch ( classifierID )
         {
-            case MarkerPackage.LEVEL_MARKER_GENERATOR:
+            case MarkerPackage.HIERARCHY_MARKER_GENERATOR:
             {
-                LevelMarkerGenerator levelMarkerGenerator = (LevelMarkerGenerator)theEObject;
-                T result = caseLevelMarkerGenerator ( levelMarkerGenerator );
+                HierarchyMarkerGenerator hierarchyMarkerGenerator = (HierarchyMarkerGenerator)theEObject;
+                T result = caseHierarchyMarkerGenerator ( hierarchyMarkerGenerator );
                 if ( result == null )
-                    result = caseModule ( levelMarkerGenerator );
+                    result = caseModule ( hierarchyMarkerGenerator );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -101,17 +101,17 @@ public class MarkerSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Level Marker Generator</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Hierarchy Marker Generator</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Level Marker Generator</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Hierarchy Marker Generator</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLevelMarkerGenerator ( LevelMarkerGenerator object )
+    public T caseHierarchyMarkerGenerator ( HierarchyMarkerGenerator object )
     {
         return null;
     }

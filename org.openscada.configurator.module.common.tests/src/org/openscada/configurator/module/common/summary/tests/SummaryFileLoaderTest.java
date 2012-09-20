@@ -10,7 +10,6 @@ import junit.textui.TestRunner;
 
 import org.openscada.configurator.module.common.summary.SummaryFactory;
 import org.openscada.configurator.module.common.summary.SummaryFileLoader;
-
 import org.openscada.configurator.module.common.tests.FileModuleTest;
 
 /**

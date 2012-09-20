@@ -53,9 +53,9 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Marker" disposableProviderFactory="true" extensibleProviderFactory="true"
         childCreationExtenders="true" ecorePackage="modules.ecore#//marker">
-      <genClasses ecoreClass="modules.ecore#//marker/LevelMarkerGenerator">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/LevelMarkerGenerator/markerName"/>
-        <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference modules.ecore#//marker/LevelMarkerGenerator/markers"/>
+      <genClasses ecoreClass="modules.ecore#//marker/HierarchyMarkerGenerator">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/HierarchyMarkerGenerator/markerName"/>
+        <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference modules.ecore#//marker/HierarchyMarkerGenerator/markers"/>
       </genClasses>
       <genClasses ecoreClass="modules.ecore#//marker/Marker">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/Marker/name"/>

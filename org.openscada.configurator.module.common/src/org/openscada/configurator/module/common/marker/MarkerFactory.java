@@ -27,13 +27,13 @@ public interface MarkerFactory extends EFactory
     MarkerFactory eINSTANCE = org.openscada.configurator.module.common.marker.impl.MarkerFactoryImpl.init ();
 
     /**
-     * Returns a new object of class '<em>Level Marker Generator</em>'.
+     * Returns a new object of class '<em>Hierarchy Marker Generator</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Level Marker Generator</em>'.
+     * @return a new object of class '<em>Hierarchy Marker Generator</em>'.
      * @generated
      */
-    LevelMarkerGenerator createLevelMarkerGenerator ();
+    HierarchyMarkerGenerator createHierarchyMarkerGenerator ();
 
     /**
      * Returns a new object of class '<em>Marker</em>'.

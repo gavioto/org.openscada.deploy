@@ -62,14 +62,14 @@ public interface MarkerPackage extends EPackage
     MarkerPackage eINSTANCE = org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl.init ();
 
     /**
-     * The meta object id for the '{@link org.openscada.configurator.module.common.marker.impl.LevelMarkerGeneratorImpl <em>Level Marker Generator</em>}' class.
+     * The meta object id for the '{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl <em>Hierarchy Marker Generator</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configurator.module.common.marker.impl.LevelMarkerGeneratorImpl
-     * @see org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl#getLevelMarkerGenerator()
+     * @see org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl
+     * @see org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl#getHierarchyMarkerGenerator()
      * @generated
      */
-    int LEVEL_MARKER_GENERATOR = 0;
+    int HIERARCHY_MARKER_GENERATOR = 0;
 
     /**
      * The feature id for the '<em><b>Marker Name</b></em>' attribute.
@@ -78,7 +78,7 @@ public interface MarkerPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_MARKER_GENERATOR__MARKER_NAME = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int HIERARCHY_MARKER_GENERATOR__MARKER_NAME = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -87,16 +87,16 @@ public interface MarkerPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_MARKER_GENERATOR__MARKERS = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int HIERARCHY_MARKER_GENERATOR__MARKERS = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Level Marker Generator</em>' class.
+     * The number of structural features of the '<em>Hierarchy Marker Generator</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LEVEL_MARKER_GENERATOR_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
+    int HIERARCHY_MARKER_GENERATOR_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.marker.impl.MarkerImpl <em>Marker</em>}' class.
@@ -136,36 +136,36 @@ public interface MarkerPackage extends EPackage
     int MARKER_FEATURE_COUNT = 2;
 
     /**
-     * Returns the meta object for class '{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator <em>Level Marker Generator</em>}'.
+     * Returns the meta object for class '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator <em>Hierarchy Marker Generator</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Level Marker Generator</em>'.
-     * @see org.openscada.configurator.module.common.marker.LevelMarkerGenerator
+     * @return the meta object for class '<em>Hierarchy Marker Generator</em>'.
+     * @see org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator
      * @generated
      */
-    EClass getLevelMarkerGenerator ();
+    EClass getHierarchyMarkerGenerator ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkerName <em>Marker Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkerName <em>Marker Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Marker Name</em>'.
-     * @see org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkerName()
-     * @see #getLevelMarkerGenerator()
+     * @see org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkerName()
+     * @see #getHierarchyMarkerGenerator()
      * @generated
      */
-    EAttribute getLevelMarkerGenerator_MarkerName ();
+    EAttribute getHierarchyMarkerGenerator_MarkerName ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkers <em>Markers</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkers <em>Markers</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Markers</em>'.
-     * @see org.openscada.configurator.module.common.marker.LevelMarkerGenerator#getMarkers()
-     * @see #getLevelMarkerGenerator()
+     * @see org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator#getMarkers()
+     * @see #getHierarchyMarkerGenerator()
      * @generated
      */
-    EReference getLevelMarkerGenerator_Markers ();
+    EReference getHierarchyMarkerGenerator_Markers ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.marker.Marker <em>Marker</em>}'.
@@ -223,14 +223,14 @@ public interface MarkerPackage extends EPackage
     interface Literals
     {
         /**
-         * The meta object literal for the '{@link org.openscada.configurator.module.common.marker.impl.LevelMarkerGeneratorImpl <em>Level Marker Generator</em>}' class.
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl <em>Hierarchy Marker Generator</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.openscada.configurator.module.common.marker.impl.LevelMarkerGeneratorImpl
-         * @see org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl#getLevelMarkerGenerator()
+         * @see org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl
+         * @see org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl#getHierarchyMarkerGenerator()
          * @generated
          */
-        EClass LEVEL_MARKER_GENERATOR = eINSTANCE.getLevelMarkerGenerator ();
+        EClass HIERARCHY_MARKER_GENERATOR = eINSTANCE.getHierarchyMarkerGenerator ();
 
         /**
          * The meta object literal for the '<em><b>Marker Name</b></em>' attribute feature.
@@ -238,7 +238,7 @@ public interface MarkerPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LEVEL_MARKER_GENERATOR__MARKER_NAME = eINSTANCE.getLevelMarkerGenerator_MarkerName ();
+        EAttribute HIERARCHY_MARKER_GENERATOR__MARKER_NAME = eINSTANCE.getHierarchyMarkerGenerator_MarkerName ();
 
         /**
          * The meta object literal for the '<em><b>Markers</b></em>' containment reference list feature.
@@ -246,7 +246,7 @@ public interface MarkerPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference LEVEL_MARKER_GENERATOR__MARKERS = eINSTANCE.getLevelMarkerGenerator_Markers ();
+        EReference HIERARCHY_MARKER_GENERATOR__MARKERS = eINSTANCE.getHierarchyMarkerGenerator_Markers ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.module.common.marker.impl.MarkerImpl <em>Marker</em>}' class.

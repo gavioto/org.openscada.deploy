@@ -8,17 +8,13 @@ package org.openscada.configurator.module.common.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.module.common.main.tests.MainTests;
 import org.openscada.configurator.module.common.marker.tests.MarkerTests;
 import org.openscada.configurator.module.common.network.tests.NetworkTests;
-
 import org.openscada.configurator.module.common.processing.tests.ProcessingTests;
-
 import org.openscada.configurator.module.common.scripts.tests.ScriptsTests;
-
 import org.openscada.configurator.module.common.summary.tests.SummaryTests;
 
 /**

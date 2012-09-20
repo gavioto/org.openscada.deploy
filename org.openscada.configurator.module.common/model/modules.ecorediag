@@ -275,7 +275,7 @@
         <children xmi:type="notation:Node" xmi:id="_L7WFsAJUEeKHwZBNinkcRA" type="4002"/>
         <children xmi:type="notation:Node" xmi:id="_L7WswAJUEeKHwZBNinkcRA" type="5004">
           <children xmi:type="notation:Node" xmi:id="_OzgloAJUEeKHwZBNinkcRA" type="2001">
-            <element xmi:type="ecore:EAttribute" href="modules.ecore#//marker/LevelMarkerGenerator/markerName"/>
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//marker/HierarchyMarkerGenerator/markerName"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_OzgloQJUEeKHwZBNinkcRA"/>
           </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_L7WswQJUEeKHwZBNinkcRA"/>
@@ -288,7 +288,7 @@
           <styles xmi:type="notation:FilteringStyle" xmi:id="_L7X64gJUEeKHwZBNinkcRA"/>
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_L7UQgQJUEeKHwZBNinkcRA" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-        <element xmi:type="ecore:EClass" href="modules.ecore#//marker/LevelMarkerGenerator"/>
+        <element xmi:type="ecore:EClass" href="modules.ecore#//marker/HierarchyMarkerGenerator"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L7UQggJUEeKHwZBNinkcRA" x="15" y="27" width="283" height="99"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_vzO8wAJZEeKHwZBNinkcRA" type="2003">
@@ -335,7 +335,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_wgd2MQJZEeKHwZBNinkcRA" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_wgd2MgJZEeKHwZBNinkcRA" fontColor="4210752" fontName="Sans" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="modules.ecore#//marker/LevelMarkerGenerator/markers"/>
+    <element xmi:type="ecore:EReference" href="modules.ecore#//marker/HierarchyMarkerGenerator/markers"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wgd2MwJZEeKHwZBNinkcRA" points="[141, 18, -172, -19]$[363, 42, 50, 5]"/>
   </edges>
 </notation:Diagram>

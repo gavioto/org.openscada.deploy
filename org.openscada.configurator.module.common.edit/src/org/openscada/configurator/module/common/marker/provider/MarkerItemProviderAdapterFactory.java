@@ -97,28 +97,28 @@ public class MarkerItemProviderAdapterFactory extends MarkerAdapterFactory imple
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator} instances.
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LevelMarkerGeneratorItemProvider levelMarkerGeneratorItemProvider;
+    protected HierarchyMarkerGeneratorItemProvider hierarchyMarkerGeneratorItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.openscada.configurator.module.common.marker.LevelMarkerGenerator}.
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createLevelMarkerGeneratorAdapter ()
+    public Adapter createHierarchyMarkerGeneratorAdapter ()
     {
-        if ( levelMarkerGeneratorItemProvider == null )
+        if ( hierarchyMarkerGeneratorItemProvider == null )
         {
-            levelMarkerGeneratorItemProvider = new LevelMarkerGeneratorItemProvider ( this );
+            hierarchyMarkerGeneratorItemProvider = new HierarchyMarkerGeneratorItemProvider ( this );
         }
 
-        return levelMarkerGeneratorItemProvider;
+        return hierarchyMarkerGeneratorItemProvider;
     }
 
     /**
@@ -287,8 +287,8 @@ public class MarkerItemProviderAdapterFactory extends MarkerAdapterFactory imple
      */
     public void dispose ()
     {
-        if ( levelMarkerGeneratorItemProvider != null )
-            levelMarkerGeneratorItemProvider.dispose ();
+        if ( hierarchyMarkerGeneratorItemProvider != null )
+            hierarchyMarkerGeneratorItemProvider.dispose ();
         if ( markerItemProvider != null )
             markerItemProvider.dispose ();
     }
@@ -345,7 +345,7 @@ public class MarkerItemProviderAdapterFactory extends MarkerAdapterFactory imple
             @Override
             public Object caseProject ( Project object )
             {
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, MarkerFactory.eINSTANCE.createLevelMarkerGenerator () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, MarkerFactory.eINSTANCE.createHierarchyMarkerGenerator () ) );
 
                 return null;
             }

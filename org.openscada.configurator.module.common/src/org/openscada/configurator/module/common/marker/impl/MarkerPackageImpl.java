@@ -16,7 +16,7 @@ import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
 import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
@@ -42,7 +42,7 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass levelMarkerGeneratorEClass = null;
+    private EClass hierarchyMarkerGeneratorEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -142,9 +142,9 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getLevelMarkerGenerator ()
+    public EClass getHierarchyMarkerGenerator ()
     {
-        return levelMarkerGeneratorEClass;
+        return hierarchyMarkerGeneratorEClass;
     }
 
     /**
@@ -152,9 +152,9 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getLevelMarkerGenerator_MarkerName ()
+    public EAttribute getHierarchyMarkerGenerator_MarkerName ()
     {
-        return (EAttribute)levelMarkerGeneratorEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)hierarchyMarkerGeneratorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -162,9 +162,9 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getLevelMarkerGenerator_Markers ()
+    public EReference getHierarchyMarkerGenerator_Markers ()
     {
-        return (EReference)levelMarkerGeneratorEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)hierarchyMarkerGeneratorEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -228,9 +228,9 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
         isCreated = true;
 
         // Create classes and their features
-        levelMarkerGeneratorEClass = createEClass ( LEVEL_MARKER_GENERATOR );
-        createEAttribute ( levelMarkerGeneratorEClass, LEVEL_MARKER_GENERATOR__MARKER_NAME );
-        createEReference ( levelMarkerGeneratorEClass, LEVEL_MARKER_GENERATOR__MARKERS );
+        hierarchyMarkerGeneratorEClass = createEClass ( HIERARCHY_MARKER_GENERATOR );
+        createEAttribute ( hierarchyMarkerGeneratorEClass, HIERARCHY_MARKER_GENERATOR__MARKER_NAME );
+        createEReference ( hierarchyMarkerGeneratorEClass, HIERARCHY_MARKER_GENERATOR__MARKERS );
 
         markerEClass = createEClass ( MARKER );
         createEAttribute ( markerEClass, MARKER__NAME );
@@ -270,12 +270,12 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        levelMarkerGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        hierarchyMarkerGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
-        initEClass ( levelMarkerGeneratorEClass, LevelMarkerGenerator.class, "LevelMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getLevelMarkerGenerator_MarkerName (), ecorePackage.getEString (), "markerName", null, 1, 1, LevelMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getLevelMarkerGenerator_Markers (), this.getMarker (), null, "markers", null, 0, -1, LevelMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( hierarchyMarkerGeneratorEClass, HierarchyMarkerGenerator.class, "HierarchyMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getHierarchyMarkerGenerator_MarkerName (), ecorePackage.getEString (), "markerName", null, 1, 1, HierarchyMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getHierarchyMarkerGenerator_Markers (), this.getMarker (), null, "markers", null, 0, -1, HierarchyMarkerGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( markerEClass, Marker.class, "Marker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getMarker_Name (), ecorePackage.getEString (), "name", null, 1, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

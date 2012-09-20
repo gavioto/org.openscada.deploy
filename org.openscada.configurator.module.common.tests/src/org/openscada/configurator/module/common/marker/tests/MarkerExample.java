@@ -11,19 +11,13 @@ import java.io.IOException;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
-
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import org.openscada.configurator.module.common.marker.LevelMarkerGenerator;
+import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
 
@@ -64,7 +58,7 @@ public class MarkerExample
             try
             {
                 Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.marker" ) );
-                LevelMarkerGenerator root = MarkerFactory.eINSTANCE.createLevelMarkerGenerator ();
+                HierarchyMarkerGenerator root = MarkerFactory.eINSTANCE.createHierarchyMarkerGenerator ();
                 resource.getContents ().add ( root );
                 resource.save ( System.out, null );
             }

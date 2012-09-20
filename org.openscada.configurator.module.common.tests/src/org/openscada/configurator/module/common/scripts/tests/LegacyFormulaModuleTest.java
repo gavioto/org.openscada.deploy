@@ -7,7 +7,6 @@
 package org.openscada.configurator.module.common.scripts.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
