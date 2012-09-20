@@ -251,7 +251,7 @@ public class ScriptItemItemProvider extends ItemItemProvider implements IEditing
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify = childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW_LOW;
+        boolean qualify = childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_MIN || childFeature == ModelPackage.Literals.ITEM__LOCAL_MAX;
 
         if ( qualify )
         {

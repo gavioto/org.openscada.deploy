@@ -39,6 +39,9 @@
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/DEVIATION_ARITHMETIC"/>
       <genEnumLiterals ecoreEnumLiteral="iolist.ecore#//MovingAverageReferenceType/DEVIATION_WEIGHTED"/>
     </genEnums>
+    <genDataTypes ecoreDataType="iolist.ecore#//Variant"/>
+    <genDataTypes ecoreDataType="iolist.ecore#//ListSeverity"/>
+    <genDataTypes ecoreDataType="iolist.ecore#//Severity"/>
     <genClasses ecoreClass="iolist.ecore#//Item" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" propertyCategory="base" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/device"/>
       <genFeatures createChild="false" propertyCategory="base" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/name"/>
@@ -82,14 +85,15 @@
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localLow"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localLowLow"/>
-      <genFeatures property="None" createChild="false" propertyCategory="localMonitoring"
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localMin"/>
-      <genFeatures property="None" createChild="false" propertyCategory="localMonitoring"
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localMax"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localListMonitor"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="localMonitoring"
           ecoreFeature="ecore:EReference iolist.ecore#//Item/localBooleanMonitor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/defaultMonitorDemote"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//SummaryGroup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//SummaryGroup/items"/>
@@ -145,15 +149,14 @@
     </genClasses>
     <genClasses image="false" ecoreClass="iolist.ecore#//Monitor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Monitor/active"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Monitor/ack"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Monitor/priority"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//LevelMonitor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//LevelMonitor/preset"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//ListMonitor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitor/values"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitor/listIsAlarm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//ListMonitor/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitor/defaultAck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitor/defaultSeverity"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//BooleanMonitor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//BooleanMonitor/okValue"/>
@@ -180,6 +183,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/trigger"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/range"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//MovingAverage/nullRange"/>
+    </genClasses>
+    <genClasses ecoreClass="iolist.ecore#//ListMonitorEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitorEntry/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitorEntry/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ListMonitorEntry/requireAck"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="iolist.ecore#//BasicMonitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//BasicMonitor/ack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//BasicMonitor/severity"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

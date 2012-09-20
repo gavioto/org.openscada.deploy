@@ -490,6 +490,8 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_HIGH );
             childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_LOW );
             childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_LOW_LOW );
+            childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_MIN );
+            childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_MAX );
             childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_LIST_MONITOR );
             childrenFeatures.add ( ModelPackage.Literals.ITEM__LOCAL_BOOLEAN_MONITOR );
         }
@@ -582,8 +584,6 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             case ModelPackage.ITEM__SIMULATION_VALUE:
             case ModelPackage.ITEM__ROUNDING_AVAILABLE:
             case ModelPackage.ITEM__ROUNDING_VALUE:
-            case ModelPackage.ITEM__LOCAL_MIN:
-            case ModelPackage.ITEM__LOCAL_MAX:
             case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
@@ -592,6 +592,8 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             case ModelPackage.ITEM__LOCAL_HIGH:
             case ModelPackage.ITEM__LOCAL_LOW:
             case ModelPackage.ITEM__LOCAL_LOW_LOW:
+            case ModelPackage.ITEM__LOCAL_MIN:
+            case ModelPackage.ITEM__LOCAL_MAX:
             case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
             case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
@@ -622,6 +624,10 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.ITEM__LOCAL_LOW_LOW, ModelFactory.eINSTANCE.createLevelMonitor () ) );
 
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.ITEM__LOCAL_MIN, ModelFactory.eINSTANCE.createLevelMonitor () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.ITEM__LOCAL_MAX, ModelFactory.eINSTANCE.createLevelMonitor () ) );
+
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.ITEM__LOCAL_LIST_MONITOR, ModelFactory.eINSTANCE.createListMonitor () ) );
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.ITEM__LOCAL_BOOLEAN_MONITOR, ModelFactory.eINSTANCE.createBooleanMonitor () ) );
@@ -639,7 +645,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify = childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW_LOW;
+        boolean qualify = childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_MIN || childFeature == ModelPackage.Literals.ITEM__LOCAL_MAX;
 
         if ( qualify )
         {
