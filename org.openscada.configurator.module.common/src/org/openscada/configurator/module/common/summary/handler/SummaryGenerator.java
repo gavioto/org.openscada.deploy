@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
+import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.SummaryGroup;
@@ -22,7 +23,7 @@ public class SummaryGenerator
 
         public Location ( final List<String> hierarchy )
         {
-            this.hierarchy = hierarchy != null ? new LinkedList<String> ( hierarchy ) : new LinkedList<String> ( hierarchy );
+            this.hierarchy = hierarchy != null ? new LinkedList<String> ( hierarchy ) : new LinkedList<String> ();
         }
 
         public List<String> getHierarchy ()
@@ -76,8 +77,9 @@ public class SummaryGenerator
         }
     }
 
-    public static void generateSummaryAlarms ( final Project project, final Configuration cfg, final List<Item> items, final int requiredSize )
+    public static void generateSummaryAlarms ( final Project project, final Configuration cfg, final GenerateSummaries module )
     {
+        final List<Item> items = cfg.getItems ();
         final Map<Location, SummaryGroup> locations = new HashMap<Location, SummaryGroup> ();
         for ( final Item item : items )
         {
@@ -90,14 +92,14 @@ public class SummaryGenerator
             for ( final String level : item.getHierarchy () )
             {
                 group.add ( level );
-                addItem ( project, locations, new Location ( group ), item );
+                addItem ( project, locations, new Location ( group ), item, module );
             }
         }
 
-        SumLoader.configureGroups ( cfg, locations.values (), items, requiredSize );
+        SumLoader.configureGroups ( cfg, locations.values (), items, module.getRequiredItems () );
     }
 
-    private static void addItem ( final Project project, final Map<Location, SummaryGroup> locations, final Location location, final Item item )
+    private static void addItem ( final Project project, final Map<Location, SummaryGroup> locations, final Location location, final Item item, final GenerateSummaries module )
     {
         /*
         if ( !location.isValid () )
@@ -112,7 +114,7 @@ public class SummaryGenerator
             locationItems = ModelFactory.eINSTANCE.createSummaryGroup ();
             locationItems.getHierarchy ().clear ();
             locationItems.getHierarchy ().addAll ( location.getHierarchy () );
-            locationItems.setId ( makeGroupId ( project, location ) );
+            locationItems.setId ( makeGroupId ( project, location, module ) );
             locations.put ( location, locationItems );
         }
 
@@ -121,16 +123,13 @@ public class SummaryGenerator
         locationItems.getItems ().add ( summaryItem );
     }
 
-    private static String makeGroupId ( final Project project, final Location location )
+    private static String makeGroupId ( final Project project, final Location location, final GenerateSummaries module )
     {
         final StringBuilder sb = new StringBuilder ();
 
-        // TODO: should fix prefix and suffix from project or module
-
-        final String prefix = System.getProperty ( "prefix", null );
-        if ( prefix != null )
+        if ( module.getPrefix () != null )
         {
-            sb.append ( prefix );
+            sb.append ( module.getPrefix () );
         }
 
         for ( final String level : location.getHierarchy () )
@@ -145,7 +144,10 @@ public class SummaryGenerator
             }
         }
 
-        sb.append ( ".SUM.V" );
+        if ( module.getSuffix () != null )
+        {
+            sb.append ( module.getSuffix () );
+        }
 
         return sb.toString ();
     }

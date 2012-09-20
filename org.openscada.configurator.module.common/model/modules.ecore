@@ -44,6 +44,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="GenerateSummaries" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredItems" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="2"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="main" nsURI="http://openscada.org/Configurator/Modules/Common/Main"

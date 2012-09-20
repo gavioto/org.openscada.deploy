@@ -191,6 +191,26 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getGenerateSummaries_Prefix ()
+    {
+        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGenerateSummaries_Suffix ()
+    {
+        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public SummaryFactory getSummaryFactory ()
     {
         return (SummaryFactory)getEFactoryInstance ();
@@ -223,6 +243,8 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
 
         generateSummariesEClass = createEClass ( GENERATE_SUMMARIES );
         createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__REQUIRED_ITEMS );
+        createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__PREFIX );
+        createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__SUFFIX );
     }
 
     /**
@@ -269,6 +291,8 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
 
         initEClass ( generateSummariesEClass, GenerateSummaries.class, "GenerateSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getGenerateSummaries_RequiredItems (), ecorePackage.getEInt (), "requiredItems", "2", 1, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getGenerateSummaries_Prefix (), ecorePackage.getEString (), "prefix", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getGenerateSummaries_Suffix (), ecorePackage.getEString (), "suffix", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //SummaryPackageImpl

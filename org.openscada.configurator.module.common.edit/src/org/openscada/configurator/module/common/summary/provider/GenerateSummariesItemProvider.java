@@ -59,6 +59,8 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
             super.getPropertyDescriptors ( object );
 
             addRequiredItemsPropertyDescriptor ( object );
+            addPrefixPropertyDescriptor ( object );
+            addSuffixPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -72,6 +74,28 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
     protected void addRequiredItemsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_requiredItems_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_requiredItems_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__REQUIRED_ITEMS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Prefix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPrefixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_prefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_prefix_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Suffix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSuffixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_suffix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_suffix_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__SUFFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -114,6 +138,8 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
         switch ( notification.getFeatureID ( GenerateSummaries.class ) )
         {
             case SummaryPackage.GENERATE_SUMMARIES__REQUIRED_ITEMS:
+            case SummaryPackage.GENERATE_SUMMARIES__PREFIX:
+            case SummaryPackage.GENERATE_SUMMARIES__SUFFIX:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
