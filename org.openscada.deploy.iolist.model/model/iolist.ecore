@@ -259,7 +259,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicMonitor" abstract="true" eSuperTypes="#//Monitor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ack" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
+        defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
         eType="#//Severity" defaultValueLiteral="ERROR"/>
   </eClassifiers>

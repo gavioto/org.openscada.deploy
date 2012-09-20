@@ -29,7 +29,7 @@ public interface BasicMonitor extends Monitor
 {
     /**
      * Returns the value of the '<em><b>Ack</b></em>' attribute.
-     * The default value is <code>"false"</code>.
+     * The default value is <code>"true"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Ack</em>' attribute isn't clear,
@@ -39,7 +39,7 @@ public interface BasicMonitor extends Monitor
      * @return the value of the '<em>Ack</em>' attribute.
      * @see #setAck(boolean)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getBasicMonitor_Ack()
-     * @model default="false" required="true"
+     * @model default="true" required="true"
      * @generated
      */
     boolean isAck ();

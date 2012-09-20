@@ -1930,7 +1930,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getListMonitorEntry_RequireAck (), ecorePackage.getEBooleanObject (), "requireAck", null, 0, 1, ListMonitorEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( basicMonitorEClass, BasicMonitor.class, "BasicMonitor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getBasicMonitor_Ack (), ecorePackage.getEBoolean (), "ack", "false", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getBasicMonitor_Ack (), ecorePackage.getEBoolean (), "ack", "true", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getBasicMonitor_Severity (), this.getSeverity (), "severity", "ERROR", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize enums and add enum literals
