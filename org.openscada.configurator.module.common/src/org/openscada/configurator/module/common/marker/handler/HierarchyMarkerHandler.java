@@ -58,7 +58,7 @@ public class HierarchyMarkerHandler
 
         for ( final Map.Entry<List<String>, Set<Item>> entry : locationItemMap.entrySet () )
         {
-            System.out.println ( String.format ( "Marker group %s -> %s entries - > %s", entry.getKey (), entry.getValue ().size (), entry.getValue () ) );
+            // System.out.println ( String.format ( "Marker group %s -> %s entries - > %s", entry.getKey (), entry.getValue ().size (), entry.getValue () ) );
 
             this.configuration.addMarker ( this.module.getMarkerName () + "." + StringHelper.join ( entry.getKey (), "_" ), entry.getValue (), markers );
         }
