@@ -22,27 +22,25 @@ import org.openscada.configurator.Configuration;
 import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
+import org.openscada.configurator.module.common.marker.handler.HierarchyMarkerHandler;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Hierarchy Marker Generator</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Hierarchy Marker Generator</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl#getMarkerName <em>Marker Name</em>}</li>
- *   <li>{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl#getMarkers <em>Markers</em>}</li>
+ * <li>{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl#getMarkerName <em>Marker Name</em>}</li>
+ * <li>{@link org.openscada.configurator.module.common.marker.impl.HierarchyMarkerGeneratorImpl#getMarkers <em>Markers</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements HierarchyMarkerGenerator
 {
     /**
-     * The default value of the '{@link #getMarkerName() <em>Marker Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The default value of the '{@link #getMarkerName() <em>Marker Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getMarkerName()
      * @generated
      * @ordered
@@ -50,9 +48,8 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     protected static final String MARKER_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getMarkerName() <em>Marker Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached value of the '{@link #getMarkerName() <em>Marker Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getMarkerName()
      * @generated
      * @ordered
@@ -60,9 +57,8 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     protected String markerName = MARKER_NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getMarkers() <em>Markers</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached value of the '{@link #getMarkers() <em>Markers</em>}' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getMarkers()
      * @generated
      * @ordered
@@ -70,8 +66,8 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     protected EList<Marker> markers;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected HierarchyMarkerGeneratorImpl ()
@@ -80,8 +76,8 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -91,61 +87,65 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getMarkerName ()
-    {
-        return markerName;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setMarkerName ( String newMarkerName )
-    {
-        String oldMarkerName = markerName;
-        markerName = newMarkerName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME, oldMarkerName, markerName ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<Marker> getMarkers ()
-    {
-        if ( markers == null )
-        {
-            markers = new EObjectContainmentEList.Resolving<Marker> ( Marker.class, this, MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS );
-        }
-        return markers;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void process ( Configuration configuration, Project project )
-    {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException ();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public String getMarkerName ()
+    {
+        return this.markerName;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setMarkerName ( final String newMarkerName )
+    {
+        final String oldMarkerName = this.markerName;
+        this.markerName = newMarkerName;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME, oldMarkerName, this.markerName ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public EList<Marker> getMarkers ()
+    {
+        if ( this.markers == null )
+        {
+            this.markers = new EObjectContainmentEList.Resolving<Marker> ( Marker.class, this, MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS );
+        }
+        return this.markers;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public void process ( final Configuration configuration, final Project project )
+    {
+        new HierarchyMarkerHandler ( configuration, project, this ).process ();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -156,12 +156,12 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -174,13 +174,13 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -196,12 +196,12 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -216,37 +216,39 @@ public class HierarchyMarkerGeneratorImpl extends EObjectImpl implements Hierarc
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKER_NAME:
-                return MARKER_NAME_EDEFAULT == null ? markerName != null : !MARKER_NAME_EDEFAULT.equals ( markerName );
+                return MARKER_NAME_EDEFAULT == null ? this.markerName != null : !MARKER_NAME_EDEFAULT.equals ( this.markerName );
             case MarkerPackage.HIERARCHY_MARKER_GENERATOR__MARKERS:
-                return markers != null && !markers.isEmpty ();
+                return this.markers != null && !this.markers.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (markerName: " );
-        result.append ( markerName );
+        result.append ( this.markerName );
         result.append ( ')' );
         return result.toString ();
     }

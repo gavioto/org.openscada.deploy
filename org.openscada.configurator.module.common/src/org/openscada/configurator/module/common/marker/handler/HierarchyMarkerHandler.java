@@ -16,14 +16,14 @@ import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.utils.str.StringHelper;
 
-public class LevelMarkerHandler
+public class HierarchyMarkerHandler
 {
 
     private final Configuration configuration;
 
     private final HierarchyMarkerGenerator module;
 
-    public LevelMarkerHandler ( final Configuration configuration, final Project project, final HierarchyMarkerGenerator module )
+    public HierarchyMarkerHandler ( final Configuration configuration, final Project project, final HierarchyMarkerGenerator module )
     {
         this.configuration = configuration;
         this.module = module;
