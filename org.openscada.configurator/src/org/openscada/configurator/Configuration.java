@@ -1275,6 +1275,13 @@ public class Configuration extends GenericMasterConfiguration
             this.report.write ( new File ( baseDir, "report.odt" ), new File ( baseDir, "input" ) ); //$NON-NLS-1$
             this.logStream.println ( String.format ( "   ** Writing took %s ms", System.currentTimeMillis () - start ) );
         }
+
+        if ( Boolean.getBoolean ( "enableDot" ) )
+        {
+            this.logStream.println ( "   * Writing dot..." );
+            exportToDot ( new File ( baseDir, "configuration.dot" ) );
+            this.logStream.println ( "   * Writing dot... done!" );
+        }
     }
 
     public String getExtension ( final File file )
