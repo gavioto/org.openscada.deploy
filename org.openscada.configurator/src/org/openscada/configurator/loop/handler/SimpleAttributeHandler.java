@@ -35,11 +35,19 @@ public class SimpleAttributeHandler extends NoOpHandler implements LoopHandler
 
     private final String referenceType;
 
-    public SimpleAttributeHandler ( final String type, final String referenceType, final String attributeName )
+    private final String splitPattern;
+
+    public SimpleAttributeHandler ( final String type, final String referenceType, final String attributeName, final String splitPattern )
     {
         this.type = type;
         this.referenceType = referenceType;
         this.attributeName = attributeName;
+        this.splitPattern = splitPattern;
+    }
+
+    public SimpleAttributeHandler ( final String type, final String referenceType, final String attributeName )
+    {
+        this ( type, referenceType, attributeName, null );
     }
 
     @Override
@@ -53,7 +61,17 @@ public class SimpleAttributeHandler extends NoOpHandler implements LoopHandler
             return Collections.emptySet ();
         }
 
-        desc.addReference ( this.referenceType, reference );
+        if ( this.splitPattern != null )
+        {
+            for ( final String ref : reference.split ( this.splitPattern ) )
+            {
+                desc.addReference ( this.referenceType, ref );
+            }
+        }
+        else
+        {
+            desc.addReference ( this.referenceType, reference );
+        }
 
         return new HashSet<DataSourceDescriptor> ( Arrays.asList ( desc ) );
     }
