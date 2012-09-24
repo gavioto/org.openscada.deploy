@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.configurator.module.common.marker.HierarchyBlockGenerator;
 import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
@@ -72,6 +73,8 @@ public class MarkerFactoryImpl extends EFactoryImpl implements MarkerFactory
                 return createHierarchyMarkerGenerator ();
             case MarkerPackage.MARKER:
                 return createMarker ();
+            case MarkerPackage.HIERARCHY_BLOCK_GENERATOR:
+                return createHierarchyBlockGenerator ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -97,6 +100,17 @@ public class MarkerFactoryImpl extends EFactoryImpl implements MarkerFactory
     {
         MarkerImpl marker = new MarkerImpl ();
         return marker;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public HierarchyBlockGenerator createHierarchyBlockGenerator ()
+    {
+        HierarchyBlockGeneratorImpl hierarchyBlockGenerator = new HierarchyBlockGeneratorImpl ();
+        return hierarchyBlockGenerator;
     }
 
     /**

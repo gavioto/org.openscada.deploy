@@ -16,6 +16,7 @@ import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
 import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
+import org.openscada.configurator.module.common.marker.HierarchyBlockGenerator;
 import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerFactory;
@@ -50,6 +51,13 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
      * @generated
      */
     private EClass markerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass hierarchyBlockGeneratorEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -202,6 +210,16 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getHierarchyBlockGenerator ()
+    {
+        return hierarchyBlockGeneratorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public MarkerFactory getMarkerFactory ()
     {
         return (MarkerFactory)getEFactoryInstance ();
@@ -235,6 +253,8 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
         markerEClass = createEClass ( MARKER );
         createEAttribute ( markerEClass, MARKER__NAME );
         createEAttribute ( markerEClass, MARKER__VALUE );
+
+        hierarchyBlockGeneratorEClass = createEClass ( HIERARCHY_BLOCK_GENERATOR );
     }
 
     /**
@@ -271,6 +291,7 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
 
         // Add supertypes to classes
         hierarchyMarkerGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        hierarchyBlockGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( hierarchyMarkerGeneratorEClass, HierarchyMarkerGenerator.class, "HierarchyMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -280,6 +301,8 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
         initEClass ( markerEClass, Marker.class, "Marker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getMarker_Name (), ecorePackage.getEString (), "name", null, 1, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getMarker_Value (), ecorePackage.getEString (), "value", null, 1, 1, Marker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( hierarchyBlockGeneratorEClass, HierarchyBlockGenerator.class, "HierarchyBlockGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
     }
 
 } //MarkerPackageImpl

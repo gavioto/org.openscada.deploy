@@ -45,6 +45,15 @@ public interface MarkerFactory extends EFactory
     Marker createMarker ();
 
     /**
+     * Returns a new object of class '<em>Hierarchy Block Generator</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Hierarchy Block Generator</em>'.
+     * @generated
+     */
+    HierarchyBlockGenerator createHierarchyBlockGenerator ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

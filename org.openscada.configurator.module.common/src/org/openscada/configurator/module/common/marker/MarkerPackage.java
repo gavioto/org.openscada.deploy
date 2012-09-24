@@ -136,6 +136,25 @@ public interface MarkerPackage extends EPackage
     int MARKER_FEATURE_COUNT = 2;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.module.common.marker.impl.HierarchyBlockGeneratorImpl <em>Hierarchy Block Generator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.module.common.marker.impl.HierarchyBlockGeneratorImpl
+     * @see org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl#getHierarchyBlockGenerator()
+     * @generated
+     */
+    int HIERARCHY_BLOCK_GENERATOR = 2;
+
+    /**
+     * The number of structural features of the '<em>Hierarchy Block Generator</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_BLOCK_GENERATOR_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator <em>Hierarchy Marker Generator</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -198,6 +217,16 @@ public interface MarkerPackage extends EPackage
      * @generated
      */
     EAttribute getMarker_Value ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.module.common.marker.HierarchyBlockGenerator <em>Hierarchy Block Generator</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Hierarchy Block Generator</em>'.
+     * @see org.openscada.configurator.module.common.marker.HierarchyBlockGenerator
+     * @generated
+     */
+    EClass getHierarchyBlockGenerator ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -273,6 +302,16 @@ public interface MarkerPackage extends EPackage
          * @generated
          */
         EAttribute MARKER__VALUE = eINSTANCE.getMarker_Value ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.marker.impl.HierarchyBlockGeneratorImpl <em>Hierarchy Block Generator</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.module.common.marker.impl.HierarchyBlockGeneratorImpl
+         * @see org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl#getHierarchyBlockGenerator()
+         * @generated
+         */
+        EClass HIERARCHY_BLOCK_GENERATOR = eINSTANCE.getHierarchyBlockGenerator ();
 
     }
 

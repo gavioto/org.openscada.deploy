@@ -38,6 +38,7 @@ public class MarkerTests extends TestSuite
     {
         TestSuite suite = new MarkerTests ( "marker Tests" );
         suite.addTestSuite ( HierarchyMarkerGeneratorTest.class );
+        suite.addTestSuite ( HierarchyBlockGeneratorTest.class );
         return suite;
     }
 

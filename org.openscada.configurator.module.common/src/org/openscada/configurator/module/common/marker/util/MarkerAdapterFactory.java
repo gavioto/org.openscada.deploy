@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
+import org.openscada.configurator.module.common.marker.HierarchyBlockGenerator;
 import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
@@ -89,6 +90,12 @@ public class MarkerAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseHierarchyBlockGenerator ( HierarchyBlockGenerator object )
+        {
+            return createHierarchyBlockGeneratorAdapter ();
+        }
+
+        @Override
         public Adapter caseModule ( Module object )
         {
             return createModuleAdapter ();
@@ -141,6 +148,21 @@ public class MarkerAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createMarkerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.marker.HierarchyBlockGenerator <em>Hierarchy Block Generator</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.marker.HierarchyBlockGenerator
+     * @generated
+     */
+    public Adapter createHierarchyBlockGeneratorAdapter ()
     {
         return null;
     }

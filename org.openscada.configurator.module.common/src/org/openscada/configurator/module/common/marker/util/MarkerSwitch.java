@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
+import org.openscada.configurator.module.common.marker.HierarchyBlockGenerator;
 import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
@@ -95,6 +96,16 @@ public class MarkerSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case MarkerPackage.HIERARCHY_BLOCK_GENERATOR:
+            {
+                HierarchyBlockGenerator hierarchyBlockGenerator = (HierarchyBlockGenerator)theEObject;
+                T result = caseHierarchyBlockGenerator ( hierarchyBlockGenerator );
+                if ( result == null )
+                    result = caseModule ( hierarchyBlockGenerator );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -128,6 +139,22 @@ public class MarkerSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMarker ( Marker object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Hierarchy Block Generator</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Hierarchy Block Generator</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHierarchyBlockGenerator ( HierarchyBlockGenerator object )
     {
         return null;
     }

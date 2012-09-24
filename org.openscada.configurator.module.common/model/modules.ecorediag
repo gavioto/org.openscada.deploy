@@ -321,7 +321,23 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_vzO8wQJZEeKHwZBNinkcRA" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="modules.ecore#//marker/Marker"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vzO8wgJZEeKHwZBNinkcRA" x="391" y="99"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vzO8wgJZEeKHwZBNinkcRA" x="403" y="27"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_EySbYQZREeKrnrpMChGJVQ" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_EyU3oAZREeKrnrpMChGJVQ" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_EyVesAZREeKrnrpMChGJVQ" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_EyVesQZREeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_EyVesgZREeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_EyVeswZREeKrnrpMChGJVQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_EyVetAZREeKrnrpMChGJVQ" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_EyVetQZREeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_EyVetgZREeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_EyVetwZREeKrnrpMChGJVQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_EySbYgZREeKrnrpMChGJVQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="modules.ecore#//marker/HierarchyBlockGenerator"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EySbYwZREeKrnrpMChGJVQ" x="19" y="159" width="243" height="63"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_JtJv0QJUEeKHwZBNinkcRA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_JtJv0gJUEeKHwZBNinkcRA"/>

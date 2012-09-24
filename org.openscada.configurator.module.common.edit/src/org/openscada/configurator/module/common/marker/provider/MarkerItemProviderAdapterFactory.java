@@ -147,6 +147,31 @@ public class MarkerItemProviderAdapterFactory extends MarkerAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.marker.HierarchyBlockGenerator} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HierarchyBlockGeneratorItemProvider hierarchyBlockGeneratorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.marker.HierarchyBlockGenerator}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createHierarchyBlockGeneratorAdapter ()
+    {
+        if ( hierarchyBlockGeneratorItemProvider == null )
+        {
+            hierarchyBlockGeneratorItemProvider = new HierarchyBlockGeneratorItemProvider ( this );
+        }
+
+        return hierarchyBlockGeneratorItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -291,6 +316,8 @@ public class MarkerItemProviderAdapterFactory extends MarkerAdapterFactory imple
             hierarchyMarkerGeneratorItemProvider.dispose ();
         if ( markerItemProvider != null )
             markerItemProvider.dispose ();
+        if ( hierarchyBlockGeneratorItemProvider != null )
+            hierarchyBlockGeneratorItemProvider.dispose ();
     }
 
     /**
@@ -346,6 +373,8 @@ public class MarkerItemProviderAdapterFactory extends MarkerAdapterFactory imple
             public Object caseProject ( Project object )
             {
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, MarkerFactory.eINSTANCE.createHierarchyMarkerGenerator () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, MarkerFactory.eINSTANCE.createHierarchyBlockGenerator () ) );
 
                 return null;
             }

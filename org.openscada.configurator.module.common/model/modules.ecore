@@ -70,5 +70,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HierarchyBlockGenerator" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module"/>
   </eSubpackages>
 </ecore:EPackage>

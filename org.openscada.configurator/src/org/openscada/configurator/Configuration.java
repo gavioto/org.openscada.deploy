@@ -284,7 +284,7 @@ public class Configuration extends GenericMasterConfiguration
         addBlock ( blockId, Arrays.asList ( masterId ), attributes );
     }
 
-    private void addBlock ( final String blockId, final List<String> masterIds, final Map<String, String> attributes )
+    public void addBlock ( final String blockId, final List<String> masterIds, final Map<String, String> attributes )
     {
         if ( masterIds.isEmpty () )
         {
