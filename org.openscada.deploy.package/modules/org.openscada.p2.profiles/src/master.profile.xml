@@ -33,6 +33,7 @@
 	<start>org.openscada.ae.server.exporter.net</start>
 	<start>org.openscada.ae.event</start>
 	<start>org.openscada.ae.server.net</start>
+	<start>org.openscada.ae.monitor.script</start>
 	<start>org.openscada.ae.monitor.datasource.common</start>
 	<start>org.openscada.ae.server.exporter</start>
 	<start>org.openscada.ae.connection.provider</start>
