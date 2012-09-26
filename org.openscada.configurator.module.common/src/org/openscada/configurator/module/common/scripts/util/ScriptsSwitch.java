@@ -10,8 +10,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
+import org.openscada.configurator.module.common.FileModule;
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
@@ -97,6 +99,18 @@ public class ScriptsSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE:
+            {
+                ScriptsMonitorModule scriptsMonitorModule = (ScriptsMonitorModule)theEObject;
+                T result = caseScriptsMonitorModule ( scriptsMonitorModule );
+                if ( result == null )
+                    result = caseFileModule ( scriptsMonitorModule );
+                if ( result == null )
+                    result = caseModule ( scriptsMonitorModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -135,6 +149,22 @@ public class ScriptsSwitch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Monitor Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Monitor Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseScriptsMonitorModule ( ScriptsMonitorModule object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -146,6 +176,22 @@ public class ScriptsSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseModule ( Module object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>File Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>File Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFileModule ( FileModule object )
     {
         return null;
     }

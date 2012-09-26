@@ -118,26 +118,13 @@ public class ScriptLoadHandler implements RowHandler
 
         {
             // get inputs
-            final String dataSource = rowData.get ( "INPUTS" );
-            if ( dataSource != null && !dataSource.isEmpty () )
+            final Map<String, String> inputs = Helper.parseInputs ( rowData.get ( "INPUTS" ) );
+            for ( final Map.Entry<String, String> entry : inputs.entrySet () )
             {
-                final String[] toks = dataSource.split ( "[, \n\r]+" );
-                for ( int i = 0; i < toks.length; i++ )
-                {
-                    final String[] subToks = toks[i].split ( "=", 2 );
-                    final FormulaInput input = ModelFactory.eINSTANCE.createFormulaInput ();
-                    if ( subToks.length > 1 )
-                    {
-                        input.setDatasourceId ( subToks[1] );
-                        input.setName ( subToks[0] );
-                    }
-                    else
-                    {
-                        input.setDatasourceId ( toks[i] );
-                        input.setName ( "source" + i );
-                    }
-                    item.getInputs ().add ( input );
-                }
+                final FormulaInput input = ModelFactory.eINSTANCE.createFormulaInput ();
+                input.setName ( entry.getKey () );
+                input.setDatasourceId ( entry.getValue () );
+                item.getInputs ().add ( input );
             }
         }
 

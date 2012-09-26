@@ -27,15 +27,6 @@ public interface CommonFactory extends EFactory
     CommonFactory eINSTANCE = org.openscada.configurator.module.common.impl.CommonFactoryImpl.init ();
 
     /**
-     * Returns a new object of class '<em>File Module</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>File Module</em>'.
-     * @generated
-     */
-    FileModule createFileModule ();
-
-    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

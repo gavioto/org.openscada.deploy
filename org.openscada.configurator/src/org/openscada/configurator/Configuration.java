@@ -96,29 +96,31 @@ import com.google.common.collect.Multimap;
 public class Configuration extends GenericMasterConfiguration
 {
 
-    private static final String FACTORY_MASTER_HANDLER_MARKER = "org.openscada.da.master.common.marker";
+    private static final String FACTORY_MASTER_HANDLER_MARKER = "org.openscada.da.master.common.marker"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_BLOCK = "org.openscada.da.master.common.block";
+    private static final String FACTORY_MASTER_HANDLER_BLOCK = "org.openscada.da.master.common.block"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_REMOTE_ATTR = "ae.monitor.da.remote.booleanAttributeAlarm";
+    private static final String FACTORY_AE_MONITOR_REMOTE_ATTR = "ae.monitor.da.remote.booleanAttributeAlarm"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_REMOTE_BOOLEAN = "ae.monitor.da.remote.booleanValueAlarm";
+    private static final String FACTORY_AE_MONITOR_REMOTE_BOOLEAN = "ae.monitor.da.remote.booleanValueAlarm"; //$NON-NLS-1$
 
     private static final String FACTORY_AE_MONITOR_BIT = "org.openscada.ae.monitor.bit"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_LOGGER = "org.openscada.ae.event.logger";
+    private static final String FACTORY_MASTER_HANDLER_LOGGER = "org.openscada.ae.event.logger"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_NEGATE = "org.openscada.da.negate.input";
+    private static final String FACTORY_MASTER_HANDLER_NEGATE = "org.openscada.da.negate.input"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_ROUND = "org.openscada.da.round";
+    private static final String FACTORY_MASTER_HANDLER_ROUND = "org.openscada.da.round"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_SCALE = "org.openscada.da.scale.input";
+    private static final String FACTORY_MASTER_HANDLER_SCALE = "org.openscada.da.scale.input"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_MANUAL = "org.openscada.da.manual";
+    private static final String FACTORY_MASTER_HANDLER_MANUAL = "org.openscada.da.manual"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_LEVEL = "org.openscada.ae.monitor.level";
+    private static final String FACTORY_AE_MONITOR_LEVEL = "org.openscada.ae.monitor.level"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_LIST = "org.openscada.ae.monitor.list";
+    private static final String FACTORY_AE_MONITOR_LIST = "org.openscada.ae.monitor.list"; //$NON-NLS-1$
+
+    private static final String FACTORY_AE_MONITOR_SCRIPT = "org.openscada.ae.monitor.script"; //$NON-NLS-1$
 
     private final List<Item> items = new ArrayList<Item> ();
 
@@ -142,6 +144,8 @@ public class Configuration extends GenericMasterConfiguration
         addIgnoreFields ( FACTORY_MASTER_HANDLER_BLOCK, "note", "active", "user", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ 
 
         addIgnoreFields ( FACTORY_AE_MONITOR_LEVEL, "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+
+        addIgnoreFields ( FACTORY_AE_MONITOR_LIST, "active" ); //$NON-NLS-1$ 
 
         addIgnoreFields ( FACTORY_MASTER_HANDLER_MARKER, "active" );
 
@@ -1505,5 +1509,24 @@ public class Configuration extends GenericMasterConfiguration
         }
 
         addData ( FACTORY_MASTER_HANDLER_MARKER, id, data );
+    }
+
+    public void addScriptMonitor ( final String id, final int priority, final String scriptEngine, final String updateScript, final Map<String, String> inputs, final Set<String> outputs, final Map<String, String> attributes )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "handlerPriority", "" + priority );
+        data.put ( "master.id", StringHelper.join ( outputs, ", " ) );
+        data.put ( "updateCommand", updateScript );
+        data.put ( "scriptEngine", scriptEngine );
+
+        for ( final Map.Entry<String, String> entry : inputs.entrySet () )
+        {
+            data.put ( "datasource." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
+        }
+
+        applyInfoAttributes ( attributes, data );
+
+        addData ( FACTORY_AE_MONITOR_SCRIPT, id, data );
     }
 }

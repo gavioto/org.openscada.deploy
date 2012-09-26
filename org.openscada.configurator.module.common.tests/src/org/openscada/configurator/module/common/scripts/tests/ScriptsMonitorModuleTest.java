@@ -4,17 +4,17 @@
  *
  * $Id$
  */
-package org.openscada.configurator.module.common.processing.tests;
+package org.openscada.configurator.module.common.scripts.tests;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
-import org.openscada.configurator.module.common.processing.OverrideListModule;
-import org.openscada.configurator.module.common.processing.ProcessingFactory;
+import org.openscada.configurator.module.common.scripts.ScriptsFactory;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Override List Module</b></em>'.
+ * A test case for the model object '<em><b>Monitor Module</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -24,16 +24,16 @@ import org.openscada.configurator.module.common.processing.ProcessingFactory;
  * </p>
  * @generated
  */
-public class OverrideListModuleTest extends TestCase
+public class ScriptsMonitorModuleTest extends TestCase
 {
 
     /**
-     * The fixture for this Override List Module test case.
+     * The fixture for this Monitor Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected OverrideListModule fixture = null;
+    protected ScriptsMonitorModule fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -42,38 +42,38 @@ public class OverrideListModuleTest extends TestCase
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( OverrideListModuleTest.class );
+        TestRunner.run ( ScriptsMonitorModuleTest.class );
     }
 
     /**
-     * Constructs a new Override List Module test case with the given name.
+     * Constructs a new Monitor Module test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public OverrideListModuleTest ( String name )
+    public ScriptsMonitorModuleTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Sets the fixture for this Override List Module test case.
+     * Sets the fixture for this Monitor Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture ( OverrideListModule fixture )
+    protected void setFixture ( ScriptsMonitorModule fixture )
     {
         this.fixture = fixture;
     }
 
     /**
-     * Returns the fixture for this Override List Module test case.
+     * Returns the fixture for this Monitor Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected OverrideListModule getFixture ()
+    protected ScriptsMonitorModule getFixture ()
     {
         return fixture;
     }
@@ -87,7 +87,7 @@ public class OverrideListModuleTest extends TestCase
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( ProcessingFactory.eINSTANCE.createOverrideListModule () );
+        setFixture ( ScriptsFactory.eINSTANCE.createScriptsMonitorModule () );
     }
 
     /**
@@ -116,4 +116,4 @@ public class OverrideListModuleTest extends TestCase
         fail ();
     }
 
-} //OverrideListModuleTest
+} //ScriptsMonitorModuleTest

@@ -18,14 +18,13 @@ import org.openscada.configurator.module.common.marker.handler.HierarchyBlockHan
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Hierarchy Block Generator</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class HierarchyBlockGeneratorImpl extends EObjectImpl implements HierarchyBlockGenerator
 {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected HierarchyBlockGeneratorImpl ()
@@ -35,7 +34,6 @@ public class HierarchyBlockGeneratorImpl extends EObjectImpl implements Hierarch
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

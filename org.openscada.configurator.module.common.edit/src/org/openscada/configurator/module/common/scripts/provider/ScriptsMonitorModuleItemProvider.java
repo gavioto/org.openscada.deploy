@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.openscada.configurator.module.common.provider;
+package org.openscada.configurator.module.common.scripts.provider;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,15 +25,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.openscada.configurator.module.common.CommonPackage;
-import org.openscada.configurator.module.common.FileModule;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
+import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.configurator.module.common.FileModule} object.
+ * This is the item provider adapter for a {@link org.openscada.configurator.module.common.scripts.ScriptsMonitorModule} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FileModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ScriptsMonitorModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -41,7 +42,7 @@ public class FileModuleItemProvider extends ItemProviderAdapter implements IEdit
      * <!-- end-user-doc -->
      * @generated
      */
-    public FileModuleItemProvider ( AdapterFactory adapterFactory )
+    public ScriptsMonitorModuleItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -109,7 +110,7 @@ public class FileModuleItemProvider extends ItemProviderAdapter implements IEdit
     }
 
     /**
-     * This returns FileModule.gif.
+     * This returns ScriptsMonitorModule.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -117,7 +118,7 @@ public class FileModuleItemProvider extends ItemProviderAdapter implements IEdit
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/FileModule" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ScriptsMonitorModule" ) );
     }
 
     /**
@@ -129,7 +130,7 @@ public class FileModuleItemProvider extends ItemProviderAdapter implements IEdit
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_FileModule_type" );
+        return getString ( "_UI_ScriptsMonitorModule_type" );
     }
 
     /**
@@ -144,9 +145,9 @@ public class FileModuleItemProvider extends ItemProviderAdapter implements IEdit
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( FileModule.class ) )
+        switch ( notification.getFeatureID ( ScriptsMonitorModule.class ) )
         {
-            case CommonPackage.FILE_MODULE__PATH:
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }

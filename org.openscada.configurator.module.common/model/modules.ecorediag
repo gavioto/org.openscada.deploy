@@ -79,6 +79,22 @@
         <element xmi:type="ecore:EClass" href="modules.ecore#//scripts/LegacyFormulaModule"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxmHguhOEeGGKrxCjAQP1Q" x="19" y="88"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_LFJ2YAerEeKrnrpMChGJVQ" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_LFJ2YwerEeKrnrpMChGJVQ" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_LFKdcAerEeKrnrpMChGJVQ" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_LFKdcQerEeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_LFKdcgerEeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_LFKdcwerEeKrnrpMChGJVQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_LFKddAerEeKrnrpMChGJVQ" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_LFKddQerEeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_LFKddgerEeKrnrpMChGJVQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_LFKddwerEeKrnrpMChGJVQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_LFJ2YQerEeKrnrpMChGJVQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="modules.ecore#//scripts/ScriptsMonitorModule"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LFJ2YgerEeKrnrpMChGJVQ" x="235" y="15"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_TX2DsuhOEeGGKrxCjAQP1Q"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_TX2Ds-hOEeGGKrxCjAQP1Q"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_TX2DtOhOEeGGKrxCjAQP1Q"/>
@@ -86,7 +102,7 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TX1coehOEeGGKrxCjAQP1Q" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
     <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_TX1couhOEeGGKrxCjAQP1Q"/>
     <element xmi:type="ecore:EPackage" href="modules.ecore#//scripts"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TX1co-hOEeGGKrxCjAQP1Q" x="288" width="327" height="243"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TX1co-hOEeGGKrxCjAQP1Q" x="636" y="252" width="495" height="339"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_2SSBwOhYEeGGKrxCjAQP1Q" type="1002">
     <children xmi:type="notation:Node" xmi:id="_2STP4OhYEeGGKrxCjAQP1Q" type="4006"/>

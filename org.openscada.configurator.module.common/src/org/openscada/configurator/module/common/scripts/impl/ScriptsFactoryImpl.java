@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsFactory;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
@@ -72,6 +73,8 @@ public class ScriptsFactoryImpl extends EFactoryImpl implements ScriptsFactory
                 return createScriptsModule ();
             case ScriptsPackage.LEGACY_FORMULA_MODULE:
                 return createLegacyFormulaModule ();
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE:
+                return createScriptsMonitorModule ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -97,6 +100,17 @@ public class ScriptsFactoryImpl extends EFactoryImpl implements ScriptsFactory
     {
         LegacyFormulaModuleImpl legacyFormulaModule = new LegacyFormulaModuleImpl ();
         return legacyFormulaModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScriptsMonitorModule createScriptsMonitorModule ()
+    {
+        ScriptsMonitorModuleImpl scriptsMonitorModule = new ScriptsMonitorModuleImpl ();
+        return scriptsMonitorModule;
     }
 
     /**

@@ -6,10 +6,16 @@
  */
 package org.openscada.configurator.module.common.summary.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.openscada.configurator.module.common.impl.FileModuleImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.openscada.configuration.model.Project;
+import org.openscada.configurator.Configuration;
 import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 
@@ -20,6 +26,7 @@ import org.openscada.configurator.module.common.summary.SummaryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl#getPath <em>Path</em>}</li>
  *   <li>{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl#getRequiredItems <em>Required Items</em>}</li>
  *   <li>{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl#getPrefix <em>Prefix</em>}</li>
  * </ul>
@@ -27,8 +34,18 @@ import org.openscada.configurator.module.common.summary.SummaryPackage;
  *
  * @generated
  */
-public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFileLoader
+public class SummaryFileLoaderImpl extends EObjectImpl implements SummaryFileLoader
 {
+    /**
+     * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPath()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> path;
+
     /**
      * The default value of the '{@link #getRequiredItems() <em>Required Items</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -95,6 +112,20 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getPath ()
+    {
+        if ( path == null )
+        {
+            path = new EDataTypeUniqueEList<String> ( String.class, this, SummaryPackage.SUMMARY_FILE_LOADER__PATH );
+        }
+        return path;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public int getRequiredItems ()
     {
         return requiredItems;
@@ -141,11 +172,25 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
      * <!-- end-user-doc -->
      * @generated
      */
+    public void process ( Configuration configuration, Project project )
+    {
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
+            case SummaryPackage.SUMMARY_FILE_LOADER__PATH:
+                return getPath ();
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 return getRequiredItems ();
             case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
@@ -159,11 +204,16 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
+            case SummaryPackage.SUMMARY_FILE_LOADER__PATH:
+                getPath ().clear ();
+                getPath ().addAll ( (Collection<? extends String>)newValue );
+                return;
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 setRequiredItems ( (Integer)newValue );
                 return;
@@ -184,6 +234,9 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
     {
         switch ( featureID )
         {
+            case SummaryPackage.SUMMARY_FILE_LOADER__PATH:
+                getPath ().clear ();
+                return;
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 setRequiredItems ( REQUIRED_ITEMS_EDEFAULT );
                 return;
@@ -204,6 +257,8 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
     {
         switch ( featureID )
         {
+            case SummaryPackage.SUMMARY_FILE_LOADER__PATH:
+                return path != null && !path.isEmpty ();
             case SummaryPackage.SUMMARY_FILE_LOADER__REQUIRED_ITEMS:
                 return requiredItems != REQUIRED_ITEMS_EDEFAULT;
             case SummaryPackage.SUMMARY_FILE_LOADER__PREFIX:
@@ -224,7 +279,9 @@ public class SummaryFileLoaderImpl extends FileModuleImpl implements SummaryFile
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (requiredItems: " );
+        result.append ( " (path: " );
+        result.append ( path );
+        result.append ( ", requiredItems: " );
         result.append ( requiredItems );
         result.append ( ", prefix: " );
         result.append ( prefix );

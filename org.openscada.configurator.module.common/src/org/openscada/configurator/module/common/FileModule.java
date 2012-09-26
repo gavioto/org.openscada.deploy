@@ -22,7 +22,7 @@ import org.openscada.configuration.model.Module;
  * </p>
  *
  * @see org.openscada.configurator.module.common.CommonPackage#getFileModule()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface FileModule extends Module

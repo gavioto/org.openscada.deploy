@@ -7,7 +7,6 @@
 package org.openscada.configurator.module.common.tests;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
@@ -17,9 +16,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.openscada.configurator.module.common.CommonFactory;
 import org.openscada.configurator.module.common.CommonPackage;
-import org.openscada.configurator.module.common.FileModule;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,18 +51,7 @@ public class CommonExample
         //
         if ( args.length == 0 )
         {
-            System.out.println ( "Enter a list of file paths or URIs that have content like this:" );
-            try
-            {
-                Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.common" ) );
-                FileModule root = CommonFactory.eINSTANCE.createFileModule ();
-                resource.getContents ().add ( root );
-                resource.save ( System.out, null );
-            }
-            catch ( IOException exception )
-            {
-                exception.printStackTrace ();
-            }
+            System.out.println ( "Enter a list of file paths or URIs" );
         }
         else
         {

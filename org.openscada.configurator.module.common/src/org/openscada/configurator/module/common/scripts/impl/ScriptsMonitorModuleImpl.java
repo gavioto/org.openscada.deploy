@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.openscada.configurator.module.common.processing.impl;
+package org.openscada.configurator.module.common.scripts.impl;
 
 import java.util.Collection;
 
@@ -14,27 +14,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.module.common.processing.ImportListModule;
-import org.openscada.configurator.module.common.processing.ProcessingPackage;
-import org.openscada.configurator.module.common.processing.handler.ImportListHandler;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
+import org.openscada.configurator.module.common.scripts.ScriptsPackage;
+import org.openscada.configurator.module.common.scripts.handler.ScriptMonitorImporter;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Import List Module</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Monitor Module</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.module.common.processing.impl.ImportListModuleImpl#getPath <em>Path</em>}</li>
+ * <li>{@link org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl#getPath <em>Path</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class ImportListModuleImpl extends EObjectImpl implements ImportListModule
+public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMonitorModule
 {
     /**
-     * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getPath()
      * @generated
      * @ordered
@@ -43,35 +42,38 @@ public class ImportListModuleImpl extends EObjectImpl implements ImportListModul
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected ImportListModuleImpl ()
+    protected ScriptsMonitorModuleImpl ()
     {
         super ();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     protected EClass eStaticClass ()
     {
-        return ProcessingPackage.Literals.IMPORT_LIST_MODULE;
+        return ScriptsPackage.Literals.SCRIPTS_MONITOR_MODULE;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EList<String> getPath ()
     {
-        if ( path == null )
+        if ( this.path == null )
         {
-            path = new EDataTypeUniqueEList<String> ( String.class, this, ProcessingPackage.IMPORT_LIST_MODULE__PATH );
+            this.path = new EDataTypeUniqueEList<String> ( String.class, this, ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH );
         }
-        return path;
+        return this.path;
     }
 
     /**
@@ -84,42 +86,42 @@ public class ImportListModuleImpl extends EObjectImpl implements ImportListModul
     {
         try
         {
-            new ImportListHandler ().process ( configuration, project, this );
+            new ScriptMonitorImporter ().process ( configuration, project, this );
         }
         catch ( final Exception e )
         {
-            throw new RuntimeException ( e );
+            throw new RuntimeException ( "Failed to configure script monitors", e );
         }
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
-            case ProcessingPackage.IMPORT_LIST_MODULE__PATH:
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH:
                 return getPath ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
-            case ProcessingPackage.IMPORT_LIST_MODULE__PATH:
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH:
                 getPath ().clear ();
                 getPath ().addAll ( (Collection<? extends String>)newValue );
                 return;
@@ -128,16 +130,16 @@ public class ImportListModuleImpl extends EObjectImpl implements ImportListModul
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
-            case ProcessingPackage.IMPORT_LIST_MODULE__PATH:
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH:
                 getPath ().clear ();
                 return;
         }
@@ -145,37 +147,39 @@ public class ImportListModuleImpl extends EObjectImpl implements ImportListModul
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
-            case ProcessingPackage.IMPORT_LIST_MODULE__PATH:
-                return path != null && !path.isEmpty ();
+            case ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH:
+                return this.path != null && !this.path.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (path: " );
-        result.append ( path );
+        result.append ( this.path );
         result.append ( ')' );
         return result.toString ();
     }
 
-} //ImportListModuleImpl
+} //ScriptsMonitorModuleImpl

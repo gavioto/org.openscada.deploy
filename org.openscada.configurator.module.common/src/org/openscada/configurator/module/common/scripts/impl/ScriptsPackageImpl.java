@@ -24,6 +24,7 @@ import org.openscada.configurator.module.common.processing.impl.ProcessingPackag
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsFactory;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 import org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl;
@@ -49,6 +50,13 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
      * @generated
      */
     private EClass legacyFormulaModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass scriptsMonitorModuleEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -181,6 +189,16 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getScriptsMonitorModule ()
+    {
+        return scriptsMonitorModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ScriptsFactory getScriptsFactory ()
     {
         return (ScriptsFactory)getEFactoryInstance ();
@@ -212,6 +230,8 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         legacyFormulaModuleEClass = createEClass ( LEGACY_FORMULA_MODULE );
         createEAttribute ( legacyFormulaModuleEClass, LEGACY_FORMULA_MODULE__FORMULA_FILE );
+
+        scriptsMonitorModuleEClass = createEClass ( SCRIPTS_MONITOR_MODULE );
     }
 
     /**
@@ -241,6 +261,7 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         // Obtain other dependent packages
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
 
         // Create type parameters
 
@@ -249,6 +270,7 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
         // Add supertypes to classes
         scriptsModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
         legacyFormulaModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        scriptsMonitorModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( scriptsModuleEClass, ScriptsModule.class, "ScriptsModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -256,6 +278,8 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
 
         initEClass ( legacyFormulaModuleEClass, LegacyFormulaModule.class, "LegacyFormulaModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getLegacyFormulaModule_FormulaFile (), ecorePackage.getEString (), "formulaFile", null, 1, 1, LegacyFormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( scriptsMonitorModuleEClass, ScriptsMonitorModule.class, "ScriptsMonitorModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
     }
 
 } //ScriptsPackageImpl

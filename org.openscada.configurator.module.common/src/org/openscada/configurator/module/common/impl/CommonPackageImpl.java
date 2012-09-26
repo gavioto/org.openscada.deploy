@@ -233,7 +233,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         fileModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
-        initEClass ( fileModuleEClass, FileModule.class, "FileModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( fileModuleEClass, FileModule.class, "FileModule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getFileModule_Path (), ecorePackage.getEString (), "path", null, 0, -1, FileModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Create resource

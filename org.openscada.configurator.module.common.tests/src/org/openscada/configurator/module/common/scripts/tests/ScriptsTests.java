@@ -39,6 +39,7 @@ public class ScriptsTests extends TestSuite
         TestSuite suite = new ScriptsTests ( "scripts Tests" );
         suite.addTestSuite ( ScriptsModuleTest.class );
         suite.addTestSuite ( LegacyFormulaModuleTest.class );
+        suite.addTestSuite ( ScriptsMonitorModuleTest.class );
         return suite;
     }
 

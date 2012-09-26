@@ -7,9 +7,7 @@
 package org.openscada.configurator.module.common.tests;
 
 import junit.framework.TestCase;
-import junit.textui.TestRunner;
 
-import org.openscada.configurator.module.common.CommonFactory;
 import org.openscada.configurator.module.common.FileModule;
 
 /**
@@ -24,7 +22,7 @@ import org.openscada.configurator.module.common.FileModule;
  * </p>
  * @generated
  */
-public class FileModuleTest extends TestCase
+public abstract class FileModuleTest extends TestCase
 {
 
     /**
@@ -34,16 +32,6 @@ public class FileModuleTest extends TestCase
      * @generated
      */
     protected FileModule fixture = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( FileModuleTest.class );
-    }
 
     /**
      * Constructs a new File Module test case with the given name.
@@ -76,30 +64,6 @@ public class FileModuleTest extends TestCase
     protected FileModule getFixture ()
     {
         return fixture;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( CommonFactory.eINSTANCE.createFileModule () );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
     }
 
     /**

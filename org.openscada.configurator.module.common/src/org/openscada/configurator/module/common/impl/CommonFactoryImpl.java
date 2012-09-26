@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.configurator.module.common.CommonFactory;
 import org.openscada.configurator.module.common.CommonPackage;
-import org.openscada.configurator.module.common.FileModule;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,22 +66,9 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     {
         switch ( eClass.getClassifierID () )
         {
-            case CommonPackage.FILE_MODULE:
-                return createFileModule ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public FileModule createFileModule ()
-    {
-        FileModuleImpl fileModule = new FileModuleImpl ();
-        return fileModule;
     }
 
     /**

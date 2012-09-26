@@ -37,7 +37,6 @@ public class CommonTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new CommonTests ( "common Tests" );
-        suite.addTestSuite ( FileModuleTest.class );
         return suite;
     }
 

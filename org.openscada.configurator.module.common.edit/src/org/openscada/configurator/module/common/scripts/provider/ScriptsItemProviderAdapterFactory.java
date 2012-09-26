@@ -147,6 +147,31 @@ public class ScriptsItemProviderAdapterFactory extends ScriptsAdapterFactory imp
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.scripts.ScriptsMonitorModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptsMonitorModuleItemProvider scriptsMonitorModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.scripts.ScriptsMonitorModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptsMonitorModuleAdapter ()
+    {
+        if ( scriptsMonitorModuleItemProvider == null )
+        {
+            scriptsMonitorModuleItemProvider = new ScriptsMonitorModuleItemProvider ( this );
+        }
+
+        return scriptsMonitorModuleItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -291,6 +316,8 @@ public class ScriptsItemProviderAdapterFactory extends ScriptsAdapterFactory imp
             scriptsModuleItemProvider.dispose ();
         if ( legacyFormulaModuleItemProvider != null )
             legacyFormulaModuleItemProvider.dispose ();
+        if ( scriptsMonitorModuleItemProvider != null )
+            scriptsMonitorModuleItemProvider.dispose ();
     }
 
     /**
@@ -348,6 +375,8 @@ public class ScriptsItemProviderAdapterFactory extends ScriptsAdapterFactory imp
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ScriptsFactory.eINSTANCE.createScriptsModule () ) );
 
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ScriptsFactory.eINSTANCE.createLegacyFormulaModule () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ScriptsFactory.eINSTANCE.createScriptsMonitorModule () ) );
 
                 return null;
             }

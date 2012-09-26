@@ -61,10 +61,10 @@ public interface CommonPackage extends EPackage
     CommonPackage eINSTANCE = org.openscada.configurator.module.common.impl.CommonPackageImpl.init ();
 
     /**
-     * The meta object id for the '{@link org.openscada.configurator.module.common.impl.FileModuleImpl <em>File Module</em>}' class.
+     * The meta object id for the '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configurator.module.common.impl.FileModuleImpl
+     * @see org.openscada.configurator.module.common.FileModule
      * @see org.openscada.configurator.module.common.impl.CommonPackageImpl#getFileModule()
      * @generated
      */
@@ -133,10 +133,10 @@ public interface CommonPackage extends EPackage
     interface Literals
     {
         /**
-         * The meta object literal for the '{@link org.openscada.configurator.module.common.impl.FileModuleImpl <em>File Module</em>}' class.
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.openscada.configurator.module.common.impl.FileModuleImpl
+         * @see org.openscada.configurator.module.common.FileModule
          * @see org.openscada.configurator.module.common.impl.CommonPackageImpl#getFileModule()
          * @generated
          */

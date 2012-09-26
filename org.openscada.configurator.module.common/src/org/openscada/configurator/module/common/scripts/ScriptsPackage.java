@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configurator.module.common.CommonPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,6 +118,34 @@ public interface ScriptsPackage extends EPackage
     int LEGACY_FORMULA_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl <em>Monitor Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl
+     * @see org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl#getScriptsMonitorModule()
+     * @generated
+     */
+    int SCRIPTS_MONITOR_MODULE = 2;
+
+    /**
+     * The feature id for the '<em><b>Path</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPTS_MONITOR_MODULE__PATH = CommonPackage.FILE_MODULE__PATH;
+
+    /**
+     * The number of structural features of the '<em>Monitor Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPTS_MONITOR_MODULE_FEATURE_COUNT = CommonPackage.FILE_MODULE_FEATURE_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.scripts.ScriptsModule <em>Module</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -157,6 +186,16 @@ public interface ScriptsPackage extends EPackage
      * @generated
      */
     EAttribute getLegacyFormulaModule_FormulaFile ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.module.common.scripts.ScriptsMonitorModule <em>Monitor Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Monitor Module</em>'.
+     * @see org.openscada.configurator.module.common.scripts.ScriptsMonitorModule
+     * @generated
+     */
+    EClass getScriptsMonitorModule ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -216,6 +255,16 @@ public interface ScriptsPackage extends EPackage
          * @generated
          */
         EAttribute LEGACY_FORMULA_MODULE__FORMULA_FILE = eINSTANCE.getLegacyFormulaModule_FormulaFile ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl <em>Monitor Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl
+         * @see org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl#getScriptsMonitorModule()
+         * @generated
+         */
+        EClass SCRIPTS_MONITOR_MODULE = eINSTANCE.getScriptsMonitorModule ();
 
     }
 

@@ -22,12 +22,6 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-   <extension point="org.eclipse.emf.edit.childCreationExtenders">
-      <extender
-            uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.provider.CommonItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
-   </extension>
-
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://openscada.org/Configurator/Modules/Common/Network"

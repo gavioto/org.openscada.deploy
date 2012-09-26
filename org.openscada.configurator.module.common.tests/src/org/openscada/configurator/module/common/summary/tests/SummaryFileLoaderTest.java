@@ -6,20 +6,34 @@
  */
 package org.openscada.configurator.module.common.summary.tests;
 
+import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.module.common.summary.SummaryFactory;
 import org.openscada.configurator.module.common.summary.SummaryFileLoader;
-import org.openscada.configurator.module.common.tests.FileModuleTest;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>File Loader</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project) <em>Process</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
-public class SummaryFileLoaderTest extends FileModuleTest
+public class SummaryFileLoaderTest extends TestCase
 {
+
+    /**
+     * The fixture for this File Loader test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SummaryFileLoader fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -43,15 +57,25 @@ public class SummaryFileLoaderTest extends FileModuleTest
     }
 
     /**
+     * Sets the fixture for this File Loader test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( SummaryFileLoader fixture )
+    {
+        this.fixture = fixture;
+    }
+
+    /**
      * Returns the fixture for this File Loader test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     protected SummaryFileLoader getFixture ()
     {
-        return (SummaryFileLoader)fixture;
+        return fixture;
     }
 
     /**
@@ -76,6 +100,20 @@ public class SummaryFileLoaderTest extends FileModuleTest
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project) <em>Process</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project)
+     * @generated
+     */
+    public void testProcess__Configuration_Project ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //SummaryFileLoaderTest

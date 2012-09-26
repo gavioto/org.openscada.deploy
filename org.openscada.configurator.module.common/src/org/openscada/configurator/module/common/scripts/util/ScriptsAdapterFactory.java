@@ -11,8 +11,10 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
+import org.openscada.configurator.module.common.FileModule;
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
+import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 
 /**
@@ -89,9 +91,21 @@ public class ScriptsAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseScriptsMonitorModule ( ScriptsMonitorModule object )
+        {
+            return createScriptsMonitorModuleAdapter ();
+        }
+
+        @Override
         public Adapter caseModule ( Module object )
         {
             return createModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseFileModule ( FileModule object )
+        {
+            return createFileModuleAdapter ();
         }
 
         @Override
@@ -146,6 +160,21 @@ public class ScriptsAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.scripts.ScriptsMonitorModule <em>Monitor Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.scripts.ScriptsMonitorModule
+     * @generated
+     */
+    public Adapter createScriptsMonitorModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.Module <em>Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -156,6 +185,21 @@ public class ScriptsAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.FileModule
+     * @generated
+     */
+    public Adapter createFileModuleAdapter ()
     {
         return null;
     }
