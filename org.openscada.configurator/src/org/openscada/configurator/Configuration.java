@@ -1314,7 +1314,7 @@ public class Configuration extends GenericMasterConfiguration
         // Save the contents of the resource to the file system.
         //
         final Map<Object, Object> options = new HashMap<Object, Object> ();
-        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" );
+        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" ); //$NON-NLS-1$
         resource.save ( options );
     }
 
