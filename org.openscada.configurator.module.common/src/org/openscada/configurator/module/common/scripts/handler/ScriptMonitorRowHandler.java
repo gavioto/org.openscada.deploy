@@ -1,5 +1,6 @@
 package org.openscada.configurator.module.common.scripts.handler;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
@@ -16,9 +17,12 @@ public class ScriptMonitorRowHandler implements RowHandler
 
     private final Configuration configuration;
 
-    public ScriptMonitorRowHandler ( final Configuration configuration )
+    private final File baseDir;
+
+    public ScriptMonitorRowHandler ( final Configuration configuration, final File baseDir )
     {
         this.configuration = configuration;
+        this.baseDir = baseDir;
     }
 
     @Override
@@ -32,7 +36,7 @@ public class ScriptMonitorRowHandler implements RowHandler
 
         final int priority = Integer.parseInt ( rowData.remove ( "PRIORITY" ) );
         final String scriptEngine = rowData.remove ( "SCRIPT_ENGINE" );
-        final String updateScript = rowData.remove ( "UPDATE_SCRIPT" );
+        String updateScript = rowData.remove ( "UPDATE_SCRIPT" );
         final String inputsString = rowData.remove ( "INPUTS" );
         final String outputsString = rowData.remove ( "OUTPUTS" );
 
@@ -41,6 +45,18 @@ public class ScriptMonitorRowHandler implements RowHandler
 
         inputs.putAll ( Helper.parseInputs ( inputsString ) );
         outputs.addAll ( Arrays.asList ( outputsString.split ( SPLIT_PATTERN ) ) );
+
+        if ( updateScript.startsWith ( "@" ) )
+        {
+            try
+            {
+                updateScript = Configuration.loadFromFile ( new File ( this.baseDir, updateScript.substring ( 1 ) ) );
+            }
+            catch ( final Exception e )
+            {
+                throw new RuntimeException ( e );
+            }
+        }
 
         this.configuration.addScriptMonitor ( id, priority, scriptEngine, updateScript, inputs, outputs, rowData );
     }

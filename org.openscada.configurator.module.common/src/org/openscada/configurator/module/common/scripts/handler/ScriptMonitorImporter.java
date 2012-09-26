@@ -13,7 +13,7 @@ public class ScriptMonitorImporter extends AbstractFileHandler<ScriptsMonitorMod
     @Override
     protected void loadFile ( final Configuration configuration, final ScriptsMonitorModule module, final File file ) throws Exception
     {
-        new DataLoaderOdfDom ( file, true ).load ( 0, new ScriptMonitorRowHandler ( configuration ) );
+        new DataLoaderOdfDom ( file, true ).load ( 0, new ScriptMonitorRowHandler ( configuration, file.getParentFile () ) );
     }
 
 }
