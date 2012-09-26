@@ -1217,6 +1217,12 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Map.Entry<String, String> entry : attributes.entrySet () )
         {
+            if ( entry.getKey () == null || entry.getKey ().isEmpty () )
+            {
+                //ignore empty keys
+                continue;
+            }
+
             data.put ( prefix + entry.getKey (), entry.getValue () );
         }
     }
