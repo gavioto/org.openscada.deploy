@@ -48,7 +48,12 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.openscada.ae.Severity;
 import org.openscada.configurator.loop.LoopValidator;
 import org.openscada.configurator.report.DataItem;
@@ -72,6 +77,8 @@ import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.ListMonitorEntry;
 import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Model;
+import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
 import org.openscada.deploy.iolist.model.Rounding;
@@ -1266,7 +1273,13 @@ public class Configuration extends GenericMasterConfiguration
             System.out.println ( String.format ( "Writing ODS took %s ms", System.currentTimeMillis () - start ) );
         }
 
+        System.out.println ( "Writing ecore model..." );
+        writeModel ( new File ( baseDir, "configuration.iolist" ) );
+        System.out.println ( "Writing ecore model... done!" );
+
+        System.out.println ( "Write OSCAR..." );
         super.write ( baseDir );
+        System.out.println ( "Write OSCAR... done!" );
 
         if ( !Boolean.getBoolean ( "skipReport" ) )
         {
@@ -1282,6 +1295,27 @@ public class Configuration extends GenericMasterConfiguration
             exportToDot ( new File ( baseDir, "configuration.dot" ) );
             this.logStream.println ( "   * Writing dot... done!" );
         }
+    }
+
+    private void writeModel ( final File modelFile ) throws IOException
+    {
+        final Model model = ModelFactory.eINSTANCE.createModel ();
+        model.getItems ().addAll ( this.items );
+        model.getAverages ().addAll ( this.averages );
+        model.getMovingAverages ().addAll ( this.movingAverages );
+
+        final ResourceSet resourceSet = new ResourceSetImpl ();
+
+        final URI fileURI = URI.createFileURI ( modelFile.getAbsolutePath () );
+
+        final Resource resource = resourceSet.createResource ( fileURI );
+        resource.getContents ().add ( model );
+
+        // Save the contents of the resource to the file system.
+        //
+        final Map<Object, Object> options = new HashMap<Object, Object> ();
+        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" );
+        resource.save ( options );
     }
 
     public String getExtension ( final File file )
