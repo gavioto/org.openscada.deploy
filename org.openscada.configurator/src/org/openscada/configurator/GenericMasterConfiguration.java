@@ -36,6 +36,8 @@ import org.openscada.utils.str.StringHelper;
 public class GenericMasterConfiguration extends GenericConfiguration
 {
 
+    private static final String FACTORY_DA_MASTER_HANDLER_SUM = "da.master.handler.sum";
+
     private static class PriorityEntry
     {
         private final String factoryId;
@@ -104,33 +106,31 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     protected void addDefaultChain ( final String masterId )
     {
-        addSum ( masterId + ".sum.error.phase1", masterId, "error", 600, "phase1" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addSum ( masterId + ".sum.error.phase1", masterId, "error", "phase1" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
-        addSum ( masterId + ".sum.manual", masterId, "manual", 5010, null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.error.phase2", masterId, "error", 5000, "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addSum ( masterId + ".sum.alarm", masterId, "alarm", 5020, null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.warning", masterId, "warning", 5021, null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.info", masterId, "info", 5022, null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", 5030, null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.blocked", masterId, "blocked", 5040, null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.manual", masterId, "manual", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.error.phase2", masterId, "error", "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addSum ( masterId + ".sum.alarm", masterId, "alarm", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.warning", masterId, "warning", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.info", masterId, "info", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.blocked", masterId, "blocked", null ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
-    protected void addSum ( final String id, final String masterId, final String type, final int priority, final String prefix )
+    protected void addSum ( final String id, final String masterId, final String type, final String prefix )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
-        fillMasterHandlerPriority ( "da.master.handler.sum", id, data, null );
+        fillMasterHandlerPriority ( FACTORY_DA_MASTER_HANDLER_SUM, id, data, null );
 
         data.put ( "tag", type ); //$NON-NLS-1$
-
-        data.put ( "handlerPriority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
 
         if ( prefix != null )
         {
             data.put ( "prefix", prefix ); //$NON-NLS-1$
         }
-        addData ( "da.master.handler.sum", id, data ); //$NON-NLS-1$
+        addData ( FACTORY_DA_MASTER_HANDLER_SUM, id, data ); //$NON-NLS-1$
     }
 
     public void addSource ( final String id, final String itemId, final String connectionId )
