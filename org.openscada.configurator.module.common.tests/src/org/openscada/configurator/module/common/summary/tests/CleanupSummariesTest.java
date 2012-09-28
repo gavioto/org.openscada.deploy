@@ -7,14 +7,15 @@
 package org.openscada.configurator.module.common.summary.tests;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
+import org.openscada.configurator.module.common.summary.CleanupSummaries;
 import org.openscada.configurator.module.common.summary.SummaryFactory;
-import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>File Loader</b></em>'.
+ * A test case for the model object '<em><b>Cleanup Summaries</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -24,16 +25,16 @@ import org.openscada.configurator.module.common.summary.SummaryFileLoader;
  * </p>
  * @generated
  */
-public class SummaryFileLoaderTest extends TestCase
+public class CleanupSummariesTest extends TestCase
 {
 
     /**
-     * The fixture for this File Loader test case.
+     * The fixture for this Cleanup Summaries test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SummaryFileLoader fixture = null;
+    protected CleanupSummaries fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -42,38 +43,38 @@ public class SummaryFileLoaderTest extends TestCase
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( SummaryFileLoaderTest.class );
+        TestRunner.run ( CleanupSummariesTest.class );
     }
 
     /**
-     * Constructs a new File Loader test case with the given name.
+     * Constructs a new Cleanup Summaries test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public SummaryFileLoaderTest ( String name )
+    public CleanupSummariesTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Sets the fixture for this File Loader test case.
+     * Sets the fixture for this Cleanup Summaries test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture ( SummaryFileLoader fixture )
+    protected void setFixture ( CleanupSummaries fixture )
     {
         this.fixture = fixture;
     }
 
     /**
-     * Returns the fixture for this File Loader test case.
+     * Returns the fixture for this Cleanup Summaries test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SummaryFileLoader getFixture ()
+    protected CleanupSummaries getFixture ()
     {
         return fixture;
     }
@@ -87,7 +88,7 @@ public class SummaryFileLoaderTest extends TestCase
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( SummaryFactory.eINSTANCE.createSummaryFileLoader () );
+        setFixture ( SummaryFactory.eINSTANCE.createCleanupSummaries () );
     }
 
     /**
@@ -116,4 +117,4 @@ public class SummaryFileLoaderTest extends TestCase
         fail ();
     }
 
-} //SummaryFileLoaderTest
+} //CleanupSummariesTest

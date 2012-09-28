@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.configurator.module.common.summary.SummaryFactory;
-import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
@@ -58,7 +58,7 @@ public class SummaryExample
             try
             {
                 Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.summary" ) );
-                SummaryFileLoader root = SummaryFactory.eINSTANCE.createSummaryFileLoader ();
+                GenerateSummaries root = SummaryFactory.eINSTANCE.createGenerateSummaries ();
                 resource.getContents ().add ( root );
                 resource.save ( System.out, null );
             }

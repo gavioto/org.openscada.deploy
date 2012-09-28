@@ -9,18 +9,13 @@ package org.openscada.deploy.iolist.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,9 +24,9 @@ import org.openscada.deploy.iolist.model.SummaryItem;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getDataSourceIds <em>Data Source Ids</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,16 +34,6 @@ import org.openscada.deploy.iolist.model.SummaryItem;
  */
 public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
 {
-    /**
-     * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getItems()
-     * @generated
-     * @ordered
-     */
-    protected EList<SummaryItem> items;
-
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -80,6 +65,16 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     protected EList<String> hierarchy;
 
     /**
+     * The cached value of the '{@link #getDataSourceIds() <em>Data Source Ids</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataSourceIds()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> dataSourceIds;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -98,20 +93,6 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     protected EClass eStaticClass ()
     {
         return ModelPackage.Literals.SUMMARY_GROUP;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<SummaryItem> getItems ()
-    {
-        if ( items == null )
-        {
-            items = new EObjectContainmentEList<SummaryItem> ( SummaryItem.class, this, ModelPackage.SUMMARY_GROUP__ITEMS );
-        }
-        return items;
     }
 
     /**
@@ -156,15 +137,13 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public EList<String> getDataSourceIds ()
     {
-        switch ( featureID )
+        if ( dataSourceIds == null )
         {
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
-                return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
+            dataSourceIds = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS );
         }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
+        return dataSourceIds;
     }
 
     /**
@@ -177,12 +156,12 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
-                return getItems ();
             case ModelPackage.SUMMARY_GROUP__ID:
                 return getId ();
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
                 return getHierarchy ();
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                return getDataSourceIds ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -198,16 +177,16 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
-                getItems ().clear ();
-                getItems ().addAll ( (Collection<? extends SummaryItem>)newValue );
-                return;
             case ModelPackage.SUMMARY_GROUP__ID:
                 setId ( (String)newValue );
                 return;
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
                 getHierarchy ().clear ();
                 getHierarchy ().addAll ( (Collection<? extends String>)newValue );
+                return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                getDataSourceIds ().clear ();
+                getDataSourceIds ().addAll ( (Collection<? extends String>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -223,14 +202,14 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
-                getItems ().clear ();
-                return;
             case ModelPackage.SUMMARY_GROUP__ID:
                 setId ( ID_EDEFAULT );
                 return;
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
                 getHierarchy ().clear ();
+                return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                getDataSourceIds ().clear ();
                 return;
         }
         super.eUnset ( featureID );
@@ -246,12 +225,12 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
-                return items != null && !items.isEmpty ();
             case ModelPackage.SUMMARY_GROUP__ID:
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
                 return hierarchy != null && !hierarchy.isEmpty ();
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                return dataSourceIds != null && !dataSourceIds.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -272,6 +251,8 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
         result.append ( id );
         result.append ( ", hierarchy: " );
         result.append ( hierarchy );
+        result.append ( ", dataSourceIds: " );
+        result.append ( dataSourceIds );
         result.append ( ')' );
         return result.toString ();
     }

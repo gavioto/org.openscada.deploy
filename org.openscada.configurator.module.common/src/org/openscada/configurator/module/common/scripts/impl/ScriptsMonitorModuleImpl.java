@@ -23,17 +23,17 @@ import org.openscada.configurator.module.common.scripts.handler.ScriptMonitorImp
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl#getPath <em>Path</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMonitorModule
 {
     /**
-     * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getPath()
      * @generated
      * @ordered
@@ -42,7 +42,6 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ScriptsMonitorModuleImpl ()
@@ -52,7 +51,6 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -63,17 +61,16 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<String> getPath ()
     {
-        if ( this.path == null )
+        if ( path == null )
         {
-            this.path = new EDataTypeUniqueEList<String> ( String.class, this, ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH );
+            path = new EDataTypeUniqueEList<String> ( String.class, this, ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH );
         }
-        return this.path;
+        return path;
     }
 
     /**
@@ -96,11 +93,10 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -112,12 +108,11 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -131,11 +126,10 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -148,36 +142,32 @@ public class ScriptsMonitorModuleImpl extends EObjectImpl implements ScriptsMoni
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ScriptsPackage.SCRIPTS_MONITOR_MODULE__PATH:
-                return this.path != null && !this.path.isEmpty ();
+                return path != null && !path.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (path: " );
-        result.append ( this.path );
+        result.append ( path );
         result.append ( ')' );
         return result.toString ();
     }

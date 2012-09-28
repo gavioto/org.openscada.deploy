@@ -39,7 +39,6 @@ import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
@@ -92,8 +91,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
                 return createItem ();
             case ModelPackage.SUMMARY_GROUP:
                 return createSummaryGroup ();
-            case ModelPackage.SUMMARY_ITEM:
-                return createSummaryItem ();
             case ModelPackage.FORMULA_ITEM:
                 return createFormulaItem ();
             case ModelPackage.FORMULA_INPUT:
@@ -207,17 +204,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         SummaryGroupImpl summaryGroup = new SummaryGroupImpl ();
         return summaryGroup;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public SummaryItem createSummaryItem ()
-    {
-        SummaryItemImpl summaryItem = new SummaryItemImpl ();
-        return summaryItem;
     }
 
     /**

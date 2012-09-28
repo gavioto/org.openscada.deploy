@@ -37,8 +37,8 @@ public class SummaryTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new SummaryTests ( "summary Tests" );
-        suite.addTestSuite ( SummaryFileLoaderTest.class );
         suite.addTestSuite ( GenerateSummariesTest.class );
+        suite.addTestSuite ( CleanupSummariesTest.class );
         return suite;
     }
 

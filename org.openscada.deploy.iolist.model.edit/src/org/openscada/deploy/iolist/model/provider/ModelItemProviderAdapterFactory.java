@@ -126,31 +126,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.SummaryItem} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SummaryItemItemProvider summaryItemItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.SummaryItem}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSummaryItemAdapter ()
-    {
-        if ( summaryItemItemProvider == null )
-        {
-            summaryItemItemProvider = new SummaryItemItemProvider ( this );
-        }
-
-        return summaryItemItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.FormulaItem} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -665,8 +640,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
             itemItemProvider.dispose ();
         if ( summaryGroupItemProvider != null )
             summaryGroupItemProvider.dispose ();
-        if ( summaryItemItemProvider != null )
-            summaryItemItemProvider.dispose ();
         if ( formulaItemItemProvider != null )
             formulaItemItemProvider.dispose ();
         if ( formulaInputItemProvider != null )

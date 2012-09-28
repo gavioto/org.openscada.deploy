@@ -4,15 +4,18 @@
  *
  * $Id$
  */
-package org.openscada.deploy.iolist.model.provider;
+package org.openscada.configurator.module.common.summary.provider;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -22,16 +25,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.deploy.iolist.model.ModelPackage;
-import org.openscada.deploy.iolist.model.SummaryItem;
+
+import org.openscada.configurator.module.common.summary.CleanupSummaries;
+import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.deploy.iolist.model.SummaryItem} object.
+ * This is the item provider adapter for a {@link org.openscada.configurator.module.common.summary.CleanupSummaries} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SummaryItemItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class CleanupSummariesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -39,7 +43,7 @@ public class SummaryItemItemProvider extends ItemProviderAdapter implements IEdi
      * <!-- end-user-doc -->
      * @generated
      */
-    public SummaryItemItemProvider ( AdapterFactory adapterFactory )
+    public CleanupSummariesItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -57,36 +61,24 @@ public class SummaryItemItemProvider extends ItemProviderAdapter implements IEdi
         {
             super.getPropertyDescriptors ( object );
 
-            addDataSourceIdPropertyDescriptor ( object );
-            addTypePropertyDescriptor ( object );
+            addRequiredItemsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Data Source Id feature.
+     * This adds a property descriptor for the Required Items feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDataSourceIdPropertyDescriptor ( Object object )
+    protected void addRequiredItemsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryItem_dataSourceId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryItem_dataSourceId_feature", "_UI_SummaryItem_type" ), ModelPackage.Literals.SUMMARY_ITEM__DATA_SOURCE_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CleanupSummaries_requiredItems_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_CleanupSummaries_requiredItems_feature", "_UI_CleanupSummaries_type" ), SummaryPackage.Literals.CLEANUP_SUMMARIES__REQUIRED_ITEMS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
-     * This adds a property descriptor for the Type feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addTypePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryItem_type_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryItem_type_feature", "_UI_SummaryItem_type" ), ModelPackage.Literals.SUMMARY_ITEM__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This returns SummaryItem.gif.
+     * This returns CleanupSummaries.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -94,7 +86,7 @@ public class SummaryItemItemProvider extends ItemProviderAdapter implements IEdi
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SummaryItem" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/CleanupSummaries" ) );
     }
 
     /**
@@ -106,8 +98,8 @@ public class SummaryItemItemProvider extends ItemProviderAdapter implements IEdi
     @Override
     public String getText ( Object object )
     {
-        String label = ( (SummaryItem)object ).getDataSourceId ();
-        return label == null || label.length () == 0 ? getString ( "_UI_SummaryItem_type" ) : getString ( "_UI_SummaryItem_type" ) + " " + label;
+        CleanupSummaries cleanupSummaries = (CleanupSummaries)object;
+        return getString ( "_UI_CleanupSummaries_type" ) + " " + cleanupSummaries.getRequiredItems ();
     }
 
     /**
@@ -122,10 +114,9 @@ public class SummaryItemItemProvider extends ItemProviderAdapter implements IEdi
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( SummaryItem.class ) )
+        switch ( notification.getFeatureID ( CleanupSummaries.class ) )
         {
-            case ModelPackage.SUMMARY_ITEM__DATA_SOURCE_ID:
-            case ModelPackage.SUMMARY_ITEM__TYPE:
+            case SummaryPackage.CLEANUP_SUMMARIES__REQUIRED_ITEMS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -154,7 +145,7 @@ public class SummaryItemItemProvider extends ItemProviderAdapter implements IEdi
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return IolistEditPlugin.INSTANCE;
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

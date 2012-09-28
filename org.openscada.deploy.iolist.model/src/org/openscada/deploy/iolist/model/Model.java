@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Model#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Model#getAverages <em>Averages</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Model#getMovingAverages <em>Moving Averages</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Model#getSummaries <em>Summaries</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,21 @@ public interface Model extends EObject
      * @generated
      */
     EList<MovingAverage> getMovingAverages ();
+
+    /**
+     * Returns the value of the '<em><b>Summaries</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.deploy.iolist.model.SummaryGroup}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Summaries</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Summaries</em>' containment reference list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getModel_Summaries()
+     * @model containment="true"
+     * @generated
+     */
+    EList<SummaryGroup> getSummaries ();
 
 } // Model

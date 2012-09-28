@@ -20,6 +20,7 @@ import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.MovingAverage;
+import org.openscada.deploy.iolist.model.SummaryGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +32,7 @@ import org.openscada.deploy.iolist.model.MovingAverage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getAverages <em>Averages</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getMovingAverages <em>Moving Averages</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getSummaries <em>Summaries</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +69,16 @@ public class ModelImpl extends EObjectImpl implements Model
      * @ordered
      */
     protected EList<MovingAverage> movingAverages;
+
+    /**
+     * The cached value of the '{@link #getSummaries() <em>Summaries</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSummaries()
+     * @generated
+     * @ordered
+     */
+    protected EList<SummaryGroup> summaries;
 
     /**
      * <!-- begin-user-doc -->
@@ -136,6 +148,20 @@ public class ModelImpl extends EObjectImpl implements Model
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<SummaryGroup> getSummaries ()
+    {
+        if ( summaries == null )
+        {
+            summaries = new EObjectContainmentEList<SummaryGroup> ( SummaryGroup.class, this, ModelPackage.MODEL__SUMMARIES );
+        }
+        return summaries;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -147,6 +173,8 @@ public class ModelImpl extends EObjectImpl implements Model
                 return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__SUMMARIES:
+                return ( (InternalEList<?>)getSummaries () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -167,6 +195,8 @@ public class ModelImpl extends EObjectImpl implements Model
                 return getAverages ();
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 return getMovingAverages ();
+            case ModelPackage.MODEL__SUMMARIES:
+                return getSummaries ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -194,6 +224,10 @@ public class ModelImpl extends EObjectImpl implements Model
                 getMovingAverages ().clear ();
                 getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
                 return;
+            case ModelPackage.MODEL__SUMMARIES:
+                getSummaries ().clear ();
+                getSummaries ().addAll ( (Collection<? extends SummaryGroup>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -217,6 +251,9 @@ public class ModelImpl extends EObjectImpl implements Model
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 getMovingAverages ().clear ();
                 return;
+            case ModelPackage.MODEL__SUMMARIES:
+                getSummaries ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -237,6 +274,8 @@ public class ModelImpl extends EObjectImpl implements Model
                 return averages != null && !averages.isEmpty ();
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 return movingAverages != null && !movingAverages.isEmpty ();
+            case ModelPackage.MODEL__SUMMARIES:
+                return summaries != null && !summaries.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

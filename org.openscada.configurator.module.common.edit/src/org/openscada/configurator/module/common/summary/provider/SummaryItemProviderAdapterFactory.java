@@ -97,31 +97,6 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.summary.SummaryFileLoader} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SummaryFileLoaderItemProvider summaryFileLoaderItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configurator.module.common.summary.SummaryFileLoader}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSummaryFileLoaderAdapter ()
-    {
-        if ( summaryFileLoaderItemProvider == null )
-        {
-            summaryFileLoaderItemProvider = new SummaryFileLoaderItemProvider ( this );
-        }
-
-        return summaryFileLoaderItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.summary.GenerateSummaries} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -144,6 +119,31 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
         }
 
         return generateSummariesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.summary.CleanupSummaries} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CleanupSummariesItemProvider cleanupSummariesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.summary.CleanupSummaries}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCleanupSummariesAdapter ()
+    {
+        if ( cleanupSummariesItemProvider == null )
+        {
+            cleanupSummariesItemProvider = new CleanupSummariesItemProvider ( this );
+        }
+
+        return cleanupSummariesItemProvider;
     }
 
     /**
@@ -287,10 +287,10 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
      */
     public void dispose ()
     {
-        if ( summaryFileLoaderItemProvider != null )
-            summaryFileLoaderItemProvider.dispose ();
         if ( generateSummariesItemProvider != null )
             generateSummariesItemProvider.dispose ();
+        if ( cleanupSummariesItemProvider != null )
+            cleanupSummariesItemProvider.dispose ();
     }
 
     /**
@@ -345,9 +345,9 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
             @Override
             public Object caseProject ( Project object )
             {
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, SummaryFactory.eINSTANCE.createSummaryFileLoader () ) );
-
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, SummaryFactory.eINSTANCE.createGenerateSummaries () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, SummaryFactory.eINSTANCE.createCleanupSummaries () ) );
 
                 return null;
             }

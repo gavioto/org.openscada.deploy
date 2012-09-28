@@ -7,7 +7,6 @@
 package org.openscada.deploy.iolist.model.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.deploy.iolist.model.ModelFactory;

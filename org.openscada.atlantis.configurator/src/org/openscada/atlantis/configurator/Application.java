@@ -70,6 +70,7 @@ public class Application implements IApplication
         log.println ( "** 3 - Process" );
 
         cfg.generateAverages ();
+        cfg.generateSummaries (); // summaries must be generated before items, since they create items
         cfg.generateItems ();
         cfg.generateGlobalSummaries ();
 

@@ -45,15 +45,6 @@ public interface ModelFactory extends EFactory
     SummaryGroup createSummaryGroup ();
 
     /**
-     * Returns a new object of class '<em>Summary Item</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Summary Item</em>'.
-     * @generated
-     */
-    SummaryItem createSummaryItem ();
-
-    /**
      * Returns a new object of class '<em>Formula Item</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

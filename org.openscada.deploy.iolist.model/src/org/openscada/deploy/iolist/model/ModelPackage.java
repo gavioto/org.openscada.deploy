@@ -479,22 +479,13 @@ public interface ModelPackage extends EPackage
     int SUMMARY_GROUP = 1;
 
     /**
-     * The feature id for the '<em><b>Items</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_GROUP__ITEMS = 0;
-
-    /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP__ID = 1;
+    int SUMMARY_GROUP__ID = 0;
 
     /**
      * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
@@ -503,7 +494,16 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP__HIERARCHY = 2;
+    int SUMMARY_GROUP__HIERARCHY = 1;
+
+    /**
+     * The feature id for the '<em><b>Data Source Ids</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUMMARY_GROUP__DATA_SOURCE_IDS = 2;
 
     /**
      * The number of structural features of the '<em>Summary Group</em>' class.
@@ -515,43 +515,6 @@ public interface ModelPackage extends EPackage
     int SUMMARY_GROUP_FEATURE_COUNT = 3;
 
     /**
-     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryItemImpl <em>Summary Item</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.deploy.iolist.model.impl.SummaryItemImpl
-     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSummaryItem()
-     * @generated
-     */
-    int SUMMARY_ITEM = 2;
-
-    /**
-     * The feature id for the '<em><b>Data Source Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_ITEM__DATA_SOURCE_ID = 0;
-
-    /**
-     * The feature id for the '<em><b>Type</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_ITEM__TYPE = 1;
-
-    /**
-     * The number of structural features of the '<em>Summary Item</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_ITEM_FEATURE_COUNT = 2;
-
-    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -559,7 +522,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getFormulaItem()
      * @generated
      */
-    int FORMULA_ITEM = 3;
+    int FORMULA_ITEM = 2;
 
     /**
      * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -1037,7 +1000,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getFormulaInput()
      * @generated
      */
-    int FORMULA_INPUT = 4;
+    int FORMULA_INPUT = 3;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1083,7 +1046,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getScriptModule()
      * @generated
      */
-    int SCRIPT_MODULE = 5;
+    int SCRIPT_MODULE = 4;
 
     /**
      * The feature id for the '<em><b>Data</b></em>' attribute.
@@ -1120,7 +1083,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getModel()
      * @generated
      */
-    int MODEL = 6;
+    int MODEL = 5;
 
     /**
      * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -1150,13 +1113,22 @@ public interface ModelPackage extends EPackage
     int MODEL__MOVING_AVERAGES = 2;
 
     /**
+     * The feature id for the '<em><b>Summaries</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODEL__SUMMARIES = 3;
+
+    /**
      * The number of structural features of the '<em>Model</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL_FEATURE_COUNT = 3;
+    int MODEL_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
@@ -1166,7 +1138,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getScriptItem()
      * @generated
      */
-    int SCRIPT_ITEM = 7;
+    int SCRIPT_ITEM = 6;
 
     /**
      * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -1644,7 +1616,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getScriptOutput()
      * @generated
      */
-    int SCRIPT_OUTPUT = 8;
+    int SCRIPT_OUTPUT = 7;
 
     /**
      * The feature id for the '<em><b>Datasource Id</b></em>' attribute.
@@ -1681,7 +1653,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMapper()
      * @generated
      */
-    int MAPPER = 9;
+    int MAPPER = 8;
 
     /**
      * The feature id for the '<em><b>Mapper Id</b></em>' attribute.
@@ -1727,7 +1699,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMonitor()
      * @generated
      */
-    int MONITOR = 10;
+    int MONITOR = 9;
 
     /**
      * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -1755,7 +1727,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBasicMonitor()
      * @generated
      */
-    int BASIC_MONITOR = 20;
+    int BASIC_MONITOR = 19;
 
     /**
      * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -1801,7 +1773,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getLevelMonitor()
      * @generated
      */
-    int LEVEL_MONITOR = 11;
+    int LEVEL_MONITOR = 10;
 
     /**
      * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -1856,7 +1828,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitor()
      * @generated
      */
-    int LIST_MONITOR = 12;
+    int LIST_MONITOR = 11;
 
     /**
      * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -1911,7 +1883,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getBooleanMonitor()
      * @generated
      */
-    int BOOLEAN_MONITOR = 13;
+    int BOOLEAN_MONITOR = 12;
 
     /**
      * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -1966,7 +1938,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverage()
      * @generated
      */
-    int AVERAGE = 14;
+    int AVERAGE = 13;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2012,7 +1984,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageItem()
      * @generated
      */
-    int AVERAGE_ITEM = 15;
+    int AVERAGE_ITEM = 14;
 
     /**
      * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -2436,7 +2408,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getConstantItem()
      * @generated
      */
-    int CONSTANT_ITEM = 16;
+    int CONSTANT_ITEM = 15;
 
     /**
      * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -2842,7 +2814,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageItem()
      * @generated
      */
-    int MOVING_AVERAGE_ITEM = 17;
+    int MOVING_AVERAGE_ITEM = 16;
 
     /**
      * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -3266,7 +3238,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverage()
      * @generated
      */
-    int MOVING_AVERAGE = 18;
+    int MOVING_AVERAGE = 17;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3330,7 +3302,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListMonitorEntry()
      * @generated
      */
-    int LIST_MONITOR_ENTRY = 19;
+    int LIST_MONITOR_ENTRY = 18;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3376,7 +3348,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 21;
+    int DATA_TYPE = 20;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -3386,7 +3358,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 22;
+    int ROUNDING = 21;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
@@ -3396,7 +3368,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 23;
+    int AVERAGE_REFERENCE_TYPE = 22;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -3406,7 +3378,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 24;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 23;
 
     /**
      * The meta object id for the '<em>List Severity</em>' data type.
@@ -3416,7 +3388,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListSeverity()
      * @generated
      */
-    int LIST_SEVERITY = 26;
+    int LIST_SEVERITY = 25;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -3426,7 +3398,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 27;
+    int SEVERITY = 26;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -3436,7 +3408,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 25;
+    int VARIANT = 24;
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -3932,17 +3904,6 @@ public interface ModelPackage extends EPackage
     EClass getSummaryGroup ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getItems <em>Items</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Items</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#getItems()
-     * @see #getSummaryGroup()
-     * @generated
-     */
-    EReference getSummaryGroup_Items ();
-
-    /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3965,36 +3926,15 @@ public interface ModelPackage extends EPackage
     EAttribute getSummaryGroup_Hierarchy ();
 
     /**
-     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.SummaryItem <em>Summary Item</em>}'.
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds <em>Data Source Ids</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Summary Item</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryItem
+     * @return the meta object for the attribute list '<em>Data Source Ids</em>'.
+     * @see org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds()
+     * @see #getSummaryGroup()
      * @generated
      */
-    EClass getSummaryItem ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryItem#getDataSourceId <em>Data Source Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Data Source Id</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryItem#getDataSourceId()
-     * @see #getSummaryItem()
-     * @generated
-     */
-    EAttribute getSummaryItem_DataSourceId ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryItem#getType <em>Type</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Type</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryItem#getType()
-     * @see #getSummaryItem()
-     * @generated
-     */
-    EAttribute getSummaryItem_Type ();
+    EAttribute getSummaryGroup_DataSourceIds ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.FormulaItem <em>Formula Item</em>}'.
@@ -4211,6 +4151,17 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference getModel_MovingAverages ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Model#getSummaries <em>Summaries</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Summaries</em>'.
+     * @see org.openscada.deploy.iolist.model.Model#getSummaries()
+     * @see #getModel()
+     * @generated
+     */
+    EReference getModel_Summaries ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ScriptItem <em>Script Item</em>}'.
@@ -5211,14 +5162,6 @@ public interface ModelPackage extends EPackage
         EClass SUMMARY_GROUP = eINSTANCE.getSummaryGroup ();
 
         /**
-         * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SUMMARY_GROUP__ITEMS = eINSTANCE.getSummaryGroup_Items ();
-
-        /**
          * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5235,30 +5178,12 @@ public interface ModelPackage extends EPackage
         EAttribute SUMMARY_GROUP__HIERARCHY = eINSTANCE.getSummaryGroup_Hierarchy ();
 
         /**
-         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.SummaryItemImpl <em>Summary Item</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.deploy.iolist.model.impl.SummaryItemImpl
-         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSummaryItem()
-         * @generated
-         */
-        EClass SUMMARY_ITEM = eINSTANCE.getSummaryItem ();
-
-        /**
-         * The meta object literal for the '<em><b>Data Source Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Data Source Ids</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_ITEM__DATA_SOURCE_ID = eINSTANCE.getSummaryItem_DataSourceId ();
-
-        /**
-         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SUMMARY_ITEM__TYPE = eINSTANCE.getSummaryItem_Type ();
+        EAttribute SUMMARY_GROUP__DATA_SOURCE_IDS = eINSTANCE.getSummaryGroup_DataSourceIds ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
@@ -5427,6 +5352,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EReference MODEL__MOVING_AVERAGES = eINSTANCE.getModel_MovingAverages ();
+
+        /**
+         * The meta object literal for the '<em><b>Summaries</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODEL__SUMMARIES = eINSTANCE.getModel_Summaries ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.

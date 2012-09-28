@@ -96,13 +96,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//Item/defaultMonitorDemote"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//SummaryGroup">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//SummaryGroup/items"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/hierarchy"/>
-    </genClasses>
-    <genClasses ecoreClass="iolist.ecore#//SummaryItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/dataSourceId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryItem/type"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/dataSourceIds"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//FormulaItem" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/inputFormula"/>
@@ -127,6 +123,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/averages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/movingAverages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iolist.ecore#//Model/summaries"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//ScriptItem" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//ScriptItem/scriptEngine"/>

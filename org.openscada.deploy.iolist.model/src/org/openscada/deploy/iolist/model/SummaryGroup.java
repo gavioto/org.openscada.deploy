@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds <em>Data Source Ids</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,22 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SummaryGroup extends EObject
 {
-    /**
-     * Returns the value of the '<em><b>Items</b></em>' containment reference list.
-     * The list contents are of type {@link org.openscada.deploy.iolist.model.SummaryItem}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Items</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Items</em>' containment reference list.
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_Items()
-     * @model containment="true"
-     * @generated
-     */
-    EList<SummaryItem> getItems ();
-
     /**
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -86,5 +70,21 @@ public interface SummaryGroup extends EObject
      * @generated
      */
     EList<String> getHierarchy ();
+
+    /**
+     * Returns the value of the '<em><b>Data Source Ids</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Data Source Ids</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Data Source Ids</em>' attribute list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_DataSourceIds()
+     * @model
+     * @generated
+     */
+    EList<String> getDataSourceIds ();
 
 } // SummaryGroup

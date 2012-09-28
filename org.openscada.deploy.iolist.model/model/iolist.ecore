@@ -93,17 +93,12 @@
     <eLiterals name="LongInteger" value="5" literal="INT64"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SummaryGroup">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//SummaryItem" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SummaryItem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceId" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceIds" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormulaItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputFormula" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -135,6 +130,8 @@
         eType="#//Average" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="movingAverages" upperBound="-1"
         eType="#//MovingAverage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="summaries" upperBound="-1"
+        eType="#//SummaryGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

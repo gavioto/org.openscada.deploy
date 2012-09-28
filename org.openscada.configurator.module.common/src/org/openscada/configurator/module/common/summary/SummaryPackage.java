@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configurator.module.common.CommonPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,52 +61,6 @@ public interface SummaryPackage extends EPackage
     SummaryPackage eINSTANCE = org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl.init ();
 
     /**
-     * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl <em>File Loader</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl
-     * @see org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl#getSummaryFileLoader()
-     * @generated
-     */
-    int SUMMARY_FILE_LOADER = 0;
-
-    /**
-     * The feature id for the '<em><b>Path</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_FILE_LOADER__PATH = CommonPackage.FILE_MODULE__PATH;
-
-    /**
-     * The feature id for the '<em><b>Required Items</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_FILE_LOADER__REQUIRED_ITEMS = CommonPackage.FILE_MODULE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Prefix</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_FILE_LOADER__PREFIX = CommonPackage.FILE_MODULE_FEATURE_COUNT + 1;
-
-    /**
-     * The number of structural features of the '<em>File Loader</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_FILE_LOADER_FEATURE_COUNT = CommonPackage.FILE_MODULE_FEATURE_COUNT + 2;
-
-    /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.GenerateSummariesImpl <em>Generate Summaries</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -115,16 +68,7 @@ public interface SummaryPackage extends EPackage
      * @see org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl#getGenerateSummaries()
      * @generated
      */
-    int GENERATE_SUMMARIES = 1;
-
-    /**
-     * The feature id for the '<em><b>Required Items</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int GENERATE_SUMMARIES__REQUIRED_ITEMS = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int GENERATE_SUMMARIES = 0;
 
     /**
      * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -133,7 +77,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES__PREFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int GENERATE_SUMMARIES__PREFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Suffix</b></em>' attribute.
@@ -142,7 +86,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES__SUFFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
+    int GENERATE_SUMMARIES__SUFFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Generate Summaries</em>' class.
@@ -151,39 +95,35 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 3;
+    int GENERATE_SUMMARIES_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
-     * Returns the meta object for class '{@link org.openscada.configurator.module.common.summary.SummaryFileLoader <em>File Loader</em>}'.
+     * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl <em>Cleanup Summaries</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>File Loader</em>'.
-     * @see org.openscada.configurator.module.common.summary.SummaryFileLoader
+     * @see org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl
+     * @see org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl#getCleanupSummaries()
      * @generated
      */
-    EClass getSummaryFileLoader ();
+    int CLEANUP_SUMMARIES = 1;
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.SummaryFileLoader#getRequiredItems <em>Required Items</em>}'.
+     * The feature id for the '<em><b>Required Items</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Required Items</em>'.
-     * @see org.openscada.configurator.module.common.summary.SummaryFileLoader#getRequiredItems()
-     * @see #getSummaryFileLoader()
      * @generated
+     * @ordered
      */
-    EAttribute getSummaryFileLoader_RequiredItems ();
+    int CLEANUP_SUMMARIES__REQUIRED_ITEMS = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.SummaryFileLoader#getPrefix <em>Prefix</em>}'.
+     * The number of structural features of the '<em>Cleanup Summaries</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Prefix</em>'.
-     * @see org.openscada.configurator.module.common.summary.SummaryFileLoader#getPrefix()
-     * @see #getSummaryFileLoader()
      * @generated
+     * @ordered
      */
-    EAttribute getSummaryFileLoader_Prefix ();
+    int CLEANUP_SUMMARIES_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.summary.GenerateSummaries <em>Generate Summaries</em>}'.
@@ -194,17 +134,6 @@ public interface SummaryPackage extends EPackage
      * @generated
      */
     EClass getGenerateSummaries ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.GenerateSummaries#getRequiredItems <em>Required Items</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Required Items</em>'.
-     * @see org.openscada.configurator.module.common.summary.GenerateSummaries#getRequiredItems()
-     * @see #getGenerateSummaries()
-     * @generated
-     */
-    EAttribute getGenerateSummaries_RequiredItems ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.GenerateSummaries#getPrefix <em>Prefix</em>}'.
@@ -227,6 +156,27 @@ public interface SummaryPackage extends EPackage
      * @generated
      */
     EAttribute getGenerateSummaries_Suffix ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.module.common.summary.CleanupSummaries <em>Cleanup Summaries</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Cleanup Summaries</em>'.
+     * @see org.openscada.configurator.module.common.summary.CleanupSummaries
+     * @generated
+     */
+    EClass getCleanupSummaries ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.CleanupSummaries#getRequiredItems <em>Required Items</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Required Items</em>'.
+     * @see org.openscada.configurator.module.common.summary.CleanupSummaries#getRequiredItems()
+     * @see #getCleanupSummaries()
+     * @generated
+     */
+    EAttribute getCleanupSummaries_RequiredItems ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -252,32 +202,6 @@ public interface SummaryPackage extends EPackage
     interface Literals
     {
         /**
-         * The meta object literal for the '{@link org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl <em>File Loader</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configurator.module.common.summary.impl.SummaryFileLoaderImpl
-         * @see org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl#getSummaryFileLoader()
-         * @generated
-         */
-        EClass SUMMARY_FILE_LOADER = eINSTANCE.getSummaryFileLoader ();
-
-        /**
-         * The meta object literal for the '<em><b>Required Items</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SUMMARY_FILE_LOADER__REQUIRED_ITEMS = eINSTANCE.getSummaryFileLoader_RequiredItems ();
-
-        /**
-         * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SUMMARY_FILE_LOADER__PREFIX = eINSTANCE.getSummaryFileLoader_Prefix ();
-
-        /**
          * The meta object literal for the '{@link org.openscada.configurator.module.common.summary.impl.GenerateSummariesImpl <em>Generate Summaries</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -286,14 +210,6 @@ public interface SummaryPackage extends EPackage
          * @generated
          */
         EClass GENERATE_SUMMARIES = eINSTANCE.getGenerateSummaries ();
-
-        /**
-         * The meta object literal for the '<em><b>Required Items</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute GENERATE_SUMMARIES__REQUIRED_ITEMS = eINSTANCE.getGenerateSummaries_RequiredItems ();
 
         /**
          * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
@@ -310,6 +226,24 @@ public interface SummaryPackage extends EPackage
          * @generated
          */
         EAttribute GENERATE_SUMMARIES__SUFFIX = eINSTANCE.getGenerateSummaries_Suffix ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl <em>Cleanup Summaries</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl
+         * @see org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl#getCleanupSummaries()
+         * @generated
+         */
+        EClass CLEANUP_SUMMARIES = eINSTANCE.getCleanupSummaries ();
+
+        /**
+         * The meta object literal for the '<em><b>Required Items</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLEANUP_SUMMARIES__REQUIRED_ITEMS = eINSTANCE.getCleanupSummaries_RequiredItems ();
 
     }
 

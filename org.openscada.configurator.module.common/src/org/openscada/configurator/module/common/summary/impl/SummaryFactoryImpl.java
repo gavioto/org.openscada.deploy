@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.configurator.module.common.summary.CleanupSummaries;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.configurator.module.common.summary.SummaryFactory;
-import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
@@ -68,24 +68,13 @@ public class SummaryFactoryImpl extends EFactoryImpl implements SummaryFactory
     {
         switch ( eClass.getClassifierID () )
         {
-            case SummaryPackage.SUMMARY_FILE_LOADER:
-                return createSummaryFileLoader ();
             case SummaryPackage.GENERATE_SUMMARIES:
                 return createGenerateSummaries ();
+            case SummaryPackage.CLEANUP_SUMMARIES:
+                return createCleanupSummaries ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public SummaryFileLoader createSummaryFileLoader ()
-    {
-        SummaryFileLoaderImpl summaryFileLoader = new SummaryFileLoaderImpl ();
-        return summaryFileLoader;
     }
 
     /**
@@ -97,6 +86,17 @@ public class SummaryFactoryImpl extends EFactoryImpl implements SummaryFactory
     {
         GenerateSummariesImpl generateSummaries = new GenerateSummariesImpl ();
         return generateSummaries;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CleanupSummaries createCleanupSummaries ()
+    {
+        CleanupSummariesImpl cleanupSummaries = new CleanupSummariesImpl ();
+        return cleanupSummaries;
     }
 
     /**

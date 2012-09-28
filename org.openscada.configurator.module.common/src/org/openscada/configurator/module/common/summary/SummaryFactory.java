@@ -27,15 +27,6 @@ public interface SummaryFactory extends EFactory
     SummaryFactory eINSTANCE = org.openscada.configurator.module.common.summary.impl.SummaryFactoryImpl.init ();
 
     /**
-     * Returns a new object of class '<em>File Loader</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>File Loader</em>'.
-     * @generated
-     */
-    SummaryFileLoader createSummaryFileLoader ();
-
-    /**
      * Returns a new object of class '<em>Generate Summaries</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -43,6 +34,15 @@ public interface SummaryFactory extends EFactory
      * @generated
      */
     GenerateSummaries createGenerateSummaries ();
+
+    /**
+     * Returns a new object of class '<em>Cleanup Summaries</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Cleanup Summaries</em>'.
+     * @generated
+     */
+    CleanupSummaries createCleanupSummaries ();
 
     /**
      * Returns the package supported by this factory.

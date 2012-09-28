@@ -41,7 +41,6 @@ import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
@@ -116,8 +115,6 @@ public class ModelValidator extends EObjectValidator
                 return validateItem ( (Item)value, diagnostics, context );
             case ModelPackage.SUMMARY_GROUP:
                 return validateSummaryGroup ( (SummaryGroup)value, diagnostics, context );
-            case ModelPackage.SUMMARY_ITEM:
-                return validateSummaryItem ( (SummaryItem)value, diagnostics, context );
             case ModelPackage.FORMULA_ITEM:
                 return validateFormulaItem ( (FormulaItem)value, diagnostics, context );
             case ModelPackage.FORMULA_INPUT:
@@ -189,15 +186,6 @@ public class ModelValidator extends EObjectValidator
     public boolean validateSummaryGroup ( SummaryGroup summaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( summaryGroup, diagnostics, context );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateSummaryItem ( SummaryItem summaryItem, DiagnosticChain diagnostics, Map<Object, Object> context )
-    {
-        return validate_EveryDefaultConstraint ( summaryItem, diagnostics, context );
     }
 
     /**

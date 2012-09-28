@@ -11,7 +11,6 @@ import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 public class SummaryGenerator
 {
@@ -30,8 +29,7 @@ public class SummaryGenerator
             addItem ( cfg, project, locations, item.getHierarchy (), item, module );
         }
 
-        Helper.configureGroups ( cfg, locations.values (), items, module.getRequiredItems () );
-
+        cfg.addSummaries ( locations.values () );
     }
 
     private static void addItem ( final Configuration cfg, final Project project, final Map<List<String>, SummaryGroup> locations, final List<String> location, final Item item, final GenerateSummaries module )
@@ -43,11 +41,7 @@ public class SummaryGenerator
 
     protected static void addItemToGroup ( final Configuration cfg, final String itemId, final SummaryGroup locationItems )
     {
-        // Add item to summary group
-        final SummaryItem summaryItem = ModelFactory.eINSTANCE.createSummaryItem ();
-
-        summaryItem.setDataSourceId ( itemId );
-        locationItems.getItems ().add ( summaryItem );
+        locationItems.getDataSourceIds ().add ( itemId );
     }
 
     private static SummaryGroup getGroup ( final Configuration cfg, final Project project, final GenerateSummaries module, final Map<List<String>, SummaryGroup> locations, final List<String> location )

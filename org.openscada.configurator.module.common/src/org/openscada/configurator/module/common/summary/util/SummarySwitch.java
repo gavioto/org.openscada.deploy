@@ -10,9 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
-import org.openscada.configurator.module.common.FileModule;
+import org.openscada.configurator.module.common.summary.CleanupSummaries;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
-import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
@@ -78,18 +77,6 @@ public class SummarySwitch<T> extends Switch<T>
     {
         switch ( classifierID )
         {
-            case SummaryPackage.SUMMARY_FILE_LOADER:
-            {
-                SummaryFileLoader summaryFileLoader = (SummaryFileLoader)theEObject;
-                T result = caseSummaryFileLoader ( summaryFileLoader );
-                if ( result == null )
-                    result = caseFileModule ( summaryFileLoader );
-                if ( result == null )
-                    result = caseModule ( summaryFileLoader );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
             case SummaryPackage.GENERATE_SUMMARIES:
             {
                 GenerateSummaries generateSummaries = (GenerateSummaries)theEObject;
@@ -100,25 +87,19 @@ public class SummarySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case SummaryPackage.CLEANUP_SUMMARIES:
+            {
+                CleanupSummaries cleanupSummaries = (CleanupSummaries)theEObject;
+                T result = caseCleanupSummaries ( cleanupSummaries );
+                if ( result == null )
+                    result = caseModule ( cleanupSummaries );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>File Loader</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>File Loader</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSummaryFileLoader ( SummaryFileLoader object )
-    {
-        return null;
     }
 
     /**
@@ -138,6 +119,22 @@ public class SummarySwitch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Cleanup Summaries</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cleanup Summaries</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCleanupSummaries ( CleanupSummaries object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -149,22 +146,6 @@ public class SummarySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseModule ( Module object )
-    {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>File Module</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>File Module</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseFileModule ( FileModule object )
     {
         return null;
     }

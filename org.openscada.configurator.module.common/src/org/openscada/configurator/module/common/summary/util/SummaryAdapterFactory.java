@@ -11,9 +11,8 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
-import org.openscada.configurator.module.common.FileModule;
+import org.openscada.configurator.module.common.summary.CleanupSummaries;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
-import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
@@ -78,27 +77,21 @@ public class SummaryAdapterFactory extends AdapterFactoryImpl
      */
     protected SummarySwitch<Adapter> modelSwitch = new SummarySwitch<Adapter> () {
         @Override
-        public Adapter caseSummaryFileLoader ( SummaryFileLoader object )
-        {
-            return createSummaryFileLoaderAdapter ();
-        }
-
-        @Override
         public Adapter caseGenerateSummaries ( GenerateSummaries object )
         {
             return createGenerateSummariesAdapter ();
         }
 
         @Override
-        public Adapter caseModule ( Module object )
+        public Adapter caseCleanupSummaries ( CleanupSummaries object )
         {
-            return createModuleAdapter ();
+            return createCleanupSummariesAdapter ();
         }
 
         @Override
-        public Adapter caseFileModule ( FileModule object )
+        public Adapter caseModule ( Module object )
         {
-            return createFileModuleAdapter ();
+            return createModuleAdapter ();
         }
 
         @Override
@@ -123,21 +116,6 @@ public class SummaryAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.summary.SummaryFileLoader <em>File Loader</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.openscada.configurator.module.common.summary.SummaryFileLoader
-     * @generated
-     */
-    public Adapter createSummaryFileLoaderAdapter ()
-    {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.summary.GenerateSummaries <em>Generate Summaries</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -153,6 +131,21 @@ public class SummaryAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.summary.CleanupSummaries <em>Cleanup Summaries</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.summary.CleanupSummaries
+     * @generated
+     */
+    public Adapter createCleanupSummariesAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.Module <em>Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -163,21 +156,6 @@ public class SummaryAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createModuleAdapter ()
-    {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.openscada.configurator.module.common.FileModule
-     * @generated
-     */
-    public Adapter createFileModuleAdapter ()
     {
         return null;
     }

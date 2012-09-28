@@ -31,7 +31,6 @@ import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,12 +103,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         public Adapter caseSummaryGroup ( SummaryGroup object )
         {
             return createSummaryGroupAdapter ();
-        }
-
-        @Override
-        public Adapter caseSummaryItem ( SummaryItem object )
-        {
-            return createSummaryItemAdapter ();
         }
 
         @Override
@@ -267,21 +260,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSummaryGroupAdapter ()
-    {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.SummaryItem <em>Summary Item</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.openscada.deploy.iolist.model.SummaryItem
-     * @generated
-     */
-    public Adapter createSummaryItemAdapter ()
     {
         return null;
     }

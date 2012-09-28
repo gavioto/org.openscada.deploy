@@ -23,7 +23,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.SummaryGroup;
 
@@ -61,6 +60,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
 
             addIdPropertyDescriptor ( object );
             addHierarchyPropertyDescriptor ( object );
+            addDataSourceIdsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -88,6 +88,17 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
+     * This adds a property descriptor for the Data Source Ids feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDataSourceIdsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_dataSourceIds_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_dataSourceIds_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -101,7 +112,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ModelPackage.Literals.SUMMARY_GROUP__ITEMS );
+            childrenFeatures.add ( ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS );
         }
         return childrenFeatures;
     }
@@ -163,7 +174,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
-            case ModelPackage.SUMMARY_GROUP__ITEMS:
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -182,7 +193,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.SUMMARY_GROUP__ITEMS, ModelFactory.eINSTANCE.createSummaryItem () ) );
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS, "" ) );
     }
 
     /**

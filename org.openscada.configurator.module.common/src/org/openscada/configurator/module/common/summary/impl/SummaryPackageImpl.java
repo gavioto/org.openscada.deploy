@@ -23,9 +23,9 @@ import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
 import org.openscada.configurator.module.common.scripts.impl.ScriptsPackageImpl;
+import org.openscada.configurator.module.common.summary.CleanupSummaries;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.configurator.module.common.summary.SummaryFactory;
-import org.openscada.configurator.module.common.summary.SummaryFileLoader;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
@@ -41,14 +41,14 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass summaryFileLoaderEClass = null;
+    private EClass generateSummariesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass generateSummariesEClass = null;
+    private EClass cleanupSummariesEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -141,36 +141,6 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSummaryFileLoader ()
-    {
-        return summaryFileLoaderEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getSummaryFileLoader_RequiredItems ()
-    {
-        return (EAttribute)summaryFileLoaderEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getSummaryFileLoader_Prefix ()
-    {
-        return (EAttribute)summaryFileLoaderEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getGenerateSummaries ()
     {
         return generateSummariesEClass;
@@ -181,7 +151,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGenerateSummaries_RequiredItems ()
+    public EAttribute getGenerateSummaries_Prefix ()
     {
         return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 0 );
     }
@@ -191,7 +161,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGenerateSummaries_Prefix ()
+    public EAttribute getGenerateSummaries_Suffix ()
     {
         return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 1 );
     }
@@ -201,9 +171,19 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGenerateSummaries_Suffix ()
+    public EClass getCleanupSummaries ()
     {
-        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 2 );
+        return cleanupSummariesEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCleanupSummaries_RequiredItems ()
+    {
+        return (EAttribute)cleanupSummariesEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -237,14 +217,12 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         isCreated = true;
 
         // Create classes and their features
-        summaryFileLoaderEClass = createEClass ( SUMMARY_FILE_LOADER );
-        createEAttribute ( summaryFileLoaderEClass, SUMMARY_FILE_LOADER__REQUIRED_ITEMS );
-        createEAttribute ( summaryFileLoaderEClass, SUMMARY_FILE_LOADER__PREFIX );
-
         generateSummariesEClass = createEClass ( GENERATE_SUMMARIES );
-        createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__REQUIRED_ITEMS );
         createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__PREFIX );
         createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__SUFFIX );
+
+        cleanupSummariesEClass = createEClass ( CLEANUP_SUMMARIES );
+        createEAttribute ( cleanupSummariesEClass, CLEANUP_SUMMARIES__REQUIRED_ITEMS );
     }
 
     /**
@@ -273,7 +251,6 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
 
         // Create type parameters
@@ -281,18 +258,16 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        summaryFileLoaderEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
         generateSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        cleanupSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
-        initEClass ( summaryFileLoaderEClass, SummaryFileLoader.class, "SummaryFileLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getSummaryFileLoader_RequiredItems (), ecorePackage.getEInt (), "requiredItems", "2", 1, 1, SummaryFileLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getSummaryFileLoader_Prefix (), ecorePackage.getEString (), "prefix", null, 0, 1, SummaryFileLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
         initEClass ( generateSummariesEClass, GenerateSummaries.class, "GenerateSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getGenerateSummaries_RequiredItems (), ecorePackage.getEInt (), "requiredItems", "2", 1, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getGenerateSummaries_Prefix (), ecorePackage.getEString (), "prefix", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getGenerateSummaries_Suffix (), ecorePackage.getEString (), "suffix", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( cleanupSummariesEClass, CleanupSummaries.class, "CleanupSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getCleanupSummaries_RequiredItems (), ecorePackage.getEInt (), "requiredItems", "2", 1, 1, CleanupSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //SummaryPackageImpl

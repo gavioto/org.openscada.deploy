@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -56,14 +55,15 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.openscada.ae.Severity;
 import org.openscada.configurator.loop.LoopValidator;
-import org.openscada.configurator.report.ReportDataItem;
 import org.openscada.configurator.report.DataItemSource;
 import org.openscada.configurator.report.FormulaSource;
 import org.openscada.configurator.report.LocalBooleanMonitor;
 import org.openscada.configurator.report.LocalLevelMonitor;
 import org.openscada.configurator.report.Report;
+import org.openscada.configurator.report.ReportDataItem;
 import org.openscada.configurator.report.ScriptSource;
 import org.openscada.configurator.report.Source;
+import org.openscada.configurator.report.SummarySource;
 import org.openscada.core.Variant;
 import org.openscada.core.VariantType;
 import org.openscada.deploy.iolist.model.Average;
@@ -86,7 +86,6 @@ import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.ItemListWriter;
 import org.openscada.utils.str.StringHelper;
@@ -148,7 +147,7 @@ public class Configuration extends GenericMasterConfiguration
 
         addIgnoreFields ( FACTORY_AE_MONITOR_LIST, "active" ); //$NON-NLS-1$ 
 
-        addIgnoreFields ( FACTORY_MASTER_HANDLER_MARKER, "active" );
+        addIgnoreFields ( FACTORY_MASTER_HANDLER_MARKER, "active" ); //$NON-NLS-1$
 
         addIgnoreFields ( FACTORY_MASTER_HANDLER_SCALE, "active", "factor" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
@@ -198,7 +197,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
-        data.put ( "size", "" + size ); //$NON-NLS-1$
+        data.put ( "size", "" + size ); //$NON-NLS-1$ //$NON-NLS-2$
         addData ( "org.openscada.ae.server.common.event.pool", id, data ); //$NON-NLS-1$
     }
 
@@ -206,7 +205,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "script", script ); //$NON-NLS-1$
-        data.put ( "priority", "" + priority ); //$NON-NLS-1$
+        data.put ( "priority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "for.id", idFilter ); //$NON-NLS-1$
         data.put ( "for.type", typeFilter ); //$NON-NLS-1$
         data.put ( "for.action", actionFilter ); //$NON-NLS-1$
@@ -311,7 +310,7 @@ public class Configuration extends GenericMasterConfiguration
 
         data.put ( "master.id", StringHelper.join ( masterIds, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        injectAttributes ( attributes, "info.", data );
+        injectAttributes ( attributes, "info.", data ); //$NON-NLS-1$
 
         addData ( FACTORY_MASTER_HANDLER_BLOCK, blockId, data );
     }
@@ -347,6 +346,32 @@ public class Configuration extends GenericMasterConfiguration
         for ( final MovingAverage average : this.movingAverages )
         {
             addMovingAverage ( average );
+        }
+    }
+
+    public void generateSummaries ()
+    {
+        final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+
+        for ( final SummaryGroup group : this.summaryGroups )
+        {
+            final String id = group.getId ();
+            final Item item = ModelFactory.eINSTANCE.createItem ();
+            item.setDescription ( Messages.getString ( "Configuration.SummaryItemDescription" ) + id ); //$NON-NLS-1$
+            item.setName ( id + ".sum" ); //$NON-NLS-1$
+            item.setAlias ( id );
+            item.setSystem ( "SCADA" ); //$NON-NLS-1$
+            item.setDataType ( DataType.INTEGER );
+            item.setLocalManual ( false );
+            item.setDefaultChain ( false );
+            item.getHierarchy ().clear ();
+            item.getHierarchy ().addAll ( group.getHierarchy () );
+
+            this.items.add ( item );
+            addSum ( id + ".sum", group.getDataSourceIds (), groupsSum ); //$NON-NLS-1$
+
+            final ReportDataItem reportItem = getReportItem ( item.getAlias () );
+            reportItem.setValueSource ( new SummarySource ( this, group.getDataSourceIds () ) );
         }
     }
 
@@ -483,13 +508,13 @@ public class Configuration extends GenericMasterConfiguration
 
             if ( item.isRoundingAvailable () )
             {
-                addRounding ( masterId + ".round", masterId, item.getRoundingValue (), attributes );
+                addRounding ( masterId + ".round", masterId, item.getRoundingValue (), attributes ); //$NON-NLS-1$
             }
 
             if ( item.getLocalListMonitor () != null )
             {
                 final ListMonitor m = item.getLocalListMonitor ();
-                addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), item.getDescription (), item.getDefaultMonitorDemote (), attributes );
+                addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), item.getDescription (), item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
             }
 
             if ( item.isBlock () )
@@ -544,14 +569,14 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "value", valueString );
+        data.put ( "value", valueString ); //$NON-NLS-1$
 
         addData ( "org.openscada.da.datasource.constant", id, data ); //$NON-NLS-1$
     }
 
-    private static final boolean skipNewHierarchy = Boolean.getBoolean ( "skipNewHierarchy" );
+    private static final boolean skipNewHierarchy = Boolean.getBoolean ( "skipNewHierarchy" ); //$NON-NLS-1$
 
-    private static final boolean skipOldHierarchy = Boolean.getBoolean ( "skipOldHierarchy" );
+    private static final boolean skipOldHierarchy = Boolean.getBoolean ( "skipOldHierarchy" ); //$NON-NLS-1$
 
     private static void convertHierarchyToInfoAttributes ( final List<String> levels, final Map<String, String> attributes )
     {
@@ -561,19 +586,19 @@ public class Configuration extends GenericMasterConfiguration
         {
             if ( !skipNewHierarchy )
             {
-                attributes.put ( "level." + i, level );
+                attributes.put ( "level." + i, level ); //$NON-NLS-1$
             }
             if ( !skipOldHierarchy )
             {
                 if ( i == 0 )
                 {
                     // a legacy
-                    attributes.put ( "location", level );
+                    attributes.put ( "location", level ); //$NON-NLS-1$
                 }
                 if ( i == 1 )
                 {
                     // a legacy
-                    attributes.put ( "component", level );
+                    attributes.put ( "component", level ); //$NON-NLS-1$
                 }
             }
             i++;
@@ -584,14 +609,14 @@ public class Configuration extends GenericMasterConfiguration
     {
         if ( mapper.getFromAttribute () == null )
         {
-            mapper.setFromAttribute ( "" );
+            mapper.setFromAttribute ( "" ); //$NON-NLS-1$
         }
         if ( mapper.getToAttribute () == null )
         {
-            mapper.setToAttribute ( "" );
+            mapper.setToAttribute ( "" ); //$NON-NLS-1$
         }
 
-        return String.format ( "%s.mapper.%s.%s/%s", masterId, mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () );
+        return String.format ( "%s.mapper.%s.%s/%s", masterId, mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () ); //$NON-NLS-1$
     }
 
     private void addLocalScaleFeature ( final Item item, final ReportDataItem reportItem )
@@ -808,7 +833,7 @@ public class Configuration extends GenericMasterConfiguration
         }
         if ( timer != null )
         {
-            data.put ( "timer", "" + timer ); //$NON-NLS-1$
+            data.put ( "timer", "" + timer ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( timerCommand != null )
         {
@@ -861,8 +886,8 @@ public class Configuration extends GenericMasterConfiguration
         fillMasterHandler ( FACTORY_MASTER_HANDLER_SCALE, id, data, masterId, null );
 
         data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
         applyInfoAttributes ( attributes, data );
 
@@ -953,27 +978,27 @@ public class Configuration extends GenericMasterConfiguration
 
         if ( item.getLocalMax () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "max", Severity.ERROR, "MAX", true, true, true, item.getLocalMax (), demotePrefix, attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "max", Severity.ERROR, "MAX", true, true, true, item.getLocalMax (), demotePrefix, attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.getLocalHighHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "highhigh", Severity.ALARM, "HH", false, true, false, item.getLocalHighHigh (), demotePrefix, attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "highhigh", Severity.ALARM, "HH", false, true, false, item.getLocalHighHigh (), demotePrefix, attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.getLocalHigh () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "high", Severity.ALARM, "H", false, true, false, item.getLocalHigh (), demotePrefix, attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "high", Severity.ALARM, "H", false, true, false, item.getLocalHigh (), demotePrefix, attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.getLocalLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "low", Severity.ALARM, "L", false, false, false, item.getLocalLow (), demotePrefix, attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "low", Severity.ALARM, "L", false, false, false, item.getLocalLow (), demotePrefix, attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.getLocalLowLow () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "lowlow", Severity.ALARM, "LL", false, false, false, item.getLocalLowLow (), demotePrefix, attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "lowlow", Severity.ALARM, "LL", false, false, false, item.getLocalLowLow (), demotePrefix, attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         if ( item.getLocalMin () != null )
         {
-            makeLocalLevel ( reportItem, masterId, "min", Severity.ERROR, "MIN", true, false, true, item.getLocalMin (), demotePrefix, attributes ); //$NON-NLS-1$
+            makeLocalLevel ( reportItem, masterId, "min", Severity.ERROR, "MIN", true, false, true, item.getLocalMin (), demotePrefix, attributes ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -1066,7 +1091,7 @@ public class Configuration extends GenericMasterConfiguration
             int i = 0;
             for ( final Map.Entry<Variant, String> entry : severityMap.entrySet () )
             {
-                data.put ( "values." + entry.getValue () + "." + i, "" + entry.getKey () );
+                data.put ( "values." + entry.getValue () + "." + i, "" + entry.getKey () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 i++;
             }
         }
@@ -1076,11 +1101,11 @@ public class Configuration extends GenericMasterConfiguration
             {
                 if ( entry.getValue () )
                 {
-                    data.put ( "values.ack." + i, "" + entry.getValue () );
+                    data.put ( "values.ack." + i, "" + entry.getValue () ); //$NON-NLS-1$ //$NON-NLS-2$
                 }
                 else
                 {
-                    data.put ( "values.nak." + i, "" + entry.getValue () );
+                    data.put ( "values.nak." + i, "" + entry.getValue () ); //$NON-NLS-1$ //$NON-NLS-2$
                 }
                 i++;
             }
@@ -1153,7 +1178,7 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( preset != null )
         {
-            data.put ( "preset", "" + preset ); //$NON-NLS-1$
+            data.put ( "preset", "" + preset ); //$NON-NLS-1$ //$NON-NLS-2$
             data.put ( "active", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
@@ -1230,43 +1255,24 @@ public class Configuration extends GenericMasterConfiguration
 
     private void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, String> data )
     {
-        injectAttributes ( attributes, "info.", data );
+        injectAttributes ( attributes, "info.", data ); //$NON-NLS-1$
     }
 
     private final List<SummaryGroup> summaryGroups = new LinkedList<SummaryGroup> ();
 
-    public void addSum ( final String id, List<SummaryItem> sources, final Set<String> groups )
+    private void addSum ( final String id, List<String> sources, final Set<String> groups )
     {
-        // this.logStream.println ( String.format ( "Add summary group: %s for groups: '%s'", id, StringHelper.join ( groups, "," ) ) );
-
-        final SummaryGroup group = ModelFactory.eINSTANCE.createSummaryGroup ();
-        group.setId ( id );
-        group.getItems ().addAll ( sources );
-        this.summaryGroups.add ( group );
-
         final Map<String, String> data = new HashMap<String, String> ();
 
-        sources = new ArrayList<SummaryItem> ( sources );
+        sources = new ArrayList<String> ( sources );
 
-        Collections.sort ( sources, new Comparator<SummaryItem> () {
-            @Override
-            public int compare ( final SummaryItem object1, final SummaryItem object2 )
-            {
-                return object1.getDataSourceId ().compareTo ( object2.getDataSourceId () );
-            }
-        } );
+        Collections.sort ( sources );
 
         int i = 0;
-        for ( final SummaryItem item : sources )
+        for ( final String item : sources )
         {
             // this.logStream.println ( String.format ( "\tAdd item: %s as %s", item.getDataSourceId (), item.getType () ) );
-
-            String value = item.getDataSourceId ();
-            if ( item.getType () != null )
-            {
-                value += "#" + item.getType (); //$NON-NLS-1$
-            }
-            data.put ( "datasource." + i, value ); //$NON-NLS-1$
+            data.put ( "datasource." + i, item ); //$NON-NLS-1$
             i++;
         }
 
@@ -1283,39 +1289,35 @@ public class Configuration extends GenericMasterConfiguration
     @Override
     public void write ( final File baseDir ) throws Exception
     {
-        if ( !Boolean.getBoolean ( "skipIoList" ) )
+        if ( !Boolean.getBoolean ( "skipIoList" ) ) //$NON-NLS-1$
         {
-            System.out.println ( "Start writing ODS" );
+            System.out.println ( "Start writing ODS" ); //$NON-NLS-1$
             final long start = System.currentTimeMillis ();
-            new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) );
-            System.out.println ( String.format ( "Writing ODS took %s ms", System.currentTimeMillis () - start ) );
+            new ItemListWriter ().addAll ( this.items ).write ( new File ( baseDir, "IOList-generated.ods" ) ); //$NON-NLS-1$
+            System.out.println ( String.format ( "Writing ODS took %s ms", System.currentTimeMillis () - start ) ); //$NON-NLS-1$
         }
 
-        System.out.println ( "Writing items model..." );
-        writeModel ( new File ( baseDir, "configuration.iolist" ) );
-        System.out.println ( "Writing items model... done!" );
+        System.out.println ( "Writing items model..." ); //$NON-NLS-1$
+        writeModel ( new File ( baseDir, "configuration.iolist" ) ); //$NON-NLS-1$
+        System.out.println ( "Writing items model... done!" ); //$NON-NLS-1$
 
-        System.out.println ( "Writing summaries model..." );
-        writeSummaries ( new File ( baseDir, "summaries.xmi" ) );
-        System.out.println ( "Writing summaries model... done!" );
-
-        System.out.println ( "Write OSCAR..." );
+        System.out.println ( "Write OSCAR..." ); //$NON-NLS-1$
         super.write ( baseDir );
-        System.out.println ( "Write OSCAR... done!" );
+        System.out.println ( "Write OSCAR... done!" ); //$NON-NLS-1$
 
-        if ( !Boolean.getBoolean ( "skipReport" ) )
+        if ( !Boolean.getBoolean ( "skipReport" ) ) //$NON-NLS-1$
         {
             this.logStream.println ( "   ** Writing report" ); //$NON-NLS-1$
             final long start = System.currentTimeMillis ();
-            this.report.write ( new File ( baseDir, "report.odt" ), new File ( baseDir, "input" ) ); //$NON-NLS-1$
-            this.logStream.println ( String.format ( "   ** Writing took %s ms", System.currentTimeMillis () - start ) );
+            this.report.write ( new File ( baseDir, "report.odt" ), new File ( baseDir, "input" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            this.logStream.println ( String.format ( "   ** Writing took %s ms", System.currentTimeMillis () - start ) ); //$NON-NLS-1$
         }
 
-        if ( Boolean.getBoolean ( "enableDot" ) )
+        if ( Boolean.getBoolean ( "enableDot" ) ) //$NON-NLS-1$
         {
-            this.logStream.println ( "   * Writing dot..." );
-            exportToDot ( new File ( baseDir, "configuration.dot" ) );
-            this.logStream.println ( "   * Writing dot... done!" );
+            this.logStream.println ( "   * Writing dot..." ); //$NON-NLS-1$
+            exportToDot ( new File ( baseDir, "configuration.dot" ) ); //$NON-NLS-1$
+            this.logStream.println ( "   * Writing dot... done!" ); //$NON-NLS-1$
         }
     }
 
@@ -1325,6 +1327,7 @@ public class Configuration extends GenericMasterConfiguration
         model.getItems ().addAll ( this.items );
         model.getAverages ().addAll ( this.averages );
         model.getMovingAverages ().addAll ( this.movingAverages );
+        model.getSummaries ().addAll ( this.summaryGroups );
 
         final ResourceSet resourceSet = new ResourceSetImpl ();
 
@@ -1332,23 +1335,6 @@ public class Configuration extends GenericMasterConfiguration
 
         final Resource resource = resourceSet.createResource ( fileURI );
         resource.getContents ().add ( model );
-
-        // Save the contents of the resource to the file system.
-        //
-        final Map<Object, Object> options = new HashMap<Object, Object> ();
-        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" ); //$NON-NLS-1$
-        resource.save ( options );
-    }
-
-    private void writeSummaries ( final File modelFile ) throws IOException
-    {
-        final ResourceSet resourceSet = new ResourceSetImpl ();
-
-        final URI fileURI = URI.createFileURI ( modelFile.getAbsolutePath () );
-
-        final Resource resource = resourceSet.createResource ( fileURI );
-
-        resource.getContents ().addAll ( this.summaryGroups );
 
         // Save the contents of the resource to the file system.
         //
@@ -1468,10 +1454,10 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
         data.putAll ( properties );
-        data.put ( "priority", "" + priority );
-        data.put ( "type", type );
-        data.put ( "id", id ); // for now ...
-        addData ( "org.openscada.ae.server.http.eventFilter", id, data );
+        data.put ( "priority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "type", type ); //$NON-NLS-1$
+        data.put ( "id", id ); // for now ... //$NON-NLS-1$
+        addData ( "org.openscada.ae.server.http.eventFilter", id, data ); //$NON-NLS-1$
     }
 
     public void addAverage ( final Average average )
@@ -1480,14 +1466,14 @@ public class Configuration extends GenericMasterConfiguration
 
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "validSourcesRequired", String.format ( "%d%%", Math.round ( average.getPercentRequired () * 100.0 ) ) );
+        data.put ( "validSourcesRequired", String.format ( "%d%%", Math.round ( average.getPercentRequired () * 100.0 ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
         final List<String> sources = new ArrayList<String> ( average.getSources () );
         Collections.sort ( sources );
 
-        data.put ( "sources", StringHelper.join ( sources, ", " ) );
+        data.put ( "sources", StringHelper.join ( sources, ", " ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addData ( "org.openscada.da.datasource.average", id, data );
+        addData ( "org.openscada.da.datasource.average", id, data ); //$NON-NLS-1$
     }
 
     public void addMovingAverage ( final MovingAverage average )
@@ -1496,12 +1482,12 @@ public class Configuration extends GenericMasterConfiguration
 
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "datasource.id", average.getSource () );
-        data.put ( "trigger", "" + average.getTrigger () );
-        data.put ( "nullRange", "" + average.getNullRange () );
-        data.put ( "range", "" + average.getRange () );
+        data.put ( "datasource.id", average.getSource () ); //$NON-NLS-1$
+        data.put ( "trigger", "" + average.getTrigger () ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "nullRange", "" + average.getNullRange () ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "range", "" + average.getRange () ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addData ( "org.openscada.da.datasource.movingaverage", id, data );
+        addData ( "org.openscada.da.datasource.movingaverage", id, data ); //$NON-NLS-1$
     }
 
     public void addAverages ( final List<Average> averages )
@@ -1522,6 +1508,20 @@ public class Configuration extends GenericMasterConfiguration
         this.movingAverages.addAll ( averages );
     }
 
+    public void addSummaries ( final Collection<SummaryGroup> summaries )
+    {
+        if ( summaries == null )
+        {
+            return;
+        }
+        this.summaryGroups.addAll ( summaries );
+    }
+
+    public List<SummaryGroup> getSummaryGroups ()
+    {
+        return this.summaryGroups;
+    }
+
     public void addMarker ( final String id, final Set<Item> items, final Map<String, String> markers )
     {
         final Map<String, String> data = new HashMap<String, String> ();
@@ -1534,13 +1534,13 @@ public class Configuration extends GenericMasterConfiguration
             masterIds.add ( makeMasterId ( item ) );
         }
 
-        data.put ( "master.id", StringHelper.join ( masterIds, ", " ) );
-        data.put ( "exportAttribute", "true" );
-        data.put ( "alwaysExport", "true" );
+        data.put ( "master.id", StringHelper.join ( masterIds, ", " ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "exportAttribute", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "alwaysExport", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         for ( final Map.Entry<String, String> entry : markers.entrySet () )
         {
-            data.put ( "marker." + entry.getKey (), entry.getValue () == null ? "" : entry.getValue () );
+            data.put ( "marker." + entry.getKey (), entry.getValue () == null ? "" : entry.getValue () ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
         addData ( FACTORY_MASTER_HANDLER_MARKER, id, data );
@@ -1550,10 +1550,10 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "handlerPriority", "" + priority );
-        data.put ( "master.id", StringHelper.join ( outputs, ", " ) );
-        data.put ( "updateCommand", updateScript );
-        data.put ( "scriptEngine", scriptEngine );
+        data.put ( "handlerPriority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "master.id", StringHelper.join ( outputs, ", " ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "updateCommand", updateScript ); //$NON-NLS-1$
+        data.put ( "scriptEngine", scriptEngine ); //$NON-NLS-1$
 
         for ( final Map.Entry<String, String> entry : inputs.entrySet () )
         {

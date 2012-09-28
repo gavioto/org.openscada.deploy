@@ -30,7 +30,6 @@ import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,14 +106,6 @@ public class ModelSwitch<T> extends Switch<T>
             {
                 SummaryGroup summaryGroup = (SummaryGroup)theEObject;
                 T result = caseSummaryGroup ( summaryGroup );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
-            case ModelPackage.SUMMARY_ITEM:
-            {
-                SummaryItem summaryItem = (SummaryItem)theEObject;
-                T result = caseSummaryItem ( summaryItem );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -318,22 +309,6 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSummaryGroup ( SummaryGroup object )
-    {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Summary Item</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Summary Item</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSummaryItem ( SummaryItem object )
     {
         return null;
     }

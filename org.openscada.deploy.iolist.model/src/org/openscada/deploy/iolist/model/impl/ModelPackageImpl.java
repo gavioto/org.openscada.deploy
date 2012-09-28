@@ -42,7 +42,6 @@ import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.model.util.ModelValidator;
 
 /**
@@ -62,12 +61,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EClass summaryGroupEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass summaryItemEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -742,19 +735,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EReference getSummaryGroup_Items ()
-    {
-        return (EReference)summaryGroupEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getSummaryGroup_Id ()
     {
-        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -764,37 +747,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EAttribute getSummaryGroup_Hierarchy ()
     {
+        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSummaryGroup_DataSourceIds ()
+    {
         return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EClass getSummaryItem ()
-    {
-        return summaryItemEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getSummaryItem_DataSourceId ()
-    {
-        return (EAttribute)summaryItemEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getSummaryItem_Type ()
-    {
-        return (EAttribute)summaryItemEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -995,6 +958,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     public EReference getModel_MovingAverages ()
     {
         return (EReference)modelEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModel_Summaries ()
+    {
+        return (EReference)modelEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -1642,13 +1615,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( itemEClass, ITEM__DEFAULT_MONITOR_DEMOTE );
 
         summaryGroupEClass = createEClass ( SUMMARY_GROUP );
-        createEReference ( summaryGroupEClass, SUMMARY_GROUP__ITEMS );
         createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__ID );
         createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__HIERARCHY );
-
-        summaryItemEClass = createEClass ( SUMMARY_ITEM );
-        createEAttribute ( summaryItemEClass, SUMMARY_ITEM__DATA_SOURCE_ID );
-        createEAttribute ( summaryItemEClass, SUMMARY_ITEM__TYPE );
+        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__DATA_SOURCE_IDS );
 
         formulaItemEClass = createEClass ( FORMULA_ITEM );
         createEAttribute ( formulaItemEClass, FORMULA_ITEM__INPUT_FORMULA );
@@ -1673,6 +1642,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEReference ( modelEClass, MODEL__ITEMS );
         createEReference ( modelEClass, MODEL__AVERAGES );
         createEReference ( modelEClass, MODEL__MOVING_AVERAGES );
+        createEReference ( modelEClass, MODEL__SUMMARIES );
 
         scriptItemEClass = createEClass ( SCRIPT_ITEM );
         createEAttribute ( scriptItemEClass, SCRIPT_ITEM__SCRIPT_ENGINE );
@@ -1835,13 +1805,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getItem_DefaultMonitorDemote (), ecorePackage.getEString (), "defaultMonitorDemote", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getSummaryGroup_Items (), this.getSummaryItem (), null, "items", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSummaryGroup_Id (), ecorePackage.getEString (), "id", null, 1, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSummaryGroup_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass ( summaryItemEClass, SummaryItem.class, "SummaryItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getSummaryItem_DataSourceId (), ecorePackage.getEString (), "dataSourceId", null, 1, 1, SummaryItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getSummaryItem_Type (), ecorePackage.getEString (), "type", null, 1, 1, SummaryItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getSummaryGroup_DataSourceIds (), ecorePackage.getEString (), "dataSourceIds", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( formulaItemEClass, FormulaItem.class, "FormulaItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getFormulaItem_InputFormula (), ecorePackage.getEString (), "inputFormula", null, 0, 1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1866,6 +1832,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEReference ( getModel_Items (), this.getItem (), null, "items", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getModel_Averages (), this.getAverage (), null, "averages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getModel_MovingAverages (), this.getMovingAverage (), null, "movingAverages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getModel_Summaries (), this.getSummaryGroup (), null, "summaries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( scriptItemEClass, ScriptItem.class, "ScriptItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScriptItem_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", null, 0, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

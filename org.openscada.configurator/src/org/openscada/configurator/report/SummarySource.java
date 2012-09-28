@@ -27,16 +27,15 @@ import org.odftoolkit.odfdom.doc.OdfTextDocument;
 import org.odftoolkit.odfdom.doc.table.OdfTable;
 import org.openscada.configurator.Configuration;
 import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.model.SummaryItem;
 
 public class SummarySource implements Source
 {
 
-    private final List<SummaryItem> items;
+    private final List<String> items;
 
     private final Configuration cfg;
 
-    public SummarySource ( final Configuration cfg, final List<SummaryItem> items )
+    public SummarySource ( final Configuration cfg, final List<String> items )
     {
         this.items = items;
         this.cfg = cfg;
@@ -60,16 +59,16 @@ public class SummarySource implements Source
         OdfHelper.setCell ( table, 1, 0, Messages.getString ( "SummarySource.header.internal" ), OdfHelper.TABLE_HEADING ); //$NON-NLS-1$
 
         int i = 1;
-        for ( final SummaryItem item : this.items )
+        for ( final String item : this.items )
         {
-            final Item iitem = aliasMap.get ( item.getDataSourceId () );
+            final Item iitem = aliasMap.get ( item );
 
             if ( iitem != null )
             {
                 OdfHelper.setCell ( table, 0, i, iitem.getAlias (), OdfHelper.TABLE_CONTENTS );
             }
 
-            OdfHelper.setCell ( table, 1, i, item.getDataSourceId (), OdfHelper.TABLE_CONTENTS );
+            OdfHelper.setCell ( table, 1, i, item, OdfHelper.TABLE_CONTENTS );
             i++;
         }
 
