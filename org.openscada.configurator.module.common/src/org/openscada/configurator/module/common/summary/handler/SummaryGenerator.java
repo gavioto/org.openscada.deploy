@@ -1,6 +1,5 @@
 package org.openscada.configurator.module.common.summary.handler;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,74 +12,14 @@ import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.SummaryGroup;
 import org.openscada.deploy.iolist.model.SummaryItem;
-import org.openscada.utils.str.StringHelper;
 
 public class SummaryGenerator
 {
-    private static class Location
-    {
-        private final List<String> hierarchy;
-
-        public Location ( final List<String> hierarchy )
-        {
-            this.hierarchy = hierarchy != null ? new LinkedList<String> ( hierarchy ) : new LinkedList<String> ();
-        }
-
-        public List<String> getHierarchy ()
-        {
-            return Collections.unmodifiableList ( this.hierarchy );
-        }
-
-        @Override
-        public String toString ()
-        {
-            return StringHelper.join ( this.hierarchy, ", " );
-        }
-
-        @Override
-        public int hashCode ()
-        {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + ( this.hierarchy == null ? 0 : this.hierarchy.hashCode () );
-            return result;
-        }
-
-        @Override
-        public boolean equals ( final Object obj )
-        {
-            if ( this == obj )
-            {
-                return true;
-            }
-            if ( obj == null )
-            {
-                return false;
-            }
-            if ( getClass () != obj.getClass () )
-            {
-                return false;
-            }
-            final Location other = (Location)obj;
-            if ( this.hierarchy == null )
-            {
-                if ( other.hierarchy != null )
-                {
-                    return false;
-                }
-            }
-            else if ( !this.hierarchy.equals ( other.hierarchy ) )
-            {
-                return false;
-            }
-            return true;
-        }
-    }
-
     public static void generateSummaryAlarms ( final Project project, final Configuration cfg, final GenerateSummaries module )
     {
         final List<Item> items = cfg.getItems ();
-        final Map<Location, SummaryGroup> locations = new HashMap<Location, SummaryGroup> ();
+
+        final Map<List<String>, SummaryGroup> locations = new HashMap<List<String>, SummaryGroup> ();
         for ( final Item item : items )
         {
             if ( item.isIgnoreSummary () )
@@ -88,42 +27,53 @@ public class SummaryGenerator
                 continue;
             }
 
-            final List<String> group = new LinkedList<String> ();
-            for ( final String level : item.getHierarchy () )
-            {
-                group.add ( level );
-                addItem ( project, locations, new Location ( group ), item, module );
-            }
+            addItem ( cfg, project, locations, item.getHierarchy (), item, module );
         }
 
-        SumLoader.configureGroups ( cfg, locations.values (), items, module.getRequiredItems () );
+        Helper.configureGroups ( cfg, locations.values (), items, module.getRequiredItems () );
+
     }
 
-    private static void addItem ( final Project project, final Map<Location, SummaryGroup> locations, final Location location, final Item item, final GenerateSummaries module )
+    private static void addItem ( final Configuration cfg, final Project project, final Map<List<String>, SummaryGroup> locations, final List<String> location, final Item item, final GenerateSummaries module )
     {
-        /*
-        if ( !location.isValid () )
-        {
-            return;
-        }
-        */
+        final SummaryGroup locationItems = getGroup ( cfg, project, module, locations, location );
 
+        addItemToGroup ( cfg, cfg.makeMasterId ( item ), locationItems );
+    }
+
+    protected static void addItemToGroup ( final Configuration cfg, final String itemId, final SummaryGroup locationItems )
+    {
+        // Add item to summary group
+        final SummaryItem summaryItem = ModelFactory.eINSTANCE.createSummaryItem ();
+
+        summaryItem.setDataSourceId ( itemId );
+        locationItems.getItems ().add ( summaryItem );
+    }
+
+    private static SummaryGroup getGroup ( final Configuration cfg, final Project project, final GenerateSummaries module, final Map<List<String>, SummaryGroup> locations, final List<String> location )
+    {
         SummaryGroup locationItems = locations.get ( location );
         if ( locationItems == null )
         {
             locationItems = ModelFactory.eINSTANCE.createSummaryGroup ();
             locationItems.getHierarchy ().clear ();
-            locationItems.getHierarchy ().addAll ( location.getHierarchy () );
+            locationItems.getHierarchy ().addAll ( location );
             locationItems.setId ( makeGroupId ( project, location, module ) );
             locations.put ( location, locationItems );
-        }
 
-        final SummaryItem summaryItem = ModelFactory.eINSTANCE.createSummaryItem ();
-        summaryItem.setDataSourceId ( item.getAlias () + ".master" );
-        locationItems.getItems ().add ( summaryItem );
+            final LinkedList<String> parentLocation = new LinkedList<String> ( location );
+            if ( !parentLocation.isEmpty () )
+            {
+                parentLocation.removeLast ();
+                final SummaryGroup parentGroup = getGroup ( cfg, project, module, locations, parentLocation );
+
+                addItemToGroup ( cfg, locationItems.getId () + ".master", parentGroup );
+            }
+        }
+        return locationItems;
     }
 
-    private static String makeGroupId ( final Project project, final Location location, final GenerateSummaries module )
+    private static String makeGroupId ( final Project project, final List<String> location, final GenerateSummaries module )
     {
         final StringBuilder sb = new StringBuilder ();
 
@@ -132,7 +82,7 @@ public class SummaryGenerator
             sb.append ( module.getPrefix () );
         }
 
-        for ( final String level : location.getHierarchy () )
+        for ( final String level : location )
         {
             if ( sb.length () > 0 )
             {

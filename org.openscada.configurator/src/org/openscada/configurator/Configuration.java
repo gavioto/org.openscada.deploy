@@ -85,6 +85,7 @@ import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
+import org.openscada.deploy.iolist.model.SummaryGroup;
 import org.openscada.deploy.iolist.model.SummaryItem;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.ItemListWriter;
@@ -1232,9 +1233,16 @@ public class Configuration extends GenericMasterConfiguration
         injectAttributes ( attributes, "info.", data );
     }
 
+    private final List<SummaryGroup> summaryGroups = new LinkedList<SummaryGroup> ();
+
     public void addSum ( final String id, List<SummaryItem> sources, final Set<String> groups )
     {
         // this.logStream.println ( String.format ( "Add summary group: %s for groups: '%s'", id, StringHelper.join ( groups, "," ) ) );
+
+        final SummaryGroup group = ModelFactory.eINSTANCE.createSummaryGroup ();
+        group.setId ( id );
+        group.getItems ().addAll ( sources );
+        this.summaryGroups.add ( group );
 
         final Map<String, String> data = new HashMap<String, String> ();
 
@@ -1283,9 +1291,13 @@ public class Configuration extends GenericMasterConfiguration
             System.out.println ( String.format ( "Writing ODS took %s ms", System.currentTimeMillis () - start ) );
         }
 
-        System.out.println ( "Writing ecore model..." );
+        System.out.println ( "Writing items model..." );
         writeModel ( new File ( baseDir, "configuration.iolist" ) );
-        System.out.println ( "Writing ecore model... done!" );
+        System.out.println ( "Writing items model... done!" );
+
+        System.out.println ( "Writing summaries model..." );
+        writeSummaries ( new File ( baseDir, "summaries.xmi" ) );
+        System.out.println ( "Writing summaries model... done!" );
 
         System.out.println ( "Write OSCAR..." );
         super.write ( baseDir );
@@ -1320,6 +1332,23 @@ public class Configuration extends GenericMasterConfiguration
 
         final Resource resource = resourceSet.createResource ( fileURI );
         resource.getContents ().add ( model );
+
+        // Save the contents of the resource to the file system.
+        //
+        final Map<Object, Object> options = new HashMap<Object, Object> ();
+        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" ); //$NON-NLS-1$
+        resource.save ( options );
+    }
+
+    private void writeSummaries ( final File modelFile ) throws IOException
+    {
+        final ResourceSet resourceSet = new ResourceSetImpl ();
+
+        final URI fileURI = URI.createFileURI ( modelFile.getAbsolutePath () );
+
+        final Resource resource = resourceSet.createResource ( fileURI );
+
+        resource.getContents ().addAll ( this.summaryGroups );
 
         // Save the contents of the resource to the file system.
         //
