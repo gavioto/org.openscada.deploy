@@ -56,7 +56,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.openscada.ae.Severity;
 import org.openscada.configurator.loop.LoopValidator;
-import org.openscada.configurator.report.DataItem;
+import org.openscada.configurator.report.ReportDataItem;
 import org.openscada.configurator.report.DataItemSource;
 import org.openscada.configurator.report.FormulaSource;
 import org.openscada.configurator.report.LocalBooleanMonitor;
@@ -333,7 +333,7 @@ public class Configuration extends GenericMasterConfiguration
         return makeInternalItemId ( item ) + ".master"; //$NON-NLS-1$
     }
 
-    public DataItem getReportItem ( final String id )
+    public ReportDataItem getReportItem ( final String id )
     {
         return this.report.getItem ( id );
     }
@@ -371,7 +371,7 @@ public class Configuration extends GenericMasterConfiguration
             final String internalItemId = makeInternalItemId ( item );
             final String masterId = makeMasterId ( item );
 
-            final DataItem reportItem = this.report.getItem ( internalItemId );
+            final ReportDataItem reportItem = this.report.getItem ( internalItemId );
 
             String sourceId;
 
@@ -594,7 +594,7 @@ public class Configuration extends GenericMasterConfiguration
         return String.format ( "%s.mapper.%s.%s/%s", masterId, mapper.getMapperId (), mapper.getFromAttribute (), mapper.getToAttribute () );
     }
 
-    private void addLocalScaleFeature ( final Item item, final DataItem reportItem )
+    private void addLocalScaleFeature ( final Item item, final ReportDataItem reportItem )
     {
         final StringBuilder sb = new StringBuilder ( Messages.getString ( "Configuration.report.feature.scale.1" ) ); //$NON-NLS-1$
         if ( item.getLocalScaleFactor () != null )
@@ -947,7 +947,7 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private void makeLocalLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
+    private void makeLocalLevels ( final Item item, final ReportDataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
         final String demotePrefix = item.getDefaultMonitorDemote ();
 
@@ -977,7 +977,7 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private void makeRemoteLevels ( final Item item, final DataItem reportItem, final String masterId, final Map<String, String> attributes )
+    private void makeRemoteLevels ( final Item item, final ReportDataItem reportItem, final String masterId, final Map<String, String> attributes )
     {
         if ( item.isRemoteMax () )
         {
@@ -1122,7 +1122,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( FACTORY_AE_MONITOR_REMOTE_BOOLEAN, id, data );
     }
 
-    private void makeLocalLevel ( final DataItem reportItem, final String masterId, final String type, final Severity severity, final String monitorType, final boolean cap, final boolean lowerOk, final boolean includedOk, final LevelMonitor levelMonitor, final String demotePrefix, Map<String, String> attributes )
+    private void makeLocalLevel ( final ReportDataItem reportItem, final String masterId, final String type, final Severity severity, final String monitorType, final boolean cap, final boolean lowerOk, final boolean includedOk, final LevelMonitor levelMonitor, final String demotePrefix, Map<String, String> attributes )
     {
         final boolean requireAck = levelMonitor.isAck ();
         final Double preset = levelMonitor.getPreset ();
@@ -1176,7 +1176,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( FACTORY_AE_MONITOR_LEVEL, id, data );
     }
 
-    private void makeRemoteLevel ( final DataItem reportItem, final String masterId, final String type, final String monitorType, Map<String, String> attributes )
+    private void makeRemoteLevel ( final ReportDataItem reportItem, final String masterId, final String type, final String monitorType, Map<String, String> attributes )
     {
         attributes = new HashMap<String, String> ( attributes );
 

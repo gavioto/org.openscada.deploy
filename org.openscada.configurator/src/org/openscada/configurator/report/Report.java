@@ -42,19 +42,19 @@ import org.w3c.dom.NodeList;
 
 public class Report
 {
-    private final Map<String, DataItem> items = new TreeMap<String, DataItem> ();
+    private final Map<String, ReportDataItem> items = new TreeMap<String, ReportDataItem> ();
 
-    public DataItem getItem ( final String id )
+    public ReportDataItem getItem ( final String id )
     {
         if ( id == null )
         {
-            return new DataItem ( null );
+            return new ReportDataItem ( null );
         }
 
-        DataItem item = this.items.get ( id );
+        ReportDataItem item = this.items.get ( id );
         if ( item == null )
         {
-            item = new DataItem ( id );
+            item = new ReportDataItem ( id );
             this.items.put ( id, item );
         }
         return item;
@@ -160,13 +160,13 @@ public class Report
 
         odt.getContentRoot ().appendChild ( heading );
 
-        for ( final DataItem item : this.items.values () )
+        for ( final ReportDataItem item : this.items.values () )
         {
             writeItem ( odt, item );
         }
     }
 
-    private void writeItem ( final OdfTextDocument odt, final DataItem item ) throws Exception
+    private void writeItem ( final OdfTextDocument odt, final ReportDataItem item ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
         heading.addStyledContent ( "Heading 2", item.getId () ); //$NON-NLS-1$
@@ -193,7 +193,7 @@ public class Report
         writeItemMonitors ( odt, item );
     }
 
-    private void writeItemMonitors ( final OdfTextDocument odt, final DataItem item ) throws Exception
+    private void writeItemMonitors ( final OdfTextDocument odt, final ReportDataItem item ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
         heading.addStyledContent ( "Heading 3", Messages.getString ( "Report.heading.monitors" ) ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -214,7 +214,7 @@ public class Report
         }
     }
 
-    private void writeItemSource ( final OdfTextDocument odt, final DataItem item ) throws Exception
+    private void writeItemSource ( final OdfTextDocument odt, final ReportDataItem item ) throws Exception
     {
         final OdfTextHeading heading = new OdfTextHeading ( odt.getContentDom () );
         heading.addStyledContent ( "Heading 3", Messages.getString ( "Report.heading.valueSource" ) ); //$NON-NLS-1$ //$NON-NLS-2$

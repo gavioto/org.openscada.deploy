@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.report.DataItem;
+import org.openscada.configurator.report.ReportDataItem;
 import org.openscada.configurator.report.SummarySource;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
@@ -38,7 +38,7 @@ public class Helper
                 items.add ( item );
                 cfg.addSum ( id + ".sum", group.getItems (), groupsSum ); //$NON-NLS-1$
 
-                final DataItem reportItem = cfg.getReportItem ( item.getAlias () );
+                final ReportDataItem reportItem = cfg.getReportItem ( item.getAlias () );
                 reportItem.setValueSource ( new SummarySource ( cfg, group.getItems () ) );
             }
         }

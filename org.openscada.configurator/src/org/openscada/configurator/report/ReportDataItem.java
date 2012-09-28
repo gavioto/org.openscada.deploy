@@ -22,7 +22,7 @@ package org.openscada.configurator.report;
 import java.util.LinkedList;
 import java.util.List;
 
-public class DataItem
+public class ReportDataItem
 {
     private final String id;
 
@@ -36,7 +36,7 @@ public class DataItem
 
     private final List<Monitor> monitors = new LinkedList<Monitor> ();
 
-    public DataItem ( final String id )
+    public ReportDataItem ( final String id )
     {
         this.id = id;
     }
@@ -66,11 +66,11 @@ public class DataItem
         {
             return false;
         }
-        if ( ! ( obj instanceof DataItem ) )
+        if ( ! ( obj instanceof ReportDataItem ) )
         {
             return false;
         }
-        final DataItem other = (DataItem)obj;
+        final ReportDataItem other = (ReportDataItem)obj;
         if ( this.id == null )
         {
             if ( other.id != null )
