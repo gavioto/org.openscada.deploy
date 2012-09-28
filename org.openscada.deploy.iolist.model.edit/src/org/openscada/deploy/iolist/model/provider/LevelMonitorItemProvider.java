@@ -110,9 +110,9 @@ public class LevelMonitorItemProvider extends BasicMonitorItemProvider implement
 
         switch ( notification.getFeatureID ( LevelMonitor.class ) )
         {
-            case ModelPackage.LEVEL_MONITOR__PRESET:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.LEVEL_MONITOR__PRESET:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

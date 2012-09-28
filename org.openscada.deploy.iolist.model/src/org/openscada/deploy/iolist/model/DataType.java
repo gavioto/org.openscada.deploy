@@ -237,18 +237,18 @@ public enum DataType implements Enumerator
     {
         switch ( value )
         {
-            case VARIANT_VALUE:
-                return VARIANT;
-            case FLOAT_VALUE:
-                return FLOAT;
-            case STRING_VALUE:
-                return STRING;
-            case BOOLEAN_VALUE:
-                return BOOLEAN;
-            case INTEGER_VALUE:
-                return INTEGER;
-            case LONG_INTEGER_VALUE:
-                return LONG_INTEGER;
+        case VARIANT_VALUE:
+            return VARIANT;
+        case FLOAT_VALUE:
+            return FLOAT;
+        case STRING_VALUE:
+            return STRING;
+        case BOOLEAN_VALUE:
+            return BOOLEAN;
+        case INTEGER_VALUE:
+            return INTEGER;
+        case LONG_INTEGER_VALUE:
+            return LONG_INTEGER;
         }
         return null;
     }

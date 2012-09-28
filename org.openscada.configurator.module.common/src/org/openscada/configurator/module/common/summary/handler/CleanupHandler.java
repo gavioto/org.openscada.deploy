@@ -30,7 +30,7 @@ public class CleanupHandler
             while ( i.hasNext () )
             {
                 final SummaryGroup group = i.next ();
-                if ( group.getDataSourceIds ().size () < module.getRequiredItems () )
+                if ( group.getDataSourceIds ().size () < module.getRequiredItems () && !group.isRetain () )
                 {
                     System.out.println ( "Removing summary group: " + group.getId () );
                     i.remove ();

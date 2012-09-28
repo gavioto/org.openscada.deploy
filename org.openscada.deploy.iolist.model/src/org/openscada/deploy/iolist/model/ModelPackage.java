@@ -506,13 +506,22 @@ public interface ModelPackage extends EPackage
     int SUMMARY_GROUP__DATA_SOURCE_IDS = 2;
 
     /**
+     * The feature id for the '<em><b>Retain</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUMMARY_GROUP__RETAIN = 3;
+
+    /**
      * The number of structural features of the '<em>Summary Group</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP_FEATURE_COUNT = 3;
+    int SUMMARY_GROUP_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
@@ -3937,6 +3946,17 @@ public interface ModelPackage extends EPackage
     EAttribute getSummaryGroup_DataSourceIds ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#isRetain <em>Retain</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Retain</em>'.
+     * @see org.openscada.deploy.iolist.model.SummaryGroup#isRetain()
+     * @see #getSummaryGroup()
+     * @generated
+     */
+    EAttribute getSummaryGroup_Retain ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.FormulaItem <em>Formula Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5184,6 +5204,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute SUMMARY_GROUP__DATA_SOURCE_IDS = eINSTANCE.getSummaryGroup_DataSourceIds ();
+
+        /**
+         * The meta object literal for the '<em><b>Retain</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SUMMARY_GROUP__RETAIN = eINSTANCE.getSummaryGroup_Retain ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.

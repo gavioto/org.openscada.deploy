@@ -138,10 +138,10 @@ public abstract class BasicMonitorImpl extends MonitorImpl implements BasicMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BASIC_MONITOR__ACK:
-                return isAck ();
-            case ModelPackage.BASIC_MONITOR__SEVERITY:
-                return getSeverity ();
+        case ModelPackage.BASIC_MONITOR__ACK:
+            return isAck ();
+        case ModelPackage.BASIC_MONITOR__SEVERITY:
+            return getSeverity ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -155,12 +155,12 @@ public abstract class BasicMonitorImpl extends MonitorImpl implements BasicMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BASIC_MONITOR__ACK:
-                setAck ( (Boolean)newValue );
-                return;
-            case ModelPackage.BASIC_MONITOR__SEVERITY:
-                setSeverity ( (Severity)newValue );
-                return;
+        case ModelPackage.BASIC_MONITOR__ACK:
+            setAck ( (Boolean)newValue );
+            return;
+        case ModelPackage.BASIC_MONITOR__SEVERITY:
+            setSeverity ( (Severity)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -174,12 +174,12 @@ public abstract class BasicMonitorImpl extends MonitorImpl implements BasicMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BASIC_MONITOR__ACK:
-                setAck ( ACK_EDEFAULT );
-                return;
-            case ModelPackage.BASIC_MONITOR__SEVERITY:
-                setSeverity ( SEVERITY_EDEFAULT );
-                return;
+        case ModelPackage.BASIC_MONITOR__ACK:
+            setAck ( ACK_EDEFAULT );
+            return;
+        case ModelPackage.BASIC_MONITOR__SEVERITY:
+            setSeverity ( SEVERITY_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -193,10 +193,10 @@ public abstract class BasicMonitorImpl extends MonitorImpl implements BasicMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BASIC_MONITOR__ACK:
-                return ack != ACK_EDEFAULT;
-            case ModelPackage.BASIC_MONITOR__SEVERITY:
-                return SEVERITY_EDEFAULT == null ? severity != null : !SEVERITY_EDEFAULT.equals ( severity );
+        case ModelPackage.BASIC_MONITOR__ACK:
+            return ack != ACK_EDEFAULT;
+        case ModelPackage.BASIC_MONITOR__SEVERITY:
+            return SEVERITY_EDEFAULT == null ? severity != null : !SEVERITY_EDEFAULT.equals ( severity );
         }
         return super.eIsSet ( featureID );
     }

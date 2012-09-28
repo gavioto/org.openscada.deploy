@@ -278,16 +278,16 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
     {
         switch ( featureID )
         {
-            case ModelPackage.MOVING_AVERAGE__ID:
-                return getId ();
-            case ModelPackage.MOVING_AVERAGE__SOURCE:
-                return getSource ();
-            case ModelPackage.MOVING_AVERAGE__TRIGGER:
-                return getTrigger ();
-            case ModelPackage.MOVING_AVERAGE__RANGE:
-                return getRange ();
-            case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
-                return getNullRange ();
+        case ModelPackage.MOVING_AVERAGE__ID:
+            return getId ();
+        case ModelPackage.MOVING_AVERAGE__SOURCE:
+            return getSource ();
+        case ModelPackage.MOVING_AVERAGE__TRIGGER:
+            return getTrigger ();
+        case ModelPackage.MOVING_AVERAGE__RANGE:
+            return getRange ();
+        case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
+            return getNullRange ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -302,21 +302,21 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
     {
         switch ( featureID )
         {
-            case ModelPackage.MOVING_AVERAGE__ID:
-                setId ( (String)newValue );
-                return;
-            case ModelPackage.MOVING_AVERAGE__SOURCE:
-                setSource ( (String)newValue );
-                return;
-            case ModelPackage.MOVING_AVERAGE__TRIGGER:
-                setTrigger ( (Long)newValue );
-                return;
-            case ModelPackage.MOVING_AVERAGE__RANGE:
-                setRange ( (Long)newValue );
-                return;
-            case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
-                setNullRange ( (Long)newValue );
-                return;
+        case ModelPackage.MOVING_AVERAGE__ID:
+            setId ( (String)newValue );
+            return;
+        case ModelPackage.MOVING_AVERAGE__SOURCE:
+            setSource ( (String)newValue );
+            return;
+        case ModelPackage.MOVING_AVERAGE__TRIGGER:
+            setTrigger ( (Long)newValue );
+            return;
+        case ModelPackage.MOVING_AVERAGE__RANGE:
+            setRange ( (Long)newValue );
+            return;
+        case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
+            setNullRange ( (Long)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -331,21 +331,21 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
     {
         switch ( featureID )
         {
-            case ModelPackage.MOVING_AVERAGE__ID:
-                setId ( ID_EDEFAULT );
-                return;
-            case ModelPackage.MOVING_AVERAGE__SOURCE:
-                setSource ( SOURCE_EDEFAULT );
-                return;
-            case ModelPackage.MOVING_AVERAGE__TRIGGER:
-                setTrigger ( TRIGGER_EDEFAULT );
-                return;
-            case ModelPackage.MOVING_AVERAGE__RANGE:
-                setRange ( RANGE_EDEFAULT );
-                return;
-            case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
-                setNullRange ( NULL_RANGE_EDEFAULT );
-                return;
+        case ModelPackage.MOVING_AVERAGE__ID:
+            setId ( ID_EDEFAULT );
+            return;
+        case ModelPackage.MOVING_AVERAGE__SOURCE:
+            setSource ( SOURCE_EDEFAULT );
+            return;
+        case ModelPackage.MOVING_AVERAGE__TRIGGER:
+            setTrigger ( TRIGGER_EDEFAULT );
+            return;
+        case ModelPackage.MOVING_AVERAGE__RANGE:
+            setRange ( RANGE_EDEFAULT );
+            return;
+        case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
+            setNullRange ( NULL_RANGE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -360,16 +360,16 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
     {
         switch ( featureID )
         {
-            case ModelPackage.MOVING_AVERAGE__ID:
-                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
-            case ModelPackage.MOVING_AVERAGE__SOURCE:
-                return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals ( source );
-            case ModelPackage.MOVING_AVERAGE__TRIGGER:
-                return TRIGGER_EDEFAULT == null ? trigger != null : !TRIGGER_EDEFAULT.equals ( trigger );
-            case ModelPackage.MOVING_AVERAGE__RANGE:
-                return RANGE_EDEFAULT == null ? range != null : !RANGE_EDEFAULT.equals ( range );
-            case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
-                return NULL_RANGE_EDEFAULT == null ? nullRange != null : !NULL_RANGE_EDEFAULT.equals ( nullRange );
+        case ModelPackage.MOVING_AVERAGE__ID:
+            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+        case ModelPackage.MOVING_AVERAGE__SOURCE:
+            return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals ( source );
+        case ModelPackage.MOVING_AVERAGE__TRIGGER:
+            return TRIGGER_EDEFAULT == null ? trigger != null : !TRIGGER_EDEFAULT.equals ( trigger );
+        case ModelPackage.MOVING_AVERAGE__RANGE:
+            return RANGE_EDEFAULT == null ? range != null : !RANGE_EDEFAULT.equals ( range );
+        case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
+            return NULL_RANGE_EDEFAULT == null ? nullRange != null : !NULL_RANGE_EDEFAULT.equals ( nullRange );
         }
         return super.eIsSet ( featureID );
     }
