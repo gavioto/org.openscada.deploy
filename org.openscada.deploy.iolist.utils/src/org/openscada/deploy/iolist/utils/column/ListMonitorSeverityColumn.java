@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.odftoolkit.odfdom.doc.table.OdfTableCell;
-import org.odftoolkit.odfdom.dom.attribute.office.OfficeValueTypeAttribute;
+import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
+import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.openscada.ae.monitor.datasource.common.ListSeverity;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -25,7 +25,7 @@ public class ListMonitorSeverityColumn extends ListMonitorColumn
     }
 
     @Override
-    protected void update ( final OdfTableCell cell, final Item item )
+    protected void update ( final OdfSpreadsheetDocument output, final TableTableCellElement cell, final Item item )
     {
         final ListMonitor monitor = item.getLocalListMonitor ();
         if ( monitor == null )
@@ -45,9 +45,8 @@ public class ListMonitorSeverityColumn extends ListMonitorColumn
         final ArrayList<String> sortedValues = new ArrayList<String> ( values );
         Collections.sort ( sortedValues );
 
-        cell.setStringValue ( StringHelper.join ( sortedValues, ", " ) );
-        cell.setValueType ( OfficeValueTypeAttribute.Value.STRING.toString () );
+        setStringValue ( cell, StringHelper.join ( sortedValues, ", " ) );
 
-        super.update ( cell, item );
+        super.update ( output, cell, item );
     }
 }

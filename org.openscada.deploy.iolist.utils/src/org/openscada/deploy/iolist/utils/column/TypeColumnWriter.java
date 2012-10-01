@@ -1,6 +1,7 @@
 package org.openscada.deploy.iolist.utils.column;
 
-import org.odftoolkit.odfdom.doc.table.OdfTableCell;
+import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
+import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.openscada.deploy.iolist.model.Item;
 
 public class TypeColumnWriter extends AbstractColumn
@@ -12,9 +13,9 @@ public class TypeColumnWriter extends AbstractColumn
     }
 
     @Override
-    protected void update ( final OdfTableCell cell, final Item item )
+    protected void update ( final OdfSpreadsheetDocument output, final TableTableCellElement cell, final Item item )
     {
-        cell.setStringValue ( item.eClass ().getName () );
+        setStringValue ( cell, item.eClass ().getName () );
     }
 
 }

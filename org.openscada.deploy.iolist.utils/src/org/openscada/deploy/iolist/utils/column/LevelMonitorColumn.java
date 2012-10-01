@@ -1,8 +1,7 @@
 package org.openscada.deploy.iolist.utils.column;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.odftoolkit.odfdom.doc.table.OdfTableCell;
-import org.odftoolkit.odfdom.dom.attribute.office.OfficeValueTypeAttribute;
+import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 
@@ -15,7 +14,7 @@ public class LevelMonitorColumn extends MonitorColumn
     }
 
     @Override
-    protected void updateSetValue ( final OdfTableCell cell, final Item item )
+    protected void updateSetValue ( final TableTableCellElement cell, final Item item )
     {
         final LevelMonitor levelMonitor = (LevelMonitor)item.eGet ( this.feature );
 
@@ -23,13 +22,11 @@ public class LevelMonitorColumn extends MonitorColumn
 
         if ( preset != null )
         {
-            cell.setDoubleValue ( preset );
-            cell.setValueType ( OfficeValueTypeAttribute.Value.FLOAT.toString () );
+            setFloatValue ( cell, preset );
         }
         else
         {
-            cell.setStringValue ( "X" );
-            cell.setValueType ( OfficeValueTypeAttribute.Value.STRING.toString () );
+            setStringValue ( cell, "X" );
         }
     }
 }

@@ -10,8 +10,9 @@ import java.util.Locale;
 import org.eclipse.emf.common.util.EList;
 import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
 import org.odftoolkit.odfdom.doc.table.OdfTable;
-import org.odftoolkit.odfdom.doc.table.OdfTableRow;
 import org.odftoolkit.odfdom.dom.element.style.StyleMasterPageElement;
+import org.odftoolkit.odfdom.dom.element.table.TableTableElement;
+import org.odftoolkit.odfdom.dom.element.table.TableTableRowElement;
 import org.odftoolkit.odfdom.dom.style.OdfStyleFamily;
 import org.odftoolkit.odfdom.dom.style.props.OdfPageLayoutProperties;
 import org.odftoolkit.odfdom.dom.style.props.OdfTableCellProperties;
@@ -46,8 +47,6 @@ public class ItemListWriter
     private final List<Item> items = new LinkedList<Item> ();
 
     private final List<ColumnWriter> columns = new LinkedList<ColumnWriter> ();
-
-    private OdfStyle cellStyle;
 
     private void setupColumns ( final int maxLevel )
     {
@@ -255,17 +254,24 @@ public class ItemListWriter
         final OdfTable sheet = OdfTable.newTable ( output );
         sheet.setTableName ( "Items" );
 
-        processHeader ( sheet );
+        cleanSheet ( sheet );
+
+        processHeader ( output, sheet );
 
         int row = 1;
         for ( final Item item : this.items )
         {
-            processItem ( sheet, item, row );
+            processItem ( output, sheet, item, row );
 
             row++;
         }
 
         return output;
+    }
+
+    private void cleanSheet ( final OdfTable sheet )
+    {
+        removeChilds ( sheet.getOdfElement () );
     }
 
     private int findMaxLevel ()
@@ -284,8 +290,6 @@ public class ItemListWriter
 
         final OdfStyle alarmStyle = styles.newStyle ( "Alarm", OdfStyleFamily.TableCell );
         alarmStyle.setProperty ( OdfTableCellProperties.BackgroundColor, "#FF0000" );
-
-        this.cellStyle = styles.newStyle ( "Default", OdfStyleFamily.TableCell );
 
         final OdfStyle columnStyle = styles.newStyle ( "Default", OdfStyleFamily.TableColumn );
         columnStyle.setProperty ( OdfTableColumnProperties.UseOptimalColumnWidth, "true" );
@@ -311,31 +315,38 @@ public class ItemListWriter
 
     }
 
-    private void processItem ( final OdfTable sheet, final Item item, final int rowIndex )
+    private void processItem ( final OdfSpreadsheetDocument output, final OdfTable sheet, final Item item, final int rowIndex ) throws Exception
     {
-        final OdfTableRow row = sheet.getRowByIndex ( rowIndex );
-        row.setDefaultCellStyle ( this.cellStyle );
-        row.setUseOptimalHeight ( true );
+        final TableTableElement sheetElement = sheet.getOdfElement ();
+
+        final TableTableRowElement row = new TableTableRowElement ( output.getContentDom () );
+        sheetElement.appendChild ( row );
+
+        row.setProperty ( OdfTableRowProperties.UseOptimalRowHeight, String.valueOf ( true ) );
 
         int i = 0;
 
         for ( final ColumnWriter column : this.columns )
         {
-            column.writeItem ( sheet, rowIndex, i, item );
+            column.writeItem ( output, row, rowIndex, i, item );
             i++;
         }
     }
 
-    private void processHeader ( final OdfTable sheet )
+    private void processHeader ( final OdfSpreadsheetDocument output, final OdfTable sheet ) throws Exception
     {
-        final OdfTableRow row = sheet.getRowByIndex ( 0 );
-        row.setUseOptimalHeight ( true );
+        final TableTableElement sheetElement = sheet.getOdfElement ();
+
+        final TableTableRowElement row = new TableTableRowElement ( output.getContentDom () );
+        sheetElement.appendChild ( row );
+
+        row.setProperty ( OdfTableRowProperties.UseOptimalRowHeight, String.valueOf ( true ) );
 
         int i = 0;
 
         for ( final ColumnWriter column : this.columns )
         {
-            column.writeHeader ( sheet, i );
+            column.writeHeader ( output, row, i );
             i++;
         }
     }

@@ -1,6 +1,7 @@
 package org.openscada.deploy.iolist.utils.column;
 
-import org.odftoolkit.odfdom.doc.table.OdfTableCell;
+import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
+import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ListMonitor;
 
@@ -13,7 +14,7 @@ public abstract class ListMonitorColumn extends AbstractColumn
     }
 
     @Override
-    protected void update ( final OdfTableCell cell, final Item item )
+    protected void update ( final OdfSpreadsheetDocument output, final TableTableCellElement cell, final Item item )
     {
         final ListMonitor monitor = item.getLocalListMonitor ();
         if ( monitor == null )
@@ -24,19 +25,19 @@ public abstract class ListMonitorColumn extends AbstractColumn
         final String severity = monitor.getDefaultSeverity ();
         if ( severity.equals ( "WARNING" ) )
         {
-            cell.setCellBackgroundColor ( "#FFFF00" );
+            setBackgroundColor ( cell, "#FFFF00" );
         }
         else if ( severity.equals ( "ALARM" ) )
         {
-            cell.setCellBackgroundColor ( "#FF0000" );
+            setBackgroundColor ( cell, "#FF0000" );
         }
         else if ( severity.equals ( "ERROR" ) )
         {
-            cell.setCellBackgroundColor ( "#FF00FF" );
+            setBackgroundColor ( cell, "#FF00FF" );
         }
         else
         {
-            cell.setCellBackgroundColor ( "" );
+            setBackgroundColor ( cell, "" );
         }
     }
 
