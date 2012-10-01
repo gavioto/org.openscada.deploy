@@ -104,7 +104,7 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.ae.monitor.bit", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
         this.handlers.put ( "org.openscada.ae.monitor.list", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
 
-        this.handlers.put ( "org.openscada.da.master.common.marker", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.master.common.marker", new SimpleAttributeHandler ( "masterHandler", "master", "master.id", ", ?" ) );
 
         this.handlers.put ( "org.openscada.da.level.ceil", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
         this.handlers.put ( "org.openscada.da.level.highhigh", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
