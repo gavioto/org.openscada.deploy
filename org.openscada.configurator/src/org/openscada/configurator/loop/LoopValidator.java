@@ -100,26 +100,28 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.server.osgi.summary.attribute", new SummaryHandler () );
         this.handlers.put ( "org.openscada.da.datasource.formula", new FormulaHandler () );
 
-        this.handlers.put ( "org.openscada.ae.monitor.level", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.ae.monitor.bit", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.ae.monitor.list", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.ae.monitor.level", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.ae.monitor.bit", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.ae.monitor.list", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
 
-        this.handlers.put ( "org.openscada.da.level.ceil", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.level.highhigh", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.level.high", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.level.low", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.level.lowlow", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.master.common.marker", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+
+        this.handlers.put ( "org.openscada.da.level.ceil", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.highhigh", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.high", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.low", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.level.lowlow", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
 
         this.handlers.put ( "da.master.handler.sum", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.negate.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
-        this.handlers.put ( "org.openscada.da.master.common.block", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id", ", ?" ) );
-        this.handlers.put ( "org.openscada.da.round", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.negate.input", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.manual", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.master.common.block", new SimpleAttributeHandler ( "masterHandler", "master", "master.id", ", ?" ) );
+        this.handlers.put ( "org.openscada.da.round", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
 
         this.handlers.put ( "org.openscada.da.mapper.osgi.configuredMapper", new SimpleHandler ( "mapper" ) );
         this.handlers.put ( "org.openscada.da.master.mapper", new MapperHandler () );
 
-        this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "datasource", "master.id" ) );
+        this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
 
     }
 
