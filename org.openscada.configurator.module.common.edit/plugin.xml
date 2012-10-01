@@ -129,5 +129,23 @@
             uri="http://openscada.org/Deploy/Configurator"
             class="org.openscada.configurator.module.common.marker.provider.MarkerItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
    </extension>
+   
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://openscada.org/Configurator/Modules/Common/Output"
+            class="org.openscada.configurator.module.common.output.provider.OutputItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://openscada.org/Deploy/Configurator"
+            class="org.openscada.configurator.module.common.output.provider.OutputItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+   </extension>
 
 </plugin>

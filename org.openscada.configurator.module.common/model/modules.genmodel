@@ -26,6 +26,7 @@
       <genClasses ecoreClass="modules.ecore#//scripts/LegacyFormulaModule">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//scripts/LegacyFormulaModule/formulaFile"/>
       </genClasses>
+      <genClasses ecoreClass="modules.ecore#//scripts/ScriptsMonitorModule"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Processing" disposableProviderFactory="true" extensibleProviderFactory="true"
         childCreationExtenders="true" ecorePackage="modules.ecore#//processing">
@@ -37,12 +38,12 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Summary" disposableProviderFactory="true" extensibleProviderFactory="true"
         childCreationExtenders="true" ecorePackage="modules.ecore#//summary">
-      <genClasses ecoreClass="modules.ecore#//summary/SummaryFileLoader">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/SummaryFileLoader/requiredItems"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/SummaryFileLoader/prefix"/>
-      </genClasses>
       <genClasses ecoreClass="modules.ecore#//summary/GenerateSummaries">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/GenerateSummaries/requiredItems"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/GenerateSummaries/prefix"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/GenerateSummaries/suffix"/>
+      </genClasses>
+      <genClasses ecoreClass="modules.ecore#//summary/CleanupSummaries">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//summary/CleanupSummaries/requiredItems"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Main" disposableProviderFactory="true" extensibleProviderFactory="true"
@@ -61,6 +62,11 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/Marker/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modules.ecore#//marker/Marker/value"/>
       </genClasses>
+      <genClasses ecoreClass="modules.ecore#//marker/HierarchyBlockGenerator"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Output" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="modules.ecore#//output">
+      <genClasses ecoreClass="modules.ecore#//output/OutputAverages"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

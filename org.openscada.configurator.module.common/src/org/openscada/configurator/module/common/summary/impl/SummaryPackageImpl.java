@@ -19,6 +19,8 @@ import org.openscada.configurator.module.common.marker.MarkerPackage;
 import org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
+import org.openscada.configurator.module.common.output.OutputPackage;
+import org.openscada.configurator.module.common.output.impl.OutputPackageImpl;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
@@ -109,6 +111,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
         MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
         MarkerPackageImpl theMarkerPackage = (MarkerPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) instanceof MarkerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) : MarkerPackage.eINSTANCE );
+        OutputPackageImpl theOutputPackage = (OutputPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI ) instanceof OutputPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI ) : OutputPackage.eINSTANCE );
 
         // Create package meta-data objects
         theSummaryPackage.createPackageContents ();
@@ -118,6 +121,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         theProcessingPackage.createPackageContents ();
         theMainPackage.createPackageContents ();
         theMarkerPackage.createPackageContents ();
+        theOutputPackage.createPackageContents ();
 
         // Initialize created meta-data
         theSummaryPackage.initializePackageContents ();
@@ -127,6 +131,7 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         theProcessingPackage.initializePackageContents ();
         theMainPackage.initializePackageContents ();
         theMarkerPackage.initializePackageContents ();
+        theOutputPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theSummaryPackage.freeze ();

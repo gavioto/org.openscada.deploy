@@ -4,15 +4,16 @@
  *
  * $Id$
  */
-package org.openscada.configurator.module.common.summary.provider;
+package org.openscada.configurator.module.common.output.provider;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,19 +21,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.configurator.module.common.summary.CleanupSummaries;
-import org.openscada.configurator.module.common.summary.SummaryPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.configurator.module.common.summary.CleanupSummaries} object.
+ * This is the item provider adapter for a {@link org.openscada.configurator.module.common.output.OutputSummaries} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CleanupSummariesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class OutputSummariesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -40,7 +37,7 @@ public class CleanupSummariesItemProvider extends ItemProviderAdapter implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public CleanupSummariesItemProvider ( AdapterFactory adapterFactory )
+    public OutputSummariesItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -58,24 +55,12 @@ public class CleanupSummariesItemProvider extends ItemProviderAdapter implements
         {
             super.getPropertyDescriptors ( object );
 
-            addRequiredItemsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Required Items feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addRequiredItemsPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CleanupSummaries_requiredItems_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_CleanupSummaries_requiredItems_feature", "_UI_CleanupSummaries_type" ), SummaryPackage.Literals.CLEANUP_SUMMARIES__REQUIRED_ITEMS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This returns CleanupSummaries.gif.
+     * This returns OutputSummaries.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -83,7 +68,7 @@ public class CleanupSummariesItemProvider extends ItemProviderAdapter implements
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/CleanupSummaries" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/OutputSummaries" ) );
     }
 
     /**
@@ -95,8 +80,7 @@ public class CleanupSummariesItemProvider extends ItemProviderAdapter implements
     @Override
     public String getText ( Object object )
     {
-        CleanupSummaries cleanupSummaries = (CleanupSummaries)object;
-        return getString ( "_UI_CleanupSummaries_type" ) + " " + cleanupSummaries.getRequiredItems ();
+        return getString ( "_UI_OutputSummaries_type" );
     }
 
     /**
@@ -110,13 +94,6 @@ public class CleanupSummariesItemProvider extends ItemProviderAdapter implements
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
-
-        switch ( notification.getFeatureID ( CleanupSummaries.class ) )
-        {
-            case SummaryPackage.CLEANUP_SUMMARIES__REQUIRED_ITEMS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-        }
         super.notifyChanged ( notification );
     }
 

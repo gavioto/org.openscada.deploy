@@ -229,7 +229,7 @@ public class Configuration extends GenericMasterConfiguration
     /**
      * Generate global summaries
      */
-    public void generateGlobalSummaries ()
+    public void outputGlobalSummaries ()
     {
         final Set<String> blacklist = new HashSet<String> ();
 
@@ -337,7 +337,7 @@ public class Configuration extends GenericMasterConfiguration
         return this.report.getItem ( id );
     }
 
-    public void generateAverages ()
+    public void outputAverages ()
     {
         for ( final Average average : this.averages )
         {
@@ -349,7 +349,7 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    public void generateSummaries ()
+    public void outputSummaries ()
     {
         final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 
@@ -377,10 +377,21 @@ public class Configuration extends GenericMasterConfiguration
 
     /**
      * Generate configuration for currently known items
-     * 
-     * @throws Exception
      */
-    public void generateItems () throws Exception
+
+    public void outputItems ()
+    {
+        try
+        {
+            doOutputItems ();
+        }
+        catch ( final Exception e )
+        {
+            throw new RuntimeException ( e );
+        }
+    }
+
+    protected void doOutputItems () throws Exception
     {
         final Set<String> connections = new HashSet<String> ();
 

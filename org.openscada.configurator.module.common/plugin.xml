@@ -51,5 +51,12 @@
             class="org.openscada.configurator.module.common.marker.MarkerPackage"
             genModel="model/modules.genmodel"/>
    </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Output"
+            class="org.openscada.configurator.module.common.output.OutputPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
 
 </plugin>

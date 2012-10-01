@@ -71,4 +71,43 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="HierarchyBlockGenerator" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module"/>
   </eSubpackages>
+  <eSubpackages name="output" nsURI="http://openscada.org/Configurator/Modules/Common/Output"
+      nsPrefix="output">
+    <eClassifiers xsi:type="ecore:EClass" name="OutputAverages" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eOperations name="process">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="configuration.outputAverages();"/>
+        </eAnnotations>
+        <eParameters name="configuration" eType="ecore:EDataType platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
+        <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputItems" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eOperations name="process">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="configuration.outputItems();"/>
+        </eAnnotations>
+        <eParameters name="configuration" eType="ecore:EDataType platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
+        <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputSummaries" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eOperations name="process">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="configuration.outputSummaries();"/>
+        </eAnnotations>
+        <eParameters name="configuration" eType="ecore:EDataType platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
+        <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputGlobalSummaries" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eOperations name="process">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="configuration.outputGlobalSummaries();"/>
+        </eAnnotations>
+        <eParameters name="configuration" eType="ecore:EDataType platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
+        <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
+      </eOperations>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

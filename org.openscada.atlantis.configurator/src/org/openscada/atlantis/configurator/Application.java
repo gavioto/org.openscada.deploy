@@ -67,13 +67,6 @@ public class Application implements IApplication
             module.process ( cfg, project );
         }
 
-        log.println ( "** 3 - Process" );
-
-        cfg.generateAverages ();
-        cfg.generateSummaries (); // summaries must be generated before items, since they create items
-        cfg.generateItems ();
-        cfg.generateGlobalSummaries ();
-
         log.println ( "** 4a - Validating" );
         cfg.validate ();
 

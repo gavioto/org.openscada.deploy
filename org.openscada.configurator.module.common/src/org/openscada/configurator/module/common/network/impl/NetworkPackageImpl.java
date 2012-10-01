@@ -20,6 +20,8 @@ import org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkFactory;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
+import org.openscada.configurator.module.common.output.OutputPackage;
+import org.openscada.configurator.module.common.output.impl.OutputPackageImpl;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
@@ -101,6 +103,7 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
         MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
         MarkerPackageImpl theMarkerPackage = (MarkerPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) instanceof MarkerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) : MarkerPackage.eINSTANCE );
+        OutputPackageImpl theOutputPackage = (OutputPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI ) instanceof OutputPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI ) : OutputPackage.eINSTANCE );
 
         // Create package meta-data objects
         theNetworkPackage.createPackageContents ();
@@ -110,6 +113,7 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         theSummaryPackage.createPackageContents ();
         theMainPackage.createPackageContents ();
         theMarkerPackage.createPackageContents ();
+        theOutputPackage.createPackageContents ();
 
         // Initialize created meta-data
         theNetworkPackage.initializePackageContents ();
@@ -119,6 +123,7 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         theSummaryPackage.initializePackageContents ();
         theMainPackage.initializePackageContents ();
         theMarkerPackage.initializePackageContents ();
+        theOutputPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theNetworkPackage.freeze ();

@@ -4,24 +4,27 @@
  *
  * $Id$
  */
-package org.openscada.configurator.module.common.impl;
+package org.openscada.configurator.module.common.output.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configurator.module.common.CommonFactory;
 import org.openscada.configurator.module.common.CommonPackage;
-import org.openscada.configurator.module.common.FileModule;
+import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
 import org.openscada.configurator.module.common.main.impl.MainPackageImpl;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
 import org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 import org.openscada.configurator.module.common.network.impl.NetworkPackageImpl;
+import org.openscada.configurator.module.common.output.OutputAverages;
+import org.openscada.configurator.module.common.output.OutputFactory;
+import org.openscada.configurator.module.common.output.OutputGlobalSummaries;
+import org.openscada.configurator.module.common.output.OutputItems;
 import org.openscada.configurator.module.common.output.OutputPackage;
-import org.openscada.configurator.module.common.output.impl.OutputPackageImpl;
+import org.openscada.configurator.module.common.output.OutputSummaries;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
@@ -35,14 +38,35 @@ import org.openscada.configurator.module.common.summary.impl.SummaryPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommonPackageImpl extends EPackageImpl implements CommonPackage
+public class OutputPackageImpl extends EPackageImpl implements OutputPackage
 {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass fileModuleEClass = null;
+    private EClass outputAveragesEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass outputItemsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass outputSummariesEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass outputGlobalSummariesEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -55,13 +79,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see org.eclipse.emf.ecore.EPackage.Registry
-     * @see org.openscada.configurator.module.common.CommonPackage#eNS_URI
+     * @see org.openscada.configurator.module.common.output.OutputPackage#eNS_URI
      * @see #init()
      * @generated
      */
-    private CommonPackageImpl ()
+    private OutputPackageImpl ()
     {
-        super ( eNS_URI, CommonFactory.eINSTANCE );
+        super ( eNS_URI, OutputFactory.eINSTANCE );
     }
 
     /**
@@ -74,7 +98,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
      * 
-     * <p>This method is used to initialize {@link CommonPackage#eINSTANCE} when that field is accessed.
+     * <p>This method is used to initialize {@link OutputPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -83,13 +107,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @see #initializePackageContents()
      * @generated
      */
-    public static CommonPackage init ()
+    public static OutputPackage init ()
     {
         if ( isInited )
-            return (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
+            return (OutputPackage)EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI );
 
         // Obtain or create and register package
-        CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new CommonPackageImpl () );
+        OutputPackageImpl theOutputPackage = (OutputPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof OutputPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new OutputPackageImpl () );
 
         isInited = true;
 
@@ -97,15 +121,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         ConfiguratorPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
+        CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) : CommonPackage.eINSTANCE );
         NetworkPackageImpl theNetworkPackage = (NetworkPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) instanceof NetworkPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI ) : NetworkPackage.eINSTANCE );
         ScriptsPackageImpl theScriptsPackage = (ScriptsPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) instanceof ScriptsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI ) : ScriptsPackage.eINSTANCE );
         ProcessingPackageImpl theProcessingPackage = (ProcessingPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) instanceof ProcessingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI ) : ProcessingPackage.eINSTANCE );
         SummaryPackageImpl theSummaryPackage = (SummaryPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) instanceof SummaryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI ) : SummaryPackage.eINSTANCE );
         MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
         MarkerPackageImpl theMarkerPackage = (MarkerPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) instanceof MarkerPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI ) : MarkerPackage.eINSTANCE );
-        OutputPackageImpl theOutputPackage = (OutputPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI ) instanceof OutputPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI ) : OutputPackage.eINSTANCE );
 
         // Create package meta-data objects
+        theOutputPackage.createPackageContents ();
         theCommonPackage.createPackageContents ();
         theNetworkPackage.createPackageContents ();
         theScriptsPackage.createPackageContents ();
@@ -113,9 +138,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         theSummaryPackage.createPackageContents ();
         theMainPackage.createPackageContents ();
         theMarkerPackage.createPackageContents ();
-        theOutputPackage.createPackageContents ();
 
         // Initialize created meta-data
+        theOutputPackage.initializePackageContents ();
         theCommonPackage.initializePackageContents ();
         theNetworkPackage.initializePackageContents ();
         theScriptsPackage.initializePackageContents ();
@@ -123,14 +148,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         theSummaryPackage.initializePackageContents ();
         theMainPackage.initializePackageContents ();
         theMarkerPackage.initializePackageContents ();
-        theOutputPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
-        theCommonPackage.freeze ();
+        theOutputPackage.freeze ();
 
         // Update the registry and return the package
-        EPackage.Registry.INSTANCE.put ( CommonPackage.eNS_URI, theCommonPackage );
-        return theCommonPackage;
+        EPackage.Registry.INSTANCE.put ( OutputPackage.eNS_URI, theOutputPackage );
+        return theOutputPackage;
     }
 
     /**
@@ -138,9 +162,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getFileModule ()
+    public EClass getOutputAverages ()
     {
-        return fileModuleEClass;
+        return outputAveragesEClass;
     }
 
     /**
@@ -148,9 +172,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getFileModule_Path ()
+    public EClass getOutputItems ()
     {
-        return (EAttribute)fileModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return outputItemsEClass;
     }
 
     /**
@@ -158,9 +182,29 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public CommonFactory getCommonFactory ()
+    public EClass getOutputSummaries ()
     {
-        return (CommonFactory)getEFactoryInstance ();
+        return outputSummariesEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getOutputGlobalSummaries ()
+    {
+        return outputGlobalSummariesEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public OutputFactory getOutputFactory ()
+    {
+        return (OutputFactory)getEFactoryInstance ();
     }
 
     /**
@@ -184,8 +228,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         isCreated = true;
 
         // Create classes and their features
-        fileModuleEClass = createEClass ( FILE_MODULE );
-        createEAttribute ( fileModuleEClass, FILE_MODULE__PATH );
+        outputAveragesEClass = createEClass ( OUTPUT_AVERAGES );
+
+        outputItemsEClass = createEClass ( OUTPUT_ITEMS );
+
+        outputSummariesEClass = createEClass ( OUTPUT_SUMMARIES );
+
+        outputGlobalSummariesEClass = createEClass ( OUTPUT_GLOBAL_SUMMARIES );
     }
 
     /**
@@ -214,37 +263,42 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        NetworkPackage theNetworkPackage = (NetworkPackage)EPackage.Registry.INSTANCE.getEPackage ( NetworkPackage.eNS_URI );
-        ScriptsPackage theScriptsPackage = (ScriptsPackage)EPackage.Registry.INSTANCE.getEPackage ( ScriptsPackage.eNS_URI );
-        ProcessingPackage theProcessingPackage = (ProcessingPackage)EPackage.Registry.INSTANCE.getEPackage ( ProcessingPackage.eNS_URI );
-        SummaryPackage theSummaryPackage = (SummaryPackage)EPackage.Registry.INSTANCE.getEPackage ( SummaryPackage.eNS_URI );
-        MainPackage theMainPackage = (MainPackage)EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI );
-        MarkerPackage theMarkerPackage = (MarkerPackage)EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI );
-        OutputPackage theOutputPackage = (OutputPackage)EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
-
-        // Add subpackages
-        getESubpackages ().add ( theNetworkPackage );
-        getESubpackages ().add ( theScriptsPackage );
-        getESubpackages ().add ( theProcessingPackage );
-        getESubpackages ().add ( theSummaryPackage );
-        getESubpackages ().add ( theMainPackage );
-        getESubpackages ().add ( theMarkerPackage );
-        getESubpackages ().add ( theOutputPackage );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        fileModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        outputAveragesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        outputItemsEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        outputSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        outputGlobalSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
-        initEClass ( fileModuleEClass, FileModule.class, "FileModule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getFileModule_Path (), ecorePackage.getEString (), "path", null, 0, -1, FileModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( outputAveragesEClass, OutputAverages.class, "OutputAverages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        // Create resource
-        createResource ( eNS_URI );
+        EOperation op = addEOperation ( outputAveragesEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        initEClass ( outputItemsEClass, OutputItems.class, "OutputItems", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        op = addEOperation ( outputItemsEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        initEClass ( outputSummariesEClass, OutputSummaries.class, "OutputSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        op = addEOperation ( outputSummariesEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        initEClass ( outputGlobalSummariesEClass, OutputGlobalSummaries.class, "OutputGlobalSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        op = addEOperation ( outputGlobalSummariesEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
     }
 
-} //CommonPackageImpl
+} //OutputPackageImpl
