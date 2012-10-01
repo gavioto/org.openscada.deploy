@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds <em>Data Source Ids</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#isRetain <em>Retain</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,5 +87,32 @@ public interface SummaryGroup extends EObject
      * @generated
      */
     EList<String> getDataSourceIds ();
+
+    /**
+     * Returns the value of the '<em><b>Retain</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Retain</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Retain</em>' attribute.
+     * @see #setRetain(boolean)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_Retain()
+     * @model default="false"
+     * @generated
+     */
+    boolean isRetain ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.SummaryGroup#isRetain <em>Retain</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Retain</em>' attribute.
+     * @see #isRetain()
+     * @generated
+     */
+    void setRetain ( boolean value );
 
 } // SummaryGroup

@@ -61,6 +61,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
             addIdPropertyDescriptor ( object );
             addHierarchyPropertyDescriptor ( object );
             addDataSourceIdsPropertyDescriptor ( object );
+            addRetainPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -96,6 +97,17 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
     protected void addDataSourceIdsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_dataSourceIds_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_dataSourceIds_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Retain feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRetainPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_retain_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_retain_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__RETAIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -170,13 +182,14 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( SummaryGroup.class ) )
         {
-            case ModelPackage.SUMMARY_GROUP__ID:
-            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.SUMMARY_GROUP__ID:
+        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+        case ModelPackage.SUMMARY_GROUP__RETAIN:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

@@ -180,12 +180,12 @@ public class ListMonitorEntryImpl extends EObjectImpl implements ListMonitorEntr
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
-                return getValue ();
-            case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
-                return getSeverity ();
-            case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
-                return getRequireAck ();
+        case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
+            return getValue ();
+        case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
+            return getSeverity ();
+        case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
+            return getRequireAck ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -199,15 +199,15 @@ public class ListMonitorEntryImpl extends EObjectImpl implements ListMonitorEntr
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
-                setValue ( (Variant)newValue );
-                return;
-            case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
-                setSeverity ( (String)newValue );
-                return;
-            case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
-                setRequireAck ( (Boolean)newValue );
-                return;
+        case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
+            setValue ( (Variant)newValue );
+            return;
+        case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
+            setSeverity ( (String)newValue );
+            return;
+        case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
+            setRequireAck ( (Boolean)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -221,15 +221,15 @@ public class ListMonitorEntryImpl extends EObjectImpl implements ListMonitorEntr
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
-                setValue ( VALUE_EDEFAULT );
-                return;
-            case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
-                setSeverity ( SEVERITY_EDEFAULT );
-                return;
-            case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
-                setRequireAck ( REQUIRE_ACK_EDEFAULT );
-                return;
+        case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
+            setValue ( VALUE_EDEFAULT );
+            return;
+        case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
+            setSeverity ( SEVERITY_EDEFAULT );
+            return;
+        case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
+            setRequireAck ( REQUIRE_ACK_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -243,12 +243,12 @@ public class ListMonitorEntryImpl extends EObjectImpl implements ListMonitorEntr
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
-            case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
-                return SEVERITY_EDEFAULT == null ? severity != null : !SEVERITY_EDEFAULT.equals ( severity );
-            case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
-                return REQUIRE_ACK_EDEFAULT == null ? requireAck != null : !REQUIRE_ACK_EDEFAULT.equals ( requireAck );
+        case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
+            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
+        case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
+            return SEVERITY_EDEFAULT == null ? severity != null : !SEVERITY_EDEFAULT.equals ( severity );
+        case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
+            return REQUIRE_ACK_EDEFAULT == null ? requireAck != null : !REQUIRE_ACK_EDEFAULT.equals ( requireAck );
         }
         return super.eIsSet ( featureID );
     }

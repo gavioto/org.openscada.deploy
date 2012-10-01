@@ -191,12 +191,12 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
     {
         switch ( featureID )
         {
-            case ModelPackage.FORMULA_INPUT__NAME:
-                return getName ();
-            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                return getDatasourceId ();
-            case ModelPackage.FORMULA_INPUT__TYPE:
-                return getType ();
+        case ModelPackage.FORMULA_INPUT__NAME:
+            return getName ();
+        case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
+            return getDatasourceId ();
+        case ModelPackage.FORMULA_INPUT__TYPE:
+            return getType ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -211,15 +211,15 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
     {
         switch ( featureID )
         {
-            case ModelPackage.FORMULA_INPUT__NAME:
-                setName ( (String)newValue );
-                return;
-            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                setDatasourceId ( (String)newValue );
-                return;
-            case ModelPackage.FORMULA_INPUT__TYPE:
-                setType ( (DataType)newValue );
-                return;
+        case ModelPackage.FORMULA_INPUT__NAME:
+            setName ( (String)newValue );
+            return;
+        case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
+            setDatasourceId ( (String)newValue );
+            return;
+        case ModelPackage.FORMULA_INPUT__TYPE:
+            setType ( (DataType)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -234,15 +234,15 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
     {
         switch ( featureID )
         {
-            case ModelPackage.FORMULA_INPUT__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                setDatasourceId ( DATASOURCE_ID_EDEFAULT );
-                return;
-            case ModelPackage.FORMULA_INPUT__TYPE:
-                setType ( TYPE_EDEFAULT );
-                return;
+        case ModelPackage.FORMULA_INPUT__NAME:
+            setName ( NAME_EDEFAULT );
+            return;
+        case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
+            setDatasourceId ( DATASOURCE_ID_EDEFAULT );
+            return;
+        case ModelPackage.FORMULA_INPUT__TYPE:
+            setType ( TYPE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -257,12 +257,12 @@ public class FormulaInputImpl extends EObjectImpl implements FormulaInput
     {
         switch ( featureID )
         {
-            case ModelPackage.FORMULA_INPUT__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-                return DATASOURCE_ID_EDEFAULT == null ? datasourceId != null : !DATASOURCE_ID_EDEFAULT.equals ( datasourceId );
-            case ModelPackage.FORMULA_INPUT__TYPE:
-                return type != TYPE_EDEFAULT;
+        case ModelPackage.FORMULA_INPUT__NAME:
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+        case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
+            return DATASOURCE_ID_EDEFAULT == null ? datasourceId != null : !DATASOURCE_ID_EDEFAULT.equals ( datasourceId );
+        case ModelPackage.FORMULA_INPUT__TYPE:
+            return type != TYPE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

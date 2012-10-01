@@ -122,9 +122,9 @@ public class MovingAverageItemItemProvider extends ItemItemProvider implements I
 
         switch ( notification.getFeatureID ( MovingAverageItem.class ) )
         {
-            case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

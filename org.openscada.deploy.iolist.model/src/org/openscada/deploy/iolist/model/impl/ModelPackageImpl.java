@@ -761,6 +761,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSummaryGroup_Retain ()
+    {
+        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1618,6 +1628,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__ID );
         createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__HIERARCHY );
         createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__DATA_SOURCE_IDS );
+        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__RETAIN );
 
         formulaItemEClass = createEClass ( FORMULA_ITEM );
         createEAttribute ( formulaItemEClass, FORMULA_ITEM__INPUT_FORMULA );
@@ -1808,6 +1819,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getSummaryGroup_Id (), ecorePackage.getEString (), "id", null, 1, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSummaryGroup_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSummaryGroup_DataSourceIds (), ecorePackage.getEString (), "dataSourceIds", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getSummaryGroup_Retain (), ecorePackage.getEBoolean (), "retain", "false", 0, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( formulaItemEClass, FormulaItem.class, "FormulaItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getFormulaItem_InputFormula (), ecorePackage.getEString (), "inputFormula", null, 0, 1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
