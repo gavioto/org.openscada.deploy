@@ -211,6 +211,7 @@ public class ItemListWriter
         } );
 
         this.columns.add ( new TextEcoreColumn ( "SIMULATION_VALUE", ModelPackage.Literals.ITEM__SIMULATION_VALUE ) );
+        this.columns.add ( new TextEcoreColumn ( "DEFAULT_DEMOTE", ModelPackage.Literals.ITEM__DEFAULT_MONITOR_DEMOTE ) );
     }
 
     public ItemListWriter add ( final Item item )
