@@ -14,6 +14,12 @@ import org.openscada.configuration.model.ConfigurationSlot;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Configuration Slot</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.openscada.configuration.model.ConfigurationSlot#store() <em>Store</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class ConfigurationSlotTest extends TestCase
@@ -58,6 +64,20 @@ public abstract class ConfigurationSlotTest extends TestCase
     protected ConfigurationSlot getFixture ()
     {
         return fixture;
+    }
+
+    /**
+     * Tests the '{@link org.openscada.configuration.model.ConfigurationSlot#store() <em>Store</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.ConfigurationSlot#store()
+     * @generated
+     */
+    public void testStore ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //ConfigurationSlotTest

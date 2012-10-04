@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
 import org.openscada.configurator.module.common.FileModule;
-import org.openscada.configurator.module.common.processing.*;
 import org.openscada.configurator.module.common.processing.ImportListModule;
 import org.openscada.configurator.module.common.processing.ImportModule;
 import org.openscada.configurator.module.common.processing.OverrideListModule;

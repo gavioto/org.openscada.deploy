@@ -55,6 +55,10 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_CoBWRA4zEeKd7LGLR5JbUg"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_CoB9UA4zEeKd7LGLR5JbUg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_3E5CkA44EeKd7LGLR5JbUg" type="2002">
+        <element xmi:type="ecore:EOperation" href="configurator.ecore#//ConfigurationSlot/store"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3E5CkQ44EeKd7LGLR5JbUg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CoB9UQ4zEeKd7LGLR5JbUg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_CoB9Ug4zEeKd7LGLR5JbUg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_CoB9Uw4zEeKd7LGLR5JbUg"/>
@@ -117,7 +121,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_EGyk4Q40EeKd7LGLR5JbUg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="configurator.ecore#//ModuleProcessor"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EGyk4g40EeKd7LGLR5JbUg" x="828" y="528"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EGyk4g40EeKd7LGLR5JbUg" x="828" y="408"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Q_C0QA41EeKd7LGLR5JbUg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Q_DbUA41EeKd7LGLR5JbUg" type="4001"/>
@@ -125,6 +129,10 @@
       <children xmi:type="notation:Node" xmi:id="_SiaCoKV1EeGWlc34FjPxxg" type="2001">
         <element xmi:type="ecore:EAttribute" href="configurator.ecore#//GenericConfigurationSlot/jsonBase"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_SiaCoaV1EeGWlc34FjPxxg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_QZmBAA45EeKd7LGLR5JbUg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configurator.ecore#//GenericConfigurationSlot/baseDirectory"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_QZmBAQ45EeKd7LGLR5JbUg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Q_ECYQ41EeKd7LGLR5JbUg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Q_ECYg41EeKd7LGLR5JbUg"/>
@@ -149,6 +157,13 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_n2yBAQ41EeKd7LGLR5JbUg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EDataType" href="configurator.ecore#//GenericConfiguration"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n2yBAg41EeKd7LGLR5JbUg" x="1116" y="48"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_617rQA44EeKd7LGLR5JbUg" type="1004">
+    <children xmi:type="notation:Node" xmi:id="_6185YA44EeKd7LGLR5JbUg" type="4008"/>
+    <children xmi:type="notation:Node" xmi:id="_6185YQ44EeKd7LGLR5JbUg" type="4009"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_617rQQ44EeKd7LGLR5JbUg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EDataType" href="configurator.ecore#//Exception"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_617rQg44EeKd7LGLR5JbUg" x="1258" y="256"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_77KwAqV0EeGWlc34FjPxxg"/>
   <element xmi:type="ecore:EPackage" href="configurator.ecore#/"/>

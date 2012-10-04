@@ -15,7 +15,7 @@ import org.openscada.configurator.Configuration;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Atlantis Configuration Slot</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl implements AtlantisConfigurationSlot
@@ -27,7 +27,6 @@ public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected AtlantisConfigurationSlotImpl ()
@@ -37,7 +36,6 @@ public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

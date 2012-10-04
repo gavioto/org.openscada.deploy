@@ -54,7 +54,7 @@ public interface ModuleProcessor extends Processor
      * @return the value of the '<em>Slot</em>' reference.
      * @see #setSlot(AtlantisConfigurationSlot)
      * @see org.openscada.configuration.model.ConfiguratorPackage#getModuleProcessor_Slot()
-     * @model required="true"
+     * @model keys="id" required="true"
      * @generated
      */
     AtlantisConfigurationSlot getSlot ();

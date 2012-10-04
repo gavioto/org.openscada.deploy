@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
-import org.openscada.configurator.module.common.marker.*;
 import org.openscada.configurator.module.common.marker.HierarchyBlockGenerator;
 import org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator;
 import org.openscada.configurator.module.common.marker.Marker;

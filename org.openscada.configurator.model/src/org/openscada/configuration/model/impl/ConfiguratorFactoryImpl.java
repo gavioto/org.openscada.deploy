@@ -91,6 +91,8 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         switch ( eDataType.getClassifierID () )
         {
+            case ConfiguratorPackage.EXCEPTION:
+                return createExceptionFromString ( eDataType, initialValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
@@ -106,6 +108,8 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         switch ( eDataType.getClassifierID () )
         {
+            case ConfiguratorPackage.EXCEPTION:
+                return convertExceptionToString ( eDataType, instanceValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
@@ -142,6 +146,26 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         ModuleProcessorImpl moduleProcessor = new ModuleProcessorImpl ();
         return moduleProcessor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Exception createExceptionFromString ( EDataType eDataType, String initialValue )
+    {
+        return (Exception)super.createFromString ( eDataType, initialValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertExceptionToString ( EDataType eDataType, Object instanceValue )
+    {
+        return super.convertToString ( eDataType, instanceValue );
     }
 
     /**

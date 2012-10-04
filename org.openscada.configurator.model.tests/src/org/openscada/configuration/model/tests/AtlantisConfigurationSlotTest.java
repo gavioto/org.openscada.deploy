@@ -6,8 +6,6 @@
  */
 package org.openscada.configuration.model.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.configuration.model.AtlantisConfigurationSlot;

@@ -7,7 +7,6 @@
 package org.openscada.configuration.model.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.configuration.model.ConfiguratorFactory;
@@ -110,7 +109,7 @@ public class ModuleProcessorTest extends TestCase
      * @see org.openscada.configuration.model.Processor#process(org.openscada.configuration.model.Project)
      * @generated
      */
-    public void testProcess ()
+    public void testProcess__Project ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

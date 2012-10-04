@@ -174,13 +174,22 @@ public interface ConfiguratorPackage extends EPackage
     int GENERIC_CONFIGURATION_SLOT__JSON_BASE = CONFIGURATION_SLOT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Base Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY = CONFIGURATION_SLOT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Generic Configuration Slot</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT = CONFIGURATION_SLOT_FEATURE_COUNT + 1;
+    int GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT = CONFIGURATION_SLOT_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configuration.model.impl.AtlantisConfigurationSlotImpl <em>Atlantis Configuration Slot</em>}' class.
@@ -209,6 +218,15 @@ public interface ConfiguratorPackage extends EPackage
      * @ordered
      */
     int ATLANTIS_CONFIGURATION_SLOT__JSON_BASE = GENERIC_CONFIGURATION_SLOT__JSON_BASE;
+
+    /**
+     * The feature id for the '<em><b>Base Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ATLANTIS_CONFIGURATION_SLOT__BASE_DIRECTORY = GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY;
 
     /**
      * The number of structural features of the '<em>Atlantis Configuration Slot</em>' class.
@@ -294,6 +312,16 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     int GENERIC_CONFIGURATION = 8;
+
+    /**
+     * The meta object id for the '<em>Exception</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.lang.Exception
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getException()
+     * @generated
+     */
+    int EXCEPTION = 9;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
@@ -432,6 +460,17 @@ public interface ConfiguratorPackage extends EPackage
     EAttribute getGenericConfigurationSlot_JsonBase ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.configuration.model.GenericConfigurationSlot#getBaseDirectory <em>Base Directory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Base Directory</em>'.
+     * @see org.openscada.configuration.model.GenericConfigurationSlot#getBaseDirectory()
+     * @see #getGenericConfigurationSlot()
+     * @generated
+     */
+    EAttribute getGenericConfigurationSlot_BaseDirectory ();
+
+    /**
      * Returns the meta object for data type '{@link org.openscada.configurator.Configuration <em>Configuration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -452,6 +491,17 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     EDataType getGenericConfiguration ();
+
+    /**
+     * Returns the meta object for data type '{@link java.lang.Exception <em>Exception</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Exception</em>'.
+     * @see java.lang.Exception
+     * @model instanceClass="java.lang.Exception"
+     * @generated
+     */
+    EDataType getException ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -595,6 +645,14 @@ public interface ConfiguratorPackage extends EPackage
         EAttribute GENERIC_CONFIGURATION_SLOT__JSON_BASE = eINSTANCE.getGenericConfigurationSlot_JsonBase ();
 
         /**
+         * The meta object literal for the '<em><b>Base Directory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY = eINSTANCE.getGenericConfigurationSlot_BaseDirectory ();
+
+        /**
          * The meta object literal for the '<em>Configuration</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -613,6 +671,16 @@ public interface ConfiguratorPackage extends EPackage
          * @generated
          */
         EDataType GENERIC_CONFIGURATION = eINSTANCE.getGenericConfiguration ();
+
+        /**
+         * The meta object literal for the '<em>Exception</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see java.lang.Exception
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getException()
+         * @generated
+         */
+        EDataType EXCEPTION = eINSTANCE.getException ();
 
     }
 

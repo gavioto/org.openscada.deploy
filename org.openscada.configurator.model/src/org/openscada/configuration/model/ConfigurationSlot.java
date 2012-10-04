@@ -52,4 +52,12 @@ public interface ConfigurationSlot extends EObject
      * @generated
      */
     void setId ( String value );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model exceptions="org.openscada.configuration.model.Exception"
+     * @generated
+     */
+    void store () throws Exception;
 } // ConfigurationSlot
