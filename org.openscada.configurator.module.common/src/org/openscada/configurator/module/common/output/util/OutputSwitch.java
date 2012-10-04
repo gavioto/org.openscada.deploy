@@ -15,6 +15,7 @@ import org.openscada.configurator.module.common.output.OutputGlobalSummaries;
 import org.openscada.configurator.module.common.output.OutputItems;
 import org.openscada.configurator.module.common.output.OutputPackage;
 import org.openscada.configurator.module.common.output.OutputSummaries;
+import org.openscada.configurator.module.common.output.WriteOutput;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,6 +120,16 @@ public class OutputSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OutputPackage.WRITE_OUTPUT:
+            {
+                WriteOutput writeOutput = (WriteOutput)theEObject;
+                T result = caseWriteOutput ( writeOutput );
+                if ( result == null )
+                    result = caseModule ( writeOutput );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -184,6 +195,22 @@ public class OutputSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseOutputGlobalSummaries ( OutputGlobalSummaries object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Write Output</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Write Output</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseWriteOutput ( WriteOutput object )
     {
         return null;
     }

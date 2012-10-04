@@ -119,7 +119,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * @generated
      */
     @Override
-    public EAttribute getProject_MainConfiguration ()
+    public EAttribute getProject_JsonBase ()
     {
         return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 0 );
     }
@@ -129,29 +129,9 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * @generated
      */
     @Override
-    public EAttribute getProject_JsonBase ()
-    {
-        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getProject_OutputBase ()
-    {
-        return (EAttribute)projectEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EReference getProject_Modules ()
     {
-        return (EReference)projectEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)projectEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -204,9 +184,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Create classes and their features
         projectEClass = createEClass ( PROJECT );
-        createEAttribute ( projectEClass, PROJECT__MAIN_CONFIGURATION );
         createEAttribute ( projectEClass, PROJECT__JSON_BASE );
-        createEAttribute ( projectEClass, PROJECT__OUTPUT_BASE );
         createEReference ( projectEClass, PROJECT__MODULES );
 
         moduleEClass = createEClass ( MODULE );
@@ -246,9 +224,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Initialize classes and features; add operations and parameters
         initEClass ( projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getProject_MainConfiguration (), ecorePackage.getEString (), "mainConfiguration", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getProject_JsonBase (), ecorePackage.getEString (), "jsonBase", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getProject_OutputBase (), ecorePackage.getEString (), "outputBase", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getProject_Modules (), this.getModule (), null, "modules", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

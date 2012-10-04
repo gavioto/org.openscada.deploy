@@ -17,6 +17,7 @@ import org.openscada.configurator.module.common.output.OutputGlobalSummaries;
 import org.openscada.configurator.module.common.output.OutputItems;
 import org.openscada.configurator.module.common.output.OutputPackage;
 import org.openscada.configurator.module.common.output.OutputSummaries;
+import org.openscada.configurator.module.common.output.WriteOutput;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,6 +79,8 @@ public class OutputFactoryImpl extends EFactoryImpl implements OutputFactory
                 return createOutputSummaries ();
             case OutputPackage.OUTPUT_GLOBAL_SUMMARIES:
                 return createOutputGlobalSummaries ();
+            case OutputPackage.WRITE_OUTPUT:
+                return createWriteOutput ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -125,6 +128,17 @@ public class OutputFactoryImpl extends EFactoryImpl implements OutputFactory
     {
         OutputGlobalSummariesImpl outputGlobalSummaries = new OutputGlobalSummariesImpl ();
         return outputGlobalSummaries;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public WriteOutput createWriteOutput ()
+    {
+        WriteOutputImpl writeOutput = new WriteOutputImpl ();
+        return writeOutput;
     }
 
     /**

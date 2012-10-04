@@ -42,6 +42,7 @@ public class OutputTests extends TestSuite
         suite.addTestSuite ( OutputItemsTest.class );
         suite.addTestSuite ( OutputSummariesTest.class );
         suite.addTestSuite ( OutputGlobalSummariesTest.class );
+        suite.addTestSuite ( WriteOutputTest.class );
         return suite;
     }
 

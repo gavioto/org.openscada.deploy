@@ -89,6 +89,25 @@ public interface MainPackage extends EPackage
     int MAIN_LOADER_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.module.common.main.impl.ValidateConfigurationImpl <em>Validate Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.module.common.main.impl.ValidateConfigurationImpl
+     * @see org.openscada.configurator.module.common.main.impl.MainPackageImpl#getValidateConfiguration()
+     * @generated
+     */
+    int VALIDATE_CONFIGURATION = 1;
+
+    /**
+     * The number of structural features of the '<em>Validate Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALIDATE_CONFIGURATION_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.main.MainLoader <em>Loader</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -108,6 +127,16 @@ public interface MainPackage extends EPackage
      * @generated
      */
     EAttribute getMainLoader_File ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.module.common.main.ValidateConfiguration <em>Validate Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Validate Configuration</em>'.
+     * @see org.openscada.configurator.module.common.main.ValidateConfiguration
+     * @generated
+     */
+    EClass getValidateConfiguration ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -149,6 +178,16 @@ public interface MainPackage extends EPackage
          * @generated
          */
         EAttribute MAIN_LOADER__FILE = eINSTANCE.getMainLoader_File ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.main.impl.ValidateConfigurationImpl <em>Validate Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.module.common.main.impl.ValidateConfigurationImpl
+         * @see org.openscada.configurator.module.common.main.impl.MainPackageImpl#getValidateConfiguration()
+         * @generated
+         */
+        EClass VALIDATE_CONFIGURATION = eINSTANCE.getValidateConfiguration ();
 
     }
 

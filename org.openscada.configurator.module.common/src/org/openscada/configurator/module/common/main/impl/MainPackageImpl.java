@@ -8,6 +8,7 @@ package org.openscada.configurator.module.common.main.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
@@ -16,6 +17,7 @@ import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainFactory;
 import org.openscada.configurator.module.common.main.MainLoader;
 import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.ValidateConfiguration;
 import org.openscada.configurator.module.common.marker.MarkerPackage;
 import org.openscada.configurator.module.common.marker.impl.MarkerPackageImpl;
 import org.openscada.configurator.module.common.network.NetworkPackage;
@@ -43,6 +45,13 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
      * @generated
      */
     private EClass mainLoaderEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass validateConfigurationEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -158,6 +167,16 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getValidateConfiguration ()
+    {
+        return validateConfigurationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public MainFactory getMainFactory ()
     {
         return (MainFactory)getEFactoryInstance ();
@@ -186,6 +205,8 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
         // Create classes and their features
         mainLoaderEClass = createEClass ( MAIN_LOADER );
         createEAttribute ( mainLoaderEClass, MAIN_LOADER__FILE );
+
+        validateConfigurationEClass = createEClass ( VALIDATE_CONFIGURATION );
     }
 
     /**
@@ -222,10 +243,17 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
 
         // Add supertypes to classes
         mainLoaderEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        validateConfigurationEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( mainLoaderEClass, MainLoader.class, "MainLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getMainLoader_File (), ecorePackage.getEString (), "file", null, 1, 1, MainLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( validateConfigurationEClass, ValidateConfiguration.class, "ValidateConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        EOperation op = addEOperation ( validateConfigurationEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
     }
 
 } //MainPackageImpl

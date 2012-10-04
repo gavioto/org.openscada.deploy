@@ -38,6 +38,7 @@ public class MainTests extends TestSuite
     {
         TestSuite suite = new MainTests ( "main Tests" );
         suite.addTestSuite ( MainLoaderTest.class );
+        suite.addTestSuite ( ValidateConfigurationTest.class );
         return suite;
     }
 

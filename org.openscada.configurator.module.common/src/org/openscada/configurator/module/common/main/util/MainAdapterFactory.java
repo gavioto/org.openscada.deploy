@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
 import org.openscada.configurator.module.common.main.MainLoader;
 import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.ValidateConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,6 +83,12 @@ public class MainAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseValidateConfiguration ( ValidateConfiguration object )
+        {
+            return createValidateConfigurationAdapter ();
+        }
+
+        @Override
         public Adapter caseModule ( Module object )
         {
             return createModuleAdapter ();
@@ -119,6 +126,21 @@ public class MainAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createMainLoaderAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.main.ValidateConfiguration <em>Validate Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.main.ValidateConfiguration
+     * @generated
+     */
+    public Adapter createValidateConfigurationAdapter ()
     {
         return null;
     }

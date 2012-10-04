@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.configurator.module.common.main.MainFactory;
 import org.openscada.configurator.module.common.main.MainLoader;
 import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.ValidateConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +70,8 @@ public class MainFactoryImpl extends EFactoryImpl implements MainFactory
         {
             case MainPackage.MAIN_LOADER:
                 return createMainLoader ();
+            case MainPackage.VALIDATE_CONFIGURATION:
+                return createValidateConfiguration ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -83,6 +86,17 @@ public class MainFactoryImpl extends EFactoryImpl implements MainFactory
     {
         MainLoaderImpl mainLoader = new MainLoaderImpl ();
         return mainLoader;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ValidateConfiguration createValidateConfiguration ()
+    {
+        ValidateConfigurationImpl validateConfiguration = new ValidateConfigurationImpl ();
+        return validateConfiguration;
     }
 
     /**

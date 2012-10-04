@@ -36,6 +36,15 @@ public interface MainFactory extends EFactory
     MainLoader createMainLoader ();
 
     /**
+     * Returns a new object of class '<em>Validate Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Validate Configuration</em>'.
+     * @generated
+     */
+    ValidateConfiguration createValidateConfiguration ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

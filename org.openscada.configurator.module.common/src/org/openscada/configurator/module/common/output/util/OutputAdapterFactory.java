@@ -16,6 +16,7 @@ import org.openscada.configurator.module.common.output.OutputGlobalSummaries;
 import org.openscada.configurator.module.common.output.OutputItems;
 import org.openscada.configurator.module.common.output.OutputPackage;
 import org.openscada.configurator.module.common.output.OutputSummaries;
+import org.openscada.configurator.module.common.output.WriteOutput;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,6 +104,12 @@ public class OutputAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseWriteOutput ( WriteOutput object )
+        {
+            return createWriteOutputAdapter ();
+        }
+
+        @Override
         public Adapter caseModule ( Module object )
         {
             return createModuleAdapter ();
@@ -185,6 +192,21 @@ public class OutputAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createOutputGlobalSummariesAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.module.common.output.WriteOutput <em>Write Output</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.module.common.output.WriteOutput
+     * @generated
+     */
+    public Adapter createWriteOutputAdapter ()
     {
         return null;
     }

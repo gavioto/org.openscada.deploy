@@ -132,9 +132,9 @@ public class Configuration extends GenericMasterConfiguration
 
     private final Report report;
 
-    public Configuration () throws Exception
+    public Configuration ( final PrintStream logStream ) throws Exception
     {
-        this.logStream = System.out;
+        this.logStream = logStream;
 
         this.report = new Report ();
 
@@ -1290,11 +1290,6 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "groups", StringHelper.join ( groups, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
         addData ( "org.openscada.da.datasource.sum", id, data ); //$NON-NLS-1$
-    }
-
-    public void close ()
-    {
-        this.logStream.close ();
     }
 
     @Override

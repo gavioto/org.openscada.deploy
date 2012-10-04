@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
 import org.openscada.configurator.module.common.main.MainLoader;
 import org.openscada.configurator.module.common.main.MainPackage;
+import org.openscada.configurator.module.common.main.ValidateConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,6 +87,16 @@ public class MainSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case MainPackage.VALIDATE_CONFIGURATION:
+            {
+                ValidateConfiguration validateConfiguration = (ValidateConfiguration)theEObject;
+                T result = caseValidateConfiguration ( validateConfiguration );
+                if ( result == null )
+                    result = caseModule ( validateConfiguration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -103,6 +114,22 @@ public class MainSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMainLoader ( MainLoader object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Validate Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Validate Configuration</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseValidateConfiguration ( ValidateConfiguration object )
     {
         return null;
     }

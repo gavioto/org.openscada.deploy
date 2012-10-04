@@ -63,6 +63,15 @@ public interface OutputFactory extends EFactory
     OutputGlobalSummaries createOutputGlobalSummaries ();
 
     /**
+     * Returns a new object of class '<em>Write Output</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Write Output</em>'.
+     * @generated
+     */
+    WriteOutput createWriteOutput ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

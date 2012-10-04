@@ -6,6 +6,7 @@
  */
 package org.openscada.configurator.module.common.output;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.openscada.configuration.model.ConfiguratorPackage;
@@ -136,6 +137,34 @@ public interface OutputPackage extends EPackage
     int OUTPUT_GLOBAL_SUMMARIES_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.module.common.output.impl.WriteOutputImpl <em>Write Output</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.module.common.output.impl.WriteOutputImpl
+     * @see org.openscada.configurator.module.common.output.impl.OutputPackageImpl#getWriteOutput()
+     * @generated
+     */
+    int WRITE_OUTPUT = 4;
+
+    /**
+     * The feature id for the '<em><b>Base Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WRITE_OUTPUT__BASE_DIRECTORY = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Write Output</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WRITE_OUTPUT_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.output.OutputAverages <em>Averages</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -174,6 +203,27 @@ public interface OutputPackage extends EPackage
      * @generated
      */
     EClass getOutputGlobalSummaries ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.module.common.output.WriteOutput <em>Write Output</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Write Output</em>'.
+     * @see org.openscada.configurator.module.common.output.WriteOutput
+     * @generated
+     */
+    EClass getWriteOutput ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.output.WriteOutput#getBaseDirectory <em>Base Directory</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Base Directory</em>'.
+     * @see org.openscada.configurator.module.common.output.WriteOutput#getBaseDirectory()
+     * @see #getWriteOutput()
+     * @generated
+     */
+    EAttribute getWriteOutput_BaseDirectory ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -237,6 +287,24 @@ public interface OutputPackage extends EPackage
          * @generated
          */
         EClass OUTPUT_GLOBAL_SUMMARIES = eINSTANCE.getOutputGlobalSummaries ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.module.common.output.impl.WriteOutputImpl <em>Write Output</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.module.common.output.impl.WriteOutputImpl
+         * @see org.openscada.configurator.module.common.output.impl.OutputPackageImpl#getWriteOutput()
+         * @generated
+         */
+        EClass WRITE_OUTPUT = eINSTANCE.getWriteOutput ();
+
+        /**
+         * The meta object literal for the '<em><b>Base Directory</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute WRITE_OUTPUT__BASE_DIRECTORY = eINSTANCE.getWriteOutput_BaseDirectory ();
 
     }
 

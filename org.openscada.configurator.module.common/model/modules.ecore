@@ -53,6 +53,15 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValidateConfiguration" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eOperations name="process">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="configuration.validate();"/>
+        </eAnnotations>
+        <eParameters name="configuration" eType="ecore:EDataType platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
+        <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
+      </eOperations>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="marker" nsURI="http://openscada.org/Configurator/Modules/Common/Marker"
       nsPrefix="marker">
@@ -108,6 +117,10 @@
         <eParameters name="configuration" eType="ecore:EDataType platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
         <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
       </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WriteOutput" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Module">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseDirectory" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -122,6 +122,31 @@ public class MainItemProviderAdapterFactory extends MainAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.main.ValidateConfiguration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ValidateConfigurationItemProvider validateConfigurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.module.common.main.ValidateConfiguration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createValidateConfigurationAdapter ()
+    {
+        if ( validateConfigurationItemProvider == null )
+        {
+            validateConfigurationItemProvider = new ValidateConfigurationItemProvider ( this );
+        }
+
+        return validateConfigurationItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -264,6 +289,8 @@ public class MainItemProviderAdapterFactory extends MainAdapterFactory implement
     {
         if ( mainLoaderItemProvider != null )
             mainLoaderItemProvider.dispose ();
+        if ( validateConfigurationItemProvider != null )
+            validateConfigurationItemProvider.dispose ();
     }
 
     /**
@@ -319,6 +346,8 @@ public class MainItemProviderAdapterFactory extends MainAdapterFactory implement
             public Object caseProject ( Project object )
             {
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, MainFactory.eINSTANCE.createMainLoader () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, MainFactory.eINSTANCE.createValidateConfiguration () ) );
 
                 return null;
             }

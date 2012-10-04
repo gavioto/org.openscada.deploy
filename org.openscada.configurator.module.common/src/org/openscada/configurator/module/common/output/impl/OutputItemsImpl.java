@@ -17,14 +17,13 @@ import org.openscada.configurator.module.common.output.OutputPackage;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Items</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class OutputItemsImpl extends EObjectImpl implements OutputItems
 {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected OutputItemsImpl ()
@@ -34,7 +33,6 @@ public class OutputItemsImpl extends EObjectImpl implements OutputItems
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -45,11 +43,10 @@ public class OutputItemsImpl extends EObjectImpl implements OutputItems
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void process ( final Configuration configuration, final Project project )
+    public void process ( Configuration configuration, Project project )
     {
         configuration.outputItems ();
     }

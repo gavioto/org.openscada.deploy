@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.openscada.configuration.model.provider;
+package org.openscada.configurator.module.common.output.provider;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,8 +13,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
@@ -28,16 +26,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.Project;
+import org.openscada.configurator.module.common.output.OutputPackage;
+import org.openscada.configurator.module.common.output.WriteOutput;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.configuration.model.Project} object.
+ * This is the item provider adapter for a {@link org.openscada.configurator.module.common.output.WriteOutput} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class WriteOutputItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -45,7 +43,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProjectItemProvider ( AdapterFactory adapterFactory )
+    public WriteOutputItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -63,58 +61,24 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
         {
             super.getPropertyDescriptors ( object );
 
-            addJsonBasePropertyDescriptor ( object );
+            addBaseDirectoryPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Json Base feature.
+     * This adds a property descriptor for the Base Directory feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addJsonBasePropertyDescriptor ( Object object )
+    protected void addBaseDirectoryPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Project_jsonBase_feature" ), getString ( "_UI_Project_jsonBase_description" ), ConfiguratorPackage.Literals.PROJECT__JSON_BASE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WriteOutput_baseDirectory_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_WriteOutput_baseDirectory_feature", "_UI_WriteOutput_type" ), OutputPackage.Literals.WRITE_OUTPUT__BASE_DIRECTORY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
-    {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__JSON_BASE );
-            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__MODULES );
-        }
-        return childrenFeatures;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns Project.gif.
+     * This returns WriteOutput.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -122,7 +86,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Project" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/WriteOutput" ) );
     }
 
     /**
@@ -134,7 +98,8 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_Project_type" );
+        String label = ( (WriteOutput)object ).getBaseDirectory ();
+        return label == null || label.length () == 0 ? getString ( "_UI_WriteOutput_type" ) : getString ( "_UI_WriteOutput_type" ) + " " + label;
     }
 
     /**
@@ -149,11 +114,10 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Project.class ) )
+        switch ( notification.getFeatureID ( WriteOutput.class ) )
         {
-            case ConfiguratorPackage.PROJECT__JSON_BASE:
-            case ConfiguratorPackage.PROJECT__MODULES:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            case OutputPackage.WRITE_OUTPUT__BASE_DIRECTORY:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -170,8 +134,6 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__JSON_BASE, "" ) );
     }
 
     /**
