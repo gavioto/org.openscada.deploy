@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.ae.Severity;
 import org.openscada.core.Variant;
-import org.openscada.deploy.iolist.model.*;
 import org.openscada.core.VariantEditor;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
