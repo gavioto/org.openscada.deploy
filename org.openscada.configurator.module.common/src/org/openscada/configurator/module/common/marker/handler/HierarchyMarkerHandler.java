@@ -60,7 +60,11 @@ public class HierarchyMarkerHandler
         {
             // System.out.println ( String.format ( "Marker group %s -> %s entries - > %s", entry.getKey (), entry.getValue ().size (), entry.getValue () ) );
 
-            this.configuration.addMarker ( this.module.getMarkerName () + "." + StringHelper.join ( entry.getKey (), "_" ), entry.getValue (), markers );
+            final Map<String, String> attributes = new HashMap<String, String> ();
+
+            Configuration.convertHierarchyToInfoAttributes ( entry.getKey (), attributes );
+
+            this.configuration.addMarker ( this.module.getMarkerName () + "." + StringHelper.join ( entry.getKey (), "_" ), entry.getValue (), markers, attributes );
         }
     }
 

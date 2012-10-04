@@ -589,7 +589,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private static final boolean skipOldHierarchy = Boolean.getBoolean ( "skipOldHierarchy" ); //$NON-NLS-1$
 
-    private static void convertHierarchyToInfoAttributes ( final List<String> levels, final Map<String, String> attributes )
+    public static void convertHierarchyToInfoAttributes ( final List<String> levels, final Map<String, String> attributes )
     {
         // instead of location and component
         int i = 0;
@@ -1533,7 +1533,7 @@ public class Configuration extends GenericMasterConfiguration
         return this.summaryGroups;
     }
 
-    public void addMarker ( final String id, final Set<Item> items, final Map<String, String> markers )
+    public void addMarker ( final String id, final Set<Item> items, final Map<String, String> markers, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
@@ -1553,6 +1553,8 @@ public class Configuration extends GenericMasterConfiguration
         {
             data.put ( "marker." + entry.getKey (), entry.getValue () == null ? "" : entry.getValue () ); //$NON-NLS-1$ //$NON-NLS-2$
         }
+
+        applyInfoAttributes ( attributes, data );
 
         addData ( FACTORY_MASTER_HANDLER_MARKER, id, data );
     }
