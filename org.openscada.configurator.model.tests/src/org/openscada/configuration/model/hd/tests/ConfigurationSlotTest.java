@@ -4,26 +4,28 @@
  *
  * $Id$
  */
-package org.openscada.configuration.model.tests;
+package org.openscada.configuration.model.hd.tests;
 
 import junit.textui.TestRunner;
 
-import org.openscada.configuration.model.AtlantisConfigurationSlot;
-import org.openscada.configuration.model.ConfiguratorFactory;
+import org.openscada.configuration.model.hd.ConfigurationSlot;
+import org.openscada.configuration.model.hd.HdFactory;
+
+import org.openscada.configuration.model.tests.GenericConfigurationSlotTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Atlantis Configuration Slot</b></em>'.
+ * A test case for the model object '<em><b>Configuration Slot</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.AtlantisConfigurationSlot#getConfigurationData() <em>Get Configuration Data</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.hd.ConfigurationSlot#getConfigurationData() <em>Get Configuration Data</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class AtlantisConfigurationSlotTest extends GenericConfigurationSlotTest
+public class ConfigurationSlotTest extends GenericConfigurationSlotTest
 {
 
     /**
@@ -33,30 +35,30 @@ public class AtlantisConfigurationSlotTest extends GenericConfigurationSlotTest
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( AtlantisConfigurationSlotTest.class );
+        TestRunner.run ( ConfigurationSlotTest.class );
     }
 
     /**
-     * Constructs a new Atlantis Configuration Slot test case with the given name.
+     * Constructs a new Configuration Slot test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public AtlantisConfigurationSlotTest ( String name )
+    public ConfigurationSlotTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Returns the fixture for this Atlantis Configuration Slot test case.
+     * Returns the fixture for this Configuration Slot test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    protected AtlantisConfigurationSlot getFixture ()
+    protected ConfigurationSlot getFixture ()
     {
-        return (AtlantisConfigurationSlot)fixture;
+        return (ConfigurationSlot)fixture;
     }
 
     /**
@@ -68,7 +70,7 @@ public class AtlantisConfigurationSlotTest extends GenericConfigurationSlotTest
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( ConfiguratorFactory.eINSTANCE.createAtlantisConfigurationSlot () );
+        setFixture ( HdFactory.eINSTANCE.createConfigurationSlot () );
     }
 
     /**
@@ -84,17 +86,17 @@ public class AtlantisConfigurationSlotTest extends GenericConfigurationSlotTest
     }
 
     /**
-     * Tests the '{@link org.openscada.configuration.model.AtlantisConfigurationSlot#getConfigurationData() <em>Get Configuration Data</em>}' operation.
+     * Tests the '{@link org.openscada.configuration.model.hd.ConfigurationSlot#getConfigurationData() <em>Get Configuration Data</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.AtlantisConfigurationSlot#getConfigurationData()
+     * @see org.openscada.configuration.model.hd.ConfigurationSlot#getConfigurationData()
      * @generated
      */
-    public void testGetConfigurationData_1 ()
+    public void testGetConfigurationData ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT
         fail ();
     }
 
-} //AtlantisConfigurationSlotTest
+} //ConfigurationSlotTest

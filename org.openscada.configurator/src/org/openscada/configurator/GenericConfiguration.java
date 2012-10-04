@@ -44,6 +44,11 @@ public class GenericConfiguration
     {
     }
 
+    public Map<String, Map<String, Map<String, String>>> getData ()
+    {
+        return this.data;
+    }
+
     protected void addIgnoreFields ( final String factoryId, final String... field )
     {
         Set<String> fields = this.ignoreFields.get ( factoryId );
@@ -55,7 +60,7 @@ public class GenericConfiguration
         fields.addAll ( Arrays.asList ( field ) );
     }
 
-    protected void addData ( final String factory, final String id, final Map<String, String> sourceData )
+    public void addData ( final String factory, final String id, final Map<String, String> sourceData )
     {
         if ( factory == null || id == null || factory.isEmpty () || id.isEmpty () )
         {

@@ -49,4 +49,21 @@
   <eClassifiers xsi:type="ecore:EDataType" name="GenericConfiguration" instanceClassName="org.openscada.configurator.GenericConfiguration"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eSubpackages name="hd" nsURI="http://openscada.org/Deploy/Configurator/HD" nsPrefix="hd">
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationSlot" eSuperTypes="#//GenericConfigurationSlot">
+      <eOperations name="getConfigurationData" lowerBound="1" eType="#//GenericConfiguration"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="masterConnectionUri"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StorageCommandGenerator" eSuperTypes="#//Processor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="slot" lowerBound="1"
+          eType="#//hd/ConfigurationSlot"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HDItemGenerator" eSuperTypes="#//Processor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hdSlot" lowerBound="1"
+          eType="#//hd/ConfigurationSlot"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="daSlot" lowerBound="1"
+          eType="#//AtlantisConfigurationSlot"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

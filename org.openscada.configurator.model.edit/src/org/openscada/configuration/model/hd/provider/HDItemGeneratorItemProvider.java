@@ -4,15 +4,17 @@
  *
  * $Id$
  */
-package org.openscada.configuration.model.provider;
+package org.openscada.configuration.model.hd.provider;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,19 +23,16 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.configuration.model.ConfiguratorFactory;
-import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.Project;
-import org.openscada.configuration.model.hd.HdFactory;
+
+import org.openscada.configuration.model.hd.HdPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.configuration.model.Project} object.
+ * This is the item provider adapter for a {@link org.openscada.configuration.model.hd.HDItemGenerator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class HDItemGeneratorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -41,7 +40,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProjectItemProvider ( AdapterFactory adapterFactory )
+    public HDItemGeneratorItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -59,46 +58,36 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
         {
             super.getPropertyDescriptors ( object );
 
+            addHdSlotPropertyDescriptor ( object );
+            addDaSlotPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This adds a property descriptor for the Hd Slot feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    protected void addHdSlotPropertyDescriptor ( Object object )
     {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__SLOTS );
-            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS );
-        }
-        return childrenFeatures;
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HDItemGenerator_hdSlot_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_HDItemGenerator_hdSlot_feature", "_UI_HDItemGenerator_type" ), HdPackage.Literals.HD_ITEM_GENERATOR__HD_SLOT, true, false, true, null, null, null ) );
     }
 
     /**
+     * This adds a property descriptor for the Da Slot feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    protected void addDaSlotPropertyDescriptor ( Object object )
     {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HDItemGenerator_daSlot_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_HDItemGenerator_daSlot_feature", "_UI_HDItemGenerator_type" ), HdPackage.Literals.HD_ITEM_GENERATOR__DA_SLOT, true, false, true, null, null, null ) );
     }
 
     /**
-     * This returns Project.gif.
+     * This returns HDItemGenerator.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -106,7 +95,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Project" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/HDItemGenerator" ) );
     }
 
     /**
@@ -118,7 +107,7 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_Project_type" );
+        return getString ( "_UI_HDItemGenerator_type" );
     }
 
     /**
@@ -132,14 +121,6 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
-
-        switch ( notification.getFeatureID ( Project.class ) )
-        {
-            case ConfiguratorPackage.PROJECT__SLOTS:
-            case ConfiguratorPackage.PROJECT__PROCESSORS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
-        }
         super.notifyChanged ( notification );
     }
 
@@ -154,16 +135,6 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, ConfiguratorFactory.eINSTANCE.createAtlantisConfigurationSlot () ) );
-
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, HdFactory.eINSTANCE.createConfigurationSlot () ) );
-
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, ConfiguratorFactory.eINSTANCE.createModuleProcessor () ) );
-
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, HdFactory.eINSTANCE.createStorageCommandGenerator () ) );
-
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, HdFactory.eINSTANCE.createHDItemGenerator () ) );
     }
 
     /**

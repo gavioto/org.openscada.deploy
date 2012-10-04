@@ -22,6 +22,8 @@ import org.openscada.configuration.model.Module;
 import org.openscada.configuration.model.ModuleProcessor;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
+import org.openscada.configuration.model.hd.HdPackage;
+import org.openscada.configuration.model.hd.impl.HdPackageImpl;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.GenericConfiguration;
 
@@ -138,11 +140,16 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         isInited = true;
 
+        // Obtain or create and register interdependencies
+        HdPackageImpl theHdPackage = (HdPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( HdPackage.eNS_URI ) instanceof HdPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( HdPackage.eNS_URI ) : HdPackage.eINSTANCE );
+
         // Create package meta-data objects
         theConfiguratorPackage.createPackageContents ();
+        theHdPackage.createPackageContents ();
 
         // Initialize created meta-data
         theConfiguratorPackage.initializePackageContents ();
+        theHdPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theConfiguratorPackage.freeze ();
@@ -400,6 +407,12 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         setName ( eNAME );
         setNsPrefix ( eNS_PREFIX );
         setNsURI ( eNS_URI );
+
+        // Obtain other dependent packages
+        HdPackage theHdPackage = (HdPackage)EPackage.Registry.INSTANCE.getEPackage ( HdPackage.eNS_URI );
+
+        // Add subpackages
+        getESubpackages ().add ( theHdPackage );
 
         // Create type parameters
 

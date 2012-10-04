@@ -20,6 +20,7 @@ import org.openscada.configurator.Configuration;
  */
 public interface AtlantisConfigurationSlot extends GenericConfigurationSlot
 {
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.openscada.configuration.model.presentation;
+package org.openscada.configuration.model.hd.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -156,18 +156,21 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import org.openscada.configuration.model.provider.ConfiguratorItemProviderAdapterFactory;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.openscada.configuration.model.hd.provider.HdItemProviderAdapterFactory;
 
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+import org.openscada.configuration.model.presentation.ConfiguratorEditorPlugin;
+
+import org.openscada.configuration.model.provider.ConfiguratorItemProviderAdapterFactory;
+
 /**
- * This is an example of a Configurator model editor.
+ * This is an example of a Hd model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
+public class HdEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
 {
     /**
      * This keeps track of the editing domain that is used to track all changes to the model.
@@ -330,7 +333,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             {
                 if ( ( (ContentOutline)p ).getCurrentPage () == contentOutlinePage )
                 {
-                    getActionBarContributor ().setActiveEditor ( ConfiguratorEditor.this );
+                    getActionBarContributor ().setActiveEditor ( HdEditor.this );
 
                     setCurrentViewer ( contentOutlineViewer );
                 }
@@ -339,11 +342,11 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             {
                 if ( ( (PropertySheet)p ).getCurrentPage () == propertySheetPage )
                 {
-                    getActionBarContributor ().setActiveEditor ( ConfiguratorEditor.this );
+                    getActionBarContributor ().setActiveEditor ( HdEditor.this );
                     handleActivate ();
                 }
             }
-            else if ( p == ConfiguratorEditor.this )
+            else if ( p == HdEditor.this )
             {
                 handleActivate ();
             }
@@ -537,7 +540,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
                             removedResources.addAll ( visitor.getRemovedResources () );
                             if ( !isDirty () )
                             {
-                                getSite ().getPage ().closeEditor ( ConfiguratorEditor.this, false );
+                                getSite ().getPage ().closeEditor ( HdEditor.this, false );
                             }
                         }
                     } );
@@ -549,7 +552,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
                         public void run ()
                         {
                             changedResources.addAll ( visitor.getChangedResources () );
-                            if ( getSite ().getPage ().getActiveEditor () == ConfiguratorEditor.this )
+                            if ( getSite ().getPage ().getActiveEditor () == HdEditor.this )
                             {
                                 handleActivate ();
                             }
@@ -587,7 +590,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
         {
             if ( handleDirtyConflict () )
             {
-                getSite ().getPage ().closeEditor ( ConfiguratorEditor.this, false );
+                getSite ().getPage ().closeEditor ( HdEditor.this, false );
             }
             else
             {
@@ -732,7 +735,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
      * <!-- end-user-doc -->
      * @generated
      */
-    public ConfiguratorEditor ()
+    public HdEditor ()
     {
         super ();
         initializeEditingDomain ();
@@ -1086,7 +1089,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), ConfiguratorEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), HdEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1122,7 +1125,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), ConfiguratorEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), HdEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1153,7 +1156,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), ConfiguratorEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), HdEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1180,7 +1183,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), ConfiguratorEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), HdEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1209,7 +1212,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), ConfiguratorEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), HdEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1254,7 +1257,7 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), ConfiguratorEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), HdEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1502,8 +1505,8 @@ public class ConfiguratorEditor extends MultiPageEditorPart implements IEditingD
                 @Override
                 public void setSelectionToViewer ( List<?> selection )
                 {
-                    ConfiguratorEditor.this.setSelectionToViewer ( selection );
-                    ConfiguratorEditor.this.setFocus ();
+                    HdEditor.this.setSelectionToViewer ( selection );
+                    HdEditor.this.setFocus ();
                 }
 
                 @Override

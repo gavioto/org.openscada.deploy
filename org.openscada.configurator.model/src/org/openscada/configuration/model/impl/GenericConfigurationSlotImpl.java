@@ -65,8 +65,7 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * The default value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getBaseDirectory()
      * @generated
      * @ordered
@@ -75,15 +74,17 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * The cached value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getBaseDirectory()
      * @generated
      * @ordered
      */
     protected String baseDirectory = BASE_DIRECTORY_EDEFAULT;
 
-    private GenericConfiguration configuration;
+    /**
+     * @generated NOT
+     */
+    protected GenericConfiguration configuration;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -142,20 +143,20 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getBaseDirectory ()
     {
         return baseDirectory;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBaseDirectory ( String newBaseDirectory )
     {
         String oldBaseDirectory = baseDirectory;
