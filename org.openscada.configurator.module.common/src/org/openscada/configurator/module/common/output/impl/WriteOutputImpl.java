@@ -21,17 +21,17 @@ import org.openscada.configurator.module.common.output.handler.WriteHandler;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configurator.module.common.output.impl.WriteOutputImpl#getBaseDirectory <em>Base Directory</em>}</li>
+ *   <li>{@link org.openscada.configurator.module.common.output.impl.WriteOutputImpl#getBaseDirectory <em>Base Directory</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 {
     /**
-     * The default value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getBaseDirectory()
      * @generated
      * @ordered
@@ -39,8 +39,8 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
     protected static final String BASE_DIRECTORY_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getBaseDirectory()
      * @generated
      * @ordered
@@ -49,7 +49,6 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected WriteOutputImpl ()
@@ -59,7 +58,6 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -70,29 +68,25 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getBaseDirectory ()
     {
-        return this.baseDirectory;
+        return baseDirectory;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setBaseDirectory ( final String newBaseDirectory )
+    public void setBaseDirectory ( String newBaseDirectory )
     {
-        final String oldBaseDirectory = this.baseDirectory;
-        this.baseDirectory = newBaseDirectory;
+        String oldBaseDirectory = baseDirectory;
+        baseDirectory = newBaseDirectory;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OutputPackage.WRITE_OUTPUT__BASE_DIRECTORY, oldBaseDirectory, this.baseDirectory ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OutputPackage.WRITE_OUTPUT__BASE_DIRECTORY, oldBaseDirectory, baseDirectory ) );
     }
 
     /**
@@ -108,11 +102,10 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -124,11 +117,10 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -141,11 +133,10 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -158,36 +149,32 @@ public class WriteOutputImpl extends EObjectImpl implements WriteOutput
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case OutputPackage.WRITE_OUTPUT__BASE_DIRECTORY:
-                return BASE_DIRECTORY_EDEFAULT == null ? this.baseDirectory != null : !BASE_DIRECTORY_EDEFAULT.equals ( this.baseDirectory );
+                return BASE_DIRECTORY_EDEFAULT == null ? baseDirectory != null : !BASE_DIRECTORY_EDEFAULT.equals ( baseDirectory );
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (baseDirectory: " );
-        result.append ( this.baseDirectory );
+        result.append ( baseDirectory );
         result.append ( ')' );
         return result.toString ();
     }

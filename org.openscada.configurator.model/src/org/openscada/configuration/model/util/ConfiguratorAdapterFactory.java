@@ -10,8 +10,13 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.configuration.model.AtlantisConfigurationSlot;
+import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.GenericConfigurationSlot;
 import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.ModuleProcessor;
+import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 
 /**
@@ -88,6 +93,36 @@ public class ConfiguratorAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseConfigurationSlot ( ConfigurationSlot object )
+        {
+            return createConfigurationSlotAdapter ();
+        }
+
+        @Override
+        public Adapter caseAtlantisConfigurationSlot ( AtlantisConfigurationSlot object )
+        {
+            return createAtlantisConfigurationSlotAdapter ();
+        }
+
+        @Override
+        public Adapter caseProcessor ( Processor object )
+        {
+            return createProcessorAdapter ();
+        }
+
+        @Override
+        public Adapter caseModuleProcessor ( ModuleProcessor object )
+        {
+            return createModuleProcessorAdapter ();
+        }
+
+        @Override
+        public Adapter caseGenericConfigurationSlot ( GenericConfigurationSlot object )
+        {
+            return createGenericConfigurationSlotAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -134,6 +169,81 @@ public class ConfiguratorAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.ConfigurationSlot <em>Configuration Slot</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.ConfigurationSlot
+     * @generated
+     */
+    public Adapter createConfigurationSlotAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.AtlantisConfigurationSlot <em>Atlantis Configuration Slot</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.AtlantisConfigurationSlot
+     * @generated
+     */
+    public Adapter createAtlantisConfigurationSlotAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.Processor <em>Processor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.Processor
+     * @generated
+     */
+    public Adapter createProcessorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.ModuleProcessor <em>Module Processor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.ModuleProcessor
+     * @generated
+     */
+    public Adapter createModuleProcessorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.GenericConfigurationSlot <em>Generic Configuration Slot</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.GenericConfigurationSlot
+     * @generated
+     */
+    public Adapter createGenericConfigurationSlotAdapter ()
     {
         return null;
     }

@@ -4,10 +4,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
     nsURI="http://openscada.org/Deploy/Configurator" nsPrefix="configurator">
   <eClassifiers xsi:type="ecore:EClass" name="Project">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jsonBase" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
-        eType="#//Module" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slots" upperBound="-1"
+        eType="#//ConfigurationSlot" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processors" upperBound="-1"
+        eType="#//Processor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true">
     <eOperations name="process">
@@ -16,5 +16,33 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Configuration" instanceClassName="org.openscada.configurator.Configuration"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationSlot" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AtlantisConfigurationSlot" eSuperTypes="#//GenericConfigurationSlot">
+    <eOperations name="getConfigurationData" lowerBound="1" eType="#//Configuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Processor" abstract="true" interface="true">
+    <eOperations name="process">
+      <eParameters name="project" eType="#//Project"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleProcessor" eSuperTypes="#//Processor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+        eType="#//Module" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slot" lowerBound="1" eType="#//AtlantisConfigurationSlot"
+        eKeys="#//ConfigurationSlot/id"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericConfigurationSlot" abstract="true"
+      eSuperTypes="#//ConfigurationSlot">
+    <eOperations name="initialize">
+      <eParameters name="configuration" eType="#//GenericConfiguration"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jsonBase" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="GenericConfiguration" instanceClassName="org.openscada.configurator.GenericConfiguration"
       serializable="false"/>
 </ecore:EPackage>

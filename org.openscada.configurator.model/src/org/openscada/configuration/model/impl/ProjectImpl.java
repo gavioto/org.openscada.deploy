@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 
 /**
@@ -27,8 +27,8 @@ import org.openscada.configuration.model.Project;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getJsonBase <em>Json Base</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getSlots <em>Slots</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.impl.ProjectImpl#getProcessors <em>Processors</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,24 +37,24 @@ import org.openscada.configuration.model.Project;
 public class ProjectImpl extends EObjectImpl implements Project
 {
     /**
-     * The cached value of the '{@link #getJsonBase() <em>Json Base</em>}' attribute list.
+     * The cached value of the '{@link #getSlots() <em>Slots</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getJsonBase()
+     * @see #getSlots()
      * @generated
      * @ordered
      */
-    protected EList<String> jsonBase;
+    protected EList<ConfigurationSlot> slots;
 
     /**
-     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
+     * The cached value of the '{@link #getProcessors() <em>Processors</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getModules()
+     * @see #getProcessors()
      * @generated
      * @ordered
      */
-    protected EList<Module> modules;
+    protected EList<Processor> processors;
 
     /**
      * <!-- begin-user-doc -->
@@ -82,13 +82,13 @@ public class ProjectImpl extends EObjectImpl implements Project
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getJsonBase ()
+    public EList<ConfigurationSlot> getSlots ()
     {
-        if ( jsonBase == null )
+        if ( slots == null )
         {
-            jsonBase = new EDataTypeUniqueEList<String> ( String.class, this, ConfiguratorPackage.PROJECT__JSON_BASE );
+            slots = new EObjectContainmentEList.Resolving<ConfigurationSlot> ( ConfigurationSlot.class, this, ConfiguratorPackage.PROJECT__SLOTS );
         }
-        return jsonBase;
+        return slots;
     }
 
     /**
@@ -96,13 +96,13 @@ public class ProjectImpl extends EObjectImpl implements Project
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Module> getModules ()
+    public EList<Processor> getProcessors ()
     {
-        if ( modules == null )
+        if ( processors == null )
         {
-            modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, ConfiguratorPackage.PROJECT__MODULES );
+            processors = new EObjectContainmentEList.Resolving<Processor> ( Processor.class, this, ConfiguratorPackage.PROJECT__PROCESSORS );
         }
-        return modules;
+        return processors;
     }
 
     /**
@@ -115,8 +115,10 @@ public class ProjectImpl extends EObjectImpl implements Project
     {
         switch ( featureID )
         {
-            case ConfiguratorPackage.PROJECT__MODULES:
-                return ( (InternalEList<?>)getModules () ).basicRemove ( otherEnd, msgs );
+            case ConfiguratorPackage.PROJECT__SLOTS:
+                return ( (InternalEList<?>)getSlots () ).basicRemove ( otherEnd, msgs );
+            case ConfiguratorPackage.PROJECT__PROCESSORS:
+                return ( (InternalEList<?>)getProcessors () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -131,10 +133,10 @@ public class ProjectImpl extends EObjectImpl implements Project
     {
         switch ( featureID )
         {
-            case ConfiguratorPackage.PROJECT__JSON_BASE:
-                return getJsonBase ();
-            case ConfiguratorPackage.PROJECT__MODULES:
-                return getModules ();
+            case ConfiguratorPackage.PROJECT__SLOTS:
+                return getSlots ();
+            case ConfiguratorPackage.PROJECT__PROCESSORS:
+                return getProcessors ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -150,13 +152,13 @@ public class ProjectImpl extends EObjectImpl implements Project
     {
         switch ( featureID )
         {
-            case ConfiguratorPackage.PROJECT__JSON_BASE:
-                getJsonBase ().clear ();
-                getJsonBase ().addAll ( (Collection<? extends String>)newValue );
+            case ConfiguratorPackage.PROJECT__SLOTS:
+                getSlots ().clear ();
+                getSlots ().addAll ( (Collection<? extends ConfigurationSlot>)newValue );
                 return;
-            case ConfiguratorPackage.PROJECT__MODULES:
-                getModules ().clear ();
-                getModules ().addAll ( (Collection<? extends Module>)newValue );
+            case ConfiguratorPackage.PROJECT__PROCESSORS:
+                getProcessors ().clear ();
+                getProcessors ().addAll ( (Collection<? extends Processor>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -172,11 +174,11 @@ public class ProjectImpl extends EObjectImpl implements Project
     {
         switch ( featureID )
         {
-            case ConfiguratorPackage.PROJECT__JSON_BASE:
-                getJsonBase ().clear ();
+            case ConfiguratorPackage.PROJECT__SLOTS:
+                getSlots ().clear ();
                 return;
-            case ConfiguratorPackage.PROJECT__MODULES:
-                getModules ().clear ();
+            case ConfiguratorPackage.PROJECT__PROCESSORS:
+                getProcessors ().clear ();
                 return;
         }
         super.eUnset ( featureID );
@@ -192,30 +194,12 @@ public class ProjectImpl extends EObjectImpl implements Project
     {
         switch ( featureID )
         {
-            case ConfiguratorPackage.PROJECT__JSON_BASE:
-                return jsonBase != null && !jsonBase.isEmpty ();
-            case ConfiguratorPackage.PROJECT__MODULES:
-                return modules != null && !modules.isEmpty ();
+            case ConfiguratorPackage.PROJECT__SLOTS:
+                return slots != null && !slots.isEmpty ();
+            case ConfiguratorPackage.PROJECT__PROCESSORS:
+                return processors != null && !processors.isEmpty ();
         }
         return super.eIsSet ( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
-
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (jsonBase: " );
-        result.append ( jsonBase );
-        result.append ( ')' );
-        return result.toString ();
     }
 
 } //ProjectImpl

@@ -132,7 +132,7 @@ public class Configuration extends GenericMasterConfiguration
 
     private final Report report;
 
-    public Configuration ( final PrintStream logStream ) throws Exception
+    public Configuration ( final PrintStream logStream )
     {
         this.logStream = logStream;
 

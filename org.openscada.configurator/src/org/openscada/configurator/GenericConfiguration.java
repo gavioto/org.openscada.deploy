@@ -1,4 +1,4 @@
-package org.openscada.deploy.iolist.utils;
+package org.openscada.configurator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -218,9 +218,17 @@ public class GenericConfiguration
         g.toJson ( this.data, dataStream );
     }
 
-    public void loadData ( final String uri ) throws Exception
+    public void loadData ( final String uri )
     {
-        final Map<String, Map<String, Map<String, String>>> baseData = OscarLoader.loadJsonData ( new URL ( uri ).openStream () );
+        Map<String, Map<String, Map<String, String>>> baseData;
+        try
+        {
+            baseData = OscarLoader.loadJsonData ( new URL ( uri ).openStream () );
+        }
+        catch ( final Exception e )
+        {
+            throw new RuntimeException ( e );
+        }
 
         for ( final Map.Entry<String, Map<String, Map<String, String>>> entry1 : baseData.entrySet () )
         {

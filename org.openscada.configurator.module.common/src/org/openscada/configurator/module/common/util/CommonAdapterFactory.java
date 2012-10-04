@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Module;
+import org.openscada.configurator.module.common.*;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.FileModule;
 

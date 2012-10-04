@@ -30,7 +30,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.openscada.deploy.iolist.utils.GenericConfiguration;
 import org.openscada.utils.str.StringHelper;
 
 public class GenericMasterConfiguration extends GenericConfiguration

@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
 
@@ -63,20 +64,8 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
         {
             super.getPropertyDescriptors ( object );
 
-            addJsonBasePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Json Base feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addJsonBasePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Project_jsonBase_feature" ), getString ( "_UI_Project_jsonBase_description" ), ConfiguratorPackage.Literals.PROJECT__JSON_BASE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -93,8 +82,8 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__JSON_BASE );
-            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__MODULES );
+            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__SLOTS );
+            childrenFeatures.add ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS );
         }
         return childrenFeatures;
     }
@@ -151,8 +140,8 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
 
         switch ( notification.getFeatureID ( Project.class ) )
         {
-            case ConfiguratorPackage.PROJECT__JSON_BASE:
-            case ConfiguratorPackage.PROJECT__MODULES:
+            case ConfiguratorPackage.PROJECT__SLOTS:
+            case ConfiguratorPackage.PROJECT__PROCESSORS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -171,7 +160,9 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__JSON_BASE, "" ) );
+        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, ConfiguratorFactory.eINSTANCE.createAtlantisConfigurationSlot () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, ConfiguratorFactory.eINSTANCE.createModuleProcessor () ) );
     }
 
     /**

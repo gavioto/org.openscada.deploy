@@ -31,6 +31,8 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.ModuleProcessor;
+import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.util.ConfiguratorSwitch;
 import org.openscada.configurator.module.common.processing.ProcessingFactory;
@@ -424,17 +426,17 @@ public class ProcessingItemProviderAdapterFactory extends ProcessingAdapterFacto
              * @generated
              */
             @Override
-            public Object caseProject ( Project object )
+            public Object caseModuleProcessor ( ModuleProcessor object )
             {
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createImportModule () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, ProcessingFactory.eINSTANCE.createImportModule () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createOverrideListModule () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, ProcessingFactory.eINSTANCE.createOverrideListModule () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createImportListModule () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, ProcessingFactory.eINSTANCE.createImportListModule () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createScriptOverrides () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, ProcessingFactory.eINSTANCE.createScriptOverrides () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, ProcessingFactory.eINSTANCE.createRemoveInactive () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, ProcessingFactory.eINSTANCE.createRemoveInactive () ) );
 
                 return null;
             }

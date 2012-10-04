@@ -7,10 +7,9 @@ import java.util.LinkedList;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
-import org.openscada.configurator.Configuration;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
@@ -49,21 +48,23 @@ public class Application implements IApplication
 
     private static void processNew ( final PrintStream log, final Project project ) throws Exception
     {
-        final Configuration cfg = new Configuration ( System.out );
-
         log.println ( "** 0 - Loading base json files" );
-        for ( final String uri : project.getJsonBase () )
-        {
-            log.println ( "*** 0 - Loading base json file: " + uri );
-            cfg.loadData ( uri );
-        }
 
         log.println ( "** 0 - Running modules" );
+
+        for ( final Processor processor : project.getProcessors () )
+        {
+            log.println ( " * Running processor: " + processor );
+            processor.process ( project );
+        }
+
+        /*
         for ( final Module module : project.getModules () )
         {
             log.println ( " ** Running module: " + module );
             module.process ( cfg, project );
         }
+        */
 
         log.println ( "** 5 - Output finished" );
     }

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.configurator.module.common.output.*;
 import org.openscada.configurator.module.common.output.OutputAverages;
 import org.openscada.configurator.module.common.output.OutputFactory;
 import org.openscada.configurator.module.common.output.OutputGlobalSummaries;

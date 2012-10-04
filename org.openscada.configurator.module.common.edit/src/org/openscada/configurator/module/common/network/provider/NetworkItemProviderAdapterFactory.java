@@ -31,6 +31,8 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.ModuleProcessor;
+import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.util.ConfiguratorSwitch;
 import org.openscada.configurator.module.common.network.NetworkFactory;
@@ -316,9 +318,9 @@ public class NetworkItemProviderAdapterFactory extends NetworkAdapterFactory imp
              * @generated
              */
             @Override
-            public Object caseProject ( Project object )
+            public Object caseModuleProcessor ( ModuleProcessor object )
             {
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__MODULES, NetworkFactory.eINSTANCE.createNetworkModule () ) );
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, NetworkFactory.eINSTANCE.createNetworkModule () ) );
 
                 return null;
             }

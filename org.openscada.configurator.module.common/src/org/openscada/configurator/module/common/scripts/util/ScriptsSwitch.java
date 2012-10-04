@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Module;
 import org.openscada.configurator.module.common.FileModule;
+import org.openscada.configurator.module.common.scripts.*;
 import org.openscada.configurator.module.common.scripts.LegacyFormulaModule;
 import org.openscada.configurator.module.common.scripts.ScriptsModule;
 import org.openscada.configurator.module.common.scripts.ScriptsMonitorModule;

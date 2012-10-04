@@ -36,6 +36,24 @@ public interface ConfiguratorFactory extends EFactory
     Project createProject ();
 
     /**
+     * Returns a new object of class '<em>Atlantis Configuration Slot</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Atlantis Configuration Slot</em>'.
+     * @generated
+     */
+    AtlantisConfigurationSlot createAtlantisConfigurationSlot ();
+
+    /**
+     * Returns a new object of class '<em>Module Processor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Module Processor</em>'.
+     * @generated
+     */
+    ModuleProcessor createModuleProcessor ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

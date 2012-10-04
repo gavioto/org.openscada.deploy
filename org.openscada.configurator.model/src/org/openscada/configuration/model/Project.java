@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.Project#getJsonBase <em>Json Base</em>}</li>
- *   <li>{@link org.openscada.configuration.model.Project#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.Project#getSlots <em>Slots</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.Project#getProcessors <em>Processors</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,35 +29,35 @@ import org.eclipse.emf.ecore.EObject;
 public interface Project extends EObject
 {
     /**
-     * Returns the value of the '<em><b>Json Base</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
+     * Returns the value of the '<em><b>Slots</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configuration.model.ConfigurationSlot}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Json Base</em>' attribute list isn't clear,
+     * If the meaning of the '<em>Slots</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Json Base</em>' attribute list.
-     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_JsonBase()
-     * @model
-     * @generated
-     */
-    EList<String> getJsonBase ();
-
-    /**
-     * Returns the value of the '<em><b>Modules</b></em>' containment reference list.
-     * The list contents are of type {@link org.openscada.configuration.model.Module}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Modules</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Modules</em>' containment reference list.
-     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_Modules()
+     * @return the value of the '<em>Slots</em>' containment reference list.
+     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_Slots()
      * @model containment="true" resolveProxies="true"
      * @generated
      */
-    EList<Module> getModules ();
+    EList<ConfigurationSlot> getSlots ();
+
+    /**
+     * Returns the value of the '<em><b>Processors</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configuration.model.Processor}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Processors</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Processors</em>' containment reference list.
+     * @see org.openscada.configuration.model.ConfiguratorPackage#getProject_Processors()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Processor> getProcessors ();
 
 } // Project

@@ -37,6 +37,8 @@ public class ConfiguratorTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new ConfiguratorTests ( "model Tests" );
+        suite.addTestSuite ( AtlantisConfigurationSlotTest.class );
+        suite.addTestSuite ( ModuleProcessorTest.class );
         return suite;
     }
 
