@@ -6,8 +6,8 @@
  */
 package org.openscada.configurator.module.common.output;
 
-import org.openscada.configuration.model.Module;
 import org.openscada.configuration.model.Project;
+import org.openscada.configuration.model.master.Module;
 import org.openscada.configurator.Configuration;
 
 /**

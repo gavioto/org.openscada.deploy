@@ -22,17 +22,17 @@ import org.openscada.configurator.GenericConfiguration;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configuration.model.hd.impl.ConfigurationSlotImpl#getMasterConnectionUri <em>Master Connection Uri</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.hd.impl.ConfigurationSlotImpl#getMasterConnectionUri <em>Master Connection Uri</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implements ConfigurationSlot
 {
     /**
-     * The default value of the '{@link #getMasterConnectionUri() <em>Master Connection Uri</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The default value of the '{@link #getMasterConnectionUri() <em>Master Connection Uri</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getMasterConnectionUri()
      * @generated
      * @ordered
@@ -40,8 +40,8 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
     protected static final String MASTER_CONNECTION_URI_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getMasterConnectionUri() <em>Master Connection Uri</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getMasterConnectionUri() <em>Master Connection Uri</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getMasterConnectionUri()
      * @generated
      * @ordered
@@ -50,7 +50,6 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ConfigurationSlotImpl ()
@@ -60,7 +59,6 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -71,29 +69,25 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getMasterConnectionUri ()
     {
-        return this.masterConnectionUri;
+        return masterConnectionUri;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setMasterConnectionUri ( final String newMasterConnectionUri )
+    public void setMasterConnectionUri ( String newMasterConnectionUri )
     {
-        final String oldMasterConnectionUri = this.masterConnectionUri;
-        this.masterConnectionUri = newMasterConnectionUri;
+        String oldMasterConnectionUri = masterConnectionUri;
+        masterConnectionUri = newMasterConnectionUri;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.CONFIGURATION_SLOT__MASTER_CONNECTION_URI, oldMasterConnectionUri, this.masterConnectionUri ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.CONFIGURATION_SLOT__MASTER_CONNECTION_URI, oldMasterConnectionUri, masterConnectionUri ) );
     }
 
     /**
@@ -124,11 +118,10 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -140,11 +133,10 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -157,11 +149,10 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -174,36 +165,32 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case HdPackage.CONFIGURATION_SLOT__MASTER_CONNECTION_URI:
-                return MASTER_CONNECTION_URI_EDEFAULT == null ? this.masterConnectionUri != null : !MASTER_CONNECTION_URI_EDEFAULT.equals ( this.masterConnectionUri );
+                return MASTER_CONNECTION_URI_EDEFAULT == null ? masterConnectionUri != null : !MASTER_CONNECTION_URI_EDEFAULT.equals ( masterConnectionUri );
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (masterConnectionUri: " );
-        result.append ( this.masterConnectionUri );
+        result.append ( masterConnectionUri );
         result.append ( ')' );
         return result.toString ();
     }

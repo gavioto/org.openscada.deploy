@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
@@ -225,14 +226,14 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        networkModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        networkModuleEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( networkModuleEClass, NetworkModule.class, "NetworkModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

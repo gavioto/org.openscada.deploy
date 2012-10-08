@@ -6,7 +6,7 @@
  */
 package org.openscada.configurator.module.common.scripts;
 
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.master.Module;
 
 /**
  * <!-- begin-user-doc -->

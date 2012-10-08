@@ -9,7 +9,7 @@ package org.openscada.configurator.module.common.scripts;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 
 /**
@@ -78,7 +78,7 @@ public interface ScriptsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPTS_MODULE__SCRIPTS_FILE = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int SCRIPTS_MODULE__SCRIPTS_FILE = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Module</em>' class.
@@ -87,7 +87,7 @@ public interface ScriptsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPTS_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int SCRIPTS_MODULE_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.scripts.impl.LegacyFormulaModuleImpl <em>Legacy Formula Module</em>}' class.
@@ -106,7 +106,7 @@ public interface ScriptsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEGACY_FORMULA_MODULE__FORMULA_FILE = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int LEGACY_FORMULA_MODULE__FORMULA_FILE = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Legacy Formula Module</em>' class.
@@ -115,7 +115,7 @@ public interface ScriptsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEGACY_FORMULA_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int LEGACY_FORMULA_MODULE_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.scripts.impl.ScriptsMonitorModuleImpl <em>Monitor Module</em>}' class.

@@ -9,7 +9,7 @@ package org.openscada.configurator.module.common.summary;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES__PREFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int GENERATE_SUMMARIES__PREFIX = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Suffix</b></em>' attribute.
@@ -86,7 +86,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES__SUFFIX = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int GENERATE_SUMMARIES__SUFFIX = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Generate Summaries</em>' class.
@@ -95,7 +95,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
+    int GENERATE_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl <em>Cleanup Summaries</em>}' class.
@@ -114,7 +114,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CLEANUP_SUMMARIES__REQUIRED_ITEMS = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int CLEANUP_SUMMARIES__REQUIRED_ITEMS = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Cleanup Summaries</em>' class.
@@ -123,7 +123,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CLEANUP_SUMMARIES_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int CLEANUP_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.summary.GenerateSummaries <em>Generate Summaries</em>}'.

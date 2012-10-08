@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
@@ -295,6 +296,7 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
 
         // Create type parameters
@@ -302,11 +304,11 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        outputAveragesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        outputItemsEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        outputSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        outputGlobalSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        writeOutputEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        outputAveragesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        outputItemsEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        outputSummariesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        outputGlobalSummariesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        writeOutputEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( outputAveragesEClass, OutputAverages.class, "OutputAverages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

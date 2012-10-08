@@ -9,7 +9,7 @@ package org.openscada.configurator.module.common.processing.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.master.Module;
 import org.openscada.configurator.module.common.FileModule;
 import org.openscada.configurator.module.common.processing.ImportListModule;
 import org.openscada.configurator.module.common.processing.ImportModule;

@@ -115,56 +115,6 @@ public class ConfiguratorItemProviderAdapterFactory extends ConfiguratorAdapterF
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configuration.model.AtlantisConfigurationSlot} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AtlantisConfigurationSlotItemProvider atlantisConfigurationSlotItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configuration.model.AtlantisConfigurationSlot}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAtlantisConfigurationSlotAdapter ()
-    {
-        if ( atlantisConfigurationSlotItemProvider == null )
-        {
-            atlantisConfigurationSlotItemProvider = new AtlantisConfigurationSlotItemProvider ( this );
-        }
-
-        return atlantisConfigurationSlotItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configuration.model.ModuleProcessor} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ModuleProcessorItemProvider moduleProcessorItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configuration.model.ModuleProcessor}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createModuleProcessorAdapter ()
-    {
-        if ( moduleProcessorItemProvider == null )
-        {
-            moduleProcessorItemProvider = new ModuleProcessorItemProvider ( this );
-        }
-
-        return moduleProcessorItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -307,10 +257,6 @@ public class ConfiguratorItemProviderAdapterFactory extends ConfiguratorAdapterF
     {
         if ( projectItemProvider != null )
             projectItemProvider.dispose ();
-        if ( atlantisConfigurationSlotItemProvider != null )
-            atlantisConfigurationSlotItemProvider.dispose ();
-        if ( moduleProcessorItemProvider != null )
-            moduleProcessorItemProvider.dispose ();
     }
 
 }

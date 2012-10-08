@@ -10,7 +10,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.master.Module;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
 
@@ -124,13 +124,13 @@ public class NetworkAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.Module <em>Module</em>}'.
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.master.Module <em>Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.openscada.configuration.model.Module
+     * @see org.openscada.configuration.model.master.Module
      * @generated
      */
     public Adapter createModuleAdapter ()

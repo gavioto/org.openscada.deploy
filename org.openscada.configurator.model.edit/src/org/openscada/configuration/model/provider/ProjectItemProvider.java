@@ -22,10 +22,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.hd.HdFactory;
+import org.openscada.configuration.model.master.MasterFactory;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configuration.model.Project} object.
@@ -155,15 +155,15 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, ConfiguratorFactory.eINSTANCE.createAtlantisConfigurationSlot () ) );
-
         newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, HdFactory.eINSTANCE.createConfigurationSlot () ) );
 
-        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, ConfiguratorFactory.eINSTANCE.createModuleProcessor () ) );
+        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, MasterFactory.eINSTANCE.createAtlantisConfigurationSlot () ) );
 
         newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, HdFactory.eINSTANCE.createStorageCommandGenerator () ) );
 
         newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, HdFactory.eINSTANCE.createHDItemGenerator () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, MasterFactory.eINSTANCE.createModuleProcessor () ) );
     }
 
     /**

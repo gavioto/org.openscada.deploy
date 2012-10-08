@@ -30,9 +30,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.ModuleProcessor;
-import org.openscada.configuration.model.util.ConfiguratorSwitch;
+import org.openscada.configuration.model.master.MasterPackage;
+import org.openscada.configuration.model.master.ModuleProcessor;
+import org.openscada.configuration.model.master.util.MasterSwitch;
 import org.openscada.configurator.module.common.provider.ModulesEditPlugin;
 import org.openscada.configurator.module.common.summary.SummaryFactory;
 import org.openscada.configurator.module.common.summary.SummaryPackage;
@@ -294,12 +294,12 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
     }
 
     /**
-     * A child creation extender for the {@link ConfiguratorPackage}.
+     * A child creation extender for the {@link MasterPackage}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static class ConfiguratorChildCreationExtender implements IChildCreationExtender
+    public static class MasterChildCreationExtender implements IChildCreationExtender
     {
         /**
          * The switch for creating child descriptors specific to each extended class.
@@ -307,7 +307,7 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
          * <!-- end-user-doc -->
          * @generated
          */
-        protected static class CreationSwitch extends ConfiguratorSwitch<Object>
+        protected static class CreationSwitch extends MasterSwitch<Object>
         {
             /**
              * The child descriptors being populated.
@@ -345,9 +345,9 @@ public class SummaryItemProviderAdapterFactory extends SummaryAdapterFactory imp
             @Override
             public Object caseModuleProcessor ( ModuleProcessor object )
             {
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, SummaryFactory.eINSTANCE.createGenerateSummaries () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, SummaryFactory.eINSTANCE.createGenerateSummaries () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, SummaryFactory.eINSTANCE.createCleanupSummaries () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, SummaryFactory.eINSTANCE.createCleanupSummaries () ) );
 
                 return null;
             }

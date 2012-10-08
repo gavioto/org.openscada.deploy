@@ -7,7 +7,6 @@
 package org.openscada.configuration.model.hd.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.configuration.model.hd.HdFactory;

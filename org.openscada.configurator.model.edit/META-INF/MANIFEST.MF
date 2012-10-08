@@ -13,7 +13,16 @@ Export-Package: org.openscada.configuration.model.hd.provider;version="1.0.0";
    org.eclipse.emf.common.util,
    org.openscada.configuration.model.hd.util,
    org.eclipse.emf.edit.provider,
-   org.eclipse.emf.common.notify",
+   org.eclipse.emf.common.notify,
+   org.eclipse.emf.edit.domain",
+ org.openscada.configuration.model.master.provider;version="1.0.0";
+  uses:="org.eclipse.emf.ecore,
+   org.openscada.configuration.model.provider,
+   org.eclipse.emf.common.util,
+   org.openscada.configuration.model.master.util,
+   org.eclipse.emf.edit.provider,
+   org.eclipse.emf.common.notify,
+   org.eclipse.emf.edit.domain",
  org.openscada.configuration.model.provider;version="1.0.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.common.util,

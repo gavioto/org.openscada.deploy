@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
@@ -265,7 +266,7 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
         CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
 
         // Create type parameters
@@ -273,8 +274,8 @@ public class ScriptsPackageImpl extends EPackageImpl implements ScriptsPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        scriptsModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        legacyFormulaModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        scriptsModuleEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        legacyFormulaModuleEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
         scriptsMonitorModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
 
         // Initialize classes and features; add operations and parameters

@@ -9,7 +9,9 @@ package org.openscada.configuration.model.tests;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+
 import org.openscada.configuration.model.hd.tests.HdTests;
+import org.openscada.configuration.model.master.tests.MasterTests;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +42,7 @@ public class ConfiguratorAllTests extends TestSuite
         TestSuite suite = new ConfiguratorAllTests ( "Configurator Tests" );
         suite.addTest ( ConfiguratorTests.suite () );
         suite.addTest ( HdTests.suite () );
+        suite.addTest ( MasterTests.suite () );
         return suite;
     }
 

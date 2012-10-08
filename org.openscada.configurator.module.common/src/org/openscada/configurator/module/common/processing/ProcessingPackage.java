@@ -8,7 +8,7 @@ package org.openscada.configurator.module.common.processing;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 
 /**
@@ -77,7 +77,7 @@ public interface ProcessingPackage extends EPackage
      * @generated
      * @ordered
      */
-    int IMPORT_MODULE__PATH = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int IMPORT_MODULE__PATH = CommonPackage.FILE_MODULE__PATH;
 
     /**
      * The number of structural features of the '<em>Import Module</em>' class.
@@ -86,7 +86,7 @@ public interface ProcessingPackage extends EPackage
      * @generated
      * @ordered
      */
-    int IMPORT_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int IMPORT_MODULE_FEATURE_COUNT = CommonPackage.FILE_MODULE_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.processing.impl.OverrideListModuleImpl <em>Override List Module</em>}' class.
@@ -189,7 +189,7 @@ public interface ProcessingPackage extends EPackage
      * @generated
      * @ordered
      */
-    int REMOVE_INACTIVE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int REMOVE_INACTIVE_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.processing.ImportModule <em>Import Module</em>}'.

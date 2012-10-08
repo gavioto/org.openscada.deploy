@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
@@ -256,15 +257,15 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        generateSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        cleanupSummariesEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        generateSummariesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        cleanupSummariesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( generateSummariesEClass, GenerateSummaries.class, "GenerateSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

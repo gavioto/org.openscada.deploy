@@ -6,8 +6,8 @@
  */
 package org.openscada.configuration.model.hd;
 
-import org.openscada.configuration.model.AtlantisConfigurationSlot;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 
 /**
  * <!-- begin-user-doc -->

@@ -19,7 +19,7 @@ import org.openscada.configurator.module.common.processing.RemoveInactive;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project) <em>Process</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.master.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project) <em>Process</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -103,10 +103,10 @@ public class RemoveInactiveTest extends TestCase
     }
 
     /**
-     * Tests the '{@link org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project) <em>Process</em>}' operation.
+     * Tests the '{@link org.openscada.configuration.model.master.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project) <em>Process</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project)
+     * @see org.openscada.configuration.model.master.Module#process(org.openscada.configurator.Configuration, org.openscada.configuration.model.Project)
      * @generated
      */
     public void testProcess__Configuration_Project ()

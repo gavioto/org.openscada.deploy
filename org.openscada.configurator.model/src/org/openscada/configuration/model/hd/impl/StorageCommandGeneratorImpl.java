@@ -23,17 +23,17 @@ import org.openscada.configuration.model.hd.StorageCommandGenerator;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configuration.model.hd.impl.StorageCommandGeneratorImpl#getSlot <em>Slot</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.hd.impl.StorageCommandGeneratorImpl#getSlot <em>Slot</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageCommandGenerator
 {
     /**
-     * The cached value of the '{@link #getSlot() <em>Slot</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getSlot() <em>Slot</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getSlot()
      * @generated
      * @ordered
@@ -42,7 +42,6 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected StorageCommandGeneratorImpl ()
@@ -52,7 +51,6 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -63,51 +61,44 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ConfigurationSlot getSlot ()
     {
-        if ( this.slot != null && this.slot.eIsProxy () )
+        if ( slot != null && slot.eIsProxy () )
         {
-            final InternalEObject oldSlot = (InternalEObject)this.slot;
-            this.slot = (ConfigurationSlot)eResolveProxy ( oldSlot );
-            if ( this.slot != oldSlot )
+            InternalEObject oldSlot = (InternalEObject)slot;
+            slot = (ConfigurationSlot)eResolveProxy ( oldSlot );
+            if ( slot != oldSlot )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, this.slot ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, slot ) );
             }
         }
-        return this.slot;
+        return slot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ConfigurationSlot basicGetSlot ()
     {
-        return this.slot;
+        return slot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSlot ( final ConfigurationSlot newSlot )
+    public void setSlot ( ConfigurationSlot newSlot )
     {
-        final ConfigurationSlot oldSlot = this.slot;
-        this.slot = newSlot;
+        ConfigurationSlot oldSlot = slot;
+        slot = newSlot;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, this.slot ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, slot ) );
     }
 
     /**
@@ -134,19 +125,16 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case HdPackage.STORAGE_COMMAND_GENERATOR__SLOT:
                 if ( resolve )
-                {
                     return getSlot ();
-                }
                 return basicGetSlot ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -154,11 +142,10 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -171,11 +158,10 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -188,16 +174,15 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case HdPackage.STORAGE_COMMAND_GENERATOR__SLOT:
-                return this.slot != null;
+                return slot != null;
         }
         return super.eIsSet ( featureID );
     }

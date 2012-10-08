@@ -13,17 +13,16 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.openscada.configuration.model.AtlantisConfigurationSlot;
 import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.GenericConfigurationSlot;
-import org.openscada.configuration.model.Module;
-import org.openscada.configuration.model.ModuleProcessor;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.hd.HdPackage;
 import org.openscada.configuration.model.hd.impl.HdPackageImpl;
+import org.openscada.configuration.model.master.MasterPackage;
+import org.openscada.configuration.model.master.impl.MasterPackageImpl;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.GenericConfiguration;
 
@@ -43,31 +42,13 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    private EClass moduleEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
     private EClass configurationSlotEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    private EClass atlantisConfigurationSlotEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
     private EClass processorEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass moduleProcessorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -142,14 +123,17 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Obtain or create and register interdependencies
         HdPackageImpl theHdPackage = (HdPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( HdPackage.eNS_URI ) instanceof HdPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( HdPackage.eNS_URI ) : HdPackage.eINSTANCE );
+        MasterPackageImpl theMasterPackage = (MasterPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI ) instanceof MasterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI ) : MasterPackage.eINSTANCE );
 
         // Create package meta-data objects
         theConfiguratorPackage.createPackageContents ();
         theHdPackage.createPackageContents ();
+        theMasterPackage.createPackageContents ();
 
         // Initialize created meta-data
         theConfiguratorPackage.initializePackageContents ();
         theHdPackage.initializePackageContents ();
+        theMasterPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theConfiguratorPackage.freeze ();
@@ -194,16 +178,6 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * @generated
      */
     @Override
-    public EClass getModule ()
-    {
-        return moduleEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EClass getConfigurationSlot ()
     {
         return configurationSlotEClass;
@@ -224,49 +198,9 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * @generated
      */
     @Override
-    public EClass getAtlantisConfigurationSlot ()
-    {
-        return atlantisConfigurationSlotEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EClass getProcessor ()
     {
         return processorEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EClass getModuleProcessor ()
-    {
-        return moduleProcessorEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EReference getModuleProcessor_Modules ()
-    {
-        return (EReference)moduleProcessorEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EReference getModuleProcessor_Slot ()
-    {
-        return (EReference)moduleProcessorEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -362,18 +296,10 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         createEReference ( projectEClass, PROJECT__SLOTS );
         createEReference ( projectEClass, PROJECT__PROCESSORS );
 
-        moduleEClass = createEClass ( MODULE );
-
         configurationSlotEClass = createEClass ( CONFIGURATION_SLOT );
         createEAttribute ( configurationSlotEClass, CONFIGURATION_SLOT__ID );
 
-        atlantisConfigurationSlotEClass = createEClass ( ATLANTIS_CONFIGURATION_SLOT );
-
         processorEClass = createEClass ( PROCESSOR );
-
-        moduleProcessorEClass = createEClass ( MODULE_PROCESSOR );
-        createEReference ( moduleProcessorEClass, MODULE_PROCESSOR__MODULES );
-        createEReference ( moduleProcessorEClass, MODULE_PROCESSOR__SLOT );
 
         genericConfigurationSlotEClass = createEClass ( GENERIC_CONFIGURATION_SLOT );
         createEAttribute ( genericConfigurationSlotEClass, GENERIC_CONFIGURATION_SLOT__JSON_BASE );
@@ -410,17 +336,17 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Obtain other dependent packages
         HdPackage theHdPackage = (HdPackage)EPackage.Registry.INSTANCE.getEPackage ( HdPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Add subpackages
         getESubpackages ().add ( theHdPackage );
+        getESubpackages ().add ( theMasterPackage );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        atlantisConfigurationSlotEClass.getESuperTypes ().add ( this.getGenericConfigurationSlot () );
-        moduleProcessorEClass.getESuperTypes ().add ( this.getProcessor () );
         genericConfigurationSlotEClass.getESuperTypes ().add ( this.getConfigurationSlot () );
 
         // Initialize classes and features; add operations and parameters
@@ -428,31 +354,16 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         initEReference ( getProject_Slots (), this.getConfigurationSlot (), null, "slots", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getProject_Processors (), this.getProcessor (), null, "processors", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-
-        EOperation op = addEOperation ( moduleEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter ( op, this.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
-        addEParameter ( op, this.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
-
         initEClass ( configurationSlotEClass, ConfigurationSlot.class, "ConfigurationSlot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getConfigurationSlot_Id (), ecorePackage.getEString (), "id", null, 1, 1, ConfigurationSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        op = addEOperation ( configurationSlotEClass, null, "store", 0, 1, IS_UNIQUE, IS_ORDERED );
+        EOperation op = addEOperation ( configurationSlotEClass, null, "store", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEException ( op, this.getException () );
-
-        initEClass ( atlantisConfigurationSlotEClass, AtlantisConfigurationSlot.class, "AtlantisConfigurationSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-
-        addEOperation ( atlantisConfigurationSlotEClass, this.getConfiguration (), "getConfigurationData", 1, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass ( processorEClass, Processor.class, "Processor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
         op = addEOperation ( processorEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, this.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        initEClass ( moduleProcessorEClass, ModuleProcessor.class, "ModuleProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getModuleProcessor_Modules (), this.getModule (), null, "modules", null, 0, -1, ModuleProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getModuleProcessor_Slot (), this.getAtlantisConfigurationSlot (), null, "slot", null, 1, 1, ModuleProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        getModuleProcessor_Slot ().getEKeys ().add ( this.getConfigurationSlot_Id () );
 
         initEClass ( genericConfigurationSlotEClass, GenericConfigurationSlot.class, "GenericConfigurationSlot", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getGenericConfigurationSlot_JsonBase (), ecorePackage.getEString (), "jsonBase", null, 0, -1, GenericConfigurationSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

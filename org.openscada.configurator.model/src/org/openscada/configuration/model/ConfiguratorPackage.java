@@ -99,25 +99,6 @@ public interface ConfiguratorPackage extends EPackage
     int PROJECT_FEATURE_COUNT = 2;
 
     /**
-     * The meta object id for the '{@link org.openscada.configuration.model.Module <em>Module</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.Module
-     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModule()
-     * @generated
-     */
-    int MODULE = 1;
-
-    /**
-     * The number of structural features of the '<em>Module</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MODULE_FEATURE_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link org.openscada.configuration.model.ConfigurationSlot <em>Configuration Slot</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -125,7 +106,7 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfigurationSlot()
      * @generated
      */
-    int CONFIGURATION_SLOT = 2;
+    int CONFIGURATION_SLOT = 1;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -153,7 +134,26 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericConfigurationSlot()
      * @generated
      */
-    int GENERIC_CONFIGURATION_SLOT = 6;
+    int GENERIC_CONFIGURATION_SLOT = 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configuration.model.Processor <em>Processor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.Processor
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getProcessor()
+     * @generated
+     */
+    int PROCESSOR = 2;
+
+    /**
+     * The number of structural features of the '<em>Processor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROCESSOR_FEATURE_COUNT = 0;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -192,108 +192,6 @@ public interface ConfiguratorPackage extends EPackage
     int GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT = CONFIGURATION_SLOT_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '{@link org.openscada.configuration.model.impl.AtlantisConfigurationSlotImpl <em>Atlantis Configuration Slot</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.impl.AtlantisConfigurationSlotImpl
-     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getAtlantisConfigurationSlot()
-     * @generated
-     */
-    int ATLANTIS_CONFIGURATION_SLOT = 3;
-
-    /**
-     * The feature id for the '<em><b>Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ATLANTIS_CONFIGURATION_SLOT__ID = GENERIC_CONFIGURATION_SLOT__ID;
-
-    /**
-     * The feature id for the '<em><b>Json Base</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ATLANTIS_CONFIGURATION_SLOT__JSON_BASE = GENERIC_CONFIGURATION_SLOT__JSON_BASE;
-
-    /**
-     * The feature id for the '<em><b>Base Directory</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ATLANTIS_CONFIGURATION_SLOT__BASE_DIRECTORY = GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY;
-
-    /**
-     * The number of structural features of the '<em>Atlantis Configuration Slot</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ATLANTIS_CONFIGURATION_SLOT_FEATURE_COUNT = GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
-
-    /**
-     * The meta object id for the '{@link org.openscada.configuration.model.Processor <em>Processor</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.Processor
-     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getProcessor()
-     * @generated
-     */
-    int PROCESSOR = 4;
-
-    /**
-     * The number of structural features of the '<em>Processor</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROCESSOR_FEATURE_COUNT = 0;
-
-    /**
-     * The meta object id for the '{@link org.openscada.configuration.model.impl.ModuleProcessorImpl <em>Module Processor</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configuration.model.impl.ModuleProcessorImpl
-     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModuleProcessor()
-     * @generated
-     */
-    int MODULE_PROCESSOR = 5;
-
-    /**
-     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MODULE_PROCESSOR__MODULES = PROCESSOR_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Slot</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MODULE_PROCESSOR__SLOT = PROCESSOR_FEATURE_COUNT + 1;
-
-    /**
-     * The number of structural features of the '<em>Module Processor</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MODULE_PROCESSOR_FEATURE_COUNT = PROCESSOR_FEATURE_COUNT + 2;
-
-    /**
      * The meta object id for the '<em>Configuration</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -301,7 +199,7 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguration()
      * @generated
      */
-    int CONFIGURATION = 7;
+    int CONFIGURATION = 4;
 
     /**
      * The meta object id for the '<em>Generic Configuration</em>' data type.
@@ -311,7 +209,7 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericConfiguration()
      * @generated
      */
-    int GENERIC_CONFIGURATION = 8;
+    int GENERIC_CONFIGURATION = 5;
 
     /**
      * The meta object id for the '<em>Exception</em>' data type.
@@ -321,7 +219,7 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getException()
      * @generated
      */
-    int EXCEPTION = 9;
+    int EXCEPTION = 6;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
@@ -356,16 +254,6 @@ public interface ConfiguratorPackage extends EPackage
     EReference getProject_Processors ();
 
     /**
-     * Returns the meta object for class '{@link org.openscada.configuration.model.Module <em>Module</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Module</em>'.
-     * @see org.openscada.configuration.model.Module
-     * @generated
-     */
-    EClass getModule ();
-
-    /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.ConfigurationSlot <em>Configuration Slot</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -387,16 +275,6 @@ public interface ConfiguratorPackage extends EPackage
     EAttribute getConfigurationSlot_Id ();
 
     /**
-     * Returns the meta object for class '{@link org.openscada.configuration.model.AtlantisConfigurationSlot <em>Atlantis Configuration Slot</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Atlantis Configuration Slot</em>'.
-     * @see org.openscada.configuration.model.AtlantisConfigurationSlot
-     * @generated
-     */
-    EClass getAtlantisConfigurationSlot ();
-
-    /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Processor <em>Processor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -405,38 +283,6 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     EClass getProcessor ();
-
-    /**
-     * Returns the meta object for class '{@link org.openscada.configuration.model.ModuleProcessor <em>Module Processor</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Module Processor</em>'.
-     * @see org.openscada.configuration.model.ModuleProcessor
-     * @generated
-     */
-    EClass getModuleProcessor ();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.openscada.configuration.model.ModuleProcessor#getModules <em>Modules</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Modules</em>'.
-     * @see org.openscada.configuration.model.ModuleProcessor#getModules()
-     * @see #getModuleProcessor()
-     * @generated
-     */
-    EReference getModuleProcessor_Modules ();
-
-    /**
-     * Returns the meta object for the reference '{@link org.openscada.configuration.model.ModuleProcessor#getSlot <em>Slot</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Slot</em>'.
-     * @see org.openscada.configuration.model.ModuleProcessor#getSlot()
-     * @see #getModuleProcessor()
-     * @generated
-     */
-    EReference getModuleProcessor_Slot ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.GenericConfigurationSlot <em>Generic Configuration Slot</em>}'.
@@ -553,16 +399,6 @@ public interface ConfiguratorPackage extends EPackage
         EReference PROJECT__PROCESSORS = eINSTANCE.getProject_Processors ();
 
         /**
-         * The meta object literal for the '{@link org.openscada.configuration.model.Module <em>Module</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configuration.model.Module
-         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModule()
-         * @generated
-         */
-        EClass MODULE = eINSTANCE.getModule ();
-
-        /**
          * The meta object literal for the '{@link org.openscada.configuration.model.ConfigurationSlot <em>Configuration Slot</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -581,16 +417,6 @@ public interface ConfiguratorPackage extends EPackage
         EAttribute CONFIGURATION_SLOT__ID = eINSTANCE.getConfigurationSlot_Id ();
 
         /**
-         * The meta object literal for the '{@link org.openscada.configuration.model.impl.AtlantisConfigurationSlotImpl <em>Atlantis Configuration Slot</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configuration.model.impl.AtlantisConfigurationSlotImpl
-         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getAtlantisConfigurationSlot()
-         * @generated
-         */
-        EClass ATLANTIS_CONFIGURATION_SLOT = eINSTANCE.getAtlantisConfigurationSlot ();
-
-        /**
          * The meta object literal for the '{@link org.openscada.configuration.model.Processor <em>Processor</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -599,32 +425,6 @@ public interface ConfiguratorPackage extends EPackage
          * @generated
          */
         EClass PROCESSOR = eINSTANCE.getProcessor ();
-
-        /**
-         * The meta object literal for the '{@link org.openscada.configuration.model.impl.ModuleProcessorImpl <em>Module Processor</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configuration.model.impl.ModuleProcessorImpl
-         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getModuleProcessor()
-         * @generated
-         */
-        EClass MODULE_PROCESSOR = eINSTANCE.getModuleProcessor ();
-
-        /**
-         * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference MODULE_PROCESSOR__MODULES = eINSTANCE.getModuleProcessor_Modules ();
-
-        /**
-         * The meta object literal for the '<em><b>Slot</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference MODULE_PROCESSOR__SLOT = eINSTANCE.getModuleProcessor_Slot ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl <em>Generic Configuration Slot</em>}' class.

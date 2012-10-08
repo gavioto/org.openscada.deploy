@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
@@ -288,15 +289,15 @@ public class MarkerPackageImpl extends EPackageImpl implements MarkerPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        hierarchyMarkerGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        hierarchyBlockGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        hierarchyMarkerGeneratorEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        hierarchyBlockGeneratorEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( hierarchyMarkerGeneratorEClass, HierarchyMarkerGenerator.class, "HierarchyMarkerGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

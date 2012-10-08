@@ -9,7 +9,7 @@ package org.openscada.configurator.module.common.main;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public interface MainPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAIN_LOADER__FILE = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int MAIN_LOADER__FILE = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Loader</em>' class.
@@ -86,7 +86,7 @@ public interface MainPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAIN_LOADER_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int MAIN_LOADER_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.main.impl.ValidateConfigurationImpl <em>Validate Configuration</em>}' class.
@@ -105,7 +105,7 @@ public interface MainPackage extends EPackage
      * @generated
      * @ordered
      */
-    int VALIDATE_CONFIGURATION_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int VALIDATE_CONFIGURATION_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.main.MainLoader <em>Loader</em>}'.

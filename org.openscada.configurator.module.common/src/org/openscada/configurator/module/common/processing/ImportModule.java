@@ -6,7 +6,6 @@
  */
 package org.openscada.configurator.module.common.processing;
 
-import org.openscada.configuration.model.Module;
 import org.openscada.configurator.module.common.FileModule;
 
 /**
@@ -19,7 +18,7 @@ import org.openscada.configurator.module.common.FileModule;
  * @model
  * @generated
  */
-public interface ImportModule extends Module, FileModule
+public interface ImportModule extends FileModule
 {
 
 } // ImportModule

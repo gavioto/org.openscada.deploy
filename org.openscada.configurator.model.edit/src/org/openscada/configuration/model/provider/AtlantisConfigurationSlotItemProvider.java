@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.openscada.configuration.model.AtlantisConfigurationSlot;
+import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configuration.model.AtlantisConfigurationSlot} object.

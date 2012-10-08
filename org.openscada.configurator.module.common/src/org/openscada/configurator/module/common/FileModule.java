@@ -7,7 +7,7 @@
 package org.openscada.configurator.module.common;
 
 import org.eclipse.emf.common.util.EList;
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.master.Module;
 
 /**
  * <!-- begin-user-doc -->

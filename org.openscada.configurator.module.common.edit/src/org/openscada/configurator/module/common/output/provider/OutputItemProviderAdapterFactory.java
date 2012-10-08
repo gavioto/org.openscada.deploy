@@ -30,9 +30,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.ModuleProcessor;
-import org.openscada.configuration.model.util.ConfiguratorSwitch;
+import org.openscada.configuration.model.master.MasterPackage;
+import org.openscada.configuration.model.master.ModuleProcessor;
+import org.openscada.configuration.model.master.util.MasterSwitch;
 import org.openscada.configurator.module.common.output.OutputFactory;
 import org.openscada.configurator.module.common.output.OutputPackage;
 import org.openscada.configurator.module.common.output.util.OutputAdapterFactory;
@@ -375,12 +375,12 @@ public class OutputItemProviderAdapterFactory extends OutputAdapterFactory imple
     }
 
     /**
-     * A child creation extender for the {@link ConfiguratorPackage}.
+     * A child creation extender for the {@link MasterPackage}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static class ConfiguratorChildCreationExtender implements IChildCreationExtender
+    public static class MasterChildCreationExtender implements IChildCreationExtender
     {
         /**
          * The switch for creating child descriptors specific to each extended class.
@@ -388,7 +388,7 @@ public class OutputItemProviderAdapterFactory extends OutputAdapterFactory imple
          * <!-- end-user-doc -->
          * @generated
          */
-        protected static class CreationSwitch extends ConfiguratorSwitch<Object>
+        protected static class CreationSwitch extends MasterSwitch<Object>
         {
             /**
              * The child descriptors being populated.
@@ -426,15 +426,15 @@ public class OutputItemProviderAdapterFactory extends OutputAdapterFactory imple
             @Override
             public Object caseModuleProcessor ( ModuleProcessor object )
             {
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputAverages () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputAverages () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputItems () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputItems () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputSummaries () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputSummaries () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputGlobalSummaries () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputGlobalSummaries () ) );
 
-                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createWriteOutput () ) );
+                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createWriteOutput () ) );
 
                 return null;
             }

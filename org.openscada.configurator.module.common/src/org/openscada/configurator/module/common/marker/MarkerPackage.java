@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,7 +78,7 @@ public interface MarkerPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HIERARCHY_MARKER_GENERATOR__MARKER_NAME = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int HIERARCHY_MARKER_GENERATOR__MARKER_NAME = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -87,7 +87,7 @@ public interface MarkerPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HIERARCHY_MARKER_GENERATOR__MARKERS = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int HIERARCHY_MARKER_GENERATOR__MARKERS = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Hierarchy Marker Generator</em>' class.
@@ -96,7 +96,7 @@ public interface MarkerPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HIERARCHY_MARKER_GENERATOR_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 2;
+    int HIERARCHY_MARKER_GENERATOR_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.marker.impl.MarkerImpl <em>Marker</em>}' class.
@@ -152,7 +152,7 @@ public interface MarkerPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HIERARCHY_BLOCK_GENERATOR_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int HIERARCHY_BLOCK_GENERATOR_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.marker.HierarchyMarkerGenerator <em>Hierarchy Marker Generator</em>}'.

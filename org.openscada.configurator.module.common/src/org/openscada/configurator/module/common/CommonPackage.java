@@ -9,7 +9,7 @@ package org.openscada.configurator.module.common;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int FILE_MODULE__PATH = ConfiguratorPackage.MODULE_FEATURE_COUNT + 0;
+    int FILE_MODULE__PATH = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>File Module</em>' class.
@@ -86,7 +86,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int FILE_MODULE_FEATURE_COUNT = ConfiguratorPackage.MODULE_FEATURE_COUNT + 1;
+    int FILE_MODULE_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}'.

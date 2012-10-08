@@ -9,7 +9,7 @@ package org.openscada.configurator.module.common.summary.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.openscada.configuration.model.Module;
+import org.openscada.configuration.model.master.Module;
 import org.openscada.configurator.module.common.summary.CleanupSummaries;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.configurator.module.common.summary.SummaryPackage;

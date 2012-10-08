@@ -8,12 +8,19 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.openscada.configuration.model;version="1.0.0";uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.openscada.configurator",
- org.openscada.configuration.model.hd;version="1.0.0";uses:="org.eclipse.emf.ecore,org.openscada.configuration.model",
+ org.openscada.configuration.model.hd;version="1.0.0";
+  uses:="org.eclipse.emf.ecore,
+   org.openscada.configurator,
+   org.openscada.configuration.model.master,
+   org.openscada.configuration.model",
  org.openscada.configuration.model.hd.impl;version="1.0.0";
   uses:="org.openscada.configuration.model.hd,
    org.eclipse.emf.ecore,
+   org.openscada.configurator,
    org.openscada.configuration.model.impl,
-   org.eclipse.emf.ecore.impl",
+   org.openscada.configuration.model.master,
+   org.eclipse.emf.ecore.impl,
+   org.openscada.configuration.model",
  org.openscada.configuration.model.hd.util;version="1.0.0";
   uses:="org.eclipse.emf.ecore.util,
    org.openscada.configuration.model.hd,
@@ -25,8 +32,30 @@ Export-Package: org.openscada.configuration.model;version="1.0.0";uses:="org.ecl
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.common.util,
    org.openscada.configurator,
+   org.openscada.configuration.model.master,
    org.eclipse.emf.common.notify,
    org.eclipse.emf.ecore.impl,
+   org.openscada.configuration.model",
+ org.openscada.configuration.model.master;version="1.0.0";
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   org.openscada.configurator,
+   org.openscada.configuration.model",
+ org.openscada.configuration.model.master.impl;version="1.0.0";
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   org.openscada.configurator,
+   org.openscada.configuration.model.impl,
+   org.openscada.configuration.model.master,
+   org.eclipse.emf.common.notify,
+   org.eclipse.emf.ecore.impl,
+   org.openscada.configuration.model",
+ org.openscada.configuration.model.master.util;version="1.0.0";
+  uses:="org.eclipse.emf.ecore.util,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.common.notify.impl,
+   org.openscada.configuration.model.master,
+   org.eclipse.emf.common.notify,
    org.openscada.configuration.model",
  org.openscada.configuration.model.util;version="1.0.0";
   uses:="org.eclipse.emf.ecore.util,

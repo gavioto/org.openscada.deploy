@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.openscada.configuration.model.AtlantisConfigurationSlot;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HDItemGenerator;
 import org.openscada.configuration.model.hd.HdPackage;
+import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 import org.openscada.deploy.iolist.model.Item;
 
 /**
@@ -26,18 +26,18 @@ import org.openscada.deploy.iolist.model.Item;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configuration.model.hd.impl.HDItemGeneratorImpl#getHdSlot <em>Hd Slot</em>}</li>
- * <li>{@link org.openscada.configuration.model.hd.impl.HDItemGeneratorImpl#getDaSlot <em>Da Slot</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.hd.impl.HDItemGeneratorImpl#getHdSlot <em>Hd Slot</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.hd.impl.HDItemGeneratorImpl#getDaSlot <em>Da Slot</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 {
     /**
-     * The cached value of the '{@link #getHdSlot() <em>Hd Slot</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getHdSlot() <em>Hd Slot</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getHdSlot()
      * @generated
      * @ordered
@@ -45,8 +45,8 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
     protected ConfigurationSlot hdSlot;
 
     /**
-     * The cached value of the '{@link #getDaSlot() <em>Da Slot</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getDaSlot() <em>Da Slot</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getDaSlot()
      * @generated
      * @ordered
@@ -55,7 +55,6 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected HDItemGeneratorImpl ()
@@ -65,7 +64,6 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -76,100 +74,86 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ConfigurationSlot getHdSlot ()
     {
-        if ( this.hdSlot != null && this.hdSlot.eIsProxy () )
+        if ( hdSlot != null && hdSlot.eIsProxy () )
         {
-            final InternalEObject oldHdSlot = (InternalEObject)this.hdSlot;
-            this.hdSlot = (ConfigurationSlot)eResolveProxy ( oldHdSlot );
-            if ( this.hdSlot != oldHdSlot )
+            InternalEObject oldHdSlot = (InternalEObject)hdSlot;
+            hdSlot = (ConfigurationSlot)eResolveProxy ( oldHdSlot );
+            if ( hdSlot != oldHdSlot )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.HD_ITEM_GENERATOR__HD_SLOT, oldHdSlot, this.hdSlot ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.HD_ITEM_GENERATOR__HD_SLOT, oldHdSlot, hdSlot ) );
             }
         }
-        return this.hdSlot;
+        return hdSlot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ConfigurationSlot basicGetHdSlot ()
     {
-        return this.hdSlot;
+        return hdSlot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setHdSlot ( final ConfigurationSlot newHdSlot )
+    public void setHdSlot ( ConfigurationSlot newHdSlot )
     {
-        final ConfigurationSlot oldHdSlot = this.hdSlot;
-        this.hdSlot = newHdSlot;
+        ConfigurationSlot oldHdSlot = hdSlot;
+        hdSlot = newHdSlot;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.HD_ITEM_GENERATOR__HD_SLOT, oldHdSlot, this.hdSlot ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.HD_ITEM_GENERATOR__HD_SLOT, oldHdSlot, hdSlot ) );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public AtlantisConfigurationSlot getDaSlot ()
     {
-        if ( this.daSlot != null && this.daSlot.eIsProxy () )
+        if ( daSlot != null && daSlot.eIsProxy () )
         {
-            final InternalEObject oldDaSlot = (InternalEObject)this.daSlot;
-            this.daSlot = (AtlantisConfigurationSlot)eResolveProxy ( oldDaSlot );
-            if ( this.daSlot != oldDaSlot )
+            InternalEObject oldDaSlot = (InternalEObject)daSlot;
+            daSlot = (AtlantisConfigurationSlot)eResolveProxy ( oldDaSlot );
+            if ( daSlot != oldDaSlot )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.HD_ITEM_GENERATOR__DA_SLOT, oldDaSlot, this.daSlot ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.HD_ITEM_GENERATOR__DA_SLOT, oldDaSlot, daSlot ) );
             }
         }
-        return this.daSlot;
+        return daSlot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public AtlantisConfigurationSlot basicGetDaSlot ()
     {
-        return this.daSlot;
+        return daSlot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setDaSlot ( final AtlantisConfigurationSlot newDaSlot )
+    public void setDaSlot ( AtlantisConfigurationSlot newDaSlot )
     {
-        final AtlantisConfigurationSlot oldDaSlot = this.daSlot;
-        this.daSlot = newDaSlot;
+        AtlantisConfigurationSlot oldDaSlot = daSlot;
+        daSlot = newDaSlot;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.HD_ITEM_GENERATOR__DA_SLOT, oldDaSlot, this.daSlot ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.HD_ITEM_GENERATOR__DA_SLOT, oldDaSlot, daSlot ) );
     }
 
     /**
@@ -215,25 +199,20 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case HdPackage.HD_ITEM_GENERATOR__HD_SLOT:
                 if ( resolve )
-                {
                     return getHdSlot ();
-                }
                 return basicGetHdSlot ();
             case HdPackage.HD_ITEM_GENERATOR__DA_SLOT:
                 if ( resolve )
-                {
                     return getDaSlot ();
-                }
                 return basicGetDaSlot ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -241,11 +220,10 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -261,11 +239,10 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -281,18 +258,17 @@ public class HDItemGeneratorImpl extends EObjectImpl implements HDItemGenerator
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case HdPackage.HD_ITEM_GENERATOR__HD_SLOT:
-                return this.hdSlot != null;
+                return hdSlot != null;
             case HdPackage.HD_ITEM_GENERATOR__DA_SLOT:
-                return this.daSlot != null;
+                return daSlot != null;
         }
         return super.eIsSet ( featureID );
     }

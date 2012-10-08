@@ -12,10 +12,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.openscada.configuration.model.AtlantisConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.ModuleProcessor;
 import org.openscada.configuration.model.Project;
 
 /**
@@ -72,10 +70,6 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
         {
             case ConfiguratorPackage.PROJECT:
                 return createProject ();
-            case ConfiguratorPackage.ATLANTIS_CONFIGURATION_SLOT:
-                return createAtlantisConfigurationSlot ();
-            case ConfiguratorPackage.MODULE_PROCESSOR:
-                return createModuleProcessor ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -124,28 +118,6 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         ProjectImpl project = new ProjectImpl ();
         return project;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public AtlantisConfigurationSlot createAtlantisConfigurationSlot ()
-    {
-        AtlantisConfigurationSlotImpl atlantisConfigurationSlot = new AtlantisConfigurationSlotImpl ();
-        return atlantisConfigurationSlot;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ModuleProcessor createModuleProcessor ()
-    {
-        ModuleProcessorImpl moduleProcessor = new ModuleProcessorImpl ();
-        return moduleProcessor;
     }
 
     /**

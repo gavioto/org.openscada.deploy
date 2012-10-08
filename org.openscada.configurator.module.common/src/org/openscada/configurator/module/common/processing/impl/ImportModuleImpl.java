@@ -14,8 +14,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
-import org.openscada.configurator.module.common.CommonPackage;
-import org.openscada.configurator.module.common.FileModule;
 import org.openscada.configurator.module.common.processing.ImportModule;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.handler.ImportHandler;
@@ -155,46 +153,6 @@ public class ImportModuleImpl extends EObjectImpl implements ImportModule
                 return path != null && !path.isEmpty ();
         }
         return super.eIsSet ( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
-    {
-        if ( baseClass == FileModule.class )
-        {
-            switch ( derivedFeatureID )
-            {
-                case ProcessingPackage.IMPORT_MODULE__PATH:
-                    return CommonPackage.FILE_MODULE__PATH;
-                default:
-                    return -1;
-            }
-        }
-        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
-    {
-        if ( baseClass == FileModule.class )
-        {
-            switch ( baseFeatureID )
-            {
-                case CommonPackage.FILE_MODULE__PATH:
-                    return ProcessingPackage.IMPORT_MODULE__PATH;
-                default:
-                    return -1;
-            }
-        }
-        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
     }
 
     /**

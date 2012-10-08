@@ -18,6 +18,8 @@ import org.openscada.configuration.model.hd.HdFactory;
 import org.openscada.configuration.model.hd.HdPackage;
 import org.openscada.configuration.model.hd.StorageCommandGenerator;
 import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
+import org.openscada.configuration.model.master.MasterPackage;
+import org.openscada.configuration.model.master.impl.MasterPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,14 +101,17 @@ public class HdPackageImpl extends EPackageImpl implements HdPackage
 
         // Obtain or create and register interdependencies
         ConfiguratorPackageImpl theConfiguratorPackage = (ConfiguratorPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI ) instanceof ConfiguratorPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI ) : ConfiguratorPackage.eINSTANCE );
+        MasterPackageImpl theMasterPackage = (MasterPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI ) instanceof MasterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI ) : MasterPackage.eINSTANCE );
 
         // Create package meta-data objects
         theHdPackage.createPackageContents ();
         theConfiguratorPackage.createPackageContents ();
+        theMasterPackage.createPackageContents ();
 
         // Initialize created meta-data
         theHdPackage.initializePackageContents ();
         theConfiguratorPackage.initializePackageContents ();
+        theMasterPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theHdPackage.freeze ();
@@ -255,6 +260,7 @@ public class HdPackageImpl extends EPackageImpl implements HdPackage
 
         // Obtain other dependent packages
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Create type parameters
 
@@ -276,7 +282,7 @@ public class HdPackageImpl extends EPackageImpl implements HdPackage
 
         initEClass ( hdItemGeneratorEClass, HDItemGenerator.class, "HDItemGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getHDItemGenerator_HdSlot (), this.getConfigurationSlot (), null, "hdSlot", null, 1, 1, HDItemGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getHDItemGenerator_DaSlot (), theConfiguratorPackage.getAtlantisConfigurationSlot (), null, "daSlot", null, 1, 1, HDItemGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getHDItemGenerator_DaSlot (), theMasterPackage.getAtlantisConfigurationSlot (), null, "daSlot", null, 1, 1, HDItemGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //HdPackageImpl

@@ -10,7 +10,6 @@ import junit.textui.TestRunner;
 
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HdFactory;
-
 import org.openscada.configuration.model.tests.GenericConfigurationSlotTest;
 
 /**

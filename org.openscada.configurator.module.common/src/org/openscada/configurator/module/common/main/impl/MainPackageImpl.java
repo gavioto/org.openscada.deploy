@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainFactory;
@@ -235,6 +236,7 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
 
         // Create type parameters
@@ -242,8 +244,8 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        mainLoaderEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
-        validateConfigurationEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        mainLoaderEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
+        validateConfigurationEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( mainLoaderEClass, MainLoader.class, "MainLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonFactory;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.FileModule;
@@ -221,7 +222,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         MainPackage theMainPackage = (MainPackage)EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI );
         MarkerPackage theMarkerPackage = (MarkerPackage)EPackage.Registry.INSTANCE.getEPackage ( MarkerPackage.eNS_URI );
         OutputPackage theOutputPackage = (OutputPackage)EPackage.Registry.INSTANCE.getEPackage ( OutputPackage.eNS_URI );
-        ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Add subpackages
         getESubpackages ().add ( theNetworkPackage );
@@ -237,7 +238,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        fileModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        fileModuleEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( fileModuleEClass, FileModule.class, "FileModule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

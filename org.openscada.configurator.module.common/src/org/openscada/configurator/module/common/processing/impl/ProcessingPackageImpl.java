@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.module.common.CommonPackage;
 import org.openscada.configurator.module.common.impl.CommonPackageImpl;
 import org.openscada.configurator.module.common.main.MainPackage;
@@ -282,20 +283,19 @@ public class ProcessingPackageImpl extends EPackageImpl implements ProcessingPac
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
         CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
+        MasterPackage theMasterPackage = (MasterPackage)EPackage.Registry.INSTANCE.getEPackage ( MasterPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        importModuleEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
         importModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
         overrideListModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
         importListModuleEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
         scriptOverridesEClass.getESuperTypes ().add ( theCommonPackage.getFileModule () );
-        removeInactiveEClass.getESuperTypes ().add ( theConfiguratorPackage.getModule () );
+        removeInactiveEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( importModuleEClass, ImportModule.class, "ImportModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
