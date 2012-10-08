@@ -7,8 +7,10 @@
 package org.openscada.configurator.processor.common.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.openscada.configuration.model.ConfiguratorPackage;
@@ -113,6 +115,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getStoreConfigurationSlotProcessor_Slots ()
+    {
+        return (EReference)storeConfigurationSlotProcessorEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -140,6 +152,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Create classes and their features
         storeConfigurationSlotProcessorEClass = createEClass ( STORE_CONFIGURATION_SLOT_PROCESSOR );
+        createEReference ( storeConfigurationSlotProcessorEClass, STORE_CONFIGURATION_SLOT_PROCESSOR__SLOTS );
     }
 
     /**
@@ -179,6 +192,11 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Initialize classes and features; add operations and parameters
         initEClass ( storeConfigurationSlotProcessorEClass, StoreConfigurationSlotProcessor.class, "StoreConfigurationSlotProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getStoreConfigurationSlotProcessor_Slots (), theConfiguratorPackage.getConfigurationSlot (), null, "slots", null, 0, -1, StoreConfigurationSlotProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        EOperation op = addEOperation ( storeConfigurationSlotProcessorEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEException ( op, theConfiguratorPackage.getException () );
 
         // Create resource
         createResource ( eNS_URI );

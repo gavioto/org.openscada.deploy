@@ -3,5 +3,14 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common"
     nsURI="http://openscada.org/Configurator/Processors/Common" nsPrefix="common">
-  <eClassifiers xsi:type="ecore:EClass" name="StoreConfigurationSlotProcessor" eSuperTypes="platform:/resource/org.openscada.configurator.model/model/configurator.ecore#//Processor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StoreConfigurationSlotProcessor" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Processor">
+    <eOperations name="process" eExceptions="ecore:EDataType ../../org.openscada.configurator.model/model/configurator.ecore#//Exception">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="for ( ConfigurationSlot slot : getSlots () )&#xA;{&#xA;&#x9;slot.store();&#xA;}"/>
+      </eAnnotations>
+      <eParameters name="project" eType="ecore:EClass platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Project"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slots" upperBound="-1"
+        eType="ecore:EClass ../../org.openscada.configurator.model/model/configurator.ecore#//ConfigurationSlot"/>
+  </eClassifiers>
 </ecore:EPackage>

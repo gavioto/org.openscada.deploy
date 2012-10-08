@@ -9,6 +9,7 @@ package org.openscada.configurator.processor.common;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.openscada.configuration.model.ConfiguratorPackage;
 
 /**
@@ -71,13 +72,22 @@ public interface CommonPackage extends EPackage
     int STORE_CONFIGURATION_SLOT_PROCESSOR = 0;
 
     /**
+     * The feature id for the '<em><b>Slots</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STORE_CONFIGURATION_SLOT_PROCESSOR__SLOTS = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Store Configuration Slot Processor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int STORE_CONFIGURATION_SLOT_PROCESSOR_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 0;
+    int STORE_CONFIGURATION_SLOT_PROCESSOR_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor <em>Store Configuration Slot Processor</em>}'.
@@ -88,6 +98,17 @@ public interface CommonPackage extends EPackage
      * @generated
      */
     EClass getStoreConfigurationSlotProcessor ();
+
+    /**
+     * Returns the meta object for the reference list '{@link org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor#getSlots <em>Slots</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Slots</em>'.
+     * @see org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor#getSlots()
+     * @see #getStoreConfigurationSlotProcessor()
+     * @generated
+     */
+    EReference getStoreConfigurationSlotProcessor_Slots ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -121,6 +142,14 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EClass STORE_CONFIGURATION_SLOT_PROCESSOR = eINSTANCE.getStoreConfigurationSlotProcessor ();
+
+        /**
+         * The meta object literal for the '<em><b>Slots</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference STORE_CONFIGURATION_SLOT_PROCESSOR__SLOTS = eINSTANCE.getStoreConfigurationSlotProcessor_Slots ();
 
     }
 
