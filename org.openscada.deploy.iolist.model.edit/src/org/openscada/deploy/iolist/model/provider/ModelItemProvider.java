@@ -135,12 +135,12 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
 
         switch ( notification.getFeatureID ( Model.class ) )
         {
-            case ModelPackage.MODEL__ITEMS:
-            case ModelPackage.MODEL__AVERAGES:
-            case ModelPackage.MODEL__MOVING_AVERAGES:
-            case ModelPackage.MODEL__SUMMARIES:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.MODEL__ITEMS:
+        case ModelPackage.MODEL__AVERAGES:
+        case ModelPackage.MODEL__MOVING_AVERAGES:
+        case ModelPackage.MODEL__SUMMARIES:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
@@ -168,8 +168,6 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createConstantItem () ) );
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createMovingAverageItem () ) );
-
-        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ITEMS, ModelFactory.eINSTANCE.createGlobalItem () ) );
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__AVERAGES, ModelFactory.eINSTANCE.createAverage () ) );
 

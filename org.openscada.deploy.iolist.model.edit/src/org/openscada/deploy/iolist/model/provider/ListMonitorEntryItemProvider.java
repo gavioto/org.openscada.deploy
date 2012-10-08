@@ -129,11 +129,11 @@ public class ListMonitorEntryItemProvider extends ItemProviderAdapter implements
 
         switch ( notification.getFeatureID ( ListMonitorEntry.class ) )
         {
-            case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
-            case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
-            case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.LIST_MONITOR_ENTRY__VALUE:
+        case ModelPackage.LIST_MONITOR_ENTRY__SEVERITY:
+        case ModelPackage.LIST_MONITOR_ENTRY__REQUIRE_ACK:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

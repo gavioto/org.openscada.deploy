@@ -236,18 +236,18 @@ public enum AverageReferenceType implements Enumerator
     {
         switch ( value )
         {
-            case MIN_VALUE:
-                return MIN;
-            case MAX_VALUE:
-                return MAX;
-            case MEAN_VALUE:
-                return MEAN;
-            case MEDIAN_VALUE:
-                return MEDIAN;
-            case DEVIATION_VALUE:
-                return DEVIATION;
-            case SUM_VALUE:
-                return SUM;
+        case MIN_VALUE:
+            return MIN;
+        case MAX_VALUE:
+            return MAX;
+        case MEAN_VALUE:
+            return MEAN;
+        case MEDIAN_VALUE:
+            return MEDIAN;
+        case DEVIATION_VALUE:
+            return DEVIATION;
+        case SUM_VALUE:
+            return SUM;
         }
         return null;
     }

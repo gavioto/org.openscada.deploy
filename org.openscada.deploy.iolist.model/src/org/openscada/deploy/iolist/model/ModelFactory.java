@@ -189,15 +189,6 @@ public interface ModelFactory extends EFactory
     ListMonitorEntry createListMonitorEntry ();
 
     /**
-     * Returns a new object of class '<em>Global Item</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Global Item</em>'.
-     * @generated
-     */
-    GlobalItem createGlobalItem ();
-
-    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

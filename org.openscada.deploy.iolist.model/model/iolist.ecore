@@ -267,5 +267,4 @@
       <details key="enumeration" value="INFORMATION WARNING ALARM ERROR"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GlobalItem" eSuperTypes="#//Item"/>
 </ecore:EPackage>

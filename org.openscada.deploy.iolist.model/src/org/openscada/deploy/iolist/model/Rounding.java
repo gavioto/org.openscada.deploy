@@ -187,14 +187,14 @@ public enum Rounding implements Enumerator
     {
         switch ( value )
         {
-            case NONE_VALUE:
-                return NONE;
-            case ROUND_VALUE:
-                return ROUND;
-            case CEIL_VALUE:
-                return CEIL;
-            case FLOOR_VALUE:
-                return FLOOR;
+        case NONE_VALUE:
+            return NONE;
+        case ROUND_VALUE:
+            return ROUND;
+        case CEIL_VALUE:
+            return CEIL;
+        case FLOOR_VALUE:
+            return FLOOR;
         }
         return null;
     }

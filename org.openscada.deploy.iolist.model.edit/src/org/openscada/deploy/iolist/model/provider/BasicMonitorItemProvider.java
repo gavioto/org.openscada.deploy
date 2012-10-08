@@ -110,10 +110,10 @@ public class BasicMonitorItemProvider extends MonitorItemProvider implements IEd
 
         switch ( notification.getFeatureID ( BasicMonitor.class ) )
         {
-            case ModelPackage.BASIC_MONITOR__ACK:
-            case ModelPackage.BASIC_MONITOR__SEVERITY:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.BASIC_MONITOR__ACK:
+        case ModelPackage.BASIC_MONITOR__SEVERITY:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

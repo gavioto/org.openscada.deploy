@@ -194,15 +194,15 @@ public class MovingAverageItemProvider extends ItemProviderAdapter implements IE
 
         switch ( notification.getFeatureID ( MovingAverage.class ) )
         {
-            case ModelPackage.MOVING_AVERAGE__ID:
-            case ModelPackage.MOVING_AVERAGE__TRIGGER:
-            case ModelPackage.MOVING_AVERAGE__RANGE:
-            case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ModelPackage.MOVING_AVERAGE__SOURCE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.MOVING_AVERAGE__ID:
+        case ModelPackage.MOVING_AVERAGE__TRIGGER:
+        case ModelPackage.MOVING_AVERAGE__RANGE:
+        case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case ModelPackage.MOVING_AVERAGE__SOURCE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

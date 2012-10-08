@@ -206,18 +206,18 @@ public class FormulaItemItemProvider extends ItemItemProvider implements IEditin
 
         switch ( notification.getFeatureID ( FormulaItem.class ) )
         {
-            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ModelPackage.FORMULA_ITEM__INPUTS:
-            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
+        case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
+        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
+        case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
+        case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
+        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case ModelPackage.FORMULA_ITEM__INPUTS:
+        case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
