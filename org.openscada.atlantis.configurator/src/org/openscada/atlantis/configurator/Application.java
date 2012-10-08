@@ -50,7 +50,7 @@ public class Application implements IApplication
     {
         log.println ( "** 0 - Loading base json files" );
 
-        log.println ( "** 0 - Running modules" );
+        log.println ( "** 0 - Running processors" );
 
         for ( final Processor processor : project.getProcessors () )
         {
