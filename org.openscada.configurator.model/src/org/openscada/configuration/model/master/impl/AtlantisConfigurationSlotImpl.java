@@ -13,19 +13,22 @@ import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.Configuration;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Atlantis Configuration Slot</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Atlantis Configuration Slot</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl implements AtlantisConfigurationSlot
 {
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    private Configuration configuration;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected AtlantisConfigurationSlotImpl ()
@@ -34,8 +37,8 @@ public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl 
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -45,15 +48,19 @@ public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl 
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public Configuration getConfigurationData ()
     {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException ();
+        if ( this.configuration == null )
+        {
+            this.configuration = new Configuration ( System.out );
+            initialize ( this.configuration );
+        }
+        return this.configuration;
     }
 
 } //AtlantisConfigurationSlotImpl
