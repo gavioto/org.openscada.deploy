@@ -36,7 +36,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.network.provider.NetworkItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
@@ -54,7 +54,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.scripts.provider.ScriptsItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
@@ -72,7 +72,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.processing.provider.ProcessingItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
@@ -90,7 +90,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.summary.provider.SummaryItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
@@ -108,7 +108,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.main.provider.MainItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
    
@@ -126,7 +126,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.marker.provider.MarkerItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
    
@@ -144,7 +144,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://openscada.org/Deploy/Configurator"
+            uri="http://openscada.org/Deploy/Configurator/Master"
             class="org.openscada.configurator.module.common.output.provider.OutputItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
