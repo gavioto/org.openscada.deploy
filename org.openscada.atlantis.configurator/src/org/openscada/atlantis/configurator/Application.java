@@ -7,7 +7,6 @@ import java.util.LinkedList;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
@@ -58,15 +57,6 @@ public class Application implements IApplication
             log.println ( " * Running processor: " + processor );
             processor.process ( project );
         }
-
-        for ( final ConfigurationSlot slot : project.getSlots () )
-        {
-            log.println ( String.format ( "** Writing slot %s...", slot.getId () ) );
-            slot.store ();
-            log.println ( String.format ( "** Writing slot %s... done!", slot.getId () ) );
-        }
-
-        log.println ( "** 5 - Output finished" );
     }
 
     private static void process ( final PrintStream log, final String[] args ) throws Exception
