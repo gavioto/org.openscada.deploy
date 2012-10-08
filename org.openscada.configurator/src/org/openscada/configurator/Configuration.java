@@ -177,6 +177,11 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.server.osgi.summary.attribute", "summary." + string, data ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
+    public void addItem ( final Item item )
+    {
+        this.items.add ( item );
+    }
+
     public void addItems ( final List<? extends Item> items )
     {
         if ( items == null )
