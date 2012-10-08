@@ -78,4 +78,12 @@ public interface GenericConfigurationSlot extends ConfigurationSlot
      */
     void initialize ( GenericConfiguration configuration );
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" dataType="org.openscada.configuration.model.GenericConfiguration" required="true"
+     * @generated
+     */
+    GenericConfiguration getConfigurationData ();
+
 } // GenericConfigurationSlot

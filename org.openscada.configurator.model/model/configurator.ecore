@@ -26,6 +26,7 @@
     <eOperations name="initialize">
       <eParameters name="configuration" eType="#//GenericConfiguration"/>
     </eOperations>
+    <eOperations name="getConfigurationData" lowerBound="1" eType="#//GenericConfiguration"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="jsonBase" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseDirectory" lowerBound="1"

@@ -373,6 +373,8 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         op = addEOperation ( genericConfigurationSlotEClass, null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, this.getGenericConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
 
+        addEOperation ( genericConfigurationSlotEClass, this.getGenericConfiguration (), "getConfigurationData", 1, 1, IS_UNIQUE, IS_ORDERED );
+
         // Initialize data types
         initEDataType ( configurationEDataType, Configuration.class, "Configuration", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType ( genericConfigurationEDataType, GenericConfiguration.class, "GenericConfiguration", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );

@@ -26,19 +26,19 @@ import org.openscada.configurator.GenericConfiguration;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl#getJsonBase <em>Json Base</em>}</li>
- *   <li>{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl#getBaseDirectory <em>Base Directory</em>}</li>
+ * <li>{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl#getJsonBase <em>Json Base</em>}</li>
+ * <li>{@link org.openscada.configuration.model.impl.GenericConfigurationSlotImpl#getBaseDirectory <em>Base Directory</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class GenericConfigurationSlotImpl extends EObjectImpl implements GenericConfigurationSlot
 {
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getId()
      * @generated
      * @ordered
@@ -46,8 +46,8 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
     protected static final String ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getId()
      * @generated
      * @ordered
@@ -55,8 +55,8 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
     protected String id = ID_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getJsonBase() <em>Json Base</em>}' attribute list.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getJsonBase() <em>Json Base</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getJsonBase()
      * @generated
      * @ordered
@@ -64,8 +64,8 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
     protected EList<String> jsonBase;
 
     /**
-     * The default value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getBaseDirectory()
      * @generated
      * @ordered
@@ -73,8 +73,8 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
     protected static final String BASE_DIRECTORY_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getBaseDirectory() <em>Base Directory</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getBaseDirectory()
      * @generated
      * @ordered
@@ -88,6 +88,7 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected GenericConfigurationSlotImpl ()
@@ -97,6 +98,7 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -107,62 +109,71 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getId ()
     {
-        return id;
+        return this.id;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setId ( String newId )
+    public void setId ( final String newId )
     {
-        String oldId = id;
-        id = newId;
+        final String oldId = this.id;
+        this.id = newId;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__ID, oldId, id ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__ID, oldId, this.id ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EList<String> getJsonBase ()
     {
-        if ( jsonBase == null )
+        if ( this.jsonBase == null )
         {
-            jsonBase = new EDataTypeUniqueEList<String> ( String.class, this, ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__JSON_BASE );
+            this.jsonBase = new EDataTypeUniqueEList<String> ( String.class, this, ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__JSON_BASE );
         }
-        return jsonBase;
+        return this.jsonBase;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getBaseDirectory ()
     {
-        return baseDirectory;
+        return this.baseDirectory;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setBaseDirectory ( String newBaseDirectory )
+    public void setBaseDirectory ( final String newBaseDirectory )
     {
-        String oldBaseDirectory = baseDirectory;
-        baseDirectory = newBaseDirectory;
+        final String oldBaseDirectory = this.baseDirectory;
+        this.baseDirectory = newBaseDirectory;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY, oldBaseDirectory, baseDirectory ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY, oldBaseDirectory, this.baseDirectory ) );
+        }
     }
 
     /**
@@ -187,17 +198,26 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
      * @generated NOT
      */
     @Override
+    public abstract GenericConfiguration getConfigurationData ();
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
     public void store () throws Exception
     {
-        this.configuration.write ( new File ( FileLocator.toFileURL ( new URL ( getBaseDirectory () ) ).getFile () ) );
+        getConfigurationData ().write ( new File ( FileLocator.toFileURL ( new URL ( getBaseDirectory () ) ).getFile () ) );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -213,11 +233,12 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -237,10 +258,11 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -259,40 +281,44 @@ public abstract class GenericConfigurationSlotImpl extends EObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__ID:
-                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+                return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals ( this.id );
             case ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__JSON_BASE:
-                return jsonBase != null && !jsonBase.isEmpty ();
+                return this.jsonBase != null && !this.jsonBase.isEmpty ();
             case ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY:
-                return BASE_DIRECTORY_EDEFAULT == null ? baseDirectory != null : !BASE_DIRECTORY_EDEFAULT.equals ( baseDirectory );
+                return BASE_DIRECTORY_EDEFAULT == null ? this.baseDirectory != null : !BASE_DIRECTORY_EDEFAULT.equals ( this.baseDirectory );
         }
         return super.eIsSet ( featureID );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (id: " );
-        result.append ( id );
+        result.append ( this.id );
         result.append ( ", jsonBase: " );
-        result.append ( jsonBase );
+        result.append ( this.jsonBase );
         result.append ( ", baseDirectory: " );
-        result.append ( baseDirectory );
+        result.append ( this.baseDirectory );
         result.append ( ')' );
         return result.toString ();
     }

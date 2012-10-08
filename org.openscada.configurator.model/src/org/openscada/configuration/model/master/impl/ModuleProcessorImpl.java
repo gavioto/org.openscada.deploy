@@ -28,18 +28,18 @@ import org.openscada.configuration.model.master.ModuleProcessor;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.openscada.configuration.model.master.impl.ModuleProcessorImpl#getModules <em>Modules</em>}</li>
- * <li>{@link org.openscada.configuration.model.master.impl.ModuleProcessorImpl#getSlot <em>Slot</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.master.impl.ModuleProcessorImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.master.impl.ModuleProcessorImpl#getSlot <em>Slot</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 {
     /**
-     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getModules()
      * @generated
      * @ordered
@@ -47,8 +47,8 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
     protected EList<Module> modules;
 
     /**
-     * The cached value of the '{@link #getSlot() <em>Slot</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * The cached value of the '{@link #getSlot() <em>Slot</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see #getSlot()
      * @generated
      * @ordered
@@ -57,7 +57,6 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ModuleProcessorImpl ()
@@ -67,7 +66,6 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -78,66 +76,58 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Module> getModules ()
     {
-        if ( this.modules == null )
+        if ( modules == null )
         {
-            this.modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, MasterPackage.MODULE_PROCESSOR__MODULES );
+            modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, MasterPackage.MODULE_PROCESSOR__MODULES );
         }
-        return this.modules;
+        return modules;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public AtlantisConfigurationSlot getSlot ()
     {
-        if ( this.slot != null && this.slot.eIsProxy () )
+        if ( slot != null && slot.eIsProxy () )
         {
-            final InternalEObject oldSlot = (InternalEObject)this.slot;
-            this.slot = (AtlantisConfigurationSlot)eResolveProxy ( oldSlot );
-            if ( this.slot != oldSlot )
+            InternalEObject oldSlot = (InternalEObject)slot;
+            slot = (AtlantisConfigurationSlot)eResolveProxy ( oldSlot );
+            if ( slot != oldSlot )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MasterPackage.MODULE_PROCESSOR__SLOT, oldSlot, this.slot ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MasterPackage.MODULE_PROCESSOR__SLOT, oldSlot, slot ) );
             }
         }
-        return this.slot;
+        return slot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public AtlantisConfigurationSlot basicGetSlot ()
     {
-        return this.slot;
+        return slot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSlot ( final AtlantisConfigurationSlot newSlot )
+    public void setSlot ( AtlantisConfigurationSlot newSlot )
     {
-        final AtlantisConfigurationSlot oldSlot = this.slot;
-        this.slot = newSlot;
+        AtlantisConfigurationSlot oldSlot = slot;
+        slot = newSlot;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MasterPackage.MODULE_PROCESSOR__SLOT, oldSlot, this.slot ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MasterPackage.MODULE_PROCESSOR__SLOT, oldSlot, slot ) );
     }
 
     /**
@@ -156,11 +146,10 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -172,11 +161,10 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -184,9 +172,7 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
                 return getModules ();
             case MasterPackage.MODULE_PROCESSOR__SLOT:
                 if ( resolve )
-                {
                     return getSlot ();
-                }
                 return basicGetSlot ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -194,12 +180,11 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -216,11 +201,10 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -236,18 +220,17 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case MasterPackage.MODULE_PROCESSOR__MODULES:
-                return this.modules != null && !this.modules.isEmpty ();
+                return modules != null && !modules.isEmpty ();
             case MasterPackage.MODULE_PROCESSOR__SLOT:
-                return this.slot != null;
+                return slot != null;
         }
         return super.eIsSet ( featureID );
     }
