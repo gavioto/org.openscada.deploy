@@ -3,5 +3,5 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common"
     nsURI="http://openscada.org/Configurator/Processors/Common" nsPrefix="common">
-  <eClassifiers xsi:type="ecore:EClass" name="StoreConfigurationSlotProcessor" eSuperTypes="platform:/plugin/org.openscada.configurator.model/model/configurator.ecore#//Processor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StoreConfigurationSlotProcessor" eSuperTypes="platform:/resource/org.openscada.configurator.model/model/configurator.ecore#//Processor"/>
 </ecore:EPackage>
