@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,6 +23,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.openscada.configurator.processor.common.CommonPackage;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor} object.
@@ -55,8 +57,20 @@ public class StoreConfigurationSlotProcessorItemProvider extends ItemProviderAda
         {
             super.getPropertyDescriptors ( object );
 
+            addSlotsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Slots feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSlotsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_StoreConfigurationSlotProcessor_slots_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_StoreConfigurationSlotProcessor_slots_feature", "_UI_StoreConfigurationSlotProcessor_type" ), CommonPackage.Literals.STORE_CONFIGURATION_SLOT_PROCESSOR__SLOTS, true, false, true, null, null, null ) );
     }
 
     /**

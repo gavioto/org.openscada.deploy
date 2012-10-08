@@ -17,7 +17,7 @@
         iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Processor" abstract="true" interface="true">
-    <eOperations name="process">
+    <eOperations name="process" eExceptions="#//Exception">
       <eParameters name="project" eType="#//Project"/>
     </eOperations>
   </eClassifiers>

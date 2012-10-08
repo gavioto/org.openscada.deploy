@@ -23,9 +23,9 @@ public interface Processor extends EObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model
+     * @model exceptions="org.openscada.configuration.model.Exception"
      * @generated
      */
-    void process ( Project project );
+    void process ( Project project ) throws Exception;
 
 } // Processor

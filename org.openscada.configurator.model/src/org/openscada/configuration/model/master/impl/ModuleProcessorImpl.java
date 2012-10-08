@@ -142,7 +142,7 @@ public class ModuleProcessorImpl extends EObjectImpl implements ModuleProcessor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void process ( Project project )
+    public void process ( Project project ) throws Exception
     {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT

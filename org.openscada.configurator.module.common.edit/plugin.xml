@@ -37,7 +37,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.network.provider.NetworkItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.network.provider.NetworkItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
@@ -55,7 +55,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.scripts.provider.ScriptsItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.scripts.provider.ScriptsItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
@@ -73,7 +73,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.processing.provider.ProcessingItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.processing.provider.ProcessingItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
@@ -91,7 +91,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.summary.provider.SummaryItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.summary.provider.SummaryItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
@@ -109,7 +109,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.main.provider.MainItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.main.provider.MainItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
    
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
@@ -127,7 +127,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.marker.provider.MarkerItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.marker.provider.MarkerItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
    
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
@@ -145,7 +145,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
             uri="http://openscada.org/Deploy/Configurator"
-            class="org.openscada.configurator.module.common.output.provider.OutputItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+            class="org.openscada.configurator.module.common.output.provider.OutputItemProviderAdapterFactory$MasterChildCreationExtender"/>
    </extension>
 
 </plugin>

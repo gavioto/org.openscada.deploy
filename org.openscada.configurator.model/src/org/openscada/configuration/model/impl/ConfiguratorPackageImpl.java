@@ -364,6 +364,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         op = addEOperation ( processorEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, this.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEException ( op, this.getException () );
 
         initEClass ( genericConfigurationSlotEClass, GenericConfigurationSlot.class, "GenericConfigurationSlot", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getGenericConfigurationSlot_JsonBase (), ecorePackage.getEString (), "jsonBase", null, 0, -1, GenericConfigurationSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
