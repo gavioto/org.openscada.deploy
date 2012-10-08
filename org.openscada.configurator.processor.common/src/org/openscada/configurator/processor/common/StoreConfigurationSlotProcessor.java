@@ -50,7 +50,7 @@ public interface StoreConfigurationSlotProcessor extends Processor
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model exceptions="org.openscada.configuration.model.Exception"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='for ( ConfigurationSlot slot : getSlots () )\n{\n\tslot.store();\n}'"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='for ( ConfigurationSlot slot : getSlots () )\n{\n\tSystem.out.println ( \" ** Storing slot: \" + slot );\n\tslot.store();\n}'"
      * @generated
      */
     void process ( Project project ) throws Exception;

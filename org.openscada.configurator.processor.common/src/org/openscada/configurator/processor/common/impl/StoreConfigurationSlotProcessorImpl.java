@@ -81,6 +81,7 @@ public class StoreConfigurationSlotProcessorImpl extends EObjectImpl implements 
     {
         for ( ConfigurationSlot slot : getSlots () )
         {
+            System.out.println ( " ** Storing slot: " + slot );
             slot.store ();
         }
     }
