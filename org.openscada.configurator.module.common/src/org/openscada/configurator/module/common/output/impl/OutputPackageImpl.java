@@ -6,7 +6,6 @@
  */
 package org.openscada.configurator.module.common.output.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -27,7 +26,6 @@ import org.openscada.configurator.module.common.output.OutputGlobalSummaries;
 import org.openscada.configurator.module.common.output.OutputItems;
 import org.openscada.configurator.module.common.output.OutputPackage;
 import org.openscada.configurator.module.common.output.OutputSummaries;
-import org.openscada.configurator.module.common.output.WriteOutput;
 import org.openscada.configurator.module.common.processing.ProcessingPackage;
 import org.openscada.configurator.module.common.processing.impl.ProcessingPackageImpl;
 import org.openscada.configurator.module.common.scripts.ScriptsPackage;
@@ -70,13 +68,6 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
      * @generated
      */
     private EClass outputGlobalSummariesEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass writeOutputEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -212,26 +203,6 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getWriteOutput ()
-    {
-        return writeOutputEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getWriteOutput_BaseDirectory ()
-    {
-        return (EAttribute)writeOutputEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public OutputFactory getOutputFactory ()
     {
         return (OutputFactory)getEFactoryInstance ();
@@ -265,9 +236,6 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         outputSummariesEClass = createEClass ( OUTPUT_SUMMARIES );
 
         outputGlobalSummariesEClass = createEClass ( OUTPUT_GLOBAL_SUMMARIES );
-
-        writeOutputEClass = createEClass ( WRITE_OUTPUT );
-        createEAttribute ( writeOutputEClass, WRITE_OUTPUT__BASE_DIRECTORY );
     }
 
     /**
@@ -308,7 +276,6 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         outputItemsEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
         outputSummariesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
         outputGlobalSummariesEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
-        writeOutputEClass.getESuperTypes ().add ( theMasterPackage.getModule () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( outputAveragesEClass, OutputAverages.class, "OutputAverages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -334,9 +301,6 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         op = addEOperation ( outputGlobalSummariesEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
-
-        initEClass ( writeOutputEClass, WriteOutput.class, "WriteOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getWriteOutput_BaseDirectory (), ecorePackage.getEString (), "baseDirectory", null, 1, 1, WriteOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //OutputPackageImpl

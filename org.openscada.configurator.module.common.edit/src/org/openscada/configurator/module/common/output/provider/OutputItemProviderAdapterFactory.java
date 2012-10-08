@@ -197,31 +197,6 @@ public class OutputItemProviderAdapterFactory extends OutputAdapterFactory imple
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configurator.module.common.output.WriteOutput} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WriteOutputItemProvider writeOutputItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configurator.module.common.output.WriteOutput}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createWriteOutputAdapter ()
-    {
-        if ( writeOutputItemProvider == null )
-        {
-            writeOutputItemProvider = new WriteOutputItemProvider ( this );
-        }
-
-        return writeOutputItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -370,8 +345,6 @@ public class OutputItemProviderAdapterFactory extends OutputAdapterFactory imple
             outputSummariesItemProvider.dispose ();
         if ( outputGlobalSummariesItemProvider != null )
             outputGlobalSummariesItemProvider.dispose ();
-        if ( writeOutputItemProvider != null )
-            writeOutputItemProvider.dispose ();
     }
 
     /**
@@ -433,8 +406,6 @@ public class OutputItemProviderAdapterFactory extends OutputAdapterFactory imple
                 newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputSummaries () ) );
 
                 newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createOutputGlobalSummaries () ) );
-
-                newChildDescriptors.add ( createChildParameter ( MasterPackage.Literals.MODULE_PROCESSOR__MODULES, OutputFactory.eINSTANCE.createWriteOutput () ) );
 
                 return null;
             }

@@ -423,26 +423,6 @@
         <element xmi:type="ecore:EClass" href="modules.ecore#//output/OutputItems"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C96FgguoEeK12vZhCfk6-A" x="259" y="75"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_rAEcQQ4sEeKd7LGLR5JbUg" type="2003">
-        <children xmi:type="notation:Node" xmi:id="_rAFqYA4sEeKd7LGLR5JbUg" type="4002"/>
-        <children xmi:type="notation:Node" xmi:id="_rAFqYQ4sEeKd7LGLR5JbUg" type="5004">
-          <children xmi:type="notation:Node" xmi:id="_txVqAA4sEeKd7LGLR5JbUg" type="2001">
-            <element xmi:type="ecore:EAttribute" href="modules.ecore#//output/WriteOutput/baseDirectory"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_txVqAQ4sEeKd7LGLR5JbUg"/>
-          </children>
-          <styles xmi:type="notation:DrawerStyle" xmi:id="_rAFqYg4sEeKd7LGLR5JbUg"/>
-          <styles xmi:type="notation:SortingStyle" xmi:id="_rAFqYw4sEeKd7LGLR5JbUg"/>
-          <styles xmi:type="notation:FilteringStyle" xmi:id="_rAGRcA4sEeKd7LGLR5JbUg"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_rAG4gA4sEeKd7LGLR5JbUg" type="5005">
-          <styles xmi:type="notation:DrawerStyle" xmi:id="_rAG4gQ4sEeKd7LGLR5JbUg"/>
-          <styles xmi:type="notation:SortingStyle" xmi:id="_rAG4gg4sEeKd7LGLR5JbUg"/>
-          <styles xmi:type="notation:FilteringStyle" xmi:id="_rAG4gw4sEeKd7LGLR5JbUg"/>
-        </children>
-        <styles xmi:type="notation:ShapeStyle" xmi:id="_rAFDUA4sEeKd7LGLR5JbUg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-        <element xmi:type="ecore:EClass" href="modules.ecore#//output/WriteOutput"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rAFDUQ4sEeKd7LGLR5JbUg" x="7" y="135" width="183" height="63"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_KPK-kQumEeK12vZhCfk6-A"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_KPK-kgumEeK12vZhCfk6-A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_KPK-kwumEeK12vZhCfk6-A"/>
