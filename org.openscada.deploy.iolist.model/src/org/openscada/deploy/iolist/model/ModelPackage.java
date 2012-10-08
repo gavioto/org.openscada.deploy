@@ -3350,6 +3350,412 @@ public interface ModelPackage extends EPackage
     int LIST_MONITOR_ENTRY_FEATURE_COUNT = 3;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.GlobalItemImpl <em>Global Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.GlobalItemImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getGlobalItem()
+     * @generated
+     */
+    int GLOBAL_ITEM = 20;
+
+    /**
+     * The feature id for the '<em><b>Device</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__DEVICE = ITEM__DEVICE;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__NAME = ITEM__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__DATA_TYPE = ITEM__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Unit</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__UNIT = ITEM__UNIT;
+
+    /**
+     * The feature id for the '<em><b>Alias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__ALIAS = ITEM__ALIAS;
+
+    /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+
+    /**
+     * The feature id for the '<em><b>Event Command</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__EVENT_COMMAND = ITEM__EVENT_COMMAND;
+
+    /**
+     * The feature id for the '<em><b>Local Manual</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_MANUAL = ITEM__REMOTE_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>System</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__SYSTEM = ITEM__SYSTEM;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__HIERARCHY = ITEM__HIERARCHY;
+
+    /**
+     * The feature id for the '<em><b>Remote Min</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_MIN = ITEM__REMOTE_MIN;
+
+    /**
+     * The feature id for the '<em><b>Remote Max</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_MAX = ITEM__REMOTE_MAX;
+
+    /**
+     * The feature id for the '<em><b>Remote High High</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_HIGH_HIGH = ITEM__REMOTE_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Remote High</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_HIGH = ITEM__REMOTE_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Remote Low</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_LOW = ITEM__REMOTE_LOW;
+
+    /**
+     * The feature id for the '<em><b>Remote Low Low</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_LOW_LOW = ITEM__REMOTE_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_BOOL = ITEM__REMOTE_BOOL;
+
+    /**
+     * The feature id for the '<em><b>Remote Bool Ack Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__REMOTE_BOOL_ACK_VALUE = ITEM__REMOTE_BOOL_ACK_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Input</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__INPUT = ITEM__INPUT;
+
+    /**
+     * The feature id for the '<em><b>Output</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__OUTPUT = ITEM__OUTPUT;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_SCALE_AVAILABLE = ITEM__LOCAL_SCALE_AVAILABLE;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Factor</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_SCALE_FACTOR = ITEM__LOCAL_SCALE_FACTOR;
+
+    /**
+     * The feature id for the '<em><b>Local Scale Offset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_SCALE_OFFSET = ITEM__LOCAL_SCALE_OFFSET;
+
+    /**
+     * The feature id for the '<em><b>Debug Information</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__DEBUG_INFORMATION = ITEM__DEBUG_INFORMATION;
+
+    /**
+     * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__IGNORE_SUMMARY = ITEM__IGNORE_SUMMARY;
+
+    /**
+     * The feature id for the '<em><b>Block</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__BLOCK = ITEM__BLOCK;
+
+    /**
+     * The feature id for the '<em><b>Enabled</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__ENABLED = ITEM__ENABLED;
+
+    /**
+     * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__HD_STORAGE = ITEM__HD_STORAGE;
+
+    /**
+     * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__MAPPER = ITEM__MAPPER;
+
+    /**
+     * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__SIMULATION_VALUE = ITEM__SIMULATION_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Rounding Available</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__ROUNDING_AVAILABLE = ITEM__ROUNDING_AVAILABLE;
+
+    /**
+     * The feature id for the '<em><b>Rounding Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__ROUNDING_VALUE = ITEM__ROUNDING_VALUE;
+
+    /**
+     * The feature id for the '<em><b>Local High High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_HIGH_HIGH = ITEM__LOCAL_HIGH_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local High</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_HIGH = ITEM__LOCAL_HIGH;
+
+    /**
+     * The feature id for the '<em><b>Local Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_LOW = ITEM__LOCAL_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_LOW_LOW = ITEM__LOCAL_LOW_LOW;
+
+    /**
+     * The feature id for the '<em><b>Local Min</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_MIN = ITEM__LOCAL_MIN;
+
+    /**
+     * The feature id for the '<em><b>Local Max</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_MAX = ITEM__LOCAL_MAX;
+
+    /**
+     * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_LIST_MONITOR = ITEM__LOCAL_LIST_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__LOCAL_BOOLEAN_MONITOR = ITEM__LOCAL_BOOLEAN_MONITOR;
+
+    /**
+     * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM__DEFAULT_MONITOR_DEMOTE = ITEM__DEFAULT_MONITOR_DEMOTE;
+
+    /**
+     * The number of structural features of the '<em>Global Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBAL_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3357,7 +3763,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 20;
+    int DATA_TYPE = 21;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -3367,7 +3773,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 21;
+    int ROUNDING = 22;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
@@ -3377,7 +3783,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 22;
+    int AVERAGE_REFERENCE_TYPE = 23;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -3387,7 +3793,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 23;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 24;
 
     /**
      * The meta object id for the '<em>List Severity</em>' data type.
@@ -3397,7 +3803,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListSeverity()
      * @generated
      */
-    int LIST_SEVERITY = 25;
+    int LIST_SEVERITY = 26;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -3407,7 +3813,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 26;
+    int SEVERITY = 27;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -3417,7 +3823,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 24;
+    int VARIANT = 25;
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -4720,6 +5126,16 @@ public interface ModelPackage extends EPackage
     EAttribute getBasicMonitor_Severity ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.GlobalItem <em>Global Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Global Item</em>'.
+     * @see org.openscada.deploy.iolist.model.GlobalItem
+     * @generated
+     */
+    EClass getGlobalItem ();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5816,6 +6232,16 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute BASIC_MONITOR__SEVERITY = eINSTANCE.getBasicMonitor_Severity ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.GlobalItemImpl <em>Global Item</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.GlobalItemImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getGlobalItem()
+         * @generated
+         */
+        EClass GLOBAL_ITEM = eINSTANCE.getGlobalItem ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.

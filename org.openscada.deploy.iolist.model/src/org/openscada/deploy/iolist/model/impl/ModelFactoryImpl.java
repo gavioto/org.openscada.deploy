@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.ae.Severity;
 import org.openscada.core.Variant;
+import org.openscada.deploy.iolist.model.*;
 import org.openscada.core.VariantEditor;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
@@ -87,44 +88,46 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         switch ( eClass.getClassifierID () )
         {
-        case ModelPackage.ITEM:
-            return createItem ();
-        case ModelPackage.SUMMARY_GROUP:
-            return createSummaryGroup ();
-        case ModelPackage.FORMULA_ITEM:
-            return createFormulaItem ();
-        case ModelPackage.FORMULA_INPUT:
-            return createFormulaInput ();
-        case ModelPackage.SCRIPT_MODULE:
-            return createScriptModule ();
-        case ModelPackage.MODEL:
-            return createModel ();
-        case ModelPackage.SCRIPT_ITEM:
-            return createScriptItem ();
-        case ModelPackage.SCRIPT_OUTPUT:
-            return createScriptOutput ();
-        case ModelPackage.MAPPER:
-            return createMapper ();
-        case ModelPackage.LEVEL_MONITOR:
-            return createLevelMonitor ();
-        case ModelPackage.LIST_MONITOR:
-            return createListMonitor ();
-        case ModelPackage.BOOLEAN_MONITOR:
-            return createBooleanMonitor ();
-        case ModelPackage.AVERAGE:
-            return createAverage ();
-        case ModelPackage.AVERAGE_ITEM:
-            return createAverageItem ();
-        case ModelPackage.CONSTANT_ITEM:
-            return createConstantItem ();
-        case ModelPackage.MOVING_AVERAGE_ITEM:
-            return createMovingAverageItem ();
-        case ModelPackage.MOVING_AVERAGE:
-            return createMovingAverage ();
-        case ModelPackage.LIST_MONITOR_ENTRY:
-            return createListMonitorEntry ();
-        default:
-            throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
+            case ModelPackage.ITEM:
+                return createItem ();
+            case ModelPackage.SUMMARY_GROUP:
+                return createSummaryGroup ();
+            case ModelPackage.FORMULA_ITEM:
+                return createFormulaItem ();
+            case ModelPackage.FORMULA_INPUT:
+                return createFormulaInput ();
+            case ModelPackage.SCRIPT_MODULE:
+                return createScriptModule ();
+            case ModelPackage.MODEL:
+                return createModel ();
+            case ModelPackage.SCRIPT_ITEM:
+                return createScriptItem ();
+            case ModelPackage.SCRIPT_OUTPUT:
+                return createScriptOutput ();
+            case ModelPackage.MAPPER:
+                return createMapper ();
+            case ModelPackage.LEVEL_MONITOR:
+                return createLevelMonitor ();
+            case ModelPackage.LIST_MONITOR:
+                return createListMonitor ();
+            case ModelPackage.BOOLEAN_MONITOR:
+                return createBooleanMonitor ();
+            case ModelPackage.AVERAGE:
+                return createAverage ();
+            case ModelPackage.AVERAGE_ITEM:
+                return createAverageItem ();
+            case ModelPackage.CONSTANT_ITEM:
+                return createConstantItem ();
+            case ModelPackage.MOVING_AVERAGE_ITEM:
+                return createMovingAverageItem ();
+            case ModelPackage.MOVING_AVERAGE:
+                return createMovingAverage ();
+            case ModelPackage.LIST_MONITOR_ENTRY:
+                return createListMonitorEntry ();
+            case ModelPackage.GLOBAL_ITEM:
+                return createGlobalItem ();
+            default:
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -137,22 +140,22 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         switch ( eDataType.getClassifierID () )
         {
-        case ModelPackage.DATA_TYPE:
-            return createDataTypeFromString ( eDataType, initialValue );
-        case ModelPackage.ROUNDING:
-            return createRoundingFromString ( eDataType, initialValue );
-        case ModelPackage.AVERAGE_REFERENCE_TYPE:
-            return createAverageReferenceTypeFromString ( eDataType, initialValue );
-        case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
-            return createMovingAverageReferenceTypeFromString ( eDataType, initialValue );
-        case ModelPackage.VARIANT:
-            return createVariantFromString ( eDataType, initialValue );
-        case ModelPackage.LIST_SEVERITY:
-            return createListSeverityFromString ( eDataType, initialValue );
-        case ModelPackage.SEVERITY:
-            return createSeverityFromString ( eDataType, initialValue );
-        default:
-            throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+            case ModelPackage.DATA_TYPE:
+                return createDataTypeFromString ( eDataType, initialValue );
+            case ModelPackage.ROUNDING:
+                return createRoundingFromString ( eDataType, initialValue );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return createAverageReferenceTypeFromString ( eDataType, initialValue );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return createMovingAverageReferenceTypeFromString ( eDataType, initialValue );
+            case ModelPackage.VARIANT:
+                return createVariantFromString ( eDataType, initialValue );
+            case ModelPackage.LIST_SEVERITY:
+                return createListSeverityFromString ( eDataType, initialValue );
+            case ModelPackage.SEVERITY:
+                return createSeverityFromString ( eDataType, initialValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -165,22 +168,22 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         switch ( eDataType.getClassifierID () )
         {
-        case ModelPackage.DATA_TYPE:
-            return convertDataTypeToString ( eDataType, instanceValue );
-        case ModelPackage.ROUNDING:
-            return convertRoundingToString ( eDataType, instanceValue );
-        case ModelPackage.AVERAGE_REFERENCE_TYPE:
-            return convertAverageReferenceTypeToString ( eDataType, instanceValue );
-        case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
-            return convertMovingAverageReferenceTypeToString ( eDataType, instanceValue );
-        case ModelPackage.VARIANT:
-            return convertVariantToString ( eDataType, instanceValue );
-        case ModelPackage.LIST_SEVERITY:
-            return convertListSeverityToString ( eDataType, instanceValue );
-        case ModelPackage.SEVERITY:
-            return convertSeverityToString ( eDataType, instanceValue );
-        default:
-            throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+            case ModelPackage.DATA_TYPE:
+                return convertDataTypeToString ( eDataType, instanceValue );
+            case ModelPackage.ROUNDING:
+                return convertRoundingToString ( eDataType, instanceValue );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return convertAverageReferenceTypeToString ( eDataType, instanceValue );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return convertMovingAverageReferenceTypeToString ( eDataType, instanceValue );
+            case ModelPackage.VARIANT:
+                return convertVariantToString ( eDataType, instanceValue );
+            case ModelPackage.LIST_SEVERITY:
+                return convertListSeverityToString ( eDataType, instanceValue );
+            case ModelPackage.SEVERITY:
+                return convertSeverityToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -380,6 +383,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         ListMonitorEntryImpl listMonitorEntry = new ListMonitorEntryImpl ();
         return listMonitorEntry;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GlobalItem createGlobalItem ()
+    {
+        GlobalItemImpl globalItem = new GlobalItemImpl ();
+        return globalItem;
     }
 
     /**

@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.deploy.iolist.model.*;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.BasicMonitor;
@@ -211,6 +212,12 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         public Adapter caseBasicMonitor ( BasicMonitor object )
         {
             return createBasicMonitorAdapter ();
+        }
+
+        @Override
+        public Adapter caseGlobalItem ( GlobalItem object )
+        {
+            return createGlobalItemAdapter ();
         }
 
         @Override
@@ -530,6 +537,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createBasicMonitorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.GlobalItem <em>Global Item</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.GlobalItem
+     * @generated
+     */
+    public Adapter createGlobalItemAdapter ()
     {
         return null;
     }

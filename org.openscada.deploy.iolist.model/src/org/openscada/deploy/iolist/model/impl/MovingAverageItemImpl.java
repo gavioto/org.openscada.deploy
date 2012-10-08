@@ -158,12 +158,12 @@ public class MovingAverageItemImpl extends ItemImpl implements MovingAverageItem
     {
         switch ( featureID )
         {
-        case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
-            if ( resolve )
-                return getAverage ();
-            return basicGetAverage ();
-        case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
-            return getType ();
+            case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
+                if ( resolve )
+                    return getAverage ();
+                return basicGetAverage ();
+            case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
+                return getType ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -178,12 +178,12 @@ public class MovingAverageItemImpl extends ItemImpl implements MovingAverageItem
     {
         switch ( featureID )
         {
-        case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
-            setAverage ( (MovingAverage)newValue );
-            return;
-        case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
-            setType ( (MovingAverageReferenceType)newValue );
-            return;
+            case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
+                setAverage ( (MovingAverage)newValue );
+                return;
+            case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
+                setType ( (MovingAverageReferenceType)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -198,12 +198,12 @@ public class MovingAverageItemImpl extends ItemImpl implements MovingAverageItem
     {
         switch ( featureID )
         {
-        case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
-            setAverage ( (MovingAverage)null );
-            return;
-        case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
-            setType ( TYPE_EDEFAULT );
-            return;
+            case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
+                setAverage ( (MovingAverage)null );
+                return;
+            case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
+                setType ( TYPE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -218,10 +218,10 @@ public class MovingAverageItemImpl extends ItemImpl implements MovingAverageItem
     {
         switch ( featureID )
         {
-        case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
-            return average != null;
-        case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
-            return type != TYPE_EDEFAULT;
+            case ModelPackage.MOVING_AVERAGE_ITEM__AVERAGE:
+                return average != null;
+            case ModelPackage.MOVING_AVERAGE_ITEM__TYPE:
+                return type != TYPE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

@@ -526,6 +526,31 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.GlobalItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GlobalItemItemProvider globalItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.GlobalItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGlobalItemAdapter ()
+    {
+        if ( globalItemItemProvider == null )
+        {
+            globalItemItemProvider = new GlobalItemItemProvider ( this );
+        }
+
+        return globalItemItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -672,6 +697,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
             movingAverageItemProvider.dispose ();
         if ( listMonitorEntryItemProvider != null )
             listMonitorEntryItemProvider.dispose ();
+        if ( globalItemItemProvider != null )
+            globalItemItemProvider.dispose ();
     }
 
 }

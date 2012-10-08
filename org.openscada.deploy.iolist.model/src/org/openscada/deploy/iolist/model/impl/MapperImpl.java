@@ -190,12 +190,12 @@ public class MapperImpl extends EObjectImpl implements Mapper
     {
         switch ( featureID )
         {
-        case ModelPackage.MAPPER__MAPPER_ID:
-            return getMapperId ();
-        case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-            return getFromAttribute ();
-        case ModelPackage.MAPPER__TO_ATTRIBUTE:
-            return getToAttribute ();
+            case ModelPackage.MAPPER__MAPPER_ID:
+                return getMapperId ();
+            case ModelPackage.MAPPER__FROM_ATTRIBUTE:
+                return getFromAttribute ();
+            case ModelPackage.MAPPER__TO_ATTRIBUTE:
+                return getToAttribute ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -210,15 +210,15 @@ public class MapperImpl extends EObjectImpl implements Mapper
     {
         switch ( featureID )
         {
-        case ModelPackage.MAPPER__MAPPER_ID:
-            setMapperId ( (String)newValue );
-            return;
-        case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-            setFromAttribute ( (String)newValue );
-            return;
-        case ModelPackage.MAPPER__TO_ATTRIBUTE:
-            setToAttribute ( (String)newValue );
-            return;
+            case ModelPackage.MAPPER__MAPPER_ID:
+                setMapperId ( (String)newValue );
+                return;
+            case ModelPackage.MAPPER__FROM_ATTRIBUTE:
+                setFromAttribute ( (String)newValue );
+                return;
+            case ModelPackage.MAPPER__TO_ATTRIBUTE:
+                setToAttribute ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -233,15 +233,15 @@ public class MapperImpl extends EObjectImpl implements Mapper
     {
         switch ( featureID )
         {
-        case ModelPackage.MAPPER__MAPPER_ID:
-            setMapperId ( MAPPER_ID_EDEFAULT );
-            return;
-        case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-            setFromAttribute ( FROM_ATTRIBUTE_EDEFAULT );
-            return;
-        case ModelPackage.MAPPER__TO_ATTRIBUTE:
-            setToAttribute ( TO_ATTRIBUTE_EDEFAULT );
-            return;
+            case ModelPackage.MAPPER__MAPPER_ID:
+                setMapperId ( MAPPER_ID_EDEFAULT );
+                return;
+            case ModelPackage.MAPPER__FROM_ATTRIBUTE:
+                setFromAttribute ( FROM_ATTRIBUTE_EDEFAULT );
+                return;
+            case ModelPackage.MAPPER__TO_ATTRIBUTE:
+                setToAttribute ( TO_ATTRIBUTE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -256,12 +256,12 @@ public class MapperImpl extends EObjectImpl implements Mapper
     {
         switch ( featureID )
         {
-        case ModelPackage.MAPPER__MAPPER_ID:
-            return MAPPER_ID_EDEFAULT == null ? mapperId != null : !MAPPER_ID_EDEFAULT.equals ( mapperId );
-        case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-            return FROM_ATTRIBUTE_EDEFAULT == null ? fromAttribute != null : !FROM_ATTRIBUTE_EDEFAULT.equals ( fromAttribute );
-        case ModelPackage.MAPPER__TO_ATTRIBUTE:
-            return TO_ATTRIBUTE_EDEFAULT == null ? toAttribute != null : !TO_ATTRIBUTE_EDEFAULT.equals ( toAttribute );
+            case ModelPackage.MAPPER__MAPPER_ID:
+                return MAPPER_ID_EDEFAULT == null ? mapperId != null : !MAPPER_ID_EDEFAULT.equals ( mapperId );
+            case ModelPackage.MAPPER__FROM_ATTRIBUTE:
+                return FROM_ATTRIBUTE_EDEFAULT == null ? fromAttribute != null : !FROM_ATTRIBUTE_EDEFAULT.equals ( fromAttribute );
+            case ModelPackage.MAPPER__TO_ATTRIBUTE:
+                return TO_ATTRIBUTE_EDEFAULT == null ? toAttribute != null : !TO_ATTRIBUTE_EDEFAULT.equals ( toAttribute );
         }
         return super.eIsSet ( featureID );
     }

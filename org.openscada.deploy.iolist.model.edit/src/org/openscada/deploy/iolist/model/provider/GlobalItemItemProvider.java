@@ -11,25 +11,24 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.deploy.iolist.model.BasicMonitor;
+
+import org.openscada.deploy.iolist.model.GlobalItem;
 import org.openscada.deploy.iolist.model.ModelPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.deploy.iolist.model.BasicMonitor} object.
+ * This is the item provider adapter for a {@link org.openscada.deploy.iolist.model.GlobalItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BasicMonitorItemProvider extends MonitorItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class GlobalItemItemProvider extends ItemItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -37,7 +36,7 @@ public class BasicMonitorItemProvider extends MonitorItemProvider implements IEd
      * <!-- end-user-doc -->
      * @generated
      */
-    public BasicMonitorItemProvider ( AdapterFactory adapterFactory )
+    public GlobalItemItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -55,32 +54,20 @@ public class BasicMonitorItemProvider extends MonitorItemProvider implements IEd
         {
             super.getPropertyDescriptors ( object );
 
-            addAckPropertyDescriptor ( object );
-            addSeverityPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Ack feature.
+     * This returns GlobalItem.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAckPropertyDescriptor ( Object object )
+    @Override
+    public Object getImage ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BasicMonitor_ack_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BasicMonitor_ack_feature", "_UI_BasicMonitor_type" ), ModelPackage.Literals.BASIC_MONITOR__ACK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Severity feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSeverityPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BasicMonitor_severity_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BasicMonitor_severity_feature", "_UI_BasicMonitor_type" ), ModelPackage.Literals.BASIC_MONITOR__SEVERITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/GlobalItem" ) );
     }
 
     /**
@@ -92,8 +79,8 @@ public class BasicMonitorItemProvider extends MonitorItemProvider implements IEd
     @Override
     public String getText ( Object object )
     {
-        BasicMonitor basicMonitor = (BasicMonitor)object;
-        return getString ( "_UI_BasicMonitor_type" ) + " " + basicMonitor.isActive ();
+        String label = ( (GlobalItem)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_GlobalItem_type" ) : getString ( "_UI_GlobalItem_type" ) + " " + label;
     }
 
     /**
@@ -107,14 +94,6 @@ public class BasicMonitorItemProvider extends MonitorItemProvider implements IEd
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
-
-        switch ( notification.getFeatureID ( BasicMonitor.class ) )
-        {
-            case ModelPackage.BASIC_MONITOR__ACK:
-            case ModelPackage.BASIC_MONITOR__SEVERITY:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-        }
         super.notifyChanged ( notification );
     }
 
@@ -129,6 +108,27 @@ public class BasicMonitorItemProvider extends MonitorItemProvider implements IEd
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify = childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_HIGH || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_LOW_LOW || childFeature == ModelPackage.Literals.ITEM__LOCAL_MIN || childFeature == ModelPackage.Literals.ITEM__LOCAL_MAX;
+
+        if ( qualify )
+        {
+            return getString ( "_UI_CreateChild_text2", new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+        }
+        return super.getCreateChildText ( owner, feature, child, selection );
     }
 
 }

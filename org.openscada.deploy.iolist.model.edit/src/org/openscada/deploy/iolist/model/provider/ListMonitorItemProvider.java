@@ -157,13 +157,13 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
 
         switch ( notification.getFeatureID ( ListMonitor.class ) )
         {
-        case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
-        case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case ModelPackage.LIST_MONITOR__ENTRIES:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.LIST_MONITOR__ENTRIES:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

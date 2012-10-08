@@ -136,11 +136,11 @@ public class FormulaInputItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( FormulaInput.class ) )
         {
-        case ModelPackage.FORMULA_INPUT__NAME:
-        case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
-        case ModelPackage.FORMULA_INPUT__TYPE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case ModelPackage.FORMULA_INPUT__NAME:
+            case ModelPackage.FORMULA_INPUT__DATASOURCE_ID:
+            case ModelPackage.FORMULA_INPUT__TYPE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

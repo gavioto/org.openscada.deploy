@@ -25,6 +25,7 @@ import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.GlobalItem;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -169,6 +170,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EClass basicMonitorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass globalItemEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1481,6 +1489,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getGlobalItem ()
+    {
+        return globalItemEClass;
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1719,6 +1737,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( basicMonitorEClass, BASIC_MONITOR__ACK );
         createEAttribute ( basicMonitorEClass, BASIC_MONITOR__SEVERITY );
 
+        globalItemEClass = createEClass ( GLOBAL_ITEM );
+
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
         roundingEEnum = createEEnum ( ROUNDING );
@@ -1768,6 +1788,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         constantItemEClass.getESuperTypes ().add ( this.getItem () );
         movingAverageItemEClass.getESuperTypes ().add ( this.getItem () );
         basicMonitorEClass.getESuperTypes ().add ( this.getMonitor () );
+        globalItemEClass.getESuperTypes ().add ( this.getItem () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -1911,6 +1932,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass ( basicMonitorEClass, BasicMonitor.class, "BasicMonitor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getBasicMonitor_Ack (), ecorePackage.getEBoolean (), "ack", "true", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getBasicMonitor_Severity (), this.getSeverity (), "severity", "ERROR", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( globalItemEClass, GlobalItem.class, "GlobalItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" );
