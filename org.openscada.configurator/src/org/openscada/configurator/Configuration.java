@@ -507,8 +507,11 @@ public class Configuration extends GenericMasterConfiguration
             {
                 addWriteLogger ( internalItemId + ".logger", masterId, attributes ); //$NON-NLS-1$
             }
-            addNegate ( masterId + ".negate", masterId, false ); //$NON-NLS-1$
-            reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.negate" ) ); //$NON-NLS-1$
+            if ( item.isDefaultChain () )
+            {
+                addNegate ( masterId + ".negate", masterId, false ); //$NON-NLS-1$
+                reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.negate" ) ); //$NON-NLS-1$
+            }
 
             if ( item.isLocalManual () )
             {
