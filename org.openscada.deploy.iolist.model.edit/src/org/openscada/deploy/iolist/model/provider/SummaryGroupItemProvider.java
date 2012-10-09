@@ -62,6 +62,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
             addHierarchyPropertyDescriptor ( object );
             addDataSourceIdsPropertyDescriptor ( object );
             addRetainPropertyDescriptor ( object );
+            addSubSummaryIdsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -111,6 +112,17 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
+     * This adds a property descriptor for the Sub Summary Ids feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSubSummaryIdsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_subSummaryIds_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_subSummaryIds_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__SUB_SUMMARY_IDS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -125,6 +137,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS );
+            childrenFeatures.add ( ModelPackage.Literals.SUMMARY_GROUP__SUB_SUMMARY_IDS );
         }
         return childrenFeatures;
     }
@@ -182,14 +195,15 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( SummaryGroup.class ) )
         {
-        case ModelPackage.SUMMARY_GROUP__ID:
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-        case ModelPackage.SUMMARY_GROUP__RETAIN:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case ModelPackage.SUMMARY_GROUP__ID:
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+            case ModelPackage.SUMMARY_GROUP__RETAIN:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }
@@ -207,6 +221,8 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS, "" ) );
+
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.SUMMARY_GROUP__SUB_SUMMARY_IDS, "" ) );
     }
 
     /**

@@ -146,10 +146,10 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case ModelPackage.SCRIPT_MODULE__DATA:
-            return getData ();
-        case ModelPackage.SCRIPT_MODULE__RESOURCE:
-            return isResource ();
+            case ModelPackage.SCRIPT_MODULE__DATA:
+                return getData ();
+            case ModelPackage.SCRIPT_MODULE__RESOURCE:
+                return isResource ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -164,12 +164,12 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case ModelPackage.SCRIPT_MODULE__DATA:
-            setData ( (String)newValue );
-            return;
-        case ModelPackage.SCRIPT_MODULE__RESOURCE:
-            setResource ( (Boolean)newValue );
-            return;
+            case ModelPackage.SCRIPT_MODULE__DATA:
+                setData ( (String)newValue );
+                return;
+            case ModelPackage.SCRIPT_MODULE__RESOURCE:
+                setResource ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -184,12 +184,12 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case ModelPackage.SCRIPT_MODULE__DATA:
-            setData ( DATA_EDEFAULT );
-            return;
-        case ModelPackage.SCRIPT_MODULE__RESOURCE:
-            setResource ( RESOURCE_EDEFAULT );
-            return;
+            case ModelPackage.SCRIPT_MODULE__DATA:
+                setData ( DATA_EDEFAULT );
+                return;
+            case ModelPackage.SCRIPT_MODULE__RESOURCE:
+                setResource ( RESOURCE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -204,10 +204,10 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case ModelPackage.SCRIPT_MODULE__DATA:
-            return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals ( data );
-        case ModelPackage.SCRIPT_MODULE__RESOURCE:
-            return resource != RESOURCE_EDEFAULT;
+            case ModelPackage.SCRIPT_MODULE__DATA:
+                return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals ( data );
+            case ModelPackage.SCRIPT_MODULE__RESOURCE:
+                return resource != RESOURCE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

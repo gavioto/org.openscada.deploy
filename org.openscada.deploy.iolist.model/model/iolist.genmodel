@@ -99,6 +99,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/hierarchy"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/dataSourceIds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/retain"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute iolist.ecore#//SummaryGroup/subSummaryIds"/>
     </genClasses>
     <genClasses ecoreClass="iolist.ecore#//FormulaItem" labelFeature="#//model/Item/alias">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iolist.ecore#//FormulaItem/inputFormula"/>

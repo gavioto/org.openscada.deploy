@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds <em>Data Source Ids</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#isRetain <em>Retain</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.SummaryGroup#getSubSummaryIds <em>Sub Summary Ids</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,5 +115,21 @@ public interface SummaryGroup extends EObject
      * @generated
      */
     void setRetain ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Sub Summary Ids</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Sub Summary Ids</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Sub Summary Ids</em>' attribute list.
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getSummaryGroup_SubSummaryIds()
+     * @model
+     * @generated
+     */
+    EList<String> getSubSummaryIds ();
 
 } // SummaryGroup

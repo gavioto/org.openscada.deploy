@@ -551,53 +551,53 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 
         switch ( notification.getFeatureID ( Item.class ) )
         {
-        case ModelPackage.ITEM__DEVICE:
-        case ModelPackage.ITEM__NAME:
-        case ModelPackage.ITEM__DATA_TYPE:
-        case ModelPackage.ITEM__UNIT:
-        case ModelPackage.ITEM__ALIAS:
-        case ModelPackage.ITEM__DESCRIPTION:
-        case ModelPackage.ITEM__DEFAULT_CHAIN:
-        case ModelPackage.ITEM__EVENT_COMMAND:
-        case ModelPackage.ITEM__LOCAL_MANUAL:
-        case ModelPackage.ITEM__REMOTE_MANUAL:
-        case ModelPackage.ITEM__SYSTEM:
-        case ModelPackage.ITEM__HIERARCHY:
-        case ModelPackage.ITEM__REMOTE_MIN:
-        case ModelPackage.ITEM__REMOTE_MAX:
-        case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-        case ModelPackage.ITEM__REMOTE_HIGH:
-        case ModelPackage.ITEM__REMOTE_LOW:
-        case ModelPackage.ITEM__REMOTE_LOW_LOW:
-        case ModelPackage.ITEM__REMOTE_BOOL:
-        case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-        case ModelPackage.ITEM__INPUT:
-        case ModelPackage.ITEM__OUTPUT:
-        case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-        case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-        case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-        case ModelPackage.ITEM__DEBUG_INFORMATION:
-        case ModelPackage.ITEM__IGNORE_SUMMARY:
-        case ModelPackage.ITEM__BLOCK:
-        case ModelPackage.ITEM__ENABLED:
-        case ModelPackage.ITEM__HD_STORAGE:
-        case ModelPackage.ITEM__SIMULATION_VALUE:
-        case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-        case ModelPackage.ITEM__ROUNDING_VALUE:
-        case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case ModelPackage.ITEM__MAPPER:
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-        case ModelPackage.ITEM__LOCAL_HIGH:
-        case ModelPackage.ITEM__LOCAL_LOW:
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-        case ModelPackage.ITEM__LOCAL_MIN:
-        case ModelPackage.ITEM__LOCAL_MAX:
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case ModelPackage.ITEM__DEVICE:
+            case ModelPackage.ITEM__NAME:
+            case ModelPackage.ITEM__DATA_TYPE:
+            case ModelPackage.ITEM__UNIT:
+            case ModelPackage.ITEM__ALIAS:
+            case ModelPackage.ITEM__DESCRIPTION:
+            case ModelPackage.ITEM__DEFAULT_CHAIN:
+            case ModelPackage.ITEM__EVENT_COMMAND:
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+            case ModelPackage.ITEM__SYSTEM:
+            case ModelPackage.ITEM__HIERARCHY:
+            case ModelPackage.ITEM__REMOTE_MIN:
+            case ModelPackage.ITEM__REMOTE_MAX:
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+            case ModelPackage.ITEM__REMOTE_HIGH:
+            case ModelPackage.ITEM__REMOTE_LOW:
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+            case ModelPackage.ITEM__REMOTE_BOOL:
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+            case ModelPackage.ITEM__INPUT:
+            case ModelPackage.ITEM__OUTPUT:
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+            case ModelPackage.ITEM__BLOCK:
+            case ModelPackage.ITEM__ENABLED:
+            case ModelPackage.ITEM__HD_STORAGE:
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.ITEM__MAPPER:
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+            case ModelPackage.ITEM__LOCAL_HIGH:
+            case ModelPackage.ITEM__LOCAL_LOW:
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+            case ModelPackage.ITEM__LOCAL_MIN:
+            case ModelPackage.ITEM__LOCAL_MAX:
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

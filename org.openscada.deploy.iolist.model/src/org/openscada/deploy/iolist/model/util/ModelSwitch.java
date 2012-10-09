@@ -94,190 +94,190 @@ public class ModelSwitch<T> extends Switch<T>
     {
         switch ( classifierID )
         {
-        case ModelPackage.ITEM:
-        {
-            Item item = (Item)theEObject;
-            T result = caseItem ( item );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.SUMMARY_GROUP:
-        {
-            SummaryGroup summaryGroup = (SummaryGroup)theEObject;
-            T result = caseSummaryGroup ( summaryGroup );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.FORMULA_ITEM:
-        {
-            FormulaItem formulaItem = (FormulaItem)theEObject;
-            T result = caseFormulaItem ( formulaItem );
-            if ( result == null )
-                result = caseItem ( formulaItem );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.FORMULA_INPUT:
-        {
-            FormulaInput formulaInput = (FormulaInput)theEObject;
-            T result = caseFormulaInput ( formulaInput );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.SCRIPT_MODULE:
-        {
-            ScriptModule scriptModule = (ScriptModule)theEObject;
-            T result = caseScriptModule ( scriptModule );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.MODEL:
-        {
-            Model model = (Model)theEObject;
-            T result = caseModel ( model );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.SCRIPT_ITEM:
-        {
-            ScriptItem scriptItem = (ScriptItem)theEObject;
-            T result = caseScriptItem ( scriptItem );
-            if ( result == null )
-                result = caseItem ( scriptItem );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.SCRIPT_OUTPUT:
-        {
-            ScriptOutput scriptOutput = (ScriptOutput)theEObject;
-            T result = caseScriptOutput ( scriptOutput );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.MAPPER:
-        {
-            Mapper mapper = (Mapper)theEObject;
-            T result = caseMapper ( mapper );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.MONITOR:
-        {
-            Monitor monitor = (Monitor)theEObject;
-            T result = caseMonitor ( monitor );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.LEVEL_MONITOR:
-        {
-            LevelMonitor levelMonitor = (LevelMonitor)theEObject;
-            T result = caseLevelMonitor ( levelMonitor );
-            if ( result == null )
-                result = caseBasicMonitor ( levelMonitor );
-            if ( result == null )
-                result = caseMonitor ( levelMonitor );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.LIST_MONITOR:
-        {
-            ListMonitor listMonitor = (ListMonitor)theEObject;
-            T result = caseListMonitor ( listMonitor );
-            if ( result == null )
-                result = caseMonitor ( listMonitor );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.BOOLEAN_MONITOR:
-        {
-            BooleanMonitor booleanMonitor = (BooleanMonitor)theEObject;
-            T result = caseBooleanMonitor ( booleanMonitor );
-            if ( result == null )
-                result = caseBasicMonitor ( booleanMonitor );
-            if ( result == null )
-                result = caseMonitor ( booleanMonitor );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.AVERAGE:
-        {
-            Average average = (Average)theEObject;
-            T result = caseAverage ( average );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.AVERAGE_ITEM:
-        {
-            AverageItem averageItem = (AverageItem)theEObject;
-            T result = caseAverageItem ( averageItem );
-            if ( result == null )
-                result = caseItem ( averageItem );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.CONSTANT_ITEM:
-        {
-            ConstantItem constantItem = (ConstantItem)theEObject;
-            T result = caseConstantItem ( constantItem );
-            if ( result == null )
-                result = caseItem ( constantItem );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.MOVING_AVERAGE_ITEM:
-        {
-            MovingAverageItem movingAverageItem = (MovingAverageItem)theEObject;
-            T result = caseMovingAverageItem ( movingAverageItem );
-            if ( result == null )
-                result = caseItem ( movingAverageItem );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.MOVING_AVERAGE:
-        {
-            MovingAverage movingAverage = (MovingAverage)theEObject;
-            T result = caseMovingAverage ( movingAverage );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.LIST_MONITOR_ENTRY:
-        {
-            ListMonitorEntry listMonitorEntry = (ListMonitorEntry)theEObject;
-            T result = caseListMonitorEntry ( listMonitorEntry );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case ModelPackage.BASIC_MONITOR:
-        {
-            BasicMonitor basicMonitor = (BasicMonitor)theEObject;
-            T result = caseBasicMonitor ( basicMonitor );
-            if ( result == null )
-                result = caseMonitor ( basicMonitor );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        default:
-            return defaultCase ( theEObject );
+            case ModelPackage.ITEM:
+            {
+                Item item = (Item)theEObject;
+                T result = caseItem ( item );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.SUMMARY_GROUP:
+            {
+                SummaryGroup summaryGroup = (SummaryGroup)theEObject;
+                T result = caseSummaryGroup ( summaryGroup );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.FORMULA_ITEM:
+            {
+                FormulaItem formulaItem = (FormulaItem)theEObject;
+                T result = caseFormulaItem ( formulaItem );
+                if ( result == null )
+                    result = caseItem ( formulaItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.FORMULA_INPUT:
+            {
+                FormulaInput formulaInput = (FormulaInput)theEObject;
+                T result = caseFormulaInput ( formulaInput );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.SCRIPT_MODULE:
+            {
+                ScriptModule scriptModule = (ScriptModule)theEObject;
+                T result = caseScriptModule ( scriptModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.MODEL:
+            {
+                Model model = (Model)theEObject;
+                T result = caseModel ( model );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.SCRIPT_ITEM:
+            {
+                ScriptItem scriptItem = (ScriptItem)theEObject;
+                T result = caseScriptItem ( scriptItem );
+                if ( result == null )
+                    result = caseItem ( scriptItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.SCRIPT_OUTPUT:
+            {
+                ScriptOutput scriptOutput = (ScriptOutput)theEObject;
+                T result = caseScriptOutput ( scriptOutput );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.MAPPER:
+            {
+                Mapper mapper = (Mapper)theEObject;
+                T result = caseMapper ( mapper );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.MONITOR:
+            {
+                Monitor monitor = (Monitor)theEObject;
+                T result = caseMonitor ( monitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.LEVEL_MONITOR:
+            {
+                LevelMonitor levelMonitor = (LevelMonitor)theEObject;
+                T result = caseLevelMonitor ( levelMonitor );
+                if ( result == null )
+                    result = caseBasicMonitor ( levelMonitor );
+                if ( result == null )
+                    result = caseMonitor ( levelMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.LIST_MONITOR:
+            {
+                ListMonitor listMonitor = (ListMonitor)theEObject;
+                T result = caseListMonitor ( listMonitor );
+                if ( result == null )
+                    result = caseMonitor ( listMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.BOOLEAN_MONITOR:
+            {
+                BooleanMonitor booleanMonitor = (BooleanMonitor)theEObject;
+                T result = caseBooleanMonitor ( booleanMonitor );
+                if ( result == null )
+                    result = caseBasicMonitor ( booleanMonitor );
+                if ( result == null )
+                    result = caseMonitor ( booleanMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.AVERAGE:
+            {
+                Average average = (Average)theEObject;
+                T result = caseAverage ( average );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.AVERAGE_ITEM:
+            {
+                AverageItem averageItem = (AverageItem)theEObject;
+                T result = caseAverageItem ( averageItem );
+                if ( result == null )
+                    result = caseItem ( averageItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.CONSTANT_ITEM:
+            {
+                ConstantItem constantItem = (ConstantItem)theEObject;
+                T result = caseConstantItem ( constantItem );
+                if ( result == null )
+                    result = caseItem ( constantItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.MOVING_AVERAGE_ITEM:
+            {
+                MovingAverageItem movingAverageItem = (MovingAverageItem)theEObject;
+                T result = caseMovingAverageItem ( movingAverageItem );
+                if ( result == null )
+                    result = caseItem ( movingAverageItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.MOVING_AVERAGE:
+            {
+                MovingAverage movingAverage = (MovingAverage)theEObject;
+                T result = caseMovingAverage ( movingAverage );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.LIST_MONITOR_ENTRY:
+            {
+                ListMonitorEntry listMonitorEntry = (ListMonitorEntry)theEObject;
+                T result = caseListMonitorEntry ( listMonitorEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.BASIC_MONITOR:
+            {
+                BasicMonitor basicMonitor = (BasicMonitor)theEObject;
+                T result = caseBasicMonitor ( basicMonitor );
+                if ( result == null )
+                    result = caseMonitor ( basicMonitor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            default:
+                return defaultCase ( theEObject );
         }
     }
 

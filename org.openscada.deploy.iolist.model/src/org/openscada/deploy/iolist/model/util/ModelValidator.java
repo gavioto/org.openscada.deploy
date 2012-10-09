@@ -111,62 +111,62 @@ public class ModelValidator extends EObjectValidator
     {
         switch ( classifierID )
         {
-        case ModelPackage.ITEM:
-            return validateItem ( (Item)value, diagnostics, context );
-        case ModelPackage.SUMMARY_GROUP:
-            return validateSummaryGroup ( (SummaryGroup)value, diagnostics, context );
-        case ModelPackage.FORMULA_ITEM:
-            return validateFormulaItem ( (FormulaItem)value, diagnostics, context );
-        case ModelPackage.FORMULA_INPUT:
-            return validateFormulaInput ( (FormulaInput)value, diagnostics, context );
-        case ModelPackage.SCRIPT_MODULE:
-            return validateScriptModule ( (ScriptModule)value, diagnostics, context );
-        case ModelPackage.MODEL:
-            return validateModel ( (Model)value, diagnostics, context );
-        case ModelPackage.SCRIPT_ITEM:
-            return validateScriptItem ( (ScriptItem)value, diagnostics, context );
-        case ModelPackage.SCRIPT_OUTPUT:
-            return validateScriptOutput ( (ScriptOutput)value, diagnostics, context );
-        case ModelPackage.MAPPER:
-            return validateMapper ( (Mapper)value, diagnostics, context );
-        case ModelPackage.MONITOR:
-            return validateMonitor ( (Monitor)value, diagnostics, context );
-        case ModelPackage.LEVEL_MONITOR:
-            return validateLevelMonitor ( (LevelMonitor)value, diagnostics, context );
-        case ModelPackage.LIST_MONITOR:
-            return validateListMonitor ( (ListMonitor)value, diagnostics, context );
-        case ModelPackage.BOOLEAN_MONITOR:
-            return validateBooleanMonitor ( (BooleanMonitor)value, diagnostics, context );
-        case ModelPackage.AVERAGE:
-            return validateAverage ( (Average)value, diagnostics, context );
-        case ModelPackage.AVERAGE_ITEM:
-            return validateAverageItem ( (AverageItem)value, diagnostics, context );
-        case ModelPackage.CONSTANT_ITEM:
-            return validateConstantItem ( (ConstantItem)value, diagnostics, context );
-        case ModelPackage.MOVING_AVERAGE_ITEM:
-            return validateMovingAverageItem ( (MovingAverageItem)value, diagnostics, context );
-        case ModelPackage.MOVING_AVERAGE:
-            return validateMovingAverage ( (MovingAverage)value, diagnostics, context );
-        case ModelPackage.LIST_MONITOR_ENTRY:
-            return validateListMonitorEntry ( (ListMonitorEntry)value, diagnostics, context );
-        case ModelPackage.BASIC_MONITOR:
-            return validateBasicMonitor ( (BasicMonitor)value, diagnostics, context );
-        case ModelPackage.DATA_TYPE:
-            return validateDataType ( (DataType)value, diagnostics, context );
-        case ModelPackage.ROUNDING:
-            return validateRounding ( (Rounding)value, diagnostics, context );
-        case ModelPackage.AVERAGE_REFERENCE_TYPE:
-            return validateAverageReferenceType ( (AverageReferenceType)value, diagnostics, context );
-        case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
-            return validateMovingAverageReferenceType ( (MovingAverageReferenceType)value, diagnostics, context );
-        case ModelPackage.VARIANT:
-            return validateVariant ( (Variant)value, diagnostics, context );
-        case ModelPackage.LIST_SEVERITY:
-            return validateListSeverity ( (String)value, diagnostics, context );
-        case ModelPackage.SEVERITY:
-            return validateSeverity ( (Severity)value, diagnostics, context );
-        default:
-            return true;
+            case ModelPackage.ITEM:
+                return validateItem ( (Item)value, diagnostics, context );
+            case ModelPackage.SUMMARY_GROUP:
+                return validateSummaryGroup ( (SummaryGroup)value, diagnostics, context );
+            case ModelPackage.FORMULA_ITEM:
+                return validateFormulaItem ( (FormulaItem)value, diagnostics, context );
+            case ModelPackage.FORMULA_INPUT:
+                return validateFormulaInput ( (FormulaInput)value, diagnostics, context );
+            case ModelPackage.SCRIPT_MODULE:
+                return validateScriptModule ( (ScriptModule)value, diagnostics, context );
+            case ModelPackage.MODEL:
+                return validateModel ( (Model)value, diagnostics, context );
+            case ModelPackage.SCRIPT_ITEM:
+                return validateScriptItem ( (ScriptItem)value, diagnostics, context );
+            case ModelPackage.SCRIPT_OUTPUT:
+                return validateScriptOutput ( (ScriptOutput)value, diagnostics, context );
+            case ModelPackage.MAPPER:
+                return validateMapper ( (Mapper)value, diagnostics, context );
+            case ModelPackage.MONITOR:
+                return validateMonitor ( (Monitor)value, diagnostics, context );
+            case ModelPackage.LEVEL_MONITOR:
+                return validateLevelMonitor ( (LevelMonitor)value, diagnostics, context );
+            case ModelPackage.LIST_MONITOR:
+                return validateListMonitor ( (ListMonitor)value, diagnostics, context );
+            case ModelPackage.BOOLEAN_MONITOR:
+                return validateBooleanMonitor ( (BooleanMonitor)value, diagnostics, context );
+            case ModelPackage.AVERAGE:
+                return validateAverage ( (Average)value, diagnostics, context );
+            case ModelPackage.AVERAGE_ITEM:
+                return validateAverageItem ( (AverageItem)value, diagnostics, context );
+            case ModelPackage.CONSTANT_ITEM:
+                return validateConstantItem ( (ConstantItem)value, diagnostics, context );
+            case ModelPackage.MOVING_AVERAGE_ITEM:
+                return validateMovingAverageItem ( (MovingAverageItem)value, diagnostics, context );
+            case ModelPackage.MOVING_AVERAGE:
+                return validateMovingAverage ( (MovingAverage)value, diagnostics, context );
+            case ModelPackage.LIST_MONITOR_ENTRY:
+                return validateListMonitorEntry ( (ListMonitorEntry)value, diagnostics, context );
+            case ModelPackage.BASIC_MONITOR:
+                return validateBasicMonitor ( (BasicMonitor)value, diagnostics, context );
+            case ModelPackage.DATA_TYPE:
+                return validateDataType ( (DataType)value, diagnostics, context );
+            case ModelPackage.ROUNDING:
+                return validateRounding ( (Rounding)value, diagnostics, context );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return validateAverageReferenceType ( (AverageReferenceType)value, diagnostics, context );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return validateMovingAverageReferenceType ( (MovingAverageReferenceType)value, diagnostics, context );
+            case ModelPackage.VARIANT:
+                return validateVariant ( (Variant)value, diagnostics, context );
+            case ModelPackage.LIST_SEVERITY:
+                return validateListSeverity ( (String)value, diagnostics, context );
+            case ModelPackage.SEVERITY:
+                return validateSeverity ( (Severity)value, diagnostics, context );
+            default:
+                return true;
         }
     }
 
