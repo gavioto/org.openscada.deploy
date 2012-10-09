@@ -373,7 +373,7 @@ public class Configuration extends GenericMasterConfiguration
             item.getHierarchy ().addAll ( group.getHierarchy () );
 
             this.items.add ( item );
-            addSum ( id + ".sum", group.getDataSourceIds (), groupsSum ); //$NON-NLS-1$
+            addSum ( id + ".sum", group.getDataSourceIds (), group.getSubSummaryIds (), groupsSum ); //$NON-NLS-1$
 
             final ReportDataItem reportItem = getReportItem ( item.getAlias () );
             reportItem.setValueSource ( new SummarySource ( this, group.getDataSourceIds () ) );
@@ -1279,11 +1279,14 @@ public class Configuration extends GenericMasterConfiguration
 
     private final List<SummaryGroup> summaryGroups = new LinkedList<SummaryGroup> ();
 
-    private void addSum ( final String id, List<String> sources, final Set<String> groups )
+    private void addSum ( final String id, List<String> sources, final List<String> subSources, final Set<String> groups )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
         sources = new ArrayList<String> ( sources );
+
+        // TODO: make a real "sub" configuration
+        sources.addAll ( subSources );
 
         Collections.sort ( sources );
 

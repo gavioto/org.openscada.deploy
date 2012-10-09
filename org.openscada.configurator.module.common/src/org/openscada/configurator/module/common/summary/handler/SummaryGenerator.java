@@ -44,6 +44,11 @@ public class SummaryGenerator
         locationItems.getDataSourceIds ().add ( itemId );
     }
 
+    protected static void addSubItemToGroup ( final Configuration cfg, final String itemId, final SummaryGroup locationItems )
+    {
+        locationItems.getSubSummaryIds ().add ( itemId );
+    }
+
     private static SummaryGroup getGroup ( final Configuration cfg, final Project project, final GenerateSummaries module, final Map<List<String>, SummaryGroup> locations, final List<String> location )
     {
         SummaryGroup locationItems = locations.get ( location );
@@ -61,7 +66,7 @@ public class SummaryGenerator
                 parentLocation.removeLast ();
                 final SummaryGroup parentGroup = getGroup ( cfg, project, module, locations, parentLocation );
 
-                addItemToGroup ( cfg, locationItems.getId () + ".master", parentGroup );
+                addSubItemToGroup ( cfg, locationItems.getId () + ".master", parentGroup );
             }
         }
         return locationItems;

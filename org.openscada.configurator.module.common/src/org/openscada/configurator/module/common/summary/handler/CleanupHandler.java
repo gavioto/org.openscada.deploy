@@ -30,6 +30,12 @@ public class CleanupHandler
             while ( i.hasNext () )
             {
                 final SummaryGroup group = i.next ();
+                if ( !group.getSubSummaryIds ().isEmpty () )
+                {
+                    // we have sub summary ids ... so never remove
+                    continue;
+                }
+
                 if ( group.getDataSourceIds ().size () < module.getRequiredItems () && !group.isRetain () )
                 {
                     System.out.println ( "Removing summary group: " + group.getId () );
@@ -43,7 +49,7 @@ public class CleanupHandler
 
         for ( final SummaryGroup group : configuration.getSummaryGroups () )
         {
-            final Iterator<String> i = group.getDataSourceIds ().iterator ();
+            final Iterator<String> i = group.getSubSummaryIds ().iterator ();
             while ( i.hasNext () )
             {
                 final String id = i.next ();
