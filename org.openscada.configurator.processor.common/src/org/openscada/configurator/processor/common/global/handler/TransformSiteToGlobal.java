@@ -62,6 +62,7 @@ public class TransformSiteToGlobal
         final Item globalItem = ModelFactory.eINSTANCE.createItem ();
 
         globalItem.setAlias ( item.getAlias () );
+        globalItem.setName ( item.getAlias () );
         globalItem.setDescription ( item.getDescription () );
         globalItem.setUnit ( item.getUnit () );
         globalItem.setDataType ( item.getDataType () );
