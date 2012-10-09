@@ -4,21 +4,20 @@
  *
  * $Id$
  */
-package org.openscada.configurator.processor.common.tests;
+package org.openscada.configurator.processor.common.global.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
-import org.openscada.configurator.processor.common.global.tests.GlobalTests;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>Processors</b></em>' model.
+ * A test suite for the '<em><b>global</b></em>' package.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProcessorsAllTests extends TestSuite
+public class GlobalTests extends TestSuite
 {
 
     /**
@@ -38,9 +37,8 @@ public class ProcessorsAllTests extends TestSuite
      */
     public static Test suite ()
     {
-        TestSuite suite = new ProcessorsAllTests ( "Processors Tests" );
-        suite.addTest ( CommonTests.suite () );
-        suite.addTest ( GlobalTests.suite () );
+        TestSuite suite = new GlobalTests ( "global Tests" );
+        suite.addTestSuite ( TransformSiteToGlobalTest.class );
         return suite;
     }
 
@@ -49,9 +47,9 @@ public class ProcessorsAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProcessorsAllTests ( String name )
+    public GlobalTests ( String name )
     {
         super ( name );
     }
 
-} //ProcessorsAllTests
+} //GlobalTests

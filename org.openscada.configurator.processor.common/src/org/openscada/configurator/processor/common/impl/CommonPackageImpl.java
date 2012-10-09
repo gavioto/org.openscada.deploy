@@ -18,6 +18,8 @@ import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configurator.processor.common.CommonFactory;
 import org.openscada.configurator.processor.common.CommonPackage;
 import org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor;
+import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,11 +88,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Initialize simple dependencies
         ConfiguratorPackage.eINSTANCE.eClass ();
 
+        // Obtain or create and register interdependencies
+        GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI ) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI ) : GlobalPackage.eINSTANCE );
+
         // Create package meta-data objects
         theCommonPackage.createPackageContents ();
+        theGlobalPackage.createPackageContents ();
 
         // Initialize created meta-data
         theCommonPackage.initializePackageContents ();
+        theGlobalPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theCommonPackage.freeze ();
@@ -181,7 +188,11 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
+        GlobalPackage theGlobalPackage = (GlobalPackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+
+        // Add subpackages
+        getESubpackages ().add ( theGlobalPackage );
 
         // Create type parameters
 
