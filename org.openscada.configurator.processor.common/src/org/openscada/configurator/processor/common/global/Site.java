@@ -6,6 +6,7 @@
  */
 package org.openscada.configurator.processor.common.global;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.configurator.processor.common.global.Site#getConnectionDa <em>Connection Da</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.Site#getConnectionAe <em>Connection Ae</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.Site#getSiteOutputDir <em>Site Output Dir</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.Site#getHierarchy <em>Hierarchy</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,5 +133,21 @@ public interface Site extends EObject
      * @generated
      */
     void setSiteOutputDir ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Hierarchy</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hierarchy</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hierarchy</em>' attribute list.
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getSite_Hierarchy()
+     * @model
+     * @generated
+     */
+    EList<String> getHierarchy ();
 
 } // Site

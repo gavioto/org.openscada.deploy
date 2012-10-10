@@ -13,15 +13,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.command.CommandParameter;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -35,17 +30,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
-
 import org.openscada.configuration.model.util.ConfiguratorSwitch;
-
 import org.openscada.configurator.processor.common.global.GlobalFactory;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
-
 import org.openscada.configurator.processor.common.global.util.GlobalAdapterFactory;
-
 import org.openscada.configurator.processor.common.provider.ProcessorsEditPlugin;
 
 /**

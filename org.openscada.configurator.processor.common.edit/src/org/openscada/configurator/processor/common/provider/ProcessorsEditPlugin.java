@@ -7,9 +7,7 @@
 package org.openscada.configurator.processor.common.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.openscada.configuration.model.provider.ConfiguratorEditPlugin;
 
 /**

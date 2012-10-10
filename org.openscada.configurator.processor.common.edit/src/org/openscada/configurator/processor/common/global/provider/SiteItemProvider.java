@@ -11,9 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -25,7 +23,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Site;
 
@@ -65,6 +62,7 @@ public class SiteItemProvider extends ItemProviderAdapter implements IEditingDom
             addConnectionDaPropertyDescriptor ( object );
             addConnectionAePropertyDescriptor ( object );
             addSiteOutputDirPropertyDescriptor ( object );
+            addHierarchyPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -114,6 +112,17 @@ public class SiteItemProvider extends ItemProviderAdapter implements IEditingDom
     }
 
     /**
+     * This adds a property descriptor for the Hierarchy feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addHierarchyPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Site_hierarchy_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Site_hierarchy_feature", "_UI_Site_type" ), GlobalPackage.Literals.SITE__HIERARCHY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This returns Site.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -156,6 +165,7 @@ public class SiteItemProvider extends ItemProviderAdapter implements IEditingDom
             case GlobalPackage.SITE__CONNECTION_DA:
             case GlobalPackage.SITE__CONNECTION_AE:
             case GlobalPackage.SITE__SITE_OUTPUT_DIR:
+            case GlobalPackage.SITE__HIERARCHY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

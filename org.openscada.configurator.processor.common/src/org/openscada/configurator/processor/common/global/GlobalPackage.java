@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
 
 /**
@@ -91,13 +90,67 @@ public interface GlobalPackage extends EPackage
     int TRANSFORM_SITE_TO_GLOBAL__SITES = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Connection Id Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ID_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy Prefix</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__HIERARCHY_PREFIX = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Connection Item State Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STATE_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Connection Item String State Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Summary Item Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Summary Item Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Transform Site To Global</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 2;
+    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
@@ -146,13 +199,22 @@ public interface GlobalPackage extends EPackage
     int SITE__SITE_OUTPUT_DIR = 3;
 
     /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SITE__HIERARCHY = 4;
+
+    /**
      * The number of structural features of the '<em>Site</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SITE_FEATURE_COUNT = 4;
+    int SITE_FEATURE_COUNT = 5;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal <em>Transform Site To Global</em>}'.
@@ -185,6 +247,72 @@ public interface GlobalPackage extends EPackage
      * @generated
      */
     EReference getTransformSiteToGlobal_Sites ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionIdFormat <em>Connection Id Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Connection Id Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionIdFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_ConnectionIdFormat ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getHierarchyPrefix <em>Hierarchy Prefix</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Hierarchy Prefix</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getHierarchyPrefix()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_HierarchyPrefix ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStateFormat <em>Connection Item State Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Connection Item State Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStateFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_ConnectionItemStateFormat ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat <em>Connection Item String State Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Connection Item String State Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_ConnectionItemStringStateFormat ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern <em>Summary Item Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Summary Item Pattern</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_SummaryItemPattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Summary Item Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_SummaryItemFormat ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Site <em>Site</em>}'.
@@ -241,6 +369,17 @@ public interface GlobalPackage extends EPackage
     EAttribute getSite_SiteOutputDir ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configurator.processor.common.global.Site#getHierarchy <em>Hierarchy</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Hierarchy</em>'.
+     * @see org.openscada.configurator.processor.common.global.Site#getHierarchy()
+     * @see #getSite()
+     * @generated
+     */
+    EAttribute getSite_Hierarchy ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -290,6 +429,54 @@ public interface GlobalPackage extends EPackage
         EReference TRANSFORM_SITE_TO_GLOBAL__SITES = eINSTANCE.getTransformSiteToGlobal_Sites ();
 
         /**
+         * The meta object literal for the '<em><b>Connection Id Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ID_FORMAT = eINSTANCE.getTransformSiteToGlobal_ConnectionIdFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Hierarchy Prefix</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__HIERARCHY_PREFIX = eINSTANCE.getTransformSiteToGlobal_HierarchyPrefix ();
+
+        /**
+         * The meta object literal for the '<em><b>Connection Item State Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STATE_FORMAT = eINSTANCE.getTransformSiteToGlobal_ConnectionItemStateFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Connection Item String State Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT = eINSTANCE.getTransformSiteToGlobal_ConnectionItemStringStateFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Summary Item Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN = eINSTANCE.getTransformSiteToGlobal_SummaryItemPattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Summary Item Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT = eINSTANCE.getTransformSiteToGlobal_SummaryItemFormat ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -330,6 +517,14 @@ public interface GlobalPackage extends EPackage
          * @generated
          */
         EAttribute SITE__SITE_OUTPUT_DIR = eINSTANCE.getSite_SiteOutputDir ();
+
+        /**
+         * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SITE__HIERARCHY = eINSTANCE.getSite_Hierarchy ();
 
     }
 

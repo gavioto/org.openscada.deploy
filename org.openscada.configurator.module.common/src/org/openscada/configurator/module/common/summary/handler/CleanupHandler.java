@@ -38,7 +38,7 @@ public class CleanupHandler
 
                 if ( group.getDataSourceIds ().size () < module.getRequiredItems () && !group.isRetain () )
                 {
-                    System.out.println ( "Removing summary group: " + group.getId () );
+                    // System.out.println ( "Removing summary group: " + group.getId () );
                     i.remove ();
                     removed.add ( group.getId () );
 
@@ -57,7 +57,7 @@ public class CleanupHandler
                 {
                     if ( id.equals ( groupId + ".master" ) )
                     {
-                        System.out.println ( String.format ( " - Removing summary group %s from parent group %s", groupId, group.getId () ) );
+                        // System.out.println ( String.format ( " - Removing summary group %s from parent group %s", groupId, group.getId () ) );
                         i.remove ();
                     }
                 }

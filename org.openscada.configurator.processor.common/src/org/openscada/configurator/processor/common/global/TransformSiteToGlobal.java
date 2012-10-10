@@ -6,9 +6,10 @@
  */
 package org.openscada.configurator.processor.common.global;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.common.util.EList;
 import org.openscada.configuration.model.Processor;
-
 import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 
 /**
@@ -25,6 +26,12 @@ import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
  * <ul>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getGlobalSlot <em>Global Slot</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSites <em>Sites</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionIdFormat <em>Connection Id Format</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getHierarchyPrefix <em>Hierarchy Prefix</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStateFormat <em>Connection Item State Format</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat <em>Connection Item String State Format</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern <em>Summary Item Pattern</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,5 +82,154 @@ public interface TransformSiteToGlobal extends Processor
      * @generated
      */
     EList<Site> getSites ();
+
+    /**
+     * Returns the value of the '<em><b>Connection Id Format</b></em>' attribute.
+     * The default value is <code>"site.master.%s.%s"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Connection Id Format</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Connection Id Format</em>' attribute.
+     * @see #setConnectionIdFormat(String)
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_ConnectionIdFormat()
+     * @model default="site.master.%s.%s" required="true"
+     * @generated
+     */
+    String getConnectionIdFormat ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionIdFormat <em>Connection Id Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Connection Id Format</em>' attribute.
+     * @see #getConnectionIdFormat()
+     * @generated
+     */
+    void setConnectionIdFormat ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Hierarchy Prefix</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hierarchy Prefix</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hierarchy Prefix</em>' attribute list.
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_HierarchyPrefix()
+     * @model
+     * @generated
+     */
+    EList<String> getHierarchyPrefix ();
+
+    /**
+     * Returns the value of the '<em><b>Connection Item State Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Connection Item State Format</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Connection Item State Format</em>' attribute.
+     * @see #setConnectionItemStateFormat(String)
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_ConnectionItemStateFormat()
+     * @model
+     * @generated
+     */
+    String getConnectionItemStateFormat ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStateFormat <em>Connection Item State Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Connection Item State Format</em>' attribute.
+     * @see #getConnectionItemStateFormat()
+     * @generated
+     */
+    void setConnectionItemStateFormat ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Connection Item String State Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Connection Item String State Format</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Connection Item String State Format</em>' attribute.
+     * @see #setConnectionItemStringStateFormat(String)
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_ConnectionItemStringStateFormat()
+     * @model
+     * @generated
+     */
+    String getConnectionItemStringStateFormat ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat <em>Connection Item String State Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Connection Item String State Format</em>' attribute.
+     * @see #getConnectionItemStringStateFormat()
+     * @generated
+     */
+    void setConnectionItemStringStateFormat ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Summary Item Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Summary Item Pattern</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The pattern used to detect site local summary items.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Summary Item Pattern</em>' attribute.
+     * @see #setSummaryItemPattern(Pattern)
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_SummaryItemPattern()
+     * @model dataType="org.openscada.configurator.processor.common.Pattern" required="true"
+     * @generated
+     */
+    Pattern getSummaryItemPattern ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern <em>Summary Item Pattern</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Summary Item Pattern</em>' attribute.
+     * @see #getSummaryItemPattern()
+     * @generated
+     */
+    void setSummaryItemPattern ( Pattern value );
+
+    /**
+     * Returns the value of the '<em><b>Summary Item Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The format string which will be used to generate global summary item names. 1 = site id, 2 = site local name
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Summary Item Format</em>' attribute.
+     * @see #setSummaryItemFormat(String)
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_SummaryItemFormat()
+     * @model required="true"
+     * @generated
+     */
+    String getSummaryItemFormat ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Summary Item Format</em>' attribute.
+     * @see #getSummaryItemFormat()
+     * @generated
+     */
+    void setSummaryItemFormat ( String value );
 
 } // TransformSiteToGlobal

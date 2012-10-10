@@ -8,14 +8,12 @@ package org.openscada.configurator.processor.common.global.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.openscada.configuration.model.Processor;
-
-import org.openscada.configurator.processor.common.global.*;
+import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Site;
+import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
 /**
  * <!-- begin-user-doc -->

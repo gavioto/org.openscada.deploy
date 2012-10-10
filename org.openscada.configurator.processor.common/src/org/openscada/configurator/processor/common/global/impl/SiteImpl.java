@@ -6,13 +6,14 @@
  */
 package org.openscada.configurator.processor.common.global.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Site;
 
@@ -27,6 +28,7 @@ import org.openscada.configurator.processor.common.global.Site;
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getConnectionDa <em>Connection Da</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getConnectionAe <em>Connection Ae</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getSiteOutputDir <em>Site Output Dir</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getHierarchy <em>Hierarchy</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +115,16 @@ public class SiteImpl extends EObjectImpl implements Site
      * @ordered
      */
     protected String siteOutputDir = SITE_OUTPUT_DIR_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getHierarchy() <em>Hierarchy</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHierarchy()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> hierarchy;
 
     /**
      * <!-- begin-user-doc -->
@@ -232,6 +244,20 @@ public class SiteImpl extends EObjectImpl implements Site
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getHierarchy ()
+    {
+        if ( hierarchy == null )
+        {
+            hierarchy = new EDataTypeUniqueEList<String> ( String.class, this, GlobalPackage.SITE__HIERARCHY );
+        }
+        return hierarchy;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -245,6 +271,8 @@ public class SiteImpl extends EObjectImpl implements Site
                 return getConnectionAe ();
             case GlobalPackage.SITE__SITE_OUTPUT_DIR:
                 return getSiteOutputDir ();
+            case GlobalPackage.SITE__HIERARCHY:
+                return getHierarchy ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -254,6 +282,7 @@ public class SiteImpl extends EObjectImpl implements Site
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
@@ -270,6 +299,10 @@ public class SiteImpl extends EObjectImpl implements Site
                 return;
             case GlobalPackage.SITE__SITE_OUTPUT_DIR:
                 setSiteOutputDir ( (String)newValue );
+                return;
+            case GlobalPackage.SITE__HIERARCHY:
+                getHierarchy ().clear ();
+                getHierarchy ().addAll ( (Collection<? extends String>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -297,6 +330,9 @@ public class SiteImpl extends EObjectImpl implements Site
             case GlobalPackage.SITE__SITE_OUTPUT_DIR:
                 setSiteOutputDir ( SITE_OUTPUT_DIR_EDEFAULT );
                 return;
+            case GlobalPackage.SITE__HIERARCHY:
+                getHierarchy ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -319,6 +355,8 @@ public class SiteImpl extends EObjectImpl implements Site
                 return CONNECTION_AE_EDEFAULT == null ? connectionAe != null : !CONNECTION_AE_EDEFAULT.equals ( connectionAe );
             case GlobalPackage.SITE__SITE_OUTPUT_DIR:
                 return SITE_OUTPUT_DIR_EDEFAULT == null ? siteOutputDir != null : !SITE_OUTPUT_DIR_EDEFAULT.equals ( siteOutputDir );
+            case GlobalPackage.SITE__HIERARCHY:
+                return hierarchy != null && !hierarchy.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -343,6 +381,8 @@ public class SiteImpl extends EObjectImpl implements Site
         result.append ( connectionAe );
         result.append ( ", siteOutputDir: " );
         result.append ( siteOutputDir );
+        result.append ( ", hierarchy: " );
+        result.append ( hierarchy );
         result.append ( ')' );
         return result.toString ();
     }

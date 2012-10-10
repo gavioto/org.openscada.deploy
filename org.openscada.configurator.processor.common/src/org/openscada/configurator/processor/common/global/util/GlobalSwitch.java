@@ -8,12 +8,11 @@ package org.openscada.configurator.processor.common.global.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.openscada.configuration.model.Processor;
-
-import org.openscada.configurator.processor.common.global.*;
+import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Site;
+import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
 /**
  * <!-- begin-user-doc -->

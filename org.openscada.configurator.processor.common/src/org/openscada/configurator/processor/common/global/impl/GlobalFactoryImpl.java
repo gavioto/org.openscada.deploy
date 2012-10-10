@@ -9,12 +9,12 @@ package org.openscada.configurator.processor.common.global.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.openscada.configurator.processor.common.global.*;
+import org.openscada.configurator.processor.common.global.GlobalFactory;
+import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Site;
+import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
 /**
  * <!-- begin-user-doc -->
