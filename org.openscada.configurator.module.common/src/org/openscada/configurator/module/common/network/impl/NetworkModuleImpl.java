@@ -14,7 +14,7 @@ import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.configurator.module.common.network.NetworkPackage;
-import org.openscada.configurator.module.common.network.handler.Application;
+import org.openscada.configurator.module.common.network.handler.NetworkHandler;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Module</b></em>'. <!-- end-user-doc -->
@@ -139,7 +139,7 @@ public class NetworkModuleImpl extends EObjectImpl implements NetworkModule
     @Override
     public void process ( final Configuration cfg, final Project project )
     {
-        Application.process ( cfg, project, this );
+        NetworkHandler.process ( cfg, project, this );
     }
 
     /**

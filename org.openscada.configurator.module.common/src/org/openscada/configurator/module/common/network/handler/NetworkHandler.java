@@ -16,7 +16,7 @@ import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
 
-public class Application
+public class NetworkHandler
 {
     public static void process ( final Configuration configuration, final Project project, final NetworkModule module )
     {
