@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
@@ -38,6 +39,7 @@ import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getConnectionItemStringStateFormat <em>Connection Item String State Format</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSummaryItemPattern <em>Summary Item Pattern</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSummaryItemFormat <em>Summary Item Format</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSelector <em>Selector</em>}</li>
  * </ul>
  * </p>
  *
@@ -173,6 +175,16 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
      * @ordered
      */
     protected String summaryItemFormat = SUMMARY_ITEM_FORMAT_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSelector()
+     * @generated
+     * @ordered
+     */
+    protected EList<ItemSelector> selector;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -380,6 +392,20 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<ItemSelector> getSelector ()
+    {
+        if ( selector == null )
+        {
+            selector = new EObjectContainmentEList<ItemSelector> ( ItemSelector.class, this, GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
+        }
+        return selector;
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated NOT
@@ -402,6 +428,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
         {
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SITES:
                 return ( (InternalEList<?>)getSites () ).basicRemove ( otherEnd, msgs );
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
+                return ( (InternalEList<?>)getSelector () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -433,6 +461,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return getSummaryItemPattern ();
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT:
                 return getSummaryItemFormat ();
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
+                return getSelector ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -473,6 +503,10 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT:
                 setSummaryItemFormat ( (String)newValue );
                 return;
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
+                getSelector ().clear ();
+                getSelector ().addAll ( (Collection<? extends ItemSelector>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -510,6 +544,9 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT:
                 setSummaryItemFormat ( SUMMARY_ITEM_FORMAT_EDEFAULT );
                 return;
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
+                getSelector ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -539,6 +576,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return SUMMARY_ITEM_PATTERN_EDEFAULT == null ? summaryItemPattern != null : !SUMMARY_ITEM_PATTERN_EDEFAULT.equals ( summaryItemPattern );
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT:
                 return SUMMARY_ITEM_FORMAT_EDEFAULT == null ? summaryItemFormat != null : !SUMMARY_ITEM_FORMAT_EDEFAULT.equals ( summaryItemFormat );
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
+                return selector != null && !selector.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

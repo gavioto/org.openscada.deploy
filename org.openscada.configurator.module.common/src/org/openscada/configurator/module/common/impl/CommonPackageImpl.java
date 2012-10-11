@@ -6,8 +6,11 @@
  */
 package org.openscada.configurator.module.common.impl;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
@@ -44,6 +47,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @generated
      */
     private EClass fileModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType patternEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -159,6 +169,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EDataType getPattern ()
+    {
+        return patternEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -187,6 +207,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Create classes and their features
         fileModuleEClass = createEClass ( FILE_MODULE );
         createEAttribute ( fileModuleEClass, FILE_MODULE__PATH );
+
+        // Create data types
+        patternEDataType = createEDataType ( PATTERN );
     }
 
     /**
@@ -243,6 +266,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Initialize classes and features; add operations and parameters
         initEClass ( fileModuleEClass, FileModule.class, "FileModule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getFileModule_Path (), ecorePackage.getEString (), "path", null, 0, -1, FileModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        // Initialize data types
+        initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
 
         // Create resource
         createResource ( eNS_URI );

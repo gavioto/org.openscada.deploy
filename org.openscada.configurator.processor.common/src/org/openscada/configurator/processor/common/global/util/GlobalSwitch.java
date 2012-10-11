@@ -10,7 +10,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Include;
+import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
@@ -95,6 +98,34 @@ public class GlobalSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case GlobalPackage.ITEM_SELECTOR:
+            {
+                ItemSelector itemSelector = (ItemSelector)theEObject;
+                T result = caseItemSelector ( itemSelector );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case GlobalPackage.EXCLUDE:
+            {
+                Exclude exclude = (Exclude)theEObject;
+                T result = caseExclude ( exclude );
+                if ( result == null )
+                    result = caseItemSelector ( exclude );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case GlobalPackage.INCLUDE:
+            {
+                Include include = (Include)theEObject;
+                T result = caseInclude ( include );
+                if ( result == null )
+                    result = caseItemSelector ( include );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -128,6 +159,54 @@ public class GlobalSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSite ( Site object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Item Selector</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Item Selector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseItemSelector ( ItemSelector object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Exclude</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exclude</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExclude ( Exclude object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Include</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Include</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseInclude ( Include object )
     {
         return null;
     }

@@ -163,6 +163,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SITES );
+            childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
         }
         return childrenFeatures;
     }
@@ -229,6 +230,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SITES:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -248,6 +250,10 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SITES, GlobalFactory.eINSTANCE.createSite () ) );
+
+        newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR, GlobalFactory.eINSTANCE.createExclude () ) );
+
+        newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR, GlobalFactory.eINSTANCE.createInclude () ) );
     }
 
     /**

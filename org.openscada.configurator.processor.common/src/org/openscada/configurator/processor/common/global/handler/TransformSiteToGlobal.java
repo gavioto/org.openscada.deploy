@@ -10,6 +10,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.openscada.configurator.Configuration;
+import org.openscada.configurator.processor.common.global.Exclude;
+import org.openscada.configurator.processor.common.global.Include;
+import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
@@ -57,12 +60,42 @@ public class TransformSiteToGlobal
 
         final List<Item> items = loadSiteItems ( site.getSiteOutputDir () + "/configuration.iolist" );
 
-        System.out.println ( String.format ( "Loaded %s items", items.size () ) );
+        System.out.println ( String.format ( "** Loaded %s items", items.size () ) );
 
+        int included = 0;
         for ( final Item item : items )
         {
-            addItem ( site, item );
+            if ( isIncluded ( item ) )
+            {
+                addItem ( site, item );
+                included++;
+            }
         }
+        System.out.println ( String.format ( "** Included %s of %s items", included, items.size () ) );
+    }
+
+    private boolean isIncluded ( final Item item )
+    {
+        final String alias = item.getAlias ();
+
+        for ( final ItemSelector selector : this.processor.getSelector () )
+        {
+            if ( selector instanceof Include )
+            {
+                if ( selector.getPattern ().matcher ( alias ).matches () )
+                {
+                    return true;
+                }
+            }
+            if ( selector instanceof Exclude )
+            {
+                if ( selector.getPattern ().matcher ( alias ).matches () )
+                {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 
     private void makeConnectionItems ( final Site site, final String connectionId, final String connectionTag )
@@ -105,13 +138,15 @@ public class TransformSiteToGlobal
         {
             // handle summary item
             /**
-             * Summary items which are already global in the local site will be renamed but
-             * the hierarchy will not be changed. This way they will still end in the real
+             * Summary items which are already global in the local site will be
+             * renamed but
+             * the hierarchy will not be changed. This way they will still end
+             * in the real
              * global summaries.
              */
             alias = String.format ( this.processor.getSummaryItemFormat (), site.getId (), alias );
 
-            System.out.println ( String.format ( " **** Transforming summary from %s to %s: %s", item.getAlias (), alias, item ) );
+            // System.out.println ( String.format ( " **** Transforming summary from %s to %s: %s", item.getAlias (), alias, item ) );
         }
         else if ( isWrongHierarchy ( site, item ) )
         {

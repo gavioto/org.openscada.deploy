@@ -6,7 +6,10 @@
  */
 package org.openscada.configurator.module.common.impl;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -18,6 +21,7 @@ import org.openscada.configurator.module.common.CommonPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
@@ -26,19 +30,20 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static CommonFactory init ()
     {
         try
         {
-            CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Configurator/Modules/Common" );
+            final CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Configurator/Modules/Common" );
             if ( theCommonFactory != null )
             {
                 return theCommonFactory;
             }
         }
-        catch ( Exception exception )
+        catch ( final Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -49,6 +54,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CommonFactoryImpl ()
@@ -59,10 +65,11 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public EObject create ( EClass eClass )
+    public EObject create ( final EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -74,8 +81,68 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
+    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case CommonPackage.PATTERN:
+                return createPatternFromString ( eDataType, initialValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case CommonPackage.PATTERN:
+                return convertPatternToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    public Pattern createPatternFromString ( final EDataType eDataType, final String initialValue )
+    {
+        return Pattern.compile ( initialValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public String convertPatternToString ( final EDataType eDataType, final Object instanceValue )
+    {
+        return super.convertToString ( eDataType, instanceValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
     public CommonPackage getCommonPackage ()
     {
         return (CommonPackage)getEPackage ();
@@ -84,6 +151,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

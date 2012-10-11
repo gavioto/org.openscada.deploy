@@ -32,6 +32,7 @@ import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat <em>Connection Item String State Format</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern <em>Summary Item Pattern</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSelector <em>Selector</em>}</li>
  * </ul>
  * </p>
  *
@@ -231,5 +232,21 @@ public interface TransformSiteToGlobal extends Processor
      * @generated
      */
     void setSummaryItemFormat ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Selector</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configurator.processor.common.global.ItemSelector}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Selector</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Selector</em>' containment reference list.
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_Selector()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ItemSelector> getSelector ();
 
 } // TransformSiteToGlobal

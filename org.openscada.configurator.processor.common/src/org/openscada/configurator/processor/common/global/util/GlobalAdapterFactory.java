@@ -11,7 +11,10 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Include;
+import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
@@ -89,6 +92,24 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseItemSelector ( ItemSelector object )
+        {
+            return createItemSelectorAdapter ();
+        }
+
+        @Override
+        public Adapter caseExclude ( Exclude object )
+        {
+            return createExcludeAdapter ();
+        }
+
+        @Override
+        public Adapter caseInclude ( Include object )
+        {
+            return createIncludeAdapter ();
+        }
+
+        @Override
         public Adapter caseProcessor ( Processor object )
         {
             return createProcessorAdapter ();
@@ -141,6 +162,51 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSiteAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.ItemSelector <em>Item Selector</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.ItemSelector
+     * @generated
+     */
+    public Adapter createItemSelectorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.Exclude <em>Exclude</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.Exclude
+     * @generated
+     */
+    public Adapter createExcludeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.Include <em>Include</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.Include
+     * @generated
+     */
+    public Adapter createIncludeAdapter ()
     {
         return null;
     }

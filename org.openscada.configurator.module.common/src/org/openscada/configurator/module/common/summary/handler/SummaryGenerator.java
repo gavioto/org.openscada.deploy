@@ -14,9 +14,22 @@ import org.openscada.deploy.iolist.model.SummaryGroup;
 
 public class SummaryGenerator
 {
-    public static void generateSummaryAlarms ( final Project project, final Configuration cfg, final GenerateSummaries module )
+    private final Project project;
+
+    private final Configuration cfg;
+
+    private final GenerateSummaries module;
+
+    public SummaryGenerator ( final Project project, final Configuration cfg, final GenerateSummaries module )
     {
-        final List<Item> items = cfg.getItems ();
+        this.project = project;
+        this.cfg = cfg;
+        this.module = module;
+    }
+
+    public void generateSummaryAlarms ()
+    {
+        final List<Item> items = this.cfg.getItems ();
 
         final Map<List<String>, SummaryGroup> locations = new HashMap<List<String>, SummaryGroup> ();
         for ( final Item item : items )
@@ -26,17 +39,33 @@ public class SummaryGenerator
                 continue;
             }
 
-            addItem ( cfg, project, locations, item.getHierarchy (), item, module );
+            addItem ( locations, item.getHierarchy (), item );
         }
 
-        cfg.addSummaries ( locations.values () );
+        this.cfg.addSummaries ( locations.values () );
     }
 
-    private static void addItem ( final Configuration cfg, final Project project, final Map<List<String>, SummaryGroup> locations, final List<String> location, final Item item, final GenerateSummaries module )
+    private void addItem ( final Map<List<String>, SummaryGroup> locations, final List<String> location, final Item item )
     {
-        final SummaryGroup locationItems = getGroup ( cfg, project, module, locations, location );
+        final SummaryGroup locationItems = getGroup ( this.cfg, this.project, this.module, locations, location );
 
-        addItemToGroup ( cfg, cfg.makeMasterId ( item ), locationItems );
+        if ( isSubSummary ( item ) )
+        {
+            addSubItemToGroup ( this.cfg, this.cfg.makeMasterId ( item ), locationItems );
+        }
+        else
+        {
+            addItemToGroup ( this.cfg, this.cfg.makeMasterId ( item ), locationItems );
+        }
+    }
+
+    private boolean isSubSummary ( final Item item )
+    {
+        if ( this.module.getSubItemPattern () != null )
+        {
+            return this.module.getSubItemPattern ().matcher ( item.getAlias () ).matches ();
+        }
+        return false;
     }
 
     protected static void addItemToGroup ( final Configuration cfg, final String itemId, final SummaryGroup locationItems )

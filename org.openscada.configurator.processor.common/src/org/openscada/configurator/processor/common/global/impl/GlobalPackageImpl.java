@@ -14,8 +14,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.processor.common.CommonPackage;
+import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalFactory;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Include;
+import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 import org.openscada.configurator.processor.common.impl.CommonPackageImpl;
@@ -41,6 +44,27 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * @generated
      */
     private EClass siteEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass itemSelectorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass excludeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass includeEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -208,6 +232,16 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getTransformSiteToGlobal_Selector ()
+    {
+        return (EReference)transformSiteToGlobalEClass.getEStructuralFeatures ().get ( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSite ()
     {
         return siteEClass;
@@ -268,6 +302,46 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getItemSelector ()
+    {
+        return itemSelectorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItemSelector_Pattern ()
+    {
+        return (EAttribute)itemSelectorEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getExclude ()
+    {
+        return excludeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getInclude ()
+    {
+        return includeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public GlobalFactory getGlobalFactory ()
     {
         return (GlobalFactory)getEFactoryInstance ();
@@ -303,6 +377,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT );
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN );
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT );
+        createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
 
         siteEClass = createEClass ( SITE );
         createEAttribute ( siteEClass, SITE__ID );
@@ -310,6 +385,13 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         createEAttribute ( siteEClass, SITE__CONNECTION_AE );
         createEAttribute ( siteEClass, SITE__SITE_OUTPUT_DIR );
         createEAttribute ( siteEClass, SITE__HIERARCHY );
+
+        itemSelectorEClass = createEClass ( ITEM_SELECTOR );
+        createEAttribute ( itemSelectorEClass, ITEM_SELECTOR__PATTERN );
+
+        excludeEClass = createEClass ( EXCLUDE );
+
+        includeEClass = createEClass ( INCLUDE );
     }
 
     /**
@@ -348,6 +430,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
 
         // Add supertypes to classes
         transformSiteToGlobalEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
+        excludeEClass.getESuperTypes ().add ( this.getItemSelector () );
+        includeEClass.getESuperTypes ().add ( this.getItemSelector () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( transformSiteToGlobalEClass, TransformSiteToGlobal.class, "TransformSiteToGlobal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -359,6 +443,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         initEAttribute ( getTransformSiteToGlobal_ConnectionItemStringStateFormat (), ecorePackage.getEString (), "connectionItemStringStateFormat", null, 0, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getTransformSiteToGlobal_SummaryItemPattern (), theCommonPackage.getPattern (), "summaryItemPattern", null, 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getTransformSiteToGlobal_SummaryItemFormat (), ecorePackage.getEString (), "summaryItemFormat", null, 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getTransformSiteToGlobal_Selector (), this.getItemSelector (), null, "selector", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getSite_Id (), ecorePackage.getEString (), "id", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -366,6 +451,13 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         initEAttribute ( getSite_ConnectionAe (), ecorePackage.getEString (), "connectionAe", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSite_SiteOutputDir (), ecorePackage.getEString (), "siteOutputDir", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSite_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( itemSelectorEClass, ItemSelector.class, "ItemSelector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getItemSelector_Pattern (), theCommonPackage.getPattern (), "pattern", null, 1, 1, ItemSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( excludeEClass, Exclude.class, "Exclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
     }
 
 } //GlobalPackageImpl

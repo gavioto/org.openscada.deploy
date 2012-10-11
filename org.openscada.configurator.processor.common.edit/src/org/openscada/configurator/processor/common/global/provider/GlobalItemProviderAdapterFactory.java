@@ -147,6 +147,56 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.Exclude} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExcludeItemProvider excludeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.Exclude}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExcludeAdapter ()
+    {
+        if ( excludeItemProvider == null )
+        {
+            excludeItemProvider = new ExcludeItemProvider ( this );
+        }
+
+        return excludeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.Include} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IncludeItemProvider includeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.Include}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIncludeAdapter ()
+    {
+        if ( includeItemProvider == null )
+        {
+            includeItemProvider = new IncludeItemProvider ( this );
+        }
+
+        return includeItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -291,6 +341,10 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
             transformSiteToGlobalItemProvider.dispose ();
         if ( siteItemProvider != null )
             siteItemProvider.dispose ();
+        if ( excludeItemProvider != null )
+            excludeItemProvider.dispose ();
+        if ( includeItemProvider != null )
+            includeItemProvider.dispose ();
     }
 
     /**

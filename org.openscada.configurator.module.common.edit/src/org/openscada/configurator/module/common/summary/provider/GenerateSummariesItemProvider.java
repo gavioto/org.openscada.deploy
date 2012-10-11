@@ -60,6 +60,7 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
 
             addPrefixPropertyDescriptor ( object );
             addSuffixPropertyDescriptor ( object );
+            addSubItemPatternPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -84,6 +85,17 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
     protected void addSuffixPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_suffix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_suffix_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__SUFFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Sub Item Pattern feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSubItemPatternPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_subItemPattern_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_subItemPattern_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__SUB_ITEM_PATTERN, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -127,6 +139,7 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
         {
             case SummaryPackage.GENERATE_SUMMARIES__PREFIX:
             case SummaryPackage.GENERATE_SUMMARIES__SUFFIX:
+            case SummaryPackage.GENERATE_SUMMARIES__SUB_ITEM_PATTERN:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

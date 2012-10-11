@@ -45,6 +45,24 @@ public interface GlobalFactory extends EFactory
     Site createSite ();
 
     /**
+     * Returns a new object of class '<em>Exclude</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exclude</em>'.
+     * @generated
+     */
+    Exclude createExclude ();
+
+    /**
+     * Returns a new object of class '<em>Include</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Include</em>'.
+     * @generated
+     */
+    Include createInclude ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
