@@ -72,8 +72,14 @@ public class NetworkHandler
         item.setDataType ( DataType.FLOAT );
 
         // TODO: allow hierarchy for network devices
-        item.getHierarchy ().add ( device.getLocation () );
-        item.getHierarchy ().add ( device.getComponent () );
+        if ( device.getLocation () != null && !device.getLocation ().isEmpty () )
+        {
+            item.getHierarchy ().add ( device.getLocation () );
+        }
+        if ( device.getComponent () != null && !device.getComponent ().isEmpty () )
+        {
+            item.getHierarchy ().add ( device.getComponent () );
+        }
 
         item.setLocalMin ( ModelFactory.eINSTANCE.createLevelMonitor () );
         item.setLocalLowLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
