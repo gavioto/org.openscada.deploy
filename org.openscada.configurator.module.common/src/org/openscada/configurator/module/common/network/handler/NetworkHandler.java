@@ -85,8 +85,8 @@ public class NetworkHandler
         item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
 
         item.getLocalLowLow ().setSeverity ( Severity.ALARM );
-        item.getLocalLow ().setSeverity ( Severity.ALARM );
-        item.getLocalHigh ().setSeverity ( Severity.ALARM );
+        item.getLocalLow ().setSeverity ( Severity.WARNING );
+        item.getLocalHigh ().setSeverity ( Severity.WARNING );
         item.getLocalHighHigh ().setSeverity ( Severity.ALARM );
 
         if ( warnLow != null )
