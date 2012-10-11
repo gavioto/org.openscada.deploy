@@ -9,12 +9,14 @@ package org.openscada.configurator.processor.common.global.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.openscada.configurator.processor.common.global.*;
+import org.openscada.configurator.processor.common.global.Exclude;
+import org.openscada.configurator.processor.common.global.GlobalFactory;
+import org.openscada.configurator.processor.common.global.GlobalPackage;
+import org.openscada.configurator.processor.common.global.Include;
+import org.openscada.configurator.processor.common.global.Site;
+import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +74,10 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory
                 return createTransformSiteToGlobal ();
             case GlobalPackage.SITE:
                 return createSite ();
+            case GlobalPackage.EXCLUDE:
+                return createExclude ();
+            case GlobalPackage.INCLUDE:
+                return createInclude ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -97,6 +103,28 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory
     {
         SiteImpl site = new SiteImpl ();
         return site;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Exclude createExclude ()
+    {
+        ExcludeImpl exclude = new ExcludeImpl ();
+        return exclude;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Include createInclude ()
+    {
+        IncludeImpl include = new IncludeImpl ();
+        return include;
     }
 
     /**

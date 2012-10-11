@@ -262,20 +262,20 @@ public enum MovingAverageReferenceType implements Enumerator
     {
         switch ( value )
         {
-        case MIN_VALUE:
-            return MIN;
-        case MAX_VALUE:
-            return MAX;
-        case MEDIAN_VALUE:
-            return MEDIAN;
-        case ARITHMETIC_VALUE:
-            return ARITHMETIC;
-        case WEIGHTED_VALUE:
-            return WEIGHTED;
-        case DEVIATION_ARITHMETIC_VALUE:
-            return DEVIATION_ARITHMETIC;
-        case DEVIATION_WEIGHTED_VALUE:
-            return DEVIATION_WEIGHTED;
+            case MIN_VALUE:
+                return MIN;
+            case MAX_VALUE:
+                return MAX;
+            case MEDIAN_VALUE:
+                return MEDIAN;
+            case ARITHMETIC_VALUE:
+                return ARITHMETIC;
+            case WEIGHTED_VALUE:
+                return WEIGHTED;
+            case DEVIATION_ARITHMETIC_VALUE:
+                return DEVIATION_ARITHMETIC;
+            case DEVIATION_WEIGHTED_VALUE:
+                return DEVIATION_WEIGHTED;
         }
         return null;
     }

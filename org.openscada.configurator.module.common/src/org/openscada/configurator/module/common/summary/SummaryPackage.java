@@ -89,13 +89,22 @@ public interface SummaryPackage extends EPackage
     int GENERATE_SUMMARIES__SUFFIX = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Sub Item Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERATE_SUMMARIES__SUB_ITEM_PATTERN = MasterPackage.MODULE_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Generate Summaries</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 2;
+    int GENERATE_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl <em>Cleanup Summaries</em>}' class.
@@ -156,6 +165,17 @@ public interface SummaryPackage extends EPackage
      * @generated
      */
     EAttribute getGenerateSummaries_Suffix ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.GenerateSummaries#getSubItemPattern <em>Sub Item Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Sub Item Pattern</em>'.
+     * @see org.openscada.configurator.module.common.summary.GenerateSummaries#getSubItemPattern()
+     * @see #getGenerateSummaries()
+     * @generated
+     */
+    EAttribute getGenerateSummaries_SubItemPattern ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.summary.CleanupSummaries <em>Cleanup Summaries</em>}'.
@@ -226,6 +246,14 @@ public interface SummaryPackage extends EPackage
          * @generated
          */
         EAttribute GENERATE_SUMMARIES__SUFFIX = eINSTANCE.getGenerateSummaries_Suffix ();
+
+        /**
+         * The meta object literal for the '<em><b>Sub Item Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GENERATE_SUMMARIES__SUB_ITEM_PATTERN = eINSTANCE.getGenerateSummaries_SubItemPattern ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl <em>Cleanup Summaries</em>}' class.

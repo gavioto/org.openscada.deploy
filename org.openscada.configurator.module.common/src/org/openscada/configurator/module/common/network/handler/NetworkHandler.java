@@ -15,8 +15,9 @@ import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.utils.str.StringHelper;
 
-public class Application
+public class NetworkHandler
 {
     public static void process ( final Configuration configuration, final Project project, final NetworkModule module )
     {
@@ -43,7 +44,7 @@ public class Application
         {
             {
                 final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () / 100.0, device.getAlarmLoss () / 100.0 );
-                item.setAlias ( String.format ( "%s.%s.%s.AVAIL.V", prefix, device.getLocation (), device.getComponent () ) ); //$NON-NLS-1$
+                item.setAlias ( String.format ( "%s.%s.AVAIL.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_PacketLoss_Description, device.getDescription () ) );
                 item.setUnit ( "%" ); //$NON-NLS-1$
@@ -51,7 +52,7 @@ public class Application
             }
             {
                 final Item item = createDeviceItem ( device, device.getWarnRtt (), device.getAlarmRtt (), null, null );
-                item.setAlias ( String.format ( "%s.%s.%s.P_RT.V", prefix, device.getLocation (), device.getComponent () ) ); //$NON-NLS-1$
+                item.setAlias ( String.format ( "%s.%s.P_RT.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.rtt", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_RTT_Description, device.getDescription () ) );
                 item.setUnit ( "ms" ); //$NON-NLS-1$
@@ -71,9 +72,10 @@ public class Application
 
         item.setDataType ( DataType.FLOAT );
 
-        // TODO: allow hierarchy for network devices
-        item.getHierarchy ().add ( device.getLocation () );
-        item.getHierarchy ().add ( device.getComponent () );
+        if ( device.getHierarchy () != null )
+        {
+            item.getHierarchy ().addAll ( device.getHierarchy () );
+        }
 
         item.setLocalMin ( ModelFactory.eINSTANCE.createLevelMonitor () );
         item.setLocalLowLow ( ModelFactory.eINSTANCE.createLevelMonitor () );
@@ -83,8 +85,10 @@ public class Application
         item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
 
         item.getLocalLowLow ().setSeverity ( Severity.ALARM );
-        item.getLocalLow ().setSeverity ( Severity.ALARM );
-        item.getLocalHigh ().setSeverity ( Severity.ALARM );
+        item.getLocalLow ().setSeverity ( Severity.WARNING );
+        item.getLocalLow ().setAck ( false );
+        item.getLocalHigh ().setAck ( false );
+        item.getLocalHigh ().setSeverity ( Severity.WARNING );
         item.getLocalHighHigh ().setSeverity ( Severity.ALARM );
 
         if ( warnLow != null )
@@ -98,11 +102,11 @@ public class Application
         }
         if ( warnHigh != null )
         {
-            item.getLocalHigh ().setPreset ( alarmLow );
+            item.getLocalHigh ().setPreset ( warnHigh );
         }
         if ( alarmHigh != null )
         {
-            item.getLocalHighHigh ().setPreset ( alarmLow );
+            item.getLocalHighHigh ().setPreset ( alarmHigh );
             item.getLocalHighHigh ().setAck ( true );
         }
 

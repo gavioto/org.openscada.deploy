@@ -28,6 +28,7 @@ import org.openscada.deploy.iolist.model.SummaryGroup;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getDataSourceIds <em>Data Source Ids</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#isRetain <em>Retain</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl#getSubSummaryIds <em>Sub Summary Ids</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +95,16 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * @ordered
      */
     protected boolean retain = RETAIN_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getSubSummaryIds() <em>Sub Summary Ids</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSubSummaryIds()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> subSummaryIds;
 
     /**
      * <!-- begin-user-doc -->
@@ -195,19 +206,35 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getSubSummaryIds ()
+    {
+        if ( subSummaryIds == null )
+        {
+            subSummaryIds = new EDataTypeUniqueEList<String> ( String.class, this, ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS );
+        }
+        return subSummaryIds;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__ID:
-            return getId ();
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            return getHierarchy ();
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            return getDataSourceIds ();
-        case ModelPackage.SUMMARY_GROUP__RETAIN:
-            return isRetain ();
+            case ModelPackage.SUMMARY_GROUP__ID:
+                return getId ();
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                return getHierarchy ();
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                return getDataSourceIds ();
+            case ModelPackage.SUMMARY_GROUP__RETAIN:
+                return isRetain ();
+            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
+                return getSubSummaryIds ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -223,20 +250,24 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__ID:
-            setId ( (String)newValue );
-            return;
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            getHierarchy ().clear ();
-            getHierarchy ().addAll ( (Collection<? extends String>)newValue );
-            return;
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            getDataSourceIds ().clear ();
-            getDataSourceIds ().addAll ( (Collection<? extends String>)newValue );
-            return;
-        case ModelPackage.SUMMARY_GROUP__RETAIN:
-            setRetain ( (Boolean)newValue );
-            return;
+            case ModelPackage.SUMMARY_GROUP__ID:
+                setId ( (String)newValue );
+                return;
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                getHierarchy ().clear ();
+                getHierarchy ().addAll ( (Collection<? extends String>)newValue );
+                return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                getDataSourceIds ().clear ();
+                getDataSourceIds ().addAll ( (Collection<? extends String>)newValue );
+                return;
+            case ModelPackage.SUMMARY_GROUP__RETAIN:
+                setRetain ( (Boolean)newValue );
+                return;
+            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
+                getSubSummaryIds ().clear ();
+                getSubSummaryIds ().addAll ( (Collection<? extends String>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -251,18 +282,21 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__ID:
-            setId ( ID_EDEFAULT );
-            return;
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            getHierarchy ().clear ();
-            return;
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            getDataSourceIds ().clear ();
-            return;
-        case ModelPackage.SUMMARY_GROUP__RETAIN:
-            setRetain ( RETAIN_EDEFAULT );
-            return;
+            case ModelPackage.SUMMARY_GROUP__ID:
+                setId ( ID_EDEFAULT );
+                return;
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                getHierarchy ().clear ();
+                return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                getDataSourceIds ().clear ();
+                return;
+            case ModelPackage.SUMMARY_GROUP__RETAIN:
+                setRetain ( RETAIN_EDEFAULT );
+                return;
+            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
+                getSubSummaryIds ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -277,14 +311,16 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            return hierarchy != null && !hierarchy.isEmpty ();
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            return dataSourceIds != null && !dataSourceIds.isEmpty ();
-        case ModelPackage.SUMMARY_GROUP__RETAIN:
-            return retain != RETAIN_EDEFAULT;
+            case ModelPackage.SUMMARY_GROUP__ID:
+                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                return hierarchy != null && !hierarchy.isEmpty ();
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                return dataSourceIds != null && !dataSourceIds.isEmpty ();
+            case ModelPackage.SUMMARY_GROUP__RETAIN:
+                return retain != RETAIN_EDEFAULT;
+            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
+                return subSummaryIds != null && !subSummaryIds.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -309,6 +345,8 @@ public class SummaryGroupImpl extends EObjectImpl implements SummaryGroup
         result.append ( dataSourceIds );
         result.append ( ", retain: " );
         result.append ( retain );
+        result.append ( ", subSummaryIds: " );
+        result.append ( subSummaryIds );
         result.append ( ')' );
         return result.toString ();
     }

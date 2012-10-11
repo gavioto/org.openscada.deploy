@@ -7,6 +7,7 @@
       eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
   <eSubpackages name="network" nsURI="http://openscada.org/Configurator/Modules/Common/Network"
       nsPrefix="network">
     <eClassifiers xsi:type="ecore:EClass" name="NetworkModule" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
@@ -41,6 +42,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="GenerateSummaries" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="subItemPattern" eType="#//Pattern"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CleanupSummaries" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredItems" lowerBound="1"

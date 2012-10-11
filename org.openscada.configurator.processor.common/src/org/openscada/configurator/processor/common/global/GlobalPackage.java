@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
 
 /**
@@ -91,13 +90,76 @@ public interface GlobalPackage extends EPackage
     int TRANSFORM_SITE_TO_GLOBAL__SITES = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Connection Id Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ID_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy Prefix</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__HIERARCHY_PREFIX = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Connection Item State Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STATE_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Connection Item String State Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Summary Item Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Summary Item Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 7;
+
+    /**
+     * The feature id for the '<em><b>Selector</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__SELECTOR = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Transform Site To Global</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 2;
+    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 9;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
@@ -146,13 +208,106 @@ public interface GlobalPackage extends EPackage
     int SITE__SITE_OUTPUT_DIR = 3;
 
     /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SITE__HIERARCHY = 4;
+
+    /**
      * The number of structural features of the '<em>Site</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SITE_FEATURE_COUNT = 4;
+    int SITE_FEATURE_COUNT = 5;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.ItemSelectorImpl <em>Item Selector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.ItemSelectorImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getItemSelector()
+     * @generated
+     */
+    int ITEM_SELECTOR = 2;
+
+    /**
+     * The feature id for the '<em><b>Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_SELECTOR__PATTERN = 0;
+
+    /**
+     * The number of structural features of the '<em>Item Selector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_SELECTOR_FEATURE_COUNT = 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.ExcludeImpl <em>Exclude</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.ExcludeImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getExclude()
+     * @generated
+     */
+    int EXCLUDE = 3;
+
+    /**
+     * The feature id for the '<em><b>Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXCLUDE__PATTERN = ITEM_SELECTOR__PATTERN;
+
+    /**
+     * The number of structural features of the '<em>Exclude</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXCLUDE_FEATURE_COUNT = ITEM_SELECTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.IncludeImpl <em>Include</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.IncludeImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getInclude()
+     * @generated
+     */
+    int INCLUDE = 4;
+
+    /**
+     * The feature id for the '<em><b>Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INCLUDE__PATTERN = ITEM_SELECTOR__PATTERN;
+
+    /**
+     * The number of structural features of the '<em>Include</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INCLUDE_FEATURE_COUNT = ITEM_SELECTOR_FEATURE_COUNT + 0;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal <em>Transform Site To Global</em>}'.
@@ -185,6 +340,83 @@ public interface GlobalPackage extends EPackage
      * @generated
      */
     EReference getTransformSiteToGlobal_Sites ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionIdFormat <em>Connection Id Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Connection Id Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionIdFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_ConnectionIdFormat ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getHierarchyPrefix <em>Hierarchy Prefix</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Hierarchy Prefix</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getHierarchyPrefix()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_HierarchyPrefix ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStateFormat <em>Connection Item State Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Connection Item State Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStateFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_ConnectionItemStateFormat ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat <em>Connection Item String State Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Connection Item String State Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getConnectionItemStringStateFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_ConnectionItemStringStateFormat ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern <em>Summary Item Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Summary Item Pattern</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_SummaryItemPattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Summary Item Format</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_SummaryItemFormat ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSelector <em>Selector</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Selector</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSelector()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EReference getTransformSiteToGlobal_Selector ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Site <em>Site</em>}'.
@@ -241,6 +473,58 @@ public interface GlobalPackage extends EPackage
     EAttribute getSite_SiteOutputDir ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configurator.processor.common.global.Site#getHierarchy <em>Hierarchy</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Hierarchy</em>'.
+     * @see org.openscada.configurator.processor.common.global.Site#getHierarchy()
+     * @see #getSite()
+     * @generated
+     */
+    EAttribute getSite_Hierarchy ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.ItemSelector <em>Item Selector</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Item Selector</em>'.
+     * @see org.openscada.configurator.processor.common.global.ItemSelector
+     * @generated
+     */
+    EClass getItemSelector ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.ItemSelector#getPattern <em>Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Pattern</em>'.
+     * @see org.openscada.configurator.processor.common.global.ItemSelector#getPattern()
+     * @see #getItemSelector()
+     * @generated
+     */
+    EAttribute getItemSelector_Pattern ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Exclude <em>Exclude</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Exclude</em>'.
+     * @see org.openscada.configurator.processor.common.global.Exclude
+     * @generated
+     */
+    EClass getExclude ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Include <em>Include</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Include</em>'.
+     * @see org.openscada.configurator.processor.common.global.Include
+     * @generated
+     */
+    EClass getInclude ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -290,6 +574,62 @@ public interface GlobalPackage extends EPackage
         EReference TRANSFORM_SITE_TO_GLOBAL__SITES = eINSTANCE.getTransformSiteToGlobal_Sites ();
 
         /**
+         * The meta object literal for the '<em><b>Connection Id Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ID_FORMAT = eINSTANCE.getTransformSiteToGlobal_ConnectionIdFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Hierarchy Prefix</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__HIERARCHY_PREFIX = eINSTANCE.getTransformSiteToGlobal_HierarchyPrefix ();
+
+        /**
+         * The meta object literal for the '<em><b>Connection Item State Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STATE_FORMAT = eINSTANCE.getTransformSiteToGlobal_ConnectionItemStateFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Connection Item String State Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT = eINSTANCE.getTransformSiteToGlobal_ConnectionItemStringStateFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Summary Item Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN = eINSTANCE.getTransformSiteToGlobal_SummaryItemPattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Summary Item Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT = eINSTANCE.getTransformSiteToGlobal_SummaryItemFormat ();
+
+        /**
+         * The meta object literal for the '<em><b>Selector</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference TRANSFORM_SITE_TO_GLOBAL__SELECTOR = eINSTANCE.getTransformSiteToGlobal_Selector ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -330,6 +670,52 @@ public interface GlobalPackage extends EPackage
          * @generated
          */
         EAttribute SITE__SITE_OUTPUT_DIR = eINSTANCE.getSite_SiteOutputDir ();
+
+        /**
+         * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SITE__HIERARCHY = eINSTANCE.getSite_Hierarchy ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.ItemSelectorImpl <em>Item Selector</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.ItemSelectorImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getItemSelector()
+         * @generated
+         */
+        EClass ITEM_SELECTOR = eINSTANCE.getItemSelector ();
+
+        /**
+         * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM_SELECTOR__PATTERN = eINSTANCE.getItemSelector_Pattern ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.ExcludeImpl <em>Exclude</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.ExcludeImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getExclude()
+         * @generated
+         */
+        EClass EXCLUDE = eINSTANCE.getExclude ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.IncludeImpl <em>Include</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.IncludeImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getInclude()
+         * @generated
+         */
+        EClass INCLUDE = eINSTANCE.getInclude ();
 
     }
 

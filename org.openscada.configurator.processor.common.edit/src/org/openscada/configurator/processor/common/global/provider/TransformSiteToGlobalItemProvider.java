@@ -11,9 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
@@ -23,8 +21,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.openscada.configurator.processor.common.global.GlobalFactory;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
@@ -63,6 +61,12 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
             super.getPropertyDescriptors ( object );
 
             addGlobalSlotPropertyDescriptor ( object );
+            addConnectionIdFormatPropertyDescriptor ( object );
+            addHierarchyPrefixPropertyDescriptor ( object );
+            addConnectionItemStateFormatPropertyDescriptor ( object );
+            addConnectionItemStringStateFormatPropertyDescriptor ( object );
+            addSummaryItemPatternPropertyDescriptor ( object );
+            addSummaryItemFormatPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -76,6 +80,72 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
     protected void addGlobalSlotPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_globalSlot_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_globalSlot_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__GLOBAL_SLOT, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Connection Id Format feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addConnectionIdFormatPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_connectionIdFormat_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_connectionIdFormat_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ID_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Hierarchy Prefix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addHierarchyPrefixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_hierarchyPrefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_hierarchyPrefix_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__HIERARCHY_PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Connection Item State Format feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addConnectionItemStateFormatPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_connectionItemStateFormat_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_connectionItemStateFormat_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STATE_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Connection Item String State Format feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addConnectionItemStringStateFormatPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_connectionItemStringStateFormat_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_connectionItemStringStateFormat_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Summary Item Pattern feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSummaryItemPatternPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_summaryItemPattern_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_summaryItemPattern_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Summary Item Format feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSummaryItemFormatPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_summaryItemFormat_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_summaryItemFormat_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -93,6 +163,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SITES );
+            childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
         }
         return childrenFeatures;
     }
@@ -132,7 +203,8 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_TransformSiteToGlobal_type" );
+        String label = ( (TransformSiteToGlobal)object ).getConnectionIdFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_TransformSiteToGlobal_type" ) : getString ( "_UI_TransformSiteToGlobal_type" ) + " " + label;
     }
 
     /**
@@ -149,7 +221,16 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
 
         switch ( notification.getFeatureID ( TransformSiteToGlobal.class ) )
         {
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ID_FORMAT:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__HIERARCHY_PREFIX:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STATE_FORMAT:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SITES:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -169,6 +250,10 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SITES, GlobalFactory.eINSTANCE.createSite () ) );
+
+        newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR, GlobalFactory.eINSTANCE.createExclude () ) );
+
+        newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR, GlobalFactory.eINSTANCE.createInclude () ) );
     }
 
     /**

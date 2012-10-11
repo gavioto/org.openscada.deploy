@@ -515,13 +515,22 @@ public interface ModelPackage extends EPackage
     int SUMMARY_GROUP__RETAIN = 3;
 
     /**
+     * The feature id for the '<em><b>Sub Summary Ids</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SUMMARY_GROUP__SUB_SUMMARY_IDS = 4;
+
+    /**
      * The number of structural features of the '<em>Summary Group</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP_FEATURE_COUNT = 4;
+    int SUMMARY_GROUP_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
@@ -3957,6 +3966,17 @@ public interface ModelPackage extends EPackage
     EAttribute getSummaryGroup_Retain ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getSubSummaryIds <em>Sub Summary Ids</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Sub Summary Ids</em>'.
+     * @see org.openscada.deploy.iolist.model.SummaryGroup#getSubSummaryIds()
+     * @see #getSummaryGroup()
+     * @generated
+     */
+    EAttribute getSummaryGroup_SubSummaryIds ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.FormulaItem <em>Formula Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5212,6 +5232,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute SUMMARY_GROUP__RETAIN = eINSTANCE.getSummaryGroup_Retain ();
+
+        /**
+         * The meta object literal for the '<em><b>Sub Summary Ids</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SUMMARY_GROUP__SUB_SUMMARY_IDS = eINSTANCE.getSummaryGroup_SubSummaryIds ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.

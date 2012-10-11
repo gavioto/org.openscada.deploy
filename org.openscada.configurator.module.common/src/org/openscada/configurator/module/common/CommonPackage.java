@@ -8,6 +8,7 @@ package org.openscada.configurator.module.common;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.openscada.configuration.model.master.MasterPackage;
 
@@ -89,6 +90,16 @@ public interface CommonPackage extends EPackage
     int FILE_MODULE_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '<em>Pattern</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.util.regex.Pattern
+     * @see org.openscada.configurator.module.common.impl.CommonPackageImpl#getPattern()
+     * @generated
+     */
+    int PATTERN = 1;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.FileModule <em>File Module</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -108,6 +119,17 @@ public interface CommonPackage extends EPackage
      * @generated
      */
     EAttribute getFileModule_Path ();
+
+    /**
+     * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Pattern</em>'.
+     * @see java.util.regex.Pattern
+     * @model instanceClass="java.util.regex.Pattern"
+     * @generated
+     */
+    EDataType getPattern ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -149,6 +171,16 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EAttribute FILE_MODULE__PATH = eINSTANCE.getFileModule_Path ();
+
+        /**
+         * The meta object literal for the '<em>Pattern</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see java.util.regex.Pattern
+         * @see org.openscada.configurator.module.common.impl.CommonPackageImpl#getPattern()
+         * @generated
+         */
+        EDataType PATTERN = eINSTANCE.getPattern ();
 
     }
 

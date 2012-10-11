@@ -6,15 +6,15 @@
  */
 package org.openscada.configurator.processor.common.impl;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
-
 import org.openscada.configurator.processor.common.CommonFactory;
 import org.openscada.configurator.processor.common.CommonPackage;
 import org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor;
@@ -35,6 +35,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @generated
      */
     private EClass storeConfigurationSlotProcessorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType patternEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -132,6 +139,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EDataType getPattern ()
+    {
+        return patternEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -160,6 +177,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Create classes and their features
         storeConfigurationSlotProcessorEClass = createEClass ( STORE_CONFIGURATION_SLOT_PROCESSOR );
         createEReference ( storeConfigurationSlotProcessorEClass, STORE_CONFIGURATION_SLOT_PROCESSOR__SLOTS );
+
+        // Create data types
+        patternEDataType = createEDataType ( PATTERN );
     }
 
     /**
@@ -208,6 +228,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         EOperation op = addEOperation ( storeConfigurationSlotProcessorEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEException ( op, theConfiguratorPackage.getException () );
+
+        // Initialize data types
+        initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
 
         // Create resource
         createResource ( eNS_URI );

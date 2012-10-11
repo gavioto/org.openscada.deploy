@@ -381,10 +381,10 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
     {
         switch ( featureID )
         {
-        case ModelPackage.FORMULA_ITEM__INPUTS:
-            return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-            return ( (InternalEList<?>)getScriptModules () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.FORMULA_ITEM__INPUTS:
+                return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+                return ( (InternalEList<?>)getScriptModules () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -399,22 +399,22 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
     {
         switch ( featureID )
         {
-        case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-            return getInputFormula ();
-        case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-            return getOutputFormula ();
-        case ModelPackage.FORMULA_ITEM__INPUTS:
-            return getInputs ();
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-            return getOutputDatasourceId ();
-        case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-            return getWriteValueName ();
-        case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-            return getInitScript ();
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-            return getOutputDatasourceType ();
-        case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-            return getScriptModules ();
+            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
+                return getInputFormula ();
+            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
+                return getOutputFormula ();
+            case ModelPackage.FORMULA_ITEM__INPUTS:
+                return getInputs ();
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
+                return getOutputDatasourceId ();
+            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
+                return getWriteValueName ();
+            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
+                return getInitScript ();
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
+                return getOutputDatasourceType ();
+            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+                return getScriptModules ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -430,32 +430,32 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
     {
         switch ( featureID )
         {
-        case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-            setInputFormula ( (String)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-            setOutputFormula ( (String)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__INPUTS:
-            getInputs ().clear ();
-            getInputs ().addAll ( (Collection<? extends FormulaInput>)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-            setOutputDatasourceId ( (String)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-            setWriteValueName ( (String)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-            setInitScript ( (String)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-            setOutputDatasourceType ( (DataType)newValue );
-            return;
-        case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-            getScriptModules ().clear ();
-            getScriptModules ().addAll ( (Collection<? extends ScriptModule>)newValue );
-            return;
+            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
+                setInputFormula ( (String)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
+                setOutputFormula ( (String)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__INPUTS:
+                getInputs ().clear ();
+                getInputs ().addAll ( (Collection<? extends FormulaInput>)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
+                setOutputDatasourceId ( (String)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
+                setWriteValueName ( (String)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
+                setInitScript ( (String)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
+                setOutputDatasourceType ( (DataType)newValue );
+                return;
+            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+                getScriptModules ().clear ();
+                getScriptModules ().addAll ( (Collection<? extends ScriptModule>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -470,30 +470,30 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
     {
         switch ( featureID )
         {
-        case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-            setInputFormula ( INPUT_FORMULA_EDEFAULT );
-            return;
-        case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-            setOutputFormula ( OUTPUT_FORMULA_EDEFAULT );
-            return;
-        case ModelPackage.FORMULA_ITEM__INPUTS:
-            getInputs ().clear ();
-            return;
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-            setOutputDatasourceId ( OUTPUT_DATASOURCE_ID_EDEFAULT );
-            return;
-        case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-            setWriteValueName ( WRITE_VALUE_NAME_EDEFAULT );
-            return;
-        case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-            setInitScript ( INIT_SCRIPT_EDEFAULT );
-            return;
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-            setOutputDatasourceType ( OUTPUT_DATASOURCE_TYPE_EDEFAULT );
-            return;
-        case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-            getScriptModules ().clear ();
-            return;
+            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
+                setInputFormula ( INPUT_FORMULA_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
+                setOutputFormula ( OUTPUT_FORMULA_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__INPUTS:
+                getInputs ().clear ();
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
+                setOutputDatasourceId ( OUTPUT_DATASOURCE_ID_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
+                setWriteValueName ( WRITE_VALUE_NAME_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
+                setInitScript ( INIT_SCRIPT_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
+                setOutputDatasourceType ( OUTPUT_DATASOURCE_TYPE_EDEFAULT );
+                return;
+            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+                getScriptModules ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -508,22 +508,22 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
     {
         switch ( featureID )
         {
-        case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
-            return INPUT_FORMULA_EDEFAULT == null ? inputFormula != null : !INPUT_FORMULA_EDEFAULT.equals ( inputFormula );
-        case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
-            return OUTPUT_FORMULA_EDEFAULT == null ? outputFormula != null : !OUTPUT_FORMULA_EDEFAULT.equals ( outputFormula );
-        case ModelPackage.FORMULA_ITEM__INPUTS:
-            return inputs != null && !inputs.isEmpty ();
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
-            return OUTPUT_DATASOURCE_ID_EDEFAULT == null ? outputDatasourceId != null : !OUTPUT_DATASOURCE_ID_EDEFAULT.equals ( outputDatasourceId );
-        case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
-            return WRITE_VALUE_NAME_EDEFAULT == null ? writeValueName != null : !WRITE_VALUE_NAME_EDEFAULT.equals ( writeValueName );
-        case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
-            return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals ( initScript );
-        case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
-            return outputDatasourceType != OUTPUT_DATASOURCE_TYPE_EDEFAULT;
-        case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
-            return scriptModules != null && !scriptModules.isEmpty ();
+            case ModelPackage.FORMULA_ITEM__INPUT_FORMULA:
+                return INPUT_FORMULA_EDEFAULT == null ? inputFormula != null : !INPUT_FORMULA_EDEFAULT.equals ( inputFormula );
+            case ModelPackage.FORMULA_ITEM__OUTPUT_FORMULA:
+                return OUTPUT_FORMULA_EDEFAULT == null ? outputFormula != null : !OUTPUT_FORMULA_EDEFAULT.equals ( outputFormula );
+            case ModelPackage.FORMULA_ITEM__INPUTS:
+                return inputs != null && !inputs.isEmpty ();
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_ID:
+                return OUTPUT_DATASOURCE_ID_EDEFAULT == null ? outputDatasourceId != null : !OUTPUT_DATASOURCE_ID_EDEFAULT.equals ( outputDatasourceId );
+            case ModelPackage.FORMULA_ITEM__WRITE_VALUE_NAME:
+                return WRITE_VALUE_NAME_EDEFAULT == null ? writeValueName != null : !WRITE_VALUE_NAME_EDEFAULT.equals ( writeValueName );
+            case ModelPackage.FORMULA_ITEM__INIT_SCRIPT:
+                return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals ( initScript );
+            case ModelPackage.FORMULA_ITEM__OUTPUT_DATASOURCE_TYPE:
+                return outputDatasourceType != OUTPUT_DATASOURCE_TYPE_EDEFAULT;
+            case ModelPackage.FORMULA_ITEM__SCRIPT_MODULES:
+                return scriptModules != null && !scriptModules.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

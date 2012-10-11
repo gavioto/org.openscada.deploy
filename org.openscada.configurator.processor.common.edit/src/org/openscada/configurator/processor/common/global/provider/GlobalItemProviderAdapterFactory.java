@@ -13,15 +13,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.command.CommandParameter;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -35,17 +30,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
-
 import org.openscada.configuration.model.util.ConfiguratorSwitch;
-
 import org.openscada.configurator.processor.common.global.GlobalFactory;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
-
 import org.openscada.configurator.processor.common.global.util.GlobalAdapterFactory;
-
 import org.openscada.configurator.processor.common.provider.ProcessorsEditPlugin;
 
 /**
@@ -154,6 +144,56 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
         }
 
         return siteItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.Exclude} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExcludeItemProvider excludeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.Exclude}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExcludeAdapter ()
+    {
+        if ( excludeItemProvider == null )
+        {
+            excludeItemProvider = new ExcludeItemProvider ( this );
+        }
+
+        return excludeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.Include} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IncludeItemProvider includeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.Include}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIncludeAdapter ()
+    {
+        if ( includeItemProvider == null )
+        {
+            includeItemProvider = new IncludeItemProvider ( this );
+        }
+
+        return includeItemProvider;
     }
 
     /**
@@ -301,6 +341,10 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
             transformSiteToGlobalItemProvider.dispose ();
         if ( siteItemProvider != null )
             siteItemProvider.dispose ();
+        if ( excludeItemProvider != null )
+            excludeItemProvider.dispose ();
+        if ( includeItemProvider != null )
+            includeItemProvider.dispose ();
     }
 
     /**

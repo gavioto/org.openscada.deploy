@@ -167,14 +167,14 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.MODEL__AVERAGES:
-            return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.MODEL__SUMMARIES:
-            return ( (InternalEList<?>)getSummaries () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__ITEMS:
+                return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__AVERAGES:
+                return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__SUMMARIES:
+                return ( (InternalEList<?>)getSummaries () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -189,14 +189,14 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            return getItems ();
-        case ModelPackage.MODEL__AVERAGES:
-            return getAverages ();
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            return getMovingAverages ();
-        case ModelPackage.MODEL__SUMMARIES:
-            return getSummaries ();
+            case ModelPackage.MODEL__ITEMS:
+                return getItems ();
+            case ModelPackage.MODEL__AVERAGES:
+                return getAverages ();
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return getMovingAverages ();
+            case ModelPackage.MODEL__SUMMARIES:
+                return getSummaries ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -212,22 +212,22 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            getItems ().clear ();
-            getItems ().addAll ( (Collection<? extends Item>)newValue );
-            return;
-        case ModelPackage.MODEL__AVERAGES:
-            getAverages ().clear ();
-            getAverages ().addAll ( (Collection<? extends Average>)newValue );
-            return;
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            getMovingAverages ().clear ();
-            getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
-            return;
-        case ModelPackage.MODEL__SUMMARIES:
-            getSummaries ().clear ();
-            getSummaries ().addAll ( (Collection<? extends SummaryGroup>)newValue );
-            return;
+            case ModelPackage.MODEL__ITEMS:
+                getItems ().clear ();
+                getItems ().addAll ( (Collection<? extends Item>)newValue );
+                return;
+            case ModelPackage.MODEL__AVERAGES:
+                getAverages ().clear ();
+                getAverages ().addAll ( (Collection<? extends Average>)newValue );
+                return;
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                getMovingAverages ().clear ();
+                getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
+                return;
+            case ModelPackage.MODEL__SUMMARIES:
+                getSummaries ().clear ();
+                getSummaries ().addAll ( (Collection<? extends SummaryGroup>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -242,18 +242,18 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            getItems ().clear ();
-            return;
-        case ModelPackage.MODEL__AVERAGES:
-            getAverages ().clear ();
-            return;
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            getMovingAverages ().clear ();
-            return;
-        case ModelPackage.MODEL__SUMMARIES:
-            getSummaries ().clear ();
-            return;
+            case ModelPackage.MODEL__ITEMS:
+                getItems ().clear ();
+                return;
+            case ModelPackage.MODEL__AVERAGES:
+                getAverages ().clear ();
+                return;
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                getMovingAverages ().clear ();
+                return;
+            case ModelPackage.MODEL__SUMMARIES:
+                getSummaries ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -268,14 +268,14 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            return items != null && !items.isEmpty ();
-        case ModelPackage.MODEL__AVERAGES:
-            return averages != null && !averages.isEmpty ();
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            return movingAverages != null && !movingAverages.isEmpty ();
-        case ModelPackage.MODEL__SUMMARIES:
-            return summaries != null && !summaries.isEmpty ();
+            case ModelPackage.MODEL__ITEMS:
+                return items != null && !items.isEmpty ();
+            case ModelPackage.MODEL__AVERAGES:
+                return averages != null && !averages.isEmpty ();
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return movingAverages != null && !movingAverages.isEmpty ();
+            case ModelPackage.MODEL__SUMMARIES:
+                return summaries != null && !summaries.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

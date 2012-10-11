@@ -206,18 +206,18 @@ public class ScriptItemItemProvider extends ItemItemProvider implements IEditing
 
         switch ( notification.getFeatureID ( ScriptItem.class ) )
         {
-        case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-        case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-        case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-        case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-        case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-        case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case ModelPackage.SCRIPT_ITEM__INPUTS:
-        case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
+            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
+            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
+            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
+            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
+            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.SCRIPT_ITEM__INPUTS:
+            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }
