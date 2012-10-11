@@ -60,7 +60,7 @@ public class DataLoaderOdfDom
         processRows ( 0, rowHandler, header, sheet.getOdfElement () );
     }
 
-    private int processRows ( int row, final RowHandler rowHandler, Map<Integer, String> header, final OdfElement element )
+    private int processRows ( int row, final RowHandler rowHandler, final Map<Integer, String> header, final OdfElement element )
     {
         for ( int i = 0; i < element.getChildNodes ().getLength (); i++ )
         {
@@ -83,7 +83,7 @@ public class DataLoaderOdfDom
 
                 if ( this.useHeader && row == 0 )
                 {
-                    header = loadRow ( (TableTableRowElement)node );
+                    header.putAll ( loadRow ( (TableTableRowElement)node ) );
                 }
                 else
                 {
