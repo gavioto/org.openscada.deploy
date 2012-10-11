@@ -86,6 +86,8 @@ public class NetworkHandler
 
         item.getLocalLowLow ().setSeverity ( Severity.ALARM );
         item.getLocalLow ().setSeverity ( Severity.WARNING );
+        item.getLocalLow ().setAck ( false );
+        item.getLocalHigh ().setAck ( false );
         item.getLocalHigh ().setSeverity ( Severity.WARNING );
         item.getLocalHighHigh ().setSeverity ( Severity.ALARM );
 
@@ -100,11 +102,11 @@ public class NetworkHandler
         }
         if ( warnHigh != null )
         {
-            item.getLocalHigh ().setPreset ( alarmLow );
+            item.getLocalHigh ().setPreset ( warnHigh );
         }
         if ( alarmHigh != null )
         {
-            item.getLocalHighHigh ().setPreset ( alarmLow );
+            item.getLocalHighHigh ().setPreset ( alarmHigh );
             item.getLocalHighHigh ().setAck ( true );
         }
 
