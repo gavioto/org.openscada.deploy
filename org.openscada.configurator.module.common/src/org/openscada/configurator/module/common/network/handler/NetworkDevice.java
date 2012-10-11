@@ -1,5 +1,8 @@
 package org.openscada.configurator.module.common.network.handler;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class NetworkDevice
 {
     private String hostname;
@@ -10,10 +13,6 @@ public class NetworkDevice
 
     private String type;
 
-    private String location;
-
-    private String component;
-
     private String description;
 
     private Double warnRtt;
@@ -23,6 +22,8 @@ public class NetworkDevice
     private Double warnLoss;
 
     private Double alarmLoss;
+
+    private final List<String> hierarchy = new LinkedList<String> ();
 
     @Override
     public int hashCode ()
@@ -103,26 +104,6 @@ public class NetworkDevice
         this.type = type;
     }
 
-    public String getLocation ()
-    {
-        return this.location;
-    }
-
-    public void setLocation ( final String location )
-    {
-        this.location = location;
-    }
-
-    public String getComponent ()
-    {
-        return this.component;
-    }
-
-    public void setComponent ( final String component )
-    {
-        this.component = component;
-    }
-
     public String getDescription ()
     {
         return this.description;
@@ -171,6 +152,11 @@ public class NetworkDevice
     public void setAlarmLoss ( final Double alarmLoss )
     {
         this.alarmLoss = alarmLoss;
+    }
+
+    public List<String> getHierarchy ()
+    {
+        return this.hierarchy;
     }
 
 }

@@ -15,6 +15,7 @@ import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.utils.str.StringHelper;
 
 public class NetworkHandler
 {
@@ -43,7 +44,7 @@ public class NetworkHandler
         {
             {
                 final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () / 100.0, device.getAlarmLoss () / 100.0 );
-                item.setAlias ( String.format ( "%s.%s.%s.AVAIL.V", prefix, device.getLocation (), device.getComponent () ) ); //$NON-NLS-1$
+                item.setAlias ( String.format ( "%s.%s.AVAIL.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_PacketLoss_Description, device.getDescription () ) );
                 item.setUnit ( "%" ); //$NON-NLS-1$
@@ -51,7 +52,7 @@ public class NetworkHandler
             }
             {
                 final Item item = createDeviceItem ( device, device.getWarnRtt (), device.getAlarmRtt (), null, null );
-                item.setAlias ( String.format ( "%s.%s.%s.P_RT.V", prefix, device.getLocation (), device.getComponent () ) ); //$NON-NLS-1$
+                item.setAlias ( String.format ( "%s.%s.P_RT.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.rtt", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_RTT_Description, device.getDescription () ) );
                 item.setUnit ( "ms" ); //$NON-NLS-1$
@@ -71,14 +72,9 @@ public class NetworkHandler
 
         item.setDataType ( DataType.FLOAT );
 
-        // TODO: allow hierarchy for network devices
-        if ( device.getLocation () != null && !device.getLocation ().isEmpty () )
+        if ( device.getHierarchy () != null )
         {
-            item.getHierarchy ().add ( device.getLocation () );
-        }
-        if ( device.getComponent () != null && !device.getComponent ().isEmpty () )
-        {
-            item.getHierarchy ().add ( device.getComponent () );
+            item.getHierarchy ().addAll ( device.getHierarchy () );
         }
 
         item.setLocalMin ( ModelFactory.eINSTANCE.createLevelMonitor () );

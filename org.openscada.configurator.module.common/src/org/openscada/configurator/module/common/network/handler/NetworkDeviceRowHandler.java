@@ -30,8 +30,14 @@ public class NetworkDeviceRowHandler implements RowHandler
         device.setIp ( rowData.get ( "IP" ) );
         device.setAlias ( rowData.get ( "ALIAS" ) );
         device.setType ( rowData.get ( "TYPE" ) );
-        device.setLocation ( rowData.get ( "LOCATION" ) );
-        device.setComponent ( rowData.get ( "COMPONENT" ) );
+
+        int i = 0;
+        while ( rowData.containsKey ( "LEVEL_" + i ) )
+        {
+            device.getHierarchy ().add ( rowData.get ( "LEVEL_" + i ) );
+            i++;
+        }
+
         device.setDescription ( rowData.get ( "DESCRIPTION" ) );
         device.setWarnRtt ( Double.parseDouble ( rowData.get ( "WARN_RTT" ) ) );
         device.setAlarmRtt ( Double.parseDouble ( rowData.get ( "ALARM_RTT" ) ) );
