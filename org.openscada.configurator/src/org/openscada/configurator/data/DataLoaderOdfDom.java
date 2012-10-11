@@ -26,8 +26,10 @@ import java.util.Map;
 import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
 import org.odftoolkit.odfdom.doc.table.OdfTable;
 import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
+import org.odftoolkit.odfdom.dom.element.table.TableTableHeaderRowsElement;
 import org.odftoolkit.odfdom.dom.element.table.TableTableRowElement;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfWhitespaceProcessor;
+import org.odftoolkit.odfdom.pkg.OdfElement;
 import org.w3c.dom.Node;
 
 public class DataLoaderOdfDom
@@ -54,14 +56,25 @@ public class DataLoaderOdfDom
     {
         final OdfTable sheet = this.spreadSheet.getTableList ().get ( sheetIdx );
 
-        Map<Integer, String> header = new HashMap<Integer, String> ();
+        final Map<Integer, String> header = new HashMap<Integer, String> ();
+        processRows ( 0, rowHandler, header, sheet.getOdfElement () );
+    }
 
-        int row = 0;
-
-        for ( int i = 0; i < sheet.getOdfElement ().getChildNodes ().getLength (); i++ )
+    private int processRows ( int row, final RowHandler rowHandler, Map<Integer, String> header, final OdfElement element )
+    {
+        for ( int i = 0; i < element.getChildNodes ().getLength (); i++ )
         {
-            final Node node = sheet.getOdfElement ().getChildNodes ().item ( i );
-            if ( node instanceof TableTableRowElement )
+            final Node node = element.getChildNodes ().item ( i );
+            if ( node instanceof TableTableHeaderRowsElement )
+            {
+                if ( DEBUG )
+                {
+                    System.out.println ( "Header row at: " + row );
+                }
+
+                row = processRows ( row, rowHandler, header, (TableTableHeaderRowsElement)node );
+            }
+            else if ( node instanceof TableTableRowElement )
             {
                 if ( DEBUG )
                 {
@@ -79,6 +92,7 @@ public class DataLoaderOdfDom
                 row++;
             }
         }
+        return row;
     }
 
     private Map<Integer, String> loadRow ( final TableTableRowElement tableTableRowElement )
