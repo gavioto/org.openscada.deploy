@@ -14,14 +14,19 @@ public class CleanupHandler
 
     public static void process ( final Configuration configuration, final Project project, final CleanupSummaries module )
     {
-        while ( perform ( configuration, module ) )
+        int totalRemoved = 0;
+        int removed;
+        while ( ( removed = perform ( configuration, module ) ) > 0 )
         {
+            System.out.println ( "** Removed " + removed );
+            totalRemoved += removed;
         }
+        System.out.println ( String.format ( "** Total removed: %s, remaining: %s", totalRemoved, configuration.getSummaryGroups ().size () ) );
     }
 
-    protected static boolean perform ( final Configuration configuration, final CleanupSummaries module )
+    protected static int perform ( final Configuration configuration, final CleanupSummaries module )
     {
-        boolean hasRemoved = false;
+        int hasRemoved = 0;
 
         final Set<String> removed = new HashSet<String> ();
 
@@ -42,7 +47,7 @@ public class CleanupHandler
                     i.remove ();
                     removed.add ( group.getId () );
 
-                    hasRemoved = true;
+                    hasRemoved++;
                 }
             }
         }
