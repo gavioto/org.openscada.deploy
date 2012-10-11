@@ -63,21 +63,27 @@ public abstract class AbstractColumn implements ColumnWriter
 
     protected void setBackgroundColor ( final TableTableCellElement cell, final String color )
     {
-        if ( !Color.isValid ( color ) )
+        if ( ( color == null ) || color.isEmpty () || Color.isValid ( color ) )
+        {
+            cell.setProperty ( OdfTableCellProperties.BackgroundColor, "".equals ( color ) ? null : color );
+        }
+        else
         {
             throw new IllegalArgumentException ( "Invalid color: " + color );
         }
-        cell.setProperty ( OdfTableCellProperties.BackgroundColor, color );
     }
 
     protected void setBackgroundStyleColor ( final OdfStyleBase cellStyle, final String color )
     {
-        if ( !Color.isValid ( color ) )
+        if ( ( color == null ) || color.isEmpty () || Color.isValid ( color ) )
+        {
+            final OdfStyleProperty bkColorProperty = OdfStyleProperty.get ( OdfStylePropertiesSet.TableCellProperties, OdfName.newName ( OdfDocumentNamespace.FO, "background-color" ) );
+            cellStyle.setProperty ( bkColorProperty, "".equals ( color ) ? null : color );
+        }
+        else
         {
             throw new IllegalArgumentException ( "Invalid color: " + color );
         }
-        final OdfStyleProperty bkColorProperty = OdfStyleProperty.get ( OdfStylePropertiesSet.TableCellProperties, OdfName.newName ( OdfDocumentNamespace.FO, "background-color" ) );
-        cellStyle.setProperty ( bkColorProperty, color );
     }
 
     @Override
