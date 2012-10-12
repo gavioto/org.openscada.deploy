@@ -37,6 +37,7 @@ public class IolistAllTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new IolistAllTests ( "Iolist Tests" );
+        suite.addTest ( ModelTests.suite () );
         return suite;
     }
 

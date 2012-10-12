@@ -355,6 +355,10 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_1pQ342AhEeCwOqt1B16Tow"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_1pRe8GAhEeCwOqt1B16Tow" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_PPSAIBRyEeKn_PzQrQsy-Q" type="2002">
+        <element xmi:type="ecore:EOperation" href="iolist.ecore#//ScriptItem/addInput"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PPSAIRRyEeKn_PzQrQsy-Q"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_1pRe8WAhEeCwOqt1B16Tow"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_1pRe8mAhEeCwOqt1B16Tow"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_1pRe82AhEeCwOqt1B16Tow"/>

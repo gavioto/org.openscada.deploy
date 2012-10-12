@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
@@ -1867,6 +1868,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getScriptItem_TimerPeriod (), ecorePackage.getELongObject (), "timerPeriod", null, 0, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getScriptItem_Outputs (), this.getScriptOutput (), null, "outputs", null, 0, -1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getScriptItem_WriteCommand (), ecorePackage.getEString (), "writeCommand", null, 0, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        EOperation op = addEOperation ( scriptItemEClass, null, "addInput", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, ecorePackage.getEString (), "name", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, ecorePackage.getEString (), "datasourceId", 0, 1, IS_UNIQUE, IS_ORDERED );
+        addEParameter ( op, this.getDataType (), "dataType", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass ( scriptOutputEClass, ScriptOutput.class, "ScriptOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScriptOutput_DatasourceId (), ecorePackage.getEString (), "datasourceId", null, 1, 1, ScriptOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

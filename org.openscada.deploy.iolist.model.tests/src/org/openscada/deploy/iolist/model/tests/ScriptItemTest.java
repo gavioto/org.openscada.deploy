@@ -15,6 +15,12 @@ import org.openscada.deploy.iolist.model.ScriptItem;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Script Item</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.openscada.deploy.iolist.model.ScriptItem#addInput(java.lang.String, java.lang.String, org.openscada.deploy.iolist.model.DataType) <em>Add Input</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ScriptItemTest extends ItemTest
@@ -75,6 +81,20 @@ public class ScriptItemTest extends ItemTest
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.openscada.deploy.iolist.model.ScriptItem#addInput(java.lang.String, java.lang.String, org.openscada.deploy.iolist.model.DataType) <em>Add Input</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.ScriptItem#addInput(java.lang.String, java.lang.String, org.openscada.deploy.iolist.model.DataType)
+     * @generated
+     */
+    public void testAddInput__String_String_DataType ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //ScriptItemTest

@@ -221,4 +221,12 @@ public interface ScriptItem extends Item
      */
     void setWriteCommand ( String value );
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model
+     * @generated
+     */
+    void addInput ( String name, String datasourceId, DataType dataType );
+
 } // ScriptItem
