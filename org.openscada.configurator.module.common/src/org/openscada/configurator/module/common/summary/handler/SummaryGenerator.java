@@ -1,5 +1,8 @@
 package org.openscada.configurator.module.common.summary.handler;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -42,7 +45,16 @@ public class SummaryGenerator
             addItem ( locations, item.getHierarchy (), item );
         }
 
-        this.cfg.addSummaries ( locations.values () );
+        final ArrayList<SummaryGroup> list = new ArrayList<SummaryGroup> ( locations.values () );
+        Collections.sort ( list, new Comparator<SummaryGroup> () {
+            @Override
+            public int compare ( final SummaryGroup o1, final SummaryGroup o2 )
+            {
+                return o1.getId ().compareTo ( o2.getId () );
+            }
+        } );
+
+        this.cfg.addSummaries ( list );
     }
 
     private void addItem ( final Map<List<String>, SummaryGroup> locations, final List<String> location, final Item item )
