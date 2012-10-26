@@ -7,14 +7,10 @@ set -e
 case "$1" in
     configure)
 
-		if ! getent group openscada >/dev/null; then
-			addgroup --system openscada
-		fi
-
 # ...create $OS_USER user if it isn't already there...
 		if ! getent passwd $OS_USER >/dev/null; then
 	        adduser --system --group --home "/var/lib/$OS_USER" $OS_USER \
-	            --quiet --gecos "openscada daemon user" --ingroup openscada
+	            --quiet --gecos "openscada daemon user"
 		fi
 
 # ensure "/var/lib/$OS_USER" exists...
