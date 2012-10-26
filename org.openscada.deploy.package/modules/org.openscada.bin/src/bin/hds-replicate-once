@@ -3,7 +3,6 @@
 
 use strict;
 use Carp;
-use Env qw(HDS_SLAVE_DIR);
 
 my $HDS_SLAVE_DIR="/var/lib/openscada/hds.slave";
 my $HDS_PULL_FILE="/etc/openscada/hds.pull.conf";
