@@ -44,6 +44,7 @@ cd ..
 %attr(744,root,root) %{_bindir}/osDriverExporter
 %attr(744,root,root) %{_bindir}/osFunctions
 %attr(744,root,root) %{_bindir}/osService
+%attr(744,root,root) %{_bindir}/hds-replicate-once
 %dir %{_perllibdir}/openSCADA
 %attr(644,root,root) %{_perllibdir}/openSCADA/Base.pm
 %attr(644,root,root) %{_perllibdir}/openSCADA/Application.pm

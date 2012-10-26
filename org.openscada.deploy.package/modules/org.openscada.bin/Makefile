@@ -6,6 +6,7 @@ install:
 	install src/bin/osFunctions "$(DESTDIR)/usr/bin"
 	install src/bin/osService "$(DESTDIR)/usr/bin"
 	install src/bin/osDriverExporter "$(DESTDIR)/usr/bin"
+	install src/bin/hds-replicate-once "$(DESTDIR)/usr/bin"
 	
 	mkdir -p "$(DESTDIR)/usr/lib/perl5/openSCADA"
 	install -m 0644 src/bin/openSCADA/Application.pm "$(DESTDIR)/usr/lib/perl5/openSCADA"
