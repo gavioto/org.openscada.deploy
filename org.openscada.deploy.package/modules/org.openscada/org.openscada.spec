@@ -41,8 +41,8 @@ cd ..
 
 %files
 %defattr(-,root,root)
-%attr(744,root,root) %{_profiledir}/th4.sh
-%config %{_defaultdir}/th4
+%attr(744,root,root) %{_profiledir}/openscada.sh
+%config %{_defaultdir}/openscada
 %dir %{_jardir}
 %dir %{_cfgdir}
 %dir %attr(775,root,openscada) %{_logdir}/openscada

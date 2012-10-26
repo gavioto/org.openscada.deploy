@@ -8,9 +8,9 @@ install:
 	install -d "$(DESTDIR)/usr/share/openscada"
 	
 	install -d "$(DESTDIR)/etc/profile.d"	
-	install -m 0744 src/th4.sh "$(DESTDIR)/etc/profile.d"
+	install -m 0744 src/openscada.sh "$(DESTDIR)/etc/profile.d"
 	
 	install -d "$(DESTDIR)/etc/default"
-	install -m 0644 src/th4 "$(DESTDIR)/etc/default"
+	install -m 0644 src/openscada "$(DESTDIR)/etc/default"
 
 .PHONY: default install

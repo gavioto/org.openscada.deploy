@@ -40,13 +40,13 @@ cd ..
 
 %files
 %defattr(-,root,root)
-%attr(744,root,root) %{_bindir}/driverExporter
-%attr(744,root,root) %{_bindir}/th4Functions
-%attr(744,root,root) %{_bindir}/th4Service
-%dir %{_perllibdir}/TH4
-%attr(644,root,root) %{_perllibdir}/TH4/Base.pm
-%attr(644,root,root) %{_perllibdir}/TH4/Application.pm
-%attr(644,root,root) %{_perllibdir}/TH4/JavaApplication.pm
+%attr(744,root,root) %{_bindir}/osDriverExporter
+%attr(744,root,root) %{_bindir}/osFunctions
+%attr(744,root,root) %{_bindir}/osService
+%dir %{_perllibdir}/openSCADA
+%attr(644,root,root) %{_perllibdir}/openSCADA/Base.pm
+%attr(644,root,root) %{_perllibdir}/openSCADA/Application.pm
+%attr(644,root,root) %{_perllibdir}/openSCADA/JavaApplication.pm
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com

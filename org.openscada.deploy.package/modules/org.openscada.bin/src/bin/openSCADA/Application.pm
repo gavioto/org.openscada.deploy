@@ -1,9 +1,9 @@
-package TH4::Application;
+package openSCADA::Application;
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
 
-require TH4::Base;
+require openSCADA::Base;
 
 require Exporter;
 

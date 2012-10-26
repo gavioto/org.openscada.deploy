@@ -1,4 +1,4 @@
-package TH4::Base;
+package openSCADA::Base;
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
@@ -29,17 +29,17 @@ sub classpath () {
 }
 
 sub home () {
-  Carp::croak ( "'TH4_HOME' not set") unless $ENV{"TH4_HOME"};
-  return $ENV{'TH4_HOME'};
+  Carp::croak ( "'OPENSCADA_HOME' not set") unless $ENV{"OPENSCADA_HOME"};
+  return $ENV{'OPENSCADA_HOME'};
 }
 
 sub configurationRoot () {
-  return $ENV{'TH4_CONFIGURATION_ROOT'} if $ENV{'TH4_CONFIGURATION_ROOT'};
+  return $ENV{'OPENSCADA_CONFIGURATION_ROOT'} if $ENV{'OPENSCADA_CONFIGURATION_ROOT'};
   return "/etc/openscada";
 }
 
 sub pidfileRoot () {
-  return $ENV{'TH4_PIDFILE_ROOT'} if $ENV{'TH4_PIDFILE_ROOT'};
+  return $ENV{'OPENSCADA_PIDFILE_ROOT'} if $ENV{'OPENSCADA_PIDFILE_ROOT'};
   return "/var/run";
 }
 

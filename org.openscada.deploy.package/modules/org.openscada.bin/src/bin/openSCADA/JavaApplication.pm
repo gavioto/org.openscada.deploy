@@ -1,13 +1,13 @@
-package TH4::JavaApplication;
+package openSCADA::JavaApplication;
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
 
-use base 'TH4::Application';
+use base 'openSCADA::Application';
 
 require Exporter;
 
-#@ISA = qw(TH4::Application);
+#@ISA = qw(openSCADA::Application);
 # Items to export into callers namespace by default. Note: do not export
 # names by default without a very good reason. Use EXPORT_OK instead.
 # Do not simply export all your public functions/methods/constants.
@@ -20,7 +20,7 @@ sub new {
     my $className = shift;
     my $instanceName = shift;
     
-    my $self = TH4::Application->new (
+    my $self = openSCADA::Application->new (
       "jsvc"
     );
     
@@ -172,7 +172,7 @@ sub gatherArgs {
   push @args, "-Xdebug", "-Xrunjdwp:transport=dt_socket,address=1303,server=y,suspend=n" if $self->{'debug'};
   
   # add pid file
-  push @args, "-pidfile", TH4::Base->pidfileRoot () . "/" . $self->{'instanceName'} . ".pid";
+  push @args, "-pidfile", openSCADA::Base->pidfileRoot () . "/" . $self->{'instanceName'} . ".pid";
   
   # add the class name
   push @args, $self->{'className'};
