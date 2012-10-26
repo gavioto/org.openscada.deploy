@@ -7,6 +7,6 @@ Build-Depends: debhelper (>=8)
 
 Package: p2director
 Architecture: amd64
-Depends: ${misc:Depends}, default-jre, ${shlibs:Depends}, ${perl:Depends}, ${python:Depends}
+Depends: ${misc:Depends}, java-runtime, ${shlibs:Depends}, ${perl:Depends}, ${python:Depends}
 Description: Eclipse P2 director application
  The Eclipse P2 director application
