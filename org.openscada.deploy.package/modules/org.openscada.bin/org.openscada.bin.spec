@@ -1,4 +1,5 @@
 %define _bindir /usr/bin
+%define _docdir /usr/share/doc/%{name}
 %define _perllibdir /usr/lib/perl5
 %define version 1.0.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
@@ -47,6 +48,7 @@ cd ..
 %attr(644,root,root) %{_perllibdir}/openSCADA/Base.pm
 %attr(644,root,root) %{_perllibdir}/openSCADA/Application.pm
 %attr(644,root,root) %{_perllibdir}/openSCADA/JavaApplication.pm
+%attr(644,root,root) %{_docdir}/hds.pull.conf.sample
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
