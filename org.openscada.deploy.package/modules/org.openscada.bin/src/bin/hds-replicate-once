@@ -3,9 +3,13 @@
 
 use strict;
 use Carp;
+use Env qw(HDS_SLAVE_DIR);
 
 my $HDS_SLAVE_DIR="/var/lib/openscada/hds.slave";
 my $HDS_PULL_FILE="/etc/openscada/hds.pull.conf";
+
+$HDS_SLAVE_DIR = $ENV{HDS_SLAVE_DIR} if exists $ENV{HDS_SLAVE_DIR}; 
+$HDS_PULL_FILE = $ENV{HDS_PULL_FILE} if exists $ENV{HDS_PULL_FILE};
 
 sub debug
 {
