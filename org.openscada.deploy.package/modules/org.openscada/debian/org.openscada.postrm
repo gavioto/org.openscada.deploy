@@ -13,7 +13,7 @@ case "$1" in
 		
 		delgroup --quiet openscada > /dev/null || true
 
-        rm -r "/var/lib/$OS_USER"
+        rm -r "/var/lib/$OS_USER" || true
         ;;
 esac
 
