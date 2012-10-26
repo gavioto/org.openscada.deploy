@@ -1,0 +1,2 @@
+#id1:user@node.domain.name:/home/user/hds.storage:-azv --delete --progress
+#id2:user@node.domain.name:/home/user/hds.storage:-azv --delete --progress

@@ -1,6 +1,6 @@
 #! /bin/sh
 
-OS_USER=openscadad
+OS_USER=openscada
 
 set -e
 
