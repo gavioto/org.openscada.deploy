@@ -22,6 +22,7 @@ import org.openscada.configurator.processor.common.StoreConfigurationSlotProcess
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
@@ -30,19 +31,20 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static CommonFactory init ()
     {
         try
         {
-            CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Configurator/Processors/Common" );
+            final CommonFactory theCommonFactory = (CommonFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Configurator/Processors/Common" );
             if ( theCommonFactory != null )
             {
                 return theCommonFactory;
             }
         }
-        catch ( Exception exception )
+        catch ( final Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -53,6 +55,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CommonFactoryImpl ()
@@ -63,10 +66,11 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public EObject create ( EClass eClass )
+    public EObject create ( final EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -80,10 +84,11 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object createFromString ( EDataType eDataType, String initialValue )
+    public Object createFromString ( final EDataType eDataType, final String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -97,10 +102,11 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String convertToString ( EDataType eDataType, Object instanceValue )
+    public String convertToString ( final EDataType eDataType, final Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -114,12 +120,13 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public StoreConfigurationSlotProcessor createStoreConfigurationSlotProcessor ()
     {
-        StoreConfigurationSlotProcessorImpl storeConfigurationSlotProcessor = new StoreConfigurationSlotProcessorImpl ();
+        final StoreConfigurationSlotProcessorImpl storeConfigurationSlotProcessor = new StoreConfigurationSlotProcessorImpl ();
         return storeConfigurationSlotProcessor;
     }
 
@@ -131,15 +138,20 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      */
     public Pattern createPatternFromString ( final EDataType eDataType, final String initialValue )
     {
+        if ( initialValue == null )
+        {
+            return null;
+        }
         return Pattern.compile ( initialValue );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public String convertPatternToString ( EDataType eDataType, Object instanceValue )
+    public String convertPatternToString ( final EDataType eDataType, final Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
@@ -147,6 +159,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -158,6 +171,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */
