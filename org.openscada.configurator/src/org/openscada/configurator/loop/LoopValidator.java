@@ -37,6 +37,7 @@ import org.openscada.configurator.loop.handler.MasterHandler;
 import org.openscada.configurator.loop.handler.MovingAverageHandler;
 import org.openscada.configurator.loop.handler.MultiSourceAttributeHandler;
 import org.openscada.configurator.loop.handler.NoOpHandler;
+import org.openscada.configurator.loop.handler.ProxyQueryHandler;
 import org.openscada.configurator.loop.handler.SimpleAttributeHandler;
 import org.openscada.configurator.loop.handler.SimpleHandler;
 import org.openscada.configurator.loop.handler.SummaryHandler;
@@ -80,7 +81,9 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.ae.event.logger", new NoOpHandler () );
         this.handlers.put ( "org.openscada.ae.server.http.eventFilter", new NoOpHandler () );
         this.handlers.put ( "org.openscada.sec.provider.jdbc.authenticator", new NoOpHandler () );
-        this.handlers.put ( "ae.monitor.query", new NoOpHandler () );
+
+        this.handlers.put ( "ae.monitor.query", new SimpleHandler ( "monitor.query" ) );
+        this.handlers.put ( "org.openscada.ae.server.common.event.pool", new SimpleHandler ( "event.query" ) );
 
         this.handlers.put ( "da.connection", new SimpleHandler ( "da.connection" ) );
         this.handlers.put ( "ae.connection", new SimpleHandler ( "ae.connection" ) );
@@ -124,6 +127,10 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.master.mapper", new MapperHandler () );
 
         this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
+
+        this.handlers.put ( "org.openscada.ae.server.monitor.proxy", new ProxyQueryHandler ( "monitor.query" ) );
+        this.handlers.put ( "org.openscada.ae.server.event.proxy", new ProxyQueryHandler ( "event.query" ) );
+
     }
 
     public void validate ()

@@ -122,6 +122,10 @@ public class Configuration extends GenericMasterConfiguration
 
     private static final String FACTORY_AE_MONITOR_SCRIPT = "org.openscada.ae.monitor.script"; //$NON-NLS-1$
 
+    private static final String FACTORY_AE_MONITOR_PROXY_QUERY = "org.openscada.ae.server.monitor.proxy"; //$NON-NLS-1$
+
+    private static final String FACTORY_AE_EVENT_PROXY_QUERY = "org.openscada.ae.server.event.proxy"; //$NON-NLS-1$
+
     private final List<Item> items = new ArrayList<Item> ();
 
     private final List<Average> averages = new ArrayList<Average> ();
@@ -1582,5 +1586,55 @@ public class Configuration extends GenericMasterConfiguration
         applyInfoAttributes ( attributes, data );
 
         addData ( FACTORY_AE_MONITOR_SCRIPT, id, data );
+    }
+
+    public void addMonitorQueryProxy ( final String id, final Set<String> remoteQueries, final Set<String> localQueries )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        {
+            int i = 0;
+            for ( final String remoteQuery : remoteQueries )
+            {
+                data.put ( "remote.queries." + i, remoteQuery );
+                i++;
+            }
+        }
+        {
+            int i = 0;
+            for ( final String localQuery : localQueries )
+            {
+                data.put ( "local.queries." + i, localQuery );
+                i++;
+            }
+        }
+
+        addData ( FACTORY_AE_MONITOR_PROXY_QUERY, id, data );
+    }
+
+    public void addEventQueryProxy ( final String id, final Set<String> remoteQueries, final Set<String> localQueries, final int poolSize )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "poolSize", "" + poolSize );
+
+        {
+            int i = 0;
+            for ( final String remoteQuery : remoteQueries )
+            {
+                data.put ( "remote.queries." + i, remoteQuery );
+                i++;
+            }
+        }
+        {
+            int i = 0;
+            for ( final String localQuery : localQueries )
+            {
+                data.put ( "local.queries." + i, localQuery );
+                i++;
+            }
+        }
+
+        addData ( FACTORY_AE_EVENT_PROXY_QUERY, id, data );
     }
 }
