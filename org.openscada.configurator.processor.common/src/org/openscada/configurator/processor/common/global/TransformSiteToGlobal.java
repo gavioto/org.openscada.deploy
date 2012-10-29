@@ -33,6 +33,7 @@ import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemPattern <em>Summary Item Pattern</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSelector <em>Selector</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getQueries <em>Queries</em>}</li>
  * </ul>
  * </p>
  *
@@ -248,5 +249,21 @@ public interface TransformSiteToGlobal extends Processor
      * @generated
      */
     EList<ItemSelector> getSelector ();
+
+    /**
+     * Returns the value of the '<em><b>Queries</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configurator.processor.common.global.QueryImport}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Queries</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Queries</em>' containment reference list.
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_Queries()
+     * @model containment="true"
+     * @generated
+     */
+    EList<QueryImport> getQueries ();
 
 } // TransformSiteToGlobal

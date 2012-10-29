@@ -14,11 +14,14 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.processor.common.CommonPackage;
+import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalFactory;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
+import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 import org.openscada.configurator.processor.common.impl.CommonPackageImpl;
@@ -65,6 +68,27 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * @generated
      */
     private EClass includeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass queryImportEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass monitorQueryImportEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass eventQueryImportEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -242,6 +266,16 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getTransformSiteToGlobal_Queries ()
+    {
+        return (EReference)transformSiteToGlobalEClass.getEStructuralFeatures ().get ( 9 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSite ()
     {
         return siteEClass;
@@ -342,6 +376,76 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getQueryImport ()
+    {
+        return queryImportEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getQueryImport_LocalName ()
+    {
+        return (EAttribute)queryImportEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getQueryImport_IncludeLocal ()
+    {
+        return (EAttribute)queryImportEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getQueryImport_RemoteName ()
+    {
+        return (EAttribute)queryImportEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMonitorQueryImport ()
+    {
+        return monitorQueryImportEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getEventQueryImport ()
+    {
+        return eventQueryImportEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEventQueryImport_LocalPoolSize ()
+    {
+        return (EAttribute)eventQueryImportEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public GlobalFactory getGlobalFactory ()
     {
         return (GlobalFactory)getEFactoryInstance ();
@@ -378,6 +482,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN );
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT );
         createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
+        createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__QUERIES );
 
         siteEClass = createEClass ( SITE );
         createEAttribute ( siteEClass, SITE__ID );
@@ -392,6 +497,16 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         excludeEClass = createEClass ( EXCLUDE );
 
         includeEClass = createEClass ( INCLUDE );
+
+        queryImportEClass = createEClass ( QUERY_IMPORT );
+        createEAttribute ( queryImportEClass, QUERY_IMPORT__LOCAL_NAME );
+        createEAttribute ( queryImportEClass, QUERY_IMPORT__INCLUDE_LOCAL );
+        createEAttribute ( queryImportEClass, QUERY_IMPORT__REMOTE_NAME );
+
+        monitorQueryImportEClass = createEClass ( MONITOR_QUERY_IMPORT );
+
+        eventQueryImportEClass = createEClass ( EVENT_QUERY_IMPORT );
+        createEAttribute ( eventQueryImportEClass, EVENT_QUERY_IMPORT__LOCAL_POOL_SIZE );
     }
 
     /**
@@ -432,6 +547,8 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         transformSiteToGlobalEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
         excludeEClass.getESuperTypes ().add ( this.getItemSelector () );
         includeEClass.getESuperTypes ().add ( this.getItemSelector () );
+        monitorQueryImportEClass.getESuperTypes ().add ( this.getQueryImport () );
+        eventQueryImportEClass.getESuperTypes ().add ( this.getQueryImport () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( transformSiteToGlobalEClass, TransformSiteToGlobal.class, "TransformSiteToGlobal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -444,6 +561,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         initEAttribute ( getTransformSiteToGlobal_SummaryItemPattern (), theCommonPackage.getPattern (), "summaryItemPattern", null, 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getTransformSiteToGlobal_SummaryItemFormat (), ecorePackage.getEString (), "summaryItemFormat", null, 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getTransformSiteToGlobal_Selector (), this.getItemSelector (), null, "selector", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getTransformSiteToGlobal_Queries (), this.getQueryImport (), null, "queries", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getSite_Id (), ecorePackage.getEString (), "id", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -458,6 +576,16 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         initEClass ( excludeEClass, Exclude.class, "Exclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
         initEClass ( includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( queryImportEClass, QueryImport.class, "QueryImport", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getQueryImport_LocalName (), ecorePackage.getEString (), "localName", null, 1, 1, QueryImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getQueryImport_IncludeLocal (), ecorePackage.getEBoolean (), "includeLocal", null, 1, 1, QueryImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getQueryImport_RemoteName (), ecorePackage.getEString (), "remoteName", null, 1, 1, QueryImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( monitorQueryImportEClass, MonitorQueryImport.class, "MonitorQueryImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( eventQueryImportEClass, EventQueryImport.class, "EventQueryImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getEventQueryImport_LocalPoolSize (), ecorePackage.getEInt (), "localPoolSize", "10000", 1, 1, EventQueryImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //GlobalPackageImpl

@@ -8,8 +8,8 @@ package org.openscada.configurator.processor.common.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
+
 import org.openscada.configurator.processor.common.global.tests.GlobalTests;
 
 /**

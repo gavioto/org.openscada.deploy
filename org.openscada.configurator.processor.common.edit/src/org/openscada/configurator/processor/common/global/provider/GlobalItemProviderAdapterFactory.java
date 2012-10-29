@@ -197,6 +197,56 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.MonitorQueryImport} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MonitorQueryImportItemProvider monitorQueryImportItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.MonitorQueryImport}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMonitorQueryImportAdapter ()
+    {
+        if ( monitorQueryImportItemProvider == null )
+        {
+            monitorQueryImportItemProvider = new MonitorQueryImportItemProvider ( this );
+        }
+
+        return monitorQueryImportItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.EventQueryImport} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventQueryImportItemProvider eventQueryImportItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.EventQueryImport}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventQueryImportAdapter ()
+    {
+        if ( eventQueryImportItemProvider == null )
+        {
+            eventQueryImportItemProvider = new EventQueryImportItemProvider ( this );
+        }
+
+        return eventQueryImportItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -345,6 +395,10 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
             excludeItemProvider.dispose ();
         if ( includeItemProvider != null )
             includeItemProvider.dispose ();
+        if ( monitorQueryImportItemProvider != null )
+            monitorQueryImportItemProvider.dispose ();
+        if ( eventQueryImportItemProvider != null )
+            eventQueryImportItemProvider.dispose ();
     }
 
     /**

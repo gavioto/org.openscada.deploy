@@ -11,10 +11,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
+import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
@@ -107,6 +110,24 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl
         public Adapter caseInclude ( Include object )
         {
             return createIncludeAdapter ();
+        }
+
+        @Override
+        public Adapter caseQueryImport ( QueryImport object )
+        {
+            return createQueryImportAdapter ();
+        }
+
+        @Override
+        public Adapter caseMonitorQueryImport ( MonitorQueryImport object )
+        {
+            return createMonitorQueryImportAdapter ();
+        }
+
+        @Override
+        public Adapter caseEventQueryImport ( EventQueryImport object )
+        {
+            return createEventQueryImportAdapter ();
         }
 
         @Override
@@ -207,6 +228,51 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createIncludeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.QueryImport <em>Query Import</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.QueryImport
+     * @generated
+     */
+    public Adapter createQueryImportAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.MonitorQueryImport <em>Monitor Query Import</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.MonitorQueryImport
+     * @generated
+     */
+    public Adapter createMonitorQueryImportAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.EventQueryImport <em>Event Query Import</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.EventQueryImport
+     * @generated
+     */
+    public Adapter createEventQueryImportAdapter ()
     {
         return null;
     }

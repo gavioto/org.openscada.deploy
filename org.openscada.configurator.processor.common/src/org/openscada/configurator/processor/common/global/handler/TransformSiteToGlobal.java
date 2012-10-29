@@ -1,7 +1,13 @@
 package org.openscada.configurator.processor.common.global.handler;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -10,9 +16,12 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.openscada.configurator.Configuration;
+import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
+import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
@@ -27,6 +36,10 @@ public class TransformSiteToGlobal
 
     private final Configuration cfg;
 
+    private final Map<String, Set<String>> eventQueryImports = new HashMap<String, Set<String>> ();
+
+    private final Map<String, Set<String>> monitorQueryImports = new HashMap<String, Set<String>> ();
+
     public TransformSiteToGlobal ( final org.openscada.configurator.processor.common.global.TransformSiteToGlobal processor )
     {
         this.processor = processor;
@@ -35,9 +48,37 @@ public class TransformSiteToGlobal
 
     public void process ()
     {
+        // prepare query imports
+
+        for ( final QueryImport queryImport : this.processor.getQueries () )
+        {
+            if ( queryImport instanceof MonitorQueryImport )
+            {
+                this.monitorQueryImports.put ( queryImport.getLocalName (), new HashSet<String> () );
+            }
+            else if ( queryImport instanceof EventQueryImport )
+            {
+                this.eventQueryImports.put ( queryImport.getLocalName (), new HashSet<String> () );
+            }
+        }
+
         for ( final Site site : this.processor.getSites () )
         {
             processSite ( site );
+        }
+
+        // output query imports
+
+        for ( final QueryImport queryImport : this.processor.getQueries () )
+        {
+            if ( queryImport instanceof MonitorQueryImport )
+            {
+                this.cfg.addMonitorQueryProxy ( queryImport.getLocalName (), this.monitorQueryImports.get ( queryImport.getLocalName () ), queryImport.isIncludeLocal () ? new HashSet<String> ( Arrays.asList ( queryImport.getRemoteName () ) ) : Collections.<String> emptySet () );
+            }
+            else if ( queryImport instanceof EventQueryImport )
+            {
+                this.cfg.addEventQueryProxy ( queryImport.getLocalName (), this.eventQueryImports.get ( queryImport.getLocalName () ), queryImport.isIncludeLocal () ? new HashSet<String> ( Arrays.asList ( queryImport.getRemoteName () ) ) : Collections.<String> emptySet (), ( (EventQueryImport)queryImport ).getLocalPoolSize () );
+            }
         }
     }
 
@@ -50,6 +91,7 @@ public class TransformSiteToGlobal
     {
         System.out.println ( " *** Adding site : " + site );
 
+        // add connections
         final String connectionDaId = makeConnectionId ( "da", site );
         this.cfg.addConnection ( connectionDaId, "da", site.getConnectionDa () );
         makeConnectionItems ( site, connectionDaId, "DA" );
@@ -57,6 +99,8 @@ public class TransformSiteToGlobal
         final String connectionAeId = makeConnectionId ( "ae", site );
         this.cfg.addConnection ( connectionAeId, "ae", site.getConnectionAe () );
         makeConnectionItems ( site, connectionAeId, "AE" );
+
+        // add items
 
         final List<Item> items = loadSiteItems ( site.getSiteOutputDir () + "/configuration.iolist" );
 
@@ -72,6 +116,22 @@ public class TransformSiteToGlobal
             }
         }
         System.out.println ( String.format ( "** Included %s of %s items", included, items.size () ) );
+
+        // add ae queries
+
+        for ( final QueryImport queryImport : this.processor.getQueries () )
+        {
+            if ( queryImport instanceof MonitorQueryImport )
+            {
+                this.monitorQueryImports.get ( queryImport.getLocalName () ).add ( String.format ( "%s#%s", connectionAeId, queryImport.getRemoteName () ) );
+            }
+            else if ( queryImport instanceof EventQueryImport )
+            {
+                this.eventQueryImports.get ( queryImport.getLocalName () ).add ( String.format ( "%s#%s", connectionAeId, queryImport.getRemoteName () ) );
+            }
+        }
+
+        // add ae akns
     }
 
     private boolean isIncluded ( final Item item )

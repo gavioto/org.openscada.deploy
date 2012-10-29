@@ -153,13 +153,22 @@ public interface GlobalPackage extends EPackage
     int TRANSFORM_SITE_TO_GLOBAL__SELECTOR = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 8;
 
     /**
+     * The feature id for the '<em><b>Queries</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__QUERIES = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 9;
+
+    /**
      * The number of structural features of the '<em>Transform Site To Global</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 9;
+    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 10;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
@@ -310,6 +319,153 @@ public interface GlobalPackage extends EPackage
     int INCLUDE_FEATURE_COUNT = ITEM_SELECTOR_FEATURE_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.QueryImportImpl <em>Query Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.QueryImportImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getQueryImport()
+     * @generated
+     */
+    int QUERY_IMPORT = 5;
+
+    /**
+     * The feature id for the '<em><b>Local Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int QUERY_IMPORT__LOCAL_NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Include Local</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int QUERY_IMPORT__INCLUDE_LOCAL = 1;
+
+    /**
+     * The feature id for the '<em><b>Remote Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int QUERY_IMPORT__REMOTE_NAME = 2;
+
+    /**
+     * The number of structural features of the '<em>Query Import</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int QUERY_IMPORT_FEATURE_COUNT = 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.MonitorQueryImportImpl <em>Monitor Query Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.MonitorQueryImportImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getMonitorQueryImport()
+     * @generated
+     */
+    int MONITOR_QUERY_IMPORT = 6;
+
+    /**
+     * The feature id for the '<em><b>Local Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR_QUERY_IMPORT__LOCAL_NAME = QUERY_IMPORT__LOCAL_NAME;
+
+    /**
+     * The feature id for the '<em><b>Include Local</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR_QUERY_IMPORT__INCLUDE_LOCAL = QUERY_IMPORT__INCLUDE_LOCAL;
+
+    /**
+     * The feature id for the '<em><b>Remote Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR_QUERY_IMPORT__REMOTE_NAME = QUERY_IMPORT__REMOTE_NAME;
+
+    /**
+     * The number of structural features of the '<em>Monitor Query Import</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR_QUERY_IMPORT_FEATURE_COUNT = QUERY_IMPORT_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.EventQueryImportImpl <em>Event Query Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.EventQueryImportImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getEventQueryImport()
+     * @generated
+     */
+    int EVENT_QUERY_IMPORT = 7;
+
+    /**
+     * The feature id for the '<em><b>Local Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_QUERY_IMPORT__LOCAL_NAME = QUERY_IMPORT__LOCAL_NAME;
+
+    /**
+     * The feature id for the '<em><b>Include Local</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_QUERY_IMPORT__INCLUDE_LOCAL = QUERY_IMPORT__INCLUDE_LOCAL;
+
+    /**
+     * The feature id for the '<em><b>Remote Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_QUERY_IMPORT__REMOTE_NAME = QUERY_IMPORT__REMOTE_NAME;
+
+    /**
+     * The feature id for the '<em><b>Local Pool Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_QUERY_IMPORT__LOCAL_POOL_SIZE = QUERY_IMPORT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Event Query Import</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_QUERY_IMPORT_FEATURE_COUNT = QUERY_IMPORT_FEATURE_COUNT + 1;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal <em>Transform Site To Global</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -419,6 +575,17 @@ public interface GlobalPackage extends EPackage
     EReference getTransformSiteToGlobal_Selector ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getQueries <em>Queries</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Queries</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getQueries()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EReference getTransformSiteToGlobal_Queries ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Site <em>Site</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -523,6 +690,80 @@ public interface GlobalPackage extends EPackage
      * @generated
      */
     EClass getInclude ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.QueryImport <em>Query Import</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Query Import</em>'.
+     * @see org.openscada.configurator.processor.common.global.QueryImport
+     * @generated
+     */
+    EClass getQueryImport ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.QueryImport#getLocalName <em>Local Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Local Name</em>'.
+     * @see org.openscada.configurator.processor.common.global.QueryImport#getLocalName()
+     * @see #getQueryImport()
+     * @generated
+     */
+    EAttribute getQueryImport_LocalName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.QueryImport#isIncludeLocal <em>Include Local</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Include Local</em>'.
+     * @see org.openscada.configurator.processor.common.global.QueryImport#isIncludeLocal()
+     * @see #getQueryImport()
+     * @generated
+     */
+    EAttribute getQueryImport_IncludeLocal ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.QueryImport#getRemoteName <em>Remote Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Remote Name</em>'.
+     * @see org.openscada.configurator.processor.common.global.QueryImport#getRemoteName()
+     * @see #getQueryImport()
+     * @generated
+     */
+    EAttribute getQueryImport_RemoteName ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.MonitorQueryImport <em>Monitor Query Import</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Monitor Query Import</em>'.
+     * @see org.openscada.configurator.processor.common.global.MonitorQueryImport
+     * @generated
+     */
+    EClass getMonitorQueryImport ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.EventQueryImport <em>Event Query Import</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Event Query Import</em>'.
+     * @see org.openscada.configurator.processor.common.global.EventQueryImport
+     * @generated
+     */
+    EClass getEventQueryImport ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.EventQueryImport#getLocalPoolSize <em>Local Pool Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Local Pool Size</em>'.
+     * @see org.openscada.configurator.processor.common.global.EventQueryImport#getLocalPoolSize()
+     * @see #getEventQueryImport()
+     * @generated
+     */
+    EAttribute getEventQueryImport_LocalPoolSize ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -630,6 +871,14 @@ public interface GlobalPackage extends EPackage
         EReference TRANSFORM_SITE_TO_GLOBAL__SELECTOR = eINSTANCE.getTransformSiteToGlobal_Selector ();
 
         /**
+         * The meta object literal for the '<em><b>Queries</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference TRANSFORM_SITE_TO_GLOBAL__QUERIES = eINSTANCE.getTransformSiteToGlobal_Queries ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -716,6 +965,68 @@ public interface GlobalPackage extends EPackage
          * @generated
          */
         EClass INCLUDE = eINSTANCE.getInclude ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.QueryImportImpl <em>Query Import</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.QueryImportImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getQueryImport()
+         * @generated
+         */
+        EClass QUERY_IMPORT = eINSTANCE.getQueryImport ();
+
+        /**
+         * The meta object literal for the '<em><b>Local Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute QUERY_IMPORT__LOCAL_NAME = eINSTANCE.getQueryImport_LocalName ();
+
+        /**
+         * The meta object literal for the '<em><b>Include Local</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute QUERY_IMPORT__INCLUDE_LOCAL = eINSTANCE.getQueryImport_IncludeLocal ();
+
+        /**
+         * The meta object literal for the '<em><b>Remote Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute QUERY_IMPORT__REMOTE_NAME = eINSTANCE.getQueryImport_RemoteName ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.MonitorQueryImportImpl <em>Monitor Query Import</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.MonitorQueryImportImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getMonitorQueryImport()
+         * @generated
+         */
+        EClass MONITOR_QUERY_IMPORT = eINSTANCE.getMonitorQueryImport ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.EventQueryImportImpl <em>Event Query Import</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.EventQueryImportImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getEventQueryImport()
+         * @generated
+         */
+        EClass EVENT_QUERY_IMPORT = eINSTANCE.getEventQueryImport ();
+
+        /**
+         * The meta object literal for the '<em><b>Local Pool Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_QUERY_IMPORT__LOCAL_POOL_SIZE = eINSTANCE.getEventQueryImport_LocalPoolSize ();
 
     }
 

@@ -47,6 +47,8 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="selector" upperBound="-1"
           eType="#//global/ItemSelector" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
+          eType="#//global/QueryImport" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Site">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -70,5 +72,18 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Exclude" eSuperTypes="#//global/ItemSelector"/>
     <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//global/ItemSelector"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryImport" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="includeLocal" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MonitorQueryImport" eSuperTypes="#//global/QueryImport"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventQueryImport" eSuperTypes="#//global/QueryImport">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localPoolSize" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="10000"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

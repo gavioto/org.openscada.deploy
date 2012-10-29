@@ -10,10 +10,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
+import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
@@ -126,6 +129,34 @@ public class GlobalSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case GlobalPackage.QUERY_IMPORT:
+            {
+                QueryImport queryImport = (QueryImport)theEObject;
+                T result = caseQueryImport ( queryImport );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case GlobalPackage.MONITOR_QUERY_IMPORT:
+            {
+                MonitorQueryImport monitorQueryImport = (MonitorQueryImport)theEObject;
+                T result = caseMonitorQueryImport ( monitorQueryImport );
+                if ( result == null )
+                    result = caseQueryImport ( monitorQueryImport );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case GlobalPackage.EVENT_QUERY_IMPORT:
+            {
+                EventQueryImport eventQueryImport = (EventQueryImport)theEObject;
+                T result = caseEventQueryImport ( eventQueryImport );
+                if ( result == null )
+                    result = caseQueryImport ( eventQueryImport );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -207,6 +238,54 @@ public class GlobalSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseInclude ( Include object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Query Import</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Query Import</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseQueryImport ( QueryImport object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Monitor Query Import</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Monitor Query Import</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMonitorQueryImport ( MonitorQueryImport object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Query Import</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Query Import</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventQueryImport ( EventQueryImport object )
     {
         return null;
     }

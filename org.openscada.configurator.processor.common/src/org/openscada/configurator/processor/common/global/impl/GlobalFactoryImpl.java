@@ -11,10 +11,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalFactory;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Include;
+import org.openscada.configurator.processor.common.global.MonitorQueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 
@@ -78,6 +80,10 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory
                 return createExclude ();
             case GlobalPackage.INCLUDE:
                 return createInclude ();
+            case GlobalPackage.MONITOR_QUERY_IMPORT:
+                return createMonitorQueryImport ();
+            case GlobalPackage.EVENT_QUERY_IMPORT:
+                return createEventQueryImport ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -125,6 +131,28 @@ public class GlobalFactoryImpl extends EFactoryImpl implements GlobalFactory
     {
         IncludeImpl include = new IncludeImpl ();
         return include;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MonitorQueryImport createMonitorQueryImport ()
+    {
+        MonitorQueryImportImpl monitorQueryImport = new MonitorQueryImportImpl ();
+        return monitorQueryImport;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventQueryImport createEventQueryImport ()
+    {
+        EventQueryImportImpl eventQueryImport = new EventQueryImportImpl ();
+        return eventQueryImport;
     }
 
     /**

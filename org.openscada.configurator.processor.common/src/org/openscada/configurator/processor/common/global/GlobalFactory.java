@@ -63,6 +63,24 @@ public interface GlobalFactory extends EFactory
     Include createInclude ();
 
     /**
+     * Returns a new object of class '<em>Monitor Query Import</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Monitor Query Import</em>'.
+     * @generated
+     */
+    MonitorQueryImport createMonitorQueryImport ();
+
+    /**
+     * Returns a new object of class '<em>Event Query Import</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Event Query Import</em>'.
+     * @generated
+     */
+    EventQueryImport createEventQueryImport ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

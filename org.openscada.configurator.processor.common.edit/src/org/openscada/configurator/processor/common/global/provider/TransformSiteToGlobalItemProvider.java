@@ -164,6 +164,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SITES );
             childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
+            childrenFeatures.add ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__QUERIES );
         }
         return childrenFeatures;
     }
@@ -231,6 +232,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
                 return;
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SITES:
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SELECTOR:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -254,6 +256,10 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
         newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR, GlobalFactory.eINSTANCE.createExclude () ) );
 
         newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__SELECTOR, GlobalFactory.eINSTANCE.createInclude () ) );
+
+        newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__QUERIES, GlobalFactory.eINSTANCE.createMonitorQueryImport () ) );
+
+        newChildDescriptors.add ( createChildParameter ( GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__QUERIES, GlobalFactory.eINSTANCE.createEventQueryImport () ) );
     }
 
     /**

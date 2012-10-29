@@ -6,28 +6,19 @@
  */
 package org.openscada.configurator.processor.common.global.tests;
 
-import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
+import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.GlobalFactory;
-import org.openscada.configurator.processor.common.global.Site;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Site</b></em>'.
+ * A test case for the model object '<em><b>Event Query Import</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SiteTest extends TestCase
+public class EventQueryImportTest extends QueryImportTest
 {
-
-    /**
-     * The fixture for this Site test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Site fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -36,40 +27,30 @@ public class SiteTest extends TestCase
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( SiteTest.class );
+        TestRunner.run ( EventQueryImportTest.class );
     }
 
     /**
-     * Constructs a new Site test case with the given name.
+     * Constructs a new Event Query Import test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public SiteTest ( String name )
+    public EventQueryImportTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Sets the fixture for this Site test case.
+     * Returns the fixture for this Event Query Import test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture ( Site fixture )
+    @Override
+    protected EventQueryImport getFixture ()
     {
-        this.fixture = fixture;
-    }
-
-    /**
-     * Returns the fixture for this Site test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Site getFixture ()
-    {
-        return fixture;
+        return (EventQueryImport)fixture;
     }
 
     /**
@@ -81,7 +62,7 @@ public class SiteTest extends TestCase
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( GlobalFactory.eINSTANCE.createSite () );
+        setFixture ( GlobalFactory.eINSTANCE.createEventQueryImport () );
     }
 
     /**
@@ -96,4 +77,4 @@ public class SiteTest extends TestCase
         setFixture ( null );
     }
 
-} //SiteTest
+} //EventQueryImportTest

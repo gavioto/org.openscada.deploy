@@ -7,7 +7,6 @@
 package org.openscada.configurator.processor.common.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.processor.common.CommonFactory;
