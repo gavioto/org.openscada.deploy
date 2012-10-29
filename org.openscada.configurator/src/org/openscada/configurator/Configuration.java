@@ -248,6 +248,7 @@ public class Configuration extends GenericMasterConfiguration
         summaries.add ( "warning" ); //$NON-NLS-1$
         summaries.add ( "info" ); //$NON-NLS-1$
         summaries.add ( "manual" ); //$NON-NLS-1$
+        summaries.add ( "ackRequired" ); //$NON-NLS-1$
         summaries.add ( "blocked" ); //$NON-NLS-1$
 
         // summaries
