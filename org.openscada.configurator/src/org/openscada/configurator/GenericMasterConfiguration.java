@@ -89,6 +89,15 @@ public class GenericMasterConfiguration extends GenericConfiguration
         addData ( "da.connection", id, data ); //$NON-NLS-1$
     }
 
+    public void addConnection ( final String id, final String type, final String connectionUri )
+    {
+        final Map<String, String> data = new HashMap<String, String> ();
+
+        data.put ( "connection.uri", connectionUri ); //$NON-NLS-1$
+
+        addData ( type + ".connection", id, data ); //$NON-NLS-1$
+    }
+
     public void addAlias ( final String id, final String itemId, final String dataSourceId, final String description )
     {
         final Map<String, String> data = new HashMap<String, String> ();
@@ -129,7 +138,7 @@ public class GenericMasterConfiguration extends GenericConfiguration
         {
             data.put ( "prefix", prefix ); //$NON-NLS-1$
         }
-        addData ( FACTORY_DA_MASTER_HANDLER_SUM, id, data ); //$NON-NLS-1$
+        addData ( FACTORY_DA_MASTER_HANDLER_SUM, id, data );
     }
 
     public void addSource ( final String id, final String itemId, final String connectionId )

@@ -51,11 +51,11 @@ public class TransformSiteToGlobal
         System.out.println ( " *** Adding site : " + site );
 
         final String connectionDaId = makeConnectionId ( "da", site );
-        this.cfg.addConnection ( connectionDaId, site.getConnectionDa () );
+        this.cfg.addConnection ( connectionDaId, "da", site.getConnectionDa () );
         makeConnectionItems ( site, connectionDaId, "DA" );
 
         final String connectionAeId = makeConnectionId ( "ae", site );
-        this.cfg.addConnection ( connectionAeId, site.getConnectionAe () );
+        this.cfg.addConnection ( connectionAeId, "ae", site.getConnectionAe () );
         makeConnectionItems ( site, connectionAeId, "AE" );
 
         final List<Item> items = loadSiteItems ( site.getSiteOutputDir () + "/configuration.iolist" );
