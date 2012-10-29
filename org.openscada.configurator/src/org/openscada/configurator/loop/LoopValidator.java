@@ -82,12 +82,14 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.sec.provider.jdbc.authenticator", new NoOpHandler () );
         this.handlers.put ( "ae.monitor.query", new NoOpHandler () );
 
-        this.handlers.put ( "da.connection", new SimpleHandler ( "connection" ) );
+        this.handlers.put ( "da.connection", new SimpleHandler ( "da.connection" ) );
+        this.handlers.put ( "ae.connection", new SimpleHandler ( "ae.connection" ) );
+        this.handlers.put ( "hd.connection", new SimpleHandler ( "hd.connection" ) );
 
         this.handlers.put ( "org.openscada.da.datasource.average", new AverageHandler () );
         this.handlers.put ( "org.openscada.da.datasource.movingaverage", new MovingAverageHandler () );
 
-        this.handlers.put ( "da.dataitem.datasource", new SimpleAttributeHandler ( "datasource", "connection", "connection.id" ) );
+        this.handlers.put ( "da.dataitem.datasource", new SimpleAttributeHandler ( "datasource", "da.connection", "connection.id" ) );
 
         this.handlers.put ( "master.item", new MasterHandler () );
         this.handlers.put ( "da.datasource.dataitem", new SimpleHandler ( "datasource" ) );
@@ -122,7 +124,6 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.master.mapper", new MapperHandler () );
 
         this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
-
     }
 
     public void validate ()
