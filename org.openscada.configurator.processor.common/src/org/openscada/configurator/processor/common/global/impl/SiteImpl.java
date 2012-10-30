@@ -7,6 +7,7 @@
 package org.openscada.configurator.processor.common.global.impl;
 
 import java.util.Collection;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -29,6 +30,7 @@ import org.openscada.configurator.processor.common.global.Site;
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getConnectionAe <em>Connection Ae</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getSiteOutputDir <em>Site Output Dir</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.impl.SiteImpl#getAknPattern <em>Akn Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +127,16 @@ public class SiteImpl extends EObjectImpl implements Site
      * @ordered
      */
     protected EList<String> hierarchy;
+
+    /**
+     * The cached value of the '{@link #getAknPattern() <em>Akn Pattern</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAknPattern()
+     * @generated
+     * @ordered
+     */
+    protected EList<Pattern> aknPattern;
 
     /**
      * <!-- begin-user-doc -->
@@ -258,6 +270,20 @@ public class SiteImpl extends EObjectImpl implements Site
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Pattern> getAknPattern ()
+    {
+        if ( aknPattern == null )
+        {
+            aknPattern = new EDataTypeUniqueEList<Pattern> ( Pattern.class, this, GlobalPackage.SITE__AKN_PATTERN );
+        }
+        return aknPattern;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -273,6 +299,8 @@ public class SiteImpl extends EObjectImpl implements Site
                 return getSiteOutputDir ();
             case GlobalPackage.SITE__HIERARCHY:
                 return getHierarchy ();
+            case GlobalPackage.SITE__AKN_PATTERN:
+                return getAknPattern ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -304,6 +332,10 @@ public class SiteImpl extends EObjectImpl implements Site
                 getHierarchy ().clear ();
                 getHierarchy ().addAll ( (Collection<? extends String>)newValue );
                 return;
+            case GlobalPackage.SITE__AKN_PATTERN:
+                getAknPattern ().clear ();
+                getAknPattern ().addAll ( (Collection<? extends Pattern>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -333,6 +365,9 @@ public class SiteImpl extends EObjectImpl implements Site
             case GlobalPackage.SITE__HIERARCHY:
                 getHierarchy ().clear ();
                 return;
+            case GlobalPackage.SITE__AKN_PATTERN:
+                getAknPattern ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -357,6 +392,8 @@ public class SiteImpl extends EObjectImpl implements Site
                 return SITE_OUTPUT_DIR_EDEFAULT == null ? siteOutputDir != null : !SITE_OUTPUT_DIR_EDEFAULT.equals ( siteOutputDir );
             case GlobalPackage.SITE__HIERARCHY:
                 return hierarchy != null && !hierarchy.isEmpty ();
+            case GlobalPackage.SITE__AKN_PATTERN:
+                return aknPattern != null && !aknPattern.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -383,6 +420,8 @@ public class SiteImpl extends EObjectImpl implements Site
         result.append ( siteOutputDir );
         result.append ( ", hierarchy: " );
         result.append ( hierarchy );
+        result.append ( ", aknPattern: " );
+        result.append ( aknPattern );
         result.append ( ')' );
         return result.toString ();
     }

@@ -102,6 +102,10 @@
       <children xmi:type="notation:Node" xmi:id="_8zZyYBFKEeKBy6bJscbSUQ" type="2003">
         <children xmi:type="notation:Node" xmi:id="_8zaZcBFKEeKBy6bJscbSUQ" type="4002"/>
         <children xmi:type="notation:Node" xmi:id="_8zbAgBFKEeKBy6bJscbSUQ" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_F2hUwCHKEeKkDM2DFuEq-Q" type="2001">
+            <element xmi:type="ecore:EAttribute" href="processors.ecore#//global/Site/aknPattern"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_F2hUwSHKEeKkDM2DFuEq-Q"/>
+          </children>
           <children xmi:type="notation:Node" xmi:id="_tW82ABFLEeKBy6bJscbSUQ" type="2001">
             <element xmi:type="ecore:EAttribute" href="processors.ecore#//global/Site/id"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_tW82ARFLEeKBy6bJscbSUQ"/>

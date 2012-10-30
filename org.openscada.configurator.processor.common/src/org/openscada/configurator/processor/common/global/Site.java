@@ -6,6 +6,8 @@
  */
 package org.openscada.configurator.processor.common.global;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.configurator.processor.common.global.Site#getConnectionAe <em>Connection Ae</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.Site#getSiteOutputDir <em>Site Output Dir</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.Site#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.Site#getAknPattern <em>Akn Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -149,5 +152,21 @@ public interface Site extends EObject
      * @generated
      */
     EList<String> getHierarchy ();
+
+    /**
+     * Returns the value of the '<em><b>Akn Pattern</b></em>' attribute list.
+     * The list contents are of type {@link java.util.regex.Pattern}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Akn Pattern</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Akn Pattern</em>' attribute list.
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getSite_AknPattern()
+     * @model dataType="org.openscada.configurator.processor.common.Pattern"
+     * @generated
+     */
+    EList<Pattern> getAknPattern ();
 
 } // Site

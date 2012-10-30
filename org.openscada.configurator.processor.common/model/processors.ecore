@@ -65,6 +65,8 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="aknPattern" upperBound="-1"
+          eType="#//Pattern"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ItemSelector" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"

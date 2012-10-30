@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -39,6 +40,8 @@ public class TransformSiteToGlobal
     private final Map<String, Set<String>> eventQueryImports = new HashMap<String, Set<String>> ();
 
     private final Map<String, Set<String>> monitorQueryImports = new HashMap<String, Set<String>> ();
+
+    private int proxyAknCounter = 0;
 
     public TransformSiteToGlobal ( final org.openscada.configurator.processor.common.global.TransformSiteToGlobal processor )
     {
@@ -131,7 +134,19 @@ public class TransformSiteToGlobal
             }
         }
 
-        // add ae akns
+        for ( final Pattern pattern : site.getAknPattern () )
+        {
+            final Map<String, String> data = new HashMap<String, String> ();
+
+            data.put ( "pattern", pattern.toString () );
+            data.put ( "authorative", "true" );
+            data.put ( "connection.id", connectionAeId );
+            data.put ( "priority", "" + this.proxyAknCounter );
+
+            this.cfg.addData ( "org.openscada.ae.server.akn.proxy", String.format ( "%s-%s", site.getId (), this.proxyAknCounter ), data );
+
+            this.proxyAknCounter++;
+        }
     }
 
     private boolean isIncluded ( final Item item )

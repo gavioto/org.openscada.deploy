@@ -226,13 +226,22 @@ public interface GlobalPackage extends EPackage
     int SITE__HIERARCHY = 4;
 
     /**
+     * The feature id for the '<em><b>Akn Pattern</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SITE__AKN_PATTERN = 5;
+
+    /**
      * The number of structural features of the '<em>Site</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SITE_FEATURE_COUNT = 5;
+    int SITE_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.ItemSelectorImpl <em>Item Selector</em>}' class.
@@ -651,6 +660,17 @@ public interface GlobalPackage extends EPackage
     EAttribute getSite_Hierarchy ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configurator.processor.common.global.Site#getAknPattern <em>Akn Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Akn Pattern</em>'.
+     * @see org.openscada.configurator.processor.common.global.Site#getAknPattern()
+     * @see #getSite()
+     * @generated
+     */
+    EAttribute getSite_AknPattern ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.ItemSelector <em>Item Selector</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -927,6 +947,14 @@ public interface GlobalPackage extends EPackage
          * @generated
          */
         EAttribute SITE__HIERARCHY = eINSTANCE.getSite_Hierarchy ();
+
+        /**
+         * The meta object literal for the '<em><b>Akn Pattern</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SITE__AKN_PATTERN = eINSTANCE.getSite_AknPattern ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.ItemSelectorImpl <em>Item Selector</em>}' class.
