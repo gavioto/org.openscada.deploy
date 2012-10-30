@@ -121,7 +121,12 @@ public class GenericMasterConfiguration extends GenericConfiguration
         addSum ( masterId + ".sum.alarm", masterId, "alarm", null ); //$NON-NLS-1$ //$NON-NLS-2$
         addSum ( masterId + ".sum.warning", masterId, "warning", null ); //$NON-NLS-1$ //$NON-NLS-2$
         addSum ( masterId + ".sum.info", masterId, "info", null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.ackRequired", masterId, "ackRequired", null ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        for ( final String tag : new String[] { "error", "alarm", "warning" } )
+        {
+            addSum ( String.format ( "%s.sum.%s.ackRequired", masterId, tag ), masterId, tag + ".ackRequired", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+
         addSum ( masterId + ".sum.blocked", masterId, "blocked", null ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
