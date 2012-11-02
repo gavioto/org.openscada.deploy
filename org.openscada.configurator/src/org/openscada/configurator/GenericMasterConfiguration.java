@@ -114,34 +114,25 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     protected void addDefaultChain ( final String masterId )
     {
-        addSum ( masterId + ".sum.error.phase1", masterId, "error", "phase1" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-
-        addSum ( masterId + ".sum.manual", masterId, "manual", null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.error.phase2", masterId, "error", "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addSum ( masterId + ".sum.alarm", masterId, "alarm", null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.warning", masterId, "warning", null ); //$NON-NLS-1$ //$NON-NLS-2$
-        addSum ( masterId + ".sum.info", masterId, "info", null ); //$NON-NLS-1$ //$NON-NLS-2$
-
-        for ( final String tag : new String[] { "error", "alarm", "warning" } )
-        {
-            addSum ( String.format ( "%s.sum.%s.ackRequired", masterId, tag ), masterId, tag + ".ackRequired", null ); //$NON-NLS-1$ //$NON-NLS-2$
-        }
-
-        addSum ( masterId + ".sum.blocked", masterId, "blocked", null ); //$NON-NLS-1$ //$NON-NLS-2$
+        addSum ( masterId + ".sum.phase1", masterId, new String[] { "error" }, "phase1" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addSum ( masterId + ".sum.phase2", masterId, new String[] { "manual", "error", "alarm", "warning", "info", "error.ackRequired", "alarm.ackRequired", "warning.ackRequired", "blocked" }, "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
-    protected void addSum ( final String id, final String masterId, final String type, final String prefix )
+    protected void addSum ( final String id, final String masterId, final String[] tags, final String prefix )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "master.id", masterId ); //$NON-NLS-1$
         fillMasterHandlerPriority ( FACTORY_DA_MASTER_HANDLER_SUM, id, data, null );
 
-        data.put ( "tag", type ); //$NON-NLS-1$
+        data.put ( "tag", StringHelper.join ( tags, ", " ) ); //$NON-NLS-1$
 
-        if ( prefix != null )
+        for ( final String tag : tags )
         {
-            data.put ( "prefix", prefix ); //$NON-NLS-1$
+            if ( prefix != null )
+            {
+                data.put ( "tag." + tag + ".prefix", prefix ); //$NON-NLS-1$
+            }
         }
         addData ( FACTORY_DA_MASTER_HANDLER_SUM, id, data );
     }
