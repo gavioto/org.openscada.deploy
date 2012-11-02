@@ -2,3 +2,5 @@ global
 root
 input
 output
+/bin
+*~
