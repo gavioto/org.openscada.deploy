@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.openscada.ae.Severity;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
@@ -186,6 +187,12 @@ public class TransformSiteToGlobal
             item.getHierarchy ().add ( site.getId () );
             item.setDataType ( DataType.BOOLEAN );
 
+            item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
+            item.getLocalBooleanMonitor ().setActive ( true );
+            item.getLocalBooleanMonitor ().setOkValue ( true );
+            item.getLocalBooleanMonitor ().setSeverity ( Severity.ERROR );
+            item.getLocalBooleanMonitor ().setAck ( false );
+
             this.cfg.addItem ( item );
         }
 
@@ -199,6 +206,12 @@ public class TransformSiteToGlobal
             item.getHierarchy ().addAll ( this.processor.getHierarchyPrefix () );
             item.getHierarchy ().add ( site.getId () );
             item.setDataType ( DataType.BOOLEAN );
+
+            item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
+            item.getLocalBooleanMonitor ().setActive ( true );
+            item.getLocalBooleanMonitor ().setOkValue ( true );
+            item.getLocalBooleanMonitor ().setSeverity ( Severity.ERROR );
+            item.getLocalBooleanMonitor ().setAck ( false );
 
             this.cfg.addItem ( item );
         }
@@ -235,10 +248,12 @@ public class TransformSiteToGlobal
         globalItem.setUnit ( item.getUnit () );
         globalItem.setDataType ( item.getDataType () );
         globalItem.setDevice ( makeConnectionId ( "da", site ) );
-        globalItem.setDefaultChain ( false );
+        globalItem.setDefaultChain ( true );
         globalItem.setLocalManual ( false );
         globalItem.setBlock ( false );
         globalItem.getHierarchy ().addAll ( item.getHierarchy () );
+
+        // FIXME: need to add at least "error" sum and summary that error
 
         this.cfg.addItem ( globalItem );
     }
