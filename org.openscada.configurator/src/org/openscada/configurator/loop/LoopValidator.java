@@ -124,6 +124,7 @@ public class LoopValidator
         this.handlers.put ( "org.openscada.da.round", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
 
         this.handlers.put ( "org.openscada.da.mapper.osgi.configuredMapper", new SimpleHandler ( "mapper" ) );
+        this.handlers.put ( "org.openscada.da.mapper.osgi.jdbcMapper", new SimpleHandler ( "mapper" ) );
         this.handlers.put ( "org.openscada.da.master.mapper", new MapperHandler () );
 
         this.handlers.put ( "org.openscada.da.scale.input", new SimpleAttributeHandler ( "masterHandler", "master", "master.id" ) );
