@@ -5,7 +5,7 @@ set -e
 case "$1" in
 
     purge)
-    	rm -Rf /var/lib/openscadad/p2/master.sample
+    	rm -Rf /var/lib/openscada/p2/master.sample
 		;;
 	
 esac	
