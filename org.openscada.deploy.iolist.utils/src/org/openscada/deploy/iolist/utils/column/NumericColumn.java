@@ -15,13 +15,13 @@ public abstract class NumericColumn extends AbstractColumn
     @Override
     protected void update ( final OdfSpreadsheetDocument output, final TableTableCellElement cell, final Item item )
     {
-        final Double value = getValue ( item );
+        final Number value = getValue ( item );
         if ( value != null )
         {
-            setFloatValue ( cell, value );
+            setFloatValue ( cell, value.doubleValue () );
         }
     };
 
-    protected abstract Double getValue ( Item item );
+    protected abstract Number getValue ( Item item );
 
 }

@@ -3,12 +3,12 @@ package org.openscada.deploy.iolist.utils.column;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.openscada.deploy.iolist.model.Item;
 
-public class NumericEcoreColumnReader extends NumericColumnReader
+public class IntEcoreColumnReader extends NumericColumnReader
 {
 
     private final EStructuralFeature feature;
 
-    public NumericEcoreColumnReader ( final EStructuralFeature feature )
+    public IntEcoreColumnReader ( final EStructuralFeature feature )
     {
         this.feature = feature;
     }
@@ -16,7 +16,14 @@ public class NumericEcoreColumnReader extends NumericColumnReader
     @Override
     public void setValue ( final Item item, final Double value )
     {
-        item.eSet ( this.feature, value );
+        if ( value != null )
+        {
+            item.eSet ( this.feature, value.intValue () );
+        }
+        else
+        {
+            item.eUnset ( this.feature );
+        }
     }
 
 }

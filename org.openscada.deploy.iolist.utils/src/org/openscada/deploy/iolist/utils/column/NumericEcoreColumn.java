@@ -17,7 +17,15 @@ public class NumericEcoreColumn extends NumericColumn
     @Override
     protected Double getValue ( final Item item )
     {
-        return (Double)item.eGet ( this.feature );
+        final Number n = (Number)item.eGet ( this.feature );
+        if ( n == null )
+        {
+            return null;
+        }
+        else
+        {
+            return n.doubleValue ();
+        }
     }
 
 }

@@ -21,11 +21,21 @@ public abstract class NumericColumnReader implements ColumnReader
         }
     }
 
+    protected Double getDefaultValue ()
+    {
+        return null;
+    }
+
     private Double makeDouble ( final Item item, final Cell cell )
     {
         try
         {
             final String text = cell.getText ();
+            if ( text == null || text.isEmpty () )
+            {
+                return getDefaultValue ();
+            }
+
             return Double.parseDouble ( text );
         }
         catch ( final Exception e )
