@@ -190,7 +190,7 @@ public class TransformSiteToGlobal
             item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
             item.getLocalBooleanMonitor ().setActive ( true );
             item.getLocalBooleanMonitor ().setOkValue ( true );
-            item.getLocalBooleanMonitor ().setSeverity ( Severity.ERROR );
+            item.getLocalBooleanMonitor ().setSeverity ( Severity.ALARM );
             item.getLocalBooleanMonitor ().setAck ( false );
 
             this.cfg.addItem ( item );
@@ -210,7 +210,7 @@ public class TransformSiteToGlobal
             item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
             item.getLocalBooleanMonitor ().setActive ( true );
             item.getLocalBooleanMonitor ().setOkValue ( true );
-            item.getLocalBooleanMonitor ().setSeverity ( Severity.ERROR );
+            item.getLocalBooleanMonitor ().setSeverity ( Severity.ALARM );
             item.getLocalBooleanMonitor ().setAck ( false );
 
             this.cfg.addItem ( item );
