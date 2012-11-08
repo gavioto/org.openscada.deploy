@@ -1311,7 +1311,7 @@ public class Configuration extends GenericMasterConfiguration
             for ( final String item : subSources )
             {
                 // this.logStream.println ( String.format ( "\tAdd item: %s as %s", item.getDataSourceId (), item.getType () ) );
-                data.put ( "sub.datasource." + i, item ); //$NON-NLS-1$
+                data.put ( "subDatasource." + i, item ); //$NON-NLS-1$
                 i++;
             }
         }
