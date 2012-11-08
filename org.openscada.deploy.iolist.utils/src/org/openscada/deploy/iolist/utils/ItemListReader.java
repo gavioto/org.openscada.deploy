@@ -27,13 +27,13 @@ import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.utils.column.BooleanColumnReader;
 import org.openscada.deploy.iolist.utils.column.BooleanEcoreColumnReader;
 import org.openscada.deploy.iolist.utils.column.ColumnReader;
+import org.openscada.deploy.iolist.utils.column.IntEcoreColumnReader;
 import org.openscada.deploy.iolist.utils.column.LevelColumnReader;
 import org.openscada.deploy.iolist.utils.column.LevelMonitorColumnReader;
 import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumnReader;
 import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumnReader;
 import org.openscada.deploy.iolist.utils.column.MonitorColumnReader;
 import org.openscada.deploy.iolist.utils.column.NumericColumnReader;
-import org.openscada.deploy.iolist.utils.column.IntEcoreColumnReader;
 import org.openscada.deploy.iolist.utils.column.TextColumnReader;
 import org.openscada.deploy.iolist.utils.column.TextEcoreColumnReader;
 import org.w3c.dom.Node;
@@ -89,7 +89,7 @@ public class ItemListReader
 
         this.readers.put ( "UNIT", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__UNIT ) );
         this.readers.put ( "DESCRIPTION", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__DESCRIPTION ) );
-        this.readers.put ( "ATTR_SUM_LEVEL", new IntEcoreColumnReader ( ModelPackage.Literals.ITEM__ATTRIBUTE_SUMMARY_LEVEL ) );
+        this.readers.put ( "ATTR_SUM_LEVEL", new IntEcoreColumnReader ( ModelPackage.Literals.ITEM__ATTRIBUTE_SUMMARY_LEVEL, 0 ) );
         this.readers.put ( "SYSTEM", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__SYSTEM ) );
         this.readers.put ( "ALIAS", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__ALIAS ) );
 

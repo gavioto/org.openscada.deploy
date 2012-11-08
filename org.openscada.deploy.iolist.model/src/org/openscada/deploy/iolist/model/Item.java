@@ -231,7 +231,7 @@ public interface Item extends EObject
 
     /**
      * Returns the value of the '<em><b>Attribute Summary Level</b></em>' attribute.
-     * The default value is <code>"0"</code>.
+     * The default value is <code>"1"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
@@ -240,7 +240,7 @@ public interface Item extends EObject
      * @return the value of the '<em>Attribute Summary Level</em>' attribute.
      * @see #setAttributeSummaryLevel(int)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_AttributeSummaryLevel()
-     * @model default="0"
+     * @model default="1"
      * @generated
      */
     int getAttributeSummaryLevel ();

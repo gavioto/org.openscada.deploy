@@ -8,9 +8,12 @@ public class IntEcoreColumnReader extends NumericColumnReader
 
     private final EStructuralFeature feature;
 
-    public IntEcoreColumnReader ( final EStructuralFeature feature )
+    private final Integer defaultValue;
+
+    public IntEcoreColumnReader ( final EStructuralFeature feature, final Integer defaultValue )
     {
         this.feature = feature;
+        this.defaultValue = defaultValue;
     }
 
     @Override
@@ -19,6 +22,10 @@ public class IntEcoreColumnReader extends NumericColumnReader
         if ( value != null )
         {
             item.eSet ( this.feature, value.intValue () );
+        }
+        else if ( this.defaultValue != null )
+        {
+            item.eSet ( this.feature, this.defaultValue );
         }
         else
         {
