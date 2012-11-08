@@ -1284,9 +1284,14 @@ public class Configuration extends GenericMasterConfiguration
 
     private final List<SummaryGroup> summaryGroups = new LinkedList<SummaryGroup> ();
 
-    private void addSum ( final String id, final List<String> sources, final List<String> subSources, final Set<String> groups )
+    private void addSum ( final String id, List<String> sources, List<String> subSources, final Set<String> groups )
     {
         final Map<String, String> data = new HashMap<String, String> ();
+
+        // convert lists to plain java lists in order to be able to sort them
+
+        sources = new ArrayList<String> ( sources );
+        subSources = new ArrayList<String> ( subSources );
 
         Collections.sort ( sources );
         Collections.sort ( subSources );
