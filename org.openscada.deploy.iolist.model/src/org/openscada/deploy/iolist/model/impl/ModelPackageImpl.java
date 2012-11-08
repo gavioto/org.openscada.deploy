@@ -352,11 +352,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public EAttribute getItem_DefaultChain ()
+    public EAttribute getItem_AttributeSummaryLevel ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 6 );
     }
@@ -1597,7 +1597,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( itemEClass, ITEM__UNIT );
         createEAttribute ( itemEClass, ITEM__ALIAS );
         createEAttribute ( itemEClass, ITEM__DESCRIPTION );
-        createEAttribute ( itemEClass, ITEM__DEFAULT_CHAIN );
+        createEAttribute ( itemEClass, ITEM__ATTRIBUTE_SUMMARY_LEVEL );
         createEAttribute ( itemEClass, ITEM__EVENT_COMMAND );
         createEAttribute ( itemEClass, ITEM__LOCAL_MANUAL );
         createEAttribute ( itemEClass, ITEM__REMOTE_MANUAL );
@@ -1789,7 +1789,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getItem_Unit (), ecorePackage.getEString (), "unit", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_Alias (), ecorePackage.getEString (), "alias", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_Description (), ecorePackage.getEString (), "description", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getItem_DefaultChain (), ecorePackage.getEBoolean (), "defaultChain", "true", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getItem_AttributeSummaryLevel (), ecorePackage.getEInt (), "attributeSummaryLevel", "1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_EventCommand (), ecorePackage.getEBoolean (), "eventCommand", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_LocalManual (), ecorePackage.getEBoolean (), "localManual", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_RemoteManual (), ecorePackage.getEBoolean (), "remoteManual", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

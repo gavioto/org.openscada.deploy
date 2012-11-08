@@ -28,7 +28,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_PcwCoQEXEd-bdq9hYNl-jw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_oz-XcRf-Ed-UX9m2kKS-TA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="iolist.ecore#//Item/defaultChain"/>
+        <element xmi:type="ecore:EAttribute" href="iolist.ecore#//Item/attributeSummaryLevel"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_oz-Xchf-Ed-UX9m2kKS-TA"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_5Xm6AAEiEd-bdq9hYNl-jw" type="2001">

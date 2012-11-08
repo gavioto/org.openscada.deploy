@@ -33,6 +33,7 @@ import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumnReader;
 import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumnReader;
 import org.openscada.deploy.iolist.utils.column.MonitorColumnReader;
 import org.openscada.deploy.iolist.utils.column.NumericColumnReader;
+import org.openscada.deploy.iolist.utils.column.NumericEcoreColumnReader;
 import org.openscada.deploy.iolist.utils.column.TextColumnReader;
 import org.openscada.deploy.iolist.utils.column.TextEcoreColumnReader;
 import org.w3c.dom.Node;
@@ -88,7 +89,7 @@ public class ItemListReader
 
         this.readers.put ( "UNIT", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__UNIT ) );
         this.readers.put ( "DESCRIPTION", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__DESCRIPTION ) );
-        this.readers.put ( "DEFAULT_CHAIN", new BooleanEcoreColumnReader ( ModelPackage.Literals.ITEM__DEFAULT_CHAIN ) );
+        this.readers.put ( "ATTR_SUM_LEVEL", new NumericEcoreColumnReader ( ModelPackage.Literals.ITEM__ATTRIBUTE_SUMMARY_LEVEL ) );
         this.readers.put ( "SYSTEM", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__SYSTEM ) );
         this.readers.put ( "ALIAS", new TextEcoreColumnReader ( ModelPackage.Literals.ITEM__ALIAS ) );
 

@@ -65,7 +65,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             addUnitPropertyDescriptor ( object );
             addAliasPropertyDescriptor ( object );
             addDescriptionPropertyDescriptor ( object );
-            addDefaultChainPropertyDescriptor ( object );
+            addAttributeSummaryLevelPropertyDescriptor ( object );
             addEventCommandPropertyDescriptor ( object );
             addLocalManualPropertyDescriptor ( object );
             addRemoteManualPropertyDescriptor ( object );
@@ -164,14 +164,14 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     }
 
     /**
-     * This adds a property descriptor for the Default Chain feature.
+     * This adds a property descriptor for the Attribute Summary Level feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDefaultChainPropertyDescriptor ( Object object )
+    protected void addAttributeSummaryLevelPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_defaultChain_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_defaultChain_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__DEFAULT_CHAIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_attributeSummaryLevel_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_attributeSummaryLevel_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__ATTRIBUTE_SUMMARY_LEVEL, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -557,7 +557,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             case ModelPackage.ITEM__UNIT:
             case ModelPackage.ITEM__ALIAS:
             case ModelPackage.ITEM__DESCRIPTION:
-            case ModelPackage.ITEM__DEFAULT_CHAIN:
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
             case ModelPackage.ITEM__EVENT_COMMAND:
             case ModelPackage.ITEM__LOCAL_MANUAL:
             case ModelPackage.ITEM__REMOTE_MANUAL:

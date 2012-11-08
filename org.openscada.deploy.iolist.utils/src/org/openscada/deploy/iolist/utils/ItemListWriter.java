@@ -31,6 +31,7 @@ import org.openscada.deploy.iolist.utils.column.ColumnWriter;
 import org.openscada.deploy.iolist.utils.column.LevelMonitorColumn;
 import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumn;
 import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumn;
+import org.openscada.deploy.iolist.utils.column.NumericEcoreColumn;
 import org.openscada.deploy.iolist.utils.column.OptionalNumericColumn;
 import org.openscada.deploy.iolist.utils.column.OptionalTextColumn;
 import org.openscada.deploy.iolist.utils.column.TextColumn;
@@ -63,7 +64,7 @@ public class ItemListWriter
         } );
         this.columns.add ( new TextEcoreColumn ( "UNIT", ModelPackage.Literals.ITEM__UNIT ) );
         this.columns.add ( new TextEcoreColumn ( "DESCRIPTION", ModelPackage.Literals.ITEM__DESCRIPTION ) );
-        this.columns.add ( new BooleanEcoreColumn ( "DEFAULT_CHAIN", ModelPackage.Literals.ITEM__DEFAULT_CHAIN ) );
+        this.columns.add ( new NumericEcoreColumn ( "ATTR_SUM_LEVEL", ModelPackage.Literals.ITEM__ATTRIBUTE_SUMMARY_LEVEL ) );
 
         this.columns.add ( new TextEcoreColumn ( "SYSTEM", ModelPackage.Literals.ITEM__SYSTEM ) );
         this.columns.add ( new TextEcoreColumn ( "ALIAS", ModelPackage.Literals.ITEM__ALIAS ) );

@@ -127,13 +127,13 @@ public interface ModelPackage extends EPackage
     int ITEM__DESCRIPTION = 5;
 
     /**
-     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * The feature id for the '<em><b>Attribute Summary Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM__DEFAULT_CHAIN = 6;
+    int ITEM__ATTRIBUTE_SUMMARY_LEVEL = 6;
 
     /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
@@ -597,13 +597,13 @@ public interface ModelPackage extends EPackage
     int FORMULA_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * The feature id for the '<em><b>Attribute Summary Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FORMULA_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+    int FORMULA_ITEM__ATTRIBUTE_SUMMARY_LEVEL = ITEM__ATTRIBUTE_SUMMARY_LEVEL;
 
     /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
@@ -1213,13 +1213,13 @@ public interface ModelPackage extends EPackage
     int SCRIPT_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * The feature id for the '<em><b>Attribute Summary Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+    int SCRIPT_ITEM__ATTRIBUTE_SUMMARY_LEVEL = ITEM__ATTRIBUTE_SUMMARY_LEVEL;
 
     /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
@@ -2059,13 +2059,13 @@ public interface ModelPackage extends EPackage
     int AVERAGE_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * The feature id for the '<em><b>Attribute Summary Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AVERAGE_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+    int AVERAGE_ITEM__ATTRIBUTE_SUMMARY_LEVEL = ITEM__ATTRIBUTE_SUMMARY_LEVEL;
 
     /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
@@ -2483,13 +2483,13 @@ public interface ModelPackage extends EPackage
     int CONSTANT_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * The feature id for the '<em><b>Attribute Summary Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONSTANT_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+    int CONSTANT_ITEM__ATTRIBUTE_SUMMARY_LEVEL = ITEM__ATTRIBUTE_SUMMARY_LEVEL;
 
     /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
@@ -2889,13 +2889,13 @@ public interface ModelPackage extends EPackage
     int MOVING_AVERAGE_ITEM__DESCRIPTION = ITEM__DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Default Chain</b></em>' attribute.
+     * The feature id for the '<em><b>Attribute Summary Level</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MOVING_AVERAGE_ITEM__DEFAULT_CHAIN = ITEM__DEFAULT_CHAIN;
+    int MOVING_AVERAGE_ITEM__ATTRIBUTE_SUMMARY_LEVEL = ITEM__ATTRIBUTE_SUMMARY_LEVEL;
 
     /**
      * The feature id for the '<em><b>Event Command</b></em>' attribute.
@@ -3505,15 +3505,15 @@ public interface ModelPackage extends EPackage
     EAttribute getItem_Description ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getAttributeSummaryLevel <em>Attribute Summary Level</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Default Chain</em>'.
-     * @see org.openscada.deploy.iolist.model.Item#isDefaultChain()
+     * @return the meta object for the attribute '<em>Attribute Summary Level</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getAttributeSummaryLevel()
      * @see #getItem()
      * @generated
      */
-    EAttribute getItem_DefaultChain ();
+    EAttribute getItem_AttributeSummaryLevel ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Item#getLocalMin <em>Local Min</em>}'.
@@ -4896,12 +4896,12 @@ public interface ModelPackage extends EPackage
         EAttribute ITEM__DESCRIPTION = eINSTANCE.getItem_Description ();
 
         /**
-         * The meta object literal for the '<em><b>Default Chain</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Attribute Summary Level</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM__DEFAULT_CHAIN = eINSTANCE.getItem_DefaultChain ();
+        EAttribute ITEM__ATTRIBUTE_SUMMARY_LEVEL = eINSTANCE.getItem_AttributeSummaryLevel ();
 
         /**
          * The meta object literal for the '<em><b>Local Min</b></em>' containment reference feature.

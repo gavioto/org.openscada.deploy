@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getDescription <em>Description</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getAttributeSummaryLevel <em>Attribute Summary Level</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalManual <em>Local Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteManual <em>Remote Manual</em>}</li>
@@ -230,31 +230,30 @@ public interface Item extends EObject
     void setDescription ( String value );
 
     /**
-     * Returns the value of the '<em><b>Default Chain</b></em>' attribute.
-     * The default value is <code>"true"</code>.
+     * Returns the value of the '<em><b>Attribute Summary Level</b></em>' attribute.
+     * The default value is <code>"1"</code>.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Default Chain</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Default Chain</em>' attribute.
-     * @see #setDefaultChain(boolean)
-     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_DefaultChain()
-     * @model default="true"
+     * <!-- begin-model-doc -->
+     * If unset the attributes will not be summarized. If set the level specifies how often the item is re-imported.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Attribute Summary Level</em>' attribute.
+     * @see #setAttributeSummaryLevel(int)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_AttributeSummaryLevel()
+     * @model default="1"
      * @generated
      */
-    boolean isDefaultChain ();
+    int getAttributeSummaryLevel ();
 
     /**
-     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#isDefaultChain <em>Default Chain</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getAttributeSummaryLevel <em>Attribute Summary Level</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Default Chain</em>' attribute.
-     * @see #isDefaultChain()
+     * @param value the new value of the '<em>Attribute Summary Level</em>' attribute.
+     * @see #getAttributeSummaryLevel()
      * @generated
      */
-    void setDefaultChain ( boolean value );
+    void setAttributeSummaryLevel ( int value );
 
     /**
      * Returns the value of the '<em><b>Local Min</b></em>' containment reference.

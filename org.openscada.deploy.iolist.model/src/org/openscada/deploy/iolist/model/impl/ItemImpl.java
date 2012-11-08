@@ -40,7 +40,7 @@ import org.openscada.deploy.iolist.model.Rounding;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isDefaultChain <em>Default Chain</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getAttributeSummaryLevel <em>Attribute Summary Level</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEventCommand <em>Event Command</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalManual <em>Local Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteManual <em>Remote Manual</em>}</li>
@@ -205,24 +205,24 @@ public class ItemImpl extends EObjectImpl implements Item
     protected String description = DESCRIPTION_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isDefaultChain() <em>Default Chain</em>}' attribute.
+     * The default value of the '{@link #getAttributeSummaryLevel() <em>Attribute Summary Level</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isDefaultChain()
+     * @see #getAttributeSummaryLevel()
      * @generated
      * @ordered
      */
-    protected static final boolean DEFAULT_CHAIN_EDEFAULT = true;
+    protected static final int ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT = 1;
 
     /**
-     * The cached value of the '{@link #isDefaultChain() <em>Default Chain</em>}' attribute.
+     * The cached value of the '{@link #getAttributeSummaryLevel() <em>Attribute Summary Level</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isDefaultChain()
+     * @see #getAttributeSummaryLevel()
      * @generated
      * @ordered
      */
-    protected boolean defaultChain = DEFAULT_CHAIN_EDEFAULT;
+    protected int attributeSummaryLevel = ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT;
 
     /**
      * The default value of the '{@link #isEventCommand() <em>Event Command</em>}' attribute.
@@ -1008,9 +1008,9 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isDefaultChain ()
+    public int getAttributeSummaryLevel ()
     {
-        return defaultChain;
+        return attributeSummaryLevel;
     }
 
     /**
@@ -1018,12 +1018,12 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDefaultChain ( boolean newDefaultChain )
+    public void setAttributeSummaryLevel ( int newAttributeSummaryLevel )
     {
-        boolean oldDefaultChain = defaultChain;
-        defaultChain = newDefaultChain;
+        int oldAttributeSummaryLevel = attributeSummaryLevel;
+        attributeSummaryLevel = newAttributeSummaryLevel;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__DEFAULT_CHAIN, oldDefaultChain, defaultChain ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL, oldAttributeSummaryLevel, attributeSummaryLevel ) );
     }
 
     /**
@@ -2122,8 +2122,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return getAlias ();
             case ModelPackage.ITEM__DESCRIPTION:
                 return getDescription ();
-            case ModelPackage.ITEM__DEFAULT_CHAIN:
-                return isDefaultChain ();
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                return getAttributeSummaryLevel ();
             case ModelPackage.ITEM__EVENT_COMMAND:
                 return isEventCommand ();
             case ModelPackage.ITEM__LOCAL_MANUAL:
@@ -2229,8 +2229,8 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__DESCRIPTION:
                 setDescription ( (String)newValue );
                 return;
-            case ModelPackage.ITEM__DEFAULT_CHAIN:
-                setDefaultChain ( (Boolean)newValue );
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                setAttributeSummaryLevel ( (Integer)newValue );
                 return;
             case ModelPackage.ITEM__EVENT_COMMAND:
                 setEventCommand ( (Boolean)newValue );
@@ -2374,8 +2374,8 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__DESCRIPTION:
                 setDescription ( DESCRIPTION_EDEFAULT );
                 return;
-            case ModelPackage.ITEM__DEFAULT_CHAIN:
-                setDefaultChain ( DEFAULT_CHAIN_EDEFAULT );
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                setAttributeSummaryLevel ( ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT );
                 return;
             case ModelPackage.ITEM__EVENT_COMMAND:
                 setEventCommand ( EVENT_COMMAND_EDEFAULT );
@@ -2511,8 +2511,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals ( alias );
             case ModelPackage.ITEM__DESCRIPTION:
                 return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
-            case ModelPackage.ITEM__DEFAULT_CHAIN:
-                return defaultChain != DEFAULT_CHAIN_EDEFAULT;
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                return attributeSummaryLevel != ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT;
             case ModelPackage.ITEM__EVENT_COMMAND:
                 return eventCommand != EVENT_COMMAND_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MANUAL:
@@ -2613,8 +2613,8 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append ( alias );
         result.append ( ", description: " );
         result.append ( description );
-        result.append ( ", defaultChain: " );
-        result.append ( defaultChain );
+        result.append ( ", attributeSummaryLevel: " );
+        result.append ( attributeSummaryLevel );
         result.append ( ", eventCommand: " );
         result.append ( eventCommand );
         result.append ( ", localManual: " );
