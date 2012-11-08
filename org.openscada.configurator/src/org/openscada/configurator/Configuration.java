@@ -1284,23 +1284,31 @@ public class Configuration extends GenericMasterConfiguration
 
     private final List<SummaryGroup> summaryGroups = new LinkedList<SummaryGroup> ();
 
-    private void addSum ( final String id, List<String> sources, final List<String> subSources, final Set<String> groups )
+    private void addSum ( final String id, final List<String> sources, final List<String> subSources, final Set<String> groups )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        sources = new ArrayList<String> ( sources );
-
-        // TODO: make a real "sub" configuration
-        sources.addAll ( subSources );
-
         Collections.sort ( sources );
+        Collections.sort ( subSources );
 
-        int i = 0;
-        for ( final String item : sources )
         {
-            // this.logStream.println ( String.format ( "\tAdd item: %s as %s", item.getDataSourceId (), item.getType () ) );
-            data.put ( "datasource." + i, item ); //$NON-NLS-1$
-            i++;
+            int i = 0;
+            for ( final String item : sources )
+            {
+                // this.logStream.println ( String.format ( "\tAdd item: %s as %s", item.getDataSourceId (), item.getType () ) );
+                data.put ( "datasource." + i, item ); //$NON-NLS-1$
+                i++;
+            }
+        }
+
+        {
+            int i = 0;
+            for ( final String item : subSources )
+            {
+                // this.logStream.println ( String.format ( "\tAdd item: %s as %s", item.getDataSourceId (), item.getType () ) );
+                data.put ( "sub.datasource." + i, item ); //$NON-NLS-1$
+                i++;
+            }
         }
 
         data.put ( "groups", StringHelper.join ( groups, "," ) ); //$NON-NLS-1$ //$NON-NLS-2$
