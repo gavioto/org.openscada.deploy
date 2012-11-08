@@ -212,7 +212,7 @@ public class ItemImpl extends EObjectImpl implements Item
      * @generated
      * @ordered
      */
-    protected static final int ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT = 1;
+    protected static final int ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT = 0;
 
     /**
      * The cached value of the '{@link #getAttributeSummaryLevel() <em>Attribute Summary Level</em>}' attribute.
