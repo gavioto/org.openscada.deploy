@@ -248,7 +248,10 @@ public class TransformSiteToGlobal
         globalItem.setUnit ( item.getUnit () );
         globalItem.setDataType ( item.getDataType () );
         globalItem.setDevice ( makeConnectionId ( "da", site ) );
-        globalItem.setAttributeSummaryLevel ( item.getAttributeSummaryLevel () + 1 );
+        if ( item.getAttributeSummaryLevel () > 0 )
+        {
+            globalItem.setAttributeSummaryLevel ( item.getAttributeSummaryLevel () + 1 );
+        }
         globalItem.setLocalManual ( false );
         globalItem.setBlock ( false );
         globalItem.getHierarchy ().addAll ( item.getHierarchy () );
