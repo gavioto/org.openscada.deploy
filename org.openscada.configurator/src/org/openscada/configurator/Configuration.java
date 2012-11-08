@@ -373,7 +373,7 @@ public class Configuration extends GenericMasterConfiguration
             item.setSystem ( "SCADA" ); //$NON-NLS-1$
             item.setDataType ( DataType.INTEGER );
             item.setLocalManual ( false );
-            item.setDefaultChain ( false );
+            item.setAttributeSummaryLevel ( 0 );
             item.getHierarchy ().clear ();
             item.getHierarchy ().addAll ( group.getHierarchy () );
 
@@ -472,9 +472,9 @@ public class Configuration extends GenericMasterConfiguration
 
             addMaster ( masterId, sourceId );
             addAlias ( internalItemId + ".alias", internalItemId, masterId, item.getDescription () ); //$NON-NLS-1$
-            if ( item.isDefaultChain () )
+            if ( item.getAttributeSummaryLevel () > 0 )
             {
-                addDefaultChain ( masterId );
+                addAttributeSummaries ( masterId, item.getAttributeSummaryLevel () );
             }
 
             final Map<String, String> attributes = new HashMap<String, String> ();
@@ -512,7 +512,9 @@ public class Configuration extends GenericMasterConfiguration
             {
                 addWriteLogger ( internalItemId + ".logger", masterId, attributes ); //$NON-NLS-1$
             }
-            if ( item.isDefaultChain () )
+
+            // FIXME: add negate flag
+            if ( item.getAttributeSummaryLevel () > 0 )
             {
                 addNegate ( masterId + ".negate", masterId, false ); //$NON-NLS-1$
                 reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.negate" ) ); //$NON-NLS-1$

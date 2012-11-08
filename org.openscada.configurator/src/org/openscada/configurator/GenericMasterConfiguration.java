@@ -112,10 +112,14 @@ public class GenericMasterConfiguration extends GenericConfiguration
         addData ( "da.dataitem.datasource", id, data ); //$NON-NLS-1$
     }
 
-    protected void addDefaultChain ( final String masterId )
+    protected void addAttributeSummaries ( final String masterId, final int level )
     {
-        addSum ( masterId + ".sum.phase1", masterId, new String[] { "error" }, "phase1" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        addSum ( masterId + ".sum.phase2", masterId, new String[] { "manual", "error", "alarm", "warning", "info", "error.ackRequired", "alarm.ackRequired", "warning.ackRequired", "blocked" }, "phase2" ); //$NON-NLS-1$ //$NON-NLS-2$
+        final int num = ( level - 1 ) * 2 + 1;
+
+        // we set the prefix but not the id, since that won't collide
+
+        addSum ( masterId + ".sum.phase1", masterId, new String[] { "error" }, String.format ( "phase%d", num ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        addSum ( masterId + ".sum.phase2", masterId, new String[] { "manual", "error", "alarm", "warning", "info", "error.ackRequired", "alarm.ackRequired", "warning.ackRequired", "blocked" }, String.format ( "phase%d", num + 1 ) ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     protected void addSum ( final String id, final String masterId, final String[] tags, final String prefix )
