@@ -363,11 +363,11 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 
-        for ( final SummaryGroup group : this.summaryGroups )
+        for ( final SummaryGroup group : this.summaryGroups.values () )
         {
             final String id = group.getId ();
             final Item item = ModelFactory.eINSTANCE.createItem ();
-            item.setDebugInformation ( "Summary creation" );
+            item.setDebugInformation ( "Summary creation for " + id );
             item.setDescription ( Messages.getString ( "Configuration.SummaryItemDescription" ) + id ); //$NON-NLS-1$
             item.setName ( id + ".sum" ); //$NON-NLS-1$
             item.setAlias ( id );
@@ -1293,7 +1293,7 @@ public class Configuration extends GenericMasterConfiguration
         injectAttributes ( attributes, "info.", data ); //$NON-NLS-1$
     }
 
-    private final List<SummaryGroup> summaryGroups = new LinkedList<SummaryGroup> ();
+    private final Map<String, SummaryGroup> summaryGroups = new HashMap<String, SummaryGroup> ();
 
     private void addSum ( final String id, List<String> sources, List<String> subSources, final Set<String> groups )
     {
@@ -1373,7 +1373,7 @@ public class Configuration extends GenericMasterConfiguration
         model.getItems ().addAll ( this.items );
         model.getAverages ().addAll ( this.averages );
         model.getMovingAverages ().addAll ( this.movingAverages );
-        model.getSummaries ().addAll ( this.summaryGroups );
+        model.getSummaries ().addAll ( this.summaryGroups.values () );
 
         final ResourceSet resourceSet = new ResourceSetImpl ();
 
@@ -1560,12 +1560,31 @@ public class Configuration extends GenericMasterConfiguration
         {
             return;
         }
-        this.summaryGroups.addAll ( summaries );
+
+        for ( final SummaryGroup group : summaries )
+        {
+            if ( this.summaryGroups.containsKey ( group.getId () ) )
+            {
+                // complain
+                System.err.println ( "Old group: " + this.summaryGroups.get ( group.getId () ) );
+                System.err.println ( "New group: " + group );
+                throw new IllegalStateException ( "Duplicate summary group: " + group.getId () );
+            }
+            else
+            {
+                this.summaryGroups.put ( group.getId (), group );
+            }
+        }
     }
 
-    public List<SummaryGroup> getSummaryGroups ()
+    public void removeSummary ( final SummaryGroup summaryGroup )
     {
-        return this.summaryGroups;
+        this.summaryGroups.remove ( summaryGroup );
+    }
+
+    public Collection<SummaryGroup> getSummaryGroups ()
+    {
+        return Collections.unmodifiableCollection ( this.summaryGroups.values () );
     }
 
     public void addMarker ( final String id, final Set<Item> items, final Map<String, String> markers, final Map<String, String> attributes )

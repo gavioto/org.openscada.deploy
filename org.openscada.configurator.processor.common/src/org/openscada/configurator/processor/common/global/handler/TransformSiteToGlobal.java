@@ -221,6 +221,8 @@ public class TransformSiteToGlobal
     {
         final Item globalItem = ModelFactory.eINSTANCE.createItem ();
 
+        globalItem.setDebugInformation ( String.format ( "Site creation: %s", site ) );
+
         String alias = item.getAlias ();
         if ( this.processor.getSummaryItemPattern ().matcher ( alias ).matches () )
         {
@@ -234,7 +236,7 @@ public class TransformSiteToGlobal
              */
             alias = String.format ( this.processor.getSummaryItemFormat (), site.getId (), alias );
 
-            // System.out.println ( String.format ( " **** Transforming summary from %s to %s: %s", item.getAlias (), alias, item ) );
+            System.out.println ( String.format ( " **** Transforming summary from %s to %s: %s", item.getAlias (), alias, item ) );
         }
         else if ( isWrongHierarchy ( site, item ) )
         {

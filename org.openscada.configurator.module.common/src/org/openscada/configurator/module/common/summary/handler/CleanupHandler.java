@@ -1,5 +1,6 @@
 package org.openscada.configurator.module.common.summary.handler;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -31,7 +32,7 @@ public class CleanupHandler
         final Set<String> removed = new HashSet<String> ();
 
         {
-            final Iterator<SummaryGroup> i = configuration.getSummaryGroups ().iterator ();
+            final Iterator<SummaryGroup> i = new ArrayList<SummaryGroup> ( configuration.getSummaryGroups () ).iterator ();
             while ( i.hasNext () )
             {
                 final SummaryGroup group = i.next ();
@@ -44,7 +45,7 @@ public class CleanupHandler
                 if ( group.getDataSourceIds ().size () < module.getRequiredItems () && !group.isRetain () )
                 {
                     // System.out.println ( "Removing summary group: " + group.getId () );
-                    i.remove ();
+                    configuration.removeSummary ( group );
                     removed.add ( group.getId () );
 
                     hasRemoved++;
