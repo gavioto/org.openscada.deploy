@@ -367,6 +367,7 @@ public class Configuration extends GenericMasterConfiguration
         {
             final String id = group.getId ();
             final Item item = ModelFactory.eINSTANCE.createItem ();
+            item.setDebugInformation ( "Summary creation" );
             item.setDescription ( Messages.getString ( "Configuration.SummaryItemDescription" ) + id ); //$NON-NLS-1$
             item.setName ( id + ".sum" ); //$NON-NLS-1$
             item.setAlias ( id );
@@ -979,17 +980,25 @@ public class Configuration extends GenericMasterConfiguration
 
     private void checkForDuplicates ()
     {
-        final Set<String> alias = new HashSet<String> ();
+        final Map<String, Item> alias = new HashMap<String, Item> ();
+        final Map<String, Item> tempAdd = new HashMap<String, Item> ();
         final Collection<Item> duplicates = new LinkedList<Item> ();
+
         for ( final Item item : this.items )
         {
-            if ( alias.contains ( item.getAlias () ) )
+            if ( alias.containsKey ( item.getAlias () ) )
             {
                 duplicates.add ( item );
+                final Item prevItem = tempAdd.remove ( item.getAlias () );
+                if ( prevItem != null )
+                {
+                    duplicates.add ( prevItem );
+                }
             }
             else
             {
-                alias.add ( item.getAlias () );
+                alias.put ( item.getAlias (), item );
+                tempAdd.put ( item.getAlias (), item );
             }
         }
         if ( !duplicates.isEmpty () )
