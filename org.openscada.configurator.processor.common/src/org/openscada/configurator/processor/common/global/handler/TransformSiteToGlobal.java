@@ -184,7 +184,7 @@ public class TransformSiteToGlobal
             item.setDescription ( String.format ( "Conected state to site local %s master", connectionTag ) );
             item.setSystem ( "SCADA" );
             item.getHierarchy ().addAll ( this.processor.getHierarchyPrefix () );
-            item.getHierarchy ().add ( site.getId () );
+            item.getHierarchy ().addAll ( site.getHierarchy () );
             item.setDataType ( DataType.BOOLEAN );
 
             item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
@@ -204,7 +204,7 @@ public class TransformSiteToGlobal
             item.setDescription ( String.format ( "Conected state to site local %s master", connectionTag ) );
             item.setSystem ( "SCADA" );
             item.getHierarchy ().addAll ( this.processor.getHierarchyPrefix () );
-            item.getHierarchy ().add ( site.getId () );
+            item.getHierarchy ().addAll ( site.getHierarchy () );
             item.setDataType ( DataType.BOOLEAN );
 
             item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );

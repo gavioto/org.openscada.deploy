@@ -1579,7 +1579,7 @@ public class Configuration extends GenericMasterConfiguration
 
     public void removeSummary ( final SummaryGroup summaryGroup )
     {
-        this.summaryGroups.remove ( summaryGroup );
+        this.summaryGroups.remove ( summaryGroup.getId () );
     }
 
     public Collection<SummaryGroup> getSummaryGroups ()
