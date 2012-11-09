@@ -460,7 +460,7 @@ public class Configuration extends GenericMasterConfiguration
             {
                 sourceId = internalItemId + ".source"; //$NON-NLS-1$
 
-                addSource ( sourceId, itemId, item.getDevice ().toLowerCase () );
+                addSource ( sourceId, itemId, item.getDevice () );
 
                 reportItem.setValueSource ( new DataItemSource ( itemId, item.getDevice ().toLowerCase () ) );
             }
