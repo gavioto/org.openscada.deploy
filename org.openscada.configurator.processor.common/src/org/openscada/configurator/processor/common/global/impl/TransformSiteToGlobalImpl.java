@@ -42,6 +42,7 @@ import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSummaryItemFormat <em>Summary Item Format</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getQueries <em>Queries</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#isEnableAeSlavePull <em>Enable Ae Slave Pull</em>}</li>
  * </ul>
  * </p>
  *
@@ -197,6 +198,26 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
      * @ordered
      */
     protected EList<QueryImport> queries;
+
+    /**
+     * The default value of the '{@link #isEnableAeSlavePull() <em>Enable Ae Slave Pull</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEnableAeSlavePull()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean ENABLE_AE_SLAVE_PULL_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isEnableAeSlavePull() <em>Enable Ae Slave Pull</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEnableAeSlavePull()
+     * @generated
+     * @ordered
+     */
+    protected boolean enableAeSlavePull = ENABLE_AE_SLAVE_PULL_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -432,6 +453,29 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isEnableAeSlavePull ()
+    {
+        return enableAeSlavePull;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEnableAeSlavePull ( boolean newEnableAeSlavePull )
+    {
+        boolean oldEnableAeSlavePull = enableAeSlavePull;
+        enableAeSlavePull = newEnableAeSlavePull;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL, oldEnableAeSlavePull, enableAeSlavePull ) );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated NOT
@@ -493,6 +537,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return getSelector ();
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 return getQueries ();
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
+                return isEnableAeSlavePull ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -541,6 +587,9 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 getQueries ().clear ();
                 getQueries ().addAll ( (Collection<? extends QueryImport>)newValue );
                 return;
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
+                setEnableAeSlavePull ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -584,6 +633,9 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 getQueries ().clear ();
                 return;
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
+                setEnableAeSlavePull ( ENABLE_AE_SLAVE_PULL_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -617,6 +669,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return selector != null && !selector.isEmpty ();
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 return queries != null && !queries.isEmpty ();
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
+                return enableAeSlavePull != ENABLE_AE_SLAVE_PULL_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -645,6 +699,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
         result.append ( summaryItemPattern );
         result.append ( ", summaryItemFormat: " );
         result.append ( summaryItemFormat );
+        result.append ( ", enableAeSlavePull: " );
+        result.append ( enableAeSlavePull );
         result.append ( ')' );
         return result.toString ();
     }

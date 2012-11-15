@@ -67,6 +67,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
             addConnectionItemStringStateFormatPropertyDescriptor ( object );
             addSummaryItemPatternPropertyDescriptor ( object );
             addSummaryItemFormatPropertyDescriptor ( object );
+            addEnableAeSlavePullPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -149,6 +150,17 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
     }
 
     /**
+     * This adds a property descriptor for the Enable Ae Slave Pull feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addEnableAeSlavePullPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TransformSiteToGlobal_enableAeSlavePull_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TransformSiteToGlobal_enableAeSlavePull_feature", "_UI_TransformSiteToGlobal_type" ), GlobalPackage.Literals.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -228,6 +240,7 @@ public class TransformSiteToGlobalItemProvider extends ItemProviderAdapter imple
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__CONNECTION_ITEM_STRING_STATE_FORMAT:
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_PATTERN:
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT:
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__SITES:

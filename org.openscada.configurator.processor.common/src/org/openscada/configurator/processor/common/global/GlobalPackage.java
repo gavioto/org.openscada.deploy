@@ -162,13 +162,22 @@ public interface GlobalPackage extends EPackage
     int TRANSFORM_SITE_TO_GLOBAL__QUERIES = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 9;
 
     /**
+     * The feature id for the '<em><b>Enable Ae Slave Pull</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 10;
+
+    /**
      * The number of structural features of the '<em>Transform Site To Global</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 10;
+    int TRANSFORM_SITE_TO_GLOBAL_FEATURE_COUNT = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 11;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
@@ -595,6 +604,17 @@ public interface GlobalPackage extends EPackage
     EReference getTransformSiteToGlobal_Queries ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#isEnableAeSlavePull <em>Enable Ae Slave Pull</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Enable Ae Slave Pull</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#isEnableAeSlavePull()
+     * @see #getTransformSiteToGlobal()
+     * @generated
+     */
+    EAttribute getTransformSiteToGlobal_EnableAeSlavePull ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Site <em>Site</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -897,6 +917,14 @@ public interface GlobalPackage extends EPackage
          * @generated
          */
         EReference TRANSFORM_SITE_TO_GLOBAL__QUERIES = eINSTANCE.getTransformSiteToGlobal_Queries ();
+
+        /**
+         * The meta object literal for the '<em><b>Enable Ae Slave Pull</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL = eINSTANCE.getTransformSiteToGlobal_EnableAeSlavePull ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.

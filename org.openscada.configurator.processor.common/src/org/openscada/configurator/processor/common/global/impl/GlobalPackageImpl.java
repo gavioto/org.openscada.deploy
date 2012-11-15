@@ -276,6 +276,16 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getTransformSiteToGlobal_EnableAeSlavePull ()
+    {
+        return (EAttribute)transformSiteToGlobalEClass.getEStructuralFeatures ().get ( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSite ()
     {
         return siteEClass;
@@ -493,6 +503,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT );
         createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
         createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__QUERIES );
+        createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL );
 
         siteEClass = createEClass ( SITE );
         createEAttribute ( siteEClass, SITE__ID );
@@ -573,6 +584,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         initEAttribute ( getTransformSiteToGlobal_SummaryItemFormat (), ecorePackage.getEString (), "summaryItemFormat", null, 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getTransformSiteToGlobal_Selector (), this.getItemSelector (), null, "selector", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getTransformSiteToGlobal_Queries (), this.getQueryImport (), null, "queries", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getTransformSiteToGlobal_EnableAeSlavePull (), ecorePackage.getEBoolean (), "enableAeSlavePull", "false", 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getSite_Id (), ecorePackage.getEString (), "id", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

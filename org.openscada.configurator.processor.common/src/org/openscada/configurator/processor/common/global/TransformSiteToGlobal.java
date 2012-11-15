@@ -34,6 +34,7 @@ import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSummaryItemFormat <em>Summary Item Format</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getQueries <em>Queries</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#isEnableAeSlavePull <em>Enable Ae Slave Pull</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,5 +266,32 @@ public interface TransformSiteToGlobal extends Processor
      * @generated
      */
     EList<QueryImport> getQueries ();
+
+    /**
+     * Returns the value of the '<em><b>Enable Ae Slave Pull</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Enable Ae Slave Pull</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Enable Ae Slave Pull</em>' attribute.
+     * @see #setEnableAeSlavePull(boolean)
+     * @see org.openscada.configurator.processor.common.global.GlobalPackage#getTransformSiteToGlobal_EnableAeSlavePull()
+     * @model default="false" required="true"
+     * @generated
+     */
+    boolean isEnableAeSlavePull ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#isEnableAeSlavePull <em>Enable Ae Slave Pull</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Enable Ae Slave Pull</em>' attribute.
+     * @see #isEnableAeSlavePull()
+     * @generated
+     */
+    void setEnableAeSlavePull ( boolean value );
 
 } // TransformSiteToGlobal

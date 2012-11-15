@@ -41,6 +41,10 @@
       <children xmi:type="notation:Node" xmi:id="_mn3EoBFHEeKBy6bJscbSUQ" type="2003">
         <children xmi:type="notation:Node" xmi:id="_mn4SwBFHEeKBy6bJscbSUQ" type="4002"/>
         <children xmi:type="notation:Node" xmi:id="_mn450BFHEeKBy6bJscbSUQ" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_wQL0ES8zEeKrLu7dfci73g" type="2001">
+            <element xmi:type="ecore:EAttribute" href="processors.ecore#//global/TransformSiteToGlobal/enableAeSlavePull"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_wQL0Ei8zEeKrLu7dfci73g"/>
+          </children>
           <children xmi:type="notation:Node" xmi:id="_epsQ4BLLEeKBy6bJscbSUQ" type="2001">
             <element xmi:type="ecore:EAttribute" href="processors.ecore#//global/TransformSiteToGlobal/connectionIdFormat"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_epsQ4RLLEeKBy6bJscbSUQ"/>
@@ -78,7 +82,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_mn3EoRFHEeKBy6bJscbSUQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="processors.ecore#//global/TransformSiteToGlobal"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mn3EohFHEeKBy6bJscbSUQ" x="7" y="15" width="327" height="147"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mn3EohFHEeKBy6bJscbSUQ" x="7" y="15" width="327" height="171"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_ObJzkBFIEeKBy6bJscbSUQ" type="2003">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ObTkkBFIEeKBy6bJscbSUQ" source="Shortcut">
