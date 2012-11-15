@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
+import org.openscada.configurator.processor.common.global.AePullConfiguration;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.QueryImport;
@@ -42,7 +43,7 @@ import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSummaryItemFormat <em>Summary Item Format</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getQueries <em>Queries</em>}</li>
- *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#isEnableAeSlavePull <em>Enable Ae Slave Pull</em>}</li>
+ *   <li>{@link org.openscada.configurator.processor.common.global.impl.TransformSiteToGlobalImpl#getAePullConfiguration <em>Ae Pull Configuration</em>}</li>
  * </ul>
  * </p>
  *
@@ -200,24 +201,14 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
     protected EList<QueryImport> queries;
 
     /**
-     * The default value of the '{@link #isEnableAeSlavePull() <em>Enable Ae Slave Pull</em>}' attribute.
+     * The cached value of the '{@link #getAePullConfiguration() <em>Ae Pull Configuration</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #isEnableAeSlavePull()
+     * @see #getAePullConfiguration()
      * @generated
      * @ordered
      */
-    protected static final boolean ENABLE_AE_SLAVE_PULL_EDEFAULT = false;
-
-    /**
-     * The cached value of the '{@link #isEnableAeSlavePull() <em>Enable Ae Slave Pull</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isEnableAeSlavePull()
-     * @generated
-     * @ordered
-     */
-    protected boolean enableAeSlavePull = ENABLE_AE_SLAVE_PULL_EDEFAULT;
+    protected AePullConfiguration aePullConfiguration;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -457,9 +448,9 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isEnableAeSlavePull ()
+    public AePullConfiguration getAePullConfiguration ()
     {
-        return enableAeSlavePull;
+        return aePullConfiguration;
     }
 
     /**
@@ -467,12 +458,41 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEnableAeSlavePull ( boolean newEnableAeSlavePull )
+    public NotificationChain basicSetAePullConfiguration ( AePullConfiguration newAePullConfiguration, NotificationChain msgs )
     {
-        boolean oldEnableAeSlavePull = enableAeSlavePull;
-        enableAeSlavePull = newEnableAeSlavePull;
+        AePullConfiguration oldAePullConfiguration = aePullConfiguration;
+        aePullConfiguration = newAePullConfiguration;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL, oldEnableAeSlavePull, enableAeSlavePull ) );
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION, oldAePullConfiguration, newAePullConfiguration );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAePullConfiguration ( AePullConfiguration newAePullConfiguration )
+    {
+        if ( newAePullConfiguration != aePullConfiguration )
+        {
+            NotificationChain msgs = null;
+            if ( aePullConfiguration != null )
+                msgs = ( (InternalEObject)aePullConfiguration ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION, null, msgs );
+            if ( newAePullConfiguration != null )
+                msgs = ( (InternalEObject)newAePullConfiguration ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION, null, msgs );
+            msgs = basicSetAePullConfiguration ( newAePullConfiguration, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION, newAePullConfiguration, newAePullConfiguration ) );
     }
 
     /**
@@ -502,6 +522,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return ( (InternalEList<?>)getSelector () ).basicRemove ( otherEnd, msgs );
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 return ( (InternalEList<?>)getQueries () ).basicRemove ( otherEnd, msgs );
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION:
+                return basicSetAePullConfiguration ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -537,8 +559,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return getSelector ();
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 return getQueries ();
-            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
-                return isEnableAeSlavePull ();
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION:
+                return getAePullConfiguration ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -587,8 +609,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 getQueries ().clear ();
                 getQueries ().addAll ( (Collection<? extends QueryImport>)newValue );
                 return;
-            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
-                setEnableAeSlavePull ( (Boolean)newValue );
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION:
+                setAePullConfiguration ( (AePullConfiguration)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -633,8 +655,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 getQueries ().clear ();
                 return;
-            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
-                setEnableAeSlavePull ( ENABLE_AE_SLAVE_PULL_EDEFAULT );
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION:
+                setAePullConfiguration ( (AePullConfiguration)null );
                 return;
         }
         super.eUnset ( featureID );
@@ -669,8 +691,8 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
                 return selector != null && !selector.isEmpty ();
             case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__QUERIES:
                 return queries != null && !queries.isEmpty ();
-            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL:
-                return enableAeSlavePull != ENABLE_AE_SLAVE_PULL_EDEFAULT;
+            case GlobalPackage.TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION:
+                return aePullConfiguration != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -699,8 +721,6 @@ public class TransformSiteToGlobalImpl extends EObjectImpl implements TransformS
         result.append ( summaryItemPattern );
         result.append ( ", summaryItemFormat: " );
         result.append ( summaryItemFormat );
-        result.append ( ", enableAeSlavePull: " );
-        result.append ( enableAeSlavePull );
         result.append ( ')' );
         return result.toString ();
     }

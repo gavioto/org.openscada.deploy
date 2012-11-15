@@ -81,6 +81,24 @@ public interface GlobalFactory extends EFactory
     EventQueryImport createEventQueryImport ();
 
     /**
+     * Returns a new object of class '<em>Ae Pull Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Ae Pull Configuration</em>'.
+     * @generated
+     */
+    AePullConfiguration createAePullConfiguration ();
+
+    /**
+     * Returns a new object of class '<em>Property Entry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Property Entry</em>'.
+     * @generated
+     */
+    PropertyEntry createPropertyEntry ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

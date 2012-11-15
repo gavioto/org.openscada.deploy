@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -23,6 +24,7 @@ import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.PropertyEntry;
 import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.deploy.iolist.model.DataType;
@@ -135,6 +137,8 @@ public class TransformSiteToGlobal
             }
         }
 
+        // add AKN patterns
+
         for ( final Pattern pattern : site.getAknPattern () )
         {
             final Map<String, String> data = new HashMap<String, String> ();
@@ -147,6 +151,37 @@ public class TransformSiteToGlobal
             this.cfg.addData ( "org.openscada.ae.server.akn.proxy", String.format ( "%s-%s", site.getId (), this.proxyAknCounter ), data );
 
             this.proxyAknCounter++;
+        }
+
+        // process AE slave
+        if ( this.processor.getAePullConfiguration () != null )
+        {
+            final Map<String, String> data = new HashMap<String, String> ();
+            data.put ( "driverName", this.processor.getAePullConfiguration ().getDriverName () );
+
+            if ( this.processor.getAePullConfiguration ().getCustomDeleteSql () != null )
+            {
+                data.put ( "customDeleteSql", this.processor.getAePullConfiguration ().getCustomDeleteSql () );
+            }
+            if ( this.processor.getAePullConfiguration ().getCustomSelectSql () != null )
+            {
+                data.put ( "customSelectSql", this.processor.getAePullConfiguration ().getCustomSelectSql () );
+            }
+            if ( this.processor.getAePullConfiguration ().getDelay () != null )
+            {
+                data.put ( "delay", "" + this.processor.getAePullConfiguration ().getDelay () );
+            }
+            putProperties ( data, "jdbcProperties.", this.processor.getAePullConfiguration ().getProperties () );
+
+            this.cfg.addData ( "org.openscada.ae.slave.pull", site.getId (), data );
+        }
+    }
+
+    private void putProperties ( final Map<String, String> data, final String prefix, final EList<PropertyEntry> properties )
+    {
+        for ( final PropertyEntry entry : properties )
+        {
+            data.put ( prefix + entry.getKey (), entry.getValue () );
         }
     }
 

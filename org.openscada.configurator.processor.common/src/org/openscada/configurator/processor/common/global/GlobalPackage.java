@@ -162,13 +162,13 @@ public interface GlobalPackage extends EPackage
     int TRANSFORM_SITE_TO_GLOBAL__QUERIES = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 9;
 
     /**
-     * The feature id for the '<em><b>Enable Ae Slave Pull</b></em>' attribute.
+     * The feature id for the '<em><b>Ae Pull Configuration</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 10;
+    int TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 10;
 
     /**
      * The number of structural features of the '<em>Transform Site To Global</em>' class.
@@ -484,6 +484,107 @@ public interface GlobalPackage extends EPackage
     int EVENT_QUERY_IMPORT_FEATURE_COUNT = QUERY_IMPORT_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.AePullConfigurationImpl <em>Ae Pull Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.AePullConfigurationImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getAePullConfiguration()
+     * @generated
+     */
+    int AE_PULL_CONFIGURATION = 8;
+
+    /**
+     * The feature id for the '<em><b>Driver Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AE_PULL_CONFIGURATION__DRIVER_NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Custom Select Sql</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AE_PULL_CONFIGURATION__CUSTOM_SELECT_SQL = 1;
+
+    /**
+     * The feature id for the '<em><b>Custom Delete Sql</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AE_PULL_CONFIGURATION__CUSTOM_DELETE_SQL = 2;
+
+    /**
+     * The feature id for the '<em><b>Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AE_PULL_CONFIGURATION__DELAY = 3;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AE_PULL_CONFIGURATION__PROPERTIES = 4;
+
+    /**
+     * The number of structural features of the '<em>Ae Pull Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AE_PULL_CONFIGURATION_FEATURE_COUNT = 5;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configurator.processor.common.global.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.processor.common.global.impl.PropertyEntryImpl
+     * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getPropertyEntry()
+     * @generated
+     */
+    int PROPERTY_ENTRY = 9;
+
+    /**
+     * The feature id for the '<em><b>Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__KEY = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__VALUE = 1;
+
+    /**
+     * The number of structural features of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_FEATURE_COUNT = 2;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal <em>Transform Site To Global</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -604,15 +705,15 @@ public interface GlobalPackage extends EPackage
     EReference getTransformSiteToGlobal_Queries ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#isEnableAeSlavePull <em>Enable Ae Slave Pull</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getAePullConfiguration <em>Ae Pull Configuration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Enable Ae Slave Pull</em>'.
-     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#isEnableAeSlavePull()
+     * @return the meta object for the containment reference '<em>Ae Pull Configuration</em>'.
+     * @see org.openscada.configurator.processor.common.global.TransformSiteToGlobal#getAePullConfiguration()
      * @see #getTransformSiteToGlobal()
      * @generated
      */
-    EAttribute getTransformSiteToGlobal_EnableAeSlavePull ();
+    EReference getTransformSiteToGlobal_AePullConfiguration ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.Site <em>Site</em>}'.
@@ -806,6 +907,103 @@ public interface GlobalPackage extends EPackage
     EAttribute getEventQueryImport_LocalPoolSize ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.AePullConfiguration <em>Ae Pull Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Ae Pull Configuration</em>'.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration
+     * @generated
+     */
+    EClass getAePullConfiguration ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.AePullConfiguration#getDriverName <em>Driver Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Driver Name</em>'.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration#getDriverName()
+     * @see #getAePullConfiguration()
+     * @generated
+     */
+    EAttribute getAePullConfiguration_DriverName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.AePullConfiguration#getCustomSelectSql <em>Custom Select Sql</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Custom Select Sql</em>'.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration#getCustomSelectSql()
+     * @see #getAePullConfiguration()
+     * @generated
+     */
+    EAttribute getAePullConfiguration_CustomSelectSql ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.AePullConfiguration#getCustomDeleteSql <em>Custom Delete Sql</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Custom Delete Sql</em>'.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration#getCustomDeleteSql()
+     * @see #getAePullConfiguration()
+     * @generated
+     */
+    EAttribute getAePullConfiguration_CustomDeleteSql ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.AePullConfiguration#getDelay <em>Delay</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Delay</em>'.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration#getDelay()
+     * @see #getAePullConfiguration()
+     * @generated
+     */
+    EAttribute getAePullConfiguration_Delay ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.processor.common.global.AePullConfiguration#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration#getProperties()
+     * @see #getAePullConfiguration()
+     * @generated
+     */
+    EReference getAePullConfiguration_Properties ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.processor.common.global.PropertyEntry <em>Property Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Property Entry</em>'.
+     * @see org.openscada.configurator.processor.common.global.PropertyEntry
+     * @generated
+     */
+    EClass getPropertyEntry ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.PropertyEntry#getKey <em>Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Key</em>'.
+     * @see org.openscada.configurator.processor.common.global.PropertyEntry#getKey()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Key ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.processor.common.global.PropertyEntry#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.openscada.configurator.processor.common.global.PropertyEntry#getValue()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Value ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -919,12 +1117,12 @@ public interface GlobalPackage extends EPackage
         EReference TRANSFORM_SITE_TO_GLOBAL__QUERIES = eINSTANCE.getTransformSiteToGlobal_Queries ();
 
         /**
-         * The meta object literal for the '<em><b>Enable Ae Slave Pull</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Ae Pull Configuration</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL = eINSTANCE.getTransformSiteToGlobal_EnableAeSlavePull ();
+        EReference TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION = eINSTANCE.getTransformSiteToGlobal_AePullConfiguration ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.SiteImpl <em>Site</em>}' class.
@@ -1083,6 +1281,82 @@ public interface GlobalPackage extends EPackage
          * @generated
          */
         EAttribute EVENT_QUERY_IMPORT__LOCAL_POOL_SIZE = eINSTANCE.getEventQueryImport_LocalPoolSize ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.AePullConfigurationImpl <em>Ae Pull Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.AePullConfigurationImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getAePullConfiguration()
+         * @generated
+         */
+        EClass AE_PULL_CONFIGURATION = eINSTANCE.getAePullConfiguration ();
+
+        /**
+         * The meta object literal for the '<em><b>Driver Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AE_PULL_CONFIGURATION__DRIVER_NAME = eINSTANCE.getAePullConfiguration_DriverName ();
+
+        /**
+         * The meta object literal for the '<em><b>Custom Select Sql</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AE_PULL_CONFIGURATION__CUSTOM_SELECT_SQL = eINSTANCE.getAePullConfiguration_CustomSelectSql ();
+
+        /**
+         * The meta object literal for the '<em><b>Custom Delete Sql</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AE_PULL_CONFIGURATION__CUSTOM_DELETE_SQL = eINSTANCE.getAePullConfiguration_CustomDeleteSql ();
+
+        /**
+         * The meta object literal for the '<em><b>Delay</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AE_PULL_CONFIGURATION__DELAY = eINSTANCE.getAePullConfiguration_Delay ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference AE_PULL_CONFIGURATION__PROPERTIES = eINSTANCE.getAePullConfiguration_Properties ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.processor.common.global.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.processor.common.global.impl.PropertyEntryImpl
+         * @see org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl#getPropertyEntry()
+         * @generated
+         */
+        EClass PROPERTY_ENTRY = eINSTANCE.getPropertyEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__KEY = eINSTANCE.getPropertyEntry_Key ();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
 
     }
 

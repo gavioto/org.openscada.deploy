@@ -11,12 +11,14 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.global.AePullConfiguration;
 import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.PropertyEntry;
 import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
@@ -128,6 +130,18 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl
         public Adapter caseEventQueryImport ( EventQueryImport object )
         {
             return createEventQueryImportAdapter ();
+        }
+
+        @Override
+        public Adapter caseAePullConfiguration ( AePullConfiguration object )
+        {
+            return createAePullConfigurationAdapter ();
+        }
+
+        @Override
+        public Adapter casePropertyEntry ( PropertyEntry object )
+        {
+            return createPropertyEntryAdapter ();
         }
 
         @Override
@@ -273,6 +287,36 @@ public class GlobalAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createEventQueryImportAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.AePullConfiguration <em>Ae Pull Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.AePullConfiguration
+     * @generated
+     */
+    public Adapter createAePullConfigurationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.global.PropertyEntry <em>Property Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.global.PropertyEntry
+     * @generated
+     */
+    public Adapter createPropertyEntryAdapter ()
     {
         return null;
     }

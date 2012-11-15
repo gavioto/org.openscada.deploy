@@ -247,6 +247,56 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.AePullConfiguration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AePullConfigurationItemProvider aePullConfigurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.AePullConfiguration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAePullConfigurationAdapter ()
+    {
+        if ( aePullConfigurationItemProvider == null )
+        {
+            aePullConfigurationItemProvider = new AePullConfigurationItemProvider ( this );
+        }
+
+        return aePullConfigurationItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.global.PropertyEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PropertyEntryItemProvider propertyEntryItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.global.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPropertyEntryAdapter ()
+    {
+        if ( propertyEntryItemProvider == null )
+        {
+            propertyEntryItemProvider = new PropertyEntryItemProvider ( this );
+        }
+
+        return propertyEntryItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -399,6 +449,10 @@ public class GlobalItemProviderAdapterFactory extends GlobalAdapterFactory imple
             monitorQueryImportItemProvider.dispose ();
         if ( eventQueryImportItemProvider != null )
             eventQueryImportItemProvider.dispose ();
+        if ( aePullConfigurationItemProvider != null )
+            aePullConfigurationItemProvider.dispose ();
+        if ( propertyEntryItemProvider != null )
+            propertyEntryItemProvider.dispose ();
     }
 
     /**

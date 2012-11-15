@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.processor.common.CommonPackage;
+import org.openscada.configurator.processor.common.global.AePullConfiguration;
 import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
 import org.openscada.configurator.processor.common.global.GlobalFactory;
@@ -21,6 +22,7 @@ import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.Include;
 import org.openscada.configurator.processor.common.global.ItemSelector;
 import org.openscada.configurator.processor.common.global.MonitorQueryImport;
+import org.openscada.configurator.processor.common.global.PropertyEntry;
 import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
@@ -89,6 +91,20 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * @generated
      */
     private EClass eventQueryImportEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass aePullConfigurationEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass propertyEntryEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -276,9 +292,9 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTransformSiteToGlobal_EnableAeSlavePull ()
+    public EReference getTransformSiteToGlobal_AePullConfiguration ()
     {
-        return (EAttribute)transformSiteToGlobalEClass.getEStructuralFeatures ().get ( 10 );
+        return (EReference)transformSiteToGlobalEClass.getEStructuralFeatures ().get ( 10 );
     }
 
     /**
@@ -466,6 +482,96 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getAePullConfiguration ()
+    {
+        return aePullConfigurationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAePullConfiguration_DriverName ()
+    {
+        return (EAttribute)aePullConfigurationEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAePullConfiguration_CustomSelectSql ()
+    {
+        return (EAttribute)aePullConfigurationEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAePullConfiguration_CustomDeleteSql ()
+    {
+        return (EAttribute)aePullConfigurationEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAePullConfiguration_Delay ()
+    {
+        return (EAttribute)aePullConfigurationEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAePullConfiguration_Properties ()
+    {
+        return (EReference)aePullConfigurationEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPropertyEntry ()
+    {
+        return propertyEntryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPropertyEntry_Key ()
+    {
+        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPropertyEntry_Value ()
+    {
+        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public GlobalFactory getGlobalFactory ()
     {
         return (GlobalFactory)getEFactoryInstance ();
@@ -503,7 +609,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SUMMARY_ITEM_FORMAT );
         createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__SELECTOR );
         createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__QUERIES );
-        createEAttribute ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__ENABLE_AE_SLAVE_PULL );
+        createEReference ( transformSiteToGlobalEClass, TRANSFORM_SITE_TO_GLOBAL__AE_PULL_CONFIGURATION );
 
         siteEClass = createEClass ( SITE );
         createEAttribute ( siteEClass, SITE__ID );
@@ -529,6 +635,17 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
 
         eventQueryImportEClass = createEClass ( EVENT_QUERY_IMPORT );
         createEAttribute ( eventQueryImportEClass, EVENT_QUERY_IMPORT__LOCAL_POOL_SIZE );
+
+        aePullConfigurationEClass = createEClass ( AE_PULL_CONFIGURATION );
+        createEAttribute ( aePullConfigurationEClass, AE_PULL_CONFIGURATION__DRIVER_NAME );
+        createEAttribute ( aePullConfigurationEClass, AE_PULL_CONFIGURATION__CUSTOM_SELECT_SQL );
+        createEAttribute ( aePullConfigurationEClass, AE_PULL_CONFIGURATION__CUSTOM_DELETE_SQL );
+        createEAttribute ( aePullConfigurationEClass, AE_PULL_CONFIGURATION__DELAY );
+        createEReference ( aePullConfigurationEClass, AE_PULL_CONFIGURATION__PROPERTIES );
+
+        propertyEntryEClass = createEClass ( PROPERTY_ENTRY );
+        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__KEY );
+        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
     }
 
     /**
@@ -584,7 +701,7 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
         initEAttribute ( getTransformSiteToGlobal_SummaryItemFormat (), ecorePackage.getEString (), "summaryItemFormat", null, 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getTransformSiteToGlobal_Selector (), this.getItemSelector (), null, "selector", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getTransformSiteToGlobal_Queries (), this.getQueryImport (), null, "queries", null, 0, -1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getTransformSiteToGlobal_EnableAeSlavePull (), ecorePackage.getEBoolean (), "enableAeSlavePull", "false", 1, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getTransformSiteToGlobal_AePullConfiguration (), this.getAePullConfiguration (), null, "aePullConfiguration", null, 0, 1, TransformSiteToGlobal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getSite_Id (), ecorePackage.getEString (), "id", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -610,6 +727,17 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
 
         initEClass ( eventQueryImportEClass, EventQueryImport.class, "EventQueryImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getEventQueryImport_LocalPoolSize (), ecorePackage.getEInt (), "localPoolSize", "10000", 1, 1, EventQueryImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( aePullConfigurationEClass, AePullConfiguration.class, "AePullConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getAePullConfiguration_DriverName (), ecorePackage.getEString (), "driverName", null, 1, 1, AePullConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getAePullConfiguration_CustomSelectSql (), ecorePackage.getEString (), "customSelectSql", null, 0, 1, AePullConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getAePullConfiguration_CustomDeleteSql (), ecorePackage.getEString (), "customDeleteSql", null, 0, 1, AePullConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getAePullConfiguration_Delay (), ecorePackage.getEIntegerObject (), "delay", null, 0, 1, AePullConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getAePullConfiguration_Properties (), this.getPropertyEntry (), null, "properties", null, 0, -1, AePullConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( propertyEntryEClass, PropertyEntry.class, "PropertyEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getPropertyEntry_Key (), ecorePackage.getEString (), "key", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getPropertyEntry_Value (), ecorePackage.getEString (), "value", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //GlobalPackageImpl

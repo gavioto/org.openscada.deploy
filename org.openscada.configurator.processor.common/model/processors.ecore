@@ -49,9 +49,8 @@
           eType="#//global/ItemSelector" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
           eType="#//global/QueryImport" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableAeSlavePull" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aePullConfiguration"
+          eType="#//global/AePullConfiguration" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Site">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -89,6 +88,20 @@
     <eClassifiers xsi:type="ecore:EClass" name="EventQueryImport" eSuperTypes="#//global/QueryImport">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="localPoolSize" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="10000"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AePullConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="customSelectSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="customDeleteSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//global/PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
