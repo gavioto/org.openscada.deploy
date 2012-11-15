@@ -24,6 +24,7 @@ class Profile:
         self.defaultProfileName=None
         self.dataDirectories=[]
         self.notes=[]
+        self.abstractDefinition=false
 
 def findProfileFile ( template ):
     if not os.path.exists(profilesDir):
@@ -103,6 +104,10 @@ def performLoad ( templateName, p, templateFile ):
     if "parent" in profile.attributes.keys():
         parentName = profile.attributes["parent"].value
         performLoad ( parentName, p,  findProfileFile ( parentName ) )
+        
+    if "abstract" in profile.attributes.keys():
+    	if profile.attributes["abstract"].value == "true":
+    		p.abstractDefinition = true
 
     for node in profile.getElementsByTagName("note"):
         value = getText ( node.childNodes )
@@ -205,6 +210,9 @@ def showNotes ( notes ):
 
 
 def createInstance ( target, p ):
+	if p.abstractDefinition:
+		raise Exception("You cannot create an abstract definition")
+		
     subprocess.call ( ["p2.create", target] )
     subprocess.call ( ["p2.install", target ] + p.features )
     writeArguments ( target + os.sep + "launcher.args", p.arguments )
