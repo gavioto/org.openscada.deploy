@@ -126,6 +126,8 @@
   		
   	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.utils"/>
   	
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.jetty.config"/>
+  	
   </target>
 
   <!-- ===================================================================== -->
