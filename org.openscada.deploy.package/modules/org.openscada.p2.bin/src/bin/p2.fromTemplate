@@ -8,10 +8,19 @@ import subprocess
 from os import pathsep
 from xml.dom.minidom import parse
 
+if len(sys.argv) != 3:
+    sys.stderr.write("p2.fromTemplate has to be called with parameters <profile> <target>!")
+    sys.exit(-1)
+    
 profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/openscada/profiles" )
+profileName = sys.argv[1]
 target = sys.argv[2]
 TARGET_DIR = os.path.abspath ( target ) # for the eval() calls
 debug = "debug" in os.environ
+
+if os.path.exists(target):
+    sys.stderr.write("target directory already exists.")
+    sys.exit(-2)
 
 class Profile:
     """A class holding profile information"""
@@ -24,18 +33,18 @@ class Profile:
         self.defaultProfileName=None
         self.dataDirectories=[]
         self.notes=[]
-        self.abstractDefinition=false
+        self.abstractDefinition=False
 
 def findProfileFile ( template ):
     if not os.path.exists(profilesDir):
         sys.stderr.write ("'" + profilesDir + "' does not exist\n")
-        sys.exit(-1)
+        sys.exit(-3)
 
     templateFile = "%s%s%s.profile.xml" % (profilesDir, os.sep, template)
 
     if not os.path.exists ( templateFile ):
         sys.stderr.write ("'" + templateFile + "' does not exist\n")
-        sys.exit(-2)
+        sys.exit(-4)
 
     return templateFile    
 
@@ -107,7 +116,7 @@ def performLoad ( templateName, p, templateFile ):
         
     if "abstract" in profile.attributes.keys():
     	if profile.attributes["abstract"].value == "true":
-    		p.abstractDefinition = true
+    		p.abstractDefinition = True
 
     for node in profile.getElementsByTagName("note"):
         value = getText ( node.childNodes )
@@ -223,6 +232,6 @@ def createInstance ( target, p ):
     copyData ( target, p.dataDirectories )
     showNotes ( p.notes )
 
-createInstance ( target, loadProfile(sys.argv[1]) )
-
+if __name__=='__main__':
+    createInstance ( target, loadProfile(profileName) )
 
