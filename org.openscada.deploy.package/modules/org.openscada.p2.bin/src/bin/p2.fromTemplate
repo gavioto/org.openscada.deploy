@@ -59,8 +59,8 @@ def findDataDir ( name ):
 
     return None
 
-def loadProfile ( template ):
-    return loadProfileFile ( template, findProfileFile ( template ) )
+def loadProfile ( template, initial=False ):
+    return loadProfileFile ( template, findProfileFile ( template ), initial )
 
 
 def getText(nodelist):
@@ -98,7 +98,7 @@ def findNodes ( element, tag ):
 
     return result
 
-def performLoad ( templateName, p, templateFile ):
+def performLoad ( templateName, p, templateFile, initial=False ):
     print "Loading: " + templateFile
 
     dataDir = findDataDir ( templateName )
@@ -116,7 +116,8 @@ def performLoad ( templateName, p, templateFile ):
         
     if "abstract" in profile.attributes.keys():
     	if profile.attributes["abstract"].value == "true":
-    		p.abstractDefinition = True
+    	    if initial:
+    	        p.abstractDefinition = True
 
     for node in profile.getElementsByTagName("note"):
         value = getText ( node.childNodes )
@@ -166,9 +167,9 @@ def performLoad ( templateName, p, templateFile ):
         readProperties ( p.profiles[name], findNodes ( node, "property" ), name )
 
 
-def loadProfileFile ( name, templateFile ):
+def loadProfileFile ( name, templateFile, initial=False ):
     p = Profile()
-    performLoad ( name, p, templateFile )
+    performLoad ( name, p, templateFile, initial )
     return p
 
 def writeArguments(fileName, arguments):
@@ -233,5 +234,5 @@ def createInstance ( target, p ):
     showNotes ( p.notes )
 
 if __name__=='__main__':
-    createInstance ( target, loadProfile(profileName) )
+    createInstance ( target, loadProfile(profileName, True) )
 
