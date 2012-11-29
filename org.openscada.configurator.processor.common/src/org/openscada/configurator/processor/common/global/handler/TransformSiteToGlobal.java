@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.openscada.ae.Severity;
+import org.openscada.ae.data.Severity;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;

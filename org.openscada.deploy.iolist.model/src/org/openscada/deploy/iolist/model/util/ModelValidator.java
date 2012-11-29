@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.openscada.ae.Severity;
+import org.openscada.ae.data.Severity;
 import org.openscada.core.Variant;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
@@ -43,7 +43,9 @@ import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
 
 /**
- * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
+ * -->
+ * 
  * @see org.openscada.deploy.iolist.model.ModelPackage
  * @generated
  */
@@ -57,7 +59,10 @@ public class ModelValidator extends EObjectValidator
     public static final ModelValidator INSTANCE = new ModelValidator ();
 
     /**
-     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package. <!--
+     * A constant for the
+     * {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
+     * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes}
+     * from this package. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()

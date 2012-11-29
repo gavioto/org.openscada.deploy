@@ -6,7 +6,7 @@
  */
 package org.openscada.deploy.iolist.model;
 
-import org.openscada.ae.Severity;
+import org.openscada.ae.data.Severity;
 
 /**
  * <!-- begin-user-doc -->
