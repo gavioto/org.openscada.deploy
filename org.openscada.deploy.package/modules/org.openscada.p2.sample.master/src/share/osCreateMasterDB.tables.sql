@@ -76,205 +76,97 @@ CREATE INDEX openscada_ds_idx_4
 
 -- AE
 
+-- DROP TABLE openscada_ae_events
+-- DROP TABLE openscada_ae_events_attr
+
 CREATE TABLE openscada_ae_events
 (
-  id character(36) NOT NULL,
-  source_timestamp timestamp without time zone,
-  entry_timestamp timestamp without time zone,
-  instance_id character varying(32),
-  monitor_type character varying(32),
-  event_type character varying(32),
-  value_type character varying(32),
-  value_string character varying(4000),
-  value_integer bigint,
-  value_double double precision,
-  message character varying(4000),
-  message_code character varying(255),
-  priority smallint,
-  source character varying(255),
-  actor_name character varying(128),
-  actor_type character varying(32),
-  CONSTRAINT openscada_ae_events_pkey PRIMARY KEY (id )
-)
-WITH (
-  OIDS=FALSE
+  id                           CHAR(36) NOT NULL,
+  source_timestamp             TIMESTAMP,
+  entry_timestamp              TIMESTAMP,
+  instance_id                  VARCHAR(32),
+  monitor_type                 VARCHAR(32),
+  event_type                   VARCHAR(32),
+  value_type                   VARCHAR(32),
+  value_string                 VARCHAR(4000),
+  value_integer                BIGINT,
+  value_double                 DOUBLE PRECISION,
+  message                      VARCHAR(4000),
+  message_code                 VARCHAR(255),
+  priority                     SMALLINT,
+  source                       VARCHAR(255),
+  actor_name                   VARCHAR(128),
+  actor_type                   VARCHAR(32),
+  severity                     VARCHAR(32),
+  replicated                   SMALLINT,
+  CONSTRAINT openscada_ae_events_pkey PRIMARY KEY (id)
 );
-ALTER TABLE openscada_ae_events
-  OWNER TO openscada;
-
-CREATE INDEX openscada_ae_events_idx_1
-  ON openscada_ae_events
-  USING btree
-  (source_timestamp );
-
-CREATE INDEX openscada_ae_events_idx_10
-  ON openscada_ae_events
-  USING btree
-  (message COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_10l
-  ON openscada_ae_events
-  USING btree
-  (lower(message::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_11
-  ON openscada_ae_events
-  USING btree
-  (message_code COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_11l
-  ON openscada_ae_events
-  USING btree
-  (lower(message_code::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_12
-  ON openscada_ae_events
-  USING btree
-  (priority );
-
-CREATE INDEX openscada_ae_events_idx_13
-  ON openscada_ae_events
-  USING btree
-  (source COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_13l
-  ON openscada_ae_events
-  USING btree
-  (lower(source::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_14
-  ON openscada_ae_events
-  USING btree
-  (actor_name COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_14l
-  ON openscada_ae_events
-  USING btree
-  (lower(actor_name::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_15
-  ON openscada_ae_events
-  USING btree
-  (actor_type COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_15l
-  ON openscada_ae_events
-  USING btree
-  (lower(actor_type::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_1d
-  ON openscada_ae_events
-  USING btree
-  (source_timestamp  DESC);
-
-CREATE INDEX openscada_ae_events_idx_2
-  ON openscada_ae_events
-  USING btree
-  (entry_timestamp );
-
-CREATE INDEX openscada_ae_events_idx_2d
-  ON openscada_ae_events
-  USING btree
-  (entry_timestamp  DESC);
-
-CREATE INDEX openscada_ae_events_idx_3
-  ON openscada_ae_events
-  USING btree
-  (instance_id COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_4
-  ON openscada_ae_events
-  USING btree
-  (monitor_type COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_4l
-  ON openscada_ae_events
-  USING btree
-  (lower(monitor_type::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_5
-  ON openscada_ae_events
-  USING btree
-  (event_type COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_5l
-  ON openscada_ae_events
-  USING btree
-  (lower(event_type::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_6
-  ON openscada_ae_events
-  USING btree
-  (value_type COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_7
-  ON openscada_ae_events
-  USING btree
-  (value_string COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_7l
-  ON openscada_ae_events
-  USING btree
-  (lower(value_string::text) COLLATE pg_catalog."default" );
-
-CREATE INDEX openscada_ae_events_idx_8
-  ON openscada_ae_events
-  USING btree
-  (value_integer );
-
-CREATE INDEX openscada_ae_events_idx_9
-  ON openscada_ae_events
-  USING btree
-  (value_double );
 
 CREATE TABLE openscada_ae_events_attr
 (
-  id character(36) NOT NULL,
-  key character varying(64) NOT NULL,
-  value_type character varying(32),
-  value_string character varying(4000),
-  value_integer bigint,
-  value_double double precision,
-  CONSTRAINT openscada_ae_events_attr_pkey PRIMARY KEY (id , key ),
+  id                           CHAR(36) NOT NULL,
+  key                          VARCHAR(64) NOT NULL,
+  value_type                   VARCHAR(32),
+  value_string                 VARCHAR(4000),
+  value_integer                BIGINT,
+  value_double                 DOUBLE PRECISION,
+  CONSTRAINT openscada_ae_events_attr_pkey PRIMARY KEY (id , key),
   CONSTRAINT openscada_ae_events_attr_id_fkey FOREIGN KEY (id)
-      REFERENCES openscada_ae_events (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE CASCADE
-)
-WITH (
-  OIDS=FALSE
+      REFERENCES openscada_ae_events (id) ON DELETE CASCADE
 );
-ALTER TABLE openscada_ae_events_attr
-  OWNER TO openscada;
 
-CREATE INDEX openscada_ae_events_attr_idx_1
-  ON openscada_ae_events_attr
-  USING btree
-  (id COLLATE pg_catalog."default" , key COLLATE pg_catalog."default" );
+CREATE INDEX openscada_ae_events_idx_1 ON openscada_ae_events (source_timestamp);
+CREATE INDEX openscada_ae_events_idx_1d ON openscada_ae_events (source_timestamp DESC);
+CREATE INDEX openscada_ae_events_idx_2 ON openscada_ae_events (entry_timestamp);
+CREATE INDEX openscada_ae_events_idx_2d ON openscada_ae_events (entry_timestamp DESC);
+CREATE INDEX openscada_ae_events_idx_3 ON openscada_ae_events (instance_id);
+CREATE INDEX openscada_ae_events_idx_4 ON openscada_ae_events (monitor_type);
+CREATE INDEX openscada_ae_events_idx_4l ON openscada_ae_events (lower(monitor_type));
+CREATE INDEX openscada_ae_events_idx_5 ON openscada_ae_events (event_type);
+CREATE INDEX openscada_ae_events_idx_5l ON openscada_ae_events (lower(event_type));
+CREATE INDEX openscada_ae_events_idx_6 ON openscada_ae_events (value_type);
+CREATE INDEX openscada_ae_events_idx_7 ON openscada_ae_events (value_string);
+CREATE INDEX openscada_ae_events_idx_7l ON openscada_ae_events (lower(value_string));
+CREATE INDEX openscada_ae_events_idx_8 ON openscada_ae_events (value_integer);
+CREATE INDEX openscada_ae_events_idx_9 ON openscada_ae_events (value_double);
+CREATE INDEX openscada_ae_events_idx_10 ON openscada_ae_events (message);
+CREATE INDEX openscada_ae_events_idx_10l ON openscada_ae_events (lower(message));
+CREATE INDEX openscada_ae_events_idx_11 ON openscada_ae_events (message_code);
+CREATE INDEX openscada_ae_events_idx_11l ON openscada_ae_events (lower(message_code));
+CREATE INDEX openscada_ae_events_idx_12 ON openscada_ae_events (priority);
+CREATE INDEX openscada_ae_events_idx_13 ON openscada_ae_events (source);
+CREATE INDEX openscada_ae_events_idx_13l ON openscada_ae_events (lower(source));
+CREATE INDEX openscada_ae_events_idx_14 ON openscada_ae_events (actor_name);
+CREATE INDEX openscada_ae_events_idx_14l ON openscada_ae_events (lower(actor_name));
+CREATE INDEX openscada_ae_events_idx_15 ON openscada_ae_events (actor_type);
+CREATE INDEX openscada_ae_events_idx_15l ON openscada_ae_events (lower(actor_type));
+CREATE INDEX openscada_ae_events_idx_16 ON openscada_ae_events (severity);
+CREATE INDEX openscada_ae_events_idx_16l ON openscada_ae_events (lower(severity));
+CREATE INDEX openscada_ae_events_idx_17 ON openscada_ae_events (replicated);
 
-CREATE INDEX openscada_ae_events_attr_idx_2
-  ON openscada_ae_events_attr
-  USING btree
-  (value_type COLLATE pg_catalog."default" );
+CREATE INDEX openscada_ae_events_attr_idx_1 ON openscada_ae_events_attr (id, key);
+CREATE INDEX openscada_ae_events_attr_idx_2 ON openscada_ae_events_attr (value_type);
+CREATE INDEX openscada_ae_events_attr_idx_3 ON openscada_ae_events_attr (value_string);
+CREATE INDEX openscada_ae_events_attr_idx_3l ON openscada_ae_events_attr (lower(value_string));
+CREATE INDEX openscada_ae_events_attr_idx_4 ON openscada_ae_events_attr (value_integer);
+CREATE INDEX openscada_ae_events_attr_idx_5 ON openscada_ae_events_attr (value_double);
 
-CREATE INDEX openscada_ae_events_attr_idx_3
-  ON openscada_ae_events_attr
-  USING btree
-  (value_string COLLATE pg_catalog."default" );
+-- ALTER TABLE openscada_ae_events OWNER TO openscada;
+-- ALTER TABLE openscada_ae_events_attr OWNER TO openscada;
 
-CREATE INDEX openscada_ae_events_attr_idx_3l
-  ON openscada_ae_events_attr
-  USING btree
-  (lower(value_string::text) COLLATE pg_catalog."default" );
+-- for replication table ( blob mode )
 
-CREATE INDEX openscada_ae_events_attr_idx_4
-  ON openscada_ae_events_attr
-  USING btree
-  (value_integer );
+CREATE TABLE openscada_ae_rep
+(
+  id                           CHAR(36) NOT NULL,
+  entry_timestamp              TIMESTAMP,
+  node_id                      VARCHAR(32),
+  data                         BYTEA,
+  CONSTRAINT openscada_ae_rep_pkey PRIMARY KEY ( id )	
+);
 
-CREATE INDEX openscada_ae_events_attr_idx_5
-  ON openscada_ae_events_attr
-  USING btree
-  (value_double );
+CREATE INDEX openscada_ae_rep_idx_1 ON openscada_ae_rep (id);
+CREATE INDEX openscada_ae_rep_idx_2 ON openscada_ae_rep (entry_timestamp);
 
 -- users
 
