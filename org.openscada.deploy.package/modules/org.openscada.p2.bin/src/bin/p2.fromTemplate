@@ -9,7 +9,7 @@ from os import pathsep
 from xml.dom.minidom import parse
 
 if len(sys.argv) != 3:
-    sys.stderr.write("p2.fromTemplate has to be called with parameters <profile> <target>!")
+    sys.stderr.write("p2.fromTemplate has to be called with parameters <profile> <target>!\n")
     sys.exit(-1)
     
 profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/openscada/profiles" )

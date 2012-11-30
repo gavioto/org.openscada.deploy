@@ -19,7 +19,7 @@
 	<property key="com.sun.management.jmxremote.authenticate">false</property>
 	<property key="com.sun.management.jmxremote.ssl">false</property>
 	
-	<property key="logback.configurationFile" eval="true">TARGET_DIR + &quot;logback.xml&quot;</property>
+	<property key="logback.configurationFile" eval="true">TARGET_DIR + &quot;/logback.xml&quot;</property>
 	<note>If you move the installation directory also remember to fix the property &quot;logback.configurationFile&quot;</note>
 
 	<profile name="postgres">
