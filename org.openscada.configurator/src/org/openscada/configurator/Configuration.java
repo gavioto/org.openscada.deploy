@@ -53,7 +53,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.openscada.ae.Severity;
+import org.openscada.ae.data.Severity;
 import org.openscada.configurator.loop.LoopValidator;
 import org.openscada.configurator.report.DataItemSource;
 import org.openscada.configurator.report.FormulaSource;
