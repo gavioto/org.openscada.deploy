@@ -21,7 +21,7 @@ public class NetworkDeviceRowHandler implements RowHandler
     {
         final NetworkDevice device = new NetworkDevice ();
 
-        if ( rowData.get ( "IP" ) == null || rowData.get ( "IP" ).isEmpty () )
+        if ( ( rowData.get ( "IP" ) == null ) || rowData.get ( "IP" ).isEmpty () )
         {
             return;
         }
@@ -39,10 +39,22 @@ public class NetworkDeviceRowHandler implements RowHandler
         }
 
         device.setDescription ( rowData.get ( "DESCRIPTION" ) );
-        device.setWarnRtt ( Double.parseDouble ( rowData.get ( "WARN_RTT" ) ) );
-        device.setAlarmRtt ( Double.parseDouble ( rowData.get ( "ALARM_RTT" ) ) );
-        device.setWarnLoss ( Double.parseDouble ( rowData.get ( "WARN_LOSS" ) ) );
-        device.setAlarmLoss ( Double.parseDouble ( rowData.get ( "ALARM_LOSS" ) ) );
+        if ( !rowData.get ( "WARN_RTT" ).isEmpty () )
+        {
+            device.setWarnRtt ( Double.parseDouble ( rowData.get ( "WARN_RTT" ) ) );
+        }
+        if ( !rowData.get ( "ALARM_RTT" ).isEmpty () )
+        {
+            device.setAlarmRtt ( Double.parseDouble ( rowData.get ( "ALARM_RTT" ) ) );
+        }
+        if ( !rowData.get ( "WARN_LOSS" ).isEmpty () )
+        {
+            device.setWarnLoss ( Double.parseDouble ( rowData.get ( "WARN_LOSS" ) ) );
+        }
+        if ( !rowData.get ( "ALARM_LOSS" ).isEmpty () )
+        {
+            device.setAlarmLoss ( Double.parseDouble ( rowData.get ( "ALARM_LOSS" ) ) );
+        }
 
         this.devices.add ( device );
     }

@@ -43,7 +43,7 @@ public class NetworkHandler
         for ( final NetworkDevice device : devices )
         {
             {
-                final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () / 100.0, device.getAlarmLoss () / 100.0 );
+                final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () == null ? null : device.getWarnLoss () / 100.0, device.getAlarmLoss () == null ? null : device.getAlarmLoss () / 100.0 );
                 item.setAlias ( String.format ( "%s.%s.AVAIL.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_PacketLoss_Description, device.getDescription () ) );
