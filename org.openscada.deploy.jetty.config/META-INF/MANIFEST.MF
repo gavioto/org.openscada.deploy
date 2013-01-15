@@ -6,4 +6,4 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.equinox.http.registry
-Import-Package: org.mortbay.servlet;version="6.1.0"
+Import-Package: org.eclipse.jetty.servlet;version="8.1.3"
