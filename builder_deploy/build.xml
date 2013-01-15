@@ -20,7 +20,7 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean,openscada.build.profile.setup, build.default, build.daserver, build.p2directory">
+    <target name="default" depends="clean,openscada.build.profile.setup, build.default, build.daserver, build.p2director">
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
@@ -40,7 +40,7 @@
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.p2directory
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.p2directory">
+    <target name="build.p2director">
     	<openscada.productBuild builder="builder.p2director"/>
     </target>
 	
