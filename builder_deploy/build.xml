@@ -16,31 +16,53 @@
 	<import file="global/profile.d/profile.${builder.profile}.ant"/>
 	
 	<import file="${build.root}/global/lib.xml"/>
+	
+	<condition property="doSkip.daserver">
+		<istrue value="${skip.daserver}"/>
+	</condition>
+	
+	<condition property="doSkip.p2director">
+		<istrue value="${skip.p2director}"/>
+	</condition>
+	
+	<condition property="doSkip.repo">
+		<istrue value="${skip.repo}"/>
+	</condition>
 
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+    	<echo message="doSkip.repo: ${doSkip.repo}"/>
+		<echo message="doSkip.daserver: ${doSkip.daserver}"/>
+    	<echo message="doSkip.p2director: ${doSkip.p2director}"/>
+    </target>
+
+	
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean, openscada.build.profile.setup, build.default, build.daserver, build.p2director">
+    <target name="default" depends="init, clean, openscada.build.profile.setup, build.default, build.daserver, build.p2director">
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.default
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.default" unless="skip.repo">
+    <target name="build.default" unless="doSkip.repo">
     	<openscada.bundleBuild builder="builder"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.daserver
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.daserver" unless="skip.daserver">
+    <target name="build.daserver" unless="doSkip.daserver">
     	<openscada.productBuild builder="builder.daserver"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
           target: build.p2directory
          - - - - - - - - - - - - - - - - - -->
-    <target name="build.p2director" unless="skip.p2director">
+    <target name="build.p2director" unless="doSkip.p2director">
     	<openscada.productBuild builder="builder.p2director"/>
     </target>
 	
