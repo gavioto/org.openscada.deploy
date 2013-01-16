@@ -20,9 +20,7 @@
    <requires>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
-      <import plugin="org.apache.mina.core"/>
       <import plugin="slf4j.api"/>
-      <import plugin="com.springsource.com.jcraft.jzlib"/>
    </requires>
 
    <plugin

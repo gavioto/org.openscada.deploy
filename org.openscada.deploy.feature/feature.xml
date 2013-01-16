@@ -45,6 +45,10 @@
          id="org.openscada.deploy.console"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.equinox.server.core"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.openscada.atlantis" version="0.15.0.qualifier"/>
       <import feature="org.openscada.utgard" version="0.7.0.qualifier"/>
@@ -52,12 +56,5 @@
       <import feature="org.openscada.oxygen" version="0.1.0.qualifier"/>
       <import feature="org.openscada.external" version="0.15.0.qualifier"/>
    </requires>
-
-   <plugin
-         id="org.eclipse.equinox.concurrent"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>
