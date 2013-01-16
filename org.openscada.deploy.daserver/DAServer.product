@@ -28,10 +28,10 @@
    </plugins>
 
    <features>
-      <feature id="org.eclipse.rcp"/>
       <feature id="org.openscada.deploy.daserver"/>
       <feature id="org.openscada.deploy.da.connector"/>
       <feature id="org.openscada.deploy.ca"/>
+      <feature id="org.eclipse.equinox.server.core"/>
    </features>
 
    <configurations>
