@@ -203,14 +203,14 @@ Library.
 
    <requires>
       <import plugin="org.eclipse.osgi"/>
-      <import plugin="slf4j.api"/>
       <import plugin="org.eclipse.osgi.services"/>
       <import plugin="org.eclipse.equinox.common"/>
       <import plugin="org.eclipse.equinox.registry"/>
       <import plugin="org.eclipse.equinox.common" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.equinox.common" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="javax.servlet.jsp"/>
+      <import plugin="slf4j.api"/>
       <import feature="org.openscada.aurora" version="1.0.0.qualifier"/>
+      <import plugin="ch.qos.logback.classic"/>
    </requires>
 
    <plugin

@@ -22,18 +22,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.openscada.deploy.p2"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rcp"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.platform"
-         version="0.0.0"/>
-
-   <includes
          id="org.openscada.deploy.ui.da.connector"
          version="0.0.0"/>
 
@@ -42,11 +30,15 @@
          version="0.0.0"/>
 
    <includes
-         id="org.openscada.deploy.console"
+         id="org.eclipse.equinox.server.core"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.equinox.server.core"
+         id="org.eclipse.equinox.server.jetty"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.server.p2"
          version="0.0.0"/>
 
    <requires>
