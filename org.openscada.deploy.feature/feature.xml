@@ -41,6 +41,10 @@
          id="org.openscada.deploy.da.connector"
          version="0.0.0"/>
 
+   <includes
+         id="org.openscada.deploy.console"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.openscada.atlantis" version="0.15.0.qualifier"/>
       <import feature="org.openscada.utgard" version="0.7.0.qualifier"/>
