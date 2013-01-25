@@ -367,7 +367,7 @@ public class Configuration extends GenericMasterConfiguration
         {
             final String id = group.getId ();
             final Item item = ModelFactory.eINSTANCE.createItem ();
-            item.setDebugInformation ( "Summary creation for " + id );
+            item.setDebugInformation ( "Summary creation for " + id ); //$NON-NLS-1$
             item.setDescription ( Messages.getString ( "Configuration.SummaryItemDescription" ) + id ); //$NON-NLS-1$
             item.setName ( id + ".sum" ); //$NON-NLS-1$
             item.setAlias ( id );
@@ -490,10 +490,10 @@ public class Configuration extends GenericMasterConfiguration
             {
                 attributes.put ( "system", item.getSystem ().toUpperCase () ); //$NON-NLS-1$
             }
-            attributes.put ( "message", item.getDescription () ); //$NON-NLS-1$
+            attributes.put ( "itemDescription", item.getDescription () ); //$NON-NLS-1$
             attributes.put ( "item", internalItemId ); //$NON-NLS-1$
 
-            reportItem.setBasicInformation ( attributes.get ( "hive" ), attributes.get ( "system" ), attributes.get ( "location" ), attributes.get ( "component" ), attributes.get ( "message" ), item.isEventCommand () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+            reportItem.setBasicInformation ( attributes.get ( "hive" ), attributes.get ( "system" ), attributes.get ( "location" ), attributes.get ( "component" ), attributes.get ( "itemDescription" ), item.isEventCommand () ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 
             if ( item.isRemoteBool () )
             {
@@ -503,7 +503,9 @@ public class Configuration extends GenericMasterConfiguration
             {
                 final String reference = item.getLocalBooleanMonitor ().isOkValue () ? "true" : "false"; //$NON-NLS-1$ //$NON-NLS-2$
 
-                addLocalBitMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().getSeverity (), item.getLocalBooleanMonitor ().isAck (), item.getDescription (), item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
+                final String message = Messages.getString ( "Configuration.LocalBooleanAlarmMessage" ); //$NON-NLS-1$
+
+                addLocalBitMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().getSeverity (), item.getLocalBooleanMonitor ().isAck (), message, item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
                 reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.getLocalBooleanMonitor ().isAck () ) );
             }
             makeRemoteLevels ( item, reportItem, masterId, attributes );
@@ -541,7 +543,8 @@ public class Configuration extends GenericMasterConfiguration
             if ( item.getLocalListMonitor () != null )
             {
                 final ListMonitor m = item.getLocalListMonitor ();
-                addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), item.getDescription (), item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
+                final String message = Messages.getString("Configuration.LocalListMonitorAlarmMessage"); //$NON-NLS-1$
+                addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), message, item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
             }
 
             if ( item.isBlock () )
@@ -1566,9 +1569,9 @@ public class Configuration extends GenericMasterConfiguration
             if ( this.summaryGroups.containsKey ( group.getId () ) )
             {
                 // complain
-                System.err.println ( "Old group: " + this.summaryGroups.get ( group.getId () ) );
-                System.err.println ( "New group: " + group );
-                throw new IllegalStateException ( "Duplicate summary group: " + group.getId () );
+                System.err.println ( "Old group: " + this.summaryGroups.get ( group.getId () ) ); //$NON-NLS-1$
+                System.err.println ( "New group: " + group ); //$NON-NLS-1$
+                throw new IllegalStateException ( "Duplicate summary group: " + group.getId () ); //$NON-NLS-1$
             }
             else
             {
@@ -1640,7 +1643,7 @@ public class Configuration extends GenericMasterConfiguration
             int i = 0;
             for ( final String remoteQuery : remoteQueries )
             {
-                data.put ( "remote.queries." + i, remoteQuery );
+                data.put ( "remote.queries." + i, remoteQuery ); //$NON-NLS-1$
                 i++;
             }
         }
@@ -1648,7 +1651,7 @@ public class Configuration extends GenericMasterConfiguration
             int i = 0;
             for ( final String localQuery : localQueries )
             {
-                data.put ( "local.queries." + i, localQuery );
+                data.put ( "local.queries." + i, localQuery ); //$NON-NLS-1$
                 i++;
             }
         }
@@ -1660,13 +1663,13 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "poolSize", "" + poolSize );
+        data.put ( "poolSize", "" + poolSize ); //$NON-NLS-1$ //$NON-NLS-2$
 
         {
             int i = 0;
             for ( final String remoteQuery : remoteQueries )
             {
-                data.put ( "remote.queries." + i, remoteQuery );
+                data.put ( "remote.queries." + i, remoteQuery ); //$NON-NLS-1$
                 i++;
             }
         }
@@ -1674,7 +1677,7 @@ public class Configuration extends GenericMasterConfiguration
             int i = 0;
             for ( final String localQuery : localQueries )
             {
-                data.put ( "local.queries." + i, localQuery );
+                data.put ( "local.queries." + i, localQuery ); //$NON-NLS-1$
                 i++;
             }
         }
