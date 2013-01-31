@@ -19,14 +19,17 @@ import org.openscada.configuration.model.hd.HdPackage;
 import org.openscada.configuration.model.hd.StorageCommandGenerator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Storage Command Generator</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Storage Command Generator</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configuration.model.hd.impl.StorageCommandGeneratorImpl#getSlot <em>Slot</em>}</li>
+ * <li>
+ * {@link org.openscada.configuration.model.hd.impl.StorageCommandGeneratorImpl#getSlot
+ * <em>Slot</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageCommandGenerator
@@ -34,6 +37,7 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
     /**
      * The cached value of the '{@link #getSlot() <em>Slot</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getSlot()
      * @generated
      * @ordered
@@ -42,6 +46,7 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected StorageCommandGeneratorImpl ()
@@ -51,6 +56,7 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -61,44 +67,51 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ConfigurationSlot getSlot ()
     {
-        if ( slot != null && slot.eIsProxy () )
+        if ( this.slot != null && this.slot.eIsProxy () )
         {
-            InternalEObject oldSlot = (InternalEObject)slot;
-            slot = (ConfigurationSlot)eResolveProxy ( oldSlot );
-            if ( slot != oldSlot )
+            final InternalEObject oldSlot = (InternalEObject)this.slot;
+            this.slot = (ConfigurationSlot)eResolveProxy ( oldSlot );
+            if ( this.slot != oldSlot )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, slot ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, this.slot ) );
+                }
             }
         }
-        return slot;
+        return this.slot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ConfigurationSlot basicGetSlot ()
     {
-        return slot;
+        return this.slot;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setSlot ( ConfigurationSlot newSlot )
+    public void setSlot ( final ConfigurationSlot newSlot )
     {
-        ConfigurationSlot oldSlot = slot;
-        slot = newSlot;
+        final ConfigurationSlot oldSlot = this.slot;
+        this.slot = newSlot;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, slot ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, HdPackage.STORAGE_COMMAND_GENERATOR__SLOT, oldSlot, this.slot ) );
+        }
     }
 
     /**
@@ -118,23 +131,26 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
         }
         for ( final String key : hdFactory.keySet () )
         {
-            System.out.println ( String.format ( "addHDStorage %s 3600000 2160", key ) );
+            System.out.println ( String.format ( "hds:create %s 3600000 2160", key ) );
         }
         System.out.println ( "END" );
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
             case HdPackage.STORAGE_COMMAND_GENERATOR__SLOT:
                 if ( resolve )
+                {
                     return getSlot ();
+                }
                 return basicGetSlot ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -142,10 +158,11 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -158,10 +175,11 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -174,15 +192,16 @@ public class StorageCommandGeneratorImpl extends EObjectImpl implements StorageC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case HdPackage.STORAGE_COMMAND_GENERATOR__SLOT:
-                return slot != null;
+                return this.slot != null;
         }
         return super.eIsSet ( featureID );
     }
