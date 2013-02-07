@@ -195,15 +195,15 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( SummaryGroup.class ) )
         {
-            case ModelPackage.SUMMARY_GROUP__ID:
-            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            case ModelPackage.SUMMARY_GROUP__RETAIN:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.SUMMARY_GROUP__ID:
+        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+        case ModelPackage.SUMMARY_GROUP__RETAIN:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+        case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

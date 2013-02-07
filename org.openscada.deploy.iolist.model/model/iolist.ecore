@@ -178,6 +178,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Monitor" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suppressEvents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LevelMonitor" eSuperTypes="#//BasicMonitor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="preset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>

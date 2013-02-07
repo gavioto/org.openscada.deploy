@@ -58,6 +58,7 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
             super.getPropertyDescriptors ( object );
 
             addActivePropertyDescriptor ( object );
+            addSuppressEventsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -71,6 +72,17 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
     protected void addActivePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Monitor_active_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Monitor_active_feature", "_UI_Monitor_type" ), ModelPackage.Literals.MONITOR__ACTIVE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Suppress Events feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSuppressEventsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Monitor_suppressEvents_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Monitor_suppressEvents_feature", "_UI_Monitor_type" ), ModelPackage.Literals.MONITOR__SUPPRESS_EVENTS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -100,9 +112,10 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
 
         switch ( notification.getFeatureID ( Monitor.class ) )
         {
-            case ModelPackage.MONITOR__ACTIVE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.MONITOR__ACTIVE:
+        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

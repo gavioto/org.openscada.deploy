@@ -412,10 +412,10 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_ITEM__INPUTS:
-                return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
-            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                return ( (InternalEList<?>)getOutputs () ).basicRemove ( otherEnd, msgs );
+        case ModelPackage.SCRIPT_ITEM__INPUTS:
+            return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
+        case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+            return ( (InternalEList<?>)getOutputs () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -430,22 +430,22 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                return getScriptEngine ();
-            case ModelPackage.SCRIPT_ITEM__INPUTS:
-                return getInputs ();
-            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                return getInitScript ();
-            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                return getUpdateScript ();
-            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                return getTimerScript ();
-            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                return getTimerPeriod ();
-            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                return getOutputs ();
-            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                return getWriteCommand ();
+        case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
+            return getScriptEngine ();
+        case ModelPackage.SCRIPT_ITEM__INPUTS:
+            return getInputs ();
+        case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
+            return getInitScript ();
+        case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
+            return getUpdateScript ();
+        case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
+            return getTimerScript ();
+        case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
+            return getTimerPeriod ();
+        case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+            return getOutputs ();
+        case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
+            return getWriteCommand ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -461,32 +461,32 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                setScriptEngine ( (String)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__INPUTS:
-                getInputs ().clear ();
-                getInputs ().addAll ( (Collection<? extends FormulaInput>)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                setInitScript ( (String)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                setUpdateScript ( (String)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                setTimerScript ( (String)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                setTimerPeriod ( (Long)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                getOutputs ().clear ();
-                getOutputs ().addAll ( (Collection<? extends ScriptOutput>)newValue );
-                return;
-            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                setWriteCommand ( (String)newValue );
-                return;
+        case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
+            setScriptEngine ( (String)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__INPUTS:
+            getInputs ().clear ();
+            getInputs ().addAll ( (Collection<? extends FormulaInput>)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
+            setInitScript ( (String)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
+            setUpdateScript ( (String)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
+            setTimerScript ( (String)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
+            setTimerPeriod ( (Long)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+            getOutputs ().clear ();
+            getOutputs ().addAll ( (Collection<? extends ScriptOutput>)newValue );
+            return;
+        case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
+            setWriteCommand ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -501,30 +501,30 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                setScriptEngine ( SCRIPT_ENGINE_EDEFAULT );
-                return;
-            case ModelPackage.SCRIPT_ITEM__INPUTS:
-                getInputs ().clear ();
-                return;
-            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                setInitScript ( INIT_SCRIPT_EDEFAULT );
-                return;
-            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                setUpdateScript ( UPDATE_SCRIPT_EDEFAULT );
-                return;
-            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                setTimerScript ( TIMER_SCRIPT_EDEFAULT );
-                return;
-            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                setTimerPeriod ( TIMER_PERIOD_EDEFAULT );
-                return;
-            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                getOutputs ().clear ();
-                return;
-            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                setWriteCommand ( WRITE_COMMAND_EDEFAULT );
-                return;
+        case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
+            setScriptEngine ( SCRIPT_ENGINE_EDEFAULT );
+            return;
+        case ModelPackage.SCRIPT_ITEM__INPUTS:
+            getInputs ().clear ();
+            return;
+        case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
+            setInitScript ( INIT_SCRIPT_EDEFAULT );
+            return;
+        case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
+            setUpdateScript ( UPDATE_SCRIPT_EDEFAULT );
+            return;
+        case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
+            setTimerScript ( TIMER_SCRIPT_EDEFAULT );
+            return;
+        case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
+            setTimerPeriod ( TIMER_PERIOD_EDEFAULT );
+            return;
+        case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+            getOutputs ().clear ();
+            return;
+        case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
+            setWriteCommand ( WRITE_COMMAND_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -539,22 +539,22 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
-                return SCRIPT_ENGINE_EDEFAULT == null ? scriptEngine != null : !SCRIPT_ENGINE_EDEFAULT.equals ( scriptEngine );
-            case ModelPackage.SCRIPT_ITEM__INPUTS:
-                return inputs != null && !inputs.isEmpty ();
-            case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
-                return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals ( initScript );
-            case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
-                return UPDATE_SCRIPT_EDEFAULT == null ? updateScript != null : !UPDATE_SCRIPT_EDEFAULT.equals ( updateScript );
-            case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
-                return TIMER_SCRIPT_EDEFAULT == null ? timerScript != null : !TIMER_SCRIPT_EDEFAULT.equals ( timerScript );
-            case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
-                return TIMER_PERIOD_EDEFAULT == null ? timerPeriod != null : !TIMER_PERIOD_EDEFAULT.equals ( timerPeriod );
-            case ModelPackage.SCRIPT_ITEM__OUTPUTS:
-                return outputs != null && !outputs.isEmpty ();
-            case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
-                return WRITE_COMMAND_EDEFAULT == null ? writeCommand != null : !WRITE_COMMAND_EDEFAULT.equals ( writeCommand );
+        case ModelPackage.SCRIPT_ITEM__SCRIPT_ENGINE:
+            return SCRIPT_ENGINE_EDEFAULT == null ? scriptEngine != null : !SCRIPT_ENGINE_EDEFAULT.equals ( scriptEngine );
+        case ModelPackage.SCRIPT_ITEM__INPUTS:
+            return inputs != null && !inputs.isEmpty ();
+        case ModelPackage.SCRIPT_ITEM__INIT_SCRIPT:
+            return INIT_SCRIPT_EDEFAULT == null ? initScript != null : !INIT_SCRIPT_EDEFAULT.equals ( initScript );
+        case ModelPackage.SCRIPT_ITEM__UPDATE_SCRIPT:
+            return UPDATE_SCRIPT_EDEFAULT == null ? updateScript != null : !UPDATE_SCRIPT_EDEFAULT.equals ( updateScript );
+        case ModelPackage.SCRIPT_ITEM__TIMER_SCRIPT:
+            return TIMER_SCRIPT_EDEFAULT == null ? timerScript != null : !TIMER_SCRIPT_EDEFAULT.equals ( timerScript );
+        case ModelPackage.SCRIPT_ITEM__TIMER_PERIOD:
+            return TIMER_PERIOD_EDEFAULT == null ? timerPeriod != null : !TIMER_PERIOD_EDEFAULT.equals ( timerPeriod );
+        case ModelPackage.SCRIPT_ITEM__OUTPUTS:
+            return outputs != null && !outputs.isEmpty ();
+        case ModelPackage.SCRIPT_ITEM__WRITE_COMMAND:
+            return WRITE_COMMAND_EDEFAULT == null ? writeCommand != null : !WRITE_COMMAND_EDEFAULT.equals ( writeCommand );
         }
         return super.eIsSet ( featureID );
     }

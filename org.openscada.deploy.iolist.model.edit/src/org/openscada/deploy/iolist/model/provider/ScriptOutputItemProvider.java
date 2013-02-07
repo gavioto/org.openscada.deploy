@@ -124,10 +124,10 @@ public class ScriptOutputItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( ScriptOutput.class ) )
         {
-            case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
-            case ModelPackage.SCRIPT_OUTPUT__NAME:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
+        case ModelPackage.SCRIPT_OUTPUT__NAME:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

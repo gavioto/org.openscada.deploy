@@ -170,13 +170,13 @@ public class AverageItemProvider extends ItemProviderAdapter implements IEditing
 
         switch ( notification.getFeatureID ( Average.class ) )
         {
-            case ModelPackage.AVERAGE__ID:
-            case ModelPackage.AVERAGE__PERCENT_REQUIRED:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ModelPackage.AVERAGE__SOURCES:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.AVERAGE__ID:
+        case ModelPackage.AVERAGE__PERCENT_REQUIRED:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case ModelPackage.AVERAGE__SOURCES:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
