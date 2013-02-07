@@ -29,10 +29,13 @@ public class LocalBooleanMonitor implements Monitor
 
     private final boolean requireAck;
 
-    public LocalBooleanMonitor ( final String reference, final boolean requireAck )
+    private final boolean suppressEvents;
+
+    public LocalBooleanMonitor ( final String reference, final boolean requireAck, final boolean suppressEvents )
     {
         this.referenceValue = reference;
         this.requireAck = requireAck;
+        this.suppressEvents = suppressEvents;
     }
 
     @Override
@@ -58,6 +61,10 @@ public class LocalBooleanMonitor implements Monitor
         if ( this.requireAck )
         {
             p.addContent ( Messages.getString ( "LocalBooleanMonitor.requireAck" ) ); //$NON-NLS-1$
+        }
+        if ( this.suppressEvents )
+        {
+            p.addContent ( Messages.getString ( "LocalBooleanMonitor.suppressEvents" ) ); //$NON-NLS-1$
         }
     }
 
