@@ -4,10 +4,31 @@ package org.openscada.deploy.iolist.model.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.openscada.deploy.iolist.model.*;
+import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.BasicMonitor;
+import org.openscada.deploy.iolist.model.BooleanMonitor;
+import org.openscada.deploy.iolist.model.ConstantItem;
+import org.openscada.deploy.iolist.model.FormulaInput;
+import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
+import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Model;
+import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.Monitor;
+import org.openscada.deploy.iolist.model.MovingAverage;
+import org.openscada.deploy.iolist.model.MovingAverageItem;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
+import org.openscada.deploy.iolist.model.ScriptItem;
+import org.openscada.deploy.iolist.model.ScriptModule;
+import org.openscada.deploy.iolist.model.ScriptOutput;
+import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 
 /**
  * <!-- begin-user-doc -->

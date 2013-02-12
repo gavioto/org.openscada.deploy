@@ -59,6 +59,7 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
 
             addDefaultAckPropertyDescriptor ( object );
             addDefaultSeverityPropertyDescriptor ( object );
+            addMessageAttributePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -83,6 +84,17 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
     protected void addDefaultSeverityPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitor_defaultSeverity_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitor_defaultSeverity_feature", "_UI_ListMonitor_type" ), ModelPackage.Literals.LIST_MONITOR__DEFAULT_SEVERITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Message Attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addMessageAttributePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitor_messageAttribute_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitor_messageAttribute_feature", "_UI_ListMonitor_type" ), ModelPackage.Literals.LIST_MONITOR__MESSAGE_ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -159,6 +171,7 @@ public class ListMonitorItemProvider extends MonitorItemProvider implements IEdi
         {
             case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
             case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+            case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModelPackage.LIST_MONITOR__ENTRIES:

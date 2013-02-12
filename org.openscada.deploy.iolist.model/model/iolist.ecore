@@ -189,6 +189,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultSeverity" lowerBound="1"
         eType="#//ListSeverity" defaultValueLiteral="OK"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanMonitor" eSuperTypes="#//BasicMonitor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="okValue" lowerBound="1"

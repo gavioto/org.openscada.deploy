@@ -454,6 +454,10 @@
         <element xmi:type="ecore:EAttribute" href="iolist.ecore#//ListMonitor/defaultSeverity"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_FrrrUf5rEeGu8s8UJyMIRg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_3yijYHUdEeKAy-ZuWXwWeQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="iolist.ecore#//ListMonitor/messageAttribute"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3yijYXUdEeKAy-ZuWXwWeQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_tHKLMfBJEeGn_b4ceTt4mw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_tHKLMvBJEeGn_b4ceTt4mw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_tHKLM_BJEeGn_b4ceTt4mw"/>
