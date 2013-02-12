@@ -476,16 +476,16 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSummaryGroup()
      * @generated
      */
-    int SUMMARY_GROUP = 1;
+    int SUMMARY_GROUP = 21;
 
     /**
-     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * The feature id for the '<em><b>Data Source Ids</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP__ID = 0;
+    int SUMMARY_GROUP__DATA_SOURCE_IDS = 0;
 
     /**
      * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
@@ -497,40 +497,86 @@ public interface ModelPackage extends EPackage
     int SUMMARY_GROUP__HIERARCHY = 1;
 
     /**
-     * The feature id for the '<em><b>Data Source Ids</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_GROUP__DATA_SOURCE_IDS = 2;
-
-    /**
-     * The feature id for the '<em><b>Retain</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_GROUP__RETAIN = 3;
-
-    /**
-     * The feature id for the '<em><b>Sub Summary Ids</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SUMMARY_GROUP__SUB_SUMMARY_IDS = 4;
-
-    /**
      * The number of structural features of the '<em>Summary Group</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SUMMARY_GROUP_FEATURE_COUNT = 5;
+    int SUMMARY_GROUP_FEATURE_COUNT = 2;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.HierarchySummaryGroupImpl <em>Hierarchy Summary Group</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.HierarchySummaryGroupImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getHierarchySummaryGroup()
+     * @generated
+     */
+    int HIERARCHY_SUMMARY_GROUP = 1;
+
+    /**
+     * The feature id for the '<em><b>Data Source Ids</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP__DATA_SOURCE_IDS = SUMMARY_GROUP__DATA_SOURCE_IDS;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP__HIERARCHY = SUMMARY_GROUP__HIERARCHY;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP__NAME = SUMMARY_GROUP_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Parent</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP__PARENT = SUMMARY_GROUP_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP__CHILDREN = SUMMARY_GROUP_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Weak References</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES = SUMMARY_GROUP_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Hierarchy Summary Group</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIERARCHY_SUMMARY_GROUP_FEATURE_COUNT = SUMMARY_GROUP_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
@@ -1131,13 +1177,22 @@ public interface ModelPackage extends EPackage
     int MODEL__MOVING_AVERAGES = 2;
 
     /**
-     * The feature id for the '<em><b>Summaries</b></em>' containment reference list.
+     * The feature id for the '<em><b>Root Summary</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODEL__SUMMARIES = 3;
+    int MODEL__ROOT_SUMMARY = 3;
+
+    /**
+     * The feature id for the '<em><b>Plain Summary</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODEL__PLAIN_SUMMARY = 4;
 
     /**
      * The number of structural features of the '<em>Model</em>' class.
@@ -1146,7 +1201,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODEL_FEATURE_COUNT = 4;
+    int MODEL_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
@@ -3359,6 +3414,80 @@ public interface ModelPackage extends EPackage
     int LIST_MONITOR_ENTRY_FEATURE_COUNT = 3;
 
     /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.WeakSummaryReferenceImpl <em>Weak Summary Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.WeakSummaryReferenceImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getWeakSummaryReference()
+     * @generated
+     */
+    int WEAK_SUMMARY_REFERENCE = 20;
+
+    /**
+     * The feature id for the '<em><b>Data Source Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID = 0;
+
+    /**
+     * The number of structural features of the '<em>Weak Summary Reference</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WEAK_SUMMARY_REFERENCE_FEATURE_COUNT = 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.PlainSummaryGroupImpl <em>Plain Summary Group</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.deploy.iolist.model.impl.PlainSummaryGroupImpl
+     * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getPlainSummaryGroup()
+     * @generated
+     */
+    int PLAIN_SUMMARY_GROUP = 22;
+
+    /**
+     * The feature id for the '<em><b>Data Source Ids</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PLAIN_SUMMARY_GROUP__DATA_SOURCE_IDS = SUMMARY_GROUP__DATA_SOURCE_IDS;
+
+    /**
+     * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PLAIN_SUMMARY_GROUP__HIERARCHY = SUMMARY_GROUP__HIERARCHY;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PLAIN_SUMMARY_GROUP__ID = SUMMARY_GROUP_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Plain Summary Group</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PLAIN_SUMMARY_GROUP_FEATURE_COUNT = SUMMARY_GROUP_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3366,7 +3495,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 20;
+    int DATA_TYPE = 23;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.Rounding <em>Rounding</em>}' enum.
@@ -3376,7 +3505,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getRounding()
      * @generated
      */
-    int ROUNDING = 21;
+    int ROUNDING = 24;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.AverageReferenceType <em>Average Reference Type</em>}' enum.
@@ -3386,7 +3515,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 22;
+    int AVERAGE_REFERENCE_TYPE = 25;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -3396,7 +3525,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 23;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 26;
 
     /**
      * The meta object id for the '<em>List Severity</em>' data type.
@@ -3406,7 +3535,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getListSeverity()
      * @generated
      */
-    int LIST_SEVERITY = 25;
+    int LIST_SEVERITY = 28;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -3416,7 +3545,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 26;
+    int SEVERITY = 29;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -3426,7 +3555,7 @@ public interface ModelPackage extends EPackage
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 24;
+    int VARIANT = 27;
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.Item <em>Item</em>}'.
@@ -3569,6 +3698,60 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EAttribute getItem_DefaultMonitorDemote ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.HierarchySummaryGroup <em>Hierarchy Summary Group</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Hierarchy Summary Group</em>'.
+     * @see org.openscada.deploy.iolist.model.HierarchySummaryGroup
+     * @generated
+     */
+    EClass getHierarchySummaryGroup ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.HierarchySummaryGroup#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.openscada.deploy.iolist.model.HierarchySummaryGroup#getName()
+     * @see #getHierarchySummaryGroup()
+     * @generated
+     */
+    EAttribute getHierarchySummaryGroup_Name ();
+
+    /**
+     * Returns the meta object for the container reference '{@link org.openscada.deploy.iolist.model.HierarchySummaryGroup#getParent <em>Parent</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Parent</em>'.
+     * @see org.openscada.deploy.iolist.model.HierarchySummaryGroup#getParent()
+     * @see #getHierarchySummaryGroup()
+     * @generated
+     */
+    EReference getHierarchySummaryGroup_Parent ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.HierarchySummaryGroup#getChildren <em>Children</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.openscada.deploy.iolist.model.HierarchySummaryGroup#getChildren()
+     * @see #getHierarchySummaryGroup()
+     * @generated
+     */
+    EReference getHierarchySummaryGroup_Children ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.HierarchySummaryGroup#getWeakReferences <em>Weak References</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Weak References</em>'.
+     * @see org.openscada.deploy.iolist.model.HierarchySummaryGroup#getWeakReferences()
+     * @see #getHierarchySummaryGroup()
+     * @generated
+     */
+    EReference getHierarchySummaryGroup_WeakReferences ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}'.
@@ -3922,15 +4105,15 @@ public interface ModelPackage extends EPackage
     EClass getSummaryGroup ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#getId <em>Id</em>}'.
+     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds <em>Data Source Ids</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Id</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#getId()
+     * @return the meta object for the attribute list '<em>Data Source Ids</em>'.
+     * @see org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds()
      * @see #getSummaryGroup()
      * @generated
      */
-    EAttribute getSummaryGroup_Id ();
+    EAttribute getSummaryGroup_DataSourceIds ();
 
     /**
      * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getHierarchy <em>Hierarchy</em>}'.
@@ -3944,37 +4127,25 @@ public interface ModelPackage extends EPackage
     EAttribute getSummaryGroup_Hierarchy ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds <em>Data Source Ids</em>}'.
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.PlainSummaryGroup <em>Plain Summary Group</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Data Source Ids</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#getDataSourceIds()
-     * @see #getSummaryGroup()
+     * @return the meta object for class '<em>Plain Summary Group</em>'.
+     * @see org.openscada.deploy.iolist.model.PlainSummaryGroup
      * @generated
      */
-    EAttribute getSummaryGroup_DataSourceIds ();
+    EClass getPlainSummaryGroup ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.SummaryGroup#isRetain <em>Retain</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.PlainSummaryGroup#getId <em>Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Retain</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#isRetain()
-     * @see #getSummaryGroup()
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.openscada.deploy.iolist.model.PlainSummaryGroup#getId()
+     * @see #getPlainSummaryGroup()
      * @generated
      */
-    EAttribute getSummaryGroup_Retain ();
-
-    /**
-     * Returns the meta object for the attribute list '{@link org.openscada.deploy.iolist.model.SummaryGroup#getSubSummaryIds <em>Sub Summary Ids</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Sub Summary Ids</em>'.
-     * @see org.openscada.deploy.iolist.model.SummaryGroup#getSubSummaryIds()
-     * @see #getSummaryGroup()
-     * @generated
-     */
-    EAttribute getSummaryGroup_SubSummaryIds ();
+    EAttribute getPlainSummaryGroup_Id ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.FormulaItem <em>Formula Item</em>}'.
@@ -4193,15 +4364,26 @@ public interface ModelPackage extends EPackage
     EReference getModel_MovingAverages ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Model#getSummaries <em>Summaries</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.deploy.iolist.model.Model#getRootSummary <em>Root Summary</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Summaries</em>'.
-     * @see org.openscada.deploy.iolist.model.Model#getSummaries()
+     * @return the meta object for the containment reference '<em>Root Summary</em>'.
+     * @see org.openscada.deploy.iolist.model.Model#getRootSummary()
      * @see #getModel()
      * @generated
      */
-    EReference getModel_Summaries ();
+    EReference getModel_RootSummary ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.deploy.iolist.model.Model#getPlainSummary <em>Plain Summary</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Plain Summary</em>'.
+     * @see org.openscada.deploy.iolist.model.Model#getPlainSummary()
+     * @see #getModel()
+     * @generated
+     */
+    EReference getModel_PlainSummary ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ScriptItem <em>Script Item</em>}'.
@@ -4740,6 +4922,27 @@ public interface ModelPackage extends EPackage
     EAttribute getBasicMonitor_Severity ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.WeakSummaryReference <em>Weak Summary Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Weak Summary Reference</em>'.
+     * @see org.openscada.deploy.iolist.model.WeakSummaryReference
+     * @generated
+     */
+    EClass getWeakSummaryReference ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.WeakSummaryReference#getDataSourceId <em>Data Source Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Data Source Id</em>'.
+     * @see org.openscada.deploy.iolist.model.WeakSummaryReference#getDataSourceId()
+     * @see #getWeakSummaryReference()
+     * @generated
+     */
+    EAttribute getWeakSummaryReference_DataSourceId ();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4942,6 +5145,48 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute ITEM__DEFAULT_MONITOR_DEMOTE = eINSTANCE.getItem_DefaultMonitorDemote ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.HierarchySummaryGroupImpl <em>Hierarchy Summary Group</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.HierarchySummaryGroupImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getHierarchySummaryGroup()
+         * @generated
+         */
+        EClass HIERARCHY_SUMMARY_GROUP = eINSTANCE.getHierarchySummaryGroup ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute HIERARCHY_SUMMARY_GROUP__NAME = eINSTANCE.getHierarchySummaryGroup_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference HIERARCHY_SUMMARY_GROUP__PARENT = eINSTANCE.getHierarchySummaryGroup_Parent ();
+
+        /**
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference HIERARCHY_SUMMARY_GROUP__CHILDREN = eINSTANCE.getHierarchySummaryGroup_Children ();
+
+        /**
+         * The meta object literal for the '<em><b>Weak References</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES = eINSTANCE.getHierarchySummaryGroup_WeakReferences ();
 
         /**
          * The meta object literal for the '<em><b>Event Command</b></em>' attribute feature.
@@ -5202,12 +5447,12 @@ public interface ModelPackage extends EPackage
         EClass SUMMARY_GROUP = eINSTANCE.getSummaryGroup ();
 
         /**
-         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Data Source Ids</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_GROUP__ID = eINSTANCE.getSummaryGroup_Id ();
+        EAttribute SUMMARY_GROUP__DATA_SOURCE_IDS = eINSTANCE.getSummaryGroup_DataSourceIds ();
 
         /**
          * The meta object literal for the '<em><b>Hierarchy</b></em>' attribute list feature.
@@ -5218,28 +5463,22 @@ public interface ModelPackage extends EPackage
         EAttribute SUMMARY_GROUP__HIERARCHY = eINSTANCE.getSummaryGroup_Hierarchy ();
 
         /**
-         * The meta object literal for the '<em><b>Data Source Ids</b></em>' attribute list feature.
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.PlainSummaryGroupImpl <em>Plain Summary Group</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.PlainSummaryGroupImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getPlainSummaryGroup()
          * @generated
          */
-        EAttribute SUMMARY_GROUP__DATA_SOURCE_IDS = eINSTANCE.getSummaryGroup_DataSourceIds ();
+        EClass PLAIN_SUMMARY_GROUP = eINSTANCE.getPlainSummaryGroup ();
 
         /**
-         * The meta object literal for the '<em><b>Retain</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SUMMARY_GROUP__RETAIN = eINSTANCE.getSummaryGroup_Retain ();
-
-        /**
-         * The meta object literal for the '<em><b>Sub Summary Ids</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SUMMARY_GROUP__SUB_SUMMARY_IDS = eINSTANCE.getSummaryGroup_SubSummaryIds ();
+        EAttribute PLAIN_SUMMARY_GROUP__ID = eINSTANCE.getPlainSummaryGroup_Id ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.FormulaItemImpl <em>Formula Item</em>}' class.
@@ -5410,12 +5649,20 @@ public interface ModelPackage extends EPackage
         EReference MODEL__MOVING_AVERAGES = eINSTANCE.getModel_MovingAverages ();
 
         /**
-         * The meta object literal for the '<em><b>Summaries</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Root Summary</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference MODEL__SUMMARIES = eINSTANCE.getModel_Summaries ();
+        EReference MODEL__ROOT_SUMMARY = eINSTANCE.getModel_RootSummary ();
+
+        /**
+         * The meta object literal for the '<em><b>Plain Summary</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODEL__PLAIN_SUMMARY = eINSTANCE.getModel_PlainSummary ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ScriptItemImpl <em>Script Item</em>}' class.
@@ -5844,6 +6091,24 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute BASIC_MONITOR__SEVERITY = eINSTANCE.getBasicMonitor_Severity ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.WeakSummaryReferenceImpl <em>Weak Summary Reference</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.deploy.iolist.model.impl.WeakSummaryReferenceImpl
+         * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getWeakSummaryReference()
+         * @generated
+         */
+        EClass WEAK_SUMMARY_REFERENCE = eINSTANCE.getWeakSummaryReference ();
+
+        /**
+         * The meta object literal for the '<em><b>Data Source Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID = eINSTANCE.getWeakSummaryReference_DataSourceId ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.DataType <em>Data Type</em>}' enum.

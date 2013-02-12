@@ -26,6 +26,7 @@ import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -38,11 +39,13 @@ import org.openscada.deploy.iolist.model.Monitor;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
 import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 import org.openscada.deploy.iolist.model.util.ModelValidator;
 
 /**
@@ -58,10 +61,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     private EClass itemEClass = null;
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass hierarchySummaryGroupEClass = null;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     private EClass summaryGroupEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass plainSummaryGroupEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -170,6 +187,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     private EClass basicMonitorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass weakSummaryReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -409,6 +433,56 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     public EAttribute getItem_DefaultMonitorDemote ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 42 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getHierarchySummaryGroup ()
+    {
+        return hierarchySummaryGroupEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getHierarchySummaryGroup_Name ()
+    {
+        return (EAttribute)hierarchySummaryGroupEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getHierarchySummaryGroup_Parent ()
+    {
+        return (EReference)hierarchySummaryGroupEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getHierarchySummaryGroup_Children ()
+    {
+        return (EReference)hierarchySummaryGroupEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getHierarchySummaryGroup_WeakReferences ()
+    {
+        return (EReference)hierarchySummaryGroupEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -732,20 +806,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public EAttribute getSummaryGroup_Id ()
+    public EAttribute getSummaryGroup_DataSourceIds ()
     {
         return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public EAttribute getSummaryGroup_Hierarchy ()
     {
         return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 1 );
@@ -756,9 +830,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSummaryGroup_DataSourceIds ()
+    public EClass getPlainSummaryGroup ()
     {
-        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 2 );
+        return plainSummaryGroupEClass;
     }
 
     /**
@@ -766,19 +840,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSummaryGroup_Retain ()
+    public EAttribute getPlainSummaryGroup_Id ()
     {
-        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getSummaryGroup_SubSummaryIds ()
-    {
-        return (EAttribute)summaryGroupEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)plainSummaryGroupEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -986,9 +1050,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getModel_Summaries ()
+    public EReference getModel_RootSummary ()
     {
         return (EReference)modelEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModel_PlainSummary ()
+    {
+        return (EReference)modelEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -1492,6 +1566,26 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getWeakSummaryReference ()
+    {
+        return weakSummaryReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getWeakSummaryReference_DataSourceId ()
+    {
+        return (EAttribute)weakSummaryReferenceEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1635,12 +1729,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEReference ( itemEClass, ITEM__LOCAL_BOOLEAN_MONITOR );
         createEAttribute ( itemEClass, ITEM__DEFAULT_MONITOR_DEMOTE );
 
-        summaryGroupEClass = createEClass ( SUMMARY_GROUP );
-        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__ID );
-        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__HIERARCHY );
-        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__DATA_SOURCE_IDS );
-        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__RETAIN );
-        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__SUB_SUMMARY_IDS );
+        hierarchySummaryGroupEClass = createEClass ( HIERARCHY_SUMMARY_GROUP );
+        createEAttribute ( hierarchySummaryGroupEClass, HIERARCHY_SUMMARY_GROUP__NAME );
+        createEReference ( hierarchySummaryGroupEClass, HIERARCHY_SUMMARY_GROUP__PARENT );
+        createEReference ( hierarchySummaryGroupEClass, HIERARCHY_SUMMARY_GROUP__CHILDREN );
+        createEReference ( hierarchySummaryGroupEClass, HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES );
 
         formulaItemEClass = createEClass ( FORMULA_ITEM );
         createEAttribute ( formulaItemEClass, FORMULA_ITEM__INPUT_FORMULA );
@@ -1665,7 +1758,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEReference ( modelEClass, MODEL__ITEMS );
         createEReference ( modelEClass, MODEL__AVERAGES );
         createEReference ( modelEClass, MODEL__MOVING_AVERAGES );
-        createEReference ( modelEClass, MODEL__SUMMARIES );
+        createEReference ( modelEClass, MODEL__ROOT_SUMMARY );
+        createEReference ( modelEClass, MODEL__PLAIN_SUMMARY );
 
         scriptItemEClass = createEClass ( SCRIPT_ITEM );
         createEAttribute ( scriptItemEClass, SCRIPT_ITEM__SCRIPT_ENGINE );
@@ -1731,6 +1825,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( basicMonitorEClass, BASIC_MONITOR__ACK );
         createEAttribute ( basicMonitorEClass, BASIC_MONITOR__SEVERITY );
 
+        weakSummaryReferenceEClass = createEClass ( WEAK_SUMMARY_REFERENCE );
+        createEAttribute ( weakSummaryReferenceEClass, WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID );
+
+        summaryGroupEClass = createEClass ( SUMMARY_GROUP );
+        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__DATA_SOURCE_IDS );
+        createEAttribute ( summaryGroupEClass, SUMMARY_GROUP__HIERARCHY );
+
+        plainSummaryGroupEClass = createEClass ( PLAIN_SUMMARY_GROUP );
+        createEAttribute ( plainSummaryGroupEClass, PLAIN_SUMMARY_GROUP__ID );
+
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
         roundingEEnum = createEEnum ( ROUNDING );
@@ -1771,6 +1875,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
+        hierarchySummaryGroupEClass.getESuperTypes ().add ( this.getSummaryGroup () );
         formulaItemEClass.getESuperTypes ().add ( this.getItem () );
         scriptItemEClass.getESuperTypes ().add ( this.getItem () );
         levelMonitorEClass.getESuperTypes ().add ( this.getBasicMonitor () );
@@ -1780,6 +1885,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         constantItemEClass.getESuperTypes ().add ( this.getItem () );
         movingAverageItemEClass.getESuperTypes ().add ( this.getItem () );
         basicMonitorEClass.getESuperTypes ().add ( this.getMonitor () );
+        plainSummaryGroupEClass.getESuperTypes ().add ( this.getSummaryGroup () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -1827,12 +1933,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEReference ( getItem_LocalBooleanMonitor (), this.getBooleanMonitor (), null, "localBooleanMonitor", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_DefaultMonitorDemote (), ecorePackage.getEString (), "defaultMonitorDemote", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( summaryGroupEClass, SummaryGroup.class, "SummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getSummaryGroup_Id (), ecorePackage.getEString (), "id", null, 1, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getSummaryGroup_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getSummaryGroup_DataSourceIds (), ecorePackage.getEString (), "dataSourceIds", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getSummaryGroup_Retain (), ecorePackage.getEBoolean (), "retain", "false", 0, 1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getSummaryGroup_SubSummaryIds (), ecorePackage.getEString (), "subSummaryIds", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( hierarchySummaryGroupEClass, HierarchySummaryGroup.class, "HierarchySummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getHierarchySummaryGroup_Name (), ecorePackage.getEString (), "name", null, 1, 1, HierarchySummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getHierarchySummaryGroup_Parent (), this.getHierarchySummaryGroup (), this.getHierarchySummaryGroup_Children (), "parent", null, 0, 1, HierarchySummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getHierarchySummaryGroup_Children (), this.getHierarchySummaryGroup (), this.getHierarchySummaryGroup_Parent (), "children", null, 0, -1, HierarchySummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getHierarchySummaryGroup_WeakReferences (), this.getWeakSummaryReference (), null, "weakReferences", null, 0, -1, HierarchySummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( formulaItemEClass, FormulaItem.class, "FormulaItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getFormulaItem_InputFormula (), ecorePackage.getEString (), "inputFormula", null, 0, 1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1857,7 +1962,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEReference ( getModel_Items (), this.getItem (), null, "items", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getModel_Averages (), this.getAverage (), null, "averages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getModel_MovingAverages (), this.getMovingAverage (), null, "movingAverages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getModel_Summaries (), this.getSummaryGroup (), null, "summaries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getModel_RootSummary (), this.getHierarchySummaryGroup (), null, "rootSummary", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getModel_PlainSummary (), this.getPlainSummaryGroup (), null, "plainSummary", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( scriptItemEClass, ScriptItem.class, "ScriptItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScriptItem_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", null, 0, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1929,6 +2035,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass ( basicMonitorEClass, BasicMonitor.class, "BasicMonitor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getBasicMonitor_Ack (), ecorePackage.getEBoolean (), "ack", "true", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getBasicMonitor_Severity (), this.getSeverity (), "severity", "ERROR", 1, 1, BasicMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( weakSummaryReferenceEClass, WeakSummaryReference.class, "WeakSummaryReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getWeakSummaryReference_DataSourceId (), ecorePackage.getEString (), "dataSourceId", null, 1, 1, WeakSummaryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( summaryGroupEClass, SummaryGroup.class, "SummaryGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getSummaryGroup_DataSourceIds (), ecorePackage.getEString (), "dataSourceIds", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getSummaryGroup_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, SummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( plainSummaryGroupEClass, PlainSummaryGroup.class, "PlainSummaryGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getPlainSummaryGroup_Id (), ecorePackage.getEString (), "id", null, 1, 1, PlainSummaryGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" );

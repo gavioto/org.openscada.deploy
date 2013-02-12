@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common"
-    nsURI="http://openscada.org/Configurator/Modules/Common" nsPrefix="common">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="http://openscada.org/Configurator/Modules/Common"
+    nsPrefix="common">
   <eClassifiers xsi:type="ecore:EClass" name="FileModule" abstract="true" interface="true"
       eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -40,8 +39,6 @@
   <eSubpackages name="summary" nsURI="http://openscada.org/Configurator/Modules/Common/Summary"
       nsPrefix="summary">
     <eClassifiers xsi:type="ecore:EClass" name="GenerateSummaries" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="subItemPattern" eType="#//Pattern"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CleanupSummaries" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
@@ -105,11 +102,15 @@
     <eClassifiers xsi:type="ecore:EClass" name="OutputSummaries" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
       <eOperations name="process">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="configuration.outputSummaries();"/>
+          <details key="body" value="configuration.outputSummaries ( getPrefix(), getSuffix() );"/>
         </eAnnotations>
         <eParameters name="configuration" eType="ecore:EDataType ../../org.openscada.configurator.model/model/configurator.ecore#//Configuration"/>
         <eParameters name="project" eType="ecore:EClass ../../org.openscada.configurator.model/model/configurator.ecore#//Project"/>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OutputGlobalSummaries" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//master/Module">
       <eOperations name="process">

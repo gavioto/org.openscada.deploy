@@ -36,13 +36,13 @@ public interface ModelFactory extends EFactory
     Item createItem ();
 
     /**
-     * Returns a new object of class '<em>Summary Group</em>'.
+     * Returns a new object of class '<em>Hierarchy Summary Group</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Summary Group</em>'.
+     * @return a new object of class '<em>Hierarchy Summary Group</em>'.
      * @generated
      */
-    SummaryGroup createSummaryGroup ();
+    HierarchySummaryGroup createHierarchySummaryGroup ();
 
     /**
      * Returns a new object of class '<em>Formula Item</em>'.
@@ -187,6 +187,24 @@ public interface ModelFactory extends EFactory
      * @generated
      */
     ListMonitorEntry createListMonitorEntry ();
+
+    /**
+     * Returns a new object of class '<em>Weak Summary Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Weak Summary Reference</em>'.
+     * @generated
+     */
+    WeakSummaryReference createWeakSummaryReference ();
+
+    /**
+     * Returns a new object of class '<em>Plain Summary Group</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Plain Summary Group</em>'.
+     * @generated
+     */
+    PlainSummaryGroup createPlainSummaryGroup ();
 
     /**
      * Returns the package supported by this factory.

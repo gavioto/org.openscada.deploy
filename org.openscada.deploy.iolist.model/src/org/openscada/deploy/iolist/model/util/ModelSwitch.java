@@ -16,6 +16,7 @@ import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -26,10 +27,12 @@ import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Monitor;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,10 +105,12 @@ public class ModelSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
-            case ModelPackage.SUMMARY_GROUP:
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP:
             {
-                SummaryGroup summaryGroup = (SummaryGroup)theEObject;
-                T result = caseSummaryGroup ( summaryGroup );
+                HierarchySummaryGroup hierarchySummaryGroup = (HierarchySummaryGroup)theEObject;
+                T result = caseHierarchySummaryGroup ( hierarchySummaryGroup );
+                if ( result == null )
+                    result = caseSummaryGroup ( hierarchySummaryGroup );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -276,6 +281,32 @@ public class ModelSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ModelPackage.WEAK_SUMMARY_REFERENCE:
+            {
+                WeakSummaryReference weakSummaryReference = (WeakSummaryReference)theEObject;
+                T result = caseWeakSummaryReference ( weakSummaryReference );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.SUMMARY_GROUP:
+            {
+                SummaryGroup summaryGroup = (SummaryGroup)theEObject;
+                T result = caseSummaryGroup ( summaryGroup );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModelPackage.PLAIN_SUMMARY_GROUP:
+            {
+                PlainSummaryGroup plainSummaryGroup = (PlainSummaryGroup)theEObject;
+                T result = casePlainSummaryGroup ( plainSummaryGroup );
+                if ( result == null )
+                    result = caseSummaryGroup ( plainSummaryGroup );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -298,6 +329,22 @@ public class ModelSwitch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Hierarchy Summary Group</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Hierarchy Summary Group</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHierarchySummaryGroup ( HierarchySummaryGroup object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Summary Group</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -309,6 +356,22 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSummaryGroup ( SummaryGroup object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Plain Summary Group</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Plain Summary Group</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePlainSummaryGroup ( PlainSummaryGroup object )
     {
         return null;
     }
@@ -597,6 +660,22 @@ public class ModelSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseBasicMonitor ( BasicMonitor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Weak Summary Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Weak Summary Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseWeakSummaryReference ( WeakSummaryReference object )
     {
         return null;
     }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
-    nsURI="http:///org/openscada/deploy/iolist/model.ecore" nsPrefix="org.openscada.deploy.iolist.model">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http:///org/openscada/deploy/iolist/model.ecore"
+    nsPrefix="org.openscada.deploy.iolist.model">
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -96,17 +95,14 @@
     <eLiterals name="Integer" value="4" literal="INT32"/>
     <eLiterals name="LongInteger" value="5" literal="INT64"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SummaryGroup">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceIds" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="retain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subSummaryIds" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HierarchySummaryGroup" eSuperTypes="#//SummaryGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//HierarchySummaryGroup"
+        eOpposite="#//HierarchySummaryGroup/children"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//HierarchySummaryGroup" containment="true" eOpposite="#//HierarchySummaryGroup/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="weakReferences" upperBound="-1"
+        eType="#//WeakSummaryReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormulaItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputFormula" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -138,8 +134,10 @@
         eType="#//Average" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="movingAverages" upperBound="-1"
         eType="#//MovingAverage" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="summaries" upperBound="-1"
-        eType="#//SummaryGroup" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootSummary" eType="#//HierarchySummaryGroup"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plainSummary" upperBound="-1"
+        eType="#//PlainSummaryGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptItem" eSuperTypes="#//Item">
     <eOperations name="addInput">
@@ -277,5 +275,19 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="enumeration" value="INFORMATION WARNING ALARM ERROR"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WeakSummaryReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SummaryGroup" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceIds" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlainSummaryGroup" eSuperTypes="#//SummaryGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
 </ecore:EPackage>

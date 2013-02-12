@@ -8,19 +8,22 @@ package org.openscada.deploy.iolist.model.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.MovingAverage;
-import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +35,8 @@ import org.openscada.deploy.iolist.model.SummaryGroup;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getAverages <em>Averages</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getMovingAverages <em>Moving Averages</em>}</li>
- *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getSummaries <em>Summaries</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getRootSummary <em>Root Summary</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ModelImpl#getPlainSummary <em>Plain Summary</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,14 +75,24 @@ public class ModelImpl extends EObjectImpl implements Model
     protected EList<MovingAverage> movingAverages;
 
     /**
-     * The cached value of the '{@link #getSummaries() <em>Summaries</em>}' containment reference list.
+     * The cached value of the '{@link #getRootSummary() <em>Root Summary</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSummaries()
+     * @see #getRootSummary()
      * @generated
      * @ordered
      */
-    protected EList<SummaryGroup> summaries;
+    protected HierarchySummaryGroup rootSummary;
+
+    /**
+     * The cached value of the '{@link #getPlainSummary() <em>Plain Summary</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPlainSummary()
+     * @generated
+     * @ordered
+     */
+    protected EList<PlainSummaryGroup> plainSummary;
 
     /**
      * <!-- begin-user-doc -->
@@ -148,13 +162,65 @@ public class ModelImpl extends EObjectImpl implements Model
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<SummaryGroup> getSummaries ()
+    public HierarchySummaryGroup getRootSummary ()
     {
-        if ( summaries == null )
+        return rootSummary;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetRootSummary ( HierarchySummaryGroup newRootSummary, NotificationChain msgs )
+    {
+        HierarchySummaryGroup oldRootSummary = rootSummary;
+        rootSummary = newRootSummary;
+        if ( eNotificationRequired () )
         {
-            summaries = new EObjectContainmentEList<SummaryGroup> ( SummaryGroup.class, this, ModelPackage.MODEL__SUMMARIES );
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModelPackage.MODEL__ROOT_SUMMARY, oldRootSummary, newRootSummary );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
-        return summaries;
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRootSummary ( HierarchySummaryGroup newRootSummary )
+    {
+        if ( newRootSummary != rootSummary )
+        {
+            NotificationChain msgs = null;
+            if ( rootSummary != null )
+                msgs = ( (InternalEObject)rootSummary ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODEL__ROOT_SUMMARY, null, msgs );
+            if ( newRootSummary != null )
+                msgs = ( (InternalEObject)newRootSummary ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODEL__ROOT_SUMMARY, null, msgs );
+            msgs = basicSetRootSummary ( newRootSummary, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MODEL__ROOT_SUMMARY, newRootSummary, newRootSummary ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<PlainSummaryGroup> getPlainSummary ()
+    {
+        if ( plainSummary == null )
+        {
+            plainSummary = new EObjectContainmentEList<PlainSummaryGroup> ( PlainSummaryGroup.class, this, ModelPackage.MODEL__PLAIN_SUMMARY );
+        }
+        return plainSummary;
     }
 
     /**
@@ -173,8 +239,10 @@ public class ModelImpl extends EObjectImpl implements Model
                 return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
-            case ModelPackage.MODEL__SUMMARIES:
-                return ( (InternalEList<?>)getSummaries () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                return basicSetRootSummary ( null, msgs );
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                return ( (InternalEList<?>)getPlainSummary () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -195,8 +263,10 @@ public class ModelImpl extends EObjectImpl implements Model
                 return getAverages ();
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 return getMovingAverages ();
-            case ModelPackage.MODEL__SUMMARIES:
-                return getSummaries ();
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                return getRootSummary ();
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                return getPlainSummary ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -224,9 +294,12 @@ public class ModelImpl extends EObjectImpl implements Model
                 getMovingAverages ().clear ();
                 getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
                 return;
-            case ModelPackage.MODEL__SUMMARIES:
-                getSummaries ().clear ();
-                getSummaries ().addAll ( (Collection<? extends SummaryGroup>)newValue );
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                setRootSummary ( (HierarchySummaryGroup)newValue );
+                return;
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                getPlainSummary ().clear ();
+                getPlainSummary ().addAll ( (Collection<? extends PlainSummaryGroup>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -251,8 +324,11 @@ public class ModelImpl extends EObjectImpl implements Model
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 getMovingAverages ().clear ();
                 return;
-            case ModelPackage.MODEL__SUMMARIES:
-                getSummaries ().clear ();
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                setRootSummary ( (HierarchySummaryGroup)null );
+                return;
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                getPlainSummary ().clear ();
                 return;
         }
         super.eUnset ( featureID );
@@ -274,8 +350,10 @@ public class ModelImpl extends EObjectImpl implements Model
                 return averages != null && !averages.isEmpty ();
             case ModelPackage.MODEL__MOVING_AVERAGES:
                 return movingAverages != null && !movingAverages.isEmpty ();
-            case ModelPackage.MODEL__SUMMARIES:
-                return summaries != null && !summaries.isEmpty ();
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                return rootSummary != null;
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                return plainSummary != null && !plainSummary.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

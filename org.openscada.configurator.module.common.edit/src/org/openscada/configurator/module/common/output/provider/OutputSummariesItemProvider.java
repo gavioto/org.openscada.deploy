@@ -12,6 +12,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,7 +20,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.openscada.configurator.module.common.output.OutputPackage;
+import org.openscada.configurator.module.common.output.OutputSummaries;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configurator.module.common.output.OutputSummaries} object.
@@ -53,8 +58,32 @@ public class OutputSummariesItemProvider extends ItemProviderAdapter implements 
         {
             super.getPropertyDescriptors ( object );
 
+            addPrefixPropertyDescriptor ( object );
+            addSuffixPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Prefix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPrefixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OutputSummaries_prefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_OutputSummaries_prefix_feature", "_UI_OutputSummaries_type" ), OutputPackage.Literals.OUTPUT_SUMMARIES__PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Suffix feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSuffixPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OutputSummaries_suffix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_OutputSummaries_suffix_feature", "_UI_OutputSummaries_type" ), OutputPackage.Literals.OUTPUT_SUMMARIES__SUFFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -78,7 +107,8 @@ public class OutputSummariesItemProvider extends ItemProviderAdapter implements 
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_OutputSummaries_type" );
+        String label = ( (OutputSummaries)object ).getPrefix ();
+        return label == null || label.length () == 0 ? getString ( "_UI_OutputSummaries_type" ) : getString ( "_UI_OutputSummaries_type" ) + " " + label;
     }
 
     /**
@@ -92,6 +122,14 @@ public class OutputSummariesItemProvider extends ItemProviderAdapter implements 
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
+
+        switch ( notification.getFeatureID ( OutputSummaries.class ) )
+        {
+            case OutputPackage.OUTPUT_SUMMARIES__PREFIX:
+            case OutputPackage.OUTPUT_SUMMARIES__SUFFIX:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+        }
         super.notifyChanged ( notification );
     }
 

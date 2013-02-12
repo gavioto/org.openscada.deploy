@@ -58,35 +58,10 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         {
             super.getPropertyDescriptors ( object );
 
-            addIdPropertyDescriptor ( object );
-            addHierarchyPropertyDescriptor ( object );
             addDataSourceIdsPropertyDescriptor ( object );
-            addRetainPropertyDescriptor ( object );
-            addSubSummaryIdsPropertyDescriptor ( object );
+            addHierarchyPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Id feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addIdPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_id_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_id_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Hierarchy feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addHierarchyPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_hierarchy_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_hierarchy_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__HIERARCHY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -101,25 +76,14 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This adds a property descriptor for the Retain feature.
+     * This adds a property descriptor for the Hierarchy feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addRetainPropertyDescriptor ( Object object )
+    protected void addHierarchyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_retain_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_retain_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__RETAIN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Sub Summary Ids feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSubSummaryIdsPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_subSummaryIds_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_subSummaryIds_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__SUB_SUMMARY_IDS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryGroup_hierarchy_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryGroup_hierarchy_feature", "_UI_SummaryGroup_type" ), ModelPackage.Literals.SUMMARY_GROUP__HIERARCHY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -137,7 +101,6 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS );
-            childrenFeatures.add ( ModelPackage.Literals.SUMMARY_GROUP__SUB_SUMMARY_IDS );
         }
         return childrenFeatures;
     }
@@ -177,8 +140,7 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
     @Override
     public String getText ( Object object )
     {
-        String label = ( (SummaryGroup)object ).getId ();
-        return label == null || label.length () == 0 ? getString ( "_UI_SummaryGroup_type" ) : getString ( "_UI_SummaryGroup_type" ) + " " + label;
+        return getString ( "_UI_SummaryGroup_type" );
     }
 
     /**
@@ -195,13 +157,10 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( SummaryGroup.class ) )
         {
-            case ModelPackage.SUMMARY_GROUP__ID:
             case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            case ModelPackage.SUMMARY_GROUP__RETAIN:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            case ModelPackage.SUMMARY_GROUP__SUB_SUMMARY_IDS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -221,8 +180,6 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.SUMMARY_GROUP__DATA_SOURCE_IDS, "" ) );
-
-        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.SUMMARY_GROUP__SUB_SUMMARY_IDS, "" ) );
     }
 
     /**

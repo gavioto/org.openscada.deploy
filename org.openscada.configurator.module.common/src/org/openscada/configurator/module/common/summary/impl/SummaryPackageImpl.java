@@ -157,29 +157,9 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGenerateSummaries_Prefix ()
-    {
-        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getGenerateSummaries_Suffix ()
-    {
-        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getGenerateSummaries_SubItemPattern ()
     {
-        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)generateSummariesEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -234,8 +214,6 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
 
         // Create classes and their features
         generateSummariesEClass = createEClass ( GENERATE_SUMMARIES );
-        createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__PREFIX );
-        createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__SUFFIX );
         createEAttribute ( generateSummariesEClass, GENERATE_SUMMARIES__SUB_ITEM_PATTERN );
 
         cleanupSummariesEClass = createEClass ( CLEANUP_SUMMARIES );
@@ -281,8 +259,6 @@ public class SummaryPackageImpl extends EPackageImpl implements SummaryPackage
 
         // Initialize classes and features; add operations and parameters
         initEClass ( generateSummariesEClass, GenerateSummaries.class, "GenerateSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getGenerateSummaries_Prefix (), ecorePackage.getEString (), "prefix", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getGenerateSummaries_Suffix (), ecorePackage.getEString (), "suffix", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getGenerateSummaries_SubItemPattern (), theCommonPackage.getPattern (), "subItemPattern", null, 0, 1, GenerateSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( cleanupSummariesEClass, CleanupSummaries.class, "CleanupSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

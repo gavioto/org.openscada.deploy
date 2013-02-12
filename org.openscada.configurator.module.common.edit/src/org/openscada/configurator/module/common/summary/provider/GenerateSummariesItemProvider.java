@@ -9,6 +9,7 @@ package org.openscada.configurator.module.common.summary.provider;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.regex.Pattern;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -58,33 +59,9 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
         {
             super.getPropertyDescriptors ( object );
 
-            addPrefixPropertyDescriptor ( object );
-            addSuffixPropertyDescriptor ( object );
             addSubItemPatternPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Prefix feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPrefixPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_prefix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_prefix_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__PREFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Suffix feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSuffixPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenerateSummaries_suffix_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GenerateSummaries_suffix_feature", "_UI_GenerateSummaries_type" ), SummaryPackage.Literals.GENERATE_SUMMARIES__SUFFIX, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -119,7 +96,8 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
     @Override
     public String getText ( Object object )
     {
-        String label = ( (GenerateSummaries)object ).getPrefix ();
+        Pattern labelValue = ( (GenerateSummaries)object ).getSubItemPattern ();
+        String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ? getString ( "_UI_GenerateSummaries_type" ) : getString ( "_UI_GenerateSummaries_type" ) + " " + label;
     }
 
@@ -137,8 +115,6 @@ public class GenerateSummariesItemProvider extends ItemProviderAdapter implement
 
         switch ( notification.getFeatureID ( GenerateSummaries.class ) )
         {
-            case SummaryPackage.GENERATE_SUMMARIES__PREFIX:
-            case SummaryPackage.GENERATE_SUMMARIES__SUFFIX:
             case SummaryPackage.GENERATE_SUMMARIES__SUB_ITEM_PATTERN:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;

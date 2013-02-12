@@ -7,9 +7,7 @@
 package org.openscada.deploy.iolist.model.tests;
 
 import junit.framework.TestCase;
-import junit.textui.TestRunner;
 
-import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.SummaryGroup;
 
 /**
@@ -18,7 +16,7 @@ import org.openscada.deploy.iolist.model.SummaryGroup;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SummaryGroupTest extends TestCase
+public abstract class SummaryGroupTest extends TestCase
 {
 
     /**
@@ -28,16 +26,6 @@ public class SummaryGroupTest extends TestCase
      * @generated
      */
     protected SummaryGroup fixture = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( SummaryGroupTest.class );
-    }
 
     /**
      * Constructs a new Summary Group test case with the given name.
@@ -70,30 +58,6 @@ public class SummaryGroupTest extends TestCase
     protected SummaryGroup getFixture ()
     {
         return fixture;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( ModelFactory.eINSTANCE.createSummaryGroup () );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
     }
 
 } //SummaryGroupTest

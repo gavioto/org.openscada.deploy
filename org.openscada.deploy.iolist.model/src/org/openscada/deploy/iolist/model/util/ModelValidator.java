@@ -24,6 +24,7 @@ import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -36,11 +37,13 @@ import org.openscada.deploy.iolist.model.Monitor;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
 import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
@@ -118,8 +121,8 @@ public class ModelValidator extends EObjectValidator
         {
             case ModelPackage.ITEM:
                 return validateItem ( (Item)value, diagnostics, context );
-            case ModelPackage.SUMMARY_GROUP:
-                return validateSummaryGroup ( (SummaryGroup)value, diagnostics, context );
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP:
+                return validateHierarchySummaryGroup ( (HierarchySummaryGroup)value, diagnostics, context );
             case ModelPackage.FORMULA_ITEM:
                 return validateFormulaItem ( (FormulaItem)value, diagnostics, context );
             case ModelPackage.FORMULA_INPUT:
@@ -156,6 +159,12 @@ public class ModelValidator extends EObjectValidator
                 return validateListMonitorEntry ( (ListMonitorEntry)value, diagnostics, context );
             case ModelPackage.BASIC_MONITOR:
                 return validateBasicMonitor ( (BasicMonitor)value, diagnostics, context );
+            case ModelPackage.WEAK_SUMMARY_REFERENCE:
+                return validateWeakSummaryReference ( (WeakSummaryReference)value, diagnostics, context );
+            case ModelPackage.SUMMARY_GROUP:
+                return validateSummaryGroup ( (SummaryGroup)value, diagnostics, context );
+            case ModelPackage.PLAIN_SUMMARY_GROUP:
+                return validatePlainSummaryGroup ( (PlainSummaryGroup)value, diagnostics, context );
             case ModelPackage.DATA_TYPE:
                 return validateDataType ( (DataType)value, diagnostics, context );
             case ModelPackage.ROUNDING:
@@ -185,12 +194,32 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateHierarchySummaryGroup ( HierarchySummaryGroup hierarchySummaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( hierarchySummaryGroup, diagnostics, context );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     public boolean validateSummaryGroup ( SummaryGroup summaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( summaryGroup, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validatePlainSummaryGroup ( PlainSummaryGroup plainSummaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( plainSummaryGroup, diagnostics, context );
     }
 
     /**
@@ -353,6 +382,16 @@ public class ModelValidator extends EObjectValidator
     public boolean validateBasicMonitor ( BasicMonitor basicMonitor, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( basicMonitor, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateWeakSummaryReference ( WeakSummaryReference weakSummaryReference, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( weakSummaryReference, diagnostics, context );
     }
 
     /**

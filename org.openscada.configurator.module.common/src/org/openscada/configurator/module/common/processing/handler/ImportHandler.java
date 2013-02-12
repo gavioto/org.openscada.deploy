@@ -14,6 +14,7 @@ import org.openscada.configurator.module.common.processing.ImportModule;
 import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.utils.SummaryGroups;
 
 public class ImportHandler extends AbstractFileHandler<ImportModule>
 {
@@ -38,8 +39,11 @@ public class ImportHandler extends AbstractFileHandler<ImportModule>
         configuration.addItems ( model.getItems () );
         configuration.addAverages ( model.getAverages () );
         configuration.addMovingAverages ( model.getMovingAverages () );
-        configuration.addSummaries ( model.getSummaries () );
+        configuration.setRootSummaryGroup ( SummaryGroups.mergeRoots ( configuration.getRootSummaryGroup (), model.getRootSummary () ) );
+        configuration.getPlainSummaryGroups ().addAll ( model.getPlainSummary () );
+
+        // FIXME: need a merge
+
         System.out.println ( String.format ( " ... found %s items", model.getItems ().size () ) );
     }
-
 }

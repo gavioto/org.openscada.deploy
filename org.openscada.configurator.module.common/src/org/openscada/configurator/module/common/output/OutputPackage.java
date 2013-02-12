@@ -6,6 +6,7 @@
  */
 package org.openscada.configurator.module.common.output;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.openscada.configuration.model.master.MasterPackage;
@@ -108,13 +109,31 @@ public interface OutputPackage extends EPackage
     int OUTPUT_SUMMARIES = 2;
 
     /**
+     * The feature id for the '<em><b>Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int OUTPUT_SUMMARIES__PREFIX = MasterPackage.MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Suffix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int OUTPUT_SUMMARIES__SUFFIX = MasterPackage.MODULE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Summaries</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int OUTPUT_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 0;
+    int OUTPUT_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.output.impl.OutputGlobalSummariesImpl <em>Global Summaries</em>}' class.
@@ -164,6 +183,28 @@ public interface OutputPackage extends EPackage
      * @generated
      */
     EClass getOutputSummaries ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.output.OutputSummaries#getPrefix <em>Prefix</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Prefix</em>'.
+     * @see org.openscada.configurator.module.common.output.OutputSummaries#getPrefix()
+     * @see #getOutputSummaries()
+     * @generated
+     */
+    EAttribute getOutputSummaries_Prefix ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.output.OutputSummaries#getSuffix <em>Suffix</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Suffix</em>'.
+     * @see org.openscada.configurator.module.common.output.OutputSummaries#getSuffix()
+     * @see #getOutputSummaries()
+     * @generated
+     */
+    EAttribute getOutputSummaries_Suffix ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.module.common.output.OutputGlobalSummaries <em>Global Summaries</em>}'.
@@ -227,6 +268,22 @@ public interface OutputPackage extends EPackage
          * @generated
          */
         EClass OUTPUT_SUMMARIES = eINSTANCE.getOutputSummaries ();
+
+        /**
+         * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute OUTPUT_SUMMARIES__PREFIX = eINSTANCE.getOutputSummaries_Prefix ();
+
+        /**
+         * The meta object literal for the '<em><b>Suffix</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute OUTPUT_SUMMARIES__SUFFIX = eINSTANCE.getOutputSummaries_Suffix ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.module.common.output.impl.OutputGlobalSummariesImpl <em>Global Summaries</em>}' class.

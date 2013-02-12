@@ -17,6 +17,7 @@ import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -27,10 +28,12 @@ import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Monitor;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
 import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,9 +103,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
-        public Adapter caseSummaryGroup ( SummaryGroup object )
+        public Adapter caseHierarchySummaryGroup ( HierarchySummaryGroup object )
         {
-            return createSummaryGroupAdapter ();
+            return createHierarchySummaryGroupAdapter ();
         }
 
         @Override
@@ -214,6 +217,24 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseWeakSummaryReference ( WeakSummaryReference object )
+        {
+            return createWeakSummaryReferenceAdapter ();
+        }
+
+        @Override
+        public Adapter caseSummaryGroup ( SummaryGroup object )
+        {
+            return createSummaryGroupAdapter ();
+        }
+
+        @Override
+        public Adapter casePlainSummaryGroup ( PlainSummaryGroup object )
+        {
+            return createPlainSummaryGroupAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -250,6 +271,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.HierarchySummaryGroup <em>Hierarchy Summary Group</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.HierarchySummaryGroup
+     * @generated
+     */
+    public Adapter createHierarchySummaryGroupAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.SummaryGroup <em>Summary Group</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -260,6 +296,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSummaryGroupAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.PlainSummaryGroup <em>Plain Summary Group</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.PlainSummaryGroup
+     * @generated
+     */
+    public Adapter createPlainSummaryGroupAdapter ()
     {
         return null;
     }
@@ -530,6 +581,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createBasicMonitorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.deploy.iolist.model.WeakSummaryReference <em>Weak Summary Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.deploy.iolist.model.WeakSummaryReference
+     * @generated
+     */
+    public Adapter createWeakSummaryReferenceAdapter ()
     {
         return null;
     }

@@ -1,6 +1,8 @@
 /*
  * This file is part of the openSCADA project
+ * 
  * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2013 Jens Reimann (ctron@dentrassi.de)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -72,6 +74,7 @@ import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -81,11 +84,12 @@ import org.openscada.deploy.iolist.model.Model;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
-import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 import org.openscada.deploy.iolist.utils.ItemListWriter;
 import org.openscada.utils.str.StringHelper;
@@ -359,31 +363,89 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    public void outputSummaries ()
+    private static final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+
+    public void outputSummaries ( final String prefix, final String suffix )
     {
-        final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+        outputPlainGroups ( this.plainSummaryGroups );
+        outputSummaryGroup ( prefix, suffix, null, this.rootSummaryGroup );
+    }
 
-        for ( final SummaryGroup group : this.summaryGroups.values () )
+    private void outputPlainGroups ( final List<PlainSummaryGroup> plainSummaryGroups )
+    {
+        for ( final PlainSummaryGroup group : plainSummaryGroups )
         {
-            final String id = group.getId ();
-            final Item item = ModelFactory.eINSTANCE.createItem ();
-            item.setDebugInformation ( "Summary creation for " + id ); //$NON-NLS-1$
-            item.setDescription ( Messages.getString ( "Configuration.SummaryItemDescription" ) + id ); //$NON-NLS-1$
-            item.setName ( id + ".sum" ); //$NON-NLS-1$
-            item.setAlias ( id );
-            item.setSystem ( "SCADA" ); //$NON-NLS-1$
-            item.setDataType ( DataType.INTEGER );
-            item.setLocalManual ( false );
-            item.setAttributeSummaryLevel ( 0 );
-            item.getHierarchy ().clear ();
-            item.getHierarchy ().addAll ( group.getHierarchy () );
-
-            this.items.add ( item );
-            addSum ( id + ".sum", group.getDataSourceIds (), group.getSubSummaryIds (), groupsSum ); //$NON-NLS-1$
-
-            final ReportDataItem reportItem = getReportItem ( item.getAlias () );
-            reportItem.setValueSource ( new SummarySource ( this, group.getDataSourceIds () ) );
+            outputSummaryGroup ( group.getId (), group.getDataSourceIds (), Collections.<String> emptyList (), group.getHierarchy () );
         }
+    }
+
+    private String makeGroupId ( final String prefix, final String parentId, final HierarchySummaryGroup group )
+    {
+        if ( parentId == null )
+        {
+            return group.getName () == null ? prefix : group.getName ();
+        }
+        else
+        {
+            return parentId + "." + group.getName ();
+        }
+    }
+
+    private String makeGroupItemId ( final String prefix, final String suffix, final String parentId, final HierarchySummaryGroup group )
+    {
+        return makeGroupId ( prefix, parentId, group ) + suffix;
+    }
+
+    private void outputSummaryGroup ( final String prefix, final String suffix, final String parentId, final HierarchySummaryGroup group )
+    {
+        final String id = makeGroupId ( prefix, parentId, group );
+        final String itemId = makeGroupItemId ( prefix, suffix, parentId, group );
+
+        outputSummaryGroup ( itemId, group.getDataSourceIds (), makeSubSummariesId ( prefix, suffix, id, group.getChildren (), group.getWeakReferences () ), group.getHierarchy () );
+
+        for ( final HierarchySummaryGroup child : group.getChildren () )
+        {
+            outputSummaryGroup ( prefix, suffix, id, child );
+        }
+    }
+
+    private void outputSummaryGroup ( final String id, final List<String> dataSourceIds, final List<String> subSummaryIds, final List<String> hierarchy )
+    {
+        final Item item = ModelFactory.eINSTANCE.createItem ();
+
+        item.setDebugInformation ( "Summary creation for " + id ); //$NON-NLS-1$
+        item.setDescription ( Messages.getString ( "Configuration.SummaryItemDescription" ) + id ); //$NON-NLS-1$
+        item.setName ( id + ".sum" ); //$NON-NLS-1$
+        item.setAlias ( id );
+        item.setSystem ( "SCADA" ); //$NON-NLS-1$
+        item.setDataType ( DataType.INTEGER );
+        item.setLocalManual ( false );
+        item.setAttributeSummaryLevel ( 0 );
+
+        item.getHierarchy ().addAll ( hierarchy );
+
+        this.items.add ( item );
+        addSum ( id + ".sum", dataSourceIds, subSummaryIds, groupsSum ); //$NON-NLS-1$
+
+        final ReportDataItem reportItem = getReportItem ( item.getAlias () );
+        reportItem.setValueSource ( new SummarySource ( this, dataSourceIds ) );
+    }
+
+    private List<String> makeSubSummariesId ( final String prefix, final String suffix, final String parentId, final List<HierarchySummaryGroup> children, final List<WeakSummaryReference> weakReferences )
+    {
+        final List<String> result = new LinkedList<String> ();
+
+        for ( final HierarchySummaryGroup group : children )
+        {
+            result.add ( makeGroupItemId ( prefix, suffix, parentId, group ) + ".master" );
+        }
+
+        for ( final WeakSummaryReference ref : weakReferences )
+        {
+            result.add ( ref.getDataSourceId () );
+        }
+
+        return result;
     }
 
     /**
@@ -543,7 +605,7 @@ public class Configuration extends GenericMasterConfiguration
             if ( item.getLocalListMonitor () != null )
             {
                 final ListMonitor m = item.getLocalListMonitor ();
-                final String message = Messages.getString("Configuration.LocalListMonitorAlarmMessage"); //$NON-NLS-1$
+                final String message = Messages.getString ( "Configuration.LocalListMonitorAlarmMessage" ); //$NON-NLS-1$
                 addListMonitor ( masterId + ".listMonitor", masterId, m.isDefaultAck (), m.getDefaultSeverity (), makeSeverityMap ( m ), makeAckMap ( m ), message, item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
             }
 
@@ -1296,7 +1358,31 @@ public class Configuration extends GenericMasterConfiguration
         injectAttributes ( attributes, "info.", data ); //$NON-NLS-1$
     }
 
-    private final Map<String, SummaryGroup> summaryGroups = new HashMap<String, SummaryGroup> ();
+    private final List<PlainSummaryGroup> plainSummaryGroups = new LinkedList<PlainSummaryGroup> ();
+
+    public List<PlainSummaryGroup> getPlainSummaryGroups ()
+    {
+        return this.plainSummaryGroups;
+    }
+
+    private HierarchySummaryGroup rootSummaryGroup = createRootSummary ();
+
+    public void setRootSummaryGroup ( final HierarchySummaryGroup rootSummaryGroup )
+    {
+        this.rootSummaryGroup = rootSummaryGroup;
+    }
+
+    private HierarchySummaryGroup createRootSummary ()
+    {
+        final HierarchySummaryGroup result = ModelFactory.eINSTANCE.createHierarchySummaryGroup ();
+
+        return result;
+    }
+
+    public HierarchySummaryGroup getRootSummaryGroup ()
+    {
+        return this.rootSummaryGroup;
+    }
 
     private void addSum ( final String id, List<String> sources, List<String> subSources, final Set<String> groups )
     {
@@ -1376,7 +1462,8 @@ public class Configuration extends GenericMasterConfiguration
         model.getItems ().addAll ( this.items );
         model.getAverages ().addAll ( this.averages );
         model.getMovingAverages ().addAll ( this.movingAverages );
-        model.getSummaries ().addAll ( this.summaryGroups.values () );
+
+        model.setRootSummary ( this.rootSummaryGroup );
 
         final ResourceSet resourceSet = new ResourceSetImpl ();
 
@@ -1557,6 +1644,7 @@ public class Configuration extends GenericMasterConfiguration
         this.movingAverages.addAll ( averages );
     }
 
+    /*
     public void addSummaries ( final Collection<SummaryGroup> summaries )
     {
         if ( summaries == null )
@@ -1579,7 +1667,9 @@ public class Configuration extends GenericMasterConfiguration
             }
         }
     }
+    */
 
+    /*
     public void removeSummary ( final SummaryGroup summaryGroup )
     {
         this.summaryGroups.remove ( summaryGroup.getId () );
@@ -1589,6 +1679,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         return Collections.unmodifiableCollection ( this.summaryGroups.values () );
     }
+    */
 
     public void addMarker ( final String id, final Set<Item> items, final Map<String, String> markers, final Map<String, String> attributes )
     {

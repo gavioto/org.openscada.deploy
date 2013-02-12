@@ -1,23 +1,39 @@
+/*
+ * This file is part of the openSCADA project
+ * 
+ * Copyright (C) 2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2013 Jens Reimann (ctron@dentrassi.de)
+ *
+ * openSCADA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License version 3
+ * only, as published by the Free Software Foundation.
+ *
+ * openSCADA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License version 3 for more details
+ * (a copy is included in the LICENSE file that accompanied this code).
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * version 3 along with openSCADA. If not, see
+ * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
+ */
+
 package org.openscada.configurator.module.common.summary.handler;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
+import org.openscada.deploy.iolist.utils.SummaryGroups;
 
 public class SummaryGenerator
 {
-    private final Project project;
 
     private final Configuration cfg;
 
@@ -25,7 +41,6 @@ public class SummaryGenerator
 
     public SummaryGenerator ( final Project project, final Configuration cfg, final GenerateSummaries module )
     {
-        this.project = project;
         this.cfg = cfg;
         this.module = module;
     }
@@ -34,7 +49,8 @@ public class SummaryGenerator
     {
         final List<Item> items = this.cfg.getItems ();
 
-        final Map<List<String>, SummaryGroup> locations = new HashMap<List<String>, SummaryGroup> ();
+        final HierarchySummaryGroup rootGroup = this.cfg.getRootSummaryGroup ();
+
         for ( final Item item : items )
         {
             if ( item.isIgnoreSummary () )
@@ -42,24 +58,13 @@ public class SummaryGenerator
                 continue;
             }
 
-            addItem ( locations, item.getHierarchy (), item );
+            addItem ( rootGroup, item.getHierarchy (), item );
         }
-
-        final ArrayList<SummaryGroup> list = new ArrayList<SummaryGroup> ( locations.values () );
-        Collections.sort ( list, new Comparator<SummaryGroup> () {
-            @Override
-            public int compare ( final SummaryGroup o1, final SummaryGroup o2 )
-            {
-                return o1.getId ().compareTo ( o2.getId () );
-            }
-        } );
-
-        this.cfg.addSummaries ( list );
     }
 
-    private void addItem ( final Map<List<String>, SummaryGroup> locations, final List<String> location, final Item item )
+    private void addItem ( final HierarchySummaryGroup rootGroup, final List<String> location, final Item item )
     {
-        final SummaryGroup locationItems = getGroup ( this.cfg, this.project, this.module, locations, location );
+        final HierarchySummaryGroup locationItems = SummaryGroups.getGroup ( rootGroup, location, 0 );
 
         if ( isSubSummary ( item ) )
         {
@@ -80,17 +85,19 @@ public class SummaryGenerator
         return false;
     }
 
-    protected static void addItemToGroup ( final Configuration cfg, final String itemId, final SummaryGroup locationItems )
+    private static void addItemToGroup ( final Configuration cfg, final String itemId, final HierarchySummaryGroup locationItems )
     {
         locationItems.getDataSourceIds ().add ( itemId );
     }
 
-    protected static void addSubItemToGroup ( final Configuration cfg, final String itemId, final SummaryGroup locationItems )
+    private static void addSubItemToGroup ( final Configuration cfg, final String itemId, final HierarchySummaryGroup locationItems )
     {
-        locationItems.getSubSummaryIds ().add ( itemId );
+        final WeakSummaryReference ref = ModelFactory.eINSTANCE.createWeakSummaryReference ();
+        ref.setDataSourceId ( itemId );
+        locationItems.getWeakReferences ().add ( ref );
     }
-
-    private static SummaryGroup getGroup ( final Configuration cfg, final Project project, final GenerateSummaries module, final Map<List<String>, SummaryGroup> locations, final List<String> location )
+    /*
+    private static SummaryGroup getGroupX ( final Configuration cfg, final Project project, final GenerateSummaries module, final Map<List<String>, SummaryGroup> locations, final List<String> location )
     {
         SummaryGroup locationItems = locations.get ( location );
         if ( locationItems == null )
@@ -105,14 +112,16 @@ public class SummaryGenerator
             if ( !parentLocation.isEmpty () )
             {
                 parentLocation.removeLast ();
-                final SummaryGroup parentGroup = getGroup ( cfg, project, module, locations, parentLocation );
+                final SummaryGroup parentGroup = getGroupX ( cfg, project, module, locations, parentLocation );
 
                 addSubItemToGroup ( cfg, locationItems.getId () + ".master", parentGroup );
             }
         }
         return locationItems;
     }
+    */
 
+    /*
     private static String makeGroupId ( final Project project, final List<String> location, final GenerateSummaries module )
     {
         final StringBuilder sb = new StringBuilder ();
@@ -141,4 +150,5 @@ public class SummaryGenerator
 
         return sb.toString ();
     }
+    */
 }

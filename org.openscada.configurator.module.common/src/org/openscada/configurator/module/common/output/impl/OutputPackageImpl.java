@@ -6,6 +6,7 @@
  */
 package org.openscada.configurator.module.common.output.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -193,6 +194,26 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getOutputSummaries_Prefix ()
+    {
+        return (EAttribute)outputSummariesEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getOutputSummaries_Suffix ()
+    {
+        return (EAttribute)outputSummariesEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getOutputGlobalSummaries ()
     {
         return outputGlobalSummariesEClass;
@@ -234,6 +255,8 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         outputItemsEClass = createEClass ( OUTPUT_ITEMS );
 
         outputSummariesEClass = createEClass ( OUTPUT_SUMMARIES );
+        createEAttribute ( outputSummariesEClass, OUTPUT_SUMMARIES__PREFIX );
+        createEAttribute ( outputSummariesEClass, OUTPUT_SUMMARIES__SUFFIX );
 
         outputGlobalSummariesEClass = createEClass ( OUTPUT_GLOBAL_SUMMARIES );
     }
@@ -291,6 +314,8 @@ public class OutputPackageImpl extends EPackageImpl implements OutputPackage
         addEParameter ( op, theConfiguratorPackage.getProject (), "project", 0, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass ( outputSummariesEClass, OutputSummaries.class, "OutputSummaries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getOutputSummaries_Prefix (), ecorePackage.getEString (), "prefix", null, 1, 1, OutputSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getOutputSummaries_Suffix (), ecorePackage.getEString (), "suffix", null, 1, 1, OutputSummaries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         op = addEOperation ( outputSummariesEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED );
         addEParameter ( op, theConfiguratorPackage.getConfiguration (), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED );

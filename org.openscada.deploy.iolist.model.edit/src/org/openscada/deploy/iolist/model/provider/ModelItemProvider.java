@@ -78,7 +78,8 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
             childrenFeatures.add ( ModelPackage.Literals.MODEL__ITEMS );
             childrenFeatures.add ( ModelPackage.Literals.MODEL__AVERAGES );
             childrenFeatures.add ( ModelPackage.Literals.MODEL__MOVING_AVERAGES );
-            childrenFeatures.add ( ModelPackage.Literals.MODEL__SUMMARIES );
+            childrenFeatures.add ( ModelPackage.Literals.MODEL__ROOT_SUMMARY );
+            childrenFeatures.add ( ModelPackage.Literals.MODEL__PLAIN_SUMMARY );
         }
         return childrenFeatures;
     }
@@ -138,7 +139,8 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
             case ModelPackage.MODEL__ITEMS:
             case ModelPackage.MODEL__AVERAGES:
             case ModelPackage.MODEL__MOVING_AVERAGES:
-            case ModelPackage.MODEL__SUMMARIES:
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -173,7 +175,9 @@ public class ModelItemProvider extends ItemProviderAdapter implements IEditingDo
 
         newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__MOVING_AVERAGES, ModelFactory.eINSTANCE.createMovingAverage () ) );
 
-        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__SUMMARIES, ModelFactory.eINSTANCE.createSummaryGroup () ) );
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__ROOT_SUMMARY, ModelFactory.eINSTANCE.createHierarchySummaryGroup () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ModelPackage.Literals.MODEL__PLAIN_SUMMARY, ModelFactory.eINSTANCE.createPlainSummaryGroup () ) );
     }
 
     /**

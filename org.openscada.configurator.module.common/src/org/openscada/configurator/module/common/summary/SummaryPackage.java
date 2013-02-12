@@ -71,31 +71,13 @@ public interface SummaryPackage extends EPackage
     int GENERATE_SUMMARIES = 0;
 
     /**
-     * The feature id for the '<em><b>Prefix</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int GENERATE_SUMMARIES__PREFIX = MasterPackage.MODULE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Suffix</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int GENERATE_SUMMARIES__SUFFIX = MasterPackage.MODULE_FEATURE_COUNT + 1;
-
-    /**
      * The feature id for the '<em><b>Sub Item Pattern</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES__SUB_ITEM_PATTERN = MasterPackage.MODULE_FEATURE_COUNT + 2;
+    int GENERATE_SUMMARIES__SUB_ITEM_PATTERN = MasterPackage.MODULE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Generate Summaries</em>' class.
@@ -104,7 +86,7 @@ public interface SummaryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GENERATE_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 3;
+    int GENERATE_SUMMARIES_FEATURE_COUNT = MasterPackage.MODULE_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.module.common.summary.impl.CleanupSummariesImpl <em>Cleanup Summaries</em>}' class.
@@ -143,28 +125,6 @@ public interface SummaryPackage extends EPackage
      * @generated
      */
     EClass getGenerateSummaries ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.GenerateSummaries#getPrefix <em>Prefix</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Prefix</em>'.
-     * @see org.openscada.configurator.module.common.summary.GenerateSummaries#getPrefix()
-     * @see #getGenerateSummaries()
-     * @generated
-     */
-    EAttribute getGenerateSummaries_Prefix ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.GenerateSummaries#getSuffix <em>Suffix</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Suffix</em>'.
-     * @see org.openscada.configurator.module.common.summary.GenerateSummaries#getSuffix()
-     * @see #getGenerateSummaries()
-     * @generated
-     */
-    EAttribute getGenerateSummaries_Suffix ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.configurator.module.common.summary.GenerateSummaries#getSubItemPattern <em>Sub Item Pattern</em>}'.
@@ -230,22 +190,6 @@ public interface SummaryPackage extends EPackage
          * @generated
          */
         EClass GENERATE_SUMMARIES = eINSTANCE.getGenerateSummaries ();
-
-        /**
-         * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute GENERATE_SUMMARIES__PREFIX = eINSTANCE.getGenerateSummaries_Prefix ();
-
-        /**
-         * The meta object literal for the '<em><b>Suffix</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute GENERATE_SUMMARIES__SUFFIX = eINSTANCE.getGenerateSummaries_Suffix ();
 
         /**
          * The meta object literal for the '<em><b>Sub Item Pattern</b></em>' attribute feature.

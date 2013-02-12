@@ -101,28 +101,28 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.SummaryGroup} instances.
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.HierarchySummaryGroup} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SummaryGroupItemProvider summaryGroupItemProvider;
+    protected HierarchySummaryGroupItemProvider hierarchySummaryGroupItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.SummaryGroup}.
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.HierarchySummaryGroup}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createSummaryGroupAdapter ()
+    public Adapter createHierarchySummaryGroupAdapter ()
     {
-        if ( summaryGroupItemProvider == null )
+        if ( hierarchySummaryGroupItemProvider == null )
         {
-            summaryGroupItemProvider = new SummaryGroupItemProvider ( this );
+            hierarchySummaryGroupItemProvider = new HierarchySummaryGroupItemProvider ( this );
         }
 
-        return summaryGroupItemProvider;
+        return hierarchySummaryGroupItemProvider;
     }
 
     /**
@@ -526,6 +526,56 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.WeakSummaryReference} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected WeakSummaryReferenceItemProvider weakSummaryReferenceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.WeakSummaryReference}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createWeakSummaryReferenceAdapter ()
+    {
+        if ( weakSummaryReferenceItemProvider == null )
+        {
+            weakSummaryReferenceItemProvider = new WeakSummaryReferenceItemProvider ( this );
+        }
+
+        return weakSummaryReferenceItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.deploy.iolist.model.PlainSummaryGroup} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PlainSummaryGroupItemProvider plainSummaryGroupItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.deploy.iolist.model.PlainSummaryGroup}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPlainSummaryGroupAdapter ()
+    {
+        if ( plainSummaryGroupItemProvider == null )
+        {
+            plainSummaryGroupItemProvider = new PlainSummaryGroupItemProvider ( this );
+        }
+
+        return plainSummaryGroupItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -638,8 +688,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
     {
         if ( itemItemProvider != null )
             itemItemProvider.dispose ();
-        if ( summaryGroupItemProvider != null )
-            summaryGroupItemProvider.dispose ();
+        if ( hierarchySummaryGroupItemProvider != null )
+            hierarchySummaryGroupItemProvider.dispose ();
         if ( formulaItemItemProvider != null )
             formulaItemItemProvider.dispose ();
         if ( formulaInputItemProvider != null )
@@ -672,6 +722,10 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
             movingAverageItemProvider.dispose ();
         if ( listMonitorEntryItemProvider != null )
             listMonitorEntryItemProvider.dispose ();
+        if ( weakSummaryReferenceItemProvider != null )
+            weakSummaryReferenceItemProvider.dispose ();
+        if ( plainSummaryGroupItemProvider != null )
+            plainSummaryGroupItemProvider.dispose ();
     }
 
 }

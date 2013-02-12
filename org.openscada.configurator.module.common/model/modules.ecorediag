@@ -202,14 +202,6 @@
       <children xmi:type="notation:Node" xmi:id="_q1PxoPG3EeGn_b4ceTt4mw" type="2003">
         <children xmi:type="notation:Node" xmi:id="_q1Pxo_G3EeGn_b4ceTt4mw" type="4002"/>
         <children xmi:type="notation:Node" xmi:id="_q1PxpPG3EeGn_b4ceTt4mw" type="5004">
-          <children xmi:type="notation:Node" xmi:id="_fMZB4AL_EeKHwZBNinkcRA" type="2001">
-            <element xmi:type="ecore:EAttribute" href="modules.ecore#//summary/GenerateSummaries/prefix"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_fMZB4QL_EeKHwZBNinkcRA"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_gHjpoAL_EeKHwZBNinkcRA" type="2001">
-            <element xmi:type="ecore:EAttribute" href="modules.ecore#//summary/GenerateSummaries/suffix"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_gHjpoQL_EeKHwZBNinkcRA"/>
-          </children>
           <children xmi:type="notation:Node" xmi:id="_TsmnQBOGEeKBy6bJscbSUQ" type="2001">
             <element xmi:type="ecore:EAttribute" href="modules.ecore#//summary/GenerateSummaries/subItemPattern"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_TsmnQROGEeKBy6bJscbSUQ"/>
@@ -393,16 +385,28 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_C91NAQuoEeK12vZhCfk6-A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="modules.ecore#//output/OutputGlobalSummaries"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C91NAguoEeK12vZhCfk6-A" x="7" y="75"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C91NAguoEeK12vZhCfk6-A" x="7" y="111"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_C93pQAuoEeK12vZhCfk6-A" type="2003">
         <children xmi:type="notation:Node" xmi:id="_C94QUAuoEeK12vZhCfk6-A" type="4002"/>
         <children xmi:type="notation:Node" xmi:id="_C94QUQuoEeK12vZhCfk6-A" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_zUFUsHUVEeKAy-ZuWXwWeQ" type="2001">
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//output/OutputSummaries/prefix"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_zUFUsXUVEeKAy-ZuWXwWeQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_0zcOoHUVEeKAy-ZuWXwWeQ" type="2001">
+            <element xmi:type="ecore:EAttribute" href="modules.ecore#//output/OutputSummaries/suffix"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_0zcOoXUVEeKAy-ZuWXwWeQ"/>
+          </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_C94QUguoEeK12vZhCfk6-A"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_C94QUwuoEeK12vZhCfk6-A"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_C94QVAuoEeK12vZhCfk6-A"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_C95ecAuoEeK12vZhCfk6-A" type="5005">
+          <children xmi:type="notation:Node" xmi:id="_v9B5UHUVEeKAy-ZuWXwWeQ" type="2002">
+            <element xmi:type="ecore:EOperation" href="modules.ecore#//output/OutputSummaries/process"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_v9B5UXUVEeKAy-ZuWXwWeQ"/>
+          </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_C95ecQuoEeK12vZhCfk6-A"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_C95ecguoEeK12vZhCfk6-A"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_C95ecwuoEeK12vZhCfk6-A"/>
@@ -425,7 +429,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_C96FgQuoEeK12vZhCfk6-A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="modules.ecore#//output/OutputItems"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C96FgguoEeK12vZhCfk6-A" x="259" y="75"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C96FgguoEeK12vZhCfk6-A" x="259" y="111"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_KPK-kQumEeK12vZhCfk6-A"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_KPK-kgumEeK12vZhCfk6-A"/>

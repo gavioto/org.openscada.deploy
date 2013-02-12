@@ -23,6 +23,7 @@ import org.openscada.deploy.iolist.model.ConstantItem;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.FormulaInput;
 import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
@@ -34,11 +35,12 @@ import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.MovingAverage;
 import org.openscada.deploy.iolist.model.MovingAverageItem;
 import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
 import org.openscada.deploy.iolist.model.Rounding;
 import org.openscada.deploy.iolist.model.ScriptItem;
 import org.openscada.deploy.iolist.model.ScriptModule;
 import org.openscada.deploy.iolist.model.ScriptOutput;
-import org.openscada.deploy.iolist.model.SummaryGroup;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
@@ -89,8 +91,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
         {
             case ModelPackage.ITEM:
                 return createItem ();
-            case ModelPackage.SUMMARY_GROUP:
-                return createSummaryGroup ();
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP:
+                return createHierarchySummaryGroup ();
             case ModelPackage.FORMULA_ITEM:
                 return createFormulaItem ();
             case ModelPackage.FORMULA_INPUT:
@@ -123,6 +125,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
                 return createMovingAverage ();
             case ModelPackage.LIST_MONITOR_ENTRY:
                 return createListMonitorEntry ();
+            case ModelPackage.WEAK_SUMMARY_REFERENCE:
+                return createWeakSummaryReference ();
+            case ModelPackage.PLAIN_SUMMARY_GROUP:
+                return createPlainSummaryGroup ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -196,14 +202,14 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public SummaryGroup createSummaryGroup ()
+    public HierarchySummaryGroup createHierarchySummaryGroup ()
     {
-        SummaryGroupImpl summaryGroup = new SummaryGroupImpl ();
-        return summaryGroup;
+        HierarchySummaryGroupImpl hierarchySummaryGroup = new HierarchySummaryGroupImpl ();
+        return hierarchySummaryGroup;
     }
 
     /**
@@ -380,6 +386,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         ListMonitorEntryImpl listMonitorEntry = new ListMonitorEntryImpl ();
         return listMonitorEntry;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public WeakSummaryReference createWeakSummaryReference ()
+    {
+        WeakSummaryReferenceImpl weakSummaryReference = new WeakSummaryReferenceImpl ();
+        return weakSummaryReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PlainSummaryGroup createPlainSummaryGroup ()
+    {
+        PlainSummaryGroupImpl plainSummaryGroup = new PlainSummaryGroupImpl ();
+        return plainSummaryGroup;
     }
 
     /**
