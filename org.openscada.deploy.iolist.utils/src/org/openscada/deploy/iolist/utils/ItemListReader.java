@@ -2,6 +2,7 @@
  * This file is part of the openSCADA project
  * 
  * Copyright (C) 2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2013 Jens Reimann (ctron@dentrassi.de)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -51,6 +52,7 @@ import org.openscada.deploy.iolist.utils.column.IntEcoreColumnReader;
 import org.openscada.deploy.iolist.utils.column.LevelColumnReader;
 import org.openscada.deploy.iolist.utils.column.LevelMonitorColumnReader;
 import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumnReader;
+import org.openscada.deploy.iolist.utils.column.ListMonitorMessageColumnReader;
 import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumnReader;
 import org.openscada.deploy.iolist.utils.column.MonitorColumnReader;
 import org.openscada.deploy.iolist.utils.column.NumericColumnReader;
@@ -145,6 +147,7 @@ public class ItemListReader
         }
         this.readers.put ( "LIST_MONITOR_ACK", new ListMonitorAckColumnReader ( true ) );
         this.readers.put ( "LIST_MONITOR_NAK", new ListMonitorAckColumnReader ( false ) );
+        this.readers.put ( "LIST_MONITOR_MESSAGE", new ListMonitorMessageColumnReader () );
 
         this.readers.put ( "REMOTE_MIN", new BooleanEcoreColumnReader ( ModelPackage.Literals.ITEM__REMOTE_MIN ) );
         this.readers.put ( "REMOTE_MAX", new BooleanEcoreColumnReader ( ModelPackage.Literals.ITEM__REMOTE_MAX ) );

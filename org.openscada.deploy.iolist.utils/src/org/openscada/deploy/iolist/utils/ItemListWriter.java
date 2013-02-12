@@ -2,6 +2,7 @@
  * This file is part of the openSCADA project
  * 
  * Copyright (C) 2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2013 Jens Reimann (ctron@dentrassi.de)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -50,6 +51,7 @@ import org.openscada.deploy.iolist.utils.column.BooleanMonitorColumn;
 import org.openscada.deploy.iolist.utils.column.ColumnWriter;
 import org.openscada.deploy.iolist.utils.column.LevelMonitorColumn;
 import org.openscada.deploy.iolist.utils.column.ListMonitorAckColumn;
+import org.openscada.deploy.iolist.utils.column.ListMonitorMessageColumn;
 import org.openscada.deploy.iolist.utils.column.ListMonitorSeverityColumn;
 import org.openscada.deploy.iolist.utils.column.NumericEcoreColumn;
 import org.openscada.deploy.iolist.utils.column.OptionalNumericColumn;
@@ -122,6 +124,7 @@ public class ItemListWriter
         }
         this.columns.add ( new ListMonitorAckColumn ( "LIST_MONITOR_ACK", true ) );
         this.columns.add ( new ListMonitorAckColumn ( "LIST_MONITOR_NAK", false ) );
+        this.columns.add ( new ListMonitorMessageColumn ( "LIST_MONITOR_MESSAGE" ) );
 
         this.columns.add ( new BooleanEcoreColumn ( "REMOTE_MIN", ModelPackage.Literals.ITEM__REMOTE_MIN ) );
         this.columns.add ( new BooleanEcoreColumn ( "REMOTE_MAX", ModelPackage.Literals.ITEM__REMOTE_MAX ) );
