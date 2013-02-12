@@ -239,9 +239,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.component.script", id, data );//$NON-NLS-1$
     }
 
-    /**
-     * Generate global summaries
-     */
+    /** Generate global summaries */
     public void outputGlobalSummaries ()
     {
         final Set<String> blacklist = new HashSet<String> ();
@@ -280,9 +278,7 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    /**
-     * Generated blocks based on location and component
-     */
+    /** Generated blocks based on location and component */
     public void generateSummeryBlocks ()
     {
         final Multimap<List<String>, String> locMap = HashMultimap.create ();
@@ -448,9 +444,7 @@ public class Configuration extends GenericMasterConfiguration
         return result;
     }
 
-    /**
-     * Generate configuration for currently known items
-     */
+    /** Generate configuration for currently known items */
 
     public void outputItems ()
     {
@@ -470,7 +464,7 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Item item : this.items )
         {
-            if ( item.getDevice () != null && !item.getDevice ().isEmpty () )
+            if ( ( item.getDevice () != null ) && !item.getDevice ().isEmpty () )
             {
                 connections.add ( item.getDevice () );
             }
@@ -518,7 +512,7 @@ public class Configuration extends GenericMasterConfiguration
                 sourceId = item.getName () + ".ds"; //$NON-NLS-1$
                 addDSDataSource ( sourceId );
             }
-            else if ( item.getDevice () != null && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
+            else if ( ( item.getDevice () != null ) && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
             {
                 sourceId = internalItemId + ".source"; //$NON-NLS-1$
 
@@ -567,8 +561,8 @@ public class Configuration extends GenericMasterConfiguration
 
                 final String message = Messages.getString ( "Configuration.LocalBooleanAlarmMessage" ); //$NON-NLS-1$
 
-                addLocalBitMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().getSeverity (), item.getLocalBooleanMonitor ().isAck (), message, item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
-                reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.getLocalBooleanMonitor ().isAck () ) );
+                addLocalBitMonitor ( masterId + ".local.monitor", masterId, reference, item.getLocalBooleanMonitor ().getSeverity (), item.getLocalBooleanMonitor ().isAck (), item.getLocalBooleanMonitor ().isSuppressEvents (), message, item.getDefaultMonitorDemote (), attributes ); //$NON-NLS-1$
+                reportItem.addMonitor ( new LocalBooleanMonitor ( reference, item.getLocalBooleanMonitor ().isAck (), item.getLocalBooleanMonitor ().isSuppressEvents () ) );
             }
             makeRemoteLevels ( item, reportItem, masterId, attributes );
             makeLocalLevels ( item, reportItem, masterId, attributes );
@@ -748,15 +742,15 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        if ( item.getWriteValueName () != null && !item.getWriteValueName ().isEmpty () )
+        if ( ( item.getWriteValueName () != null ) && !item.getWriteValueName ().isEmpty () )
         {
             data.put ( "writeValueName", item.getWriteValueName () ); //$NON-NLS-1$
         }
-        if ( item.getOutputDatasourceId () != null && !item.getOutputDatasourceId ().isEmpty () )
+        if ( ( item.getOutputDatasourceId () != null ) && !item.getOutputDatasourceId ().isEmpty () )
         {
             data.put ( "outputDatasource.id", item.getOutputDatasourceId () ); //$NON-NLS-1$
         }
-        if ( item.getOutputFormula () != null && !item.getOutputFormula ().isEmpty () )
+        if ( ( item.getOutputFormula () != null ) && !item.getOutputFormula ().isEmpty () )
         {
             data.put ( "outputFormula", item.getOutputFormula () ); //$NON-NLS-1$
         }
@@ -765,7 +759,7 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "outputDatasource.type", convert ( item.getOutputDatasourceType () ) ); //$NON-NLS-1$
         }
 
-        if ( item.getInputFormula () != null && !item.getInputFormula ().isEmpty () )
+        if ( ( item.getInputFormula () != null ) && !item.getInputFormula ().isEmpty () )
         {
             data.put ( "inputFormula", item.getInputFormula () ); //$NON-NLS-1$
         }
@@ -779,7 +773,7 @@ public class Configuration extends GenericMasterConfiguration
             }
         }
 
-        if ( item.getInitScript () != null && !item.getInitScript ().isEmpty () )
+        if ( ( item.getInitScript () != null ) && !item.getInitScript ().isEmpty () )
         {
             data.put ( "init.0", item.getInitScript () ); //$NON-NLS-1$
         }
@@ -834,18 +828,18 @@ public class Configuration extends GenericMasterConfiguration
     {
         switch ( type )
         {
-            case BOOLEAN:
-                return VariantType.BOOLEAN.name ();
-            case INTEGER:
-                return VariantType.INT32.name ();
-            case LONG_INTEGER:
-                return VariantType.INT64.name ();
-            case STRING:
-                return VariantType.STRING.name ();
-            case FLOAT:
-                return VariantType.DOUBLE.name ();
-            case VARIANT:
-                return null;
+        case BOOLEAN:
+            return VariantType.BOOLEAN.name ();
+        case INTEGER:
+            return VariantType.INT32.name ();
+        case LONG_INTEGER:
+            return VariantType.INT64.name ();
+        case STRING:
+            return VariantType.STRING.name ();
+        case FLOAT:
+            return VariantType.DOUBLE.name ();
+        case VARIANT:
+            return null;
         }
         return null;
     }
@@ -886,7 +880,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        if ( engine != null && !engine.isEmpty () )
+        if ( ( engine != null ) && !engine.isEmpty () )
         {
             data.put ( "engine", engine ); //$NON-NLS-1$
         }
@@ -904,7 +898,7 @@ public class Configuration extends GenericMasterConfiguration
         {
             data.put ( "updateCommand", update ); //$NON-NLS-1$
         }
-        if ( outputs != null && !outputs.isEmpty () )
+        if ( ( outputs != null ) && !outputs.isEmpty () )
         {
             final Set<String> oldSources = new HashSet<String> ();
             for ( final Map.Entry<String, String> entry : outputs.entrySet () )
@@ -938,13 +932,11 @@ public class Configuration extends GenericMasterConfiguration
 
     static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
 
-    /**
-     * Loads text data from a file
+    /** Loads text data from a file
      * 
      * @param file
      * @return
-     * @throws Exception
-     */
+     * @throws Exception */
     public static String loadFromFile ( final Reader sourceReader ) throws Exception
     {
         final BufferedReader reader = new BufferedReader ( sourceReader );
@@ -977,9 +969,9 @@ public class Configuration extends GenericMasterConfiguration
 
         fillMasterHandler ( FACTORY_MASTER_HANDLER_SCALE, id, data, masterId, null );
 
-        data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
-        data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "active", "" + ( ( localScaleFactor != null ) || ( localScaleOffset != null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "factor", ( "" + localScaleFactor ) != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "offset", ( "" + localScaleOffset ) != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
         applyInfoAttributes ( attributes, data );
 
@@ -1130,7 +1122,7 @@ public class Configuration extends GenericMasterConfiguration
         }
     }
 
-    private void addLocalBitMonitor ( final String id, final String masterId, final String reference, final Severity severity, final boolean ack, final String message, final String demotePrefix, final Map<String, String> attributes )
+    private void addLocalBitMonitor ( final String id, final String masterId, final String reference, final Severity severity, final boolean ack, final boolean suppressEvents, final String message, final String demotePrefix, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
@@ -1146,6 +1138,10 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "active", "false" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         data.put ( "requireAck", "" + ack ); //$NON-NLS-1$ //$NON-NLS-2$
+        if ( suppressEvents )
+        {
+            data.put ( "suppressEvents", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
         data.put ( "severity", "" + severity ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( message != null )
         {
@@ -1250,6 +1246,7 @@ public class Configuration extends GenericMasterConfiguration
     private void makeLocalLevel ( final ReportDataItem reportItem, final String masterId, final String type, final Severity severity, final String monitorType, final boolean cap, final boolean lowerOk, final boolean includedOk, final LevelMonitor levelMonitor, final String demotePrefix, Map<String, String> attributes )
     {
         final boolean requireAck = levelMonitor.isAck ();
+        final boolean suppressEvents = levelMonitor.isSuppressEvents ();
         final Double preset = levelMonitor.getPreset ();
         Severity localSeverity;
         if ( levelMonitor.getSeverity () != null )
@@ -1264,12 +1261,12 @@ public class Configuration extends GenericMasterConfiguration
         attributes = new HashMap<String, String> ( attributes );
         attributes.put ( "message", String.format ( Messages.getString ( "Configuration.localLevel.message" ), type ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        addLocalLevelMonitor ( masterId + ".local.level." + type, cap, requireAck, masterId, localSeverity, type, monitorType, lowerOk, includedOk, preset, demotePrefix, attributes ); //$NON-NLS-1$
+        addLocalLevelMonitor ( masterId + ".local.level." + type, cap, requireAck, suppressEvents, masterId, localSeverity, type, monitorType, lowerOk, includedOk, preset, demotePrefix, attributes ); //$NON-NLS-1$
 
-        reportItem.addMonitor ( new LocalLevelMonitor ( type, cap, requireAck, preset ) );
+        reportItem.addMonitor ( new LocalLevelMonitor ( type, cap, requireAck, suppressEvents, preset ) );
     }
 
-    private void addLocalLevelMonitor ( final String id, final boolean cap, final boolean requireAck, final String masterId, final Severity severity, final String type, final String monitorType, final boolean lowerOk, final boolean includedOk, final Double preset, final String demotePrefix, final Map<String, String> attributes )
+    private void addLocalLevelMonitor ( final String id, final boolean cap, final boolean requireAck, final boolean suppressEvents, final String masterId, final Severity severity, final String type, final String monitorType, final boolean lowerOk, final boolean includedOk, final Double preset, final String demotePrefix, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
@@ -1284,6 +1281,10 @@ public class Configuration extends GenericMasterConfiguration
 
         data.put ( "cap", "" + cap ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "requireAck", "" + requireAck ); //$NON-NLS-1$ //$NON-NLS-2$
+        if ( suppressEvents )
+        {
+            data.put ( "suppressEvents", "" + suppressEvents ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
         data.put ( "severity", "" + severity ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "prefix", type ); //$NON-NLS-1$
         data.put ( "monitorType", monitorType ); //$NON-NLS-1$
@@ -1343,7 +1344,7 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Map.Entry<String, String> entry : attributes.entrySet () )
         {
-            if ( entry.getKey () == null || entry.getKey ().isEmpty () )
+            if ( ( entry.getKey () == null ) || entry.getKey ().isEmpty () )
             {
                 //ignore empty keys
                 continue;
@@ -1520,7 +1521,7 @@ public class Configuration extends GenericMasterConfiguration
             {
                 this.logStream.println ( "Overriding item: " + origItem ); //$NON-NLS-1$
 
-                if ( item.getName () == null || "".equals ( item.getName () ) ) //$NON-NLS-1$
+                if ( ( item.getName () == null ) || "".equals ( item.getName () ) ) //$NON-NLS-1$
                 {
                     this.logStream.println ( "Use original source name: " + origItem.getName () ); //$NON-NLS-1$
                     item.setName ( origItem.getName () );
@@ -1707,7 +1708,7 @@ public class Configuration extends GenericMasterConfiguration
         addData ( FACTORY_MASTER_HANDLER_MARKER, id, data );
     }
 
-    public void addScriptMonitor ( final String id, final int priority, final String scriptEngine, final String updateScript, final Map<String, String> inputs, final Set<String> outputs, final Map<String, String> attributes )
+    public void addScriptMonitor ( final String id, final int priority, final boolean suppressEvents, final String scriptEngine, final String updateScript, final Map<String, String> inputs, final Set<String> outputs, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
@@ -1715,6 +1716,10 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "master.id", StringHelper.join ( outputs, ", " ) ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "updateCommand", updateScript ); //$NON-NLS-1$
         data.put ( "scriptEngine", scriptEngine ); //$NON-NLS-1$
+        if ( suppressEvents )
+        {
+            data.put ( "suppressEvents", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
 
         for ( final Map.Entry<String, String> entry : inputs.entrySet () )
         {

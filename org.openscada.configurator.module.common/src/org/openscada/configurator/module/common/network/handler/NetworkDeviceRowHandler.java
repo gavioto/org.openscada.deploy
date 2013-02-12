@@ -55,6 +55,11 @@ public class NetworkDeviceRowHandler implements RowHandler
         {
             device.setAlarmLoss ( Double.parseDouble ( rowData.get ( "ALARM_LOSS" ) ) );
         }
+        final String suppressEvents = rowData.remove ( "SUPPRESS_EVENTS" );
+        if ( ( suppressEvents != null ) && ( "1".equalsIgnoreCase ( suppressEvents ) || "x".equalsIgnoreCase ( suppressEvents ) ) )
+        {
+            device.setSuppressEvents ( true );
+        }
 
         this.devices.add ( device );
     }

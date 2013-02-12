@@ -43,7 +43,7 @@ public class NetworkHandler
         for ( final NetworkDevice device : devices )
         {
             {
-                final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () == null ? null : device.getWarnLoss () / 100.0, device.getAlarmLoss () == null ? null : device.getAlarmLoss () / 100.0 );
+                final Item item = createDeviceItem ( device, null, null, device.getWarnLoss () == null ? null : device.getWarnLoss () / 100.0, device.getAlarmLoss () == null ? null : device.getAlarmLoss () / 100.0, device.isSuppressEvents () );
                 item.setAlias ( String.format ( "%s.%s.AVAIL.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.reach", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_PacketLoss_Description, device.getDescription () ) );
@@ -51,7 +51,7 @@ public class NetworkHandler
                 items.add ( item );
             }
             {
-                final Item item = createDeviceItem ( device, device.getWarnRtt (), device.getAlarmRtt (), null, null );
+                final Item item = createDeviceItem ( device, device.getWarnRtt (), device.getAlarmRtt (), null, null, device.isSuppressEvents () );
                 item.setAlias ( String.format ( "%s.%s.P_RT.V", prefix, StringHelper.join ( device.getHierarchy (), "." ) ) ); //$NON-NLS-1$
                 item.setName ( String.format ( "PING.values.%s.rtt", device.getHostname () ) ); //$NON-NLS-1$
                 item.setDescription ( String.format ( Messages.Application_RTT_Description, device.getDescription () ) );
@@ -64,7 +64,7 @@ public class NetworkHandler
         return items;
     }
 
-    private static Item createDeviceItem ( final NetworkDevice device, final Double warnHigh, final Double alarmHigh, final Double warnLow, final Double alarmLow )
+    private static Item createDeviceItem ( final NetworkDevice device, final Double warnHigh, final Double alarmHigh, final Double warnLow, final Double alarmLow, final boolean suppressEvents )
     {
         final Item item = ModelFactory.eINSTANCE.createItem ();
         item.setDevice ( "exec" ); //$NON-NLS-1$
@@ -85,11 +85,17 @@ public class NetworkHandler
         item.setLocalMax ( ModelFactory.eINSTANCE.createLevelMonitor () );
 
         item.getLocalLowLow ().setSeverity ( Severity.ALARM );
+        item.getLocalLowLow ().setAck ( false );
+        item.getLocalLowLow ().setSuppressEvents ( suppressEvents );
         item.getLocalLow ().setSeverity ( Severity.WARNING );
         item.getLocalLow ().setAck ( false );
+        item.getLocalLow ().setSuppressEvents ( suppressEvents );
         item.getLocalHigh ().setAck ( false );
         item.getLocalHigh ().setSeverity ( Severity.WARNING );
+        item.getLocalHigh ().setSuppressEvents ( suppressEvents );
         item.getLocalHighHigh ().setSeverity ( Severity.ALARM );
+        item.getLocalHighHigh ().setAck ( false );
+        item.getLocalHighHigh ().setSuppressEvents ( suppressEvents );
 
         if ( warnLow != null )
         {
@@ -98,7 +104,10 @@ public class NetworkHandler
         if ( alarmLow != null )
         {
             item.getLocalLowLow ().setPreset ( alarmLow );
-            item.getLocalLowLow ().setAck ( true );
+            if ( !suppressEvents )
+            {
+                item.getLocalLowLow ().setAck ( true );
+            }
         }
         if ( warnHigh != null )
         {
@@ -107,11 +116,17 @@ public class NetworkHandler
         if ( alarmHigh != null )
         {
             item.getLocalHighHigh ().setPreset ( alarmHigh );
-            item.getLocalHighHigh ().setAck ( true );
+            if ( !suppressEvents )
+            {
+                item.getLocalHighHigh ().setAck ( true );
+            }
         }
 
         item.getLocalMin ().setPreset ( 0.0 );
-        item.getLocalMin ().setAck ( true );
+        if ( !suppressEvents )
+        {
+            item.getLocalMin ().setAck ( true );
+        }
 
         return item;
     }

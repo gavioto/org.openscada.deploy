@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
  */
 package org.openscada.deploy.iolist.model.util;
 
@@ -11,44 +7,21 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.openscada.ae.data.Severity;
+
 import org.openscada.core.Variant;
-import org.openscada.deploy.iolist.model.Average;
-import org.openscada.deploy.iolist.model.AverageItem;
-import org.openscada.deploy.iolist.model.AverageReferenceType;
-import org.openscada.deploy.iolist.model.BasicMonitor;
-import org.openscada.deploy.iolist.model.BooleanMonitor;
-import org.openscada.deploy.iolist.model.ConstantItem;
-import org.openscada.deploy.iolist.model.DataType;
-import org.openscada.deploy.iolist.model.FormulaInput;
-import org.openscada.deploy.iolist.model.FormulaItem;
-import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
-import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.model.LevelMonitor;
-import org.openscada.deploy.iolist.model.ListMonitor;
-import org.openscada.deploy.iolist.model.ListMonitorEntry;
-import org.openscada.deploy.iolist.model.Mapper;
-import org.openscada.deploy.iolist.model.Model;
-import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.model.ModelPackage;
-import org.openscada.deploy.iolist.model.Monitor;
-import org.openscada.deploy.iolist.model.MovingAverage;
-import org.openscada.deploy.iolist.model.MovingAverageItem;
-import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
-import org.openscada.deploy.iolist.model.PlainSummaryGroup;
-import org.openscada.deploy.iolist.model.Rounding;
-import org.openscada.deploy.iolist.model.ScriptItem;
-import org.openscada.deploy.iolist.model.ScriptModule;
-import org.openscada.deploy.iolist.model.ScriptOutput;
-import org.openscada.deploy.iolist.model.SummaryGroup;
-import org.openscada.deploy.iolist.model.WeakSummaryReference;
+
+import org.openscada.deploy.iolist.model.*;
 
 /**
- * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
- * -->
- * 
+ * <!-- begin-user-doc -->
+ * The <b>Validator</b> for the model.
+ * <!-- end-user-doc -->
  * @see org.openscada.deploy.iolist.model.ModelPackage
  * @generated
  */
@@ -56,18 +29,16 @@ public class ModelValidator extends EObjectValidator
 {
     /**
      * The cached model package
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public static final ModelValidator INSTANCE = new ModelValidator ();
 
     /**
-     * A constant for the
-     * {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
-     * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes}
-     * from this package. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -76,21 +47,24 @@ public class ModelValidator extends EObjectValidator
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
 
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
      * Creates an instance of the switch.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public ModelValidator ()
@@ -100,7 +74,8 @@ public class ModelValidator extends EObjectValidator
 
     /**
      * Returns the package of this validator switch.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -111,7 +86,8 @@ public class ModelValidator extends EObjectValidator
 
     /**
      * Calls <code>validateXXX</code> for the corresponding classifier of the model.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -185,7 +161,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateItem ( Item item, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -204,26 +181,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validateSummaryGroup ( SummaryGroup summaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
-    {
-        return validate_EveryDefaultConstraint ( summaryGroup, diagnostics, context );
-    }
-
-    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean validatePlainSummaryGroup ( PlainSummaryGroup plainSummaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
-    {
-        return validate_EveryDefaultConstraint ( plainSummaryGroup, diagnostics, context );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     public boolean validateFormulaItem ( FormulaItem formulaItem, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -232,7 +191,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateFormulaInput ( FormulaInput formulaInput, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -241,7 +201,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateScriptModule ( ScriptModule scriptModule, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -250,7 +211,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateModel ( Model model, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -259,7 +221,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateScriptItem ( ScriptItem scriptItem, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -268,7 +231,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateScriptOutput ( ScriptOutput scriptOutput, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -277,7 +241,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateMapper ( Mapper mapper, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -286,7 +251,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateMonitor ( Monitor monitor, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -295,7 +261,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateLevelMonitor ( LevelMonitor levelMonitor, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -304,7 +271,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateListMonitor ( ListMonitor listMonitor, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -313,7 +281,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateBooleanMonitor ( BooleanMonitor booleanMonitor, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -322,7 +291,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateAverage ( Average average, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -331,7 +301,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateAverageItem ( AverageItem averageItem, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -340,7 +311,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateConstantItem ( ConstantItem constantItem, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -349,7 +321,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateMovingAverageItem ( MovingAverageItem movingAverageItem, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -358,7 +331,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateMovingAverage ( MovingAverage movingAverage, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -367,7 +341,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateListMonitorEntry ( ListMonitorEntry listMonitorEntry, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -376,7 +351,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateBasicMonitor ( BasicMonitor basicMonitor, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -395,7 +371,28 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateSummaryGroup ( SummaryGroup summaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( summaryGroup, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validatePlainSummaryGroup ( PlainSummaryGroup plainSummaryGroup, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( plainSummaryGroup, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateDataType ( DataType dataType, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -404,7 +401,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateRounding ( Rounding rounding, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -413,7 +411,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateAverageReferenceType ( AverageReferenceType averageReferenceType, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -422,7 +421,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateMovingAverageReferenceType ( MovingAverageReferenceType movingAverageReferenceType, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -431,7 +431,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateVariant ( Variant variant, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -440,7 +441,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateListSeverity ( String listSeverity, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -450,7 +452,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @see #validateListSeverity_Enumeration
      */
@@ -458,7 +461,8 @@ public class ModelValidator extends EObjectValidator
 
     /**
      * Validates the Enumeration constraint of '<em>List Severity</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateListSeverity_Enumeration ( String listSeverity, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -470,7 +474,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateSeverity ( Severity severity, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -480,7 +485,8 @@ public class ModelValidator extends EObjectValidator
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @see #validateSeverity_Enumeration
      */
@@ -488,7 +494,8 @@ public class ModelValidator extends EObjectValidator
 
     /**
      * Validates the Enumeration constraint of '<em>Severity</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public boolean validateSeverity_Enumeration ( Severity severity, DiagnosticChain diagnostics, Map<Object, Object> context )
@@ -501,7 +508,8 @@ public class ModelValidator extends EObjectValidator
 
     /**
      * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override

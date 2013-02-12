@@ -149,12 +149,12 @@ public class AverageItemImpl extends ItemImpl implements AverageItem
     {
         switch ( featureID )
         {
-            case ModelPackage.AVERAGE_ITEM__AVERAGE:
-                if ( resolve )
-                    return getAverage ();
-                return basicGetAverage ();
-            case ModelPackage.AVERAGE_ITEM__TYPE:
-                return getType ();
+        case ModelPackage.AVERAGE_ITEM__AVERAGE:
+            if ( resolve )
+                return getAverage ();
+            return basicGetAverage ();
+        case ModelPackage.AVERAGE_ITEM__TYPE:
+            return getType ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -168,12 +168,12 @@ public class AverageItemImpl extends ItemImpl implements AverageItem
     {
         switch ( featureID )
         {
-            case ModelPackage.AVERAGE_ITEM__AVERAGE:
-                setAverage ( (Average)newValue );
-                return;
-            case ModelPackage.AVERAGE_ITEM__TYPE:
-                setType ( (AverageReferenceType)newValue );
-                return;
+        case ModelPackage.AVERAGE_ITEM__AVERAGE:
+            setAverage ( (Average)newValue );
+            return;
+        case ModelPackage.AVERAGE_ITEM__TYPE:
+            setType ( (AverageReferenceType)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -187,12 +187,12 @@ public class AverageItemImpl extends ItemImpl implements AverageItem
     {
         switch ( featureID )
         {
-            case ModelPackage.AVERAGE_ITEM__AVERAGE:
-                setAverage ( (Average)null );
-                return;
-            case ModelPackage.AVERAGE_ITEM__TYPE:
-                setType ( TYPE_EDEFAULT );
-                return;
+        case ModelPackage.AVERAGE_ITEM__AVERAGE:
+            setAverage ( (Average)null );
+            return;
+        case ModelPackage.AVERAGE_ITEM__TYPE:
+            setType ( TYPE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -206,10 +206,10 @@ public class AverageItemImpl extends ItemImpl implements AverageItem
     {
         switch ( featureID )
         {
-            case ModelPackage.AVERAGE_ITEM__AVERAGE:
-                return average != null;
-            case ModelPackage.AVERAGE_ITEM__TYPE:
-                return type != TYPE_EDEFAULT;
+        case ModelPackage.AVERAGE_ITEM__AVERAGE:
+            return average != null;
+        case ModelPackage.AVERAGE_ITEM__TYPE:
+            return type != TYPE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

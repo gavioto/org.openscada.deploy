@@ -101,8 +101,8 @@ public class BooleanMonitorImpl extends BasicMonitorImpl implements BooleanMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                return isOkValue ();
+        case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
+            return isOkValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -117,9 +117,9 @@ public class BooleanMonitorImpl extends BasicMonitorImpl implements BooleanMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                setOkValue ( (Boolean)newValue );
-                return;
+        case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
+            setOkValue ( (Boolean)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -134,9 +134,9 @@ public class BooleanMonitorImpl extends BasicMonitorImpl implements BooleanMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                setOkValue ( OK_VALUE_EDEFAULT );
-                return;
+        case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
+            setOkValue ( OK_VALUE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -151,8 +151,8 @@ public class BooleanMonitorImpl extends BasicMonitorImpl implements BooleanMonit
     {
         switch ( featureID )
         {
-            case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-                return okValue != OK_VALUE_EDEFAULT;
+        case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
+            return okValue != OK_VALUE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

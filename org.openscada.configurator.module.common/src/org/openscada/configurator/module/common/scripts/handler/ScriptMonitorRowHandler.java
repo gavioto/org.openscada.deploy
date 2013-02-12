@@ -29,12 +29,18 @@ public class ScriptMonitorRowHandler implements RowHandler
     public void handleRow ( final int rowNumber, final Map<String, String> rowData )
     {
         final String id = rowData.remove ( "ID" );
-        if ( id == null || id.isEmpty () )
+        if ( ( id == null ) || id.isEmpty () )
         {
             return;
         }
 
         final int priority = Integer.parseInt ( rowData.remove ( "PRIORITY" ) );
+        final String sSuppressEvents = rowData.remove ( "SUPPRESS_EVENTS" );
+        boolean suppressEvents = false;
+        if ( ( sSuppressEvents != null ) && ( "1".equalsIgnoreCase ( sSuppressEvents ) || "x".equalsIgnoreCase ( sSuppressEvents ) ) )
+        {
+            suppressEvents = true;
+        }
         final String scriptEngine = rowData.remove ( "SCRIPT_ENGINE" );
         String updateScript = rowData.remove ( "UPDATE_SCRIPT" );
         final String inputsString = rowData.remove ( "INPUTS" );
@@ -58,6 +64,6 @@ public class ScriptMonitorRowHandler implements RowHandler
             }
         }
 
-        this.configuration.addScriptMonitor ( id, priority, scriptEngine, updateScript, inputs, outputs, rowData );
+        this.configuration.addScriptMonitor ( id, priority, suppressEvents, scriptEngine, updateScript, inputs, outputs, rowData );
     }
 }

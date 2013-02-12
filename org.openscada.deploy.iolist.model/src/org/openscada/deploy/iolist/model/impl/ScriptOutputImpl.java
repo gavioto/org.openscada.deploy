@@ -146,10 +146,10 @@ public class ScriptOutputImpl extends EObjectImpl implements ScriptOutput
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
-                return getDatasourceId ();
-            case ModelPackage.SCRIPT_OUTPUT__NAME:
-                return getName ();
+        case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
+            return getDatasourceId ();
+        case ModelPackage.SCRIPT_OUTPUT__NAME:
+            return getName ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -164,12 +164,12 @@ public class ScriptOutputImpl extends EObjectImpl implements ScriptOutput
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
-                setDatasourceId ( (String)newValue );
-                return;
-            case ModelPackage.SCRIPT_OUTPUT__NAME:
-                setName ( (String)newValue );
-                return;
+        case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
+            setDatasourceId ( (String)newValue );
+            return;
+        case ModelPackage.SCRIPT_OUTPUT__NAME:
+            setName ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -184,12 +184,12 @@ public class ScriptOutputImpl extends EObjectImpl implements ScriptOutput
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
-                setDatasourceId ( DATASOURCE_ID_EDEFAULT );
-                return;
-            case ModelPackage.SCRIPT_OUTPUT__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
+        case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
+            setDatasourceId ( DATASOURCE_ID_EDEFAULT );
+            return;
+        case ModelPackage.SCRIPT_OUTPUT__NAME:
+            setName ( NAME_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -204,10 +204,10 @@ public class ScriptOutputImpl extends EObjectImpl implements ScriptOutput
     {
         switch ( featureID )
         {
-            case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
-                return DATASOURCE_ID_EDEFAULT == null ? datasourceId != null : !DATASOURCE_ID_EDEFAULT.equals ( datasourceId );
-            case ModelPackage.SCRIPT_OUTPUT__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+        case ModelPackage.SCRIPT_OUTPUT__DATASOURCE_ID:
+            return DATASOURCE_ID_EDEFAULT == null ? datasourceId != null : !DATASOURCE_ID_EDEFAULT.equals ( datasourceId );
+        case ModelPackage.SCRIPT_OUTPUT__NAME:
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
         }
         return super.eIsSet ( featureID );
     }

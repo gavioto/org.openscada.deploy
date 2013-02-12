@@ -1784,13 +1784,22 @@ public interface ModelPackage extends EPackage
     int MONITOR__ACTIVE = 0;
 
     /**
+     * The feature id for the '<em><b>Suppress Events</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MONITOR__SUPPRESS_EVENTS = 1;
+
+    /**
      * The number of structural features of the '<em>Monitor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MONITOR_FEATURE_COUNT = 1;
+    int MONITOR_FEATURE_COUNT = 2;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.BasicMonitorImpl <em>Basic Monitor</em>}' class.
@@ -1810,6 +1819,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int BASIC_MONITOR__ACTIVE = MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Suppress Events</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BASIC_MONITOR__SUPPRESS_EVENTS = MONITOR__SUPPRESS_EVENTS;
 
     /**
      * The feature id for the '<em><b>Ack</b></em>' attribute.
@@ -1856,6 +1874,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int LEVEL_MONITOR__ACTIVE = BASIC_MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Suppress Events</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL_MONITOR__SUPPRESS_EVENTS = BASIC_MONITOR__SUPPRESS_EVENTS;
 
     /**
      * The feature id for the '<em><b>Ack</b></em>' attribute.
@@ -1913,6 +1940,15 @@ public interface ModelPackage extends EPackage
     int LIST_MONITOR__ACTIVE = MONITOR__ACTIVE;
 
     /**
+     * The feature id for the '<em><b>Suppress Events</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__SUPPRESS_EVENTS = MONITOR__SUPPRESS_EVENTS;
+
+    /**
      * The feature id for the '<em><b>Entries</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1966,6 +2002,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int BOOLEAN_MONITOR__ACTIVE = BASIC_MONITOR__ACTIVE;
+
+    /**
+     * The feature id for the '<em><b>Suppress Events</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOLEAN_MONITOR__SUPPRESS_EVENTS = BASIC_MONITOR__SUPPRESS_EVENTS;
 
     /**
      * The feature id for the '<em><b>Ack</b></em>' attribute.
@@ -4580,6 +4625,17 @@ public interface ModelPackage extends EPackage
     EAttribute getMonitor_Active ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Monitor#isSuppressEvents <em>Suppress Events</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Suppress Events</em>'.
+     * @see org.openscada.deploy.iolist.model.Monitor#isSuppressEvents()
+     * @see #getMonitor()
+     * @generated
+     */
+    EAttribute getMonitor_SuppressEvents ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.LevelMonitor <em>Level Monitor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5815,6 +5871,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute MONITOR__ACTIVE = eINSTANCE.getMonitor_Active ();
+
+        /**
+         * The meta object literal for the '<em><b>Suppress Events</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MONITOR__SUPPRESS_EVENTS = eINSTANCE.getMonitor_SuppressEvents ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.

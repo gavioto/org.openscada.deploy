@@ -101,8 +101,8 @@ public class LevelMonitorImpl extends BasicMonitorImpl implements LevelMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LEVEL_MONITOR__PRESET:
-                return getPreset ();
+        case ModelPackage.LEVEL_MONITOR__PRESET:
+            return getPreset ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -117,9 +117,9 @@ public class LevelMonitorImpl extends BasicMonitorImpl implements LevelMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LEVEL_MONITOR__PRESET:
-                setPreset ( (Double)newValue );
-                return;
+        case ModelPackage.LEVEL_MONITOR__PRESET:
+            setPreset ( (Double)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -134,9 +134,9 @@ public class LevelMonitorImpl extends BasicMonitorImpl implements LevelMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LEVEL_MONITOR__PRESET:
-                setPreset ( PRESET_EDEFAULT );
-                return;
+        case ModelPackage.LEVEL_MONITOR__PRESET:
+            setPreset ( PRESET_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -151,8 +151,8 @@ public class LevelMonitorImpl extends BasicMonitorImpl implements LevelMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LEVEL_MONITOR__PRESET:
-                return PRESET_EDEFAULT == null ? preset != null : !PRESET_EDEFAULT.equals ( preset );
+        case ModelPackage.LEVEL_MONITOR__PRESET:
+            return PRESET_EDEFAULT == null ? preset != null : !PRESET_EDEFAULT.equals ( preset );
         }
         return super.eIsSet ( featureID );
     }

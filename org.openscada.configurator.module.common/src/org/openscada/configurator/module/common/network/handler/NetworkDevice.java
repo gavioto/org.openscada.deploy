@@ -23,6 +23,8 @@ public class NetworkDevice
 
     private Double alarmLoss;
 
+    private boolean suppressEvents = false;
+
     private final List<String> hierarchy = new LinkedList<String> ();
 
     @Override
@@ -30,7 +32,7 @@ public class NetworkDevice
     {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ( this.hostname == null ? 0 : this.hostname.hashCode () );
+        result = ( prime * result ) + ( this.hostname == null ? 0 : this.hostname.hashCode () );
         return result;
     }
 
@@ -159,4 +161,13 @@ public class NetworkDevice
         return this.hierarchy;
     }
 
+    public void setSuppressEvents ( final boolean suppressEvents )
+    {
+        this.suppressEvents = suppressEvents;
+    }
+
+    public boolean isSuppressEvents ()
+    {
+        return this.suppressEvents;
+    }
 }

@@ -21,6 +21,7 @@ import org.openscada.deploy.iolist.model.Monitor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.MonitorImpl#isActive <em>Active</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.MonitorImpl#isSuppressEvents <em>Suppress Events</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +48,26 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * @ordered
      */
     protected boolean active = ACTIVE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isSuppressEvents() <em>Suppress Events</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSuppressEvents()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean SUPPRESS_EVENTS_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isSuppressEvents() <em>Suppress Events</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSuppressEvents()
+     * @generated
+     * @ordered
+     */
+    protected boolean suppressEvents = SUPPRESS_EVENTS_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -97,13 +118,38 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isSuppressEvents ()
+    {
+        return suppressEvents;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSuppressEvents ( boolean newSuppressEvents )
+    {
+        boolean oldSuppressEvents = suppressEvents;
+        suppressEvents = newSuppressEvents;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MONITOR__SUPPRESS_EVENTS, oldSuppressEvents, suppressEvents ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
-            case ModelPackage.MONITOR__ACTIVE:
-                return isActive ();
+        case ModelPackage.MONITOR__ACTIVE:
+            return isActive ();
+        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+            return isSuppressEvents ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -118,9 +164,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-            case ModelPackage.MONITOR__ACTIVE:
-                setActive ( (Boolean)newValue );
-                return;
+        case ModelPackage.MONITOR__ACTIVE:
+            setActive ( (Boolean)newValue );
+            return;
+        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+            setSuppressEvents ( (Boolean)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -135,9 +184,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-            case ModelPackage.MONITOR__ACTIVE:
-                setActive ( ACTIVE_EDEFAULT );
-                return;
+        case ModelPackage.MONITOR__ACTIVE:
+            setActive ( ACTIVE_EDEFAULT );
+            return;
+        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+            setSuppressEvents ( SUPPRESS_EVENTS_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -152,8 +204,10 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-            case ModelPackage.MONITOR__ACTIVE:
-                return active != ACTIVE_EDEFAULT;
+        case ModelPackage.MONITOR__ACTIVE:
+            return active != ACTIVE_EDEFAULT;
+        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+            return suppressEvents != SUPPRESS_EVENTS_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -172,6 +226,8 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (active: " );
         result.append ( active );
+        result.append ( ", suppressEvents: " );
+        result.append ( suppressEvents );
         result.append ( ')' );
         return result.toString ();
     }

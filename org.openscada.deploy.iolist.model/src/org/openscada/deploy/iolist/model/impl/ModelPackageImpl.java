@@ -1246,6 +1246,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMonitor_SuppressEvents ()
+    {
+        return (EAttribute)monitorEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1782,6 +1792,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
         monitorEClass = createEClass ( MONITOR );
         createEAttribute ( monitorEClass, MONITOR__ACTIVE );
+        createEAttribute ( monitorEClass, MONITOR__SUPPRESS_EVENTS );
 
         levelMonitorEClass = createEClass ( LEVEL_MONITOR );
         createEAttribute ( levelMonitorEClass, LEVEL_MONITOR__PRESET );
@@ -1991,6 +2002,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
         initEClass ( monitorEClass, Monitor.class, "Monitor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getMonitor_Active (), ecorePackage.getEBoolean (), "active", "true", 1, 1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMonitor_SuppressEvents (), ecorePackage.getEBoolean (), "suppressEvents", "false", 0, 1, Monitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( levelMonitorEClass, LevelMonitor.class, "LevelMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getLevelMonitor_Preset (), ecorePackage.getEDoubleObject (), "preset", null, 0, 1, LevelMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

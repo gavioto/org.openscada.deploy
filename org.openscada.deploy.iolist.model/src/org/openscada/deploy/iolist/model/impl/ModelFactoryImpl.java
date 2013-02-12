@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
  */
 package org.openscada.deploy.iolist.model.impl;
 
@@ -10,47 +6,29 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.openscada.ae.data.Severity;
+
 import org.openscada.core.Variant;
-import org.openscada.core.VariantEditor;
-import org.openscada.deploy.iolist.model.Average;
-import org.openscada.deploy.iolist.model.AverageItem;
-import org.openscada.deploy.iolist.model.AverageReferenceType;
-import org.openscada.deploy.iolist.model.BooleanMonitor;
-import org.openscada.deploy.iolist.model.ConstantItem;
-import org.openscada.deploy.iolist.model.DataType;
-import org.openscada.deploy.iolist.model.FormulaInput;
-import org.openscada.deploy.iolist.model.FormulaItem;
-import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
-import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.model.LevelMonitor;
-import org.openscada.deploy.iolist.model.ListMonitor;
-import org.openscada.deploy.iolist.model.ListMonitorEntry;
-import org.openscada.deploy.iolist.model.Mapper;
-import org.openscada.deploy.iolist.model.Model;
-import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.deploy.iolist.model.ModelPackage;
-import org.openscada.deploy.iolist.model.MovingAverage;
-import org.openscada.deploy.iolist.model.MovingAverageItem;
-import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
-import org.openscada.deploy.iolist.model.PlainSummaryGroup;
-import org.openscada.deploy.iolist.model.Rounding;
-import org.openscada.deploy.iolist.model.ScriptItem;
-import org.openscada.deploy.iolist.model.ScriptModule;
-import org.openscada.deploy.iolist.model.ScriptOutput;
-import org.openscada.deploy.iolist.model.WeakSummaryReference;
+
+import org.openscada.deploy.iolist.model.*;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
  * @generated
  */
 public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 {
     /**
      * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public static ModelFactory init ()
@@ -72,7 +50,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 
     /**
      * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public ModelFactoryImpl ()
@@ -81,7 +60,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -135,7 +115,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -163,7 +144,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -191,10 +173,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public Item createItem ()
     {
         ItemImpl item = new ItemImpl ();
@@ -213,10 +195,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public FormulaItem createFormulaItem ()
     {
         FormulaItemImpl formulaItem = new FormulaItemImpl ();
@@ -224,10 +206,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public FormulaInput createFormulaInput ()
     {
         FormulaInputImpl formulaInput = new FormulaInputImpl ();
@@ -235,10 +217,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public ScriptModule createScriptModule ()
     {
         ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
@@ -246,10 +228,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public Model createModel ()
     {
         ModelImpl model = new ModelImpl ();
@@ -257,10 +239,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public ScriptItem createScriptItem ()
     {
         ScriptItemImpl scriptItem = new ScriptItemImpl ();
@@ -268,10 +250,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public ScriptOutput createScriptOutput ()
     {
         ScriptOutputImpl scriptOutput = new ScriptOutputImpl ();
@@ -279,10 +261,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public Mapper createMapper ()
     {
         MapperImpl mapper = new MapperImpl ();
@@ -290,10 +272,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public LevelMonitor createLevelMonitor ()
     {
         LevelMonitorImpl levelMonitor = new LevelMonitorImpl ();
@@ -301,10 +283,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public ListMonitor createListMonitor ()
     {
         ListMonitorImpl listMonitor = new ListMonitorImpl ();
@@ -312,10 +294,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public BooleanMonitor createBooleanMonitor ()
     {
         BooleanMonitorImpl booleanMonitor = new BooleanMonitorImpl ();
@@ -323,10 +305,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public Average createAverage ()
     {
         AverageImpl average = new AverageImpl ();
@@ -334,10 +316,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public AverageItem createAverageItem ()
     {
         AverageItemImpl averageItem = new AverageItemImpl ();
@@ -345,10 +327,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public ConstantItem createConstantItem ()
     {
         ConstantItemImpl constantItem = new ConstantItemImpl ();
@@ -356,10 +338,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public MovingAverageItem createMovingAverageItem ()
     {
         MovingAverageItemImpl movingAverageItem = new MovingAverageItemImpl ();
@@ -367,10 +349,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public MovingAverage createMovingAverage ()
     {
         MovingAverageImpl movingAverage = new MovingAverageImpl ();
@@ -378,10 +360,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public ListMonitorEntry createListMonitorEntry ()
     {
         ListMonitorEntryImpl listMonitorEntry = new ListMonitorEntryImpl ();
@@ -411,7 +393,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public DataType createDataTypeFromString ( EDataType eDataType, String initialValue )
@@ -423,7 +406,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public String convertDataTypeToString ( EDataType eDataType, Object instanceValue )
@@ -432,7 +416,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public Rounding createRoundingFromString ( EDataType eDataType, String initialValue )
@@ -444,7 +429,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public String convertRoundingToString ( EDataType eDataType, Object instanceValue )
@@ -453,7 +439,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public AverageReferenceType createAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
@@ -465,7 +452,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public String convertAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
@@ -474,7 +462,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public MovingAverageReferenceType createMovingAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
@@ -486,7 +475,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public String convertMovingAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
@@ -495,53 +485,18 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    public String createListSeverityFromString ( EDataType eDataType, String initialValue )
+    public Variant createVariantFromString ( EDataType eDataType, String initialValue )
     {
-        return (String)super.createFromString ( eDataType, initialValue );
+        return (Variant)super.createFromString ( eDataType, initialValue );
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertListSeverityToString ( EDataType eDataType, Object instanceValue )
-    {
-        return super.convertToString ( eDataType, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public Severity createSeverityFromString ( EDataType eDataType, String initialValue )
-    {
-        return (Severity)super.createFromString ( eDataType, initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertSeverityToString ( EDataType eDataType, Object instanceValue )
-    {
-        return super.convertToString ( eDataType, instanceValue );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated NOT
-     */
-    public Variant createVariantFromString ( final EDataType eDataType, final String initialValue )
-    {
-        return VariantEditor.toVariant ( initialValue );
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public String convertVariantToString ( EDataType eDataType, Object instanceValue )
@@ -550,17 +505,58 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
+    public String createListSeverityFromString ( EDataType eDataType, String initialValue )
+    {
+        return (String)super.createFromString ( eDataType, initialValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertListSeverityToString ( EDataType eDataType, Object instanceValue )
+    {
+        return super.convertToString ( eDataType, instanceValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Severity createSeverityFromString ( EDataType eDataType, String initialValue )
+    {
+        return (Severity)super.createFromString ( eDataType, initialValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertSeverityToString ( EDataType eDataType, Object instanceValue )
+    {
+        return super.convertToString ( eDataType, instanceValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ModelPackage getModelPackage ()
     {
         return (ModelPackage)getEPackage ();
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @deprecated
      * @generated
      */

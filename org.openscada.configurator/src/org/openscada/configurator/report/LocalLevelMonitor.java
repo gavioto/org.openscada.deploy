@@ -31,13 +31,16 @@ public class LocalLevelMonitor implements Monitor
 
     private final boolean requireAck;
 
+    private final boolean suppressEvents;
+
     private final Double preset;
 
-    public LocalLevelMonitor ( final String type, final boolean cap, final boolean requireAck, final Double preset )
+    public LocalLevelMonitor ( final String type, final boolean cap, final boolean requireAck, final boolean suppressEvents, final Double preset )
     {
         this.type = type;
         this.cap = cap;
         this.requireAck = requireAck;
+        this.suppressEvents = suppressEvents;
         this.preset = preset;
     }
 
@@ -56,6 +59,11 @@ public class LocalLevelMonitor implements Monitor
         if ( this.requireAck )
         {
             p.addContent ( Messages.getString ( "LocalLevelMonitor.requireAck" ) ); //$NON-NLS-1$
+        }
+
+        if ( this.suppressEvents )
+        {
+            p.addContent ( Messages.getString ( "LocalLevelMonitor.suppressEvents" ) ); //$NON-NLS-1$
         }
 
         if ( this.preset != null )
