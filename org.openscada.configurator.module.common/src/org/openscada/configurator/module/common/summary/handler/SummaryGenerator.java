@@ -25,6 +25,7 @@ import java.util.List;
 
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
+import org.openscada.configurator.GenericMasterConfiguration;
 import org.openscada.configurator.module.common.summary.GenerateSummaries;
 import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
 import org.openscada.deploy.iolist.model.Item;
@@ -85,12 +86,12 @@ public class SummaryGenerator
         return false;
     }
 
-    private static void addItemToGroup ( final Configuration cfg, final String itemId, final HierarchySummaryGroup locationItems )
+    private static void addItemToGroup ( final GenericMasterConfiguration cfg, final String itemId, final HierarchySummaryGroup locationItems )
     {
         locationItems.getDataSourceIds ().add ( itemId );
     }
 
-    private static void addSubItemToGroup ( final Configuration cfg, final String itemId, final HierarchySummaryGroup locationItems )
+    private static void addSubItemToGroup ( final GenericMasterConfiguration cfg, final String itemId, final HierarchySummaryGroup locationItems )
     {
         final WeakSummaryReference ref = ModelFactory.eINSTANCE.createWeakSummaryReference ();
         ref.setDataSourceId ( itemId );

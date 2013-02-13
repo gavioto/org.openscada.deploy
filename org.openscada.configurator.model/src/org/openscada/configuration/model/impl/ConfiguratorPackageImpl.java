@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.DefaultGenericMasterConfiguration;
 import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.hd.HdPackage;
@@ -25,6 +27,7 @@ import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configuration.model.master.impl.MasterPackageImpl;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.GenericConfiguration;
+import org.openscada.configurator.GenericMasterConfiguration;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -57,6 +60,20 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     private EClass genericConfigurationSlotEClass = null;
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass genericMasterConfigurationSlotEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass defaultGenericMasterConfigurationEClass = null;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -74,6 +91,13 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
      * @generated
      */
     private EDataType exceptionEDataType = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType genericMasterConfigurationEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -234,6 +258,26 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getGenericMasterConfigurationSlot ()
+    {
+        return genericMasterConfigurationSlotEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDefaultGenericMasterConfiguration ()
+    {
+        return defaultGenericMasterConfigurationEClass;
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -261,6 +305,16 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
     public EDataType getException ()
     {
         return exceptionEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EDataType getGenericMasterConfiguration ()
+    {
+        return genericMasterConfigurationEDataType;
     }
 
     /**
@@ -305,10 +359,15 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
         createEAttribute ( genericConfigurationSlotEClass, GENERIC_CONFIGURATION_SLOT__JSON_BASE );
         createEAttribute ( genericConfigurationSlotEClass, GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY );
 
+        genericMasterConfigurationSlotEClass = createEClass ( GENERIC_MASTER_CONFIGURATION_SLOT );
+
+        defaultGenericMasterConfigurationEClass = createEClass ( DEFAULT_GENERIC_MASTER_CONFIGURATION );
+
         // Create data types
         configurationEDataType = createEDataType ( CONFIGURATION );
         genericConfigurationEDataType = createEDataType ( GENERIC_CONFIGURATION );
         exceptionEDataType = createEDataType ( EXCEPTION );
+        genericMasterConfigurationEDataType = createEDataType ( GENERIC_MASTER_CONFIGURATION );
     }
 
     /**
@@ -348,6 +407,8 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         // Add supertypes to classes
         genericConfigurationSlotEClass.getESuperTypes ().add ( this.getConfigurationSlot () );
+        genericMasterConfigurationSlotEClass.getESuperTypes ().add ( this.getGenericConfigurationSlot () );
+        defaultGenericMasterConfigurationEClass.getESuperTypes ().add ( this.getGenericMasterConfigurationSlot () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -375,10 +436,17 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
         addEOperation ( genericConfigurationSlotEClass, this.getGenericConfiguration (), "getConfigurationData", 1, 1, IS_UNIQUE, IS_ORDERED );
 
+        initEClass ( genericMasterConfigurationSlotEClass, GenericMasterConfigurationSlot.class, "GenericMasterConfigurationSlot", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        addEOperation ( genericMasterConfigurationSlotEClass, this.getGenericMasterConfiguration (), "getConfigurationData", 0, 1, IS_UNIQUE, IS_ORDERED );
+
+        initEClass ( defaultGenericMasterConfigurationEClass, DefaultGenericMasterConfiguration.class, "DefaultGenericMasterConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
         // Initialize data types
         initEDataType ( configurationEDataType, Configuration.class, "Configuration", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType ( genericConfigurationEDataType, GenericConfiguration.class, "GenericConfiguration", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
         initEDataType ( exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
+        initEDataType ( genericMasterConfigurationEDataType, GenericMasterConfiguration.class, "GenericMasterConfiguration", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
 
         // Create resource
         createResource ( eNS_URI );

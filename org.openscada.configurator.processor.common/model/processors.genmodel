@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.configurator.processor.common/src"
     modelPluginID="org.openscada.configurator.processor.common" modelName="Processors"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
@@ -30,6 +29,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/TransformSiteToGlobal/summaryItemFormat"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processors.ecore#//global/TransformSiteToGlobal/selector"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processors.ecore#//global/TransformSiteToGlobal/queries"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processors.ecore#//global/TransformSiteToGlobal/aePullConfiguration"/>
       </genClasses>
       <genClasses ecoreClass="processors.ecore#//global/Site">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/Site/id"/>
@@ -52,6 +52,25 @@
       <genClasses ecoreClass="processors.ecore#//global/MonitorQueryImport"/>
       <genClasses ecoreClass="processors.ecore#//global/EventQueryImport">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/EventQueryImport/localPoolSize"/>
+      </genClasses>
+      <genClasses ecoreClass="processors.ecore#//global/AePullConfiguration">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/AePullConfiguration/driverName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/AePullConfiguration/customSelectSql"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/AePullConfiguration/customDeleteSql"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/AePullConfiguration/delay"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processors.ecore#//global/AePullConfiguration/properties"/>
+      </genClasses>
+      <genClasses ecoreClass="processors.ecore#//global/PropertyEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/PropertyEntry/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//global/PropertyEntry/value"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Main" disposableProviderFactory="true" extensibleProviderFactory="true"
+        childCreationExtenders="true" ecorePackage="processors.ecore#//main">
+      <genClasses ecoreClass="processors.ecore#//main/AuthorizationLoader">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processors.ecore#//main/AuthorizationLoader/file"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processors.ecore#//main/AuthorizationLoader/slot"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

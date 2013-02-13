@@ -18,6 +18,7 @@ import org.openscada.configuration.model.GenericConfigurationSlot;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.openscada.configuration.model.GenericConfigurationSlot#initialize(org.openscada.configurator.GenericConfiguration) <em>Initialize</em>}</li>
+ *   <li>{@link org.openscada.configuration.model.GenericConfigurationSlot#getConfigurationData() <em>Get Configuration Data</em>}</li>
  *   <li>{@link org.openscada.configuration.model.ConfigurationSlot#store() <em>Store</em>}</li>
  * </ul>
  * </p>
@@ -75,6 +76,20 @@ public abstract class GenericConfigurationSlotTest extends TestCase
      * @generated
      */
     public void testInitialize__GenericConfiguration ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
+
+    /**
+     * Tests the '{@link org.openscada.configuration.model.GenericConfigurationSlot#getConfigurationData() <em>Get Configuration Data</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.GenericConfigurationSlot#getConfigurationData()
+     * @generated
+     */
+    public void testGetConfigurationData ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

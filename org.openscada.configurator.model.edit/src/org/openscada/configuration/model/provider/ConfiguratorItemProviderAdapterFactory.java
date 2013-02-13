@@ -115,6 +115,31 @@ public class ConfiguratorItemProviderAdapterFactory extends ConfiguratorAdapterF
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configuration.model.DefaultGenericMasterConfiguration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DefaultGenericMasterConfigurationItemProvider defaultGenericMasterConfigurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configuration.model.DefaultGenericMasterConfiguration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDefaultGenericMasterConfigurationAdapter ()
+    {
+        if ( defaultGenericMasterConfigurationItemProvider == null )
+        {
+            defaultGenericMasterConfigurationItemProvider = new DefaultGenericMasterConfigurationItemProvider ( this );
+        }
+
+        return defaultGenericMasterConfigurationItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -257,6 +282,8 @@ public class ConfiguratorItemProviderAdapterFactory extends ConfiguratorAdapterF
     {
         if ( projectItemProvider != null )
             projectItemProvider.dispose ();
+        if ( defaultGenericMasterConfigurationItemProvider != null )
+            defaultGenericMasterConfigurationItemProvider.dispose ();
     }
 
 }

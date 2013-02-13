@@ -11,6 +11,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.processor.common.global.tests.GlobalTests;
+import org.openscada.configurator.processor.common.main.tests.MainTests;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +42,7 @@ public class ProcessorsAllTests extends TestSuite
         TestSuite suite = new ProcessorsAllTests ( "Processors Tests" );
         suite.addTest ( CommonTests.suite () );
         suite.addTest ( GlobalTests.suite () );
+        suite.addTest ( MainTests.suite () );
         return suite;
     }
 

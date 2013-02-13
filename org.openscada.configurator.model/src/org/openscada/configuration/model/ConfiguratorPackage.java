@@ -192,6 +192,98 @@ public interface ConfiguratorPackage extends EPackage
     int GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT = CONFIGURATION_SLOT_FEATURE_COUNT + 2;
 
     /**
+     * The meta object id for the '{@link org.openscada.configuration.model.impl.GenericMasterConfigurationSlotImpl <em>Generic Master Configuration Slot</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.impl.GenericMasterConfigurationSlotImpl
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericMasterConfigurationSlot()
+     * @generated
+     */
+    int GENERIC_MASTER_CONFIGURATION_SLOT = 4;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_MASTER_CONFIGURATION_SLOT__ID = GENERIC_CONFIGURATION_SLOT__ID;
+
+    /**
+     * The feature id for the '<em><b>Json Base</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_MASTER_CONFIGURATION_SLOT__JSON_BASE = GENERIC_CONFIGURATION_SLOT__JSON_BASE;
+
+    /**
+     * The feature id for the '<em><b>Base Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_MASTER_CONFIGURATION_SLOT__BASE_DIRECTORY = GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY;
+
+    /**
+     * The number of structural features of the '<em>Generic Master Configuration Slot</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_MASTER_CONFIGURATION_SLOT_FEATURE_COUNT = GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.configuration.model.impl.DefaultGenericMasterConfigurationImpl <em>Default Generic Master Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configuration.model.impl.DefaultGenericMasterConfigurationImpl
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getDefaultGenericMasterConfiguration()
+     * @generated
+     */
+    int DEFAULT_GENERIC_MASTER_CONFIGURATION = 5;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFAULT_GENERIC_MASTER_CONFIGURATION__ID = GENERIC_MASTER_CONFIGURATION_SLOT__ID;
+
+    /**
+     * The feature id for the '<em><b>Json Base</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFAULT_GENERIC_MASTER_CONFIGURATION__JSON_BASE = GENERIC_MASTER_CONFIGURATION_SLOT__JSON_BASE;
+
+    /**
+     * The feature id for the '<em><b>Base Directory</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFAULT_GENERIC_MASTER_CONFIGURATION__BASE_DIRECTORY = GENERIC_MASTER_CONFIGURATION_SLOT__BASE_DIRECTORY;
+
+    /**
+     * The number of structural features of the '<em>Default Generic Master Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFAULT_GENERIC_MASTER_CONFIGURATION_FEATURE_COUNT = GENERIC_MASTER_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Configuration</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -199,7 +291,7 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getConfiguration()
      * @generated
      */
-    int CONFIGURATION = 4;
+    int CONFIGURATION = 6;
 
     /**
      * The meta object id for the '<em>Generic Configuration</em>' data type.
@@ -209,7 +301,7 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericConfiguration()
      * @generated
      */
-    int GENERIC_CONFIGURATION = 5;
+    int GENERIC_CONFIGURATION = 7;
 
     /**
      * The meta object id for the '<em>Exception</em>' data type.
@@ -219,7 +311,17 @@ public interface ConfiguratorPackage extends EPackage
      * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getException()
      * @generated
      */
-    int EXCEPTION = 6;
+    int EXCEPTION = 8;
+
+    /**
+     * The meta object id for the '<em>Generic Master Configuration</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.GenericMasterConfiguration
+     * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericMasterConfiguration()
+     * @generated
+     */
+    int GENERIC_MASTER_CONFIGURATION = 9;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configuration.model.Project <em>Project</em>}'.
@@ -317,6 +419,26 @@ public interface ConfiguratorPackage extends EPackage
     EAttribute getGenericConfigurationSlot_BaseDirectory ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.configuration.model.GenericMasterConfigurationSlot <em>Generic Master Configuration Slot</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Generic Master Configuration Slot</em>'.
+     * @see org.openscada.configuration.model.GenericMasterConfigurationSlot
+     * @generated
+     */
+    EClass getGenericMasterConfigurationSlot ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configuration.model.DefaultGenericMasterConfiguration <em>Default Generic Master Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Default Generic Master Configuration</em>'.
+     * @see org.openscada.configuration.model.DefaultGenericMasterConfiguration
+     * @generated
+     */
+    EClass getDefaultGenericMasterConfiguration ();
+
+    /**
      * Returns the meta object for data type '{@link org.openscada.configurator.Configuration <em>Configuration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -348,6 +470,17 @@ public interface ConfiguratorPackage extends EPackage
      * @generated
      */
     EDataType getException ();
+
+    /**
+     * Returns the meta object for data type '{@link org.openscada.configurator.GenericMasterConfiguration <em>Generic Master Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Generic Master Configuration</em>'.
+     * @see org.openscada.configurator.GenericMasterConfiguration
+     * @model instanceClass="org.openscada.configurator.GenericMasterConfiguration" serializeable="false"
+     * @generated
+     */
+    EDataType getGenericMasterConfiguration ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -453,6 +586,26 @@ public interface ConfiguratorPackage extends EPackage
         EAttribute GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY = eINSTANCE.getGenericConfigurationSlot_BaseDirectory ();
 
         /**
+         * The meta object literal for the '{@link org.openscada.configuration.model.impl.GenericMasterConfigurationSlotImpl <em>Generic Master Configuration Slot</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configuration.model.impl.GenericMasterConfigurationSlotImpl
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericMasterConfigurationSlot()
+         * @generated
+         */
+        EClass GENERIC_MASTER_CONFIGURATION_SLOT = eINSTANCE.getGenericMasterConfigurationSlot ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configuration.model.impl.DefaultGenericMasterConfigurationImpl <em>Default Generic Master Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configuration.model.impl.DefaultGenericMasterConfigurationImpl
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getDefaultGenericMasterConfiguration()
+         * @generated
+         */
+        EClass DEFAULT_GENERIC_MASTER_CONFIGURATION = eINSTANCE.getDefaultGenericMasterConfiguration ();
+
+        /**
          * The meta object literal for the '<em>Configuration</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -481,6 +634,16 @@ public interface ConfiguratorPackage extends EPackage
          * @generated
          */
         EDataType EXCEPTION = eINSTANCE.getException ();
+
+        /**
+         * The meta object literal for the '<em>Generic Master Configuration</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.GenericMasterConfiguration
+         * @see org.openscada.configuration.model.impl.ConfiguratorPackageImpl#getGenericMasterConfiguration()
+         * @generated
+         */
+        EDataType GENERIC_MASTER_CONFIGURATION = eINSTANCE.getGenericMasterConfiguration ();
 
     }
 

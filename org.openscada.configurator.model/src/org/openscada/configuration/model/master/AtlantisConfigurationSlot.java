@@ -6,7 +6,7 @@
  */
 package org.openscada.configuration.model.master;
 
-import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configurator.Configuration;
 
 /**
@@ -19,7 +19,7 @@ import org.openscada.configurator.Configuration;
  * @model
  * @generated
  */
-public interface AtlantisConfigurationSlot extends GenericConfigurationSlot
+public interface AtlantisConfigurationSlot extends GenericMasterConfigurationSlot
 {
     /**
      * <!-- begin-user-doc -->

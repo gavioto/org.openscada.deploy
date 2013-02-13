@@ -1,4 +1,4 @@
-package org.openscada.configurator.module.common.main.handler;
+package org.openscada.configurator.loader.main;
 
 import java.util.Map;
 

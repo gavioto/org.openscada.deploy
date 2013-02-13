@@ -27,6 +27,8 @@ import org.openscada.configurator.processor.common.global.QueryImport;
 import org.openscada.configurator.processor.common.global.Site;
 import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 import org.openscada.configurator.processor.common.impl.CommonPackageImpl;
+import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.impl.MainPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -160,14 +162,17 @@ public class GlobalPackageImpl extends EPackageImpl implements GlobalPackage
 
         // Obtain or create and register interdependencies
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) : CommonPackage.eINSTANCE );
+        MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
 
         // Create package meta-data objects
         theGlobalPackage.createPackageContents ();
         theCommonPackage.createPackageContents ();
+        theMainPackage.createPackageContents ();
 
         // Initialize created meta-data
         theGlobalPackage.initializePackageContents ();
         theCommonPackage.initializePackageContents ();
+        theMainPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theGlobalPackage.freeze ();

@@ -1,15 +1,15 @@
-package org.openscada.configurator.module.common.main.handler;
+package org.openscada.configurator.loader.main;
 
 import java.util.Map;
 
-import org.openscada.configurator.Configuration;
+import org.openscada.configurator.GenericMasterConfiguration;
 import org.openscada.configurator.data.RowHandler;
 
 public class AuthorizationHandler implements RowHandler
 {
-    private final Configuration configuration;
+    private final GenericMasterConfiguration configuration;
 
-    public AuthorizationHandler ( final Configuration configuration )
+    public AuthorizationHandler ( final GenericMasterConfiguration configuration )
     {
         this.configuration = configuration;
     }

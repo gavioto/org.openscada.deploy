@@ -77,7 +77,7 @@ public interface MasterPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ATLANTIS_CONFIGURATION_SLOT__ID = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__ID;
+    int ATLANTIS_CONFIGURATION_SLOT__ID = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT__ID;
 
     /**
      * The feature id for the '<em><b>Json Base</b></em>' attribute list.
@@ -86,7 +86,7 @@ public interface MasterPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ATLANTIS_CONFIGURATION_SLOT__JSON_BASE = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__JSON_BASE;
+    int ATLANTIS_CONFIGURATION_SLOT__JSON_BASE = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT__JSON_BASE;
 
     /**
      * The feature id for the '<em><b>Base Directory</b></em>' attribute.
@@ -95,7 +95,7 @@ public interface MasterPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ATLANTIS_CONFIGURATION_SLOT__BASE_DIRECTORY = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY;
+    int ATLANTIS_CONFIGURATION_SLOT__BASE_DIRECTORY = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT__BASE_DIRECTORY;
 
     /**
      * The number of structural features of the '<em>Atlantis Configuration Slot</em>' class.
@@ -104,7 +104,7 @@ public interface MasterPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ATLANTIS_CONFIGURATION_SLOT_FEATURE_COUNT = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
+    int ATLANTIS_CONFIGURATION_SLOT_FEATURE_COUNT = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.openscada.configuration.model.master.Module <em>Module</em>}' class.

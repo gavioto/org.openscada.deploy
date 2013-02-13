@@ -214,17 +214,6 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.ae.server.common.event.pool", id, data ); //$NON-NLS-1$
     }
 
-    public void addAuthorizationScript ( final String id, final String script, final int priority, final String idFilter, final String typeFilter, final String actionFilter )
-    {
-        final Map<String, String> data = new HashMap<String, String> ();
-        data.put ( "script", script ); //$NON-NLS-1$
-        data.put ( "priority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "for.id", idFilter ); //$NON-NLS-1$
-        data.put ( "for.type", typeFilter ); //$NON-NLS-1$
-        data.put ( "for.action", actionFilter ); //$NON-NLS-1$
-        addData ( "org.openscada.sec.provider.script.factory", id, data ); //$NON-NLS-1$
-    }
-
     public void addScriptComponent ( final String id, final String scriptEngine, final String script, final Map<String, String> properties )
     {
         final Map<String, String> data = new HashMap<String, String> ();

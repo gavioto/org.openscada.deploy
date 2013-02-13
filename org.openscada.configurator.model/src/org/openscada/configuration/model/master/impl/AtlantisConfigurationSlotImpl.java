@@ -7,19 +7,20 @@
 package org.openscada.configuration.model.master.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.openscada.configuration.model.impl.GenericConfigurationSlotImpl;
+import org.openscada.configuration.model.impl.GenericMasterConfigurationSlotImpl;
 import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 import org.openscada.configuration.model.master.MasterPackage;
 import org.openscada.configurator.Configuration;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Atlantis Configuration Slot</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Atlantis Configuration Slot</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class AtlantisConfigurationSlotImpl extends GenericConfigurationSlotImpl implements AtlantisConfigurationSlot
+public class AtlantisConfigurationSlotImpl extends GenericMasterConfigurationSlotImpl implements AtlantisConfigurationSlot
 {
     /**
      * @generated NOT

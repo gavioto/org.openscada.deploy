@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common"
-    nsURI="http://openscada.org/Configurator/Processors/Common" nsPrefix="common">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="http://openscada.org/Configurator/Processors/Common"
+    nsPrefix="common">
   <eClassifiers xsi:type="ecore:EClass" name="StoreConfigurationSlotProcessor" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//Processor">
     <eOperations name="process" eExceptions="ecore:EDataType ../../org.openscada.configurator.model/model/configurator.ecore#//Exception">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -102,6 +101,14 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="main" nsURI="http://openscada.org/Configurator/Processors/Common/Main"
+      nsPrefix="main">
+    <eClassifiers xsi:type="ecore:EClass" name="AuthorizationLoader" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//Processor">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="slot" eType="ecore:EClass ../../org.openscada.configurator.model/model/configurator.ecore#//GenericMasterConfigurationSlot"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

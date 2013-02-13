@@ -5,6 +5,12 @@ import java.io.PrintStream;
 
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.data.DataLoaderOdfDom;
+import org.openscada.configurator.loader.main.AeHandler;
+import org.openscada.configurator.loader.main.AuthorizationHandler;
+import org.openscada.configurator.loader.main.ConnectionHandler;
+import org.openscada.configurator.loader.main.EventFilterHandler;
+import org.openscada.configurator.loader.main.JmsHandler;
+import org.openscada.configurator.loader.main.PrioritiesHandler;
 
 public class MainLoaderHandler
 {

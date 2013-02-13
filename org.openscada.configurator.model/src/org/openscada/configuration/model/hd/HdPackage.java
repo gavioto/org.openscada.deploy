@@ -78,7 +78,7 @@ public interface HdPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONFIGURATION_SLOT__ID = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__ID;
+    int CONFIGURATION_SLOT__ID = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT__ID;
 
     /**
      * The feature id for the '<em><b>Json Base</b></em>' attribute list.
@@ -87,7 +87,7 @@ public interface HdPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONFIGURATION_SLOT__JSON_BASE = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__JSON_BASE;
+    int CONFIGURATION_SLOT__JSON_BASE = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT__JSON_BASE;
 
     /**
      * The feature id for the '<em><b>Base Directory</b></em>' attribute.
@@ -96,7 +96,7 @@ public interface HdPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONFIGURATION_SLOT__BASE_DIRECTORY = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT__BASE_DIRECTORY;
+    int CONFIGURATION_SLOT__BASE_DIRECTORY = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT__BASE_DIRECTORY;
 
     /**
      * The feature id for the '<em><b>Master Connection Uri</b></em>' attribute.
@@ -105,7 +105,7 @@ public interface HdPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONFIGURATION_SLOT__MASTER_CONNECTION_URI = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
+    int CONFIGURATION_SLOT__MASTER_CONNECTION_URI = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Configuration Slot</em>' class.
@@ -114,7 +114,7 @@ public interface HdPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONFIGURATION_SLOT_FEATURE_COUNT = ConfiguratorPackage.GENERIC_CONFIGURATION_SLOT_FEATURE_COUNT + 1;
+    int CONFIGURATION_SLOT_FEATURE_COUNT = ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configuration.model.hd.impl.StorageCommandGeneratorImpl <em>Storage Command Generator</em>}' class.

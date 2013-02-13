@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.Project;
 import org.openscada.configuration.model.hd.HdFactory;
@@ -154,6 +155,8 @@ public class ProjectItemProvider extends ItemProviderAdapter implements IEditing
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, ConfiguratorFactory.eINSTANCE.createDefaultGenericMasterConfiguration () ) );
 
         newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__SLOTS, HdFactory.eINSTANCE.createConfigurationSlot () ) );
 

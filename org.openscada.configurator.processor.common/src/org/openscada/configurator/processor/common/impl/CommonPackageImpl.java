@@ -20,6 +20,8 @@ import org.openscada.configurator.processor.common.CommonPackage;
 import org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl;
+import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.impl.MainPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,14 +99,17 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Obtain or create and register interdependencies
         GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI ) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI ) : GlobalPackage.eINSTANCE );
+        MainPackageImpl theMainPackage = (MainPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) instanceof MainPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI ) : MainPackage.eINSTANCE );
 
         // Create package meta-data objects
         theCommonPackage.createPackageContents ();
         theGlobalPackage.createPackageContents ();
+        theMainPackage.createPackageContents ();
 
         // Initialize created meta-data
         theCommonPackage.initializePackageContents ();
         theGlobalPackage.initializePackageContents ();
+        theMainPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theCommonPackage.freeze ();
@@ -209,10 +214,12 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Obtain other dependent packages
         GlobalPackage theGlobalPackage = (GlobalPackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI );
+        MainPackage theMainPackage = (MainPackage)EPackage.Registry.INSTANCE.getEPackage ( MainPackage.eNS_URI );
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
 
         // Add subpackages
         getESubpackages ().add ( theGlobalPackage );
+        getESubpackages ().add ( theMainPackage );
 
         // Create type parameters
 

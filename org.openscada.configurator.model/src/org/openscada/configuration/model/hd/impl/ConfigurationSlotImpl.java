@@ -14,11 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HdPackage;
-import org.openscada.configuration.model.impl.GenericConfigurationSlotImpl;
+import org.openscada.configuration.model.impl.GenericMasterConfigurationSlotImpl;
 import org.openscada.configurator.GenericConfiguration;
+import org.openscada.configurator.GenericMasterConfiguration;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Configuration Slot</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Configuration Slot</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -28,7 +30,7 @@ import org.openscada.configurator.GenericConfiguration;
  *
  * @generated
  */
-public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implements ConfigurationSlot
+public class ConfigurationSlotImpl extends GenericMasterConfigurationSlotImpl implements ConfigurationSlot
 {
     /**
      * The default value of the '{@link #getMasterConnectionUri() <em>Master Connection Uri</em>}' attribute.
@@ -91,16 +93,21 @@ public class ConfigurationSlotImpl extends GenericConfigurationSlotImpl implemen
     }
 
     /**
+     * @generated NOT
+     */
+    private GenericMasterConfiguration configuration;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated NOT
      */
     @Override
-    public GenericConfiguration getConfigurationData ()
+    public GenericMasterConfiguration getConfigurationData ()
     {
         if ( this.configuration == null )
         {
-            this.configuration = new GenericConfiguration ();
+            this.configuration = new GenericMasterConfiguration ();
             initialize ( this.configuration );
         }
         return this.configuration;

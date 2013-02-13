@@ -267,7 +267,7 @@ public class HdPackageImpl extends EPackageImpl implements HdPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        configurationSlotEClass.getESuperTypes ().add ( theConfiguratorPackage.getGenericConfigurationSlot () );
+        configurationSlotEClass.getESuperTypes ().add ( theConfiguratorPackage.getGenericMasterConfigurationSlot () );
         storageCommandGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
         hdItemGeneratorEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
 
@@ -275,7 +275,7 @@ public class HdPackageImpl extends EPackageImpl implements HdPackage
         initEClass ( configurationSlotEClass, ConfigurationSlot.class, "ConfigurationSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getConfigurationSlot_MasterConnectionUri (), ecorePackage.getEString (), "masterConnectionUri", null, 1, 1, ConfigurationSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        addEOperation ( configurationSlotEClass, theConfiguratorPackage.getGenericConfiguration (), "getConfigurationData", 1, 1, IS_UNIQUE, IS_ORDERED );
+        addEOperation ( configurationSlotEClass, theConfiguratorPackage.getGenericMasterConfiguration (), "getConfigurationData", 1, 1, IS_UNIQUE, IS_ORDERED );
 
         initEClass ( storageCommandGeneratorEClass, StorageCommandGenerator.class, "StorageCommandGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getStorageCommandGenerator_Slot (), this.getConfigurationSlot (), null, "slot", null, 1, 1, StorageCommandGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

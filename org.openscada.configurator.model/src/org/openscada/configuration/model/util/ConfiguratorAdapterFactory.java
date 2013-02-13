@@ -12,7 +12,9 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.DefaultGenericMasterConfiguration;
 import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 
@@ -102,6 +104,18 @@ public class ConfiguratorAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseGenericMasterConfigurationSlot ( GenericMasterConfigurationSlot object )
+        {
+            return createGenericMasterConfigurationSlotAdapter ();
+        }
+
+        @Override
+        public Adapter caseDefaultGenericMasterConfiguration ( DefaultGenericMasterConfiguration object )
+        {
+            return createDefaultGenericMasterConfigurationAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -178,6 +192,36 @@ public class ConfiguratorAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createGenericConfigurationSlotAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.GenericMasterConfigurationSlot <em>Generic Master Configuration Slot</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.GenericMasterConfigurationSlot
+     * @generated
+     */
+    public Adapter createGenericMasterConfigurationSlotAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.DefaultGenericMasterConfiguration <em>Default Generic Master Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.DefaultGenericMasterConfiguration
+     * @generated
+     */
+    public Adapter createDefaultGenericMasterConfigurationAdapter ()
     {
         return null;
     }

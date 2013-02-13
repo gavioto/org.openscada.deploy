@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.DefaultGenericMasterConfiguration;
 import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
 
@@ -112,6 +114,32 @@ public class ConfiguratorSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ConfiguratorPackage.GENERIC_MASTER_CONFIGURATION_SLOT:
+            {
+                GenericMasterConfigurationSlot genericMasterConfigurationSlot = (GenericMasterConfigurationSlot)theEObject;
+                T result = caseGenericMasterConfigurationSlot ( genericMasterConfigurationSlot );
+                if ( result == null )
+                    result = caseGenericConfigurationSlot ( genericMasterConfigurationSlot );
+                if ( result == null )
+                    result = caseConfigurationSlot ( genericMasterConfigurationSlot );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ConfiguratorPackage.DEFAULT_GENERIC_MASTER_CONFIGURATION:
+            {
+                DefaultGenericMasterConfiguration defaultGenericMasterConfiguration = (DefaultGenericMasterConfiguration)theEObject;
+                T result = caseDefaultGenericMasterConfiguration ( defaultGenericMasterConfiguration );
+                if ( result == null )
+                    result = caseGenericMasterConfigurationSlot ( defaultGenericMasterConfiguration );
+                if ( result == null )
+                    result = caseGenericConfigurationSlot ( defaultGenericMasterConfiguration );
+                if ( result == null )
+                    result = caseConfigurationSlot ( defaultGenericMasterConfiguration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -177,6 +205,38 @@ public class ConfiguratorSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseGenericConfigurationSlot ( GenericConfigurationSlot object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic Master Configuration Slot</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic Master Configuration Slot</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericMasterConfigurationSlot ( GenericMasterConfigurationSlot object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Default Generic Master Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Default Generic Master Configuration</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDefaultGenericMasterConfiguration ( DefaultGenericMasterConfiguration object )
     {
         return null;
     }

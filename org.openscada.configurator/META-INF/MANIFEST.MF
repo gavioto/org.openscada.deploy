@@ -5,9 +5,10 @@ Bundle-SymbolicName: org.openscada.configurator
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.openscada.configurator;version="1.0.0";uses:="org.openscada.configurator.report,org.openscada.deploy.iolist.model,org.openscada.deploy.iolist.utils",
+Export-Package: org.openscada.configurator;version="1.0.0";uses:="org.openscada.configurator.report,org.openscada.deploy.iolist.model",
  org.openscada.configurator.data;version="1.0.0",
- org.openscada.configurator.loop;version="1.0.0";uses:="org.openscada.configurator.loop.handler",
+ org.openscada.configurator.loader.main;version="1.0.0";uses:="org.openscada.configurator.data,org.openscada.configurator",
+ org.openscada.configurator.loop;version="1.0.0",
  org.openscada.configurator.loop.handler;version="1.0.0";uses:="org.openscada.configurator.loop",
  org.openscada.configurator.report;version="1.0.0";
   uses:="org.odftoolkit.odfdom.dom.element,

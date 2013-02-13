@@ -6,8 +6,8 @@
  */
 package org.openscada.configuration.model.hd;
 
-import org.openscada.configuration.model.GenericConfigurationSlot;
-import org.openscada.configurator.GenericConfiguration;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
+import org.openscada.configurator.GenericMasterConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,7 @@ import org.openscada.configurator.GenericConfiguration;
  * @model
  * @generated
  */
-public interface ConfigurationSlot extends GenericConfigurationSlot
+public interface ConfigurationSlot extends GenericMasterConfigurationSlot
 {
     /**
      * Returns the value of the '<em><b>Master Connection Uri</b></em>' attribute.
@@ -56,9 +56,9 @@ public interface ConfigurationSlot extends GenericConfigurationSlot
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model kind="operation" dataType="org.openscada.configuration.model.GenericConfiguration" required="true"
+     * @model kind="operation" dataType="org.openscada.configuration.model.GenericMasterConfiguration" required="true"
      * @generated
      */
-    GenericConfiguration getConfigurationData ();
+    GenericMasterConfiguration getConfigurationData ();
 
 } // ConfigurationSlot

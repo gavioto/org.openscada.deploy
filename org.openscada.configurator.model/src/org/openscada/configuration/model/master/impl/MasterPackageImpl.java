@@ -244,7 +244,7 @@ public class MasterPackageImpl extends EPackageImpl implements MasterPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        atlantisConfigurationSlotEClass.getESuperTypes ().add ( theConfiguratorPackage.getGenericConfigurationSlot () );
+        atlantisConfigurationSlotEClass.getESuperTypes ().add ( theConfiguratorPackage.getGenericMasterConfigurationSlot () );
         moduleProcessorEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
 
         // Initialize classes and features; add operations and parameters

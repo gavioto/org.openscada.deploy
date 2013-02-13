@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HDItemGenerator;
@@ -83,6 +84,8 @@ public class HdSwitch<T> extends Switch<T>
             {
                 ConfigurationSlot configurationSlot = (ConfigurationSlot)theEObject;
                 T result = caseConfigurationSlot ( configurationSlot );
+                if ( result == null )
+                    result = caseGenericMasterConfigurationSlot ( configurationSlot );
                 if ( result == null )
                     result = caseGenericConfigurationSlot ( configurationSlot );
                 if ( result == null )
@@ -192,6 +195,22 @@ public class HdSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseGenericConfigurationSlot ( GenericConfigurationSlot object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic Master Configuration Slot</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic Master Configuration Slot</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericMasterConfigurationSlot ( GenericMasterConfigurationSlot object )
     {
         return null;
     }

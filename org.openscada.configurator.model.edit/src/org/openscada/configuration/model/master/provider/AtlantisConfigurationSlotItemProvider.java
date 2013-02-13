@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
-import org.openscada.configuration.model.provider.GenericConfigurationSlotItemProvider;
+import org.openscada.configuration.model.provider.GenericMasterConfigurationSlotItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configuration.model.master.AtlantisConfigurationSlot} object.
@@ -26,7 +26,7 @@ import org.openscada.configuration.model.provider.GenericConfigurationSlotItemPr
  * <!-- end-user-doc -->
  * @generated
  */
-public class AtlantisConfigurationSlotItemProvider extends GenericConfigurationSlotItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class AtlantisConfigurationSlotItemProvider extends GenericMasterConfigurationSlotItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.

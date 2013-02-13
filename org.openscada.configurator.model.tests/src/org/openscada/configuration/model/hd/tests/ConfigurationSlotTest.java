@@ -10,7 +10,7 @@ import junit.textui.TestRunner;
 
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HdFactory;
-import org.openscada.configuration.model.tests.GenericConfigurationSlotTest;
+import org.openscada.configuration.model.tests.GenericMasterConfigurationSlotTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.openscada.configuration.model.tests.GenericConfigurationSlotTest;
  * </p>
  * @generated
  */
-public class ConfigurationSlotTest extends GenericConfigurationSlotTest
+public class ConfigurationSlotTest extends GenericMasterConfigurationSlotTest
 {
 
     /**

@@ -33,9 +33,16 @@
   <eClassifiers xsi:type="ecore:EDataType" name="GenericConfiguration" instanceClassName="org.openscada.configurator.GenericConfiguration"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericMasterConfigurationSlot" abstract="true"
+      eSuperTypes="#//GenericConfigurationSlot">
+    <eOperations name="getConfigurationData" eType="#//GenericMasterConfiguration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="GenericMasterConfiguration" instanceClassName="org.openscada.configurator.GenericMasterConfiguration"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultGenericMasterConfiguration" eSuperTypes="#//GenericMasterConfigurationSlot"/>
   <eSubpackages name="hd" nsURI="http://openscada.org/Deploy/Configurator/HD" nsPrefix="hd">
-    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationSlot" eSuperTypes="#//GenericConfigurationSlot">
-      <eOperations name="getConfigurationData" lowerBound="1" eType="#//GenericConfiguration"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationSlot" eSuperTypes="#//GenericMasterConfigurationSlot">
+      <eOperations name="getConfigurationData" lowerBound="1" eType="#//GenericMasterConfiguration"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="masterConnectionUri"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -52,7 +59,7 @@
   </eSubpackages>
   <eSubpackages name="master" nsURI="http://openscada.org/Deploy/Configurator/Master"
       nsPrefix="master">
-    <eClassifiers xsi:type="ecore:EClass" name="AtlantisConfigurationSlot" eSuperTypes="#//GenericConfigurationSlot">
+    <eClassifiers xsi:type="ecore:EClass" name="AtlantisConfigurationSlot" eSuperTypes="#//GenericMasterConfigurationSlot">
       <eOperations name="getConfigurationData" lowerBound="1" eType="#//Configuration"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true">

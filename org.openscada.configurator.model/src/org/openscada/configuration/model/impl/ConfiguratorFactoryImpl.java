@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.model.DefaultGenericMasterConfiguration;
 import org.openscada.configuration.model.Project;
 
 /**
@@ -70,6 +71,8 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
         {
             case ConfiguratorPackage.PROJECT:
                 return createProject ();
+            case ConfiguratorPackage.DEFAULT_GENERIC_MASTER_CONFIGURATION:
+                return createDefaultGenericMasterConfiguration ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -118,6 +121,17 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         ProjectImpl project = new ProjectImpl ();
         return project;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DefaultGenericMasterConfiguration createDefaultGenericMasterConfiguration ()
+    {
+        DefaultGenericMasterConfigurationImpl defaultGenericMasterConfiguration = new DefaultGenericMasterConfigurationImpl ();
+        return defaultGenericMasterConfiguration;
     }
 
     /**

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HDItemGenerator;
@@ -106,6 +107,12 @@ public class HdAdapterFactory extends AdapterFactoryImpl
         public Adapter caseGenericConfigurationSlot ( GenericConfigurationSlot object )
         {
             return createGenericConfigurationSlotAdapter ();
+        }
+
+        @Override
+        public Adapter caseGenericMasterConfigurationSlot ( GenericMasterConfigurationSlot object )
+        {
+            return createGenericMasterConfigurationSlotAdapter ();
         }
 
         @Override
@@ -206,6 +213,21 @@ public class HdAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createGenericConfigurationSlotAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configuration.model.GenericMasterConfigurationSlot <em>Generic Master Configuration Slot</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configuration.model.GenericMasterConfigurationSlot
+     * @generated
+     */
+    public Adapter createGenericMasterConfigurationSlotAdapter ()
     {
         return null;
     }

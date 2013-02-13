@@ -23,5 +23,12 @@
             class="org.openscada.configurator.processor.common.global.GlobalPackage"
             genModel="model/processors.genmodel"/>
    </extension>
+   
+    <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Processors/Common/Main"
+            class="org.openscada.configurator.processor.common.main.MainPackage"
+            genModel="model/processors.genmodel"/>
+   </extension>
 
 </plugin>

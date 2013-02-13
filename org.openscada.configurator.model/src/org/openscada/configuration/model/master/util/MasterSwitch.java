@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.GenericConfigurationSlot;
+import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.master.AtlantisConfigurationSlot;
 import org.openscada.configuration.model.master.MasterPackage;
@@ -84,6 +85,8 @@ public class MasterSwitch<T> extends Switch<T>
             {
                 AtlantisConfigurationSlot atlantisConfigurationSlot = (AtlantisConfigurationSlot)theEObject;
                 T result = caseAtlantisConfigurationSlot ( atlantisConfigurationSlot );
+                if ( result == null )
+                    result = caseGenericMasterConfigurationSlot ( atlantisConfigurationSlot );
                 if ( result == null )
                     result = caseGenericConfigurationSlot ( atlantisConfigurationSlot );
                 if ( result == null )
@@ -191,6 +194,22 @@ public class MasterSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseGenericConfigurationSlot ( GenericConfigurationSlot object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic Master Configuration Slot</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic Master Configuration Slot</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericMasterConfigurationSlot ( GenericMasterConfigurationSlot object )
     {
         return null;
     }

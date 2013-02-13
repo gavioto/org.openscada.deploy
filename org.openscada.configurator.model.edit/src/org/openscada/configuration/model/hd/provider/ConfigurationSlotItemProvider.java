@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.openscada.configuration.model.hd.ConfigurationSlot;
 import org.openscada.configuration.model.hd.HdPackage;
-import org.openscada.configuration.model.provider.GenericConfigurationSlotItemProvider;
+import org.openscada.configuration.model.provider.GenericMasterConfigurationSlotItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.openscada.configuration.model.hd.ConfigurationSlot} object.
@@ -30,7 +30,7 @@ import org.openscada.configuration.model.provider.GenericConfigurationSlotItemPr
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigurationSlotItemProvider extends GenericConfigurationSlotItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ConfigurationSlotItemProvider extends GenericMasterConfigurationSlotItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
