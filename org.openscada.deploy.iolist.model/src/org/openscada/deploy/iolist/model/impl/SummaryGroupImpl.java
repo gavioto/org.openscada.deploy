@@ -106,10 +106,10 @@ public abstract class SummaryGroupImpl extends EObjectImpl implements SummaryGro
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            return getDataSourceIds ();
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            return getHierarchy ();
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                return getDataSourceIds ();
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                return getHierarchy ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -125,14 +125,14 @@ public abstract class SummaryGroupImpl extends EObjectImpl implements SummaryGro
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            getDataSourceIds ().clear ();
-            getDataSourceIds ().addAll ( (Collection<? extends String>)newValue );
-            return;
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            getHierarchy ().clear ();
-            getHierarchy ().addAll ( (Collection<? extends String>)newValue );
-            return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                getDataSourceIds ().clear ();
+                getDataSourceIds ().addAll ( (Collection<? extends String>)newValue );
+                return;
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                getHierarchy ().clear ();
+                getHierarchy ().addAll ( (Collection<? extends String>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -147,12 +147,12 @@ public abstract class SummaryGroupImpl extends EObjectImpl implements SummaryGro
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            getDataSourceIds ().clear ();
-            return;
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            getHierarchy ().clear ();
-            return;
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                getDataSourceIds ().clear ();
+                return;
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                getHierarchy ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -167,10 +167,10 @@ public abstract class SummaryGroupImpl extends EObjectImpl implements SummaryGro
     {
         switch ( featureID )
         {
-        case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
-            return dataSourceIds != null && !dataSourceIds.isEmpty ();
-        case ModelPackage.SUMMARY_GROUP__HIERARCHY:
-            return hierarchy != null && !hierarchy.isEmpty ();
+            case ModelPackage.SUMMARY_GROUP__DATA_SOURCE_IDS:
+                return dataSourceIds != null && !dataSourceIds.isEmpty ();
+            case ModelPackage.SUMMARY_GROUP__HIERARCHY:
+                return hierarchy != null && !hierarchy.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
