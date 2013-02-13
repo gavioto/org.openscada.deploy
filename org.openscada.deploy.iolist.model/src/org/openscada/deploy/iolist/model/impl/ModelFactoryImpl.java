@@ -11,7 +11,32 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.ae.data.Severity;
 import org.openscada.core.Variant;
 import org.openscada.core.VariantEditor;
-import org.openscada.deploy.iolist.model.*;
+import org.openscada.deploy.iolist.model.Average;
+import org.openscada.deploy.iolist.model.AverageItem;
+import org.openscada.deploy.iolist.model.AverageReferenceType;
+import org.openscada.deploy.iolist.model.BooleanMonitor;
+import org.openscada.deploy.iolist.model.ConstantItem;
+import org.openscada.deploy.iolist.model.DataType;
+import org.openscada.deploy.iolist.model.FormulaInput;
+import org.openscada.deploy.iolist.model.FormulaItem;
+import org.openscada.deploy.iolist.model.HierarchySummaryGroup;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.LevelMonitor;
+import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
+import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.Model;
+import org.openscada.deploy.iolist.model.ModelFactory;
+import org.openscada.deploy.iolist.model.ModelPackage;
+import org.openscada.deploy.iolist.model.MovingAverage;
+import org.openscada.deploy.iolist.model.MovingAverageItem;
+import org.openscada.deploy.iolist.model.MovingAverageReferenceType;
+import org.openscada.deploy.iolist.model.PlainSummaryGroup;
+import org.openscada.deploy.iolist.model.Rounding;
+import org.openscada.deploy.iolist.model.ScriptItem;
+import org.openscada.deploy.iolist.model.ScriptModule;
+import org.openscada.deploy.iolist.model.ScriptOutput;
+import org.openscada.deploy.iolist.model.WeakSummaryReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,48 +90,48 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         switch ( eClass.getClassifierID () )
         {
-        case ModelPackage.ITEM:
-            return createItem ();
-        case ModelPackage.HIERARCHY_SUMMARY_GROUP:
-            return createHierarchySummaryGroup ();
-        case ModelPackage.FORMULA_ITEM:
-            return createFormulaItem ();
-        case ModelPackage.FORMULA_INPUT:
-            return createFormulaInput ();
-        case ModelPackage.SCRIPT_MODULE:
-            return createScriptModule ();
-        case ModelPackage.MODEL:
-            return createModel ();
-        case ModelPackage.SCRIPT_ITEM:
-            return createScriptItem ();
-        case ModelPackage.SCRIPT_OUTPUT:
-            return createScriptOutput ();
-        case ModelPackage.MAPPER:
-            return createMapper ();
-        case ModelPackage.LEVEL_MONITOR:
-            return createLevelMonitor ();
-        case ModelPackage.LIST_MONITOR:
-            return createListMonitor ();
-        case ModelPackage.BOOLEAN_MONITOR:
-            return createBooleanMonitor ();
-        case ModelPackage.AVERAGE:
-            return createAverage ();
-        case ModelPackage.AVERAGE_ITEM:
-            return createAverageItem ();
-        case ModelPackage.CONSTANT_ITEM:
-            return createConstantItem ();
-        case ModelPackage.MOVING_AVERAGE_ITEM:
-            return createMovingAverageItem ();
-        case ModelPackage.MOVING_AVERAGE:
-            return createMovingAverage ();
-        case ModelPackage.LIST_MONITOR_ENTRY:
-            return createListMonitorEntry ();
-        case ModelPackage.WEAK_SUMMARY_REFERENCE:
-            return createWeakSummaryReference ();
-        case ModelPackage.PLAIN_SUMMARY_GROUP:
-            return createPlainSummaryGroup ();
-        default:
-            throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
+            case ModelPackage.ITEM:
+                return createItem ();
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP:
+                return createHierarchySummaryGroup ();
+            case ModelPackage.FORMULA_ITEM:
+                return createFormulaItem ();
+            case ModelPackage.FORMULA_INPUT:
+                return createFormulaInput ();
+            case ModelPackage.SCRIPT_MODULE:
+                return createScriptModule ();
+            case ModelPackage.MODEL:
+                return createModel ();
+            case ModelPackage.SCRIPT_ITEM:
+                return createScriptItem ();
+            case ModelPackage.SCRIPT_OUTPUT:
+                return createScriptOutput ();
+            case ModelPackage.MAPPER:
+                return createMapper ();
+            case ModelPackage.LEVEL_MONITOR:
+                return createLevelMonitor ();
+            case ModelPackage.LIST_MONITOR:
+                return createListMonitor ();
+            case ModelPackage.BOOLEAN_MONITOR:
+                return createBooleanMonitor ();
+            case ModelPackage.AVERAGE:
+                return createAverage ();
+            case ModelPackage.AVERAGE_ITEM:
+                return createAverageItem ();
+            case ModelPackage.CONSTANT_ITEM:
+                return createConstantItem ();
+            case ModelPackage.MOVING_AVERAGE_ITEM:
+                return createMovingAverageItem ();
+            case ModelPackage.MOVING_AVERAGE:
+                return createMovingAverage ();
+            case ModelPackage.LIST_MONITOR_ENTRY:
+                return createListMonitorEntry ();
+            case ModelPackage.WEAK_SUMMARY_REFERENCE:
+                return createWeakSummaryReference ();
+            case ModelPackage.PLAIN_SUMMARY_GROUP:
+                return createPlainSummaryGroup ();
+            default:
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -120,22 +145,22 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         switch ( eDataType.getClassifierID () )
         {
-        case ModelPackage.DATA_TYPE:
-            return createDataTypeFromString ( eDataType, initialValue );
-        case ModelPackage.ROUNDING:
-            return createRoundingFromString ( eDataType, initialValue );
-        case ModelPackage.AVERAGE_REFERENCE_TYPE:
-            return createAverageReferenceTypeFromString ( eDataType, initialValue );
-        case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
-            return createMovingAverageReferenceTypeFromString ( eDataType, initialValue );
-        case ModelPackage.VARIANT:
-            return createVariantFromString ( eDataType, initialValue );
-        case ModelPackage.LIST_SEVERITY:
-            return createListSeverityFromString ( eDataType, initialValue );
-        case ModelPackage.SEVERITY:
-            return createSeverityFromString ( eDataType, initialValue );
-        default:
-            throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+            case ModelPackage.DATA_TYPE:
+                return createDataTypeFromString ( eDataType, initialValue );
+            case ModelPackage.ROUNDING:
+                return createRoundingFromString ( eDataType, initialValue );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return createAverageReferenceTypeFromString ( eDataType, initialValue );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return createMovingAverageReferenceTypeFromString ( eDataType, initialValue );
+            case ModelPackage.VARIANT:
+                return createVariantFromString ( eDataType, initialValue );
+            case ModelPackage.LIST_SEVERITY:
+                return createListSeverityFromString ( eDataType, initialValue );
+            case ModelPackage.SEVERITY:
+                return createSeverityFromString ( eDataType, initialValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -149,22 +174,22 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         switch ( eDataType.getClassifierID () )
         {
-        case ModelPackage.DATA_TYPE:
-            return convertDataTypeToString ( eDataType, instanceValue );
-        case ModelPackage.ROUNDING:
-            return convertRoundingToString ( eDataType, instanceValue );
-        case ModelPackage.AVERAGE_REFERENCE_TYPE:
-            return convertAverageReferenceTypeToString ( eDataType, instanceValue );
-        case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
-            return convertMovingAverageReferenceTypeToString ( eDataType, instanceValue );
-        case ModelPackage.VARIANT:
-            return convertVariantToString ( eDataType, instanceValue );
-        case ModelPackage.LIST_SEVERITY:
-            return convertListSeverityToString ( eDataType, instanceValue );
-        case ModelPackage.SEVERITY:
-            return convertSeverityToString ( eDataType, instanceValue );
-        default:
-            throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+            case ModelPackage.DATA_TYPE:
+                return convertDataTypeToString ( eDataType, instanceValue );
+            case ModelPackage.ROUNDING:
+                return convertRoundingToString ( eDataType, instanceValue );
+            case ModelPackage.AVERAGE_REFERENCE_TYPE:
+                return convertAverageReferenceTypeToString ( eDataType, instanceValue );
+            case ModelPackage.MOVING_AVERAGE_REFERENCE_TYPE:
+                return convertMovingAverageReferenceTypeToString ( eDataType, instanceValue );
+            case ModelPackage.VARIANT:
+                return convertVariantToString ( eDataType, instanceValue );
+            case ModelPackage.LIST_SEVERITY:
+                return convertListSeverityToString ( eDataType, instanceValue );
+            case ModelPackage.SEVERITY:
+                return convertSeverityToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
