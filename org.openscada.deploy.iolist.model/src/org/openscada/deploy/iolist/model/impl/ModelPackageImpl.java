@@ -1316,6 +1316,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getListMonitor_MessageAttribute ()
+    {
+        return (EAttribute)listMonitorEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1801,6 +1811,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEReference ( listMonitorEClass, LIST_MONITOR__ENTRIES );
         createEAttribute ( listMonitorEClass, LIST_MONITOR__DEFAULT_ACK );
         createEAttribute ( listMonitorEClass, LIST_MONITOR__DEFAULT_SEVERITY );
+        createEAttribute ( listMonitorEClass, LIST_MONITOR__MESSAGE_ATTRIBUTE );
 
         booleanMonitorEClass = createEClass ( BOOLEAN_MONITOR );
         createEAttribute ( booleanMonitorEClass, BOOLEAN_MONITOR__OK_VALUE );
@@ -2011,6 +2022,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEReference ( getListMonitor_Entries (), this.getListMonitorEntry (), null, "entries", null, 0, -1, ListMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getListMonitor_DefaultAck (), ecorePackage.getEBoolean (), "defaultAck", "false", 1, 1, ListMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getListMonitor_DefaultSeverity (), this.getListSeverity (), "defaultSeverity", "OK", 1, 1, ListMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getListMonitor_MessageAttribute (), ecorePackage.getEString (), "messageAttribute", null, 0, 1, ListMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( booleanMonitorEClass, BooleanMonitor.class, "BooleanMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getBooleanMonitor_OkValue (), ecorePackage.getEBoolean (), "okValue", null, 1, 1, BooleanMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

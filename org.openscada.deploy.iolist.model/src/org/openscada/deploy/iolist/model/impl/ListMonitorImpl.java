@@ -30,6 +30,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#getEntries <em>Entries</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#isDefaultAck <em>Default Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#getDefaultSeverity <em>Default Severity</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ListMonitorImpl#getMessageAttribute <em>Message Attribute</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +87,26 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * @ordered
      */
     protected String defaultSeverity = DEFAULT_SEVERITY_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getMessageAttribute() <em>Message Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMessageAttribute()
+     * @generated
+     * @ordered
+     */
+    protected static final String MESSAGE_ATTRIBUTE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMessageAttribute() <em>Message Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMessageAttribute()
+     * @generated
+     * @ordered
+     */
+    protected String messageAttribute = MESSAGE_ATTRIBUTE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -173,6 +194,29 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getMessageAttribute ()
+    {
+        return messageAttribute;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMessageAttribute ( String newMessageAttribute )
+    {
+        String oldMessageAttribute = messageAttribute;
+        messageAttribute = newMessageAttribute;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE, oldMessageAttribute, messageAttribute ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -200,6 +244,8 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
             return isDefaultAck ();
         case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
             return getDefaultSeverity ();
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            return getMessageAttribute ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -225,6 +271,9 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
         case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
             setDefaultSeverity ( (String)newValue );
             return;
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            setMessageAttribute ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -248,6 +297,9 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
         case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
             setDefaultSeverity ( DEFAULT_SEVERITY_EDEFAULT );
             return;
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            setMessageAttribute ( MESSAGE_ATTRIBUTE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -268,6 +320,8 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
             return defaultAck != DEFAULT_ACK_EDEFAULT;
         case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
             return DEFAULT_SEVERITY_EDEFAULT == null ? defaultSeverity != null : !DEFAULT_SEVERITY_EDEFAULT.equals ( defaultSeverity );
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            return MESSAGE_ATTRIBUTE_EDEFAULT == null ? messageAttribute != null : !MESSAGE_ATTRIBUTE_EDEFAULT.equals ( messageAttribute );
         }
         return super.eIsSet ( featureID );
     }
@@ -288,6 +342,8 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
         result.append ( defaultAck );
         result.append ( ", defaultSeverity: " );
         result.append ( defaultSeverity );
+        result.append ( ", messageAttribute: " );
+        result.append ( messageAttribute );
         result.append ( ')' );
         return result.toString ();
     }

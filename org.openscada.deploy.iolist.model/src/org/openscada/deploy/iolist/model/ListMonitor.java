@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#getEntries <em>Entries</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#isDefaultAck <em>Default Ack</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#getDefaultSeverity <em>Default Severity</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.ListMonitor#getMessageAttribute <em>Message Attribute</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,5 +98,31 @@ public interface ListMonitor extends Monitor
      * @generated
      */
     void setDefaultSeverity ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Message Attribute</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Message Attribute</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Message Attribute</em>' attribute.
+     * @see #setMessageAttribute(String)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getListMonitor_MessageAttribute()
+     * @model
+     * @generated
+     */
+    String getMessageAttribute ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.ListMonitor#getMessageAttribute <em>Message Attribute</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Message Attribute</em>' attribute.
+     * @see #getMessageAttribute()
+     * @generated
+     */
+    void setMessageAttribute ( String value );
 
 } // ListMonitor

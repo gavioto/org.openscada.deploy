@@ -97,8 +97,8 @@ public class PlainSummaryGroupImpl extends SummaryGroupImpl implements PlainSumm
     {
         switch ( featureID )
         {
-            case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
-                return getId ();
+        case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
+            return getId ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -113,9 +113,9 @@ public class PlainSummaryGroupImpl extends SummaryGroupImpl implements PlainSumm
     {
         switch ( featureID )
         {
-            case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
-                setId ( (String)newValue );
-                return;
+        case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
+            setId ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -130,9 +130,9 @@ public class PlainSummaryGroupImpl extends SummaryGroupImpl implements PlainSumm
     {
         switch ( featureID )
         {
-            case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
-                setId ( ID_EDEFAULT );
-                return;
+        case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
+            setId ( ID_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -147,8 +147,8 @@ public class PlainSummaryGroupImpl extends SummaryGroupImpl implements PlainSumm
     {
         switch ( featureID )
         {
-            case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
-                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+        case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
+            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
         }
         return super.eIsSet ( featureID );
     }

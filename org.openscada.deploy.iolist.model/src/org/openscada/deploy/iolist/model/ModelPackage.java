@@ -1976,13 +1976,22 @@ public interface ModelPackage extends EPackage
     int LIST_MONITOR__DEFAULT_SEVERITY = MONITOR_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Message Attribute</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LIST_MONITOR__MESSAGE_ATTRIBUTE = MONITOR_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>List Monitor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LIST_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 3;
+    int LIST_MONITOR_FEATURE_COUNT = MONITOR_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.
@@ -4700,6 +4709,17 @@ public interface ModelPackage extends EPackage
     EAttribute getListMonitor_DefaultSeverity ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.ListMonitor#getMessageAttribute <em>Message Attribute</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Message Attribute</em>'.
+     * @see org.openscada.deploy.iolist.model.ListMonitor#getMessageAttribute()
+     * @see #getListMonitor()
+     * @generated
+     */
+    EAttribute getListMonitor_MessageAttribute ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.BooleanMonitor <em>Boolean Monitor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5931,6 +5951,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute LIST_MONITOR__DEFAULT_SEVERITY = eINSTANCE.getListMonitor_DefaultSeverity ();
+
+        /**
+         * The meta object literal for the '<em><b>Message Attribute</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LIST_MONITOR__MESSAGE_ATTRIBUTE = eINSTANCE.getListMonitor_MessageAttribute ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.BooleanMonitorImpl <em>Boolean Monitor</em>}' class.

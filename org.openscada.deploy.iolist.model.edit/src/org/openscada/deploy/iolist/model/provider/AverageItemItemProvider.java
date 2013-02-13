@@ -122,9 +122,9 @@ public class AverageItemItemProvider extends ItemItemProvider implements IEditin
 
         switch ( notification.getFeatureID ( AverageItem.class ) )
         {
-            case ModelPackage.AVERAGE_ITEM__TYPE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.AVERAGE_ITEM__TYPE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

@@ -108,9 +108,9 @@ public class WeakSummaryReferenceItemProvider extends ItemProviderAdapter implem
 
         switch ( notification.getFeatureID ( WeakSummaryReference.class ) )
         {
-            case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
