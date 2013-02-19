@@ -3,6 +3,7 @@
  * 
  * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  * Copyright (C) 2013 Jens Reimann (ctron@dentrassi.de)
+ * Copyright (C) 2013 Jürgen Rose (cptmauli@googlemail.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -149,11 +150,14 @@ public class Configuration extends GenericMasterConfiguration
         // add ignore fields
 
         addIgnoreFields ( FACTORY_MASTER_HANDLER_MANUAL, "value", "user", "reason", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ 
+
         addIgnoreFields ( FACTORY_MASTER_HANDLER_BLOCK, "note", "active", "user", "timestamp" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ 
 
         addIgnoreFields ( FACTORY_AE_MONITOR_LEVEL, "preset", "active" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
         addIgnoreFields ( FACTORY_AE_MONITOR_LIST, "active" ); //$NON-NLS-1$ 
+
+        addIgnoreFields ( FACTORY_AE_MONITOR_BIT, "active", "reference" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         addIgnoreFields ( FACTORY_MASTER_HANDLER_MARKER, "active" ); //$NON-NLS-1$
 
@@ -453,7 +457,7 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Item item : this.items )
         {
-            if ( item.getDevice () != null && !item.getDevice ().isEmpty () )
+            if ( ( item.getDevice () != null ) && !item.getDevice ().isEmpty () )
             {
                 connections.add ( item.getDevice () );
             }
@@ -501,7 +505,7 @@ public class Configuration extends GenericMasterConfiguration
                 sourceId = item.getName () + ".ds"; //$NON-NLS-1$
                 addDSDataSource ( sourceId );
             }
-            else if ( item.getDevice () != null && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
+            else if ( ( item.getDevice () != null ) && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
             {
                 sourceId = internalItemId + ".source"; //$NON-NLS-1$
 
@@ -731,15 +735,15 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        if ( item.getWriteValueName () != null && !item.getWriteValueName ().isEmpty () )
+        if ( ( item.getWriteValueName () != null ) && !item.getWriteValueName ().isEmpty () )
         {
             data.put ( "writeValueName", item.getWriteValueName () ); //$NON-NLS-1$
         }
-        if ( item.getOutputDatasourceId () != null && !item.getOutputDatasourceId ().isEmpty () )
+        if ( ( item.getOutputDatasourceId () != null ) && !item.getOutputDatasourceId ().isEmpty () )
         {
             data.put ( "outputDatasource.id", item.getOutputDatasourceId () ); //$NON-NLS-1$
         }
-        if ( item.getOutputFormula () != null && !item.getOutputFormula ().isEmpty () )
+        if ( ( item.getOutputFormula () != null ) && !item.getOutputFormula ().isEmpty () )
         {
             data.put ( "outputFormula", item.getOutputFormula () ); //$NON-NLS-1$
         }
@@ -748,7 +752,7 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "outputDatasource.type", convert ( item.getOutputDatasourceType () ) ); //$NON-NLS-1$
         }
 
-        if ( item.getInputFormula () != null && !item.getInputFormula ().isEmpty () )
+        if ( ( item.getInputFormula () != null ) && !item.getInputFormula ().isEmpty () )
         {
             data.put ( "inputFormula", item.getInputFormula () ); //$NON-NLS-1$
         }
@@ -762,7 +766,7 @@ public class Configuration extends GenericMasterConfiguration
             }
         }
 
-        if ( item.getInitScript () != null && !item.getInitScript ().isEmpty () )
+        if ( ( item.getInitScript () != null ) && !item.getInitScript ().isEmpty () )
         {
             data.put ( "init.0", item.getInitScript () ); //$NON-NLS-1$
         }
@@ -817,18 +821,18 @@ public class Configuration extends GenericMasterConfiguration
     {
         switch ( type )
         {
-            case BOOLEAN:
-                return VariantType.BOOLEAN.name ();
-            case INTEGER:
-                return VariantType.INT32.name ();
-            case LONG_INTEGER:
-                return VariantType.INT64.name ();
-            case STRING:
-                return VariantType.STRING.name ();
-            case FLOAT:
-                return VariantType.DOUBLE.name ();
-            case VARIANT:
-                return null;
+        case BOOLEAN:
+            return VariantType.BOOLEAN.name ();
+        case INTEGER:
+            return VariantType.INT32.name ();
+        case LONG_INTEGER:
+            return VariantType.INT64.name ();
+        case STRING:
+            return VariantType.STRING.name ();
+        case FLOAT:
+            return VariantType.DOUBLE.name ();
+        case VARIANT:
+            return null;
         }
         return null;
     }
@@ -869,7 +873,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        if ( engine != null && !engine.isEmpty () )
+        if ( ( engine != null ) && !engine.isEmpty () )
         {
             data.put ( "engine", engine ); //$NON-NLS-1$
         }
@@ -887,7 +891,7 @@ public class Configuration extends GenericMasterConfiguration
         {
             data.put ( "updateCommand", update ); //$NON-NLS-1$
         }
-        if ( outputs != null && !outputs.isEmpty () )
+        if ( ( outputs != null ) && !outputs.isEmpty () )
         {
             final Set<String> oldSources = new HashSet<String> ();
             for ( final Map.Entry<String, String> entry : outputs.entrySet () )
@@ -921,13 +925,11 @@ public class Configuration extends GenericMasterConfiguration
 
     static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
 
-    /**
-     * Loads text data from a file
+    /** Loads text data from a file
      * 
      * @param file
      * @return
-     * @throws Exception
-     */
+     * @throws Exception */
     public static String loadFromFile ( final Reader sourceReader ) throws Exception
     {
         final BufferedReader reader = new BufferedReader ( sourceReader );
@@ -960,9 +962,9 @@ public class Configuration extends GenericMasterConfiguration
 
         fillMasterHandler ( FACTORY_MASTER_HANDLER_SCALE, id, data, masterId, null );
 
-        data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
-        data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "active", "" + ( ( localScaleFactor != null ) || ( localScaleOffset != null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "factor", ( "" + localScaleFactor ) != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "offset", ( "" + localScaleOffset ) != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
         applyInfoAttributes ( attributes, data );
 
@@ -1339,7 +1341,7 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Map.Entry<String, String> entry : attributes.entrySet () )
         {
-            if ( entry.getKey () == null || entry.getKey ().isEmpty () )
+            if ( ( entry.getKey () == null ) || entry.getKey ().isEmpty () )
             {
                 //ignore empty keys
                 continue;
@@ -1516,7 +1518,7 @@ public class Configuration extends GenericMasterConfiguration
             {
                 this.logStream.println ( "Overriding item: " + origItem ); //$NON-NLS-1$
 
-                if ( item.getName () == null || "".equals ( item.getName () ) ) //$NON-NLS-1$
+                if ( ( item.getName () == null ) || "".equals ( item.getName () ) ) //$NON-NLS-1$
                 {
                     this.logStream.println ( "Use original source name: " + origItem.getName () ); //$NON-NLS-1$
                     item.setName ( origItem.getName () );
