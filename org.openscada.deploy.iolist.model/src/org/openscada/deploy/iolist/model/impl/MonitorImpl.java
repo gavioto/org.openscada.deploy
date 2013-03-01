@@ -146,10 +146,10 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-        case ModelPackage.MONITOR__ACTIVE:
-            return isActive ();
-        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
-            return isSuppressEvents ();
+            case ModelPackage.MONITOR__ACTIVE:
+                return isActive ();
+            case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+                return isSuppressEvents ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -164,12 +164,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-        case ModelPackage.MONITOR__ACTIVE:
-            setActive ( (Boolean)newValue );
-            return;
-        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
-            setSuppressEvents ( (Boolean)newValue );
-            return;
+            case ModelPackage.MONITOR__ACTIVE:
+                setActive ( (Boolean)newValue );
+                return;
+            case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+                setSuppressEvents ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -184,12 +184,12 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-        case ModelPackage.MONITOR__ACTIVE:
-            setActive ( ACTIVE_EDEFAULT );
-            return;
-        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
-            setSuppressEvents ( SUPPRESS_EVENTS_EDEFAULT );
-            return;
+            case ModelPackage.MONITOR__ACTIVE:
+                setActive ( ACTIVE_EDEFAULT );
+                return;
+            case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+                setSuppressEvents ( SUPPRESS_EVENTS_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -204,10 +204,10 @@ public abstract class MonitorImpl extends EObjectImpl implements Monitor
     {
         switch ( featureID )
         {
-        case ModelPackage.MONITOR__ACTIVE:
-            return active != ACTIVE_EDEFAULT;
-        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
-            return suppressEvents != SUPPRESS_EVENTS_EDEFAULT;
+            case ModelPackage.MONITOR__ACTIVE:
+                return active != ACTIVE_EDEFAULT;
+            case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+                return suppressEvents != SUPPRESS_EVENTS_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

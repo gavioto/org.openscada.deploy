@@ -2078,24 +2078,24 @@ public class ItemImpl extends EObjectImpl implements Item
     {
         switch ( featureID )
         {
-        case ModelPackage.ITEM__MAPPER:
-            return ( (InternalEList<?>)getMapper () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-            return basicSetLocalHighHigh ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_HIGH:
-            return basicSetLocalHigh ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_LOW:
-            return basicSetLocalLow ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-            return basicSetLocalLowLow ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_MIN:
-            return basicSetLocalMin ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_MAX:
-            return basicSetLocalMax ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-            return basicSetLocalListMonitor ( null, msgs );
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            return basicSetLocalBooleanMonitor ( null, msgs );
+            case ModelPackage.ITEM__MAPPER:
+                return ( (InternalEList<?>)getMapper () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                return basicSetLocalHighHigh ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                return basicSetLocalHigh ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_LOW:
+                return basicSetLocalLow ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                return basicSetLocalLowLow ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_MIN:
+                return basicSetLocalMin ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_MAX:
+                return basicSetLocalMax ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                return basicSetLocalListMonitor ( null, msgs );
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                return basicSetLocalBooleanMonitor ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -2110,92 +2110,92 @@ public class ItemImpl extends EObjectImpl implements Item
     {
         switch ( featureID )
         {
-        case ModelPackage.ITEM__DEVICE:
-            return getDevice ();
-        case ModelPackage.ITEM__NAME:
-            return getName ();
-        case ModelPackage.ITEM__DATA_TYPE:
-            return getDataType ();
-        case ModelPackage.ITEM__UNIT:
-            return getUnit ();
-        case ModelPackage.ITEM__ALIAS:
-            return getAlias ();
-        case ModelPackage.ITEM__DESCRIPTION:
-            return getDescription ();
-        case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
-            return getAttributeSummaryLevel ();
-        case ModelPackage.ITEM__EVENT_COMMAND:
-            return isEventCommand ();
-        case ModelPackage.ITEM__LOCAL_MANUAL:
-            return isLocalManual ();
-        case ModelPackage.ITEM__REMOTE_MANUAL:
-            return isRemoteManual ();
-        case ModelPackage.ITEM__SYSTEM:
-            return getSystem ();
-        case ModelPackage.ITEM__HIERARCHY:
-            return getHierarchy ();
-        case ModelPackage.ITEM__REMOTE_MIN:
-            return isRemoteMin ();
-        case ModelPackage.ITEM__REMOTE_MAX:
-            return isRemoteMax ();
-        case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-            return isRemoteHighHigh ();
-        case ModelPackage.ITEM__REMOTE_HIGH:
-            return isRemoteHigh ();
-        case ModelPackage.ITEM__REMOTE_LOW:
-            return isRemoteLow ();
-        case ModelPackage.ITEM__REMOTE_LOW_LOW:
-            return isRemoteLowLow ();
-        case ModelPackage.ITEM__REMOTE_BOOL:
-            return isRemoteBool ();
-        case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-            return getRemoteBoolAckValue ();
-        case ModelPackage.ITEM__INPUT:
-            return isInput ();
-        case ModelPackage.ITEM__OUTPUT:
-            return isOutput ();
-        case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-            return isLocalScaleAvailable ();
-        case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-            return getLocalScaleFactor ();
-        case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-            return getLocalScaleOffset ();
-        case ModelPackage.ITEM__DEBUG_INFORMATION:
-            return getDebugInformation ();
-        case ModelPackage.ITEM__IGNORE_SUMMARY:
-            return isIgnoreSummary ();
-        case ModelPackage.ITEM__BLOCK:
-            return isBlock ();
-        case ModelPackage.ITEM__ENABLED:
-            return isEnabled ();
-        case ModelPackage.ITEM__HD_STORAGE:
-            return getHdStorage ();
-        case ModelPackage.ITEM__MAPPER:
-            return getMapper ();
-        case ModelPackage.ITEM__SIMULATION_VALUE:
-            return getSimulationValue ();
-        case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-            return isRoundingAvailable ();
-        case ModelPackage.ITEM__ROUNDING_VALUE:
-            return getRoundingValue ();
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-            return getLocalHighHigh ();
-        case ModelPackage.ITEM__LOCAL_HIGH:
-            return getLocalHigh ();
-        case ModelPackage.ITEM__LOCAL_LOW:
-            return getLocalLow ();
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-            return getLocalLowLow ();
-        case ModelPackage.ITEM__LOCAL_MIN:
-            return getLocalMin ();
-        case ModelPackage.ITEM__LOCAL_MAX:
-            return getLocalMax ();
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-            return getLocalListMonitor ();
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            return getLocalBooleanMonitor ();
-        case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
-            return getDefaultMonitorDemote ();
+            case ModelPackage.ITEM__DEVICE:
+                return getDevice ();
+            case ModelPackage.ITEM__NAME:
+                return getName ();
+            case ModelPackage.ITEM__DATA_TYPE:
+                return getDataType ();
+            case ModelPackage.ITEM__UNIT:
+                return getUnit ();
+            case ModelPackage.ITEM__ALIAS:
+                return getAlias ();
+            case ModelPackage.ITEM__DESCRIPTION:
+                return getDescription ();
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                return getAttributeSummaryLevel ();
+            case ModelPackage.ITEM__EVENT_COMMAND:
+                return isEventCommand ();
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+                return isLocalManual ();
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+                return isRemoteManual ();
+            case ModelPackage.ITEM__SYSTEM:
+                return getSystem ();
+            case ModelPackage.ITEM__HIERARCHY:
+                return getHierarchy ();
+            case ModelPackage.ITEM__REMOTE_MIN:
+                return isRemoteMin ();
+            case ModelPackage.ITEM__REMOTE_MAX:
+                return isRemoteMax ();
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+                return isRemoteHighHigh ();
+            case ModelPackage.ITEM__REMOTE_HIGH:
+                return isRemoteHigh ();
+            case ModelPackage.ITEM__REMOTE_LOW:
+                return isRemoteLow ();
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+                return isRemoteLowLow ();
+            case ModelPackage.ITEM__REMOTE_BOOL:
+                return isRemoteBool ();
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+                return getRemoteBoolAckValue ();
+            case ModelPackage.ITEM__INPUT:
+                return isInput ();
+            case ModelPackage.ITEM__OUTPUT:
+                return isOutput ();
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+                return isLocalScaleAvailable ();
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+                return getLocalScaleFactor ();
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+                return getLocalScaleOffset ();
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+                return getDebugInformation ();
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+                return isIgnoreSummary ();
+            case ModelPackage.ITEM__BLOCK:
+                return isBlock ();
+            case ModelPackage.ITEM__ENABLED:
+                return isEnabled ();
+            case ModelPackage.ITEM__HD_STORAGE:
+                return getHdStorage ();
+            case ModelPackage.ITEM__MAPPER:
+                return getMapper ();
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                return getSimulationValue ();
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                return isRoundingAvailable ();
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                return getRoundingValue ();
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                return getLocalHighHigh ();
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                return getLocalHigh ();
+            case ModelPackage.ITEM__LOCAL_LOW:
+                return getLocalLow ();
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                return getLocalLowLow ();
+            case ModelPackage.ITEM__LOCAL_MIN:
+                return getLocalMin ();
+            case ModelPackage.ITEM__LOCAL_MAX:
+                return getLocalMax ();
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                return getLocalListMonitor ();
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                return getLocalBooleanMonitor ();
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                return getDefaultMonitorDemote ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -2211,137 +2211,137 @@ public class ItemImpl extends EObjectImpl implements Item
     {
         switch ( featureID )
         {
-        case ModelPackage.ITEM__DEVICE:
-            setDevice ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__NAME:
-            setName ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__DATA_TYPE:
-            setDataType ( (DataType)newValue );
-            return;
-        case ModelPackage.ITEM__UNIT:
-            setUnit ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__ALIAS:
-            setAlias ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__DESCRIPTION:
-            setDescription ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
-            setAttributeSummaryLevel ( (Integer)newValue );
-            return;
-        case ModelPackage.ITEM__EVENT_COMMAND:
-            setEventCommand ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_MANUAL:
-            setLocalManual ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_MANUAL:
-            setRemoteManual ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__SYSTEM:
-            setSystem ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__HIERARCHY:
-            getHierarchy ().clear ();
-            getHierarchy ().addAll ( (Collection<? extends String>)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_MIN:
-            setRemoteMin ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_MAX:
-            setRemoteMax ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-            setRemoteHighHigh ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_HIGH:
-            setRemoteHigh ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_LOW:
-            setRemoteLow ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_LOW_LOW:
-            setRemoteLowLow ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_BOOL:
-            setRemoteBool ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-            setRemoteBoolAckValue ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__INPUT:
-            setInput ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__OUTPUT:
-            setOutput ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-            setLocalScaleAvailable ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-            setLocalScaleFactor ( (Double)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-            setLocalScaleOffset ( (Double)newValue );
-            return;
-        case ModelPackage.ITEM__DEBUG_INFORMATION:
-            setDebugInformation ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__IGNORE_SUMMARY:
-            setIgnoreSummary ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__BLOCK:
-            setBlock ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__ENABLED:
-            setEnabled ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__HD_STORAGE:
-            setHdStorage ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__MAPPER:
-            getMapper ().clear ();
-            getMapper ().addAll ( (Collection<? extends Mapper>)newValue );
-            return;
-        case ModelPackage.ITEM__SIMULATION_VALUE:
-            setSimulationValue ( (String)newValue );
-            return;
-        case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-            setRoundingAvailable ( (Boolean)newValue );
-            return;
-        case ModelPackage.ITEM__ROUNDING_VALUE:
-            setRoundingValue ( (Rounding)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-            setLocalHighHigh ( (LevelMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_HIGH:
-            setLocalHigh ( (LevelMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_LOW:
-            setLocalLow ( (LevelMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-            setLocalLowLow ( (LevelMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_MIN:
-            setLocalMin ( (LevelMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_MAX:
-            setLocalMax ( (LevelMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-            setLocalListMonitor ( (ListMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            setLocalBooleanMonitor ( (BooleanMonitor)newValue );
-            return;
-        case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
-            setDefaultMonitorDemote ( (String)newValue );
-            return;
+            case ModelPackage.ITEM__DEVICE:
+                setDevice ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__NAME:
+                setName ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__DATA_TYPE:
+                setDataType ( (DataType)newValue );
+                return;
+            case ModelPackage.ITEM__UNIT:
+                setUnit ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__ALIAS:
+                setAlias ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__DESCRIPTION:
+                setDescription ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                setAttributeSummaryLevel ( (Integer)newValue );
+                return;
+            case ModelPackage.ITEM__EVENT_COMMAND:
+                setEventCommand ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+                setLocalManual ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+                setRemoteManual ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__SYSTEM:
+                setSystem ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__HIERARCHY:
+                getHierarchy ().clear ();
+                getHierarchy ().addAll ( (Collection<? extends String>)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_MIN:
+                setRemoteMin ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_MAX:
+                setRemoteMax ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+                setRemoteHighHigh ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_HIGH:
+                setRemoteHigh ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_LOW:
+                setRemoteLow ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+                setRemoteLowLow ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_BOOL:
+                setRemoteBool ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+                setRemoteBoolAckValue ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__INPUT:
+                setInput ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__OUTPUT:
+                setOutput ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+                setLocalScaleAvailable ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+                setLocalScaleFactor ( (Double)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+                setLocalScaleOffset ( (Double)newValue );
+                return;
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+                setDebugInformation ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+                setIgnoreSummary ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__BLOCK:
+                setBlock ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__ENABLED:
+                setEnabled ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__HD_STORAGE:
+                setHdStorage ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__MAPPER:
+                getMapper ().clear ();
+                getMapper ().addAll ( (Collection<? extends Mapper>)newValue );
+                return;
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                setSimulationValue ( (String)newValue );
+                return;
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                setRoundingAvailable ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                setRoundingValue ( (Rounding)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                setLocalHighHigh ( (LevelMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                setLocalHigh ( (LevelMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                setLocalLow ( (LevelMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                setLocalLowLow ( (LevelMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                setLocalMin ( (LevelMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                setLocalMax ( (LevelMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                setLocalListMonitor ( (ListMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                setLocalBooleanMonitor ( (BooleanMonitor)newValue );
+                return;
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                setDefaultMonitorDemote ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -2356,135 +2356,135 @@ public class ItemImpl extends EObjectImpl implements Item
     {
         switch ( featureID )
         {
-        case ModelPackage.ITEM__DEVICE:
-            setDevice ( DEVICE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__NAME:
-            setName ( NAME_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__DATA_TYPE:
-            setDataType ( DATA_TYPE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__UNIT:
-            setUnit ( UNIT_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__ALIAS:
-            setAlias ( ALIAS_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__DESCRIPTION:
-            setDescription ( DESCRIPTION_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
-            setAttributeSummaryLevel ( ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__EVENT_COMMAND:
-            setEventCommand ( EVENT_COMMAND_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__LOCAL_MANUAL:
-            setLocalManual ( LOCAL_MANUAL_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_MANUAL:
-            setRemoteManual ( REMOTE_MANUAL_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__SYSTEM:
-            setSystem ( SYSTEM_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__HIERARCHY:
-            getHierarchy ().clear ();
-            return;
-        case ModelPackage.ITEM__REMOTE_MIN:
-            setRemoteMin ( REMOTE_MIN_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_MAX:
-            setRemoteMax ( REMOTE_MAX_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-            setRemoteHighHigh ( REMOTE_HIGH_HIGH_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_HIGH:
-            setRemoteHigh ( REMOTE_HIGH_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_LOW:
-            setRemoteLow ( REMOTE_LOW_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_LOW_LOW:
-            setRemoteLowLow ( REMOTE_LOW_LOW_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_BOOL:
-            setRemoteBool ( REMOTE_BOOL_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-            setRemoteBoolAckValue ( REMOTE_BOOL_ACK_VALUE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__INPUT:
-            setInput ( INPUT_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__OUTPUT:
-            setOutput ( OUTPUT_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-            setLocalScaleAvailable ( LOCAL_SCALE_AVAILABLE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-            setLocalScaleFactor ( LOCAL_SCALE_FACTOR_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-            setLocalScaleOffset ( LOCAL_SCALE_OFFSET_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__DEBUG_INFORMATION:
-            setDebugInformation ( DEBUG_INFORMATION_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__IGNORE_SUMMARY:
-            setIgnoreSummary ( IGNORE_SUMMARY_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__BLOCK:
-            setBlock ( BLOCK_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__ENABLED:
-            setEnabled ( ENABLED_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__HD_STORAGE:
-            setHdStorage ( HD_STORAGE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__MAPPER:
-            getMapper ().clear ();
-            return;
-        case ModelPackage.ITEM__SIMULATION_VALUE:
-            setSimulationValue ( SIMULATION_VALUE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-            setRoundingAvailable ( ROUNDING_AVAILABLE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__ROUNDING_VALUE:
-            setRoundingValue ( ROUNDING_VALUE_EDEFAULT );
-            return;
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-            setLocalHighHigh ( (LevelMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_HIGH:
-            setLocalHigh ( (LevelMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_LOW:
-            setLocalLow ( (LevelMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-            setLocalLowLow ( (LevelMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_MIN:
-            setLocalMin ( (LevelMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_MAX:
-            setLocalMax ( (LevelMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-            setLocalListMonitor ( (ListMonitor)null );
-            return;
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            setLocalBooleanMonitor ( (BooleanMonitor)null );
-            return;
-        case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
-            setDefaultMonitorDemote ( DEFAULT_MONITOR_DEMOTE_EDEFAULT );
-            return;
+            case ModelPackage.ITEM__DEVICE:
+                setDevice ( DEVICE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DATA_TYPE:
+                setDataType ( DATA_TYPE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__UNIT:
+                setUnit ( UNIT_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ALIAS:
+                setAlias ( ALIAS_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DESCRIPTION:
+                setDescription ( DESCRIPTION_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                setAttributeSummaryLevel ( ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__EVENT_COMMAND:
+                setEventCommand ( EVENT_COMMAND_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+                setLocalManual ( LOCAL_MANUAL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+                setRemoteManual ( REMOTE_MANUAL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__SYSTEM:
+                setSystem ( SYSTEM_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__HIERARCHY:
+                getHierarchy ().clear ();
+                return;
+            case ModelPackage.ITEM__REMOTE_MIN:
+                setRemoteMin ( REMOTE_MIN_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_MAX:
+                setRemoteMax ( REMOTE_MAX_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+                setRemoteHighHigh ( REMOTE_HIGH_HIGH_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_HIGH:
+                setRemoteHigh ( REMOTE_HIGH_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_LOW:
+                setRemoteLow ( REMOTE_LOW_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+                setRemoteLowLow ( REMOTE_LOW_LOW_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_BOOL:
+                setRemoteBool ( REMOTE_BOOL_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+                setRemoteBoolAckValue ( REMOTE_BOOL_ACK_VALUE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__INPUT:
+                setInput ( INPUT_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__OUTPUT:
+                setOutput ( OUTPUT_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+                setLocalScaleAvailable ( LOCAL_SCALE_AVAILABLE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+                setLocalScaleFactor ( LOCAL_SCALE_FACTOR_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+                setLocalScaleOffset ( LOCAL_SCALE_OFFSET_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+                setDebugInformation ( DEBUG_INFORMATION_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+                setIgnoreSummary ( IGNORE_SUMMARY_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__BLOCK:
+                setBlock ( BLOCK_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ENABLED:
+                setEnabled ( ENABLED_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__HD_STORAGE:
+                setHdStorage ( HD_STORAGE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__MAPPER:
+                getMapper ().clear ();
+                return;
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                setSimulationValue ( SIMULATION_VALUE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                setRoundingAvailable ( ROUNDING_AVAILABLE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                setRoundingValue ( ROUNDING_VALUE_EDEFAULT );
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                setLocalHighHigh ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                setLocalHigh ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                setLocalLow ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                setLocalLowLow ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                setLocalMin ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                setLocalMax ( (LevelMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                setLocalListMonitor ( (ListMonitor)null );
+                return;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                setLocalBooleanMonitor ( (BooleanMonitor)null );
+                return;
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                setDefaultMonitorDemote ( DEFAULT_MONITOR_DEMOTE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -2499,92 +2499,92 @@ public class ItemImpl extends EObjectImpl implements Item
     {
         switch ( featureID )
         {
-        case ModelPackage.ITEM__DEVICE:
-            return DEVICE_EDEFAULT == null ? device != null : !DEVICE_EDEFAULT.equals ( device );
-        case ModelPackage.ITEM__NAME:
-            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-        case ModelPackage.ITEM__DATA_TYPE:
-            return dataType != DATA_TYPE_EDEFAULT;
-        case ModelPackage.ITEM__UNIT:
-            return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals ( unit );
-        case ModelPackage.ITEM__ALIAS:
-            return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals ( alias );
-        case ModelPackage.ITEM__DESCRIPTION:
-            return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
-        case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
-            return attributeSummaryLevel != ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT;
-        case ModelPackage.ITEM__EVENT_COMMAND:
-            return eventCommand != EVENT_COMMAND_EDEFAULT;
-        case ModelPackage.ITEM__LOCAL_MANUAL:
-            return localManual != LOCAL_MANUAL_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_MANUAL:
-            return remoteManual != REMOTE_MANUAL_EDEFAULT;
-        case ModelPackage.ITEM__SYSTEM:
-            return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals ( system );
-        case ModelPackage.ITEM__HIERARCHY:
-            return hierarchy != null && !hierarchy.isEmpty ();
-        case ModelPackage.ITEM__REMOTE_MIN:
-            return remoteMin != REMOTE_MIN_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_MAX:
-            return remoteMax != REMOTE_MAX_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-            return remoteHighHigh != REMOTE_HIGH_HIGH_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_HIGH:
-            return remoteHigh != REMOTE_HIGH_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_LOW:
-            return remoteLow != REMOTE_LOW_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_LOW_LOW:
-            return remoteLowLow != REMOTE_LOW_LOW_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_BOOL:
-            return remoteBool != REMOTE_BOOL_EDEFAULT;
-        case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-            return REMOTE_BOOL_ACK_VALUE_EDEFAULT == null ? remoteBoolAckValue != null : !REMOTE_BOOL_ACK_VALUE_EDEFAULT.equals ( remoteBoolAckValue );
-        case ModelPackage.ITEM__INPUT:
-            return input != INPUT_EDEFAULT;
-        case ModelPackage.ITEM__OUTPUT:
-            return output != OUTPUT_EDEFAULT;
-        case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-            return localScaleAvailable != LOCAL_SCALE_AVAILABLE_EDEFAULT;
-        case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-            return LOCAL_SCALE_FACTOR_EDEFAULT == null ? localScaleFactor != null : !LOCAL_SCALE_FACTOR_EDEFAULT.equals ( localScaleFactor );
-        case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-            return LOCAL_SCALE_OFFSET_EDEFAULT == null ? localScaleOffset != null : !LOCAL_SCALE_OFFSET_EDEFAULT.equals ( localScaleOffset );
-        case ModelPackage.ITEM__DEBUG_INFORMATION:
-            return DEBUG_INFORMATION_EDEFAULT == null ? debugInformation != null : !DEBUG_INFORMATION_EDEFAULT.equals ( debugInformation );
-        case ModelPackage.ITEM__IGNORE_SUMMARY:
-            return ignoreSummary != IGNORE_SUMMARY_EDEFAULT;
-        case ModelPackage.ITEM__BLOCK:
-            return block != BLOCK_EDEFAULT;
-        case ModelPackage.ITEM__ENABLED:
-            return enabled != ENABLED_EDEFAULT;
-        case ModelPackage.ITEM__HD_STORAGE:
-            return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals ( hdStorage );
-        case ModelPackage.ITEM__MAPPER:
-            return mapper != null && !mapper.isEmpty ();
-        case ModelPackage.ITEM__SIMULATION_VALUE:
-            return SIMULATION_VALUE_EDEFAULT == null ? simulationValue != null : !SIMULATION_VALUE_EDEFAULT.equals ( simulationValue );
-        case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-            return roundingAvailable != ROUNDING_AVAILABLE_EDEFAULT;
-        case ModelPackage.ITEM__ROUNDING_VALUE:
-            return roundingValue != ROUNDING_VALUE_EDEFAULT;
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-            return localHighHigh != null;
-        case ModelPackage.ITEM__LOCAL_HIGH:
-            return localHigh != null;
-        case ModelPackage.ITEM__LOCAL_LOW:
-            return localLow != null;
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-            return localLowLow != null;
-        case ModelPackage.ITEM__LOCAL_MIN:
-            return localMin != null;
-        case ModelPackage.ITEM__LOCAL_MAX:
-            return localMax != null;
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-            return localListMonitor != null;
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            return localBooleanMonitor != null;
-        case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
-            return DEFAULT_MONITOR_DEMOTE_EDEFAULT == null ? defaultMonitorDemote != null : !DEFAULT_MONITOR_DEMOTE_EDEFAULT.equals ( defaultMonitorDemote );
+            case ModelPackage.ITEM__DEVICE:
+                return DEVICE_EDEFAULT == null ? device != null : !DEVICE_EDEFAULT.equals ( device );
+            case ModelPackage.ITEM__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case ModelPackage.ITEM__DATA_TYPE:
+                return dataType != DATA_TYPE_EDEFAULT;
+            case ModelPackage.ITEM__UNIT:
+                return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals ( unit );
+            case ModelPackage.ITEM__ALIAS:
+                return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals ( alias );
+            case ModelPackage.ITEM__DESCRIPTION:
+                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+                return attributeSummaryLevel != ATTRIBUTE_SUMMARY_LEVEL_EDEFAULT;
+            case ModelPackage.ITEM__EVENT_COMMAND:
+                return eventCommand != EVENT_COMMAND_EDEFAULT;
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+                return localManual != LOCAL_MANUAL_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+                return remoteManual != REMOTE_MANUAL_EDEFAULT;
+            case ModelPackage.ITEM__SYSTEM:
+                return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals ( system );
+            case ModelPackage.ITEM__HIERARCHY:
+                return hierarchy != null && !hierarchy.isEmpty ();
+            case ModelPackage.ITEM__REMOTE_MIN:
+                return remoteMin != REMOTE_MIN_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_MAX:
+                return remoteMax != REMOTE_MAX_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+                return remoteHighHigh != REMOTE_HIGH_HIGH_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_HIGH:
+                return remoteHigh != REMOTE_HIGH_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_LOW:
+                return remoteLow != REMOTE_LOW_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+                return remoteLowLow != REMOTE_LOW_LOW_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_BOOL:
+                return remoteBool != REMOTE_BOOL_EDEFAULT;
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+                return REMOTE_BOOL_ACK_VALUE_EDEFAULT == null ? remoteBoolAckValue != null : !REMOTE_BOOL_ACK_VALUE_EDEFAULT.equals ( remoteBoolAckValue );
+            case ModelPackage.ITEM__INPUT:
+                return input != INPUT_EDEFAULT;
+            case ModelPackage.ITEM__OUTPUT:
+                return output != OUTPUT_EDEFAULT;
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+                return localScaleAvailable != LOCAL_SCALE_AVAILABLE_EDEFAULT;
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+                return LOCAL_SCALE_FACTOR_EDEFAULT == null ? localScaleFactor != null : !LOCAL_SCALE_FACTOR_EDEFAULT.equals ( localScaleFactor );
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+                return LOCAL_SCALE_OFFSET_EDEFAULT == null ? localScaleOffset != null : !LOCAL_SCALE_OFFSET_EDEFAULT.equals ( localScaleOffset );
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+                return DEBUG_INFORMATION_EDEFAULT == null ? debugInformation != null : !DEBUG_INFORMATION_EDEFAULT.equals ( debugInformation );
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+                return ignoreSummary != IGNORE_SUMMARY_EDEFAULT;
+            case ModelPackage.ITEM__BLOCK:
+                return block != BLOCK_EDEFAULT;
+            case ModelPackage.ITEM__ENABLED:
+                return enabled != ENABLED_EDEFAULT;
+            case ModelPackage.ITEM__HD_STORAGE:
+                return HD_STORAGE_EDEFAULT == null ? hdStorage != null : !HD_STORAGE_EDEFAULT.equals ( hdStorage );
+            case ModelPackage.ITEM__MAPPER:
+                return mapper != null && !mapper.isEmpty ();
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+                return SIMULATION_VALUE_EDEFAULT == null ? simulationValue != null : !SIMULATION_VALUE_EDEFAULT.equals ( simulationValue );
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+                return roundingAvailable != ROUNDING_AVAILABLE_EDEFAULT;
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+                return roundingValue != ROUNDING_VALUE_EDEFAULT;
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+                return localHighHigh != null;
+            case ModelPackage.ITEM__LOCAL_HIGH:
+                return localHigh != null;
+            case ModelPackage.ITEM__LOCAL_LOW:
+                return localLow != null;
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+                return localLowLow != null;
+            case ModelPackage.ITEM__LOCAL_MIN:
+                return localMin != null;
+            case ModelPackage.ITEM__LOCAL_MAX:
+                return localMax != null;
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+                return localListMonitor != null;
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                return localBooleanMonitor != null;
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                return DEFAULT_MONITOR_DEMOTE_EDEFAULT == null ? defaultMonitorDemote != null : !DEFAULT_MONITOR_DEMOTE_EDEFAULT.equals ( defaultMonitorDemote );
         }
         return super.eIsSet ( featureID );
     }
