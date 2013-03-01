@@ -3,7 +3,7 @@
       id="org.openscada.deploy.ui.da.connector"
       label="openSCADA DA UI Connector Feature"
       version="1.0.0.qualifier"
-      provider-name="TH4 SYSTEMS GmbH">
+      provider-name="openSCADA.org">
 
    <description url="http://openscada.org">
       The openSCADA DA UI Connector Modules. Contains all bundles required

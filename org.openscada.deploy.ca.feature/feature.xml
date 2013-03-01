@@ -3,7 +3,7 @@
       id="org.openscada.deploy.ca"
       label="openSCADA Deploy CA Feature"
       version="1.0.0.qualifier"
-      provider-name="TH4 SYSTEMS GmbH">
+      provider-name="openSCADA.org">
 
    <description>
       This features packs together components needed to deploy a CA

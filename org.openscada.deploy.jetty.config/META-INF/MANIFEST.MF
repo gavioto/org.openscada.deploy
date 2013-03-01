@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: openSCADA Default Jetty Configuration
 Bundle-SymbolicName: org.openscada.deploy.jetty.config;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: TH4 SYSTEMS GmbH
+Bundle-Vendor: openSCADA.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.equinox.http.registry
 Import-Package: org.eclipse.jetty.servlet;version="8.1.3"

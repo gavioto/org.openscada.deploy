@@ -4,7 +4,7 @@ Bundle-Name: IO List Utils
 Bundle-SymbolicName: org.openscada.deploy.iolist.utils
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.openscada.deploy.iolist.utils.Activator
-Bundle-Vendor: TH4 SYSTEMS GmbH
+Bundle-Vendor: openSCADA.org
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  org.openscada.deploy.iolist.model;bundle-version="1.0.0",
@@ -19,4 +19,4 @@ Import-Package: org.openscada.ae;version="1.0.0",
  org.openscada.ae.monitor.datasource.common;version="1.0.0",
  org.openscada.ca.oscar;version="1.0.0",
  org.openscada.core;version="1.0.0",
- org.openscada.utils.str;version="0.15.0"
+ org.openscada.utils.str;version="1.0.0"

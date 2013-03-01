@@ -3,7 +3,7 @@
       id="org.openscada.deploy.repo"
       label="openSCADA Deploy Repository"
       version="1.0.0.qualifier"
-      provider-name="TH4 SYSTEMS GmbH">
+      provider-name="openSCADA.org">
 
    <description url="http://openscada.org">
       This feature contains all that belongs into the deploy P2 repository.
