@@ -222,8 +222,8 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__ENTRIES:
-                return ( (InternalEList<?>)getEntries () ).basicRemove ( otherEnd, msgs );
+        case ModelPackage.LIST_MONITOR__ENTRIES:
+            return ( (InternalEList<?>)getEntries () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -238,14 +238,14 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__ENTRIES:
-                return getEntries ();
-            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
-                return isDefaultAck ();
-            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
-                return getDefaultSeverity ();
-            case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
-                return getMessageAttribute ();
+        case ModelPackage.LIST_MONITOR__ENTRIES:
+            return getEntries ();
+        case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+            return isDefaultAck ();
+        case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+            return getDefaultSeverity ();
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            return getMessageAttribute ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -261,19 +261,19 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__ENTRIES:
-                getEntries ().clear ();
-                getEntries ().addAll ( (Collection<? extends ListMonitorEntry>)newValue );
-                return;
-            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
-                setDefaultAck ( (Boolean)newValue );
-                return;
-            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
-                setDefaultSeverity ( (String)newValue );
-                return;
-            case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
-                setMessageAttribute ( (String)newValue );
-                return;
+        case ModelPackage.LIST_MONITOR__ENTRIES:
+            getEntries ().clear ();
+            getEntries ().addAll ( (Collection<? extends ListMonitorEntry>)newValue );
+            return;
+        case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+            setDefaultAck ( (Boolean)newValue );
+            return;
+        case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+            setDefaultSeverity ( (String)newValue );
+            return;
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            setMessageAttribute ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -288,18 +288,18 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__ENTRIES:
-                getEntries ().clear ();
-                return;
-            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
-                setDefaultAck ( DEFAULT_ACK_EDEFAULT );
-                return;
-            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
-                setDefaultSeverity ( DEFAULT_SEVERITY_EDEFAULT );
-                return;
-            case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
-                setMessageAttribute ( MESSAGE_ATTRIBUTE_EDEFAULT );
-                return;
+        case ModelPackage.LIST_MONITOR__ENTRIES:
+            getEntries ().clear ();
+            return;
+        case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+            setDefaultAck ( DEFAULT_ACK_EDEFAULT );
+            return;
+        case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+            setDefaultSeverity ( DEFAULT_SEVERITY_EDEFAULT );
+            return;
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            setMessageAttribute ( MESSAGE_ATTRIBUTE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -314,14 +314,14 @@ public class ListMonitorImpl extends MonitorImpl implements ListMonitor
     {
         switch ( featureID )
         {
-            case ModelPackage.LIST_MONITOR__ENTRIES:
-                return entries != null && !entries.isEmpty ();
-            case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
-                return defaultAck != DEFAULT_ACK_EDEFAULT;
-            case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
-                return DEFAULT_SEVERITY_EDEFAULT == null ? defaultSeverity != null : !DEFAULT_SEVERITY_EDEFAULT.equals ( defaultSeverity );
-            case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
-                return MESSAGE_ATTRIBUTE_EDEFAULT == null ? messageAttribute != null : !MESSAGE_ATTRIBUTE_EDEFAULT.equals ( messageAttribute );
+        case ModelPackage.LIST_MONITOR__ENTRIES:
+            return entries != null && !entries.isEmpty ();
+        case ModelPackage.LIST_MONITOR__DEFAULT_ACK:
+            return defaultAck != DEFAULT_ACK_EDEFAULT;
+        case ModelPackage.LIST_MONITOR__DEFAULT_SEVERITY:
+            return DEFAULT_SEVERITY_EDEFAULT == null ? defaultSeverity != null : !DEFAULT_SEVERITY_EDEFAULT.equals ( defaultSeverity );
+        case ModelPackage.LIST_MONITOR__MESSAGE_ATTRIBUTE:
+            return MESSAGE_ATTRIBUTE_EDEFAULT == null ? messageAttribute != null : !MESSAGE_ATTRIBUTE_EDEFAULT.equals ( messageAttribute );
         }
         return super.eIsSet ( featureID );
     }

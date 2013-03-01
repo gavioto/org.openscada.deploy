@@ -1386,6 +1386,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAverage_NumRequired ()
+    {
+        return (EAttribute)averageEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1820,6 +1830,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( averageEClass, AVERAGE__ID );
         createEAttribute ( averageEClass, AVERAGE__SOURCES );
         createEAttribute ( averageEClass, AVERAGE__PERCENT_REQUIRED );
+        createEAttribute ( averageEClass, AVERAGE__NUM_REQUIRED );
 
         averageItemEClass = createEClass ( AVERAGE_ITEM );
         createEReference ( averageItemEClass, AVERAGE_ITEM__AVERAGE );
@@ -2030,7 +2041,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass ( averageEClass, Average.class, "Average", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getAverage_Id (), ecorePackage.getEString (), "id", null, 1, 1, Average.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getAverage_Sources (), ecorePackage.getEString (), "sources", null, 0, -1, Average.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getAverage_PercentRequired (), ecorePackage.getEDouble (), "percentRequired", "1.0", 0, 1, Average.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getAverage_PercentRequired (), ecorePackage.getEDouble (), "percentRequired", "-1.0", 0, 1, Average.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getAverage_NumRequired (), ecorePackage.getEInt (), "numRequired", "-1", 0, 1, Average.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( averageItemEClass, AverageItem.class, "AverageItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getAverageItem_Average (), this.getAverage (), null, "average", null, 1, 1, AverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

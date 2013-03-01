@@ -1600,7 +1600,18 @@ public class Configuration extends GenericMasterConfiguration
 
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "validSourcesRequired", String.format ( "%d%%", Math.round ( average.getPercentRequired () * 100.0 ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        if ( average.getPercentRequired () >= 0 )
+        {
+            data.put ( "validSourcesRequired", String.format ( "%d%%", Math.round ( average.getPercentRequired () * 100.0 ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        else if ( average.getNumRequired () >= 0 )
+        {
+            data.put ( "validSourcesRequired", String.format ( "%d", average.getNumRequired () ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        else
+        {
+            data.put ( "validSourcesRequired", "0" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
 
         final List<String> sources = new ArrayList<String> ( average.getSources () );
         Collections.sort ( sources );

@@ -106,9 +106,9 @@ public class PlainSummaryGroupItemProvider extends SummaryGroupItemProvider impl
 
         switch ( notification.getFeatureID ( PlainSummaryGroup.class ) )
         {
-            case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.PLAIN_SUMMARY_GROUP__ID:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

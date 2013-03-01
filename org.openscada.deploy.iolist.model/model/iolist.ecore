@@ -201,7 +201,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sources" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="1.0"/>
+        defaultValueLiteral="-1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AverageItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="average" lowerBound="1"

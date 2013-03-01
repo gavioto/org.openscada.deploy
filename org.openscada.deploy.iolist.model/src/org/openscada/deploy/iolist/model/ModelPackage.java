@@ -2095,13 +2095,22 @@ public interface ModelPackage extends EPackage
     int AVERAGE__PERCENT_REQUIRED = 2;
 
     /**
+     * The feature id for the '<em><b>Num Required</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE__NUM_REQUIRED = 3;
+
+    /**
      * The number of structural features of the '<em>Average</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int AVERAGE_FEATURE_COUNT = 3;
+    int AVERAGE_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.AverageItemImpl <em>Average Item</em>}' class.
@@ -4784,6 +4793,17 @@ public interface ModelPackage extends EPackage
     EAttribute getAverage_PercentRequired ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Average#getNumRequired <em>Num Required</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Num Required</em>'.
+     * @see org.openscada.deploy.iolist.model.Average#getNumRequired()
+     * @see #getAverage()
+     * @generated
+     */
+    EAttribute getAverage_NumRequired ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.AverageItem <em>Average Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6011,6 +6031,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute AVERAGE__PERCENT_REQUIRED = eINSTANCE.getAverage_PercentRequired ();
+
+        /**
+         * The meta object literal for the '<em><b>Num Required</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute AVERAGE__NUM_REQUIRED = eINSTANCE.getAverage_NumRequired ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.AverageItemImpl <em>Average Item</em>}' class.

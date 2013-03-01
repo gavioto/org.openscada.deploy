@@ -27,6 +27,7 @@ import org.openscada.deploy.iolist.model.ModelPackage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.AverageImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.AverageImpl#getSources <em>Sources</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.AverageImpl#getPercentRequired <em>Percent Required</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.AverageImpl#getNumRequired <em>Num Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,7 +73,7 @@ public class AverageImpl extends EObjectImpl implements Average
      * @generated
      * @ordered
      */
-    protected static final double PERCENT_REQUIRED_EDEFAULT = 1.0;
+    protected static final double PERCENT_REQUIRED_EDEFAULT = -1.0;
 
     /**
      * The cached value of the '{@link #getPercentRequired() <em>Percent Required</em>}' attribute.
@@ -83,6 +84,26 @@ public class AverageImpl extends EObjectImpl implements Average
      * @ordered
      */
     protected double percentRequired = PERCENT_REQUIRED_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getNumRequired() <em>Num Required</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNumRequired()
+     * @generated
+     * @ordered
+     */
+    protected static final int NUM_REQUIRED_EDEFAULT = -1;
+
+    /**
+     * The cached value of the '{@link #getNumRequired() <em>Num Required</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNumRequired()
+     * @generated
+     * @ordered
+     */
+    protected int numRequired = NUM_REQUIRED_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -170,6 +191,29 @@ public class AverageImpl extends EObjectImpl implements Average
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getNumRequired ()
+    {
+        return numRequired;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setNumRequired ( int newNumRequired )
+    {
+        int oldNumRequired = numRequired;
+        numRequired = newNumRequired;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.AVERAGE__NUM_REQUIRED, oldNumRequired, numRequired ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -181,6 +225,8 @@ public class AverageImpl extends EObjectImpl implements Average
             return getSources ();
         case ModelPackage.AVERAGE__PERCENT_REQUIRED:
             return getPercentRequired ();
+        case ModelPackage.AVERAGE__NUM_REQUIRED:
+            return getNumRequired ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -206,6 +252,9 @@ public class AverageImpl extends EObjectImpl implements Average
         case ModelPackage.AVERAGE__PERCENT_REQUIRED:
             setPercentRequired ( (Double)newValue );
             return;
+        case ModelPackage.AVERAGE__NUM_REQUIRED:
+            setNumRequired ( (Integer)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -229,6 +278,9 @@ public class AverageImpl extends EObjectImpl implements Average
         case ModelPackage.AVERAGE__PERCENT_REQUIRED:
             setPercentRequired ( PERCENT_REQUIRED_EDEFAULT );
             return;
+        case ModelPackage.AVERAGE__NUM_REQUIRED:
+            setNumRequired ( NUM_REQUIRED_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -249,6 +301,8 @@ public class AverageImpl extends EObjectImpl implements Average
             return sources != null && !sources.isEmpty ();
         case ModelPackage.AVERAGE__PERCENT_REQUIRED:
             return percentRequired != PERCENT_REQUIRED_EDEFAULT;
+        case ModelPackage.AVERAGE__NUM_REQUIRED:
+            return numRequired != NUM_REQUIRED_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -271,6 +325,8 @@ public class AverageImpl extends EObjectImpl implements Average
         result.append ( sources );
         result.append ( ", percentRequired: " );
         result.append ( percentRequired );
+        result.append ( ", numRequired: " );
+        result.append ( numRequired );
         result.append ( ')' );
         return result.toString ();
     }

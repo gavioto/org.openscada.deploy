@@ -61,6 +61,7 @@ public class AverageItemProvider extends ItemProviderAdapter implements IEditing
             addIdPropertyDescriptor ( object );
             addSourcesPropertyDescriptor ( object );
             addPercentRequiredPropertyDescriptor ( object );
+            addNumRequiredPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -96,6 +97,17 @@ public class AverageItemProvider extends ItemProviderAdapter implements IEditing
     protected void addPercentRequiredPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Average_percentRequired_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Average_percentRequired_feature", "_UI_Average_type" ), ModelPackage.Literals.AVERAGE__PERCENT_REQUIRED, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Num Required feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNumRequiredPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Average_numRequired_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Average_numRequired_feature", "_UI_Average_type" ), ModelPackage.Literals.AVERAGE__NUM_REQUIRED, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -170,13 +182,14 @@ public class AverageItemProvider extends ItemProviderAdapter implements IEditing
 
         switch ( notification.getFeatureID ( Average.class ) )
         {
-            case ModelPackage.AVERAGE__ID:
-            case ModelPackage.AVERAGE__PERCENT_REQUIRED:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ModelPackage.AVERAGE__SOURCES:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case ModelPackage.AVERAGE__ID:
+        case ModelPackage.AVERAGE__PERCENT_REQUIRED:
+        case ModelPackage.AVERAGE__NUM_REQUIRED:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case ModelPackage.AVERAGE__SOURCES:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

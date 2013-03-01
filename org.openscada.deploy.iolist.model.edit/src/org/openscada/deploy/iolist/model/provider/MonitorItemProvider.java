@@ -112,10 +112,10 @@ public class MonitorItemProvider extends ItemProviderAdapter implements IEditing
 
         switch ( notification.getFeatureID ( Monitor.class ) )
         {
-            case ModelPackage.MONITOR__ACTIVE:
-            case ModelPackage.MONITOR__SUPPRESS_EVENTS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.MONITOR__ACTIVE:
+        case ModelPackage.MONITOR__SUPPRESS_EVENTS:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

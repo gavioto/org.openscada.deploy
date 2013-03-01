@@ -98,8 +98,8 @@ public class WeakSummaryReferenceImpl extends EObjectImpl implements WeakSummary
     {
         switch ( featureID )
         {
-            case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
-                return getDataSourceId ();
+        case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
+            return getDataSourceId ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -114,9 +114,9 @@ public class WeakSummaryReferenceImpl extends EObjectImpl implements WeakSummary
     {
         switch ( featureID )
         {
-            case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
-                setDataSourceId ( (String)newValue );
-                return;
+        case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
+            setDataSourceId ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -131,9 +131,9 @@ public class WeakSummaryReferenceImpl extends EObjectImpl implements WeakSummary
     {
         switch ( featureID )
         {
-            case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
-                setDataSourceId ( DATA_SOURCE_ID_EDEFAULT );
-                return;
+        case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
+            setDataSourceId ( DATA_SOURCE_ID_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -148,8 +148,8 @@ public class WeakSummaryReferenceImpl extends EObjectImpl implements WeakSummary
     {
         switch ( featureID )
         {
-            case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
-                return DATA_SOURCE_ID_EDEFAULT == null ? dataSourceId != null : !DATA_SOURCE_ID_EDEFAULT.equals ( dataSourceId );
+        case ModelPackage.WEAK_SUMMARY_REFERENCE__DATA_SOURCE_ID:
+            return DATA_SOURCE_ID_EDEFAULT == null ? dataSourceId != null : !DATA_SOURCE_ID_EDEFAULT.equals ( dataSourceId );
         }
         return super.eIsSet ( featureID );
     }

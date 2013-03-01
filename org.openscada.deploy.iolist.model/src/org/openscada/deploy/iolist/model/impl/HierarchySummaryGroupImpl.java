@@ -206,12 +206,12 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( featureID )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                if ( eInternalContainer () != null )
-                    msgs = eBasicRemoveFromContainer ( msgs );
-                return basicSetParent ( (HierarchySummaryGroup)otherEnd, msgs );
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-                return ( (InternalEList<InternalEObject>)(InternalEList<?>)getChildren () ).basicAdd ( otherEnd, msgs );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            if ( eInternalContainer () != null )
+                msgs = eBasicRemoveFromContainer ( msgs );
+            return basicSetParent ( (HierarchySummaryGroup)otherEnd, msgs );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            return ( (InternalEList<InternalEObject>)(InternalEList<?>)getChildren () ).basicAdd ( otherEnd, msgs );
         }
         return super.eInverseAdd ( otherEnd, featureID, msgs );
     }
@@ -226,12 +226,12 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( featureID )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                return basicSetParent ( null, msgs );
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-                return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
-                return ( (InternalEList<?>)getWeakReferences () ).basicRemove ( otherEnd, msgs );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            return basicSetParent ( null, msgs );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
+            return ( (InternalEList<?>)getWeakReferences () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -246,8 +246,8 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( eContainerFeatureID () )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                return eInternalContainer ().eInverseRemove ( this, ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN, HierarchySummaryGroup.class, msgs );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            return eInternalContainer ().eInverseRemove ( this, ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN, HierarchySummaryGroup.class, msgs );
         }
         return super.eBasicRemoveFromContainerFeature ( msgs );
     }
@@ -262,14 +262,14 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( featureID )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
-                return getName ();
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                return getParent ();
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-                return getChildren ();
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
-                return getWeakReferences ();
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
+            return getName ();
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            return getParent ();
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            return getChildren ();
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
+            return getWeakReferences ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -285,20 +285,20 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( featureID )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
-                setName ( (String)newValue );
-                return;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                setParent ( (HierarchySummaryGroup)newValue );
-                return;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-                getChildren ().clear ();
-                getChildren ().addAll ( (Collection<? extends HierarchySummaryGroup>)newValue );
-                return;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
-                getWeakReferences ().clear ();
-                getWeakReferences ().addAll ( (Collection<? extends WeakSummaryReference>)newValue );
-                return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
+            setName ( (String)newValue );
+            return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            setParent ( (HierarchySummaryGroup)newValue );
+            return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            getChildren ().clear ();
+            getChildren ().addAll ( (Collection<? extends HierarchySummaryGroup>)newValue );
+            return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
+            getWeakReferences ().clear ();
+            getWeakReferences ().addAll ( (Collection<? extends WeakSummaryReference>)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -313,18 +313,18 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( featureID )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                setParent ( (HierarchySummaryGroup)null );
-                return;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-                getChildren ().clear ();
-                return;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
-                getWeakReferences ().clear ();
-                return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
+            setName ( NAME_EDEFAULT );
+            return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            setParent ( (HierarchySummaryGroup)null );
+            return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            getChildren ().clear ();
+            return;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
+            getWeakReferences ().clear ();
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -339,14 +339,14 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         switch ( featureID )
         {
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
-                return getParent () != null;
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-                return children != null && !children.isEmpty ();
-            case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
-                return weakReferences != null && !weakReferences.isEmpty ();
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT:
+            return getParent () != null;
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            return children != null && !children.isEmpty ();
+        case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
+            return weakReferences != null && !weakReferences.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Average#getId <em>Id</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Average#getSources <em>Sources</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Average#getPercentRequired <em>Percent Required</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Average#getNumRequired <em>Num Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,7 +74,7 @@ public interface Average extends EObject
 
     /**
      * Returns the value of the '<em><b>Percent Required</b></em>' attribute.
-     * The default value is <code>"1.0"</code>.
+     * The default value is <code>"-1.0"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Percent Required</em>' attribute isn't clear,
@@ -83,7 +84,7 @@ public interface Average extends EObject
      * @return the value of the '<em>Percent Required</em>' attribute.
      * @see #setPercentRequired(double)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getAverage_PercentRequired()
-     * @model default="1.0"
+     * @model default="-1.0"
      * @generated
      */
     double getPercentRequired ();
@@ -97,5 +98,32 @@ public interface Average extends EObject
      * @generated
      */
     void setPercentRequired ( double value );
+
+    /**
+     * Returns the value of the '<em><b>Num Required</b></em>' attribute.
+     * The default value is <code>"-1"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Num Required</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Num Required</em>' attribute.
+     * @see #setNumRequired(int)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getAverage_NumRequired()
+     * @model default="-1"
+     * @generated
+     */
+    int getNumRequired ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Average#getNumRequired <em>Num Required</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Num Required</em>' attribute.
+     * @see #getNumRequired()
+     * @generated
+     */
+    void setNumRequired ( int value );
 
 } // Average

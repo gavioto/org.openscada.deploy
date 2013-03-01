@@ -124,10 +124,10 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( ScriptModule.class ) )
         {
-            case ModelPackage.SCRIPT_MODULE__DATA:
-            case ModelPackage.SCRIPT_MODULE__RESOURCE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case ModelPackage.SCRIPT_MODULE__DATA:
+        case ModelPackage.SCRIPT_MODULE__RESOURCE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
