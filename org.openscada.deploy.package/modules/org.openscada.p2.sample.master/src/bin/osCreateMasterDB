@@ -1,0 +1,5 @@
+#!/bin/bash
+
+psql < /usr/share/openscada/samples/osCreateMasterDB.db.sql
+psql os_master_sample < /usr/share/openscada/samples/osCreateMasterDB.tables.sql
+psql os_master_sample < /usr/share/openscada/samples/osCreateMasterDB.data.sql

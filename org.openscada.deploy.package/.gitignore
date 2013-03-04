@@ -1,0 +1,11 @@
+*.deb
+*.dsc
+*.changes
+*.build
+*.tar.gz
+*.log
+/output
+/rpm.build
+/global
+/input
+*~

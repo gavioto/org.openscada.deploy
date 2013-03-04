@@ -1,0 +1,34 @@
+<profile parent="master">
+	
+	<argument>-Xmx768m</argument>
+	<argument>-Xms768m</argument>
+	<argument>-XX:+UseConcMarkSweepGC</argument>
+	<argument>-XX:+CMSIncrementalMode</argument>
+	
+	<!-- starting with dummy sec provider -->
+	<start>org.openscada.sec.provider.dummy</start>
+	
+	<property key="org.openscada.ds.storage.jdbc.instance">master.sample</property>
+	<property key="org.openscada.ca.jdbc.instance">master.sample</property>
+	<property key="org.openscada.ae.server.storage.jdbc.instance">master.sample</property>
+	
+	<profile name="postgres.localhost" default="true" parent="postgres">
+		<property key="org.openscada.jdbc.properties.serverName">localhost</property>
+		<property key="org.openscada.jdbc.properties.user">openscada</property>
+		<property key="org.openscada.jdbc.properties.password">openscada</property>
+		<property key="org.openscada.jdbc.properties.databaseName">os_master_sample</property>
+
+		<note>You will need a postgres database set up on localhost for this setup. You can use the script 'osCreateMasterDB'.</note>
+	</profile>
+	
+	<profile name="postgres.server1" parent="postgres">
+		<property key="org.openscada.jdbc.properties.serverName">192.168.1.1</property>
+	</profile>
+	
+	<profile name="postgres.server2" parent="postgres">
+		<property key="org.openscada.jdbc.properties.serverName">192.168.1.2</property>
+	</profile>
+	
+</profile>
+
+

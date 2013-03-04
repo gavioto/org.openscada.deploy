@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://openscada.org/Configurator/Processors/Common"
+            class="org.openscada.configurator.processor.common.provider.CommonItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://openscada.org/Deploy/Configurator"
+            class="org.openscada.configurator.processor.common.provider.CommonItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://openscada.org/Configurator/Processors/Common/Global"
+            class="org.openscada.configurator.processor.common.global.provider.GlobalItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://openscada.org/Deploy/Configurator"
+            class="org.openscada.configurator.processor.common.global.provider.GlobalItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+   </extension>
+      
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://openscada.org/Configurator/Processors/Common/Main"
+            class="org.openscada.configurator.processor.common.main.provider.MainItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+  <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://openscada.org/Deploy/Configurator"
+            class="org.openscada.configurator.processor.common.main.provider.MainItemProviderAdapterFactory$ConfiguratorChildCreationExtender"/>
+   </extension>
+
+</plugin>

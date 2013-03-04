@@ -1,0 +1,32 @@
+#!/bin/sh
+
+OS_USER=openscada
+
+set -e
+
+case "$1" in
+    configure)
+
+# ...create $OS_USER user if it isn't already there...
+		if ! getent passwd $OS_USER >/dev/null; then
+	        adduser --system --group --home "/var/lib/$OS_USER" $OS_USER \
+	            --quiet --gecos "openscada daemon user"
+		fi
+
+# ensure "/var/lib/$OS_USER" exists...
+        mkdir -p "/var/lib/$OS_USER"
+
+# ...finally, ensure "/var/lib/$OS_USER" has the right permissions
+        chown -R $OS_USER:$OS_USER "/var/lib/$OS_USER"
+
+        ;;
+esac
+
+if [ -d /var/log/openscada ]; then
+	chgrp openscada /var/log/openscada
+	chmod 0770 /var/log/openscada
+fi
+
+#DEBHELPER#
+
+exit 0

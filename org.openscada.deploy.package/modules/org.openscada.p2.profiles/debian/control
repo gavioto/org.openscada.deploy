@@ -1,0 +1,12 @@
+Source: org.openscada.p2.profiles
+Maintainer: Jens Reimann <jens.reimann@th4-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: org.openscada.p2.profiles
+Architecture: all
+Depends: ${misc:Depends}, org.openscada.p2.bin
+Description: openSCADA P2 profiles package
+ The P2 profiles openSCADA package

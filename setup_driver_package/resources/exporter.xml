@@ -7,6 +7,7 @@
 	xmlns:snmp="http://openscada.org/DA/SNMP/Configuration"
 	xmlns:proxy="http://openscada.org/DA/Proxy/Configuration"
 	xmlns:jdbc="http://openscada.org/DA/JDBC/Configuration"
+	xmlns:chain="http://openscada.org/DA/Hive/ItemChain"
 	xsi:schemaLocation="
 	http://openscada.org/DA/Server/Exporter schema/exporter.xsd
 	http://openscada.org/DA/Exec/Configuration schema/exec.xsd
@@ -14,7 +15,15 @@
 	http://openscada.org/DA/SNMP/Configuration schema/snmp.xsd
 	http://openscada.org/DA/Proxy/Configuration schema/proxy.xsd
 	http://openscada.org/DA/JDBC/Configuration schema/jdbc.xsd
+	http://openscada.org/DA/Hive/ItemChain schema/ItemChain.xsd
 	">
+	
+	
+	<!--
+	  - 
+	  - Exec Driver
+	  - 
+	  -->
 	
 	<exporter:hive ref="org.openscada.da.server.exec.Hive">
 		<exporter:configuration>
@@ -174,6 +183,12 @@
 		<exporter:export uri="da:net://0.0.0.0:12020"/>
 	</exporter:hive>
 	
+	<!--
+	  - 
+	  - JDBC Driver
+	  - 
+	  -->
+	
 	<exporter:hive ref="org.openscada.da.server.jdbc.Hive">
 		<exporter:configuration>
 			<jdbc:root>
@@ -196,13 +211,68 @@
 		<exporter:export uri="da:net://0.0.0.0:12021"/>
 	</exporter:hive>
 	
+	<!--
+	  - 
+	  - OPC Driver
+	  - 
+	  -->
+	
 	<exporter:hive ref="org.openscada.da.server.opc.Hive">
 		<exporter:configuration>
 			<opc:root>
+			
+				<!--
+				  - the following OPC connections are pre-configured. But
+				  - you can add your own and also disable the configured
+				  - OPC servers.
+				  -
+				  - NOTE: You will need to change username and password. If you
+				  -       don't have a domain, leave it empty but provide the
+				  -       attribute!
+				  - NOTE: You will also need to configure your local machine
+				  -       to allow remote DCOM access to your OPC server.
+				  -       This is needed also on local machines!!!
+				  -       For a good reference on configuring remote DCOM see also
+				  -       https://wiki.jenkins-ci.org/display/JENKINS/Windows+slaves+fail+to+start+via+DCOM
+				  -->
+			
 				<opc:connections>
+					<opc:configuration
+						alias="OPC1.Matrikon.Simulation"
+						user="user"
+						domain="domain"
+						password="password"
+						host="localhost"
+						enabled="true"
+						>
+						<!-- use the clsid of the OPC server: Matrikon OPC Simulation -->
+						<opc:clsid>F8582CF2-88FB-11D0-B850-00C0F0104305</opc:clsid>
+					</opc:configuration>
+
+					<opc:configuration
+						alias="OPC2.Softing.Simulation"
+						user="user"
+						domain="domain"
+						password="password"
+						host="localhost"
+						enabled="true"
+						>
+						<!-- use the clsid of the OPC server: Softing Simulation -->
+						<opc:clsid>2E565242-B238-11D3-842D-0008C779D775</opc:clsid>
+					</opc:configuration>
 				</opc:connections>
 				
 				<opc:item-templates>
+  					<template id="all-default" item-pattern=".*">
+            			<chain:chain>
+			                <item direction="in" class="org.openscada.da.server.common.chain.item.NegateInputItem" />
+			                <item direction="in" class="org.openscada.da.server.common.chain.item.SumErrorChainItem" />
+			                <item direction="in" class="org.openscada.da.server.common.chain.item.ManualOverrideChainItem"/>
+			                <item direction="in" class="org.openscada.da.server.common.chain.item.ManualErrorOverrideChainItem"/>
+			                <item direction="in" class="org.openscada.da.server.common.chain.item.LevelAlarmChainItem" />
+			                <item direction="in" class="org.openscada.da.server.common.chain.item.SumAlarmChainItem" />
+			            </chain:chain>
+			        </template>
 				</opc:item-templates>
 			</opc:root>
 		</exporter:configuration>

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.openscada.deploy_0.18.0.qualifier.jar" id="org.openscada.deploy" version="0.18.0.qualifier">
+   <feature url="features/org.openscada.deploy_1.0.0.qualifier.jar" id="org.openscada.deploy" version="1.0.0.qualifier">
       <category name="org.openscada.deploy"/>
    </feature>
-   <category-def name="org.openscada.deploy" label="OpenSCADA Deploy"/>
+   <feature url="features/org.openscada.configurator_1.0.0.qualifier.jar" id="org.openscada.configurator" version="1.0.0.qualifier">
+      <category name="org.openscada.configurator"/>
+   </feature>
+   <feature url="features/org.openscada.configurator.editor_1.0.0.qualifier.jar" id="org.openscada.configurator.editor" version="1.0.0.qualifier">
+      <category name="org.openscada.configurator.editor"/>
+   </feature>
+   <category-def name="org.openscada.deploy" label="openSCADA Deploy"/>
+   <category-def name="org.openscada.configurator" label="openSCADA Configurator">
+      <description>
+         The openSCADA configurator.
+      </description>
+   </category-def>
+   <category-def name="org.openscada.configurator.editor" label="openSCADA Configurator Editor">
+      <description>
+         Tools for the Eclipse IDE to start configuring openSCADA setups.
+      </description>
+   </category-def>
 </site>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+	 openSCADA source packages 
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+		openSCADA source packages
+    </description>
+	
+	<property environment="env"/>
+	
+	<property name="buildNumber" value="${env.BUILD_NUMBER}"/>
+	<property name="buildTag" value="build${buildNumber}"/>
+	
+	<property name="build.root" location="."/>
+	
+	<property name="builder.profile" value="local"/>
+	<import file="global/profile.d/profile.${builder.profile}.ant"/>
+	
+	<import file="${build.root}/global/lib.xml"/>
+
+	<property name="rpm.base" location="rpm.build"/>
+
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="clean,init,setup,build" >
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: build                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="build">
+    	<buildModule name="org.openscada"/>
+    	<buildModule name="org.openscada.bin"/>
+    	<buildModule name="org.openscada.lib.ext"/>
+    	<buildModule name="org.openscada.lib"/>
+    	<buildModule name="org.openscada.configuration"/>
+		<buildModule name="org.openscada.drivers.common"/>
+    	<buildModule name="org.openscada.p2.bin"/>
+    	<buildModule name="org.openscada.p2.profiles"/>
+    	<buildModule name="org.openscada.p2.repo.main"/>
+    	<buildModule name="org.openscada.p2.repo.eclipse"/>
+    	
+    	<buildModule name="org.openscada.p2.sample.master"/>
+    	
+    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
+    </target>
+
+	
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: buildModule          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="buildModule">
+        <attribute name="name"/>
+    	<attribute name="skipChangelog" default="false" />
+    	<attribute name="qualifier" default=""/>
+        <sequential>
+        	
+        	<!-- trigger custom build first -->
+    		<if>
+        		<available file="modules/@{name}/customAssembly.xml"/>
+        		
+        		<then>
+	        		<echo message="Building by custom builder: modules/@{name}/customAssembly.xml"/>
+		        	<ant antfile="modules/@{name}/customAssembly.xml" inheritall="true">
+		        	</ant>
+				</then>
+
+        	</if>
+        	
+        	<if>
+        		<and>
+        			<isfalse value="@{skipChangelog}" />
+        			<not><isset property="preventChangelogUpgrade"/></not>
+    			</and>
+        		
+        		<then>
+	        	<exec dir="modules/@{name}" executable="dch" failonerror="true">
+	        		<arg value="-Mv"/>
+	        		<arg value="${deploy.version}${buildTag}"/>
+	        		<arg value="-D"/>
+	        		<arg value="unstable"/>
+	        		<arg value="Automatic build: ${buildNumber}"/>
+	        	</exec>
+        		</then>	
+    		</if>
+        	
+        	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
+	    		<arg value="-us"/>
+	    		<arg value="-uc"/>
+			</exec>
+	    	<move todir="${output.dir}">
+	    		<fileset dir="modules">
+	    			<include name="@{name}_*.dsc"/>
+	    			<include name="@{name}_*.tar.gz"/>
+	    			<include name="@{name}_*.changes"/>
+	    			<include name="@{name}_*.deb"/>
+				</fileset>
+	    	</move>
+	    	<copy file="modules/@{name}/@{name}.spec" todir="${rpm.base}/SPECS"/>
+        	<copy todir="${rpm.base}/SOURCES">
+        		<fileset dir="${output.dir}">
+        			<include name="@{name}_*.tar.gz"/>
+        		</fileset>
+    		</copy>
+        	
+        	<if>
+        		<isfalse value="@{skipChangelog}" />
+        		<then>
+        			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier ${buildTag}'"/>
+        		</then>
+        		<else>
+        			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier @{qualifier}'"/>
+    			</else>
+        	</if>
+	    	
+        </sequential>
+    </macrodef>
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean">
+    	<delete dir="${output.dir}"/>
+    	<delete dir="${rpm.base}"/>
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init" depends="rpm.init">
+    	<mkdir dir="${output.dir}"/>
+    </target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: rpm.init
+         - - - - - - - - - - - - - - - - - -->
+    <target name="rpm.init">
+		<mkdir dir="${rpm.base}"/>
+    	<mkdir dir="${rpm.base}/SOURCES"/>
+    	<mkdir dir="${rpm.base}/RPMS"/>
+    	<mkdir dir="${rpm.base}/BUILD"/>
+    	<mkdir dir="${rpm.base}/SPECS"/>
+    	<mkdir dir="${rpm.base}/BUILDROOT"/>
+    </target>
+	
+</project>

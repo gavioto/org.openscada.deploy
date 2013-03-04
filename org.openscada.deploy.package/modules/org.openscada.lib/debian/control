@@ -1,0 +1,12 @@
+Source: org.openscada.lib
+Maintainer: Jens Reimann <jens.reimann@th4-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: org.openscada.lib
+Architecture: all
+Depends: ${misc:Depends}, org.openscada, org.openscada.bin, org.openscada.lib.ext
+Description: openSCADA lib package
+ The lib openSCADA package

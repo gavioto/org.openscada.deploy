@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Network"
+            class="org.openscada.configurator.module.common.network.NetworkPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Scripts"
+            class="org.openscada.configurator.module.common.scripts.ScriptsPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Processing"
+            class="org.openscada.configurator.module.common.processing.ProcessingPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Summary"
+            class="org.openscada.configurator.module.common.summary.SummaryPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Main"
+            class="org.openscada.configurator.module.common.main.MainPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Marker"
+            class="org.openscada.configurator.module.common.marker.MarkerPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://openscada.org/Configurator/Modules/Common/Output"
+            class="org.openscada.configurator.module.common.output.OutputPackage"
+            genModel="model/modules.genmodel"/>
+   </extension>
+
+</plugin>

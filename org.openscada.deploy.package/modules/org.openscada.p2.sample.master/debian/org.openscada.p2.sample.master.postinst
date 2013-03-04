@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+    	if [ -d /var/lib/openscada/p2/master.sample ]; then
+    		rm -Rf /var/lib/openscada/p2/master.sample
+    	fi
+    	
+	    mkdir -p /var/lib/openscada/p2
+		cd /var/lib/openscada/p2
+		su -s /bin/sh -c "p2.fromTemplate master.sample master.sample" openscada
+		;;
+esac	
+
+#DEBHELPER#
+
+exit 0

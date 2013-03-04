@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+	 openscada.deb.pool
+	 ====================================================================== -->
+<project name="openscada.deb.pool" default="default">
+    <description>
+            Create an apt pool
+    </description>
+
+	<property file="build.properties"/>
+	<property file="versions.properties"/>
+	
+	<property name="build.root" location="."/>
+	
+	<property name="builder.profile" value="local"/>
+	<import file="global/profile.d/profile.${builder.profile}.ant"/>
+	
+	<import file="${build.root}/global/lib.xml"/>
+	
+	<property name="pool.root" location="${build.root}/root"/>
+	
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="clean,gather,build">
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+    	<mkdir dir="${pool.root}"/>
+    	<mkdir dir="${output.dir}"/>
+    	
+		<!-- setup pool -->
+    	<mkdir dir="${pool.root}"/>
+    	<copy todir="${pool.root}">
+    		<fileset dir="${build.root}/pool">
+    		</fileset>
+    	</copy>
+		<replace file="${pool.root}/conf/incoming" token="@@@INPUTDIR@@@" value="${input.dir}"/>
+    </target>
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean">
+        <delete dir="${pool.root}"/>
+    	<delete dir="${output.dir}"/>
+    </target>
+	
+	<!-- ================================= 
+          target: build              
+         ================================= -->
+    <target name="build" depends="init">
+    	<exec executable="reprepro" failonerror="true">
+    		<arg value="--outdir"/>
+    		<arg file="${output.dir}"/>
+    		<arg value="-Vb"/>
+    		<arg file="${pool.root}"/>
+    		<arg value="processincoming"/>
+    		<arg value="jenkinsbuild"/>
+    	</exec>
+    </target>
+	
+    <!-- ================================= 
+          target: gather              
+         ================================= -->
+    <target name="gather" depends="init,setup">
+    	
+    	<get src="http://builder.intra/view/1.0/job/org.openscada.package-1.0/lastSuccessfulBuild/artifact/output/*zip*/output.zip" dest="${input.dir}"/>
+    	<unzip dest="${input.dir}" src="${input.dir}/output.zip">
+    		<mapper type="flatten"/>
+		</unzip>
+    	<delete file="${input.dir}/output.zip" />
+    	
+    	<fetchDeb job="openscada-ping" package="openscada-ping" arch="amd64" version="${openscada-ping.version}"/>
+    	
+    </target>
+	
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: fetchDeb          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="fetchDeb">
+        <attribute name="job" />
+    	<attribute name="package" />
+    	<attribute name="arch" />
+    	<attribute name="version"/>
+        <sequential>
+        	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}.tar.gz" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}.dsc" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}_@{arch}.deb" dest="${input.dir}" usetimestamp="true"/>
+	    	<get src="${jenkins.download.base}/job/@{job}/lastSuccessfulBuild/artifact/output/@{package}_@{version}_amd64.changes" dest="${input.dir}" usetimestamp="true"/>
+        </sequential>
+    </macrodef>
+
+	<condition property="do.upload">
+		<istrue value="${enable.upload}"/>
+	</condition>
+	
+	<!-- ================================= 
+          target: upload              
+         ================================= -->
+    <target name="upload" if="do.upload">
+       	<exec executable="rsync">
+    		<arg value="-avz"/>
+    		<arg value="--delete"/>
+       		<arg value="--exclude-from"/>
+    		<arg value="exclude.apt.list"/>
+    		<arg value="${output.dir}/"/>
+    		<arg value="${env.PUBLISH_TARGET}/apt/"/>
+    	</exec>
+    </target>
+
+</project>

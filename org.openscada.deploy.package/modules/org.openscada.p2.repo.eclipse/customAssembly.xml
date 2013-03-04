@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="customAssembly" default="default">
+	
+	<property name="gather.base" location="modules/org.openscada.p2.repo.eclipse"/>
+	
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" description="Gather resources">
+    	<mkdir dir="${gather.base}/repos"/>
+		<copy todir="${gather.base}/repos">
+			<fileset dir="${input.dir}/repos">
+				<include name="*.zip"/>
+				<exclude name="*-p2repo.zip"/>
+			</fileset>
+    	</copy>
+    </target>
+
+</project>

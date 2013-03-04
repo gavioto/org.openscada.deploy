@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ====================================================================== 
-     Feb 25, 2010 11:58:25 AM                                                        
-
-     OpenSCADA Deploy    
-     OpenSCADA Deploy Packages
-                   
-     Jens Reimann                                                                
+     openSCADA Deploy Packages
      ====================================================================== -->
-<project name="OpenSCADA Deploy Library">
+<project name="openSCADA Deploy Library">
     <description>
-            OpenSCADA Deploy Library
+            openSCADA Deploy Library
     </description>
 
 	<macrodef name="wrapP2">

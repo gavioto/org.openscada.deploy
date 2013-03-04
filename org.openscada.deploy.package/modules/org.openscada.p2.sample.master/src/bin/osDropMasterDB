@@ -1,0 +1,3 @@
+#!/bin/bash
+
+psql < /usr/share/openscada/samples/osDropMasterDB.db.sql

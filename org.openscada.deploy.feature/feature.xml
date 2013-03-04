@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.openscada.deploy"
-      label="openSCADA Deploy"
-      version="0.18.0.qualifier"
-      provider-name="TH4 SYSTEMS GmbH">
+      label="%featureName"
+      version="1.0.0.qualifier"
+      provider-name="openSCADA.org">
 
    <description>
       The main OpenSCADA Deploy feature
@@ -22,23 +22,27 @@
          version="0.0.0"/>
 
    <includes
-         id="org.openscada.deploy.p2"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rcp"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.platform"
-         version="0.0.0"/>
-
-   <includes
          id="org.openscada.deploy.ui.da.connector"
          version="0.0.0"/>
 
    <includes
          id="org.openscada.deploy.da.connector"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.server.core"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.server.jetty"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.server.p2"
+         version="0.0.0"/>
+
+   <includes
+         id="org.openscada.deploy.console"
          version="0.0.0"/>
 
    <requires>
@@ -48,12 +52,5 @@
       <import feature="org.openscada.oxygen" version="0.1.0.qualifier"/>
       <import feature="org.openscada.external" version="0.15.0.qualifier"/>
    </requires>
-
-   <plugin
-         id="org.eclipse.equinox.concurrent"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>

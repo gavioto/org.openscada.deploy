@@ -1,0 +1,89 @@
+#!/usr/bin/perl
+
+# $Id$
+
+$VERSION = '0.06';
+
+use lib $ENV{OPENSCADA_HOME} . "/bin";
+use strict;
+
+use openSCADA::JavaApplication;
+use Getopt::Long;
+
+my $debug = 0;
+my $verbose = 0;
+my $user = undef;
+my $stop = undef;
+my $attach = undef;
+my $propertiesFile = undef;
+
+GetOptions(
+  "debug!"=>\$debug,
+  "verbose!"=>\$verbose,
+  "user=s"=>\$user,
+  "stop!"=>\$stop,
+  "attach!"=>\$attach,
+  "properties=s"=>\$propertiesFile,
+);
+ 
+die "OPENSCADA_HOME is not set" unless $ENV{"OPENSCADA_HOME"};
+
+my $app = openSCADA::JavaApplication->new (
+  shift,
+  shift
+);
+
+$app->debug ( $debug );
+$app->verbose ( $verbose );
+$app->user ( $user );
+$app->stop ( $stop );
+$app->attach ( $attach );
+
+$app->classpath ( openSCADA::Base->classpath () );
+$app->appendClasspath ( openSCADA::Base::configurationRoot () . "/drivers/" . $app->instanceName() . "/cls" );
+
+$propertiesFile = openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.properties";
+
+if ( open FILE, "<$propertiesFile" )
+{
+  while ( my $line = <FILE> )
+  {
+      if ( $line =~ /(.*?)=(.*)/ )
+      { 
+        $app->addProperty ( $1, $2 );
+      }
+  }
+  close FILE;
+}  
+
+sub trim($)
+{
+  my $string = shift;
+  $string =~ s/^\s+//;
+  $string =~ s/\s+$//;
+  return $string;
+}
+
+# replace default java args if available
+if ( open FILE, "<" . openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/jvm.args" )
+{
+  my @args;
+  while ( my $line = <FILE> )
+  {
+    push @args, trim($line);
+  }
+  $app->javaArgs ( @args );
+  close FILE;
+}
+
+my $logFile;
+
+# check for a logback configuration script ( common first, then override )
+$logFile = openSCADA::Base::configurationRoot () . "/log/logback.xml";
+-r $logFile && $app->logbackConfiguration ( $logFile );
+$logFile = openSCADA::Base::configurationRoot () . "/drivers/" . $app->instanceName () . "/logback.xml";
+-r $logFile && $app->logbackConfiguration ( $logFile );
+
+$app->setArgs ( @ARGV ) if @ARGV;
+
+$app->execCall ();

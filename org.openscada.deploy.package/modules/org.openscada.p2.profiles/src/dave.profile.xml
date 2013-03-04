@@ -1,0 +1,35 @@
+<profile>
+	<feature>org.openscada.deploy.feature.group</feature>
+
+	<start>org.openscada.external.postgresql</start>
+	<start>org.openscada.utils.osgi.pidfile</start>
+	<start>org.openscada.da.server.osgi.exporter.net</start>
+	<start>org.openscada.da.server.common.osgi</start>
+	<start>org.openscada.ca.servlet.jaxws</start>
+	<start>org.openscada.ca.servlet</start>
+	<start>org.openscada.ca.jdbc</start>
+	<start>org.openscada.utils.osgi.jaxws</start>
+	<start>org.openscada.da.server.osgi</start>
+	<start>org.openscada.da.server.dave</start>
+	<start>org.openscada.sec.provider.dummy</start>
+	
+	<property key="org.openscada.utils.osgi.jaxws.baseAddress">http://0.0.0.0:9241</property>
+	
+	<property key="com.sun.management.jmxremote.port">9031</property>
+	<property key="com.sun.management.jmxremote.authenticate">false</property>
+	<property key="com.sun.management.jmxremote.ssl">false</property>
+	
+	<property key="logback.configurationFile" eval="true">TARGET_DIR + &quot;/logback.xml&quot;</property>
+	<note>If you move the installation directory also remember to fix the property &quot;logback.configurationFile&quot;</note>
+
+	<profile name="postgres">
+		<property key="org.openscada.jdbc.driver">org.postgresql.Driver</property>
+		
+		<property key="org.openscada.ca.jdbc.schema">public</property>
+		<property key="org.openscada.ca.jdbc.instance">dave</property>
+		<property key="org.openscada.ca.jdbc.table">openscada_ca</property>
+	</profile>
+	
+</profile>
+
+

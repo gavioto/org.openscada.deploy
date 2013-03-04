@@ -1,0 +1,2 @@
+This bundle is not used at the moment and not referenced since the change to Jetty 8
+changed the referenced filter, it no longer exists. 

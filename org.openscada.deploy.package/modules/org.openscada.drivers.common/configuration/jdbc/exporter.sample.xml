@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exporter:configuration
+    xmlns:exporter="http://openscada.org/DA/Server/Exporter"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:hive="http://openscada.org/DA/Hive"
+    xmlns:item="http://openscada.org/DA/Hive/DataItem"
+    xmlns:jdbc="http://openscada.org/DA/JDBC/Configuration"
+    xsi:schemaLocation="
+    http://openscada.org/DA/Server/Exporter /etc/openscada/schema/exporter.xsd
+    http://openscada.org/DA/Hive /etc/openscada/schema/Hive.xsd
+    http://openscada.org/Common /etc/openscada/schema/Common.xsd
+    http://openscada.org/DA/Hive/DataItem /etc/openscada/schema/DataItem.xsd
+    http://openscada.org/DA/JDBC/Configuration /etc/openscada/schema/jdbc.xsd
+    ">
+    
+<exporter:hive ref="org.openscada.da.server.opc.Hive">
+    <exporter:configuration>
+        
+        <jdbc:root>
+        
+        <!--
+        	if you need a specific jdbc driver you will need to put it in
+        	"/usr/jar" in order to load it.
+         -->
+	
+		<jdbc:connection
+			id="JDBC1"
+			connectionClass="org.hsqldb.jdbcDriver"
+			uri="jdbc:hsqldb:mem:test"
+			username="SA"
+			password=""
+			timeout="1000">
+			
+			<jdbc:query period="100" id="TIME">
+				<jdbc:sql><![CDATA[call CURRENT_TIMESTAMP]]></jdbc:sql>
+				<jdbc:columnMapping columnNumber="1" aliasName="CURRENT_TIMESTAMP"/>
+			</jdbc:query>
+			
+		</jdbc:connection>
+
+        </jdbc:root>
+        
+    </exporter:configuration>
+    <exporter:export uri="da:net://0.0.0.0:12021" />
+</exporter:hive>
+
+</exporter:configuration>

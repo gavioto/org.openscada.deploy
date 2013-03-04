@@ -1,0 +1,12 @@
+Source: p2director
+Maintainer: Jens Reimann <jens.reimann@th4-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: p2director
+Architecture: amd64
+Depends: ${misc:Depends}, java-runtime, ${shlibs:Depends}, ${perl:Depends}, ${python:Depends}
+Description: Eclipse P2 director application
+ The Eclipse P2 director application

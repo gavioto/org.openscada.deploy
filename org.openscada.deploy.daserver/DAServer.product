@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="openSCADA DA Server OSGi" uid="org.openscada.daserver.application" application="org.openscada.deploy.daserver.app" version="0.18.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="openSCADA DA Server OSGi" uid="org.openscada.daserver.application" application="org.openscada.deploy.daserver.app" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
+      <programArgs>-console
+-consoleLog</programArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
@@ -26,25 +28,36 @@
    </plugins>
 
    <features>
-      <feature id="org.eclipse.rcp"/>
       <feature id="org.openscada.deploy.daserver"/>
       <feature id="org.openscada.deploy.da.connector"/>
+      <feature id="org.openscada.deploy.ca"/>
+      <feature id="org.eclipse.equinox.server.core"/>
    </features>
 
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.ca.file" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.ca.servlet" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.ca.servlet.jaxws" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.client.connection.service" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.client.connector" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.client.net" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.connection.provider" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.net" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.da.server.arduino" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.da.server.common.osgi" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.da.server.dave" autoStart="true" startLevel="0" />
       <plugin id="org.openscada.sec.provider.dummy" autoStart="true" startLevel="0" />
+      <plugin id="org.openscada.utils.osgi.jaxws" autoStart="true" startLevel="0" />
+      <property name="eclipse.ignoreApp" value="true" />
+      <property name="openscada.da.net.exportUri" value="da:net://0.0.0.0:12030" />
+      <property name="org.openscada.utils.osgi.jaxws.baseAddress" value="http://0.0.0.0:9241" />
+      <property name="osgi.noShutdown" value="true" />
    </configurations>
 
 </product>

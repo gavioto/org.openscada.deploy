@@ -1,0 +1,72 @@
+/*
+ * This file is part of the openSCADA project
+ * 
+ * Copyright (C) 2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ *
+ * openSCADA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License version 3
+ * only, as published by the Free Software Foundation.
+ *
+ * openSCADA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License version 3 for more details
+ * (a copy is included in the LICENSE file that accompanied this code).
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * version 3 along with openSCADA. If not, see
+ * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
+ */
+
+package org.openscada.deploy.iolist.utils.column;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
+import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
+import org.openscada.ae.monitor.datasource.common.ListSeverity;
+import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.ListMonitor;
+import org.openscada.deploy.iolist.model.ListMonitorEntry;
+import org.openscada.utils.str.StringHelper;
+
+public class ListMonitorSeverityColumn extends ListMonitorColumn
+{
+
+    private final ListSeverity severity;
+
+    public ListMonitorSeverityColumn ( final String name, final ListSeverity severity )
+    {
+        super ( name );
+        this.severity = severity;
+    }
+
+    @Override
+    protected void update ( final OdfSpreadsheetDocument output, final TableTableCellElement cell, final Item item )
+    {
+        final ListMonitor monitor = item.getLocalListMonitor ();
+        if ( monitor == null )
+        {
+            return;
+        }
+
+        final Set<String> values = new HashSet<String> ();
+        for ( final ListMonitorEntry entry : monitor.getEntries () )
+        {
+            if ( entry.getSeverity ().equals ( this.severity.toString () ) )
+            {
+                values.add ( entry.getValue ().toString () );
+            }
+        }
+
+        final ArrayList<String> sortedValues = new ArrayList<String> ( values );
+        Collections.sort ( sortedValues );
+
+        setStringValue ( cell, StringHelper.join ( sortedValues, ", " ) );
+
+        super.update ( output, cell, item );
+    }
+}

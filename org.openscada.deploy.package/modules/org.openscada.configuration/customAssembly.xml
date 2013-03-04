@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="customAssembly" default="default">
+	
+	<property name="gather.base" location="modules/org.openscada.configuration"/>
+	
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="clean" description="Gather resources">
+    	<mkdir dir="${gather.base}/jar"/>
+    	
+		<unzip dest="${gather.base}/jar">
+			<fileset dir="${input.dir}">
+				<include name="**/*-p2repo.zip"/>
+			</fileset>
+    		<patternset includes="plugins/*.jar"/>
+    		<mapper type="flatten"/>
+		</unzip>
+    	
+		<unjar dest="${gather.base}">
+			<fileset dir="${gather.base}/jar">
+				<include name="**/org.openscada.*.jar"/>
+			</fileset>
+			<patternset includes="**/*.xsd"/>
+    	</unjar>
+    	
+    	<delete dir="${gather.base}/schemaorg_apache_xmlbeans"/>
+    	
+    	<delete dir="${gather.base}/jar"/>
+    </target>
+	
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean">
+    	<delete dir="${gather.base}/jar"/>
+    	<delete dir="${gather.base}/schema"/>
+    </target>
+
+
+</project>

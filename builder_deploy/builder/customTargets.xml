@@ -101,9 +101,33 @@
   	<openscada.builder.copyFeature id="org.openscada.deploy" />
   	<openscada.builder.copyFeature id="org.openscada.deploy.ca"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.p2"/>
+  	<openscada.builder.copyFeature id="org.openscada.deploy.console"/>
+  	
+  	<openscada.builder.copyFeature id="org.openscada.configurator"/>
+  	<openscada.builder.copyPlugin id="org.openscada.atlantis.configurator"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator"/>
+  	
+  	<openscada.builder.copyFeature id="org.openscada.configurator.editor"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.model"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.model.edit"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.model.editor"/>
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.module.common"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.module.common.edit"/>
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.processor.common"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.processor.common.edit"/>
   	
   	<openscada.builder.copyFeature id="org.openscada.deploy.da.connector"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.ui.da.connector"/>
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.model"/>
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.model.edit"/>
+	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.model.editor"/>
+  		
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.iolist.utils"/>
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.deploy.jetty.config"/>
   	
   </target>
 

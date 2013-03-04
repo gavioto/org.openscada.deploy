@@ -1,0 +1,12 @@
+Source: org.openscada.p2.repo.eclipse
+Maintainer: Jens Reimann <jens.reimann@th4-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: org.openscada.p2.repo.eclipse
+Architecture: all
+Depends: ${misc:Depends}, org.openscada.p2.bin
+Description: Eclipse repositories used by openSCADA
+ The Eclipse repository required by openSCADA 
