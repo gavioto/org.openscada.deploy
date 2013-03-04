@@ -11,6 +11,7 @@
 	
 	<property name="buildNumber" value="${env.BUILD_NUMBER}"/>
 	<property name="buildTag" value="build${buildNumber}"/>
+	<property name="distribution" value="unstable"/>
 	
 	<property name="build.root" location="."/>
 	
@@ -80,7 +81,7 @@
 	        		<arg value="-Mv"/>
 	        		<arg value="${deploy.version}${buildTag}"/>
 	        		<arg value="-D"/>
-	        		<arg value="unstable"/>
+	        		<arg value="${distribution}"/>
 	        		<arg value="Automatic build: ${buildNumber}"/>
 	        	</exec>
         		</then>	
