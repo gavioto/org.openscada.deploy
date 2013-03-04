@@ -1,10 +1,10 @@
-p2director (3.8.1openscada1) stable; urgency=normal
+p2director (3.8.1openscada1) unstable; urgency=normal
 
   * Stable version for openSCADA 1.0.0
 
  -- Jens Reimann <ctron@dentrassi.de>  Mon, 04 Mar 2013 13:23:41 +0100
 
-p2director (3.7.2openscada1) stable; urgency=low
+p2director (3.7.2openscada1) unstable; urgency=low
 
   * Initial release.
 
