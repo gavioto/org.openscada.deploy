@@ -1,6 +1,6 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
-%define version 3.7.2
+%define version 3.8.1
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      p2director
@@ -42,5 +42,8 @@ cd ..
 %{_datadir}/p2director/
 
 %changelog
+* Mon Mar 04 2013 - ctron@dentrassi.de
+- Change to Eclipse version 3.8.1
+
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
 - Initial version
