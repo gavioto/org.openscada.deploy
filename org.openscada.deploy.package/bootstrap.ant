@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="project" default="default" basedir=".">
     <description>
-            Build Bootstrapper - 0.1.0
+            Build Bootstrapper - 1.1.0
     </description>
 
 	<property file="bootstrap.properties"/>

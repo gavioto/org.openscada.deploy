@@ -8,7 +8,7 @@
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
 %define _logdir /var/log
-%define version 1.0.0
+%define version 1.1.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      openscada.p2

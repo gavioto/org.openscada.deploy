@@ -6,7 +6,7 @@
 
 %define _datadir /usr/share
 %define _repodir %_datadir/openscada/p2
-%define version 1.0.0
+%define version 1.1.0
 
 Name:      openscada.p2.external
 Summary:   The openSCADA external P2 repository

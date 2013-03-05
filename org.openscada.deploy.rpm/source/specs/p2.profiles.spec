@@ -6,7 +6,7 @@
 
 %define _datadir /usr/share
 %define _profiledir %_datadir/openscada/profiles
-%define version 1.0.0
+%define version 1.1.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      p2.profiles

@@ -15,7 +15,7 @@ Summary:   The Equinox P2 director
 Version:   %{version}
 Release:   %{qualifier}
 License:   ECL
-Packager:  TH4 SYSTEMS GmbH <jens.reimann@th4-systems.com>
+Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
 Source0:   p2director-linux.gtk.x86_64.zip
 Prereq: /sbin/ldconfig
