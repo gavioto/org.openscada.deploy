@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: openSCADA Security Configurator Utils
+Bundle-SymbolicName: org.openscada.configurator.sec.utils;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-Vendor: openSCADA.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.google.common.io;version="10.0.1",
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.resource.impl,
+ org.openscada.configurator.sec

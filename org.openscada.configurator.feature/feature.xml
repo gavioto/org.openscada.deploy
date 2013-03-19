@@ -2,7 +2,7 @@
 <feature
       id="org.openscada.configurator"
       label="openSCADA Configurator"
-      version="1.0.0.qualifier"
+      version="1.1.0.qualifier"
       provider-name="openSCADA.org">
 
    <description>
@@ -35,6 +35,41 @@
 
    <plugin
          id="org.openscada.atlantis.configurator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.module.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.processor.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.sec"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.configurator.sec.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"

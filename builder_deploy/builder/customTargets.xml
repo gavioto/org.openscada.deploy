@@ -118,6 +118,11 @@
   	<openscada.builder.copyPlugin id="org.openscada.configurator.processor.common"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.processor.common.edit"/>
   	
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.sec"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.sec.edit"/>
+	<openscada.builder.copyPlugin id="org.openscada.configurator.sec.editor"/>
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.sec.utils"/>
+  		
   	<openscada.builder.copyFeature id="org.openscada.deploy.da.connector"/>
   	<openscada.builder.copyFeature id="org.openscada.deploy.ui.da.connector"/>
   	
