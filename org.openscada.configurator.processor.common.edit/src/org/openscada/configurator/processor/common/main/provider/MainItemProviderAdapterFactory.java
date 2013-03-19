@@ -124,6 +124,31 @@ public class MainItemProviderAdapterFactory extends MainAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.processor.common.main.SecurityLoader} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SecurityLoaderItemProvider securityLoaderItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.processor.common.main.SecurityLoader}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSecurityLoaderAdapter ()
+    {
+        if ( securityLoaderItemProvider == null )
+        {
+            securityLoaderItemProvider = new SecurityLoaderItemProvider ( this );
+        }
+
+        return securityLoaderItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -266,6 +291,8 @@ public class MainItemProviderAdapterFactory extends MainAdapterFactory implement
     {
         if ( authorizationLoaderItemProvider != null )
             authorizationLoaderItemProvider.dispose ();
+        if ( securityLoaderItemProvider != null )
+            securityLoaderItemProvider.dispose ();
     }
 
     /**
@@ -321,6 +348,8 @@ public class MainItemProviderAdapterFactory extends MainAdapterFactory implement
             public Object caseProject ( Project object )
             {
                 newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, MainFactory.eINSTANCE.createAuthorizationLoader () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ConfiguratorPackage.Literals.PROJECT__PROCESSORS, MainFactory.eINSTANCE.createSecurityLoader () ) );
 
                 return null;
             }

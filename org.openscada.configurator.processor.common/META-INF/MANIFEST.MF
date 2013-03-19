@@ -2,36 +2,36 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.openscada.configurator.processor.common;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.openscada.configurator.processor.common;version="1.0.0";uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.openscada.configuration.model",
- org.openscada.configurator.processor.common.global;version="1.0.0";uses:="org.eclipse.emf.ecore,org.openscada.configuration.model.master,org.openscada.configuration.model",
- org.openscada.configurator.processor.common.global.impl;version="1.0.0";
+Export-Package: org.openscada.configurator.processor.common;version="1.1.0";uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.openscada.configuration.model",
+ org.openscada.configurator.processor.common.global;version="1.1.0";uses:="org.eclipse.emf.ecore,org.openscada.configuration.model.master,org.openscada.configuration.model",
+ org.openscada.configurator.processor.common.global.impl;version="1.1.0";
   uses:="org.eclipse.emf.ecore,
    org.openscada.configurator.processor.common.global,
    org.openscada.configuration.model.master,
    org.eclipse.emf.ecore.impl,
    org.openscada.configuration.model",
- org.openscada.configurator.processor.common.global.util;version="1.0.0";
+ org.openscada.configurator.processor.common.global.util;version="1.1.0";
   uses:="org.eclipse.emf.ecore.util,
    org.eclipse.emf.ecore,
    org.eclipse.emf.common.notify.impl,
    org.openscada.configurator.processor.common.global,
    org.eclipse.emf.common.notify,
    org.openscada.configuration.model",
- org.openscada.configurator.processor.common.impl;version="1.0.0";
+ org.openscada.configurator.processor.common.impl;version="1.1.0";
   uses:="org.eclipse.emf.ecore,
    org.openscada.configurator.processor.common,
    org.eclipse.emf.common.util,
    org.eclipse.emf.ecore.impl,
    org.openscada.configuration.model",
- org.openscada.configurator.processor.common.main;version="1.0.0",
- org.openscada.configurator.processor.common.main.impl;version="1.0.0",
- org.openscada.configurator.processor.common.main.util;version="1.0.0",
- org.openscada.configurator.processor.common.util;version="1.0.0";
+ org.openscada.configurator.processor.common.main;version="1.1.0",
+ org.openscada.configurator.processor.common.main.impl;version="1.1.0",
+ org.openscada.configurator.processor.common.main.util;version="1.1.0",
+ org.openscada.configurator.processor.common.util;version="1.1.0";
   uses:="org.eclipse.emf.ecore.util,
    org.openscada.configurator.processor.common,
    org.eclipse.emf.ecore,
@@ -43,7 +43,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.openscada.configurator.model;visibility:=reexport,
  org.openscada.deploy.iolist.model;bundle-version="1.0.0",
  org.openscada.deploy.iolist.utils;bundle-version="1.0.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
+ org.eclipse.emf.ecore.xmi;bundle-version="2.7.0",
+ org.openscada.configurator.sec;bundle-version="1.1.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.openscada.ae;version="1.0.0",
  org.openscada.ae.data;version="1.0.0",

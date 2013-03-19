@@ -81,7 +81,7 @@ public class ScriptRuleItemProvider extends PreFilterRuleItemProvider implements
      */
     protected void addScriptPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_script_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_script_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__SCRIPT, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_script_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_script_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__SCRIPT, true, false, true, null, getString ( "_UI_scriptPropertyCategory" ), null ) );
     }
 
     /**
@@ -92,7 +92,7 @@ public class ScriptRuleItemProvider extends PreFilterRuleItemProvider implements
      */
     protected void addCallbackScriptPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_callbackScript_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_callbackScript_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__CALLBACK_SCRIPT, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_callbackScript_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_callbackScript_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__CALLBACK_SCRIPT, true, false, true, null, getString ( "_UI_scriptPropertyCategory" ), null ) );
     }
 
     /**

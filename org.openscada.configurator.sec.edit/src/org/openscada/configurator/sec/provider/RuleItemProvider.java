@@ -86,7 +86,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_id_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_id_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_id_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_id_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_mainPropertyCategory" ), null ) );
     }
 
     /**
@@ -97,7 +97,7 @@ public class RuleItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addPriorityPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_priority_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_priority_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__PRIORITY, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_priority_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_priority_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__PRIORITY, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_mainPropertyCategory" ), null ) );
     }
 
     /**

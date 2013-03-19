@@ -84,7 +84,7 @@ public class PreFilterRuleItemProvider extends RuleItemProvider implements IEdit
      */
     protected void addIdFilterPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PreFilterRule_idFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_PreFilterRule_idFilter_feature", "_UI_PreFilterRule_type" ), SecurityPackage.Literals.PRE_FILTER_RULE__ID_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PreFilterRule_idFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_PreFilterRule_idFilter_feature", "_UI_PreFilterRule_type" ), SecurityPackage.Literals.PRE_FILTER_RULE__ID_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_preFilterPropertyCategory" ), null ) );
     }
 
     /**
@@ -95,7 +95,7 @@ public class PreFilterRuleItemProvider extends RuleItemProvider implements IEdit
      */
     protected void addTypeFilterPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PreFilterRule_typeFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_PreFilterRule_typeFilter_feature", "_UI_PreFilterRule_type" ), SecurityPackage.Literals.PRE_FILTER_RULE__TYPE_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PreFilterRule_typeFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_PreFilterRule_typeFilter_feature", "_UI_PreFilterRule_type" ), SecurityPackage.Literals.PRE_FILTER_RULE__TYPE_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_preFilterPropertyCategory" ), null ) );
     }
 
     /**
@@ -106,7 +106,7 @@ public class PreFilterRuleItemProvider extends RuleItemProvider implements IEdit
      */
     protected void addActionFilterPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PreFilterRule_actionFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_PreFilterRule_actionFilter_feature", "_UI_PreFilterRule_type" ), SecurityPackage.Literals.PRE_FILTER_RULE__ACTION_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PreFilterRule_actionFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_PreFilterRule_actionFilter_feature", "_UI_PreFilterRule_type" ), SecurityPackage.Literals.PRE_FILTER_RULE__ACTION_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_preFilterPropertyCategory" ), null ) );
     }
 
     /**

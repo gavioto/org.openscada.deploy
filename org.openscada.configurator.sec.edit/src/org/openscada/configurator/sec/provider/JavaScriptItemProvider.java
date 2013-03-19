@@ -90,7 +90,7 @@ public class JavaScriptItemProvider extends ScriptItemProvider implements IEditi
     @Override
     public String getText ( Object object )
     {
-        String label = ( (JavaScript)object ).getSource ();
+        String label = crop ( ( (JavaScript)object ).getSource () );
         return label == null || label.length () == 0 ? getString ( "_UI_JavaScript_type" ) : getString ( "_UI_JavaScript_type" ) + " " + label;
     }
 

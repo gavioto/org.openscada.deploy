@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.main.*;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainPackage;
 
@@ -78,6 +79,12 @@ public class MainAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseSecurityLoader ( SecurityLoader object )
+        {
+            return createSecurityLoaderAdapter ();
+        }
+
+        @Override
         public Adapter caseProcessor ( Processor object )
         {
             return createProcessorAdapter ();
@@ -115,6 +122,21 @@ public class MainAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createAuthorizationLoaderAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.processor.common.main.SecurityLoader <em>Security Loader</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.processor.common.main.SecurityLoader
+     * @generated
+     */
+    public Adapter createSecurityLoaderAdapter ()
     {
         return null;
     }

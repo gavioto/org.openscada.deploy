@@ -15,6 +15,8 @@ import org.openscada.configurator.processor.common.impl.CommonPackageImpl;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainFactory;
 import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.SecurityLoader;
+import org.openscada.configurator.sec.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +32,13 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
      * @generated
      */
     private EClass authorizationLoaderEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass securityLoaderEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -82,6 +91,7 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
 
         // Initialize simple dependencies
         ConfiguratorPackage.eINSTANCE.eClass ();
+        SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
         CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI ) : CommonPackage.eINSTANCE );
@@ -140,6 +150,36 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSecurityLoader ()
+    {
+        return securityLoaderEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSecurityLoader_Rules ()
+    {
+        return (EReference)securityLoaderEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSecurityLoader_Slot ()
+    {
+        return (EReference)securityLoaderEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public MainFactory getMainFactory ()
     {
         return (MainFactory)getEFactoryInstance ();
@@ -169,6 +209,10 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
         authorizationLoaderEClass = createEClass ( AUTHORIZATION_LOADER );
         createEAttribute ( authorizationLoaderEClass, AUTHORIZATION_LOADER__FILE );
         createEReference ( authorizationLoaderEClass, AUTHORIZATION_LOADER__SLOT );
+
+        securityLoaderEClass = createEClass ( SECURITY_LOADER );
+        createEReference ( securityLoaderEClass, SECURITY_LOADER__RULES );
+        createEReference ( securityLoaderEClass, SECURITY_LOADER__SLOT );
     }
 
     /**
@@ -198,6 +242,7 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
 
         // Obtain other dependent packages
         ConfiguratorPackage theConfiguratorPackage = (ConfiguratorPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfiguratorPackage.eNS_URI );
+        SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage ( SecurityPackage.eNS_URI );
 
         // Create type parameters
 
@@ -205,11 +250,16 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
 
         // Add supertypes to classes
         authorizationLoaderEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
+        securityLoaderEClass.getESuperTypes ().add ( theConfiguratorPackage.getProcessor () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( authorizationLoaderEClass, AuthorizationLoader.class, "AuthorizationLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getAuthorizationLoader_File (), ecorePackage.getEString (), "file", null, 1, 1, AuthorizationLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getAuthorizationLoader_Slot (), theConfiguratorPackage.getGenericMasterConfigurationSlot (), null, "slot", null, 0, 1, AuthorizationLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( securityLoaderEClass, SecurityLoader.class, "SecurityLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getSecurityLoader_Rules (), theSecurityPackage.getRules (), null, "rules", null, 1, 1, SecurityLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getSecurityLoader_Slot (), theConfiguratorPackage.getGenericMasterConfigurationSlot (), null, "slot", null, 0, 1, SecurityLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //MainPackageImpl

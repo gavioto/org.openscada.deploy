@@ -106,7 +106,7 @@ public class GenericScriptItemProvider extends ScriptItemProvider implements IEd
     @Override
     public String getText ( Object object )
     {
-        String label = ( (GenericScript)object ).getSource ();
+        String label = crop ( ( (GenericScript)object ).getSource () );
         return label == null || label.length () == 0 ? getString ( "_UI_GenericScript_type" ) : getString ( "_UI_GenericScript_type" ) + " " + label;
     }
 

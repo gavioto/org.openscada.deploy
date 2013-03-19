@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Processor;
+import org.openscada.configurator.processor.common.global.*;
 import org.openscada.configurator.processor.common.global.AePullConfiguration;
 import org.openscada.configurator.processor.common.global.EventQueryImport;
 import org.openscada.configurator.processor.common.global.Exclude;
