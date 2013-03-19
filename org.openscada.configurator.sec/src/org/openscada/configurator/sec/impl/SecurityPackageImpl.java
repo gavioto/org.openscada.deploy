@@ -26,15 +26,14 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
 import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.Rule;
+import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.ScriptRule;
 import org.openscada.configurator.sec.SecurityFactory;
@@ -104,6 +103,13 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * @generated
      */
     private EClass genericScriptEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass rulesEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -350,6 +356,26 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getRules ()
+    {
+        return rulesEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getRules_Rules ()
+    {
+        return (EReference)rulesEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getPattern ()
     {
         return patternEDataType;
@@ -410,6 +436,9 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
         genericScriptEClass = createEClass ( GENERIC_SCRIPT );
         createEAttribute ( genericScriptEClass, GENERIC_SCRIPT__TYPE );
+
+        rulesEClass = createEClass ( RULES );
+        createEReference ( rulesEClass, RULES__RULES );
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
@@ -481,6 +510,9 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
         initEClass ( genericScriptEClass, GenericScript.class, "GenericScript", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getGenericScript_Type (), ecorePackage.getEString (), "type", null, 1, 1, GenericScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( rulesEClass, Rules.class, "Rules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getRules_Rules (), this.getRule (), null, "rules", null, 0, -1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );

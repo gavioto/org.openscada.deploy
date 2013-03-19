@@ -480,6 +480,34 @@ public interface SecurityPackage extends EPackage
     int GENERIC_SCRIPT_FEATURE_COUNT = SCRIPT_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.sec.impl.RulesImpl <em>Rules</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.sec.impl.RulesImpl
+     * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getRules()
+     * @generated
+     */
+    int RULES = 8;
+
+    /**
+     * The feature id for the '<em><b>Rules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RULES__RULES = 0;
+
+    /**
+     * The number of structural features of the '<em>Rules</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RULES_FEATURE_COUNT = 1;
+
+    /**
      * The meta object id for the '<em>Pattern</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -487,7 +515,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 8;
+    int PATTERN = 9;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Rule <em>Rule</em>}'.
@@ -667,6 +695,27 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EAttribute getGenericScript_Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.configurator.sec.Rules <em>Rules</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Rules</em>'.
+     * @see org.openscada.configurator.sec.Rules
+     * @generated
+     */
+    EClass getRules ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.sec.Rules#getRules <em>Rules</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Rules</em>'.
+     * @see org.openscada.configurator.sec.Rules#getRules()
+     * @see #getRules()
+     * @generated
+     */
+    EReference getRules_Rules ();
 
     /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
@@ -853,6 +902,24 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EAttribute GENERIC_SCRIPT__TYPE = eINSTANCE.getGenericScript_Type ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.sec.impl.RulesImpl <em>Rules</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.sec.impl.RulesImpl
+         * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getRules()
+         * @generated
+         */
+        EClass RULES = eINSTANCE.getRules ();
+
+        /**
+         * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference RULES__RULES = eINSTANCE.getRules_Rules ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

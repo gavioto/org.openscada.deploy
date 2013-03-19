@@ -28,9 +28,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.openscada.configurator.sec.*;
+import org.openscada.configurator.sec.GenericScript;
+import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
 import org.openscada.configurator.sec.PreFilterRule;
+import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.ScriptRule;
 import org.openscada.configurator.sec.SecurityFactory;
 import org.openscada.configurator.sec.SecurityPackage;
@@ -100,6 +102,8 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
                 return createJavaScript ();
             case SecurityPackage.GENERIC_SCRIPT:
                 return createGenericScript ();
+            case SecurityPackage.RULES:
+                return createRules ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -207,6 +211,17 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
     {
         GenericScriptImpl genericScript = new GenericScriptImpl ();
         return genericScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Rules createRules ()
+    {
+        RulesImpl rules = new RulesImpl ();
+        return rules;
     }
 
     /**

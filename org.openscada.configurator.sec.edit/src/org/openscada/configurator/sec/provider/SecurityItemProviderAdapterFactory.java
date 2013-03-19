@@ -27,11 +27,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -45,9 +42,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.openscada.configurator.sec.SecurityPackage;
-
 import org.openscada.configurator.sec.util.SecurityAdapterFactory;
 
 /**
@@ -259,6 +254,31 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Rules} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RulesItemProvider rulesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.sec.Rules}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRulesAdapter ()
+    {
+        if ( rulesItemProvider == null )
+        {
+            rulesItemProvider = new RulesItemProvider ( this );
+        }
+
+        return rulesItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -411,6 +431,8 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
             javaScriptItemProvider.dispose ();
         if ( genericScriptItemProvider != null )
             genericScriptItemProvider.dispose ();
+        if ( rulesItemProvider != null )
+            rulesItemProvider.dispose ();
     }
 
 }

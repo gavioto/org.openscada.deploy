@@ -21,7 +21,6 @@
 package org.openscada.configurator.sec.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.openscada.configurator.sec.LogonRule;
 import org.openscada.configurator.sec.SecurityPackage;
 

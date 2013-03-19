@@ -22,10 +22,17 @@ package org.openscada.configurator.sec.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.openscada.configurator.sec.*;
+import org.openscada.configurator.sec.GenericScript;
+import org.openscada.configurator.sec.JavaScript;
+import org.openscada.configurator.sec.LogonRule;
+import org.openscada.configurator.sec.PreFilterRule;
+import org.openscada.configurator.sec.Rule;
+import org.openscada.configurator.sec.Rules;
+import org.openscada.configurator.sec.Script;
+import org.openscada.configurator.sec.ScriptRule;
+import org.openscada.configurator.sec.SecurityPackage;
+import org.openscada.configurator.sec.SignatureRule;
 
 /**
  * <!-- begin-user-doc -->
@@ -172,6 +179,14 @@ public class SecuritySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case SecurityPackage.RULES:
+            {
+                Rules rules = (Rules)theEObject;
+                T result = caseRules ( rules );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -301,6 +316,22 @@ public class SecuritySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseGenericScript ( GenericScript object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Rules</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Rules</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRules ( Rules object )
     {
         return null;
     }

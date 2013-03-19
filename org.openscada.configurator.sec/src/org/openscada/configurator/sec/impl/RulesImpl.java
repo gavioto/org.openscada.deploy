@@ -20,54 +20,50 @@
  */
 package org.openscada.configurator.sec.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.openscada.configurator.sec.Script;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.openscada.configurator.sec.Rule;
+import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Script</b></em>'.
+ * An implementation of the model object '<em><b>Rules</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.sec.impl.ScriptImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.impl.RulesImpl#getRules <em>Rules</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ScriptImpl extends EObjectImpl implements Script
+public class RulesImpl extends EObjectImpl implements Rules
 {
     /**
-     * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+     * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getSource()
+     * @see #getRules()
      * @generated
      * @ordered
      */
-    protected static final String SOURCE_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSource()
-     * @generated
-     * @ordered
-     */
-    protected String source = SOURCE_EDEFAULT;
+    protected EList<Rule> rules;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ScriptImpl ()
+    protected RulesImpl ()
     {
         super ();
     }
@@ -80,7 +76,7 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
     @Override
     protected EClass eStaticClass ()
     {
-        return SecurityPackage.Literals.SCRIPT;
+        return SecurityPackage.Literals.RULES;
     }
 
     /**
@@ -88,9 +84,13 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getSource ()
+    public EList<Rule> getRules ()
     {
-        return source;
+        if ( rules == null )
+        {
+            rules = new EObjectContainmentEList.Resolving<Rule> ( Rule.class, this, SecurityPackage.RULES__RULES );
+        }
+        return rules;
     }
 
     /**
@@ -98,24 +98,15 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSource ( String newSource )
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        String oldSource = source;
-        source = newSource;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SCRIPT__SOURCE, oldSource, source ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getType ()
-    {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException ();
+        switch ( featureID )
+        {
+            case SecurityPackage.RULES__RULES:
+                return ( (InternalEList<?>)getRules () ).basicRemove ( otherEnd, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -128,8 +119,8 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
     {
         switch ( featureID )
         {
-            case SecurityPackage.SCRIPT__SOURCE:
-                return getSource ();
+            case SecurityPackage.RULES__RULES:
+                return getRules ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -139,13 +130,15 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
-            case SecurityPackage.SCRIPT__SOURCE:
-                setSource ( (String)newValue );
+            case SecurityPackage.RULES__RULES:
+                getRules ().clear ();
+                getRules ().addAll ( (Collection<? extends Rule>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -161,8 +154,8 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
     {
         switch ( featureID )
         {
-            case SecurityPackage.SCRIPT__SOURCE:
-                setSource ( SOURCE_EDEFAULT );
+            case SecurityPackage.RULES__RULES:
+                getRules ().clear ();
                 return;
         }
         super.eUnset ( featureID );
@@ -178,28 +171,10 @@ public abstract class ScriptImpl extends EObjectImpl implements Script
     {
         switch ( featureID )
         {
-            case SecurityPackage.SCRIPT__SOURCE:
-                return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals ( source );
+            case SecurityPackage.RULES__RULES:
+                return rules != null && !rules.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
-
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (source: " );
-        result.append ( source );
-        result.append ( ')' );
-        return result.toString ();
-    }
-
-} //ScriptImpl
+} //RulesImpl

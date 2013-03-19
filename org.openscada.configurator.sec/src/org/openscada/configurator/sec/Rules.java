@@ -18,42 +18,43 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  * 
  */
-package org.openscada.configurator.sec.impl;
+package org.openscada.configurator.sec;
 
-import org.eclipse.emf.ecore.EClass;
-import org.openscada.configurator.sec.SecurityPackage;
-import org.openscada.configurator.sec.SignatureRule;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Signature Rule</b></em>'.
+ * A representation of the model object '<em><b>Rules</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.openscada.configurator.sec.Rules#getRules <em>Rules</em>}</li>
+ * </ul>
  * </p>
  *
+ * @see org.openscada.configurator.sec.SecurityPackage#getRules()
+ * @model
  * @generated
  */
-public class SignatureRuleImpl extends PreFilterRuleImpl implements SignatureRule
+public interface Rules extends EObject
 {
     /**
+     * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configurator.sec.Rule}.
      * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Rules</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
      * <!-- end-user-doc -->
+     * @return the value of the '<em>Rules</em>' containment reference list.
+     * @see org.openscada.configurator.sec.SecurityPackage#getRules_Rules()
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
-    protected SignatureRuleImpl ()
-    {
-        super ();
-    }
+    EList<Rule> getRules ();
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return SecurityPackage.Literals.SIGNATURE_RULE;
-    }
-
-} //SignatureRuleImpl
+} // Rules

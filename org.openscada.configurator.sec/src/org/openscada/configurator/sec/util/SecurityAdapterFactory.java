@@ -22,12 +22,18 @@ package org.openscada.configurator.sec.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.openscada.configurator.sec.*;
+import org.openscada.configurator.sec.GenericScript;
+import org.openscada.configurator.sec.JavaScript;
+import org.openscada.configurator.sec.LogonRule;
+import org.openscada.configurator.sec.PreFilterRule;
+import org.openscada.configurator.sec.Rule;
+import org.openscada.configurator.sec.Rules;
+import org.openscada.configurator.sec.Script;
+import org.openscada.configurator.sec.ScriptRule;
+import org.openscada.configurator.sec.SecurityPackage;
+import org.openscada.configurator.sec.SignatureRule;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,6 +142,12 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
         public Adapter caseGenericScript ( GenericScript object )
         {
             return createGenericScriptAdapter ();
+        }
+
+        @Override
+        public Adapter caseRules ( Rules object )
+        {
+            return createRulesAdapter ();
         }
 
         @Override
@@ -275,6 +287,21 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createGenericScriptAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.Rules <em>Rules</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.sec.Rules
+     * @generated
+     */
+    public Adapter createRulesAdapter ()
     {
         return null;
     }

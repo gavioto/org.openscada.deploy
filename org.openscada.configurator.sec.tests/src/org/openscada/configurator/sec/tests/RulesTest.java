@@ -18,94 +18,96 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  * 
  */
-package org.openscada.configurator.sec.presentation;
+package org.openscada.configurator.sec.tests;
 
-import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.ui.EclipseUIPlugin;
-import org.eclipse.emf.common.util.ResourceLocator;
+import junit.framework.TestCase;
+import junit.textui.TestRunner;
+
+import org.openscada.configurator.sec.Rules;
+import org.openscada.configurator.sec.SecurityFactory;
 
 /**
- * This is the central singleton for the Security editor plugin.
  * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>Rules</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public final class SecurityEditorPlugin extends EMFPlugin
+public class RulesTest extends TestCase
 {
-    /**
-     * Keep track of the singleton.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static final SecurityEditorPlugin INSTANCE = new SecurityEditorPlugin ();
 
     /**
-     * Keep track of the singleton.
+     * The fixture for this Rules test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static Implementation plugin;
+    protected Rules fixture = null;
 
     /**
-     * Create the instance.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public SecurityEditorPlugin ()
+    public static void main ( String[] args )
     {
-        super ( new ResourceLocator[] {} );
+        TestRunner.run ( RulesTest.class );
     }
 
     /**
-     * Returns the singleton instance of the Eclipse plugin.
+     * Constructs a new Rules test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the singleton instance.
+     * @generated
+     */
+    public RulesTest ( String name )
+    {
+        super ( name );
+    }
+
+    /**
+     * Sets the fixture for this Rules test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Rules fixture )
+    {
+        this.fixture = fixture;
+    }
+
+    /**
+     * Returns the fixture for this Rules test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Rules getFixture ()
+    {
+        return fixture;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
      * @generated
      */
     @Override
-    public ResourceLocator getPluginResourceLocator ()
+    protected void setUp () throws Exception
     {
-        return plugin;
+        setFixture ( SecurityFactory.eINSTANCE.createRules () );
     }
 
     /**
-     * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the singleton instance.
+     * @see junit.framework.TestCase#tearDown()
      * @generated
      */
-    public static Implementation getPlugin ()
+    @Override
+    protected void tearDown () throws Exception
     {
-        return plugin;
+        setFixture ( null );
     }
 
-    /**
-     * The actual implementation of the Eclipse <b>Plugin</b>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static class Implementation extends EclipseUIPlugin
-    {
-        /**
-         * Creates an instance.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Implementation ()
-        {
-            super ();
-
-            // Remember the static instance.
-            //
-            plugin = this;
-        }
-    }
-
-}
+} //RulesTest

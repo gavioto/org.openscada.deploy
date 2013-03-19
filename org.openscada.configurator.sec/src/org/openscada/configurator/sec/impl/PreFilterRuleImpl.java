@@ -23,11 +23,8 @@ package org.openscada.configurator.sec.impl;
 import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.SecurityPackage;
 
