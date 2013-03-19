@@ -18,13 +18,26 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.openscada.external.odfdom" version="0.8.7" match="greaterOrEqual"/>
+      <import plugin="org.apache.xerces" version="2.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="com.google.gson"/>
+      <import plugin="org.openscada.ae"/>
+      <import plugin="org.openscada.ae.data"/>
+      <import plugin="org.openscada.ca"/>
+      <import plugin="org.openscada.ca.oscar"/>
+      <import plugin="org.openscada.core"/>
+      <import plugin="org.openscada.utils"/>
+      <import plugin="org.eclipse.ui" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.6.1" match="greaterOrEqual"/>
+      <import plugin="org.openscada.external.apache.poi" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="org.openscada.ae.monitor"/>
+      <import plugin="org.openscada.da.server.exec"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.openscada.ae.monitor.datasource.common"/>
    </requires>
 
    <plugin
@@ -70,6 +83,20 @@
 
    <plugin
          id="org.openscada.configurator.sec.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.deploy.iolist.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.deploy.iolist.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"
