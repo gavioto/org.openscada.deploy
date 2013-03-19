@@ -254,6 +254,56 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Scripts} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptsItemProvider scriptsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.sec.Scripts}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptsAdapter ()
+    {
+        if ( scriptsItemProvider == null )
+        {
+            scriptsItemProvider = new ScriptsItemProvider ( this );
+        }
+
+        return scriptsItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Configuration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ConfigurationItemProvider configurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.sec.Configuration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createConfigurationAdapter ()
+    {
+        if ( configurationItemProvider == null )
+        {
+            configurationItemProvider = new ConfigurationItemProvider ( this );
+        }
+
+        return configurationItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -406,6 +456,10 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
             genericScriptItemProvider.dispose ();
         if ( rulesItemProvider != null )
             rulesItemProvider.dispose ();
+        if ( scriptsItemProvider != null )
+            scriptsItemProvider.dispose ();
+        if ( configurationItemProvider != null )
+            configurationItemProvider.dispose ();
     }
 
 }
