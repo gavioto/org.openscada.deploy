@@ -10,7 +10,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.openscada.configurator.processor.common.provider
 Require-Bundle: org.eclipse.core.runtime,
- org.openscada.configurator.processor.common;visibility:=reexport,
+ org.openscada.configurator.processor.common;bundle-version="1.1.0";visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.openscada.configurator.model;visibility:=reexport,
  org.openscada.configurator.model.edit;visibility:=reexport,
