@@ -166,8 +166,6 @@ public class RulesItemProvider extends ItemProviderAdapter implements IEditingDo
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( SecurityPackage.Literals.RULES__RULES, SecurityFactory.eINSTANCE.createPreFilterRule () ) );
-
         newChildDescriptors.add ( createChildParameter ( SecurityPackage.Literals.RULES__RULES, SecurityFactory.eINSTANCE.createScriptRule () ) );
 
         newChildDescriptors.add ( createChildParameter ( SecurityPackage.Literals.RULES__RULES, SecurityFactory.eINSTANCE.createLogonRule () ) );

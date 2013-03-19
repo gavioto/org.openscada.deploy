@@ -496,7 +496,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
         initEClass ( signatureRuleEClass, SignatureRule.class, "SignatureRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( preFilterRuleEClass, PreFilterRule.class, "PreFilterRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( preFilterRuleEClass, PreFilterRule.class, "PreFilterRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getPreFilterRule_IdFilter (), this.getPattern (), "idFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getPreFilterRule_TypeFilter (), this.getPattern (), "typeFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getPreFilterRule_ActionFilter (), this.getPattern (), "actionFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

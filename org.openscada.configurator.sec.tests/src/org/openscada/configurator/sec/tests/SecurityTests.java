@@ -54,7 +54,6 @@ public class SecurityTests extends TestSuite
         suite.addTestSuite ( ScriptRuleTest.class );
         suite.addTestSuite ( LogonRuleTest.class );
         suite.addTestSuite ( SignatureRuleTest.class );
-        suite.addTestSuite ( PreFilterRuleTest.class );
         suite.addTestSuite ( JavaScriptTest.class );
         suite.addTestSuite ( GenericScriptTest.class );
         return suite;

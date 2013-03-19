@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
  * </p>
  *
  * @see org.openscada.configurator.sec.SecurityPackage#getPreFilterRule()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface PreFilterRule extends Rule

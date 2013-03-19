@@ -20,10 +20,7 @@
  */
 package org.openscada.configurator.sec.tests;
 
-import junit.textui.TestRunner;
-
 import org.openscada.configurator.sec.PreFilterRule;
-import org.openscada.configurator.sec.SecurityFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,18 +28,8 @@ import org.openscada.configurator.sec.SecurityFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PreFilterRuleTest extends RuleTest
+public abstract class PreFilterRuleTest extends RuleTest
 {
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( PreFilterRuleTest.class );
-    }
 
     /**
      * Constructs a new Pre Filter Rule test case with the given name.
@@ -65,30 +52,6 @@ public class PreFilterRuleTest extends RuleTest
     protected PreFilterRule getFixture ()
     {
         return (PreFilterRule)fixture;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( SecurityFactory.eINSTANCE.createPreFilterRule () );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
     }
 
 } //PreFilterRuleTest

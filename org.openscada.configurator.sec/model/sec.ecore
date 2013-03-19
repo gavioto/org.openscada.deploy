@@ -18,7 +18,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//PreFilterRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//PreFilterRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PreFilterRule" eSuperTypes="#//Rule">
+  <eClassifiers xsi:type="ecore:EClass" name="PreFilterRule" abstract="true" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="idFilter" eType="#//Pattern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeFilter" eType="#//Pattern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionFilter" eType="#//Pattern"/>

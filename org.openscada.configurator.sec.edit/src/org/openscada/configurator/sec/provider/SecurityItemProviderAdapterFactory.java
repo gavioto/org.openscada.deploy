@@ -179,31 +179,6 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.PreFilterRule} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PreFilterRuleItemProvider preFilterRuleItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configurator.sec.PreFilterRule}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPreFilterRuleAdapter ()
-    {
-        if ( preFilterRuleItemProvider == null )
-        {
-            preFilterRuleItemProvider = new PreFilterRuleItemProvider ( this );
-        }
-
-        return preFilterRuleItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.JavaScript} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -425,8 +400,6 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
             logonRuleItemProvider.dispose ();
         if ( signatureRuleItemProvider != null )
             signatureRuleItemProvider.dispose ();
-        if ( preFilterRuleItemProvider != null )
-            preFilterRuleItemProvider.dispose ();
         if ( javaScriptItemProvider != null )
             javaScriptItemProvider.dispose ();
         if ( genericScriptItemProvider != null )

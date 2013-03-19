@@ -68,15 +68,6 @@ public interface SecurityFactory extends EFactory
     SignatureRule createSignatureRule ();
 
     /**
-     * Returns a new object of class '<em>Pre Filter Rule</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Pre Filter Rule</em>'.
-     * @generated
-     */
-    PreFilterRule createPreFilterRule ();
-
-    /**
      * Returns a new object of class '<em>Java Script</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

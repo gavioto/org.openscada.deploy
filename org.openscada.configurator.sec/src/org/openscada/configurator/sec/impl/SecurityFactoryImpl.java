@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
-import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.ScriptRule;
 import org.openscada.configurator.sec.SecurityFactory;
@@ -96,8 +95,6 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
                 return createLogonRule ();
             case SecurityPackage.SIGNATURE_RULE:
                 return createSignatureRule ();
-            case SecurityPackage.PRE_FILTER_RULE:
-                return createPreFilterRule ();
             case SecurityPackage.JAVA_SCRIPT:
                 return createJavaScript ();
             case SecurityPackage.GENERIC_SCRIPT:
@@ -177,18 +174,6 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
     {
         SignatureRuleImpl signatureRule = new SignatureRuleImpl ();
         return signatureRule;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public PreFilterRule createPreFilterRule ()
-    {
-        PreFilterRuleImpl preFilterRule = new PreFilterRuleImpl ();
-        return preFilterRule;
     }
 
     /**

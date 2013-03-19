@@ -43,7 +43,7 @@ import org.openscada.configurator.sec.SecurityPackage;
  *
  * @generated
  */
-public class PreFilterRuleImpl extends RuleImpl implements PreFilterRule
+public abstract class PreFilterRuleImpl extends RuleImpl implements PreFilterRule
 {
     /**
      * The default value of the '{@link #getIdFilter() <em>Id Filter</em>}' attribute.
