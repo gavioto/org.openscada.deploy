@@ -15,6 +15,8 @@ import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 public class Application implements IApplication
 {
 
+    public static final String APPLICATION_ID = "org.openscada.atlantis.configurator.id1";
+
     @Override
     public Object start ( final IApplicationContext context ) throws Exception
     {
