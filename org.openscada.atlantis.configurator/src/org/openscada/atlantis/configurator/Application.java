@@ -2,16 +2,12 @@ package org.openscada.atlantis.configurator;
 
 import java.io.File;
 import java.io.PrintStream;
-import java.util.Arrays;
-import java.util.LinkedList;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
-import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
 import org.openscada.deploy.iolist.model.Item;
-import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 
 public class Application implements IApplication
@@ -21,9 +17,6 @@ public class Application implements IApplication
     public Object start ( final IApplicationContext context ) throws Exception
     {
         final String[] args = (String[])context.getArguments ().get ( IApplicationContext.APPLICATION_ARGS );
-
-        ModelPackageImpl.init ();
-        ConfiguratorPackageImpl.init ();
 
         try
         {
@@ -61,21 +54,10 @@ public class Application implements IApplication
 
     private static void process ( final PrintStream log, final String[] args ) throws Exception
     {
-        final LinkedList<String> arguments = new LinkedList<String> ( Arrays.asList ( args ) );
-
-        if ( arguments.peekFirst ().endsWith ( ".oscm" ) )
+        for ( final String file : args )
         {
-            final Project project;
-            final String file = arguments.pollFirst ();
             log.println ( String.format ( "** 0 - Using %s as project file", file ) );
-            project = ProjectLoader.load ( new File ( file ) );
-            processNew ( log, project );
+            processNew ( log, ProjectLoader.load ( new File ( file ) ) );
         }
-        else
-        {
-            throw new IllegalArgumentException ( "First parameters must be the name of the .oscm file" );
-        }
-
     }
-
 }
