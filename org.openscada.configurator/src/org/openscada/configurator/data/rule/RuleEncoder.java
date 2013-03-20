@@ -32,11 +32,12 @@ public class RuleEncoder
         this.rule = rule;
     }
 
-    public void encodeRule ( final ConfigurationTarget target )
+    public void encodeRule ( final ConfigurationTarget target, final int priority )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "serviceType", this.rule.getRuleType () );
+        data.put ( "priority", "" + priority );
 
         putData ( data );
 
@@ -45,6 +46,5 @@ public class RuleEncoder
 
     protected void putData ( final Map<String, String> data )
     {
-        data.put ( "priority", "" + this.rule.getPriority () );
     }
 }

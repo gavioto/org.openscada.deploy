@@ -241,12 +241,13 @@ public class GenericMasterConfiguration extends GenericConfiguration
 
     public void addSecurityRules ( final Rules rules )
     {
+        int priority = 1000;
         for ( final Rule rule : rules.getRules () )
         {
             final RuleEncoder encoder = RuleEncoder.findEncoder ( rule );
             if ( encoder != null )
             {
-                encoder.encodeRule ( this );
+                encoder.encodeRule ( this, priority += 100 );
             }
         }
     }
