@@ -5,6 +5,7 @@
    </feature>
    <feature url="features/org.openscada.configurator_1.1.0.qualifier.jar" id="org.openscada.configurator" version="1.1.0.qualifier">
       <category name="org.openscada.configurator"/>
+      <category name="org.openscada.configurator.editor"/>
    </feature>
    <feature url="features/org.openscada.configurator.editor_1.1.0.qualifier.jar" id="org.openscada.configurator.editor" version="1.1.0.qualifier">
       <category name="org.openscada.configurator.editor"/>
