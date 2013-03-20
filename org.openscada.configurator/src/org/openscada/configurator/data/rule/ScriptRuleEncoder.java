@@ -21,7 +21,7 @@ public class ScriptRuleEncoder extends PreFilterRuleEncoder
     {
         super.putData ( data );
         putScript ( data, "properties.script", this.rule.getScript () );
-        putScript ( data, "properties.callbackScript", this.rule.getScript () );
+        putScript ( data, "properties.callbackScript", this.rule.getCallbackScript () );
     }
 
     protected void putScript ( final Map<String, String> data, final String prefix, final Script script )
