@@ -1,3 +1,9 @@
+org.openscada (1.1.0) unstable; urgency=low
+
+  * Upgrade to openSCADA 1.1.0
+
+ -- Jens Reimann <ctron@dentrassi.de>  Wed, 20 Mar 2013 14:27:51 +0100
+
 org.openscada (1.0.0) unstable; urgency=low
 
   * Initial release.
