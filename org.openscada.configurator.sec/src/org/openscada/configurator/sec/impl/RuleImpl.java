@@ -35,7 +35,6 @@ import org.openscada.configurator.sec.SecurityPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.impl.RuleImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.openscada.configurator.sec.impl.RuleImpl#getPriority <em>Priority</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,26 +61,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
      * @ordered
      */
     protected String id = ID_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPriority()
-     * @generated
-     * @ordered
-     */
-    protected static final int PRIORITY_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPriority()
-     * @generated
-     * @ordered
-     */
-    protected int priority = PRIORITY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -132,29 +111,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getPriority ()
-    {
-        return priority;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPriority ( int newPriority )
-    {
-        int oldPriority = priority;
-        priority = newPriority;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.RULE__PRIORITY, oldPriority, priority ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public String getRuleType ()
     {
         // TODO: implement this method
@@ -174,8 +130,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
         {
             case SecurityPackage.RULE__ID:
                 return getId ();
-            case SecurityPackage.RULE__PRIORITY:
-                return getPriority ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -192,9 +146,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
         {
             case SecurityPackage.RULE__ID:
                 setId ( (String)newValue );
-                return;
-            case SecurityPackage.RULE__PRIORITY:
-                setPriority ( (Integer)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -213,9 +164,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
             case SecurityPackage.RULE__ID:
                 setId ( ID_EDEFAULT );
                 return;
-            case SecurityPackage.RULE__PRIORITY:
-                setPriority ( PRIORITY_EDEFAULT );
-                return;
         }
         super.eUnset ( featureID );
     }
@@ -232,8 +180,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
         {
             case SecurityPackage.RULE__ID:
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
-            case SecurityPackage.RULE__PRIORITY:
-                return priority != PRIORITY_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -252,8 +198,6 @@ public abstract class RuleImpl extends EObjectImpl implements Rule
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (id: " );
         result.append ( id );
-        result.append ( ", priority: " );
-        result.append ( priority );
         result.append ( ')' );
         return result.toString ();
     }

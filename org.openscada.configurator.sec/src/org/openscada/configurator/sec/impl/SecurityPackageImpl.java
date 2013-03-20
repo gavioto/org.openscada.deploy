@@ -214,16 +214,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getRule_Priority ()
-    {
-        return (EAttribute)ruleEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getScriptRule ()
     {
         return scriptRuleEClass;
@@ -452,7 +442,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         // Create classes and their features
         ruleEClass = createEClass ( RULE );
         createEAttribute ( ruleEClass, RULE__ID );
-        createEAttribute ( ruleEClass, RULE__PRIORITY );
 
         scriptRuleEClass = createEClass ( SCRIPT_RULE );
         createEReference ( scriptRuleEClass, SCRIPT_RULE__SCRIPT );
@@ -527,7 +516,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         // Initialize classes and features; add operations and parameters
         initEClass ( ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getRule_Id (), ecorePackage.getEString (), "id", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getRule_Priority (), ecorePackage.getEInt (), "priority", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         addEOperation ( ruleEClass, ecorePackage.getEString (), "getRuleType", 1, 1, IS_UNIQUE, IS_ORDERED );
 

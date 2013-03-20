@@ -7,10 +7,6 @@
         <element xmi:type="ecore:EAttribute" href="sec.ecore#//Rule/id"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_l9DhYZBtEeKcHu6aGqBgDQ"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_pmFdkJBtEeKcHu6aGqBgDQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="sec.ecore#//Rule/priority"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_pmFdkZBtEeKcHu6aGqBgDQ"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_lCXawZBtEeKcHu6aGqBgDQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_lCXawpBtEeKcHu6aGqBgDQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_lCXaw5BtEeKcHu6aGqBgDQ"/>

@@ -95,22 +95,13 @@ public interface SecurityPackage extends EPackage
     int RULE__ID = 0;
 
     /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RULE__PRIORITY = 1;
-
-    /**
      * The number of structural features of the '<em>Rule</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RULE_FEATURE_COUNT = 2;
+    int RULE_FEATURE_COUNT = 1;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.PreFilterRuleImpl <em>Pre Filter Rule</em>}' class.
@@ -130,15 +121,6 @@ public interface SecurityPackage extends EPackage
      * @ordered
      */
     int PRE_FILTER_RULE__ID = RULE__ID;
-
-    /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PRE_FILTER_RULE__PRIORITY = RULE__PRIORITY;
 
     /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
@@ -194,15 +176,6 @@ public interface SecurityPackage extends EPackage
      * @ordered
      */
     int SCRIPT_RULE__ID = PRE_FILTER_RULE__ID;
-
-    /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_RULE__PRIORITY = PRE_FILTER_RULE__PRIORITY;
 
     /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
@@ -278,15 +251,6 @@ public interface SecurityPackage extends EPackage
     int LOGON_RULE__ID = PRE_FILTER_RULE__ID;
 
     /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LOGON_RULE__PRIORITY = PRE_FILTER_RULE__PRIORITY;
-
-    /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -340,15 +304,6 @@ public interface SecurityPackage extends EPackage
      * @ordered
      */
     int SIGNATURE_RULE__ID = PRE_FILTER_RULE__ID;
-
-    /**
-     * The feature id for the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIGNATURE_RULE__PRIORITY = PRE_FILTER_RULE__PRIORITY;
 
     /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
@@ -592,17 +547,6 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EAttribute getRule_Id ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.Rule#getPriority <em>Priority</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Priority</em>'.
-     * @see org.openscada.configurator.sec.Rule#getPriority()
-     * @see #getRule()
-     * @generated
-     */
-    EAttribute getRule_Priority ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.ScriptRule <em>Script Rule</em>}'.
@@ -855,14 +799,6 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EAttribute RULE__ID = eINSTANCE.getRule_Id ();
-
-        /**
-         * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute RULE__PRIORITY = eINSTANCE.getRule_Priority ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ScriptRuleImpl <em>Script Rule</em>}' class.

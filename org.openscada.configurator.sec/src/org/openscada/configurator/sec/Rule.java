@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.Rule#getId <em>Id</em>}</li>
- *   <li>{@link org.openscada.configurator.sec.Rule#getPriority <em>Priority</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,32 +65,6 @@ public interface Rule extends EObject
      * @generated
      */
     void setId ( String value );
-
-    /**
-     * Returns the value of the '<em><b>Priority</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Priority</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Priority</em>' attribute.
-     * @see #setPriority(int)
-     * @see org.openscada.configurator.sec.SecurityPackage#getRule_Priority()
-     * @model required="true"
-     * @generated
-     */
-    int getPriority ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configurator.sec.Rule#getPriority <em>Priority</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Priority</em>' attribute.
-     * @see #getPriority()
-     * @generated
-     */
-    void setPriority ( int value );
 
     /**
      * <!-- begin-user-doc -->
