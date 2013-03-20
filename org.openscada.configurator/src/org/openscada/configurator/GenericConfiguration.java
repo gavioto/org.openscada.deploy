@@ -25,6 +25,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.openscada.ca.oscar.OscarLoader;
+import org.openscada.configurator.data.ConfigurationTarget;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -33,7 +34,7 @@ import org.w3c.dom.Text;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class GenericConfiguration
+public class GenericConfiguration implements ConfigurationTarget
 {
 
     private final Map<String, Set<String>> ignoreFields = new HashMap<String, Set<String>> ();
@@ -60,6 +61,7 @@ public class GenericConfiguration
         fields.addAll ( Arrays.asList ( field ) );
     }
 
+    @Override
     public void addData ( final String factory, final String id, final Map<String, String> sourceData )
     {
         if ( factory == null || id == null || factory.isEmpty () || id.isEmpty () )

@@ -3,19 +3,14 @@
 package org.openscada.configurator.processor.common.main.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Project;
-
 import org.openscada.configurator.processor.common.main.MainPackage;
 import org.openscada.configurator.processor.common.main.SecurityLoader;
-
 import org.openscada.configurator.sec.Rules;
 
 /**
@@ -25,11 +20,15 @@ import org.openscada.configurator.sec.Rules;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.processor.common.main.impl.SecurityLoaderImpl#getRules <em>Rules</em>}</li>
- *   <li>{@link org.openscada.configurator.processor.common.main.impl.SecurityLoaderImpl#getSlot <em>Slot</em>}</li>
+ * <li>
+ * {@link org.openscada.configurator.processor.common.main.impl.SecurityLoaderImpl#getRules
+ * <em>Rules</em>}</li>
+ * <li>
+ * {@link org.openscada.configurator.processor.common.main.impl.SecurityLoaderImpl#getSlot
+ * <em>Slot</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
@@ -38,6 +37,7 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
      * The cached value of the '{@link #getRules() <em>Rules</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getRules()
      * @generated
      * @ordered
@@ -48,6 +48,7 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
      * The cached value of the '{@link #getSlot() <em>Slot</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getSlot()
      * @generated
      * @ordered
@@ -57,6 +58,7 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected SecurityLoaderImpl ()
@@ -67,6 +69,7 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -78,118 +81,141 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public Rules getRules ()
     {
-        if ( rules != null && rules.eIsProxy () )
+        if ( this.rules != null && this.rules.eIsProxy () )
         {
-            InternalEObject oldRules = (InternalEObject)rules;
-            rules = (Rules)eResolveProxy ( oldRules );
-            if ( rules != oldRules )
+            final InternalEObject oldRules = (InternalEObject)this.rules;
+            this.rules = (Rules)eResolveProxy ( oldRules );
+            if ( this.rules != oldRules )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MainPackage.SECURITY_LOADER__RULES, oldRules, rules ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MainPackage.SECURITY_LOADER__RULES, oldRules, this.rules ) );
+                }
             }
         }
-        return rules;
+        return this.rules;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Rules basicGetRules ()
     {
-        return rules;
+        return this.rules;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setRules ( Rules newRules )
+    @Override
+    public void setRules ( final Rules newRules )
     {
-        Rules oldRules = rules;
-        rules = newRules;
+        final Rules oldRules = this.rules;
+        this.rules = newRules;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MainPackage.SECURITY_LOADER__RULES, oldRules, rules ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MainPackage.SECURITY_LOADER__RULES, oldRules, this.rules ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public GenericMasterConfigurationSlot getSlot ()
     {
-        if ( slot != null && slot.eIsProxy () )
+        if ( this.slot != null && this.slot.eIsProxy () )
         {
-            InternalEObject oldSlot = (InternalEObject)slot;
-            slot = (GenericMasterConfigurationSlot)eResolveProxy ( oldSlot );
-            if ( slot != oldSlot )
+            final InternalEObject oldSlot = (InternalEObject)this.slot;
+            this.slot = (GenericMasterConfigurationSlot)eResolveProxy ( oldSlot );
+            if ( this.slot != oldSlot )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MainPackage.SECURITY_LOADER__SLOT, oldSlot, slot ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MainPackage.SECURITY_LOADER__SLOT, oldSlot, this.slot ) );
+                }
             }
         }
-        return slot;
+        return this.slot;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public GenericMasterConfigurationSlot basicGetSlot ()
     {
-        return slot;
+        return this.slot;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSlot ( GenericMasterConfigurationSlot newSlot )
-    {
-        GenericMasterConfigurationSlot oldSlot = slot;
-        slot = newSlot;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MainPackage.SECURITY_LOADER__SLOT, oldSlot, slot ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void process ( Project project ) throws Exception
-    {
-        // TODO: implement this method
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException ();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public void setSlot ( final GenericMasterConfigurationSlot newSlot )
+    {
+        final GenericMasterConfigurationSlot oldSlot = this.slot;
+        this.slot = newSlot;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MainPackage.SECURITY_LOADER__SLOT, oldSlot, this.slot ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public void process ( final Project project ) throws Exception
+    {
+        getSlot ().getConfigurationData ().addSecurityRules ( getRules () );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
             case MainPackage.SECURITY_LOADER__RULES:
                 if ( resolve )
+                {
                     return getRules ();
+                }
                 return basicGetRules ();
             case MainPackage.SECURITY_LOADER__SLOT:
                 if ( resolve )
+                {
                     return getSlot ();
+                }
                 return basicGetSlot ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -198,10 +224,11 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -218,10 +245,11 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -238,17 +266,18 @@ public class SecurityLoaderImpl extends EObjectImpl implements SecurityLoader
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case MainPackage.SECURITY_LOADER__RULES:
-                return rules != null;
+                return this.rules != null;
             case MainPackage.SECURITY_LOADER__SLOT:
-                return slot != null;
+                return this.slot != null;
         }
         return super.eIsSet ( featureID );
     }
