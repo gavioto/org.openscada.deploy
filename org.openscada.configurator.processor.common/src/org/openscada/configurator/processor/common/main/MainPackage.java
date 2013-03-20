@@ -114,7 +114,7 @@ public interface MainPackage extends EPackage
     int SECURITY_LOADER__RULES = ConfiguratorPackage.PROCESSOR_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Slot</b></em>' reference.
+     * The feature id for the '<em><b>Slot</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -185,10 +185,10 @@ public interface MainPackage extends EPackage
     EReference getSecurityLoader_Rules ();
 
     /**
-     * Returns the meta object for the reference '{@link org.openscada.configurator.processor.common.main.SecurityLoader#getSlot <em>Slot</em>}'.
+     * Returns the meta object for the reference list '{@link org.openscada.configurator.processor.common.main.SecurityLoader#getSlot <em>Slot</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Slot</em>'.
+     * @return the meta object for the reference list '<em>Slot</em>'.
      * @see org.openscada.configurator.processor.common.main.SecurityLoader#getSlot()
      * @see #getSecurityLoader()
      * @generated
@@ -263,7 +263,7 @@ public interface MainPackage extends EPackage
         EReference SECURITY_LOADER__RULES = eINSTANCE.getSecurityLoader_Rules ();
 
         /**
-         * The meta object literal for the '<em><b>Slot</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Slot</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

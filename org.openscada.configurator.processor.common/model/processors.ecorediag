@@ -379,7 +379,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_JO5ZYZClEeKOcdCA4qJTng" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="processors.ecore#//main/SecurityLoader"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JO5ZYpClEeKOcdCA4qJTng" x="151" y="267"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JO5ZYpClEeKOcdCA4qJTng" x="79" y="51"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_QXw5gJClEeKOcdCA4qJTng" type="2003">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QYAKEJClEeKOcdCA4qJTng" source="Shortcut">
@@ -398,7 +398,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_QXw5gZClEeKOcdCA4qJTng" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
         <element xmi:type="ecore:EClass" href="platform:/resource/org.openscada.configurator.sec/model/sec.ecore#//Rules"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXw5gpClEeKOcdCA4qJTng" x="379" y="339"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXw5gpClEeKOcdCA4qJTng" x="355" y="39"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CDhuIXXmEeKAy-ZuWXwWeQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_CDhuInXmEeKAy-ZuWXwWeQ"/>
@@ -553,7 +553,6 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_EnTScnXmEeKAy-ZuWXwWeQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="processors.ecore#//main/AuthorizationLoader/slot"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EnTSc3XmEeKAy-ZuWXwWeQ" points="[-2, 1, 283, -225]$[-217, 172, 68, -54]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3h2NMHXnEeKAy-ZuWXwWeQ" id="(0.9598930481283422,0.2647058823529412)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_2hMogHXnEeKAy-ZuWXwWeQ" type="3003" source="_2g4fcHXnEeKAy-ZuWXwWeQ" target="_L2AxUHXlEeKAy-ZuWXwWeQ">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_2hMogXXnEeKAy-ZuWXwWeQ" routing="Rectilinear" lineColor="4210752"/>
@@ -590,6 +589,5 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_U4kyQpClEeKOcdCA4qJTng" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="processors.ecore#//main/SecurityLoader/slot"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U4kyQ5ClEeKOcdCA4qJTng" points="[-58, 6, 337, 2]$[-393, 34, 2, 30]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_U4pDsJClEeKOcdCA4qJTng" id="(0.9331550802139037,0.5588235294117647)"/>
   </edges>
 </notation:Diagram>

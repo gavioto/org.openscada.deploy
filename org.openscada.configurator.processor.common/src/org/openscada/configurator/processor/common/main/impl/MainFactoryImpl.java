@@ -7,10 +7,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.openscada.configurator.processor.common.main.*;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainFactory;
 import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.SecurityLoader;
 
 /**
  * <!-- begin-user-doc -->

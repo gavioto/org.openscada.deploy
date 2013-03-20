@@ -2,9 +2,9 @@
  */
 package org.openscada.configurator.processor.common.main;
 
+import org.eclipse.emf.common.util.EList;
 import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
-
 import org.openscada.configurator.sec.Rules;
 
 /**
@@ -53,29 +53,19 @@ public interface SecurityLoader extends Processor
     void setRules ( Rules value );
 
     /**
-     * Returns the value of the '<em><b>Slot</b></em>' reference.
+     * Returns the value of the '<em><b>Slot</b></em>' reference list.
+     * The list contents are of type {@link org.openscada.configuration.model.GenericMasterConfigurationSlot}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Slot</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Slot</em>' reference.
-     * @see #setSlot(GenericMasterConfigurationSlot)
+     * @return the value of the '<em>Slot</em>' reference list.
      * @see org.openscada.configurator.processor.common.main.MainPackage#getSecurityLoader_Slot()
      * @model
      * @generated
      */
-    GenericMasterConfigurationSlot getSlot ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configurator.processor.common.main.SecurityLoader#getSlot <em>Slot</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Slot</em>' reference.
-     * @see #getSlot()
-     * @generated
-     */
-    void setSlot ( GenericMasterConfigurationSlot value );
+    EList<GenericMasterConfigurationSlot> getSlot ();
 
 } // SecurityLoader

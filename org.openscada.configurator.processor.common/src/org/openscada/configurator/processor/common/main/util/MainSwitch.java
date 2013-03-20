@@ -6,9 +6,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Processor;
-import org.openscada.configurator.processor.common.main.*;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.SecurityLoader;
 
 /**
  * <!-- begin-user-doc -->

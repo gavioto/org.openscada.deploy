@@ -259,7 +259,7 @@ public class MainPackageImpl extends EPackageImpl implements MainPackage
 
         initEClass ( securityLoaderEClass, SecurityLoader.class, "SecurityLoader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getSecurityLoader_Rules (), theSecurityPackage.getRules (), null, "rules", null, 1, 1, SecurityLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getSecurityLoader_Slot (), theConfiguratorPackage.getGenericMasterConfigurationSlot (), null, "slot", null, 0, 1, SecurityLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getSecurityLoader_Slot (), theConfiguratorPackage.getGenericMasterConfigurationSlot (), null, "slot", null, 0, -1, SecurityLoader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
     }
 
 } //MainPackageImpl

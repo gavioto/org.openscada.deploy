@@ -7,9 +7,9 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.openscada.configuration.model.Processor;
-import org.openscada.configurator.processor.common.main.*;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.SecurityLoader;
 
 /**
  * <!-- begin-user-doc -->
