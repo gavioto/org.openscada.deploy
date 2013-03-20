@@ -499,13 +499,22 @@ public interface SecurityPackage extends EPackage
     int RULES__RULES = 0;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RULES__NAME = 1;
+
+    /**
      * The number of structural features of the '<em>Rules</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int RULES_FEATURE_COUNT = 1;
+    int RULES_FEATURE_COUNT = 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -525,6 +534,15 @@ public interface SecurityPackage extends EPackage
      * @ordered
      */
     int CONFIGURATION__RULES = RULES__RULES;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONFIGURATION__NAME = RULES__NAME;
 
     /**
      * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
@@ -776,6 +794,17 @@ public interface SecurityPackage extends EPackage
     EReference getRules_Rules ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.Rules#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.openscada.configurator.sec.Rules#getName()
+     * @see #getRules()
+     * @generated
+     */
+    EAttribute getRules_Name ();
+
+    /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -996,6 +1025,14 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EReference RULES__RULES = eINSTANCE.getRules_Rules ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RULES__NAME = eINSTANCE.getRules_Name ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

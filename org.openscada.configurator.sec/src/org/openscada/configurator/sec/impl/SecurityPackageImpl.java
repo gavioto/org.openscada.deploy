@@ -404,6 +404,16 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getRules_Name ()
+    {
+        return (EAttribute)rulesEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getPattern ()
     {
         return patternEDataType;
@@ -470,6 +480,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
         rulesEClass = createEClass ( RULES );
         createEReference ( rulesEClass, RULES__RULES );
+        createEAttribute ( rulesEClass, RULES__NAME );
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
@@ -548,6 +559,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
         initEClass ( rulesEClass, Rules.class, "Rules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getRules_Rules (), this.getRule (), null, "rules", null, 0, -1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getRules_Name (), ecorePackage.getEString (), "name", null, 0, 1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );
