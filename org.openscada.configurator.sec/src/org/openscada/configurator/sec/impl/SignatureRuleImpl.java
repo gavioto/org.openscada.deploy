@@ -30,7 +30,7 @@ import org.openscada.configurator.sec.SignatureRule;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class SignatureRuleImpl extends PreFilterRuleImpl implements SignatureRule
@@ -38,6 +38,7 @@ public class SignatureRuleImpl extends PreFilterRuleImpl implements SignatureRul
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected SignatureRuleImpl ()
@@ -48,12 +49,19 @@ public class SignatureRuleImpl extends PreFilterRuleImpl implements SignatureRul
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     protected EClass eStaticClass ()
     {
         return SecurityPackage.Literals.SIGNATURE_RULE;
+    }
+
+    @Override
+    public String getRuleType ()
+    {
+        return "signature";
     }
 
 } //SignatureRuleImpl

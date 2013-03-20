@@ -30,7 +30,7 @@ import org.openscada.configurator.sec.SecurityPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class LogonRuleImpl extends PreFilterRuleImpl implements LogonRule
@@ -38,6 +38,7 @@ public class LogonRuleImpl extends PreFilterRuleImpl implements LogonRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected LogonRuleImpl ()
@@ -48,12 +49,19 @@ public class LogonRuleImpl extends PreFilterRuleImpl implements LogonRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     protected EClass eStaticClass ()
     {
         return SecurityPackage.Literals.LOGON_RULE;
+    }
+
+    @Override
+    public String getRuleType ()
+    {
+        return "logon";
     }
 
 } //LogonRuleImpl

@@ -35,11 +35,14 @@ import org.openscada.configurator.sec.SecurityPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.sec.impl.ScriptRuleImpl#getScript <em>Script</em>}</li>
- *   <li>{@link org.openscada.configurator.sec.impl.ScriptRuleImpl#getCallbackScript <em>Callback Script</em>}</li>
+ * <li>{@link org.openscada.configurator.sec.impl.ScriptRuleImpl#getScript <em>
+ * Script</em>}</li>
+ * <li>
+ * {@link org.openscada.configurator.sec.impl.ScriptRuleImpl#getCallbackScript
+ * <em>Callback Script</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
@@ -48,6 +51,7 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
      * The cached value of the '{@link #getScript() <em>Script</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getScript()
      * @generated
      * @ordered
@@ -55,9 +59,11 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     protected Script script;
 
     /**
-     * The cached value of the '{@link #getCallbackScript() <em>Callback Script</em>}' reference.
+     * The cached value of the '{@link #getCallbackScript()
+     * <em>Callback Script</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getCallbackScript()
      * @generated
      * @ordered
@@ -67,6 +73,7 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ScriptRuleImpl ()
@@ -77,6 +84,7 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -88,106 +96,129 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public Script getScript ()
     {
-        if ( script != null && script.eIsProxy () )
+        if ( this.script != null && this.script.eIsProxy () )
         {
-            InternalEObject oldScript = (InternalEObject)script;
-            script = (Script)eResolveProxy ( oldScript );
-            if ( script != oldScript )
+            final InternalEObject oldScript = (InternalEObject)this.script;
+            this.script = (Script)eResolveProxy ( oldScript );
+            if ( this.script != oldScript )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.SCRIPT_RULE__SCRIPT, oldScript, script ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.SCRIPT_RULE__SCRIPT, oldScript, this.script ) );
+                }
             }
         }
-        return script;
+        return this.script;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Script basicGetScript ()
     {
-        return script;
+        return this.script;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setScript ( Script newScript )
+    @Override
+    public void setScript ( final Script newScript )
     {
-        Script oldScript = script;
-        script = newScript;
+        final Script oldScript = this.script;
+        this.script = newScript;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SCRIPT_RULE__SCRIPT, oldScript, script ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SCRIPT_RULE__SCRIPT, oldScript, this.script ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public Script getCallbackScript ()
     {
-        if ( callbackScript != null && callbackScript.eIsProxy () )
+        if ( this.callbackScript != null && this.callbackScript.eIsProxy () )
         {
-            InternalEObject oldCallbackScript = (InternalEObject)callbackScript;
-            callbackScript = (Script)eResolveProxy ( oldCallbackScript );
-            if ( callbackScript != oldCallbackScript )
+            final InternalEObject oldCallbackScript = (InternalEObject)this.callbackScript;
+            this.callbackScript = (Script)eResolveProxy ( oldCallbackScript );
+            if ( this.callbackScript != oldCallbackScript )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.SCRIPT_RULE__CALLBACK_SCRIPT, oldCallbackScript, callbackScript ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.SCRIPT_RULE__CALLBACK_SCRIPT, oldCallbackScript, this.callbackScript ) );
+                }
             }
         }
-        return callbackScript;
+        return this.callbackScript;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Script basicGetCallbackScript ()
     {
-        return callbackScript;
+        return this.callbackScript;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setCallbackScript ( Script newCallbackScript )
-    {
-        Script oldCallbackScript = callbackScript;
-        callbackScript = newCallbackScript;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SCRIPT_RULE__CALLBACK_SCRIPT, oldCallbackScript, callbackScript ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public void setCallbackScript ( final Script newCallbackScript )
+    {
+        final Script oldCallbackScript = this.callbackScript;
+        this.callbackScript = newCallbackScript;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SCRIPT_RULE__CALLBACK_SCRIPT, oldCallbackScript, this.callbackScript ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
             case SecurityPackage.SCRIPT_RULE__SCRIPT:
                 if ( resolve )
+                {
                     return getScript ();
+                }
                 return basicGetScript ();
             case SecurityPackage.SCRIPT_RULE__CALLBACK_SCRIPT:
                 if ( resolve )
+                {
                     return getCallbackScript ();
+                }
                 return basicGetCallbackScript ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -196,10 +227,11 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -216,10 +248,11 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -236,19 +269,26 @@ public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case SecurityPackage.SCRIPT_RULE__SCRIPT:
-                return script != null;
+                return this.script != null;
             case SecurityPackage.SCRIPT_RULE__CALLBACK_SCRIPT:
-                return callbackScript != null;
+                return this.callbackScript != null;
         }
         return super.eIsSet ( featureID );
+    }
+
+    @Override
+    public String getRuleType ()
+    {
+        return "script";
     }
 
 } //ScriptRuleImpl
