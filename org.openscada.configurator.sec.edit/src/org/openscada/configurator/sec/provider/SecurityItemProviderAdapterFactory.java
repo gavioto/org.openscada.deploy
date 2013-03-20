@@ -41,6 +41,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configurator.sec.SecurityPackage;
 import org.openscada.configurator.sec.util.SecurityAdapterFactory;
@@ -101,6 +102,7 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
         supportedTypes.add ( ITreeItemContentProvider.class );
         supportedTypes.add ( IItemLabelProvider.class );
         supportedTypes.add ( IItemPropertySource.class );
+        supportedTypes.add ( ITableItemLabelProvider.class );
     }
 
     /**

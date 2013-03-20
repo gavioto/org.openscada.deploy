@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.openscada.configurator.sec.SignatureRule;
 
@@ -39,7 +40,7 @@ import org.openscada.configurator.sec.SignatureRule;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SignatureRuleItemProvider extends PreFilterRuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class SignatureRuleItemProvider extends PreFilterRuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
