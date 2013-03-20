@@ -86,24 +86,6 @@ public interface SecurityFactory extends EFactory
     GenericScript createGenericScript ();
 
     /**
-     * Returns a new object of class '<em>Rules</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Rules</em>'.
-     * @generated
-     */
-    Rules createRules ();
-
-    /**
-     * Returns a new object of class '<em>Scripts</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Scripts</em>'.
-     * @generated
-     */
-    Scripts createScripts ();
-
-    /**
      * Returns a new object of class '<em>Configuration</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -111,6 +93,15 @@ public interface SecurityFactory extends EFactory
      * @generated
      */
     Configuration createConfiguration ();
+
+    /**
+     * Returns a new object of class '<em>Rules</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Rules</em>'.
+     * @generated
+     */
+    Rules createRules ();
 
     /**
      * Returns the package supported by this factory.

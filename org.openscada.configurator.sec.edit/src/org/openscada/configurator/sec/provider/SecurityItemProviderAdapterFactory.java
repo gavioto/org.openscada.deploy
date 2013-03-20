@@ -229,56 +229,6 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Rules} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RulesItemProvider rulesItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configurator.sec.Rules}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRulesAdapter ()
-    {
-        if ( rulesItemProvider == null )
-        {
-            rulesItemProvider = new RulesItemProvider ( this );
-        }
-
-        return rulesItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Scripts} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ScriptsItemProvider scriptsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.configurator.sec.Scripts}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createScriptsAdapter ()
-    {
-        if ( scriptsItemProvider == null )
-        {
-            scriptsItemProvider = new ScriptsItemProvider ( this );
-        }
-
-        return scriptsItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Configuration} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -301,6 +251,31 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
         }
 
         return configurationItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.Rules} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RulesItemProvider rulesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.sec.Rules}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRulesAdapter ()
+    {
+        if ( rulesItemProvider == null )
+        {
+            rulesItemProvider = new RulesItemProvider ( this );
+        }
+
+        return rulesItemProvider;
     }
 
     /**
@@ -454,12 +429,10 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
             javaScriptItemProvider.dispose ();
         if ( genericScriptItemProvider != null )
             genericScriptItemProvider.dispose ();
-        if ( rulesItemProvider != null )
-            rulesItemProvider.dispose ();
-        if ( scriptsItemProvider != null )
-            scriptsItemProvider.dispose ();
         if ( configurationItemProvider != null )
             configurationItemProvider.dispose ();
+        if ( rulesItemProvider != null )
+            rulesItemProvider.dispose ();
     }
 
 }

@@ -487,7 +487,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getRules()
      * @generated
      */
-    int RULES = 8;
+    int RULES = 9;
 
     /**
      * The feature id for the '<em><b>Rules</b></em>' containment reference list.
@@ -508,14 +508,23 @@ public interface SecurityPackage extends EPackage
     int RULES_FEATURE_COUNT = 1;
 
     /**
-     * The meta object id for the '{@link org.openscada.configurator.sec.impl.ScriptsImpl <em>Scripts</em>}' class.
+     * The meta object id for the '{@link org.openscada.configurator.sec.impl.ConfigurationImpl <em>Configuration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.configurator.sec.impl.ScriptsImpl
-     * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getScripts()
+     * @see org.openscada.configurator.sec.impl.ConfigurationImpl
+     * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getConfiguration()
      * @generated
      */
-    int SCRIPTS = 9;
+    int CONFIGURATION = 8;
+
+    /**
+     * The feature id for the '<em><b>Rules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONFIGURATION__RULES = RULES__RULES;
 
     /**
      * The feature id for the '<em><b>Scripts</b></em>' containment reference list.
@@ -524,44 +533,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPTS__SCRIPTS = 0;
-
-    /**
-     * The number of structural features of the '<em>Scripts</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPTS_FEATURE_COUNT = 1;
-
-    /**
-     * The meta object id for the '{@link org.openscada.configurator.sec.impl.ConfigurationImpl <em>Configuration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configurator.sec.impl.ConfigurationImpl
-     * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getConfiguration()
-     * @generated
-     */
-    int CONFIGURATION = 10;
-
-    /**
-     * The feature id for the '<em><b>Rules</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONFIGURATION__RULES = 0;
-
-    /**
-     * The feature id for the '<em><b>Scripts</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONFIGURATION__SCRIPTS = 1;
+    int CONFIGURATION__SCRIPTS = RULES_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Configuration</em>' class.
@@ -570,7 +542,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONFIGURATION_FEATURE_COUNT = 2;
+    int CONFIGURATION_FEATURE_COUNT = RULES_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '<em>Pattern</em>' data type.
@@ -580,7 +552,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 11;
+    int PATTERN = 10;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Rule <em>Rule</em>}'.
@@ -762,6 +734,27 @@ public interface SecurityPackage extends EPackage
     EAttribute getGenericScript_Type ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.configurator.sec.Configuration <em>Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Configuration</em>'.
+     * @see org.openscada.configurator.sec.Configuration
+     * @generated
+     */
+    EClass getConfiguration ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.sec.Configuration#getScripts <em>Scripts</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Scripts</em>'.
+     * @see org.openscada.configurator.sec.Configuration#getScripts()
+     * @see #getConfiguration()
+     * @generated
+     */
+    EReference getConfiguration_Scripts ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Rules <em>Rules</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -781,59 +774,6 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EReference getRules_Rules ();
-
-    /**
-     * Returns the meta object for class '{@link org.openscada.configurator.sec.Scripts <em>Scripts</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Scripts</em>'.
-     * @see org.openscada.configurator.sec.Scripts
-     * @generated
-     */
-    EClass getScripts ();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.sec.Scripts#getScripts <em>Scripts</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Scripts</em>'.
-     * @see org.openscada.configurator.sec.Scripts#getScripts()
-     * @see #getScripts()
-     * @generated
-     */
-    EReference getScripts_Scripts ();
-
-    /**
-     * Returns the meta object for class '{@link org.openscada.configurator.sec.Configuration <em>Configuration</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Configuration</em>'.
-     * @see org.openscada.configurator.sec.Configuration
-     * @generated
-     */
-    EClass getConfiguration ();
-
-    /**
-     * Returns the meta object for the reference '{@link org.openscada.configurator.sec.Configuration#getRules <em>Rules</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Rules</em>'.
-     * @see org.openscada.configurator.sec.Configuration#getRules()
-     * @see #getConfiguration()
-     * @generated
-     */
-    EReference getConfiguration_Rules ();
-
-    /**
-     * Returns the meta object for the reference '{@link org.openscada.configurator.sec.Configuration#getScripts <em>Scripts</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Scripts</em>'.
-     * @see org.openscada.configurator.sec.Configuration#getScripts()
-     * @see #getConfiguration()
-     * @generated
-     */
-    EReference getConfiguration_Scripts ();
 
     /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
@@ -1022,6 +962,24 @@ public interface SecurityPackage extends EPackage
         EAttribute GENERIC_SCRIPT__TYPE = eINSTANCE.getGenericScript_Type ();
 
         /**
+         * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ConfigurationImpl <em>Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.sec.impl.ConfigurationImpl
+         * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getConfiguration()
+         * @generated
+         */
+        EClass CONFIGURATION = eINSTANCE.getConfiguration ();
+
+        /**
+         * The meta object literal for the '<em><b>Scripts</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONFIGURATION__SCRIPTS = eINSTANCE.getConfiguration_Scripts ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.RulesImpl <em>Rules</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1038,50 +996,6 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EReference RULES__RULES = eINSTANCE.getRules_Rules ();
-
-        /**
-         * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ScriptsImpl <em>Scripts</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configurator.sec.impl.ScriptsImpl
-         * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getScripts()
-         * @generated
-         */
-        EClass SCRIPTS = eINSTANCE.getScripts ();
-
-        /**
-         * The meta object literal for the '<em><b>Scripts</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference SCRIPTS__SCRIPTS = eINSTANCE.getScripts_Scripts ();
-
-        /**
-         * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ConfigurationImpl <em>Configuration</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configurator.sec.impl.ConfigurationImpl
-         * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getConfiguration()
-         * @generated
-         */
-        EClass CONFIGURATION = eINSTANCE.getConfiguration ();
-
-        /**
-         * The meta object literal for the '<em><b>Rules</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference CONFIGURATION__RULES = eINSTANCE.getConfiguration_Rules ();
-
-        /**
-         * The meta object literal for the '<em><b>Scripts</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference CONFIGURATION__SCRIPTS = eINSTANCE.getConfiguration_Scripts ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

@@ -20,7 +20,7 @@
  */
 package org.openscada.configurator.sec;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.openscada.configurator.sec.Configuration#getRules <em>Rules</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.Configuration#getScripts <em>Scripts</em>}</li>
  * </ul>
  * </p>
@@ -39,58 +38,22 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Configuration extends EObject
+public interface Configuration extends Rules
 {
     /**
-     * Returns the value of the '<em><b>Rules</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Rules</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Rules</em>' reference.
-     * @see #setRules(Rules)
-     * @see org.openscada.configurator.sec.SecurityPackage#getConfiguration_Rules()
-     * @model
-     * @generated
-     */
-    Rules getRules ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configurator.sec.Configuration#getRules <em>Rules</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Rules</em>' reference.
-     * @see #getRules()
-     * @generated
-     */
-    void setRules ( Rules value );
-
-    /**
-     * Returns the value of the '<em><b>Scripts</b></em>' reference.
+     * Returns the value of the '<em><b>Scripts</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configurator.sec.Script}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Scripts</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Scripts</em>' reference.
-     * @see #setScripts(Scripts)
+     * @return the value of the '<em>Scripts</em>' containment reference list.
      * @see org.openscada.configurator.sec.SecurityPackage#getConfiguration_Scripts()
-     * @model
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
-    Scripts getScripts ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configurator.sec.Configuration#getScripts <em>Scripts</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Scripts</em>' reference.
-     * @see #getScripts()
-     * @generated
-     */
-    void setScripts ( Scripts value );
+    EList<Script> getScripts ();
 
 } // Configuration

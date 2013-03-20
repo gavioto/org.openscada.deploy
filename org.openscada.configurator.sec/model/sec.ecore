@@ -33,16 +33,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="GenericScript" eSuperTypes="#//Script">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Rules">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
-        eType="#//Rule" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Scripts">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="#//Rules">
     <eStructuralFeatures xsi:type="ecore:EReference" name="scripts" upperBound="-1"
         eType="#//Script" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" eType="#//Rules"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scripts" eType="#//Scripts"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

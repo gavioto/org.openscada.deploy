@@ -20,7 +20,6 @@
  */
 package org.openscada.configurator.sec.tests;
 
-import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import org.openscada.configurator.sec.Configuration;
@@ -32,16 +31,8 @@ import org.openscada.configurator.sec.SecurityFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigurationTest extends TestCase
+public class ConfigurationTest extends RulesTest
 {
-
-    /**
-     * The fixture for this Configuration test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Configuration fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -65,25 +56,15 @@ public class ConfigurationTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Configuration test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( Configuration fixture )
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Configuration test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected Configuration getFixture ()
     {
-        return fixture;
+        return (Configuration)fixture;
     }
 
     /**

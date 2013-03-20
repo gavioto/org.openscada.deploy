@@ -32,7 +32,6 @@ import org.openscada.configurator.sec.Rule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.ScriptRule;
-import org.openscada.configurator.sec.Scripts;
 import org.openscada.configurator.sec.SecurityPackage;
 import org.openscada.configurator.sec.SignatureRule;
 
@@ -181,26 +180,20 @@ public class SecuritySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
-            case SecurityPackage.RULES:
-            {
-                Rules rules = (Rules)theEObject;
-                T result = caseRules ( rules );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
-            case SecurityPackage.SCRIPTS:
-            {
-                Scripts scripts = (Scripts)theEObject;
-                T result = caseScripts ( scripts );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
             case SecurityPackage.CONFIGURATION:
             {
                 Configuration configuration = (Configuration)theEObject;
                 T result = caseConfiguration ( configuration );
+                if ( result == null )
+                    result = caseRules ( configuration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case SecurityPackage.RULES:
+            {
+                Rules rules = (Rules)theEObject;
+                T result = caseRules ( rules );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -339,38 +332,6 @@ public class SecuritySwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Rules</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Rules</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseRules ( Rules object )
-    {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Scripts</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Scripts</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseScripts ( Scripts object )
-    {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -382,6 +343,22 @@ public class SecuritySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseConfiguration ( Configuration object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Rules</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Rules</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRules ( Rules object )
     {
         return null;
     }

@@ -34,7 +34,6 @@ import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.ScriptRule;
-import org.openscada.configurator.sec.Scripts;
 import org.openscada.configurator.sec.SecurityFactory;
 import org.openscada.configurator.sec.SecurityPackage;
 import org.openscada.configurator.sec.SignatureRule;
@@ -101,12 +100,10 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
                 return createJavaScript ();
             case SecurityPackage.GENERIC_SCRIPT:
                 return createGenericScript ();
-            case SecurityPackage.RULES:
-                return createRules ();
-            case SecurityPackage.SCRIPTS:
-                return createScripts ();
             case SecurityPackage.CONFIGURATION:
                 return createConfiguration ();
+            case SecurityPackage.RULES:
+                return createRules ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -209,32 +206,21 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Rules createRules ()
-    {
-        RulesImpl rules = new RulesImpl ();
-        return rules;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Scripts createScripts ()
-    {
-        ScriptsImpl scripts = new ScriptsImpl ();
-        return scripts;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public Configuration createConfiguration ()
     {
         ConfigurationImpl configuration = new ConfigurationImpl ();
         return configuration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Rules createRules ()
+    {
+        RulesImpl rules = new RulesImpl ();
+        return rules;
     }
 
     /**

@@ -20,14 +20,16 @@
  */
 package org.openscada.configurator.sec.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.configurator.sec.Configuration;
-import org.openscada.configurator.sec.Rules;
-import org.openscada.configurator.sec.Scripts;
+import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.SecurityPackage;
 
 /**
@@ -37,34 +39,23 @@ import org.openscada.configurator.sec.SecurityPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.configurator.sec.impl.ConfigurationImpl#getRules <em>Rules</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.impl.ConfigurationImpl#getScripts <em>Scripts</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ConfigurationImpl extends EObjectImpl implements Configuration
+public class ConfigurationImpl extends RulesImpl implements Configuration
 {
     /**
-     * The cached value of the '{@link #getRules() <em>Rules</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getRules()
-     * @generated
-     * @ordered
-     */
-    protected Rules rules;
-
-    /**
-     * The cached value of the '{@link #getScripts() <em>Scripts</em>}' reference.
+     * The cached value of the '{@link #getScripts() <em>Scripts</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getScripts()
      * @generated
      * @ordered
      */
-    protected Scripts scripts;
+    protected EList<Script> scripts;
 
     /**
      * <!-- begin-user-doc -->
@@ -92,60 +83,11 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
      * <!-- end-user-doc -->
      * @generated
      */
-    public Rules getRules ()
+    public EList<Script> getScripts ()
     {
-        if ( rules != null && rules.eIsProxy () )
+        if ( scripts == null )
         {
-            InternalEObject oldRules = (InternalEObject)rules;
-            rules = (Rules)eResolveProxy ( oldRules );
-            if ( rules != oldRules )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.CONFIGURATION__RULES, oldRules, rules ) );
-            }
-        }
-        return rules;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Rules basicGetRules ()
-    {
-        return rules;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setRules ( Rules newRules )
-    {
-        Rules oldRules = rules;
-        rules = newRules;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.CONFIGURATION__RULES, oldRules, rules ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Scripts getScripts ()
-    {
-        if ( scripts != null && scripts.eIsProxy () )
-        {
-            InternalEObject oldScripts = (InternalEObject)scripts;
-            scripts = (Scripts)eResolveProxy ( oldScripts );
-            if ( scripts != oldScripts )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.CONFIGURATION__SCRIPTS, oldScripts, scripts ) );
-            }
+            scripts = new EObjectContainmentEList.Resolving<Script> ( Script.class, this, SecurityPackage.CONFIGURATION__SCRIPTS );
         }
         return scripts;
     }
@@ -155,22 +97,15 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
      * <!-- end-user-doc -->
      * @generated
      */
-    public Scripts basicGetScripts ()
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        return scripts;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setScripts ( Scripts newScripts )
-    {
-        Scripts oldScripts = scripts;
-        scripts = newScripts;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.CONFIGURATION__SCRIPTS, oldScripts, scripts ) );
+        switch ( featureID )
+        {
+            case SecurityPackage.CONFIGURATION__SCRIPTS:
+                return ( (InternalEList<?>)getScripts () ).basicRemove ( otherEnd, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -183,14 +118,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
     {
         switch ( featureID )
         {
-            case SecurityPackage.CONFIGURATION__RULES:
-                if ( resolve )
-                    return getRules ();
-                return basicGetRules ();
             case SecurityPackage.CONFIGURATION__SCRIPTS:
-                if ( resolve )
-                    return getScripts ();
-                return basicGetScripts ();
+                return getScripts ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -200,16 +129,15 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
-            case SecurityPackage.CONFIGURATION__RULES:
-                setRules ( (Rules)newValue );
-                return;
             case SecurityPackage.CONFIGURATION__SCRIPTS:
-                setScripts ( (Scripts)newValue );
+                getScripts ().clear ();
+                getScripts ().addAll ( (Collection<? extends Script>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -225,11 +153,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
     {
         switch ( featureID )
         {
-            case SecurityPackage.CONFIGURATION__RULES:
-                setRules ( (Rules)null );
-                return;
             case SecurityPackage.CONFIGURATION__SCRIPTS:
-                setScripts ( (Scripts)null );
+                getScripts ().clear ();
                 return;
         }
         super.eUnset ( featureID );
@@ -245,10 +170,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration
     {
         switch ( featureID )
         {
-            case SecurityPackage.CONFIGURATION__RULES:
-                return rules != null;
             case SecurityPackage.CONFIGURATION__SCRIPTS:
-                return scripts != null;
+                return scripts != null && !scripts.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

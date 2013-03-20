@@ -33,7 +33,6 @@ import org.openscada.configurator.sec.Rule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.ScriptRule;
-import org.openscada.configurator.sec.Scripts;
 import org.openscada.configurator.sec.SecurityPackage;
 import org.openscada.configurator.sec.SignatureRule;
 
@@ -147,21 +146,15 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
-        public Adapter caseRules ( Rules object )
-        {
-            return createRulesAdapter ();
-        }
-
-        @Override
-        public Adapter caseScripts ( Scripts object )
-        {
-            return createScriptsAdapter ();
-        }
-
-        @Override
         public Adapter caseConfiguration ( Configuration object )
         {
             return createConfigurationAdapter ();
+        }
+
+        @Override
+        public Adapter caseRules ( Rules object )
+        {
+            return createRulesAdapter ();
         }
 
         @Override
@@ -306,36 +299,6 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.Rules <em>Rules</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.openscada.configurator.sec.Rules
-     * @generated
-     */
-    public Adapter createRulesAdapter ()
-    {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.Scripts <em>Scripts</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.openscada.configurator.sec.Scripts
-     * @generated
-     */
-    public Adapter createScriptsAdapter ()
-    {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.Configuration <em>Configuration</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -346,6 +309,21 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createConfigurationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.Rules <em>Rules</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.sec.Rules
+     * @generated
+     */
+    public Adapter createRulesAdapter ()
     {
         return null;
     }
