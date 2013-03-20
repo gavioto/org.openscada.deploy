@@ -7,7 +7,9 @@ import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configuration.model.Project;
+import org.openscada.configuration.model.impl.ConfiguratorPackageImpl;
 import org.openscada.deploy.iolist.model.Item;
+import org.openscada.deploy.iolist.model.impl.ModelPackageImpl;
 import org.openscada.deploy.iolist.utils.DuplicateItemsException;
 
 public class Application implements IApplication
@@ -17,6 +19,9 @@ public class Application implements IApplication
     public Object start ( final IApplicationContext context ) throws Exception
     {
         final String[] args = (String[])context.getArguments ().get ( IApplicationContext.APPLICATION_ARGS );
+
+        ModelPackageImpl.init ();
+        ConfiguratorPackageImpl.init ();
 
         try
         {
