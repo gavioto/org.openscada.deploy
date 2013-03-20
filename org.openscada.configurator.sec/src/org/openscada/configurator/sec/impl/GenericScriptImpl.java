@@ -49,7 +49,7 @@ public class GenericScriptImpl extends ScriptImpl implements GenericScript
      * @generated
      * @ordered
      */
-    protected static final String TYPE_EDEFAULT = null;
+    protected static final String TYPE_EDEFAULT = "JavaScript";
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

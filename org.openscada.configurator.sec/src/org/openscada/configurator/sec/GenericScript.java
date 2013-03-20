@@ -40,6 +40,7 @@ public interface GenericScript extends Script
 {
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
+     * The default value is <code>"JavaScript"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -49,7 +50,7 @@ public interface GenericScript extends Script
      * @return the value of the '<em>Type</em>' attribute.
      * @see #setType(String)
      * @see org.openscada.configurator.sec.SecurityPackage#getGenericScript_Type()
-     * @model required="true"
+     * @model default="JavaScript" required="true"
      * @generated
      */
     String getType ();
