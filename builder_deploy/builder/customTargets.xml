@@ -107,6 +107,8 @@
   	<openscada.builder.copyPlugin id="org.openscada.atlantis.configurator"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator"/>
   	
+  	<openscada.builder.copyPlugin id="org.openscada.configurator.runner"/>
+  	
   	<openscada.builder.copyFeature id="org.openscada.configurator.editor"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.model"/>
   	<openscada.builder.copyPlugin id="org.openscada.configurator.model.edit"/>
