@@ -23,6 +23,7 @@ package org.openscada.configurator.sec.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.openscada.configurator.sec.CA;
 import org.openscada.configurator.sec.Configuration;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
@@ -198,6 +199,14 @@ public class SecuritySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case SecurityPackage.CA:
+            {
+                CA ca = (CA)theEObject;
+                T result = caseCA ( ca );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -359,6 +368,22 @@ public class SecuritySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseRules ( Rules object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>CA</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>CA</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCA ( CA object )
     {
         return null;
     }

@@ -104,6 +104,15 @@ public interface SecurityFactory extends EFactory
     Rules createRules ();
 
     /**
+     * Returns a new object of class '<em>CA</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>CA</em>'.
+     * @generated
+     */
+    CA createCA ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

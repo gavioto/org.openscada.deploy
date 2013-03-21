@@ -20,11 +20,20 @@
  */
 package org.openscada.configurator.sec;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Signature Rule</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.openscada.configurator.sec.SignatureRule#getTrustedCertificationAuthority <em>Trusted Certification Authority</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.SignatureRule#isIndentXml <em>Indent Xml</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.openscada.configurator.sec.SecurityPackage#getSignatureRule()
  * @model
@@ -32,4 +41,47 @@ package org.openscada.configurator.sec;
  */
 public interface SignatureRule extends PreFilterRule
 {
+
+    /**
+     * Returns the value of the '<em><b>Trusted Certification Authority</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.configurator.sec.CA}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Trusted Certification Authority</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Trusted Certification Authority</em>' containment reference list.
+     * @see org.openscada.configurator.sec.SecurityPackage#getSignatureRule_TrustedCertificationAuthority()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<CA> getTrustedCertificationAuthority ();
+
+    /**
+     * Returns the value of the '<em><b>Indent Xml</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Indent Xml</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Indent Xml</em>' attribute.
+     * @see #setIndentXml(boolean)
+     * @see org.openscada.configurator.sec.SecurityPackage#getSignatureRule_IndentXml()
+     * @model default="false" required="true"
+     * @generated
+     */
+    boolean isIndentXml ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.SignatureRule#isIndentXml <em>Indent Xml</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Indent Xml</em>' attribute.
+     * @see #isIndentXml()
+     * @generated
+     */
+    void setIndentXml ( boolean value );
 } // SignatureRule

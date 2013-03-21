@@ -333,13 +333,31 @@ public interface SecurityPackage extends EPackage
     int SIGNATURE_RULE__ACTION_FILTER = PRE_FILTER_RULE__ACTION_FILTER;
 
     /**
+     * The feature id for the '<em><b>Trusted Certification Authority</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY = PRE_FILTER_RULE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Indent Xml</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNATURE_RULE__INDENT_XML = PRE_FILTER_RULE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Signature Rule</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE_FEATURE_COUNT = PRE_FILTER_RULE_FEATURE_COUNT + 0;
+    int SIGNATURE_RULE_FEATURE_COUNT = PRE_FILTER_RULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.
@@ -518,6 +536,52 @@ public interface SecurityPackage extends EPackage
     int CONFIGURATION_FEATURE_COUNT = RULES_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.configurator.sec.impl.CAImpl <em>CA</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.configurator.sec.impl.CAImpl
+     * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getCA()
+     * @generated
+     */
+    int CA = 10;
+
+    /**
+     * The feature id for the '<em><b>Certificate Url</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CA__CERTIFICATE_URL = 0;
+
+    /**
+     * The feature id for the '<em><b>Crl Url</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CA__CRL_URL = 1;
+
+    /**
+     * The feature id for the '<em><b>Reload Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CA__RELOAD_DELAY = 2;
+
+    /**
+     * The number of structural features of the '<em>CA</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CA_FEATURE_COUNT = 3;
+
+    /**
      * The meta object id for the '<em>Pattern</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -525,7 +589,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 10;
+    int PATTERN = 11;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Rule <em>Rule</em>}'.
@@ -599,6 +663,28 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EClass getSignatureRule ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.configurator.sec.SignatureRule#getTrustedCertificationAuthority <em>Trusted Certification Authority</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Trusted Certification Authority</em>'.
+     * @see org.openscada.configurator.sec.SignatureRule#getTrustedCertificationAuthority()
+     * @see #getSignatureRule()
+     * @generated
+     */
+    EReference getSignatureRule_TrustedCertificationAuthority ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.SignatureRule#isIndentXml <em>Indent Xml</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Indent Xml</em>'.
+     * @see org.openscada.configurator.sec.SignatureRule#isIndentXml()
+     * @see #getSignatureRule()
+     * @generated
+     */
+    EAttribute getSignatureRule_IndentXml ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.PreFilterRule <em>Pre Filter Rule</em>}'.
@@ -749,6 +835,49 @@ public interface SecurityPackage extends EPackage
     EAttribute getRules_Name ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.configurator.sec.CA <em>CA</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>CA</em>'.
+     * @see org.openscada.configurator.sec.CA
+     * @generated
+     */
+    EClass getCA ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.CA#getCertificateUrl <em>Certificate Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Certificate Url</em>'.
+     * @see org.openscada.configurator.sec.CA#getCertificateUrl()
+     * @see #getCA()
+     * @generated
+     */
+    EAttribute getCA_CertificateUrl ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.openscada.configurator.sec.CA#getCrlUrl <em>Crl Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Crl Url</em>'.
+     * @see org.openscada.configurator.sec.CA#getCrlUrl()
+     * @see #getCA()
+     * @generated
+     */
+    EAttribute getCA_CrlUrl ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.CA#getReloadDelay <em>Reload Delay</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Reload Delay</em>'.
+     * @see org.openscada.configurator.sec.CA#getReloadDelay()
+     * @see #getCA()
+     * @generated
+     */
+    EAttribute getCA_ReloadDelay ();
+
+    /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -845,6 +974,22 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EClass SIGNATURE_RULE = eINSTANCE.getSignatureRule ();
+
+        /**
+         * The meta object literal for the '<em><b>Trusted Certification Authority</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY = eINSTANCE.getSignatureRule_TrustedCertificationAuthority ();
+
+        /**
+         * The meta object literal for the '<em><b>Indent Xml</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIGNATURE_RULE__INDENT_XML = eINSTANCE.getSignatureRule_IndentXml ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.PreFilterRuleImpl <em>Pre Filter Rule</em>}' class.
@@ -969,6 +1114,40 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EAttribute RULES__NAME = eINSTANCE.getRules_Name ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.configurator.sec.impl.CAImpl <em>CA</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.configurator.sec.impl.CAImpl
+         * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getCA()
+         * @generated
+         */
+        EClass CA = eINSTANCE.getCA ();
+
+        /**
+         * The meta object literal for the '<em><b>Certificate Url</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CA__CERTIFICATE_URL = eINSTANCE.getCA_CertificateUrl ();
+
+        /**
+         * The meta object literal for the '<em><b>Crl Url</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CA__CRL_URL = eINSTANCE.getCA_CrlUrl ();
+
+        /**
+         * The meta object literal for the '<em><b>Reload Delay</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CA__RELOAD_DELAY = eINSTANCE.getCA_ReloadDelay ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

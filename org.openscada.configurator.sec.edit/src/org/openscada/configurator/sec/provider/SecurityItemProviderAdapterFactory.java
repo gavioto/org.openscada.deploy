@@ -281,6 +281,31 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.configurator.sec.CA} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CAItemProvider caItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.configurator.sec.CA}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCAAdapter ()
+    {
+        if ( caItemProvider == null )
+        {
+            caItemProvider = new CAItemProvider ( this );
+        }
+
+        return caItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -435,6 +460,8 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory i
             configurationItemProvider.dispose ();
         if ( rulesItemProvider != null )
             rulesItemProvider.dispose ();
+        if ( caItemProvider != null )
+            caItemProvider.dispose ();
     }
 
 }

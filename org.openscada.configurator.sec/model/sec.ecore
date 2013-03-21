@@ -15,7 +15,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="callbackScript" eType="#//Script"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//PreFilterRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//PreFilterRule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//PreFilterRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trustedCertificationAuthority"
+        upperBound="-1" eType="#//CA" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indentXml" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PreFilterRule" abstract="true" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="idFilter" eType="#//Pattern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeFilter" eType="#//Pattern"/>
@@ -40,5 +45,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//Rule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CA">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="certificateUrl" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="crlUrl" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reloadDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period time in milliseconds for reloading the CRLs."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

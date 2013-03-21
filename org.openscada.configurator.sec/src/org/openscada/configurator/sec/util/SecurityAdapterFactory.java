@@ -24,6 +24,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.configurator.sec.CA;
 import org.openscada.configurator.sec.Configuration;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
@@ -155,6 +156,12 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
         public Adapter caseRules ( Rules object )
         {
             return createRulesAdapter ();
+        }
+
+        @Override
+        public Adapter caseCA ( CA object )
+        {
+            return createCAAdapter ();
         }
 
         @Override
@@ -324,6 +331,21 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createRulesAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.CA <em>CA</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.configurator.sec.CA
+     * @generated
+     */
+    public Adapter createCAAdapter ()
     {
         return null;
     }

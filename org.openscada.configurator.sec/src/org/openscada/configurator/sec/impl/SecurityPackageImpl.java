@@ -124,6 +124,13 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass caEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EDataType patternEDataType = null;
 
     /**
@@ -257,6 +264,26 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
     public EClass getSignatureRule ()
     {
         return signatureRuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSignatureRule_TrustedCertificationAuthority ()
+    {
+        return (EReference)signatureRuleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSignatureRule_IndentXml ()
+    {
+        return (EAttribute)signatureRuleEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -404,6 +431,46 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getCA ()
+    {
+        return caEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCA_CertificateUrl ()
+    {
+        return (EAttribute)caEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCA_CrlUrl ()
+    {
+        return (EAttribute)caEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCA_ReloadDelay ()
+    {
+        return (EAttribute)caEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getPattern ()
     {
         return patternEDataType;
@@ -450,6 +517,8 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         logonRuleEClass = createEClass ( LOGON_RULE );
 
         signatureRuleEClass = createEClass ( SIGNATURE_RULE );
+        createEReference ( signatureRuleEClass, SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY );
+        createEAttribute ( signatureRuleEClass, SIGNATURE_RULE__INDENT_XML );
 
         preFilterRuleEClass = createEClass ( PRE_FILTER_RULE );
         createEAttribute ( preFilterRuleEClass, PRE_FILTER_RULE__ID_FILTER );
@@ -470,6 +539,11 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         rulesEClass = createEClass ( RULES );
         createEReference ( rulesEClass, RULES__RULES );
         createEAttribute ( rulesEClass, RULES__NAME );
+
+        caEClass = createEClass ( CA );
+        createEAttribute ( caEClass, CA__CERTIFICATE_URL );
+        createEAttribute ( caEClass, CA__CRL_URL );
+        createEAttribute ( caEClass, CA__RELOAD_DELAY );
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
@@ -526,6 +600,8 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEClass ( logonRuleEClass, LogonRule.class, "LogonRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
         initEClass ( signatureRuleEClass, SignatureRule.class, "SignatureRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getSignatureRule_TrustedCertificationAuthority (), this.getCA (), null, "trustedCertificationAuthority", null, 0, -1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getSignatureRule_IndentXml (), ecorePackage.getEBoolean (), "indentXml", "false", 1, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( preFilterRuleEClass, PreFilterRule.class, "PreFilterRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getPreFilterRule_IdFilter (), this.getPattern (), "idFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -548,6 +624,11 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEClass ( rulesEClass, Rules.class, "Rules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getRules_Rules (), this.getRule (), null, "rules", null, 0, -1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getRules_Name (), ecorePackage.getEString (), "name", null, 0, 1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( caEClass, org.openscada.configurator.sec.CA.class, "CA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getCA_CertificateUrl (), ecorePackage.getEString (), "certificateUrl", null, 1, 1, org.openscada.configurator.sec.CA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getCA_CrlUrl (), ecorePackage.getEString (), "crlUrl", null, 0, -1, org.openscada.configurator.sec.CA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getCA_ReloadDelay (), ecorePackage.getEInt (), "reloadDelay", null, 0, 1, org.openscada.configurator.sec.CA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );

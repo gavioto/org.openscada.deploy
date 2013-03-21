@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.openscada.configurator.sec.CA;
 import org.openscada.configurator.sec.Configuration;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
@@ -104,6 +105,8 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
                 return createConfiguration ();
             case SecurityPackage.RULES:
                 return createRules ();
+            case SecurityPackage.CA:
+                return createCA ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -221,6 +224,17 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
     {
         RulesImpl rules = new RulesImpl ();
         return rules;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CA createCA ()
+    {
+        CAImpl ca = new CAImpl ();
+        return ca;
     }
 
     /**
