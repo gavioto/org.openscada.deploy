@@ -1,6 +1,6 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
-%define version 3.8.1
+%define version 3.8.2
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      p2director
