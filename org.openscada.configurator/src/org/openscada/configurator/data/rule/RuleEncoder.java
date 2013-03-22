@@ -7,6 +7,7 @@ import org.openscada.configurator.data.ConfigurationTarget;
 import org.openscada.configurator.sec.Rule;
 import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.ScriptRule;
+import org.openscada.configurator.sec.SignatureRule;
 
 public class RuleEncoder
 {
@@ -17,6 +18,10 @@ public class RuleEncoder
         if ( rule instanceof ScriptRule )
         {
             return new ScriptRuleEncoder ( (ScriptRule)rule );
+        }
+        else if ( rule instanceof SignatureRule )
+        {
+            return new SigatureRuleEncoder ( (SignatureRule)rule );
         }
         return new RuleEncoder ( rule );
     }
