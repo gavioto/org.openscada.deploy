@@ -359,13 +359,22 @@ public interface SecurityPackage extends EPackage
     int SIGNATURE_RULE__INDENT_XML = RULE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Post Processor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNATURE_RULE__POST_PROCESSOR = RULE_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Signature Rule</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 2;
+    int SIGNATURE_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.
@@ -739,6 +748,17 @@ public interface SecurityPackage extends EPackage
     EAttribute getSignatureRule_IndentXml ();
 
     /**
+     * Returns the meta object for the reference '{@link org.openscada.configurator.sec.SignatureRule#getPostProcessor <em>Post Processor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Post Processor</em>'.
+     * @see org.openscada.configurator.sec.SignatureRule#getPostProcessor()
+     * @see #getSignatureRule()
+     * @generated
+     */
+    EReference getSignatureRule_PostProcessor ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Script <em>Script</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1031,6 +1051,14 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EAttribute SIGNATURE_RULE__INDENT_XML = eINSTANCE.getSignatureRule_IndentXml ();
+
+        /**
+         * The meta object literal for the '<em><b>Post Processor</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SIGNATURE_RULE__POST_PROCESSOR = eINSTANCE.getSignatureRule_PostProcessor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.

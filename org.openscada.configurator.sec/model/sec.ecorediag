@@ -336,4 +336,17 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ud5WI5LOEeKgUIK5gVYLvQ" points="[84, 54, -393, -252]$[478, 282, 1, -24]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ud9AgJLOEeKgUIK5gVYLvQ" id="(0.17333333333333334,0.423728813559322)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_IrIJUJLnEeKcFIyfIFDQTQ" type="3002" source="_1IH9YJBtEeKcHu6aGqBgDQ" target="_QdMDgZCOEeKOcdCA4qJTng">
+    <children xmi:type="notation:Node" xmi:id="_IrIJVJLnEeKcFIyfIFDQTQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_IrIJVZLnEeKcFIyfIFDQTQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_IrIwYJLnEeKcFIyfIFDQTQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_IrIwYZLnEeKcFIyfIFDQTQ" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_IrIJUZLnEeKcFIyfIFDQTQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_IrIJUpLnEeKcFIyfIFDQTQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="sec.ecore#//SignatureRule/postProcessor"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_IrIJU5LnEeKcFIyfIFDQTQ" points="[85, 13, -299, -46]$[385, 69, 1, 10]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IrLzsJLnEeKcFIyfIFDQTQ" id="(0.4066666666666667,0.8305084745762712)"/>
+  </edges>
 </notation:Diagram>

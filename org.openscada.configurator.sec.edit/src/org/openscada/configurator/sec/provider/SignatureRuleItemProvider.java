@@ -73,6 +73,7 @@ public class SignatureRuleItemProvider extends RuleItemProvider implements IEdit
             super.getPropertyDescriptors ( object );
 
             addIndentXmlPropertyDescriptor ( object );
+            addPostProcessorPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -86,6 +87,17 @@ public class SignatureRuleItemProvider extends RuleItemProvider implements IEdit
     protected void addIndentXmlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_indentXml_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SignatureRule_indentXml_feature", "_UI_SignatureRule_type" ), SecurityPackage.Literals.SIGNATURE_RULE__INDENT_XML, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Post Processor feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPostProcessorPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_postProcessor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SignatureRule_postProcessor_feature", "_UI_SignatureRule_type" ), SecurityPackage.Literals.SIGNATURE_RULE__POST_PROCESSOR, true, false, true, null, null, null ) );
     }
 
     /**

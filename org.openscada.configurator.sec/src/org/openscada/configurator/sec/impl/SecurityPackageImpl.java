@@ -323,6 +323,16 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSignatureRule_PostProcessor ()
+    {
+        return (EReference)signatureRuleEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getScript ()
     {
         return scriptEClass;
@@ -515,6 +525,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         signatureRuleEClass = createEClass ( SIGNATURE_RULE );
         createEReference ( signatureRuleEClass, SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY );
         createEAttribute ( signatureRuleEClass, SIGNATURE_RULE__INDENT_XML );
+        createEReference ( signatureRuleEClass, SIGNATURE_RULE__POST_PROCESSOR );
 
         scriptEClass = createEClass ( SCRIPT );
         createEAttribute ( scriptEClass, SCRIPT__SOURCE );
@@ -596,6 +607,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEClass ( signatureRuleEClass, SignatureRule.class, "SignatureRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getSignatureRule_TrustedCertificationAuthority (), this.getCA (), null, "trustedCertificationAuthority", null, 0, -1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSignatureRule_IndentXml (), ecorePackage.getEBoolean (), "indentXml", "false", 1, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getSignatureRule_PostProcessor (), this.getScript (), null, "postProcessor", null, 0, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( scriptEClass, Script.class, "Script", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScript_Source (), ecorePackage.getEString (), "source", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

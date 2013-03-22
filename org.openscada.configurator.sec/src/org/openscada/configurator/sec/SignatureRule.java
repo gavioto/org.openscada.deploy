@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.SignatureRule#getTrustedCertificationAuthority <em>Trusted Certification Authority</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.SignatureRule#isIndentXml <em>Indent Xml</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.SignatureRule#getPostProcessor <em>Post Processor</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,4 +85,30 @@ public interface SignatureRule extends Rule
      * @generated
      */
     void setIndentXml ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Post Processor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Post Processor</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Post Processor</em>' reference.
+     * @see #setPostProcessor(Script)
+     * @see org.openscada.configurator.sec.SecurityPackage#getSignatureRule_PostProcessor()
+     * @model
+     * @generated
+     */
+    Script getPostProcessor ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.SignatureRule#getPostProcessor <em>Post Processor</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Post Processor</em>' reference.
+     * @see #getPostProcessor()
+     * @generated
+     */
+    void setPostProcessor ( Script value );
 } // SignatureRule

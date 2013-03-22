@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.configurator.sec.CA;
+import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.SecurityPackage;
 import org.openscada.configurator.sec.SignatureRule;
 
@@ -43,6 +44,7 @@ import org.openscada.configurator.sec.SignatureRule;
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#getTrustedCertificationAuthority <em>Trusted Certification Authority</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#isIndentXml <em>Indent Xml</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#getPostProcessor <em>Post Processor</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +81,16 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
      * @ordered
      */
     protected boolean indentXml = INDENT_XML_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getPostProcessor() <em>Post Processor</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPostProcessor()
+     * @generated
+     * @ordered
+     */
+    protected Script postProcessor;
 
     /**
      * <!-- begin-user-doc -->
@@ -143,6 +155,49 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
      * <!-- end-user-doc -->
      * @generated
      */
+    public Script getPostProcessor ()
+    {
+        if ( postProcessor != null && postProcessor.eIsProxy () )
+        {
+            InternalEObject oldPostProcessor = (InternalEObject)postProcessor;
+            postProcessor = (Script)eResolveProxy ( oldPostProcessor );
+            if ( postProcessor != oldPostProcessor )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR, oldPostProcessor, postProcessor ) );
+            }
+        }
+        return postProcessor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script basicGetPostProcessor ()
+    {
+        return postProcessor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPostProcessor ( Script newPostProcessor )
+    {
+        Script oldPostProcessor = postProcessor;
+        postProcessor = newPostProcessor;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR, oldPostProcessor, postProcessor ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -168,6 +223,10 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
                 return getTrustedCertificationAuthority ();
             case SecurityPackage.SIGNATURE_RULE__INDENT_XML:
                 return isIndentXml ();
+            case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
+                if ( resolve )
+                    return getPostProcessor ();
+                return basicGetPostProcessor ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -190,6 +249,9 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
             case SecurityPackage.SIGNATURE_RULE__INDENT_XML:
                 setIndentXml ( (Boolean)newValue );
                 return;
+            case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
+                setPostProcessor ( (Script)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -210,6 +272,9 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
             case SecurityPackage.SIGNATURE_RULE__INDENT_XML:
                 setIndentXml ( INDENT_XML_EDEFAULT );
                 return;
+            case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
+                setPostProcessor ( (Script)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -228,6 +293,8 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
                 return trustedCertificationAuthority != null && !trustedCertificationAuthority.isEmpty ();
             case SecurityPackage.SIGNATURE_RULE__INDENT_XML:
                 return indentXml != INDENT_XML_EDEFAULT;
+            case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
+                return postProcessor != null;
         }
         return super.eIsSet ( featureID );
     }
