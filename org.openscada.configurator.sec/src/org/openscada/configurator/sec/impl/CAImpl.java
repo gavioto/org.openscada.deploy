@@ -40,7 +40,6 @@ import org.openscada.configurator.sec.SecurityPackage;
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.impl.CAImpl#getCertificateUrl <em>Certificate Url</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.impl.CAImpl#getCrlUrl <em>Crl Url</em>}</li>
- *   <li>{@link org.openscada.configurator.sec.impl.CAImpl#getReloadDelay <em>Reload Delay</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,26 +76,6 @@ public class CAImpl extends EObjectImpl implements CA
      * @ordered
      */
     protected EList<String> crlUrl;
-
-    /**
-     * The default value of the '{@link #getReloadDelay() <em>Reload Delay</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getReloadDelay()
-     * @generated
-     * @ordered
-     */
-    protected static final int RELOAD_DELAY_EDEFAULT = 0;
-
-    /**
-     * The cached value of the '{@link #getReloadDelay() <em>Reload Delay</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getReloadDelay()
-     * @generated
-     * @ordered
-     */
-    protected int reloadDelay = RELOAD_DELAY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -161,29 +140,6 @@ public class CAImpl extends EObjectImpl implements CA
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getReloadDelay ()
-    {
-        return reloadDelay;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setReloadDelay ( int newReloadDelay )
-    {
-        int oldReloadDelay = reloadDelay;
-        reloadDelay = newReloadDelay;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.CA__RELOAD_DELAY, oldReloadDelay, reloadDelay ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -193,8 +149,6 @@ public class CAImpl extends EObjectImpl implements CA
                 return getCertificateUrl ();
             case SecurityPackage.CA__CRL_URL:
                 return getCrlUrl ();
-            case SecurityPackage.CA__RELOAD_DELAY:
-                return getReloadDelay ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -217,9 +171,6 @@ public class CAImpl extends EObjectImpl implements CA
                 getCrlUrl ().clear ();
                 getCrlUrl ().addAll ( (Collection<? extends String>)newValue );
                 return;
-            case SecurityPackage.CA__RELOAD_DELAY:
-                setReloadDelay ( (Integer)newValue );
-                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -240,9 +191,6 @@ public class CAImpl extends EObjectImpl implements CA
             case SecurityPackage.CA__CRL_URL:
                 getCrlUrl ().clear ();
                 return;
-            case SecurityPackage.CA__RELOAD_DELAY:
-                setReloadDelay ( RELOAD_DELAY_EDEFAULT );
-                return;
         }
         super.eUnset ( featureID );
     }
@@ -261,8 +209,6 @@ public class CAImpl extends EObjectImpl implements CA
                 return CERTIFICATE_URL_EDEFAULT == null ? certificateUrl != null : !CERTIFICATE_URL_EDEFAULT.equals ( certificateUrl );
             case SecurityPackage.CA__CRL_URL:
                 return crlUrl != null && !crlUrl.isEmpty ();
-            case SecurityPackage.CA__RELOAD_DELAY:
-                return reloadDelay != RELOAD_DELAY_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -283,8 +229,6 @@ public class CAImpl extends EObjectImpl implements CA
         result.append ( certificateUrl );
         result.append ( ", crlUrl: " );
         result.append ( crlUrl );
-        result.append ( ", reloadDelay: " );
-        result.append ( reloadDelay );
         result.append ( ')' );
         return result.toString ();
     }

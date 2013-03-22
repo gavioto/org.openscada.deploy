@@ -45,6 +45,7 @@ import org.openscada.configurator.sec.SignatureRule;
  *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#getTrustedCertificationAuthority <em>Trusted Certification Authority</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#isIndentXml <em>Indent Xml</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#getPostProcessor <em>Post Processor</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.impl.SignatureRuleImpl#getReloadPeriod <em>Reload Period</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +92,26 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
      * @ordered
      */
     protected Script postProcessor;
+
+    /**
+     * The default value of the '{@link #getReloadPeriod() <em>Reload Period</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReloadPeriod()
+     * @generated
+     * @ordered
+     */
+    protected static final int RELOAD_PERIOD_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getReloadPeriod() <em>Reload Period</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReloadPeriod()
+     * @generated
+     * @ordered
+     */
+    protected int reloadPeriod = RELOAD_PERIOD_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -198,6 +219,29 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getReloadPeriod ()
+    {
+        return reloadPeriod;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReloadPeriod ( int newReloadPeriod )
+    {
+        int oldReloadPeriod = reloadPeriod;
+        reloadPeriod = newReloadPeriod;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, SecurityPackage.SIGNATURE_RULE__RELOAD_PERIOD, oldReloadPeriod, reloadPeriod ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -227,6 +271,8 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
                 if ( resolve )
                     return getPostProcessor ();
                 return basicGetPostProcessor ();
+            case SecurityPackage.SIGNATURE_RULE__RELOAD_PERIOD:
+                return getReloadPeriod ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -252,6 +298,9 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
             case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
                 setPostProcessor ( (Script)newValue );
                 return;
+            case SecurityPackage.SIGNATURE_RULE__RELOAD_PERIOD:
+                setReloadPeriod ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -275,6 +324,9 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
             case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
                 setPostProcessor ( (Script)null );
                 return;
+            case SecurityPackage.SIGNATURE_RULE__RELOAD_PERIOD:
+                setReloadPeriod ( RELOAD_PERIOD_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -295,6 +347,8 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
                 return indentXml != INDENT_XML_EDEFAULT;
             case SecurityPackage.SIGNATURE_RULE__POST_PROCESSOR:
                 return postProcessor != null;
+            case SecurityPackage.SIGNATURE_RULE__RELOAD_PERIOD:
+                return reloadPeriod != RELOAD_PERIOD_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -313,6 +367,8 @@ public class SignatureRuleImpl extends RuleImpl implements SignatureRule
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (indentXml: " );
         result.append ( indentXml );
+        result.append ( ", reloadPeriod: " );
+        result.append ( reloadPeriod );
         result.append ( ')' );
         return result.toString ();
     }

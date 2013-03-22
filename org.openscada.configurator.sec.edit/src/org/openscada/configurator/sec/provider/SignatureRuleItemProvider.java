@@ -74,6 +74,7 @@ public class SignatureRuleItemProvider extends RuleItemProvider implements IEdit
 
             addIndentXmlPropertyDescriptor ( object );
             addPostProcessorPropertyDescriptor ( object );
+            addReloadPeriodPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -86,7 +87,7 @@ public class SignatureRuleItemProvider extends RuleItemProvider implements IEdit
      */
     protected void addIndentXmlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_indentXml_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SignatureRule_indentXml_feature", "_UI_SignatureRule_type" ), SecurityPackage.Literals.SIGNATURE_RULE__INDENT_XML, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_indentXml_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SignatureRule_indentXml_feature", "_UI_SignatureRule_type" ), SecurityPackage.Literals.SIGNATURE_RULE__INDENT_XML, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_signaturePropertyCategory" ), null ) );
     }
 
     /**
@@ -97,7 +98,18 @@ public class SignatureRuleItemProvider extends RuleItemProvider implements IEdit
      */
     protected void addPostProcessorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_postProcessor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SignatureRule_postProcessor_feature", "_UI_SignatureRule_type" ), SecurityPackage.Literals.SIGNATURE_RULE__POST_PROCESSOR, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_postProcessor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SignatureRule_postProcessor_feature", "_UI_SignatureRule_type" ), SecurityPackage.Literals.SIGNATURE_RULE__POST_PROCESSOR, true, false, true, null, getString ( "_UI_signaturePropertyCategory" ), null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Reload Period feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReloadPeriodPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SignatureRule_reloadPeriod_feature" ), getString ( "_UI_SignatureRule_reloadPeriod_description" ), SecurityPackage.Literals.SIGNATURE_RULE__RELOAD_PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_signaturePropertyCategory" ), null ) );
     }
 
     /**
@@ -173,6 +185,7 @@ public class SignatureRuleItemProvider extends RuleItemProvider implements IEdit
         switch ( notification.getFeatureID ( SignatureRule.class ) )
         {
             case SecurityPackage.SIGNATURE_RULE__INDENT_XML:
+            case SecurityPackage.SIGNATURE_RULE__RELOAD_PERIOD:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case SecurityPackage.SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY:

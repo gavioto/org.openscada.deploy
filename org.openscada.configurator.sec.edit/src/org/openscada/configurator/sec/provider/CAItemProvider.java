@@ -75,7 +75,6 @@ public class CAItemProvider extends ItemProviderAdapter implements IEditingDomai
 
             addCertificateUrlPropertyDescriptor ( object );
             addCrlUrlPropertyDescriptor ( object );
-            addReloadDelayPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -100,17 +99,6 @@ public class CAItemProvider extends ItemProviderAdapter implements IEditingDomai
     protected void addCrlUrlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CA_crlUrl_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_CA_crlUrl_feature", "_UI_CA_type" ), SecurityPackage.Literals.CA__CRL_URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Reload Delay feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReloadDelayPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CA_reloadDelay_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_CA_reloadDelay_feature", "_UI_CA_type" ), SecurityPackage.Literals.CA__RELOAD_DELAY, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -154,7 +142,6 @@ public class CAItemProvider extends ItemProviderAdapter implements IEditingDomai
         {
             case SecurityPackage.CA__CERTIFICATE_URL:
             case SecurityPackage.CA__CRL_URL:
-            case SecurityPackage.CA__RELOAD_DELAY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

@@ -75,6 +75,10 @@
         <element xmi:type="ecore:EAttribute" href="sec.ecore#//SignatureRule/indentXml"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_hkVWQZIxEeKXqOvTayejwQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_mCV68JLnEeKcFIyfIFDQTQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="sec.ecore#//SignatureRule/reloadPeriod"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mCV68ZLnEeKcFIyfIFDQTQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_1IJLgpBtEeKcHu6aGqBgDQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_1IJLg5BtEeKcHu6aGqBgDQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_1IJLhJBtEeKcHu6aGqBgDQ"/>
@@ -201,10 +205,6 @@
       <children xmi:type="notation:Node" xmi:id="_PpUiMJIxEeKXqOvTayejwQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="sec.ecore#//CA/crlUrl"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_PpUiMZIxEeKXqOvTayejwQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_nWoFAJIxEeKXqOvTayejwQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="sec.ecore#//CA/reloadDelay"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_nWoFAZIxEeKXqOvTayejwQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_LafxUpIxEeKXqOvTayejwQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_LafxU5IxEeKXqOvTayejwQ"/>

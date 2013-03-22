@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.CA#getCertificateUrl <em>Certificate Url</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.CA#getCrlUrl <em>Crl Url</em>}</li>
- *   <li>{@link org.openscada.configurator.sec.CA#getReloadDelay <em>Reload Delay</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,30 +83,5 @@ public interface CA extends EObject
      * @generated
      */
     EList<String> getCrlUrl ();
-
-    /**
-     * Returns the value of the '<em><b>Reload Delay</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The period time in milliseconds for reloading the CRLs.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Reload Delay</em>' attribute.
-     * @see #setReloadDelay(int)
-     * @see org.openscada.configurator.sec.SecurityPackage#getCA_ReloadDelay()
-     * @model
-     * @generated
-     */
-    int getReloadDelay ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configurator.sec.CA#getReloadDelay <em>Reload Delay</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Reload Delay</em>' attribute.
-     * @see #getReloadDelay()
-     * @generated
-     */
-    void setReloadDelay ( int value );
 
 } // CA

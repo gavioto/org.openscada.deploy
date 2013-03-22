@@ -25,6 +25,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="indentXml" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postProcessor" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reloadPeriod" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period (milliseconds) in which all CAs will be reloaded."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="Script" abstract="true">
@@ -51,10 +57,5 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="crlUrl" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reloadDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The period time in milliseconds for reloading the CRLs."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

@@ -368,13 +368,22 @@ public interface SecurityPackage extends EPackage
     int SIGNATURE_RULE__POST_PROCESSOR = RULE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Reload Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNATURE_RULE__RELOAD_PERIOD = RULE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Signature Rule</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 3;
+    int SIGNATURE_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.
@@ -581,22 +590,13 @@ public interface SecurityPackage extends EPackage
     int CA__CRL_URL = 1;
 
     /**
-     * The feature id for the '<em><b>Reload Delay</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CA__RELOAD_DELAY = 2;
-
-    /**
      * The number of structural features of the '<em>CA</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CA_FEATURE_COUNT = 3;
+    int CA_FEATURE_COUNT = 2;
 
     /**
      * The meta object id for the '<em>Pattern</em>' data type.
@@ -759,6 +759,17 @@ public interface SecurityPackage extends EPackage
     EReference getSignatureRule_PostProcessor ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.SignatureRule#getReloadPeriod <em>Reload Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Reload Period</em>'.
+     * @see org.openscada.configurator.sec.SignatureRule#getReloadPeriod()
+     * @see #getSignatureRule()
+     * @generated
+     */
+    EAttribute getSignatureRule_ReloadPeriod ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Script <em>Script</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -894,17 +905,6 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EAttribute getCA_CrlUrl ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.CA#getReloadDelay <em>Reload Delay</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Reload Delay</em>'.
-     * @see org.openscada.configurator.sec.CA#getReloadDelay()
-     * @see #getCA()
-     * @generated
-     */
-    EAttribute getCA_ReloadDelay ();
 
     /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
@@ -1061,6 +1061,14 @@ public interface SecurityPackage extends EPackage
         EReference SIGNATURE_RULE__POST_PROCESSOR = eINSTANCE.getSignatureRule_PostProcessor ();
 
         /**
+         * The meta object literal for the '<em><b>Reload Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIGNATURE_RULE__RELOAD_PERIOD = eINSTANCE.getSignatureRule_ReloadPeriod ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1175,14 +1183,6 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EAttribute CA__CRL_URL = eINSTANCE.getCA_CrlUrl ();
-
-        /**
-         * The meta object literal for the '<em><b>Reload Delay</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute CA__RELOAD_DELAY = eINSTANCE.getCA_ReloadDelay ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

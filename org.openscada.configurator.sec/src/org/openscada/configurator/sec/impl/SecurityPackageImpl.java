@@ -333,6 +333,16 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getSignatureRule_ReloadPeriod ()
+    {
+        return (EAttribute)signatureRuleEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getScript ()
     {
         return scriptEClass;
@@ -463,16 +473,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getCA_ReloadDelay ()
-    {
-        return (EAttribute)caEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EDataType getPattern ()
     {
         return patternEDataType;
@@ -526,6 +526,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         createEReference ( signatureRuleEClass, SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY );
         createEAttribute ( signatureRuleEClass, SIGNATURE_RULE__INDENT_XML );
         createEReference ( signatureRuleEClass, SIGNATURE_RULE__POST_PROCESSOR );
+        createEAttribute ( signatureRuleEClass, SIGNATURE_RULE__RELOAD_PERIOD );
 
         scriptEClass = createEClass ( SCRIPT );
         createEAttribute ( scriptEClass, SCRIPT__SOURCE );
@@ -545,7 +546,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         caEClass = createEClass ( CA );
         createEAttribute ( caEClass, CA__CERTIFICATE_URL );
         createEAttribute ( caEClass, CA__CRL_URL );
-        createEAttribute ( caEClass, CA__RELOAD_DELAY );
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
@@ -608,6 +608,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEReference ( getSignatureRule_TrustedCertificationAuthority (), this.getCA (), null, "trustedCertificationAuthority", null, 0, -1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSignatureRule_IndentXml (), ecorePackage.getEBoolean (), "indentXml", "false", 1, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getSignatureRule_PostProcessor (), this.getScript (), null, "postProcessor", null, 0, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getSignatureRule_ReloadPeriod (), ecorePackage.getEInt (), "reloadPeriod", "0", 1, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( scriptEClass, Script.class, "Script", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScript_Source (), ecorePackage.getEString (), "source", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -629,7 +630,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEClass ( caEClass, org.openscada.configurator.sec.CA.class, "CA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getCA_CertificateUrl (), ecorePackage.getEString (), "certificateUrl", null, 1, 1, org.openscada.configurator.sec.CA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getCA_CrlUrl (), ecorePackage.getEString (), "crlUrl", null, 0, -1, org.openscada.configurator.sec.CA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getCA_ReloadDelay (), ecorePackage.getEInt (), "reloadDelay", null, 0, 1, org.openscada.configurator.sec.CA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS );

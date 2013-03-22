@@ -33,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openscada.configurator.sec.SignatureRule#getTrustedCertificationAuthority <em>Trusted Certification Authority</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.SignatureRule#isIndentXml <em>Indent Xml</em>}</li>
  *   <li>{@link org.openscada.configurator.sec.SignatureRule#getPostProcessor <em>Post Processor</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.SignatureRule#getReloadPeriod <em>Reload Period</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,4 +112,30 @@ public interface SignatureRule extends Rule
      * @generated
      */
     void setPostProcessor ( Script value );
+
+    /**
+     * Returns the value of the '<em><b>Reload Period</b></em>' attribute.
+     * The default value is <code>"0"</code>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The period (milliseconds) in which all CAs will be reloaded.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Reload Period</em>' attribute.
+     * @see #setReloadPeriod(int)
+     * @see org.openscada.configurator.sec.SecurityPackage#getSignatureRule_ReloadPeriod()
+     * @model default="0" required="true"
+     * @generated
+     */
+    int getReloadPeriod ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.SignatureRule#getReloadPeriod <em>Reload Period</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Reload Period</em>' attribute.
+     * @see #getReloadPeriod()
+     * @generated
+     */
+    void setReloadPeriod ( int value );
 } // SignatureRule
