@@ -28,7 +28,6 @@ import org.openscada.configurator.sec.Configuration;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
-import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.Rule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.Script;
@@ -112,8 +111,6 @@ public class SecuritySwitch<T> extends Switch<T>
                 ScriptRule scriptRule = (ScriptRule)theEObject;
                 T result = caseScriptRule ( scriptRule );
                 if ( result == null )
-                    result = casePreFilterRule ( scriptRule );
-                if ( result == null )
                     result = caseRule ( scriptRule );
                 if ( result == null )
                     result = defaultCase ( theEObject );
@@ -123,8 +120,6 @@ public class SecuritySwitch<T> extends Switch<T>
             {
                 LogonRule logonRule = (LogonRule)theEObject;
                 T result = caseLogonRule ( logonRule );
-                if ( result == null )
-                    result = casePreFilterRule ( logonRule );
                 if ( result == null )
                     result = caseRule ( logonRule );
                 if ( result == null )
@@ -136,19 +131,7 @@ public class SecuritySwitch<T> extends Switch<T>
                 SignatureRule signatureRule = (SignatureRule)theEObject;
                 T result = caseSignatureRule ( signatureRule );
                 if ( result == null )
-                    result = casePreFilterRule ( signatureRule );
-                if ( result == null )
                     result = caseRule ( signatureRule );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
-            case SecurityPackage.PRE_FILTER_RULE:
-            {
-                PreFilterRule preFilterRule = (PreFilterRule)theEObject;
-                T result = casePreFilterRule ( preFilterRule );
-                if ( result == null )
-                    result = caseRule ( preFilterRule );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -272,22 +255,6 @@ public class SecuritySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSignatureRule ( SignatureRule object )
-    {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Pre Filter Rule</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Pre Filter Rule</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T casePreFilterRule ( PreFilterRule object )
     {
         return null;
     }

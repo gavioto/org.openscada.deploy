@@ -30,6 +30,6 @@ package org.openscada.configurator.sec;
  * @model
  * @generated
  */
-public interface LogonRule extends PreFilterRule
+public interface LogonRule extends Rule
 {
 } // LogonRule

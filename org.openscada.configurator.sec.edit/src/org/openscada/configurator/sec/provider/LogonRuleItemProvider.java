@@ -40,7 +40,7 @@ import org.openscada.configurator.sec.LogonRule;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LogonRuleItemProvider extends PreFilterRuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class LogonRuleItemProvider extends RuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.

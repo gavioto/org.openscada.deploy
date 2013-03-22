@@ -31,7 +31,7 @@ import org.openscada.configurator.sec.SecurityFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LogonRuleTest extends PreFilterRuleTest
+public class LogonRuleTest extends RuleTest
 {
 
     /**

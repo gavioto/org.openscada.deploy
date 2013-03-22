@@ -95,50 +95,13 @@ public interface SecurityPackage extends EPackage
     int RULE__ID = 0;
 
     /**
-     * The number of structural features of the '<em>Rule</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RULE_FEATURE_COUNT = 1;
-
-    /**
-     * The meta object id for the '{@link org.openscada.configurator.sec.impl.PreFilterRuleImpl <em>Pre Filter Rule</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.configurator.sec.impl.PreFilterRuleImpl
-     * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getPreFilterRule()
-     * @generated
-     */
-    int PRE_FILTER_RULE = 4;
-
-    /**
-     * The feature id for the '<em><b>Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PRE_FILTER_RULE__ID = RULE__ID;
-
-    /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRE_FILTER_RULE__ID_FILTER = RULE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PRE_FILTER_RULE__TYPE_FILTER = RULE_FEATURE_COUNT + 1;
+    int RULE__ID_FILTER = 1;
 
     /**
      * The feature id for the '<em><b>Action Filter</b></em>' attribute.
@@ -147,16 +110,34 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int PRE_FILTER_RULE__ACTION_FILTER = RULE_FEATURE_COUNT + 2;
+    int RULE__ACTION_FILTER = 2;
 
     /**
-     * The number of structural features of the '<em>Pre Filter Rule</em>' class.
+     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRE_FILTER_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 3;
+    int RULE__TYPE_FILTER = 3;
+
+    /**
+     * The feature id for the '<em><b>Filter Script</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RULE__FILTER_SCRIPT = 4;
+
+    /**
+     * The number of structural features of the '<em>Rule</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RULE_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.ScriptRuleImpl <em>Script Rule</em>}' class.
@@ -175,7 +156,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_RULE__ID = PRE_FILTER_RULE__ID;
+    int SCRIPT_RULE__ID = RULE__ID;
 
     /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
@@ -184,16 +165,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_RULE__ID_FILTER = PRE_FILTER_RULE__ID_FILTER;
-
-    /**
-     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_RULE__TYPE_FILTER = PRE_FILTER_RULE__TYPE_FILTER;
+    int SCRIPT_RULE__ID_FILTER = RULE__ID_FILTER;
 
     /**
      * The feature id for the '<em><b>Action Filter</b></em>' attribute.
@@ -202,7 +174,25 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_RULE__ACTION_FILTER = PRE_FILTER_RULE__ACTION_FILTER;
+    int SCRIPT_RULE__ACTION_FILTER = RULE__ACTION_FILTER;
+
+    /**
+     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_RULE__TYPE_FILTER = RULE__TYPE_FILTER;
+
+    /**
+     * The feature id for the '<em><b>Filter Script</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_RULE__FILTER_SCRIPT = RULE__FILTER_SCRIPT;
 
     /**
      * The feature id for the '<em><b>Script</b></em>' reference.
@@ -211,7 +201,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_RULE__SCRIPT = PRE_FILTER_RULE_FEATURE_COUNT + 0;
+    int SCRIPT_RULE__SCRIPT = RULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Callback Script</b></em>' reference.
@@ -220,7 +210,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_RULE__CALLBACK_SCRIPT = PRE_FILTER_RULE_FEATURE_COUNT + 1;
+    int SCRIPT_RULE__CALLBACK_SCRIPT = RULE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Script Rule</em>' class.
@@ -229,7 +219,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_RULE_FEATURE_COUNT = PRE_FILTER_RULE_FEATURE_COUNT + 2;
+    int SCRIPT_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.LogonRuleImpl <em>Logon Rule</em>}' class.
@@ -248,7 +238,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LOGON_RULE__ID = PRE_FILTER_RULE__ID;
+    int LOGON_RULE__ID = RULE__ID;
 
     /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
@@ -257,16 +247,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LOGON_RULE__ID_FILTER = PRE_FILTER_RULE__ID_FILTER;
-
-    /**
-     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LOGON_RULE__TYPE_FILTER = PRE_FILTER_RULE__TYPE_FILTER;
+    int LOGON_RULE__ID_FILTER = RULE__ID_FILTER;
 
     /**
      * The feature id for the '<em><b>Action Filter</b></em>' attribute.
@@ -275,7 +256,25 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LOGON_RULE__ACTION_FILTER = PRE_FILTER_RULE__ACTION_FILTER;
+    int LOGON_RULE__ACTION_FILTER = RULE__ACTION_FILTER;
+
+    /**
+     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LOGON_RULE__TYPE_FILTER = RULE__TYPE_FILTER;
+
+    /**
+     * The feature id for the '<em><b>Filter Script</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LOGON_RULE__FILTER_SCRIPT = RULE__FILTER_SCRIPT;
 
     /**
      * The number of structural features of the '<em>Logon Rule</em>' class.
@@ -284,7 +283,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LOGON_RULE_FEATURE_COUNT = PRE_FILTER_RULE_FEATURE_COUNT + 0;
+    int LOGON_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.SignatureRuleImpl <em>Signature Rule</em>}' class.
@@ -303,7 +302,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE__ID = PRE_FILTER_RULE__ID;
+    int SIGNATURE_RULE__ID = RULE__ID;
 
     /**
      * The feature id for the '<em><b>Id Filter</b></em>' attribute.
@@ -312,16 +311,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE__ID_FILTER = PRE_FILTER_RULE__ID_FILTER;
-
-    /**
-     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SIGNATURE_RULE__TYPE_FILTER = PRE_FILTER_RULE__TYPE_FILTER;
+    int SIGNATURE_RULE__ID_FILTER = RULE__ID_FILTER;
 
     /**
      * The feature id for the '<em><b>Action Filter</b></em>' attribute.
@@ -330,7 +320,25 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE__ACTION_FILTER = PRE_FILTER_RULE__ACTION_FILTER;
+    int SIGNATURE_RULE__ACTION_FILTER = RULE__ACTION_FILTER;
+
+    /**
+     * The feature id for the '<em><b>Type Filter</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNATURE_RULE__TYPE_FILTER = RULE__TYPE_FILTER;
+
+    /**
+     * The feature id for the '<em><b>Filter Script</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNATURE_RULE__FILTER_SCRIPT = RULE__FILTER_SCRIPT;
 
     /**
      * The feature id for the '<em><b>Trusted Certification Authority</b></em>' containment reference list.
@@ -339,7 +347,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY = PRE_FILTER_RULE_FEATURE_COUNT + 0;
+    int SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY = RULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Indent Xml</b></em>' attribute.
@@ -348,7 +356,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE__INDENT_XML = PRE_FILTER_RULE_FEATURE_COUNT + 1;
+    int SIGNATURE_RULE__INDENT_XML = RULE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Signature Rule</em>' class.
@@ -357,7 +365,7 @@ public interface SecurityPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIGNATURE_RULE_FEATURE_COUNT = PRE_FILTER_RULE_FEATURE_COUNT + 2;
+    int SIGNATURE_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.
@@ -367,7 +375,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getScript()
      * @generated
      */
-    int SCRIPT = 5;
+    int SCRIPT = 4;
 
     /**
      * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -395,7 +403,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getJavaScript()
      * @generated
      */
-    int JAVA_SCRIPT = 6;
+    int JAVA_SCRIPT = 5;
 
     /**
      * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -423,7 +431,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getGenericScript()
      * @generated
      */
-    int GENERIC_SCRIPT = 7;
+    int GENERIC_SCRIPT = 6;
 
     /**
      * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -460,7 +468,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getRules()
      * @generated
      */
-    int RULES = 9;
+    int RULES = 8;
 
     /**
      * The feature id for the '<em><b>Rules</b></em>' containment reference list.
@@ -497,7 +505,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getConfiguration()
      * @generated
      */
-    int CONFIGURATION = 8;
+    int CONFIGURATION = 7;
 
     /**
      * The feature id for the '<em><b>Rules</b></em>' containment reference list.
@@ -543,7 +551,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getCA()
      * @generated
      */
-    int CA = 10;
+    int CA = 9;
 
     /**
      * The feature id for the '<em><b>Certificate Url</b></em>' attribute.
@@ -589,7 +597,7 @@ public interface SecurityPackage extends EPackage
      * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 11;
+    int PATTERN = 10;
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Rule <em>Rule</em>}'.
@@ -611,6 +619,50 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EAttribute getRule_Id ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.Rule#getIdFilter <em>Id Filter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id Filter</em>'.
+     * @see org.openscada.configurator.sec.Rule#getIdFilter()
+     * @see #getRule()
+     * @generated
+     */
+    EAttribute getRule_IdFilter ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.Rule#getActionFilter <em>Action Filter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Action Filter</em>'.
+     * @see org.openscada.configurator.sec.Rule#getActionFilter()
+     * @see #getRule()
+     * @generated
+     */
+    EAttribute getRule_ActionFilter ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.Rule#getTypeFilter <em>Type Filter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type Filter</em>'.
+     * @see org.openscada.configurator.sec.Rule#getTypeFilter()
+     * @see #getRule()
+     * @generated
+     */
+    EAttribute getRule_TypeFilter ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.configurator.sec.Rule#getFilterScript <em>Filter Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Filter Script</em>'.
+     * @see org.openscada.configurator.sec.Rule#getFilterScript()
+     * @see #getRule()
+     * @generated
+     */
+    EReference getRule_FilterScript ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.ScriptRule <em>Script Rule</em>}'.
@@ -685,49 +737,6 @@ public interface SecurityPackage extends EPackage
      * @generated
      */
     EAttribute getSignatureRule_IndentXml ();
-
-    /**
-     * Returns the meta object for class '{@link org.openscada.configurator.sec.PreFilterRule <em>Pre Filter Rule</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Pre Filter Rule</em>'.
-     * @see org.openscada.configurator.sec.PreFilterRule
-     * @generated
-     */
-    EClass getPreFilterRule ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.PreFilterRule#getIdFilter <em>Id Filter</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Id Filter</em>'.
-     * @see org.openscada.configurator.sec.PreFilterRule#getIdFilter()
-     * @see #getPreFilterRule()
-     * @generated
-     */
-    EAttribute getPreFilterRule_IdFilter ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.PreFilterRule#getTypeFilter <em>Type Filter</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Type Filter</em>'.
-     * @see org.openscada.configurator.sec.PreFilterRule#getTypeFilter()
-     * @see #getPreFilterRule()
-     * @generated
-     */
-    EAttribute getPreFilterRule_TypeFilter ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.configurator.sec.PreFilterRule#getActionFilter <em>Action Filter</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Action Filter</em>'.
-     * @see org.openscada.configurator.sec.PreFilterRule#getActionFilter()
-     * @see #getPreFilterRule()
-     * @generated
-     */
-    EAttribute getPreFilterRule_ActionFilter ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.Script <em>Script</em>}'.
@@ -930,6 +939,38 @@ public interface SecurityPackage extends EPackage
         EAttribute RULE__ID = eINSTANCE.getRule_Id ();
 
         /**
+         * The meta object literal for the '<em><b>Id Filter</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RULE__ID_FILTER = eINSTANCE.getRule_IdFilter ();
+
+        /**
+         * The meta object literal for the '<em><b>Action Filter</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RULE__ACTION_FILTER = eINSTANCE.getRule_ActionFilter ();
+
+        /**
+         * The meta object literal for the '<em><b>Type Filter</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RULE__TYPE_FILTER = eINSTANCE.getRule_TypeFilter ();
+
+        /**
+         * The meta object literal for the '<em><b>Filter Script</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference RULE__FILTER_SCRIPT = eINSTANCE.getRule_FilterScript ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ScriptRuleImpl <em>Script Rule</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -990,40 +1031,6 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EAttribute SIGNATURE_RULE__INDENT_XML = eINSTANCE.getSignatureRule_IndentXml ();
-
-        /**
-         * The meta object literal for the '{@link org.openscada.configurator.sec.impl.PreFilterRuleImpl <em>Pre Filter Rule</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.openscada.configurator.sec.impl.PreFilterRuleImpl
-         * @see org.openscada.configurator.sec.impl.SecurityPackageImpl#getPreFilterRule()
-         * @generated
-         */
-        EClass PRE_FILTER_RULE = eINSTANCE.getPreFilterRule ();
-
-        /**
-         * The meta object literal for the '<em><b>Id Filter</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PRE_FILTER_RULE__ID_FILTER = eINSTANCE.getPreFilterRule_IdFilter ();
-
-        /**
-         * The meta object literal for the '<em><b>Type Filter</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PRE_FILTER_RULE__TYPE_FILTER = eINSTANCE.getPreFilterRule_TypeFilter ();
-
-        /**
-         * The meta object literal for the '<em><b>Action Filter</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PRE_FILTER_RULE__ACTION_FILTER = eINSTANCE.getPreFilterRule_ActionFilter ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.ScriptImpl <em>Script</em>}' class.

@@ -48,7 +48,7 @@ import org.openscada.configurator.sec.SignatureRule;
  *
  * @generated
  */
-public class SignatureRuleImpl extends PreFilterRuleImpl implements SignatureRule
+public class SignatureRuleImpl extends RuleImpl implements SignatureRule
 {
     /**
      * The cached value of the '{@link #getTrustedCertificationAuthority() <em>Trusted Certification Authority</em>}' containment reference list.

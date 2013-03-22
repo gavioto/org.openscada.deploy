@@ -37,7 +37,7 @@ package org.openscada.configurator.sec;
  * @model
  * @generated
  */
-public interface ScriptRule extends PreFilterRule
+public interface ScriptRule extends Rule
 {
 
     /**

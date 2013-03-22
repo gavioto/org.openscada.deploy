@@ -42,7 +42,7 @@ import org.openscada.configurator.sec.SecurityPackage;
  *
  * @generated
  */
-public class ScriptRuleImpl extends PreFilterRuleImpl implements ScriptRule
+public class ScriptRuleImpl extends RuleImpl implements ScriptRule
 {
     /**
      * The cached value of the '{@link #getScript() <em>Script</em>}' reference.

@@ -74,6 +74,10 @@ public class RuleItemProvider extends ItemProviderAdapter implements IEditingDom
             super.getPropertyDescriptors ( object );
 
             addIdPropertyDescriptor ( object );
+            addIdFilterPropertyDescriptor ( object );
+            addActionFilterPropertyDescriptor ( object );
+            addTypeFilterPropertyDescriptor ( object );
+            addFilterScriptPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -87,6 +91,50 @@ public class RuleItemProvider extends ItemProviderAdapter implements IEditingDom
     protected void addIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_id_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_id_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_mainPropertyCategory" ), null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Id Filter feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIdFilterPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_idFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_idFilter_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__ID_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Action Filter feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addActionFilterPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_actionFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_actionFilter_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__ACTION_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Type Filter feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTypeFilterPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_typeFilter_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_typeFilter_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__TYPE_FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Filter Script feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFilterScriptPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Rule_filterScript_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Rule_filterScript_feature", "_UI_Rule_type" ), SecurityPackage.Literals.RULE__FILTER_SCRIPT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -117,6 +165,9 @@ public class RuleItemProvider extends ItemProviderAdapter implements IEditingDom
         switch ( notification.getFeatureID ( Rule.class ) )
         {
             case SecurityPackage.RULE__ID:
+            case SecurityPackage.RULE__ID_FILTER:
+            case SecurityPackage.RULE__ACTION_FILTER:
+            case SecurityPackage.RULE__TYPE_FILTER:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

@@ -33,7 +33,7 @@ import org.openscada.configurator.sec.SecurityPackage;
  *
  * @generated
  */
-public class LogonRuleImpl extends PreFilterRuleImpl implements LogonRule
+public class LogonRuleImpl extends RuleImpl implements LogonRule
 {
     /**
      * <!-- begin-user-doc -->

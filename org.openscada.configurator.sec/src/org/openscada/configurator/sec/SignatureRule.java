@@ -39,7 +39,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SignatureRule extends PreFilterRule
+public interface SignatureRule extends Rule
 {
 
     /**

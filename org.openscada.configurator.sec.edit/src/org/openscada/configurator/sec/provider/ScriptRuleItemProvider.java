@@ -42,7 +42,7 @@ import org.openscada.configurator.sec.SecurityPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScriptRuleItemProvider extends PreFilterRuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class ScriptRuleItemProvider extends RuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.

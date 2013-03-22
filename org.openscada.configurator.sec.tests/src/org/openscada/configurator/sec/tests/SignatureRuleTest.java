@@ -31,7 +31,7 @@ import org.openscada.configurator.sec.SignatureRule;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SignatureRuleTest extends PreFilterRuleTest
+public class SignatureRuleTest extends RuleTest
 {
 
     /**

@@ -32,7 +32,6 @@ import org.openscada.configurator.sec.Configuration;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
-import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.Rule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.Script;
@@ -76,13 +75,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * @generated
      */
     private EClass signatureRuleEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EClass preFilterRuleEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -221,6 +213,46 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getRule_IdFilter ()
+    {
+        return (EAttribute)ruleEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRule_ActionFilter ()
+    {
+        return (EAttribute)ruleEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRule_TypeFilter ()
+    {
+        return (EAttribute)ruleEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getRule_FilterScript ()
+    {
+        return (EReference)ruleEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getScriptRule ()
     {
         return scriptRuleEClass;
@@ -284,46 +316,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
     public EAttribute getSignatureRule_IndentXml ()
     {
         return (EAttribute)signatureRuleEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EClass getPreFilterRule ()
-    {
-        return preFilterRuleEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getPreFilterRule_IdFilter ()
-    {
-        return (EAttribute)preFilterRuleEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getPreFilterRule_TypeFilter ()
-    {
-        return (EAttribute)preFilterRuleEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getPreFilterRule_ActionFilter ()
-    {
-        return (EAttribute)preFilterRuleEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -509,6 +501,10 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         // Create classes and their features
         ruleEClass = createEClass ( RULE );
         createEAttribute ( ruleEClass, RULE__ID );
+        createEAttribute ( ruleEClass, RULE__ID_FILTER );
+        createEAttribute ( ruleEClass, RULE__ACTION_FILTER );
+        createEAttribute ( ruleEClass, RULE__TYPE_FILTER );
+        createEReference ( ruleEClass, RULE__FILTER_SCRIPT );
 
         scriptRuleEClass = createEClass ( SCRIPT_RULE );
         createEReference ( scriptRuleEClass, SCRIPT_RULE__SCRIPT );
@@ -519,11 +515,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         signatureRuleEClass = createEClass ( SIGNATURE_RULE );
         createEReference ( signatureRuleEClass, SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY );
         createEAttribute ( signatureRuleEClass, SIGNATURE_RULE__INDENT_XML );
-
-        preFilterRuleEClass = createEClass ( PRE_FILTER_RULE );
-        createEAttribute ( preFilterRuleEClass, PRE_FILTER_RULE__ID_FILTER );
-        createEAttribute ( preFilterRuleEClass, PRE_FILTER_RULE__TYPE_FILTER );
-        createEAttribute ( preFilterRuleEClass, PRE_FILTER_RULE__ACTION_FILTER );
 
         scriptEClass = createEClass ( SCRIPT );
         createEAttribute ( scriptEClass, SCRIPT__SOURCE );
@@ -579,10 +570,9 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        scriptRuleEClass.getESuperTypes ().add ( this.getPreFilterRule () );
-        logonRuleEClass.getESuperTypes ().add ( this.getPreFilterRule () );
-        signatureRuleEClass.getESuperTypes ().add ( this.getPreFilterRule () );
-        preFilterRuleEClass.getESuperTypes ().add ( this.getRule () );
+        scriptRuleEClass.getESuperTypes ().add ( this.getRule () );
+        logonRuleEClass.getESuperTypes ().add ( this.getRule () );
+        signatureRuleEClass.getESuperTypes ().add ( this.getRule () );
         javaScriptEClass.getESuperTypes ().add ( this.getScript () );
         genericScriptEClass.getESuperTypes ().add ( this.getScript () );
         configurationEClass.getESuperTypes ().add ( this.getRules () );
@@ -590,6 +580,10 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         // Initialize classes and features; add operations and parameters
         initEClass ( ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getRule_Id (), ecorePackage.getEString (), "id", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getRule_IdFilter (), this.getPattern (), "idFilter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getRule_ActionFilter (), this.getPattern (), "actionFilter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getRule_TypeFilter (), this.getPattern (), "typeFilter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getRule_FilterScript (), this.getScript (), null, "filterScript", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         addEOperation ( ruleEClass, ecorePackage.getEString (), "getRuleType", 1, 1, IS_UNIQUE, IS_ORDERED );
 
@@ -602,11 +596,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEClass ( signatureRuleEClass, SignatureRule.class, "SignatureRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getSignatureRule_TrustedCertificationAuthority (), this.getCA (), null, "trustedCertificationAuthority", null, 0, -1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getSignatureRule_IndentXml (), ecorePackage.getEBoolean (), "indentXml", "false", 1, 1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-
-        initEClass ( preFilterRuleEClass, PreFilterRule.class, "PreFilterRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getPreFilterRule_IdFilter (), this.getPattern (), "idFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getPreFilterRule_TypeFilter (), this.getPattern (), "typeFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getPreFilterRule_ActionFilter (), this.getPattern (), "actionFilter", null, 0, 1, PreFilterRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( scriptEClass, Script.class, "Script", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getScript_Source (), ecorePackage.getEString (), "source", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

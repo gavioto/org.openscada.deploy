@@ -29,7 +29,6 @@ import org.openscada.configurator.sec.Configuration;
 import org.openscada.configurator.sec.GenericScript;
 import org.openscada.configurator.sec.JavaScript;
 import org.openscada.configurator.sec.LogonRule;
-import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.Rule;
 import org.openscada.configurator.sec.Rules;
 import org.openscada.configurator.sec.Script;
@@ -120,12 +119,6 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
         public Adapter caseSignatureRule ( SignatureRule object )
         {
             return createSignatureRuleAdapter ();
-        }
-
-        @Override
-        public Adapter casePreFilterRule ( PreFilterRule object )
-        {
-            return createPreFilterRuleAdapter ();
         }
 
         @Override
@@ -241,21 +234,6 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSignatureRuleAdapter ()
-    {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.openscada.configurator.sec.PreFilterRule <em>Pre Filter Rule</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.openscada.configurator.sec.PreFilterRule
-     * @generated
-     */
-    public Adapter createPreFilterRuleAdapter ()
     {
         return null;
     }

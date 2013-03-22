@@ -9,22 +9,21 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filterScript" eType="#//Script"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ScriptRule" eSuperTypes="#//PreFilterRule">
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptRule" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="script" eType="#//Script"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callbackScript" eType="#//Script"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//PreFilterRule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//PreFilterRule">
+  <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//Rule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="trustedCertificationAuthority"
         upperBound="-1" eType="#//CA" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="indentXml" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PreFilterRule" abstract="true" eSuperTypes="#//Rule">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idFilter" eType="#//Pattern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeFilter" eType="#//Pattern"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionFilter" eType="#//Pattern"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="Script" abstract="true">

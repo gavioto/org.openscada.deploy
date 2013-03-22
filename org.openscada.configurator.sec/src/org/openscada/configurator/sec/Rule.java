@@ -20,6 +20,8 @@
  */
 package org.openscada.configurator.sec;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -31,6 +33,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.openscada.configurator.sec.Rule#getId <em>Id</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.Rule#getIdFilter <em>Id Filter</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.Rule#getActionFilter <em>Action Filter</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.Rule#getTypeFilter <em>Type Filter</em>}</li>
+ *   <li>{@link org.openscada.configurator.sec.Rule#getFilterScript <em>Filter Script</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +71,110 @@ public interface Rule extends EObject
      * @generated
      */
     void setId ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Id Filter</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Id Filter</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Id Filter</em>' attribute.
+     * @see #setIdFilter(Pattern)
+     * @see org.openscada.configurator.sec.SecurityPackage#getRule_IdFilter()
+     * @model dataType="org.openscada.configurator.sec.Pattern"
+     * @generated
+     */
+    Pattern getIdFilter ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.Rule#getIdFilter <em>Id Filter</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Id Filter</em>' attribute.
+     * @see #getIdFilter()
+     * @generated
+     */
+    void setIdFilter ( Pattern value );
+
+    /**
+     * Returns the value of the '<em><b>Action Filter</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Action Filter</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Action Filter</em>' attribute.
+     * @see #setActionFilter(Pattern)
+     * @see org.openscada.configurator.sec.SecurityPackage#getRule_ActionFilter()
+     * @model dataType="org.openscada.configurator.sec.Pattern"
+     * @generated
+     */
+    Pattern getActionFilter ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.Rule#getActionFilter <em>Action Filter</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Action Filter</em>' attribute.
+     * @see #getActionFilter()
+     * @generated
+     */
+    void setActionFilter ( Pattern value );
+
+    /**
+     * Returns the value of the '<em><b>Type Filter</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Type Filter</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Type Filter</em>' attribute.
+     * @see #setTypeFilter(Pattern)
+     * @see org.openscada.configurator.sec.SecurityPackage#getRule_TypeFilter()
+     * @model dataType="org.openscada.configurator.sec.Pattern"
+     * @generated
+     */
+    Pattern getTypeFilter ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.Rule#getTypeFilter <em>Type Filter</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Type Filter</em>' attribute.
+     * @see #getTypeFilter()
+     * @generated
+     */
+    void setTypeFilter ( Pattern value );
+
+    /**
+     * Returns the value of the '<em><b>Filter Script</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Filter Script</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Filter Script</em>' reference.
+     * @see #setFilterScript(Script)
+     * @see org.openscada.configurator.sec.SecurityPackage#getRule_FilterScript()
+     * @model
+     * @generated
+     */
+    Script getFilterScript ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.configurator.sec.Rule#getFilterScript <em>Filter Script</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Filter Script</em>' reference.
+     * @see #getFilterScript()
+     * @generated
+     */
+    void setFilterScript ( Script value );
 
     /**
      * <!-- begin-user-doc -->

@@ -46,7 +46,7 @@ import org.openscada.configurator.sec.SignatureRule;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SignatureRuleItemProvider extends PreFilterRuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class SignatureRuleItemProvider extends RuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.

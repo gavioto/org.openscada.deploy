@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openscada.configurator.data.ConfigurationTarget;
-import org.openscada.configurator.sec.PreFilterRule;
 import org.openscada.configurator.sec.Rule;
+import org.openscada.configurator.sec.Script;
 import org.openscada.configurator.sec.ScriptRule;
 
 public class RuleEncoder
@@ -17,10 +17,6 @@ public class RuleEncoder
         if ( rule instanceof ScriptRule )
         {
             return new ScriptRuleEncoder ( (ScriptRule)rule );
-        }
-        else if ( rule instanceof PreFilterRule )
-        {
-            return new PreFilterRuleEncoder ( (PreFilterRule)rule );
         }
         return null;
     }
@@ -39,6 +35,20 @@ public class RuleEncoder
         data.put ( "serviceType", this.rule.getRuleType () );
         data.put ( "priority", "" + priority );
 
+        if ( this.rule.getIdFilter () != null )
+        {
+            data.put ( "for.id", "" + this.rule.getIdFilter () );
+        }
+        if ( this.rule.getTypeFilter () != null )
+        {
+            data.put ( "for.type", "" + this.rule.getTypeFilter () );
+        }
+        if ( this.rule.getActionFilter () != null )
+        {
+            data.put ( "for.action", "" + this.rule.getActionFilter () );
+        }
+        putScript ( data, "filter.script", this.rule.getFilterScript () );
+
         putData ( data );
 
         target.addData ( ID, this.rule.getId (), data );
@@ -46,5 +56,17 @@ public class RuleEncoder
 
     protected void putData ( final Map<String, String> data )
     {
+    }
+
+    public static void putScript ( final Map<String, String> data, final String prefix, final Script script )
+    {
+        if ( script != null )
+        {
+            data.put ( prefix, script.getSource () );
+            if ( script.getType () != null )
+            {
+                data.put ( prefix + ".engine", script.getType () );
+            }
+        }
     }
 }
