@@ -277,22 +277,13 @@ public interface SecurityPackage extends EPackage
     int LOGON_RULE__FILTER_SCRIPT = RULE__FILTER_SCRIPT;
 
     /**
-     * The feature id for the '<em><b>Post Processor</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LOGON_RULE__POST_PROCESSOR = RULE_FEATURE_COUNT + 0;
-
-    /**
      * The number of structural features of the '<em>Logon Rule</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LOGON_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 1;
+    int LOGON_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.openscada.configurator.sec.impl.SignatureRuleImpl <em>Signature Rule</em>}' class.
@@ -716,17 +707,6 @@ public interface SecurityPackage extends EPackage
     EClass getLogonRule ();
 
     /**
-     * Returns the meta object for the reference '{@link org.openscada.configurator.sec.LogonRule#getPostProcessor <em>Post Processor</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Post Processor</em>'.
-     * @see org.openscada.configurator.sec.LogonRule#getPostProcessor()
-     * @see #getLogonRule()
-     * @generated
-     */
-    EReference getLogonRule_PostProcessor ();
-
-    /**
      * Returns the meta object for class '{@link org.openscada.configurator.sec.SignatureRule <em>Signature Rule</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1025,14 +1005,6 @@ public interface SecurityPackage extends EPackage
          * @generated
          */
         EClass LOGON_RULE = eINSTANCE.getLogonRule ();
-
-        /**
-         * The meta object literal for the '<em><b>Post Processor</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference LOGON_RULE__POST_PROCESSOR = eINSTANCE.getLogonRule_PostProcessor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.configurator.sec.impl.SignatureRuleImpl <em>Signature Rule</em>}' class.

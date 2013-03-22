@@ -25,12 +25,6 @@ package org.openscada.configurator.sec;
  * A representation of the model object '<em><b>Logon Rule</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.openscada.configurator.sec.LogonRule#getPostProcessor <em>Post Processor</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.openscada.configurator.sec.SecurityPackage#getLogonRule()
  * @model
@@ -38,30 +32,4 @@ package org.openscada.configurator.sec;
  */
 public interface LogonRule extends Rule
 {
-
-    /**
-     * Returns the value of the '<em><b>Post Processor</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Post Processor</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Post Processor</em>' reference.
-     * @see #setPostProcessor(Script)
-     * @see org.openscada.configurator.sec.SecurityPackage#getLogonRule_PostProcessor()
-     * @model
-     * @generated
-     */
-    Script getPostProcessor ();
-
-    /**
-     * Sets the value of the '{@link org.openscada.configurator.sec.LogonRule#getPostProcessor <em>Post Processor</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Post Processor</em>' reference.
-     * @see #getPostProcessor()
-     * @generated
-     */
-    void setPostProcessor ( Script value );
 } // LogonRule

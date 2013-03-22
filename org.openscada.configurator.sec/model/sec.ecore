@@ -18,9 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="script" eType="#//Script"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callbackScript" eType="#//Script"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//Rule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postProcessor" eType="#//Script"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//Rule"/>
   <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="trustedCertificationAuthority"
         upperBound="-1" eType="#//CA" containment="true"/>
