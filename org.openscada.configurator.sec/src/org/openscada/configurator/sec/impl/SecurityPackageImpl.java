@@ -293,6 +293,16 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getLogonRule_PostProcessor ()
+    {
+        return (EReference)logonRuleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSignatureRule ()
     {
         return signatureRuleEClass;
@@ -511,6 +521,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         createEReference ( scriptRuleEClass, SCRIPT_RULE__CALLBACK_SCRIPT );
 
         logonRuleEClass = createEClass ( LOGON_RULE );
+        createEReference ( logonRuleEClass, LOGON_RULE__POST_PROCESSOR );
 
         signatureRuleEClass = createEClass ( SIGNATURE_RULE );
         createEReference ( signatureRuleEClass, SIGNATURE_RULE__TRUSTED_CERTIFICATION_AUTHORITY );
@@ -592,6 +603,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
         initEReference ( getScriptRule_CallbackScript (), this.getScript (), null, "callbackScript", null, 0, 1, ScriptRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( logonRuleEClass, LogonRule.class, "LogonRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getLogonRule_PostProcessor (), this.getScript (), null, "postProcessor", null, 0, 1, LogonRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( signatureRuleEClass, SignatureRule.class, "SignatureRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getSignatureRule_TrustedCertificationAuthority (), this.getCA (), null, "trustedCertificationAuthority", null, 0, -1, SignatureRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
