@@ -18,7 +18,7 @@ public class RuleEncoder
         {
             return new ScriptRuleEncoder ( (ScriptRule)rule );
         }
-        return null;
+        return new RuleEncoder ( rule );
     }
 
     private final Rule rule;
