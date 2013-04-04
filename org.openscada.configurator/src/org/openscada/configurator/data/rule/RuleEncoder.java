@@ -65,13 +65,20 @@ public class RuleEncoder
 
     public static void putScript ( final Map<String, String> data, final String prefix, final Script script )
     {
-        if ( script != null )
+        if ( script == null )
         {
-            data.put ( prefix, script.getSource () );
-            if ( script.getType () != null )
-            {
-                data.put ( prefix + ".engine", script.getType () );
-            }
+            return;
+        }
+
+        if ( script.getSource () == null )
+        {
+            throw new NullPointerException ( "'script' must not be null" );
+        }
+
+        data.put ( prefix, script.getSource () );
+        if ( script.getType () != null )
+        {
+            data.put ( prefix + ".engine", script.getType () );
         }
     }
 }
