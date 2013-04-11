@@ -2,7 +2,7 @@
 
 # $Id$
 
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 use lib $ENV{OPENSCADA_HOME} . "/bin";
 use strict;
@@ -42,8 +42,16 @@ $app->attach ( $attach );
 $app->classpath ( openSCADA::Base->classpath () );
 $app->appendClasspath ( openSCADA::Base::configurationRoot () . "/drivers/" . $app->instanceName() . "/cls" );
 
-$propertiesFile = openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.properties";
+sub trim($)
+{
+  my $string = shift;
+  $string =~ s/^\s+//;
+  $string =~ s/\s+$//;
+  return $string;
+}
 
+# load from common
+$propertiesFile = openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.properties";
 if ( open FILE, "<$propertiesFile" )
 {
   while ( my $line = <FILE> )
@@ -54,18 +62,36 @@ if ( open FILE, "<$propertiesFile" )
       }
   }
   close FILE;
-}  
-
-sub trim($)
-{
-  my $string = shift;
-  $string =~ s/^\s+//;
-  $string =~ s/\s+$//;
-  return $string;
 }
 
-# replace default java args if available
+# load from local
+$propertiesFile = openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.local.properties";
+if ( open FILE, "<$propertiesFile" )
+{
+  while ( my $line = <FILE> )
+  {
+      if ( $line =~ /(.*?)=(.*)/ )
+      { 
+        $app->addProperty ( $1, $2 );
+      }
+  }
+  close FILE;
+}
+
+# replace default java args if available - common
 if ( open FILE, "<" . openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/jvm.args" )
+{
+  my @args;
+  while ( my $line = <FILE> )
+  {
+    push @args, trim($line);
+  }
+  $app->javaArgs ( @args );
+  close FILE;
+}
+
+# replace default java args if available - local
+if ( open FILE, "<" . openSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/jvm.local.args" )
 {
   my @args;
   while ( my $line = <FILE> )
