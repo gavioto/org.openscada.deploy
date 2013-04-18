@@ -7,8 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -133,6 +137,10 @@ public class CreationResult
 
         for ( final Map.Entry<IFile, byte[]> entry : this.blobs.entrySet () )
         {
+            final IFile file = entry.getKey ();
+
+            createParents ( file.getParent () );
+
             if ( entry.getKey ().exists () )
             {
                 entry.getKey ().setContents ( new ByteArrayInputStream ( entry.getValue () ), IResource.KEEP_HISTORY, null );
@@ -140,6 +148,22 @@ public class CreationResult
             else
             {
                 entry.getKey ().create ( new ByteArrayInputStream ( entry.getValue () ), IResource.KEEP_HISTORY, null );
+            }
+        }
+    }
+
+    private void createParents ( final IContainer container ) throws CoreException
+    {
+        if ( ! ( container.getParent () instanceof IProject ) )
+        {
+            createParents ( container.getParent () );
+        }
+
+        if ( container instanceof IFolder )
+        {
+            if ( !container.exists () )
+            {
+                ( (IFolder)container ).create ( false, true, null );
             }
         }
     }
