@@ -574,7 +574,7 @@ public class Configuration extends GenericMasterConfiguration
 
             if ( item.isLocalManual () )
             {
-                addLocalManual ( masterId + ".manual", masterId, attributes ); //$NON-NLS-1$
+                addLocalManual ( masterId + ".manual", masterId, item.getLocalManualPreset (), attributes ); //$NON-NLS-1$
                 reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.manual" ) ); //$NON-NLS-1$
             }
 
@@ -858,11 +858,17 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.datasource.ds", id, data ); //$NON-NLS-1$
     }
 
-    private void addLocalManual ( final String id, final String masterId, final Map<String, String> attributes )
+    private void addLocalManual ( final String id, final String masterId, final Variant localManualPreset, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
         fillMasterHandler ( FACTORY_MASTER_HANDLER_MANUAL, id, data, masterId, null );
+
+        if ( localManualPreset != null && !localManualPreset.isNull () )
+        {
+            data.put ( "active", "true" );
+            data.put ( "value", localManualPreset.toString () );
+        }
 
         applyInfoAttributes ( attributes, data );
 

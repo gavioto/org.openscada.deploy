@@ -219,14 +219,14 @@ public class AverageImpl extends EObjectImpl implements Average
     {
         switch ( featureID )
         {
-        case ModelPackage.AVERAGE__ID:
-            return getId ();
-        case ModelPackage.AVERAGE__SOURCES:
-            return getSources ();
-        case ModelPackage.AVERAGE__PERCENT_REQUIRED:
-            return getPercentRequired ();
-        case ModelPackage.AVERAGE__NUM_REQUIRED:
-            return getNumRequired ();
+            case ModelPackage.AVERAGE__ID:
+                return getId ();
+            case ModelPackage.AVERAGE__SOURCES:
+                return getSources ();
+            case ModelPackage.AVERAGE__PERCENT_REQUIRED:
+                return getPercentRequired ();
+            case ModelPackage.AVERAGE__NUM_REQUIRED:
+                return getNumRequired ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -242,19 +242,19 @@ public class AverageImpl extends EObjectImpl implements Average
     {
         switch ( featureID )
         {
-        case ModelPackage.AVERAGE__ID:
-            setId ( (String)newValue );
-            return;
-        case ModelPackage.AVERAGE__SOURCES:
-            getSources ().clear ();
-            getSources ().addAll ( (Collection<? extends String>)newValue );
-            return;
-        case ModelPackage.AVERAGE__PERCENT_REQUIRED:
-            setPercentRequired ( (Double)newValue );
-            return;
-        case ModelPackage.AVERAGE__NUM_REQUIRED:
-            setNumRequired ( (Integer)newValue );
-            return;
+            case ModelPackage.AVERAGE__ID:
+                setId ( (String)newValue );
+                return;
+            case ModelPackage.AVERAGE__SOURCES:
+                getSources ().clear ();
+                getSources ().addAll ( (Collection<? extends String>)newValue );
+                return;
+            case ModelPackage.AVERAGE__PERCENT_REQUIRED:
+                setPercentRequired ( (Double)newValue );
+                return;
+            case ModelPackage.AVERAGE__NUM_REQUIRED:
+                setNumRequired ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -269,18 +269,18 @@ public class AverageImpl extends EObjectImpl implements Average
     {
         switch ( featureID )
         {
-        case ModelPackage.AVERAGE__ID:
-            setId ( ID_EDEFAULT );
-            return;
-        case ModelPackage.AVERAGE__SOURCES:
-            getSources ().clear ();
-            return;
-        case ModelPackage.AVERAGE__PERCENT_REQUIRED:
-            setPercentRequired ( PERCENT_REQUIRED_EDEFAULT );
-            return;
-        case ModelPackage.AVERAGE__NUM_REQUIRED:
-            setNumRequired ( NUM_REQUIRED_EDEFAULT );
-            return;
+            case ModelPackage.AVERAGE__ID:
+                setId ( ID_EDEFAULT );
+                return;
+            case ModelPackage.AVERAGE__SOURCES:
+                getSources ().clear ();
+                return;
+            case ModelPackage.AVERAGE__PERCENT_REQUIRED:
+                setPercentRequired ( PERCENT_REQUIRED_EDEFAULT );
+                return;
+            case ModelPackage.AVERAGE__NUM_REQUIRED:
+                setNumRequired ( NUM_REQUIRED_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -295,14 +295,14 @@ public class AverageImpl extends EObjectImpl implements Average
     {
         switch ( featureID )
         {
-        case ModelPackage.AVERAGE__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
-        case ModelPackage.AVERAGE__SOURCES:
-            return sources != null && !sources.isEmpty ();
-        case ModelPackage.AVERAGE__PERCENT_REQUIRED:
-            return percentRequired != PERCENT_REQUIRED_EDEFAULT;
-        case ModelPackage.AVERAGE__NUM_REQUIRED:
-            return numRequired != NUM_REQUIRED_EDEFAULT;
+            case ModelPackage.AVERAGE__ID:
+                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case ModelPackage.AVERAGE__SOURCES:
+                return sources != null && !sources.isEmpty ();
+            case ModelPackage.AVERAGE__PERCENT_REQUIRED:
+                return percentRequired != PERCENT_REQUIRED_EDEFAULT;
+            case ModelPackage.AVERAGE__NUM_REQUIRED:
+                return numRequired != NUM_REQUIRED_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

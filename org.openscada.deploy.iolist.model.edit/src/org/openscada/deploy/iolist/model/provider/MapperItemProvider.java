@@ -136,11 +136,11 @@ public class MapperItemProvider extends ItemProviderAdapter implements IEditingD
 
         switch ( notification.getFeatureID ( Mapper.class ) )
         {
-        case ModelPackage.MAPPER__MAPPER_ID:
-        case ModelPackage.MAPPER__FROM_ATTRIBUTE:
-        case ModelPackage.MAPPER__TO_ATTRIBUTE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case ModelPackage.MAPPER__MAPPER_ID:
+            case ModelPackage.MAPPER__FROM_ATTRIBUTE:
+            case ModelPackage.MAPPER__TO_ATTRIBUTE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

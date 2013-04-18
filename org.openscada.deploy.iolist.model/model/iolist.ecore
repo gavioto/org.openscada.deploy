@@ -25,6 +25,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localManual" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localManualPreset" lowerBound="1"
+        eType="#//Variant" defaultValueLiteral="NULL#"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteManual" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

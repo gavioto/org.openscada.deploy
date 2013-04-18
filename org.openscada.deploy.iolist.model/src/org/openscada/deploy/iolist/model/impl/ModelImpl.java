@@ -229,16 +229,16 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.MODEL__AVERAGES:
-            return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
-        case ModelPackage.MODEL__ROOT_SUMMARY:
-            return basicSetRootSummary ( null, msgs );
-        case ModelPackage.MODEL__PLAIN_SUMMARY:
-            return ( (InternalEList<?>)getPlainSummary () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__ITEMS:
+                return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__AVERAGES:
+                return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                return basicSetRootSummary ( null, msgs );
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                return ( (InternalEList<?>)getPlainSummary () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -253,16 +253,16 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            return getItems ();
-        case ModelPackage.MODEL__AVERAGES:
-            return getAverages ();
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            return getMovingAverages ();
-        case ModelPackage.MODEL__ROOT_SUMMARY:
-            return getRootSummary ();
-        case ModelPackage.MODEL__PLAIN_SUMMARY:
-            return getPlainSummary ();
+            case ModelPackage.MODEL__ITEMS:
+                return getItems ();
+            case ModelPackage.MODEL__AVERAGES:
+                return getAverages ();
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return getMovingAverages ();
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                return getRootSummary ();
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                return getPlainSummary ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -278,25 +278,25 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            getItems ().clear ();
-            getItems ().addAll ( (Collection<? extends Item>)newValue );
-            return;
-        case ModelPackage.MODEL__AVERAGES:
-            getAverages ().clear ();
-            getAverages ().addAll ( (Collection<? extends Average>)newValue );
-            return;
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            getMovingAverages ().clear ();
-            getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
-            return;
-        case ModelPackage.MODEL__ROOT_SUMMARY:
-            setRootSummary ( (HierarchySummaryGroup)newValue );
-            return;
-        case ModelPackage.MODEL__PLAIN_SUMMARY:
-            getPlainSummary ().clear ();
-            getPlainSummary ().addAll ( (Collection<? extends PlainSummaryGroup>)newValue );
-            return;
+            case ModelPackage.MODEL__ITEMS:
+                getItems ().clear ();
+                getItems ().addAll ( (Collection<? extends Item>)newValue );
+                return;
+            case ModelPackage.MODEL__AVERAGES:
+                getAverages ().clear ();
+                getAverages ().addAll ( (Collection<? extends Average>)newValue );
+                return;
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                getMovingAverages ().clear ();
+                getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
+                return;
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                setRootSummary ( (HierarchySummaryGroup)newValue );
+                return;
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                getPlainSummary ().clear ();
+                getPlainSummary ().addAll ( (Collection<? extends PlainSummaryGroup>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -311,21 +311,21 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            getItems ().clear ();
-            return;
-        case ModelPackage.MODEL__AVERAGES:
-            getAverages ().clear ();
-            return;
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            getMovingAverages ().clear ();
-            return;
-        case ModelPackage.MODEL__ROOT_SUMMARY:
-            setRootSummary ( (HierarchySummaryGroup)null );
-            return;
-        case ModelPackage.MODEL__PLAIN_SUMMARY:
-            getPlainSummary ().clear ();
-            return;
+            case ModelPackage.MODEL__ITEMS:
+                getItems ().clear ();
+                return;
+            case ModelPackage.MODEL__AVERAGES:
+                getAverages ().clear ();
+                return;
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                getMovingAverages ().clear ();
+                return;
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                setRootSummary ( (HierarchySummaryGroup)null );
+                return;
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                getPlainSummary ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -340,16 +340,16 @@ public class ModelImpl extends EObjectImpl implements Model
     {
         switch ( featureID )
         {
-        case ModelPackage.MODEL__ITEMS:
-            return items != null && !items.isEmpty ();
-        case ModelPackage.MODEL__AVERAGES:
-            return averages != null && !averages.isEmpty ();
-        case ModelPackage.MODEL__MOVING_AVERAGES:
-            return movingAverages != null && !movingAverages.isEmpty ();
-        case ModelPackage.MODEL__ROOT_SUMMARY:
-            return rootSummary != null;
-        case ModelPackage.MODEL__PLAIN_SUMMARY:
-            return plainSummary != null && !plainSummary.isEmpty ();
+            case ModelPackage.MODEL__ITEMS:
+                return items != null && !items.isEmpty ();
+            case ModelPackage.MODEL__AVERAGES:
+                return averages != null && !averages.isEmpty ();
+            case ModelPackage.MODEL__MOVING_AVERAGES:
+                return movingAverages != null && !movingAverages.isEmpty ();
+            case ModelPackage.MODEL__ROOT_SUMMARY:
+                return rootSummary != null;
+            case ModelPackage.MODEL__PLAIN_SUMMARY:
+                return plainSummary != null && !plainSummary.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

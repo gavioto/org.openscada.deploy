@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.deploy.iolist.model.*;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
 import org.openscada.deploy.iolist.model.BasicMonitor;

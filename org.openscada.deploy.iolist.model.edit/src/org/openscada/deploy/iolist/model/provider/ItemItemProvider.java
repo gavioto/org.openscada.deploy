@@ -68,6 +68,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
             addAttributeSummaryLevelPropertyDescriptor ( object );
             addEventCommandPropertyDescriptor ( object );
             addLocalManualPropertyDescriptor ( object );
+            addLocalManualPresetPropertyDescriptor ( object );
             addRemoteManualPropertyDescriptor ( object );
             addSystemPropertyDescriptor ( object );
             addHierarchyPropertyDescriptor ( object );
@@ -194,6 +195,17 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     protected void addLocalManualPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localManual_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localManual_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MANUAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_processingPropertyCategory" ), null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Local Manual Preset feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLocalManualPresetPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_localManualPreset_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Item_localManualPreset_feature", "_UI_Item_type" ), ModelPackage.Literals.ITEM__LOCAL_MANUAL_PRESET, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -551,53 +563,54 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 
         switch ( notification.getFeatureID ( Item.class ) )
         {
-        case ModelPackage.ITEM__DEVICE:
-        case ModelPackage.ITEM__NAME:
-        case ModelPackage.ITEM__DATA_TYPE:
-        case ModelPackage.ITEM__UNIT:
-        case ModelPackage.ITEM__ALIAS:
-        case ModelPackage.ITEM__DESCRIPTION:
-        case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
-        case ModelPackage.ITEM__EVENT_COMMAND:
-        case ModelPackage.ITEM__LOCAL_MANUAL:
-        case ModelPackage.ITEM__REMOTE_MANUAL:
-        case ModelPackage.ITEM__SYSTEM:
-        case ModelPackage.ITEM__HIERARCHY:
-        case ModelPackage.ITEM__REMOTE_MIN:
-        case ModelPackage.ITEM__REMOTE_MAX:
-        case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
-        case ModelPackage.ITEM__REMOTE_HIGH:
-        case ModelPackage.ITEM__REMOTE_LOW:
-        case ModelPackage.ITEM__REMOTE_LOW_LOW:
-        case ModelPackage.ITEM__REMOTE_BOOL:
-        case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
-        case ModelPackage.ITEM__INPUT:
-        case ModelPackage.ITEM__OUTPUT:
-        case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
-        case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
-        case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
-        case ModelPackage.ITEM__DEBUG_INFORMATION:
-        case ModelPackage.ITEM__IGNORE_SUMMARY:
-        case ModelPackage.ITEM__BLOCK:
-        case ModelPackage.ITEM__ENABLED:
-        case ModelPackage.ITEM__HD_STORAGE:
-        case ModelPackage.ITEM__SIMULATION_VALUE:
-        case ModelPackage.ITEM__ROUNDING_AVAILABLE:
-        case ModelPackage.ITEM__ROUNDING_VALUE:
-        case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case ModelPackage.ITEM__MAPPER:
-        case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
-        case ModelPackage.ITEM__LOCAL_HIGH:
-        case ModelPackage.ITEM__LOCAL_LOW:
-        case ModelPackage.ITEM__LOCAL_LOW_LOW:
-        case ModelPackage.ITEM__LOCAL_MIN:
-        case ModelPackage.ITEM__LOCAL_MAX:
-        case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
-        case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case ModelPackage.ITEM__DEVICE:
+            case ModelPackage.ITEM__NAME:
+            case ModelPackage.ITEM__DATA_TYPE:
+            case ModelPackage.ITEM__UNIT:
+            case ModelPackage.ITEM__ALIAS:
+            case ModelPackage.ITEM__DESCRIPTION:
+            case ModelPackage.ITEM__ATTRIBUTE_SUMMARY_LEVEL:
+            case ModelPackage.ITEM__EVENT_COMMAND:
+            case ModelPackage.ITEM__LOCAL_MANUAL:
+            case ModelPackage.ITEM__LOCAL_MANUAL_PRESET:
+            case ModelPackage.ITEM__REMOTE_MANUAL:
+            case ModelPackage.ITEM__SYSTEM:
+            case ModelPackage.ITEM__HIERARCHY:
+            case ModelPackage.ITEM__REMOTE_MIN:
+            case ModelPackage.ITEM__REMOTE_MAX:
+            case ModelPackage.ITEM__REMOTE_HIGH_HIGH:
+            case ModelPackage.ITEM__REMOTE_HIGH:
+            case ModelPackage.ITEM__REMOTE_LOW:
+            case ModelPackage.ITEM__REMOTE_LOW_LOW:
+            case ModelPackage.ITEM__REMOTE_BOOL:
+            case ModelPackage.ITEM__REMOTE_BOOL_ACK_VALUE:
+            case ModelPackage.ITEM__INPUT:
+            case ModelPackage.ITEM__OUTPUT:
+            case ModelPackage.ITEM__LOCAL_SCALE_AVAILABLE:
+            case ModelPackage.ITEM__LOCAL_SCALE_FACTOR:
+            case ModelPackage.ITEM__LOCAL_SCALE_OFFSET:
+            case ModelPackage.ITEM__DEBUG_INFORMATION:
+            case ModelPackage.ITEM__IGNORE_SUMMARY:
+            case ModelPackage.ITEM__BLOCK:
+            case ModelPackage.ITEM__ENABLED:
+            case ModelPackage.ITEM__HD_STORAGE:
+            case ModelPackage.ITEM__SIMULATION_VALUE:
+            case ModelPackage.ITEM__ROUNDING_AVAILABLE:
+            case ModelPackage.ITEM__ROUNDING_VALUE:
+            case ModelPackage.ITEM__DEFAULT_MONITOR_DEMOTE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.ITEM__MAPPER:
+            case ModelPackage.ITEM__LOCAL_HIGH_HIGH:
+            case ModelPackage.ITEM__LOCAL_HIGH:
+            case ModelPackage.ITEM__LOCAL_LOW:
+            case ModelPackage.ITEM__LOCAL_LOW_LOW:
+            case ModelPackage.ITEM__LOCAL_MIN:
+            case ModelPackage.ITEM__LOCAL_MAX:
+            case ModelPackage.ITEM__LOCAL_LIST_MONITOR:
+            case ModelPackage.ITEM__LOCAL_BOOLEAN_MONITOR:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

@@ -142,13 +142,13 @@ public class HierarchySummaryGroupItemProvider extends SummaryGroupItemProvider 
 
         switch ( notification.getFeatureID ( HierarchySummaryGroup.class ) )
         {
-        case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
-        case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP__NAME:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP__CHILDREN:
+            case ModelPackage.HIERARCHY_SUMMARY_GROUP__WEAK_REFERENCES:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }
