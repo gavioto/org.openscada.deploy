@@ -22,10 +22,8 @@
 package org.openscada.configurator.project.wizard;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -33,12 +31,6 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
@@ -57,11 +49,14 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.openscada.configuration.model.ConfiguratorFactory;
 import org.openscada.configuration.model.ConfiguratorPackage;
-import org.openscada.configuration.model.Project;
 import org.openscada.configurator.project.Activator;
+import org.openscada.configurator.project.wizard.page.IOptionalPage;
+import org.openscada.configurator.project.wizard.page.NewProjectModelFilePageWizard;
+import org.openscada.configurator.project.wizard.page.ProjectFeaturePage;
+import org.openscada.configurator.project.wizard.page.SecurityWizardPage;
 import org.openscada.ui.utils.status.StatusHelper;
 
-public class ConfiguratorModelWizard extends Wizard implements INewWizard
+public class NewConfiguratorModelWizard extends Wizard implements INewWizard
 {
     /**
      * The supported extensions for created files.
@@ -86,7 +81,7 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
     /**
      * This is the file creation page.
      */
-    protected ConfiguratorModelWizardNewFileCreationPage newFileCreationPage;
+    protected NewProjectModelFilePageWizard newFileCreationPage;
 
     /**
      * Remember the selection during initialization for populating the default
@@ -104,6 +99,8 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
      */
     protected List<ProjectInitializerPage> initializers = new LinkedList<ProjectInitializerPage> ();
 
+    private CreationContext context;
+
     /**
      * This just records the information.
      */
@@ -113,26 +110,22 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
         this.workbench = workbench;
         this.selection = selection;
         setWindowTitle ( "Create new configuration model" );
-        setDefaultPageImageDescriptor ( ImageDescriptor.createFromFile ( ConfiguratorModelWizard.class, "icons/NewConfigurator.gif" ) );
+        setDefaultPageImageDescriptor ( ImageDescriptor.createFromFile ( NewConfiguratorModelWizard.class, "icons/NewConfigurator.gif" ) );
+
+        this.context = new CreationContext ();
+
     }
 
-    /**
-     * Create a new model.
-     */
-    protected EObject createInitialModel ()
+    protected CreationResult createResult () throws Exception
     {
-        final Project project = ConfiguratorFactory.eINSTANCE.createProject ();
-
-        final CreationContext context = new CreationContext ( project );
+        final CreationResult result = new CreationResult ();
 
         for ( final ProjectInitializerPage init : this.initializers )
         {
-            init.applyTo ( context );
+            init.applyTo ( result );
         }
 
-        context.complete ();
-
-        return project;
+        return result;
     }
 
     /**
@@ -155,31 +148,8 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
                 {
                     try
                     {
-                        // Create a resource set
-                        //
-                        final ResourceSet resourceSet = new ResourceSetImpl ();
-
-                        // Get the URI of the model file.
-                        //
-                        final URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
-
-                        // Create a resource for this file.
-                        //
-                        final Resource resource = resourceSet.createResource ( fileURI );
-
-                        // Add the initial model object to the contents.
-                        //
-                        final EObject rootObject = createInitialModel ();
-                        if ( rootObject != null )
-                        {
-                            resource.getContents ().add ( rootObject );
-                        }
-
-                        // Save the contents of the resource to the file system.
-                        //
-                        final Map<Object, Object> options = new HashMap<Object, Object> ();
-                        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" );
-                        resource.save ( options );
+                        final CreationResult result = createResult ();
+                        result.create ();
                     }
                     catch ( final Exception exception )
                     {
@@ -240,7 +210,7 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
     {
         // Create a page, set the title, and the initial model file name.
         //
-        this.newFileCreationPage = new ConfiguratorModelWizardNewFileCreationPage ( "NewFile", this.selection );
+        this.newFileCreationPage = new NewProjectModelFilePageWizard ( "NewFile", this.selection, this.context );
         this.newFileCreationPage.setTitle ( "Configurator Model" );
         this.newFileCreationPage.setDescription ( " Create a new Configurator model" );
         this.newFileCreationPage.setFileName ( "project." + FILE_EXTENSIONS.get ( 0 ) );
@@ -285,7 +255,8 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
             }
         }
 
-        addPage ( new ProjectFeaturePage () );
+        addPage ( new ProjectFeaturePage ( this.context ) );
+        addPage ( new SecurityWizardPage ( this.context ) );
     }
 
     @Override
@@ -296,6 +267,82 @@ public class ConfiguratorModelWizard extends Wizard implements INewWizard
             this.initializers.add ( (ProjectInitializerPage)page );
         }
         super.addPage ( page );
+    }
+
+    @Override
+    public IWizardPage getPreviousPage ( final IWizardPage page )
+    {
+        final List<IWizardPage> pages = Arrays.asList ( getPages () );
+
+        int index = pages.indexOf ( page );
+
+        while ( index - 1 >= 0 )
+        {
+            index--;
+            final IWizardPage otherPage = pages.get ( index );
+            if ( otherPage instanceof IOptionalPage )
+            {
+                if ( ( (IOptionalPage)otherPage ).isActive () )
+                {
+                    return otherPage;
+                }
+            }
+            else
+            {
+                return otherPage;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public IWizardPage getNextPage ( final IWizardPage page )
+    {
+        final List<IWizardPage> pages = Arrays.asList ( getPages () );
+
+        int index = pages.indexOf ( page );
+
+        while ( index + 1 < pages.size () )
+        {
+            index++;
+            final IWizardPage otherPage = pages.get ( index );
+            if ( otherPage instanceof IOptionalPage )
+            {
+                if ( ( (IOptionalPage)otherPage ).isActive () )
+                {
+                    return otherPage;
+                }
+            }
+            else
+            {
+                return otherPage;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean canFinish ()
+    {
+        for ( final IWizardPage page : getPages () )
+        {
+            if ( page instanceof IOptionalPage )
+            {
+                if ( ! ( (IOptionalPage)page ).isActive () )
+                {
+                    continue;
+                }
+            }
+
+            if ( !page.isPageComplete () )
+            {
+                return false;
+            }
+
+        }
+        return true;
     }
 
     /**

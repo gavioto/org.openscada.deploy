@@ -23,5 +23,5 @@ package org.openscada.configurator.project.wizard;
 
 public interface ProjectInitializerPage
 {
-    public void applyTo ( CreationContext context );
+    public void applyTo ( CreationResult result ) throws Exception;
 }

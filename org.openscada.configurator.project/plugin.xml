@@ -5,14 +5,14 @@
    <extension point="org.eclipse.ui.newWizards">
       <category
             id="org.openscada.configurator"
-            name="%_UI_Wizard_category"/>
+            name="openSCADA Configurator"/>
       <wizard
             id="org.openscada.configuration.model.presentation.ConfiguratorModelWizardID"
-            name="%_UI_ConfiguratorModelWizard_label"
-            class="org.openscada.configuration.model.presentation.ConfiguratorModelWizard"
+            name="New Configurator Model"
+            class="org.openscada.configurator.project.wizard.NewConfiguratorModelWizard"
             category="org.openscada.configurator"
             icon="icons/full/obj16/ConfiguratorModelFile.gif">
-         <description>%_UI_ConfiguratorModelWizard_description</description>
+         <description>Create a new openSCADA configurator model</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>

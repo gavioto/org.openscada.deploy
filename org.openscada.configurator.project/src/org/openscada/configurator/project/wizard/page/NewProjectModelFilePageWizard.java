@@ -19,7 +19,7 @@
  * 
  */
 
-package org.openscada.configurator.project.wizard;
+package org.openscada.configurator.project.wizard.page;
 
 import java.text.MessageFormat;
 
@@ -28,18 +28,27 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.openscada.configuration.model.ConfiguratorFactory;
+import org.openscada.configuration.model.Project;
+import org.openscada.configurator.project.wizard.CreationContext;
+import org.openscada.configurator.project.wizard.CreationResult;
+import org.openscada.configurator.project.wizard.NewConfiguratorModelWizard;
+import org.openscada.configurator.project.wizard.ProjectInitializerPage;
 
 /**
  * This is the one page of the wizard.
  */
-public class ConfiguratorModelWizardNewFileCreationPage extends WizardNewFileCreationPage
+public class NewProjectModelFilePageWizard extends WizardNewFileCreationPage implements ProjectInitializerPage
 {
+    private final CreationContext context;
+
     /**
      * Pass in the selection.
      */
-    public ConfiguratorModelWizardNewFileCreationPage ( final String pageId, final IStructuredSelection selection )
+    public NewProjectModelFilePageWizard ( final String pageId, final IStructuredSelection selection, final CreationContext context )
     {
         super ( pageId, selection );
+        this.context = context;
     }
 
     /**
@@ -51,15 +60,23 @@ public class ConfiguratorModelWizardNewFileCreationPage extends WizardNewFileCre
         if ( super.validatePage () )
         {
             final String extension = new Path ( getFileName () ).getFileExtension ();
-            if ( extension == null || !ConfiguratorModelWizard.FILE_EXTENSIONS.contains ( extension ) )
+            if ( extension == null || !NewConfiguratorModelWizard.FILE_EXTENSIONS.contains ( extension ) )
             {
-                final String message = ConfiguratorModelWizard.FILE_EXTENSIONS.size () > 1 ? "The file name must have one of the following extensions: {0}" : "The file name must end in ''.{0}''";
-                setErrorMessage ( MessageFormat.format ( message, new Object[] { ConfiguratorModelWizard.FORMATTED_FILE_EXTENSIONS } ) );
+                final String message = NewConfiguratorModelWizard.FILE_EXTENSIONS.size () > 1 ? "The file name must have one of the following extensions: {0}" : "The file name must end in ''.{0}''";
+                setErrorMessage ( MessageFormat.format ( message, new Object[] { NewConfiguratorModelWizard.FORMATTED_FILE_EXTENSIONS } ) );
                 return false;
             }
+            this.context.putOption ( "projectFile", getModelFile () );
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void applyTo ( final CreationResult result )
+    {
+        final Project project = ConfiguratorFactory.eINSTANCE.createProject ();
+        result.registerResource ( "project", getModelFile (), project );
     }
 
     public IFile getModelFile ()

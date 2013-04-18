@@ -21,42 +21,78 @@
 
 package org.openscada.configurator.project.wizard;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-import org.openscada.configuration.model.ConfigurationSlot;
-import org.openscada.configuration.model.Project;
-import org.openscada.configurator.processor.common.CommonFactory;
-import org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor;
+import org.eclipse.core.runtime.SafeRunner;
+import org.eclipse.jface.util.SafeRunnable;
 
 public class CreationContext
 {
-    private final Project project;
 
-    private final List<ConfigurationSlot> storeSlots = new LinkedList<ConfigurationSlot> ();
-
-    public CreationContext ( final Project project )
+    public static interface OptionListener
     {
-        this.project = project;
+        public void optionChanged ( String key, Object value );
     }
 
-    public Project getProject ()
+    private final Map<String, Object> options = new HashMap<String, Object> ();
+
+    private final Set<OptionListener> listeners = new HashSet<CreationContext.OptionListener> ();
+
+    public Object getOption ( final String key )
     {
-        return this.project;
+        return this.options.get ( key );
     }
 
-    public void addStoreSlot ( final ConfigurationSlot slot )
+    public void removeOption ( final String key )
     {
-        this.storeSlots.add ( slot );
-    }
-
-    public void complete ()
-    {
-        if ( !this.storeSlots.isEmpty () )
+        final Object oldValue = this.options.remove ( key );
+        if ( oldValue != null )
         {
-            final StoreConfigurationSlotProcessor store = CommonFactory.eINSTANCE.createStoreConfigurationSlotProcessor ();
-            store.getSlots ().addAll ( this.storeSlots );
-            this.project.getProcessors ().add ( store );
+            fireChange ( key, null );
         }
+    }
+
+    public void putOption ( final String key, final Object value )
+    {
+        if ( value == null )
+        {
+            removeOption ( key );
+        }
+        else
+        {
+            final Object oldValue = this.options.put ( key, value );
+            if ( !value.equals ( oldValue ) )
+            {
+                fireChange ( key, value );
+            }
+        }
+    }
+
+    private void fireChange ( final String key, final Object value )
+    {
+        for ( final OptionListener listener : this.listeners )
+        {
+            SafeRunner.run ( new SafeRunnable () {
+
+                @Override
+                public void run () throws Exception
+                {
+                    listener.optionChanged ( key, value );
+                }
+            } );
+        }
+    }
+
+    public void addListener ( final OptionListener listener )
+    {
+        this.listeners.add ( listener );
+    }
+
+    public void removeListener ( final OptionListener listener )
+    {
+        this.listeners.remove ( listener );
     }
 }
