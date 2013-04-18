@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.openscada.configurator"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.openscada.configuration.model.presentation.ConfiguratorModelWizardID"
+            name="%_UI_ConfiguratorModelWizard_label"
+            class="org.openscada.configuration.model.presentation.ConfiguratorModelWizard"
+            category="org.openscada.configurator"
+            icon="icons/full/obj16/ConfiguratorModelFile.gif">
+         <description>%_UI_ConfiguratorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+</plugin>
