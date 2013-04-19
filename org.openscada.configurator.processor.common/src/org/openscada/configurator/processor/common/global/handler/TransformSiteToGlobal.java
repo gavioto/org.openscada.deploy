@@ -242,12 +242,6 @@ public class TransformSiteToGlobal
             item.getHierarchy ().addAll ( site.getHierarchy () );
             item.setDataType ( DataType.BOOLEAN );
 
-            item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
-            item.getLocalBooleanMonitor ().setActive ( true );
-            item.getLocalBooleanMonitor ().setOkValue ( true );
-            item.getLocalBooleanMonitor ().setSeverity ( Severity.ALARM );
-            item.getLocalBooleanMonitor ().setAck ( false );
-
             this.cfg.addItem ( item );
         }
     }
