@@ -234,12 +234,16 @@ public class ProjectFeaturePage extends AbstractProjectWizardPage
 
         result.getPath ().add ( toPlatformURI ( folder ).toString () );
 
-        final Item item1 = createTestItem ( 1 );
-        final Item item2 = createTestItem ( 2 );
-
         final Model model = ModelFactory.eINSTANCE.createModel ();
-        model.getItems ().add ( item1 );
-        model.getItems ().add ( item2 );
+
+        if ( this.itemsCheck.getSelection () )
+        {
+            final Item item1 = createTestItem ( 1 );
+            final Item item2 = createTestItem ( 2 );
+
+            model.getItems ().add ( item1 );
+            model.getItems ().add ( item2 );
+        }
 
         final ItemListWriter writer = new ItemListWriter ();
         writer.addAll ( model.getItems () );
