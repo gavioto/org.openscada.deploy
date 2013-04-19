@@ -242,6 +242,8 @@ public class TransformSiteToGlobal
             item.getHierarchy ().addAll ( site.getHierarchy () );
             item.setDataType ( DataType.BOOLEAN );
 
+            item.setEventCommand ( true );
+
             this.cfg.addItem ( item );
         }
     }
