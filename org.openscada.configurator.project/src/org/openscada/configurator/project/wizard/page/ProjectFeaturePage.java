@@ -83,6 +83,8 @@ public class ProjectFeaturePage extends AbstractProjectWizardPage
 
     private Text prefixText;
 
+    private Button itemsCheck;
+
     public ProjectFeaturePage ( final CreationContext context )
     {
         super ( ProjectFeaturePage.class.getName (), "Master Server Features", null, context );
@@ -94,17 +96,27 @@ public class ProjectFeaturePage extends AbstractProjectWizardPage
         final Composite wrapper = new Composite ( parent, SWT.NONE );
         wrapper.setLayout ( new GridLayout ( 3, false ) );
 
+        // master
+
         this.masterCheck = new Button ( wrapper, SWT.CHECK );
         this.masterCheck.setText ( "Create configuration for master server" );
         this.masterCheck.addSelectionListener ( this.updateListener );
         this.masterCheck.setLayoutData ( new GridData ( SWT.BEGINNING, SWT.CENTER, false, false, 3, 1 ) );
 
+        // prefix
+
         final Label label = new Label ( wrapper, SWT.NONE );
         label.setText ( "Prefix:" );
 
         this.prefixText = new Text ( wrapper, SWT.BORDER | SWT.SINGLE );
-        this.prefixText.setLayoutData ( new GridData ( SWT.BEGINNING, SWT.CENTER, false, false, 2, 1 ) );
+        this.prefixText.setLayoutData ( new GridData ( SWT.FILL, SWT.CENTER, false, false, 2, 1 ) );
         this.prefixText.setText ( "PREFIX" );
+
+        // add sample items
+
+        this.itemsCheck = new Button ( wrapper, SWT.CHECK );
+        this.itemsCheck.setText ( "Create some sample data items" );
+        this.itemsCheck.setLayoutData ( new GridData ( SWT.BEGINNING, SWT.CENTER, false, false, 3, 1 ) );
 
         setControl ( wrapper );
 
@@ -147,6 +159,8 @@ public class ProjectFeaturePage extends AbstractProjectWizardPage
     {
         final boolean active = this.masterCheck.getSelection ();
         flag ( active, OPTION_MASTER );
+
+        this.prefixText.setEnabled ( active );
     }
 
     private void initialSettings ()
