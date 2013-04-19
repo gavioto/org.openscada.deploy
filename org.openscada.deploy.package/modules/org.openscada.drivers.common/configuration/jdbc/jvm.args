@@ -1,3 +1,4 @@
 -XX:+UseConcMarkSweepGC
 -XX:+CMSIncrementalMode
 -XX:-OmitStackTraceInFastThrow
+-Xmx128m
