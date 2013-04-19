@@ -1,5 +1,6 @@
 -XX:+UseConcMarkSweepGC
 -XX:+CMSIncrementalMode
+-XX:-OmitStackTraceInFastThrow
 -Xms384m
 -Xmx384m
 -XX:NewSize=128m
