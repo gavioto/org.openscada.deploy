@@ -216,7 +216,7 @@ public class TransformSiteToGlobal
             item.setAlias ( String.format ( this.processor.getConnectionItemStateFormat (), site.getId (), connectionTag ) );
             item.setName ( String.format ( "org.openscada.da.master.analyzer.connectionService.%s.state.connected", connectionId ) );
             item.setDevice ( "master" );
-            item.setDescription ( String.format ( "Conected state to site local %s master", connectionTag ) );
+            item.setDescription ( String.format ( "Connected state to site local %s master", connectionTag ) );
             item.setSystem ( "SCADA" );
             item.getHierarchy ().addAll ( this.processor.getHierarchyPrefix () );
             item.getHierarchy ().addAll ( site.getHierarchy () );
@@ -236,17 +236,13 @@ public class TransformSiteToGlobal
             item.setAlias ( String.format ( this.processor.getConnectionItemStringStateFormat (), site.getId (), connectionTag ) );
             item.setName ( String.format ( "org.openscada.da.master.analyzer.connectionService.%s.state.state", connectionId ) );
             item.setDevice ( "master" );
-            item.setDescription ( String.format ( "Conected state to site local %s master", connectionTag ) );
+            item.setDescription ( String.format ( "Connected state to site local %s master", connectionTag ) );
             item.setSystem ( "SCADA" );
             item.getHierarchy ().addAll ( this.processor.getHierarchyPrefix () );
             item.getHierarchy ().addAll ( site.getHierarchy () );
             item.setDataType ( DataType.BOOLEAN );
 
-            item.setLocalBooleanMonitor ( ModelFactory.eINSTANCE.createBooleanMonitor () );
-            item.getLocalBooleanMonitor ().setActive ( true );
-            item.getLocalBooleanMonitor ().setOkValue ( true );
-            item.getLocalBooleanMonitor ().setSeverity ( Severity.ALARM );
-            item.getLocalBooleanMonitor ().setAck ( false );
+            item.setEventCommand ( true );
 
             this.cfg.addItem ( item );
         }
