@@ -1637,6 +1637,7 @@ public class Configuration extends GenericMasterConfiguration
 
         data.put ( "datasource.id", average.getSource () ); //$NON-NLS-1$
         data.put ( "trigger", "" + average.getTrigger () ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "triggerOnly", "" + average.isTriggerOnly () ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "nullRange", "" + average.getNullRange () ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "range", "" + average.getRange () ); //$NON-NLS-1$ //$NON-NLS-2$
 

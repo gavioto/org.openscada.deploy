@@ -1536,6 +1536,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_TriggerOnly ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1859,6 +1869,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( movingAverageEClass, MOVING_AVERAGE__TRIGGER );
         createEAttribute ( movingAverageEClass, MOVING_AVERAGE__RANGE );
         createEAttribute ( movingAverageEClass, MOVING_AVERAGE__NULL_RANGE );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__TRIGGER_ONLY );
 
         listMonitorEntryEClass = createEClass ( LIST_MONITOR_ENTRY );
         createEAttribute ( listMonitorEntryEClass, LIST_MONITOR_ENTRY__VALUE );
@@ -2066,7 +2077,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass ( movingAverageItemEClass, MovingAverageItem.class, "MovingAverageItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getMovingAverageItem_Average (), this.getMovingAverage (), null, "average", null, 1, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         getMovingAverageItem_Average ().getEKeys ().add ( this.getMovingAverage_Id () );
-        initEAttribute ( getMovingAverageItem_Type (), this.getMovingAverageReferenceType (), "type", null, 1, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverageItem_Type (), this.getMovingAverageReferenceType (), "type", "WEIGHTED", 0, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( movingAverageEClass, MovingAverage.class, "MovingAverage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getMovingAverage_Id (), ecorePackage.getEString (), "id", null, 1, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -2074,6 +2085,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getMovingAverage_Trigger (), ecorePackage.getELongObject (), "trigger", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getMovingAverage_Range (), ecorePackage.getELongObject (), "range", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getMovingAverage_NullRange (), ecorePackage.getELongObject (), "nullRange", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverage_TriggerOnly (), ecorePackage.getEBoolean (), "triggerOnly", "false", 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( listMonitorEntryEClass, ListMonitorEntry.class, "ListMonitorEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getListMonitorEntry_Value (), this.getVariant (), "value", null, 1, 1, ListMonitorEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

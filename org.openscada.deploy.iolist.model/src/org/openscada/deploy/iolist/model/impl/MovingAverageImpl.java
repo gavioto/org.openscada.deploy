@@ -25,6 +25,7 @@ import org.openscada.deploy.iolist.model.MovingAverage;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.MovingAverageImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.MovingAverageImpl#getRange <em>Range</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.MovingAverageImpl#getNullRange <em>Null Range</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.MovingAverageImpl#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,6 +132,26 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
      * @ordered
      */
     protected Long nullRange = NULL_RANGE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isTriggerOnly() <em>Trigger Only</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isTriggerOnly()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean TRIGGER_ONLY_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isTriggerOnly() <em>Trigger Only</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isTriggerOnly()
+     * @generated
+     * @ordered
+     */
+    protected boolean triggerOnly = TRIGGER_ONLY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -273,6 +294,29 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isTriggerOnly ()
+    {
+        return triggerOnly;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTriggerOnly ( boolean newTriggerOnly )
+    {
+        boolean oldTriggerOnly = triggerOnly;
+        triggerOnly = newTriggerOnly;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.MOVING_AVERAGE__TRIGGER_ONLY, oldTriggerOnly, triggerOnly ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -288,6 +332,8 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
                 return getRange ();
             case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
                 return getNullRange ();
+            case ModelPackage.MOVING_AVERAGE__TRIGGER_ONLY:
+                return isTriggerOnly ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -316,6 +362,9 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
                 return;
             case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
                 setNullRange ( (Long)newValue );
+                return;
+            case ModelPackage.MOVING_AVERAGE__TRIGGER_ONLY:
+                setTriggerOnly ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -346,6 +395,9 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
             case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
                 setNullRange ( NULL_RANGE_EDEFAULT );
                 return;
+            case ModelPackage.MOVING_AVERAGE__TRIGGER_ONLY:
+                setTriggerOnly ( TRIGGER_ONLY_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -370,6 +422,8 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
                 return RANGE_EDEFAULT == null ? range != null : !RANGE_EDEFAULT.equals ( range );
             case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
                 return NULL_RANGE_EDEFAULT == null ? nullRange != null : !NULL_RANGE_EDEFAULT.equals ( nullRange );
+            case ModelPackage.MOVING_AVERAGE__TRIGGER_ONLY:
+                return triggerOnly != TRIGGER_ONLY_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -396,6 +450,8 @@ public class MovingAverageImpl extends EObjectImpl implements MovingAverage
         result.append ( range );
         result.append ( ", nullRange: " );
         result.append ( nullRange );
+        result.append ( ", triggerOnly: " );
+        result.append ( triggerOnly );
         result.append ( ')' );
         return result.toString ();
     }

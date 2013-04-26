@@ -63,6 +63,7 @@ public class MovingAverageItemProvider extends ItemProviderAdapter implements IE
             addTriggerPropertyDescriptor ( object );
             addRangePropertyDescriptor ( object );
             addNullRangePropertyDescriptor ( object );
+            addTriggerOnlyPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -120,6 +121,17 @@ public class MovingAverageItemProvider extends ItemProviderAdapter implements IE
     protected void addNullRangePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MovingAverage_nullRange_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_MovingAverage_nullRange_feature", "_UI_MovingAverage_type" ), ModelPackage.Literals.MOVING_AVERAGE__NULL_RANGE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Trigger Only feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTriggerOnlyPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MovingAverage_triggerOnly_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_MovingAverage_triggerOnly_feature", "_UI_MovingAverage_type" ), ModelPackage.Literals.MOVING_AVERAGE__TRIGGER_ONLY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -198,6 +210,7 @@ public class MovingAverageItemProvider extends ItemProviderAdapter implements IE
             case ModelPackage.MOVING_AVERAGE__TRIGGER:
             case ModelPackage.MOVING_AVERAGE__RANGE:
             case ModelPackage.MOVING_AVERAGE__NULL_RANGE:
+            case ModelPackage.MOVING_AVERAGE__TRIGGER_ONLY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModelPackage.MOVING_AVERAGE__SOURCE:

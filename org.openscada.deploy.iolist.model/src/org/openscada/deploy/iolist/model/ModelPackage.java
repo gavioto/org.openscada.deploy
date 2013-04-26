@@ -3476,13 +3476,22 @@ public interface ModelPackage extends EPackage
     int MOVING_AVERAGE__NULL_RANGE = 4;
 
     /**
+     * The feature id for the '<em><b>Trigger Only</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__TRIGGER_ONLY = 5;
+
+    /**
      * The number of structural features of the '<em>Moving Average</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MOVING_AVERAGE_FEATURE_COUNT = 5;
+    int MOVING_AVERAGE_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl <em>List Monitor Entry</em>}' class.
@@ -5008,6 +5017,17 @@ public interface ModelPackage extends EPackage
     EAttribute getMovingAverage_NullRange ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#isTriggerOnly <em>Trigger Only</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger Only</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#isTriggerOnly()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_TriggerOnly ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ListMonitorEntry <em>List Monitor Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6224,6 +6244,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute MOVING_AVERAGE__NULL_RANGE = eINSTANCE.getMovingAverage_NullRange ();
+
+        /**
+         * The meta object literal for the '<em><b>Trigger Only</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__TRIGGER_ONLY = eINSTANCE.getMovingAverage_TriggerOnly ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl <em>List Monitor Entry</em>}' class.
