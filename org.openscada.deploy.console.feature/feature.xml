@@ -2,7 +2,7 @@
 <feature
       id="org.openscada.deploy.console"
       label="Feature bundling together the Felix/Equinox SSH Console"
-      version="1.1.0.qualifier"
+      version="1.2.0.qualifier"
       provider-name="openSCADA">
 
    <description>
