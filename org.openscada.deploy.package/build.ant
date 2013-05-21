@@ -45,7 +45,7 @@
     	
     	<buildModule name="org.openscada.p2.sample.master"/>
     	
-    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
+    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada2"/>
     </target>
 
 	
