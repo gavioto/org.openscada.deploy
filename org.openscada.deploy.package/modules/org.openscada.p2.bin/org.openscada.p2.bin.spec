@@ -1,6 +1,6 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
-%define version 1.1.0
+%define version 1.2.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      org.openscada.p2.bin

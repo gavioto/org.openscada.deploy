@@ -1,3 +1,9 @@
+p2director (3.8.2openscada2) unstable; urgency=low
+
+  * Upgrade to openSCADA 1.2.0
+
+ -- Jens Reimann <jens.reimann@ibh-systems.com>  Tue, 21 May 2013 16:31:05 +0100
+
 p2director (3.8.2openscada1) stable; urgency=normal
 
   * Upgrade of p2director to Eclipse 3.8.2

@@ -1,3 +1,9 @@
+org.openscada.p2.bin (1.2.0) unstable; urgency=low
+
+  * Upgrade to openSCADA 1.2.0
+
+ -- Jens Reimann <jens.reimann@ibh-systems.com>  Tue, 21 May 2013 16:31:05 +0100
+
 org.openscada.p2.bin (1.1.0) unstable; urgency=low
 
   * Upgrade to openSCADA 1.1.0

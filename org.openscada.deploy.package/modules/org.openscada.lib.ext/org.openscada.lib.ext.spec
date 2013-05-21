@@ -1,5 +1,5 @@
 %define _jardir /usr/jar
-%define version 1.1.0
+%define version 1.2.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      org.openscada.lib.ext
