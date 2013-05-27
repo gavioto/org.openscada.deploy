@@ -14,6 +14,7 @@
 				<exclude name="**/*external.sdk-*-p2repo.zip"/>
 				<exclude name="**/*deploy.repo-*-p2repo.zip"/>
 				<include name="**/*-p2repo.zip"/>
+				<include name="**/emf-xsd-Update-*.zip"/>
 			</fileset>
     		<patternset includes="plugins/*.jar"/>
     		<mapper type="flatten"/>
