@@ -8,6 +8,7 @@ package org.openscada.deploy.iolist.model;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.openscada.core.Variant;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getAttributeSummaryLevel <em>Attribute Summary Level</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isEventCommand <em>Event Command</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isLocalManual <em>Local Manual</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.Item#getLocalManualPreset <em>Local Manual Preset</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#isRemoteManual <em>Remote Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getSystem <em>System</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.Item#getHierarchy <em>Hierarchy</em>}</li>
@@ -438,6 +440,33 @@ public interface Item extends EObject
      * @generated
      */
     void setLocalManual ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Local Manual Preset</b></em>' attribute.
+     * The default value is <code>"NULL#"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local Manual Preset</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local Manual Preset</em>' attribute.
+     * @see #setLocalManualPreset(Variant)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getItem_LocalManualPreset()
+     * @model default="NULL#" dataType="org.openscada.deploy.iolist.model.Variant" required="true"
+     * @generated
+     */
+    Variant getLocalManualPreset ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.Item#getLocalManualPreset <em>Local Manual Preset</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local Manual Preset</em>' attribute.
+     * @see #getLocalManualPreset()
+     * @generated
+     */
+    void setLocalManualPreset ( Variant value );
 
     /**
      * Returns the value of the '<em><b>Remote Manual</b></em>' attribute.

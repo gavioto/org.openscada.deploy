@@ -195,6 +195,20 @@ public class ItemListWriter
                 return item.getRoundingValue () == null ? null : item.getRoundingValue ().toString ();
             }
         } );
+        this.columns.add ( new OptionalTextColumn ( "MANUAL" ) {
+
+            @Override
+            protected boolean isAvailale ( final Item item )
+            {
+                return item.getLocalManualPreset () != null && !item.getLocalManualPreset ().isNull ();
+            }
+
+            @Override
+            protected String getValue ( final Item item )
+            {
+                return ( item.getLocalManualPreset () == null || item.getLocalManualPreset ().isNull () ) ? null : item.getLocalManualPreset ().toString ();
+            }
+        } );
 
         this.columns.add ( new BooleanEcoreColumn ( "EXCLUDE_SUMMARY", ModelPackage.Literals.ITEM__IGNORE_SUMMARY ) );
         this.columns.add ( new BooleanEcoreColumn ( "BLOCK", ModelPackage.Literals.ITEM__BLOCK ) );

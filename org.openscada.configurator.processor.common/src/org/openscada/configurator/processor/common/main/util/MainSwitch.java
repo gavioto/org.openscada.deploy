@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.openscada.configuration.model.Processor;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.SecurityLoader;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,6 +83,16 @@ public class MainSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case MainPackage.SECURITY_LOADER:
+            {
+                SecurityLoader securityLoader = (SecurityLoader)theEObject;
+                T result = caseSecurityLoader ( securityLoader );
+                if ( result == null )
+                    result = caseProcessor ( securityLoader );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -99,6 +110,22 @@ public class MainSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseAuthorizationLoader ( AuthorizationLoader object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Security Loader</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Security Loader</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSecurityLoader ( SecurityLoader object )
     {
         return null;
     }

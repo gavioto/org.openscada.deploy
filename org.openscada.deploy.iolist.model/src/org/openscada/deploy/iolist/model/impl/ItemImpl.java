@@ -18,12 +18,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.openscada.core.Variant;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.LevelMonitor;
 import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.Mapper;
+import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;
 import org.openscada.deploy.iolist.model.Rounding;
 
@@ -43,6 +45,7 @@ import org.openscada.deploy.iolist.model.Rounding;
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getAttributeSummaryLevel <em>Attribute Summary Level</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isEventCommand <em>Event Command</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isLocalManual <em>Local Manual</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getLocalManualPreset <em>Local Manual Preset</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#isRemoteManual <em>Remote Manual</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.impl.ItemImpl#getHierarchy <em>Hierarchy</em>}</li>
@@ -263,6 +266,26 @@ public class ItemImpl extends EObjectImpl implements Item
      * @ordered
      */
     protected boolean localManual = LOCAL_MANUAL_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getLocalManualPreset() <em>Local Manual Preset</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalManualPreset()
+     * @generated
+     * @ordered
+     */
+    protected static final Variant LOCAL_MANUAL_PRESET_EDEFAULT = (Variant)ModelFactory.eINSTANCE.createFromString ( ModelPackage.eINSTANCE.getVariant (), "NULL#" );
+
+    /**
+     * The cached value of the '{@link #getLocalManualPreset() <em>Local Manual Preset</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalManualPreset()
+     * @generated
+     * @ordered
+     */
+    protected Variant localManualPreset = LOCAL_MANUAL_PRESET_EDEFAULT;
 
     /**
      * The default value of the '{@link #isRemoteManual() <em>Remote Manual</em>}' attribute.
@@ -1308,6 +1331,29 @@ public class ItemImpl extends EObjectImpl implements Item
      * <!-- end-user-doc -->
      * @generated
      */
+    public Variant getLocalManualPreset ()
+    {
+        return localManualPreset;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalManualPreset ( Variant newLocalManualPreset )
+    {
+        Variant oldLocalManualPreset = localManualPreset;
+        localManualPreset = newLocalManualPreset;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModelPackage.ITEM__LOCAL_MANUAL_PRESET, oldLocalManualPreset, localManualPreset ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean isRemoteManual ()
     {
         return remoteManual;
@@ -2128,6 +2174,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return isEventCommand ();
             case ModelPackage.ITEM__LOCAL_MANUAL:
                 return isLocalManual ();
+            case ModelPackage.ITEM__LOCAL_MANUAL_PRESET:
+                return getLocalManualPreset ();
             case ModelPackage.ITEM__REMOTE_MANUAL:
                 return isRemoteManual ();
             case ModelPackage.ITEM__SYSTEM:
@@ -2237,6 +2285,9 @@ public class ItemImpl extends EObjectImpl implements Item
                 return;
             case ModelPackage.ITEM__LOCAL_MANUAL:
                 setLocalManual ( (Boolean)newValue );
+                return;
+            case ModelPackage.ITEM__LOCAL_MANUAL_PRESET:
+                setLocalManualPreset ( (Variant)newValue );
                 return;
             case ModelPackage.ITEM__REMOTE_MANUAL:
                 setRemoteManual ( (Boolean)newValue );
@@ -2383,6 +2434,9 @@ public class ItemImpl extends EObjectImpl implements Item
             case ModelPackage.ITEM__LOCAL_MANUAL:
                 setLocalManual ( LOCAL_MANUAL_EDEFAULT );
                 return;
+            case ModelPackage.ITEM__LOCAL_MANUAL_PRESET:
+                setLocalManualPreset ( LOCAL_MANUAL_PRESET_EDEFAULT );
+                return;
             case ModelPackage.ITEM__REMOTE_MANUAL:
                 setRemoteManual ( REMOTE_MANUAL_EDEFAULT );
                 return;
@@ -2517,6 +2571,8 @@ public class ItemImpl extends EObjectImpl implements Item
                 return eventCommand != EVENT_COMMAND_EDEFAULT;
             case ModelPackage.ITEM__LOCAL_MANUAL:
                 return localManual != LOCAL_MANUAL_EDEFAULT;
+            case ModelPackage.ITEM__LOCAL_MANUAL_PRESET:
+                return LOCAL_MANUAL_PRESET_EDEFAULT == null ? localManualPreset != null : !LOCAL_MANUAL_PRESET_EDEFAULT.equals ( localManualPreset );
             case ModelPackage.ITEM__REMOTE_MANUAL:
                 return remoteManual != REMOTE_MANUAL_EDEFAULT;
             case ModelPackage.ITEM__SYSTEM:
@@ -2619,6 +2675,8 @@ public class ItemImpl extends EObjectImpl implements Item
         result.append ( eventCommand );
         result.append ( ", localManual: " );
         result.append ( localManual );
+        result.append ( ", localManualPreset: " );
+        result.append ( localManualPreset );
         result.append ( ", remoteManual: " );
         result.append ( remoteManual );
         result.append ( ", system: " );

@@ -110,9 +110,9 @@ public class BooleanMonitorItemProvider extends BasicMonitorItemProvider impleme
 
         switch ( notification.getFeatureID ( BooleanMonitor.class ) )
         {
-        case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case ModelPackage.BOOLEAN_MONITOR__OK_VALUE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

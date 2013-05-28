@@ -37,6 +37,7 @@ import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.odftoolkit.odfdom.dom.element.table.TableTableRowElement;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfWhitespaceProcessor;
 import org.openscada.ae.monitor.datasource.common.ListSeverity;
+import org.openscada.core.VariantEditor;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
@@ -221,6 +222,17 @@ public class ItemListReader
                 {
                     item.setRoundingAvailable ( true );
                     item.setRoundingValue ( Rounding.getByName ( value ) );
+                }
+            }
+        } );
+        this.readers.put ( "MANUAL", new TextColumnReader () {
+            @Override
+            public void setValue ( final Item item, final String value )
+            {
+                if ( value != null && !value.isEmpty () )
+                {
+                    item.setLocalManual ( true );
+                    item.setLocalManualPreset ( VariantEditor.toVariant ( value ) );
                 }
             }
         } );

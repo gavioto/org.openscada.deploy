@@ -30,7 +30,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.openscada.configurator.data.rule.RuleEncoder;
+import org.openscada.configurator.sec.Rule;
+import org.openscada.configurator.sec.Rules;
 import org.openscada.utils.str.StringHelper;
+
+import com.google.common.collect.Lists;
 
 public class GenericMasterConfiguration extends GenericConfiguration
 {
@@ -234,6 +239,20 @@ public class GenericMasterConfiguration extends GenericConfiguration
         data.put ( "for.type", typeFilter ); //$NON-NLS-1$
         data.put ( "for.action", actionFilter ); //$NON-NLS-1$
         addData ( "org.openscada.sec.provider.script.factory", id, data ); //$NON-NLS-1$
+    }
+
+    public void addSecurityRules ( final Rules rules )
+    {
+        int priority = 1000;
+
+        for ( final Rule rule : Lists.reverse ( rules.getRules () ) )
+        {
+            final RuleEncoder encoder = RuleEncoder.findEncoder ( rule );
+            if ( encoder != null )
+            {
+                encoder.encodeRule ( this, priority += 100 );
+            }
+        }
     }
 
 }

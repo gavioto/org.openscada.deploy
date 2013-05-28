@@ -6,7 +6,11 @@
 	<argument>-XX:+CMSIncrementalMode</argument>
 	
 	<!-- starting with dummy sec provider -->
-	<start>org.openscada.sec.provider.dummy</start>
+	<start>org.openscada.sec.osgi.manager</start>
+	<start>org.openscada.sec.auth.logon</start>
+	<start>org.openscada.sec.provider.plain.property</start>
+
+	<property key="org.openscada.sec.provider.plain.property.data">user#password</property>
 	
 	<property key="org.openscada.ds.storage.jdbc.instance">master.sample</property>
 	<property key="org.openscada.ca.jdbc.instance">master.sample</property>
@@ -20,15 +24,6 @@
 
 		<note>You will need a postgres database set up on localhost for this setup. You can use the script 'osCreateMasterDB'.</note>
 	</profile>
-	
-	<profile name="postgres.server1" parent="postgres">
-		<property key="org.openscada.jdbc.properties.serverName">192.168.1.1</property>
-	</profile>
-	
-	<profile name="postgres.server2" parent="postgres">
-		<property key="org.openscada.jdbc.properties.serverName">192.168.1.2</property>
-	</profile>
-	
 </profile>
 
 

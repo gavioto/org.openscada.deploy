@@ -392,7 +392,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalMin ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 38 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 39 );
     }
 
     /**
@@ -402,7 +402,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalMax ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 39 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 40 );
     }
 
     /**
@@ -412,7 +412,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalListMonitor ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 40 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 41 );
     }
 
     /**
@@ -422,7 +422,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalBooleanMonitor ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 41 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 42 );
     }
 
     /**
@@ -432,7 +432,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      */
     public EAttribute getItem_DefaultMonitorDemote ()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 42 );
+        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 43 );
     }
 
     /**
@@ -506,11 +506,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public EAttribute getItem_RemoteManual ()
+    public EAttribute getItem_LocalManualPreset ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 9 );
     }
@@ -520,7 +520,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_System ()
+    public EAttribute getItem_RemoteManual ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 10 );
     }
@@ -530,7 +530,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_Hierarchy ()
+    public EAttribute getItem_System ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 11 );
     }
@@ -540,7 +540,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteMin ()
+    public EAttribute getItem_Hierarchy ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 12 );
     }
@@ -550,7 +550,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteMax ()
+    public EAttribute getItem_RemoteMin ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 13 );
     }
@@ -560,7 +560,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteHighHigh ()
+    public EAttribute getItem_RemoteMax ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 14 );
     }
@@ -570,7 +570,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteHigh ()
+    public EAttribute getItem_RemoteHighHigh ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 15 );
     }
@@ -580,7 +580,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteLow ()
+    public EAttribute getItem_RemoteHigh ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 16 );
     }
@@ -590,7 +590,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteLowLow ()
+    public EAttribute getItem_RemoteLow ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 17 );
     }
@@ -600,7 +600,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteBool ()
+    public EAttribute getItem_RemoteLowLow ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 18 );
     }
@@ -610,7 +610,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_RemoteBoolAckValue ()
+    public EAttribute getItem_RemoteBool ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 19 );
     }
@@ -620,7 +620,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_Input ()
+    public EAttribute getItem_RemoteBoolAckValue ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 20 );
     }
@@ -630,7 +630,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_Output ()
+    public EAttribute getItem_Input ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 21 );
     }
@@ -640,7 +640,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_LocalScaleAvailable ()
+    public EAttribute getItem_Output ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 22 );
     }
@@ -650,7 +650,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_LocalScaleFactor ()
+    public EAttribute getItem_LocalScaleAvailable ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 23 );
     }
@@ -660,7 +660,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_LocalScaleOffset ()
+    public EAttribute getItem_LocalScaleFactor ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 24 );
     }
@@ -670,7 +670,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_DebugInformation ()
+    public EAttribute getItem_LocalScaleOffset ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 25 );
     }
@@ -680,7 +680,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_IgnoreSummary ()
+    public EAttribute getItem_DebugInformation ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 26 );
     }
@@ -690,7 +690,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_Block ()
+    public EAttribute getItem_IgnoreSummary ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 27 );
     }
@@ -700,7 +700,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_Enabled ()
+    public EAttribute getItem_Block ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 28 );
     }
@@ -710,7 +710,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
-    public EAttribute getItem_HdStorage ()
+    public EAttribute getItem_Enabled ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 29 );
     }
@@ -720,9 +720,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
      * @generated
      */
     @Override
+    public EAttribute getItem_HdStorage ()
+    {
+        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 30 );
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EReference getItem_Mapper ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 30 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 31 );
     }
 
     /**
@@ -732,7 +742,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EAttribute getItem_SimulationValue ()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 31 );
+        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 32 );
     }
 
     /**
@@ -742,7 +752,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EAttribute getItem_RoundingAvailable ()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 32 );
+        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 33 );
     }
 
     /**
@@ -752,7 +762,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EAttribute getItem_RoundingValue ()
     {
-        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 33 );
+        return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 34 );
     }
 
     /**
@@ -762,7 +772,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalHighHigh ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 34 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 35 );
     }
 
     /**
@@ -772,7 +782,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalHigh ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 35 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 36 );
     }
 
     /**
@@ -782,7 +792,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalLow ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 36 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 37 );
     }
 
     /**
@@ -792,7 +802,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     @Override
     public EReference getItem_LocalLowLow ()
     {
-        return (EReference)itemEClass.getEStructuralFeatures ().get ( 37 );
+        return (EReference)itemEClass.getEStructuralFeatures ().get ( 38 );
     }
 
     /**
@@ -1526,6 +1536,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverage_TriggerOnly ()
+    {
+        return (EAttribute)movingAverageEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1724,6 +1744,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( itemEClass, ITEM__ATTRIBUTE_SUMMARY_LEVEL );
         createEAttribute ( itemEClass, ITEM__EVENT_COMMAND );
         createEAttribute ( itemEClass, ITEM__LOCAL_MANUAL );
+        createEAttribute ( itemEClass, ITEM__LOCAL_MANUAL_PRESET );
         createEAttribute ( itemEClass, ITEM__REMOTE_MANUAL );
         createEAttribute ( itemEClass, ITEM__SYSTEM );
         createEAttribute ( itemEClass, ITEM__HIERARCHY );
@@ -1848,6 +1869,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         createEAttribute ( movingAverageEClass, MOVING_AVERAGE__TRIGGER );
         createEAttribute ( movingAverageEClass, MOVING_AVERAGE__RANGE );
         createEAttribute ( movingAverageEClass, MOVING_AVERAGE__NULL_RANGE );
+        createEAttribute ( movingAverageEClass, MOVING_AVERAGE__TRIGGER_ONLY );
 
         listMonitorEntryEClass = createEClass ( LIST_MONITOR_ENTRY );
         createEAttribute ( listMonitorEntryEClass, LIST_MONITOR_ENTRY__VALUE );
@@ -1931,6 +1953,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getItem_AttributeSummaryLevel (), ecorePackage.getEInt (), "attributeSummaryLevel", "1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_EventCommand (), ecorePackage.getEBoolean (), "eventCommand", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_LocalManual (), ecorePackage.getEBoolean (), "localManual", "true", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getItem_LocalManualPreset (), this.getVariant (), "localManualPreset", "NULL#", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_RemoteManual (), ecorePackage.getEBoolean (), "remoteManual", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_System (), ecorePackage.getEString (), "system", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getItem_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -2054,7 +2077,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEClass ( movingAverageItemEClass, MovingAverageItem.class, "MovingAverageItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getMovingAverageItem_Average (), this.getMovingAverage (), null, "average", null, 1, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         getMovingAverageItem_Average ().getEKeys ().add ( this.getMovingAverage_Id () );
-        initEAttribute ( getMovingAverageItem_Type (), this.getMovingAverageReferenceType (), "type", null, 1, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverageItem_Type (), this.getMovingAverageReferenceType (), "type", "WEIGHTED", 0, 1, MovingAverageItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( movingAverageEClass, MovingAverage.class, "MovingAverage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getMovingAverage_Id (), ecorePackage.getEString (), "id", null, 1, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -2062,6 +2085,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
         initEAttribute ( getMovingAverage_Trigger (), ecorePackage.getELongObject (), "trigger", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getMovingAverage_Range (), ecorePackage.getELongObject (), "range", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getMovingAverage_NullRange (), ecorePackage.getELongObject (), "nullRange", null, 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getMovingAverage_TriggerOnly (), ecorePackage.getEBoolean (), "triggerOnly", "false", 0, 1, MovingAverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( listMonitorEntryEClass, ListMonitorEntry.class, "ListMonitorEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getListMonitorEntry_Value (), this.getVariant (), "value", null, 1, 1, ListMonitorEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

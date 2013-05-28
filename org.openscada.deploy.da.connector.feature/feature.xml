@@ -2,7 +2,7 @@
 <feature
       id="org.openscada.deploy.da.connector"
       label="openSCADA DA Connector Feature"
-      version="0.18.0.qualifier"
+      version="1.1.0.qualifier"
       provider-name="openSCADA.org">
 
    <description url="http://openscada.org">
@@ -22,9 +22,8 @@ are required to create connections to DA services using OSGi.
       <import plugin="slf4j.api"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.openscada.utils" version="0.14.0" match="greaterOrEqual"/>
+      <import plugin="org.openscada.utils" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.mina.core"/>
-      <import plugin="com.springsource.org.apache.commons.beanutils"/>
       <import plugin="org.apache.mina.filter.compression"/>
       <import plugin="org.apache.mina.transport.socket.apr"/>
       <import plugin="com.google.guava"/>
@@ -151,6 +150,13 @@ are required to create connections to DA services using OSGi.
 
    <plugin
          id="org.openscada.utils.propertyeditors"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.da.client.ngp"
          download-size="0"
          install-size="0"
          version="0.0.0"

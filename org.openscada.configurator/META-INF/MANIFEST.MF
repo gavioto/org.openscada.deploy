@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: openSCADA Configurator
 Bundle-SymbolicName: org.openscada.configurator
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: openSCADA.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.openscada.configurator;version="1.0.0";uses:="org.openscada.configurator.report,org.openscada.deploy.iolist.model",
@@ -30,4 +30,5 @@ Require-Bundle: org.openscada.deploy.iolist.model;bundle-version="1.0.0",
  org.openscada.deploy.iolist.utils;bundle-version="1.0.0",
  org.openscada.external.odfdom;bundle-version="0.8.7",
  org.apache.xerces;bundle-version="2.9.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
+ org.eclipse.emf.ecore.xmi;bundle-version="2.7.0",
+ org.openscada.configurator.sec;bundle-version="1.1.0"

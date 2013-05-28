@@ -22,6 +22,7 @@ import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl;
 import org.openscada.configurator.processor.common.main.MainPackage;
 import org.openscada.configurator.processor.common.main.impl.MainPackageImpl;
+import org.openscada.configurator.sec.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,6 +97,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Initialize simple dependencies
         ConfiguratorPackage.eINSTANCE.eClass ();
+        SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
         GlobalPackageImpl theGlobalPackage = (GlobalPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI ) instanceof GlobalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( GlobalPackage.eNS_URI ) : GlobalPackage.eINSTANCE );

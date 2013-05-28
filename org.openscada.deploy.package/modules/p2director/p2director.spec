@@ -1,6 +1,6 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
-%define version 3.8.1
+%define version 3.8.2
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      p2director
@@ -9,7 +9,7 @@ Version:   %{version}
 Release:   %{qualifier}
 License:   LGPLv3
 BuildArch: x86_64
-Packager:  TH4 SYSTEMS GmbH <jens.reimann@th4-systems.com>
+Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
 Source0:   %{name}_%{version}%{qualifier}.tar.gz
 BuildRoot: %{buildroot}

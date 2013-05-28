@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainFactory;
 import org.openscada.configurator.processor.common.main.MainPackage;
+import org.openscada.configurator.processor.common.main.SecurityLoader;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +66,8 @@ public class MainFactoryImpl extends EFactoryImpl implements MainFactory
         {
             case MainPackage.AUTHORIZATION_LOADER:
                 return createAuthorizationLoader ();
+            case MainPackage.SECURITY_LOADER:
+                return createSecurityLoader ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -79,6 +82,17 @@ public class MainFactoryImpl extends EFactoryImpl implements MainFactory
     {
         AuthorizationLoaderImpl authorizationLoader = new AuthorizationLoaderImpl ();
         return authorizationLoader;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SecurityLoader createSecurityLoader ()
+    {
+        SecurityLoaderImpl securityLoader = new SecurityLoaderImpl ();
+        return securityLoader;
     }
 
     /**

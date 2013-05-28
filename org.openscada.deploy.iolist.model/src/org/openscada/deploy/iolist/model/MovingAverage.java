@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.deploy.iolist.model.MovingAverage#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.MovingAverage#getRange <em>Range</em>}</li>
  *   <li>{@link org.openscada.deploy.iolist.model.MovingAverage#getNullRange <em>Null Range</em>}</li>
+ *   <li>{@link org.openscada.deploy.iolist.model.MovingAverage#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
  * </p>
  *
@@ -155,5 +156,32 @@ public interface MovingAverage extends EObject
      * @generated
      */
     void setNullRange ( Long value );
+
+    /**
+     * Returns the value of the '<em><b>Trigger Only</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Trigger Only</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Trigger Only</em>' attribute.
+     * @see #setTriggerOnly(boolean)
+     * @see org.openscada.deploy.iolist.model.ModelPackage#getMovingAverage_TriggerOnly()
+     * @model default="false"
+     * @generated
+     */
+    boolean isTriggerOnly ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.deploy.iolist.model.MovingAverage#isTriggerOnly <em>Trigger Only</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Trigger Only</em>' attribute.
+     * @see #isTriggerOnly()
+     * @generated
+     */
+    void setTriggerOnly ( boolean value );
 
 } // MovingAverage

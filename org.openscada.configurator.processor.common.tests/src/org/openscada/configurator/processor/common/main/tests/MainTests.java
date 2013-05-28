@@ -35,6 +35,7 @@ public class MainTests extends TestSuite
     {
         TestSuite suite = new MainTests ( "main Tests" );
         suite.addTestSuite ( AuthorizationLoaderTest.class );
+        suite.addTestSuite ( SecurityLoaderTest.class );
         return suite;
     }
 

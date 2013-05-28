@@ -154,13 +154,22 @@ public interface ModelPackage extends EPackage
     int ITEM__LOCAL_MANUAL = 8;
 
     /**
+     * The feature id for the '<em><b>Local Manual Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM__LOCAL_MANUAL_PRESET = 9;
+
+    /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_MANUAL = 9;
+    int ITEM__REMOTE_MANUAL = 10;
 
     /**
      * The feature id for the '<em><b>System</b></em>' attribute.
@@ -169,7 +178,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__SYSTEM = 10;
+    int ITEM__SYSTEM = 11;
 
     /**
      * The feature id for the '<em><b>Hierarchy</b></em>' attribute list.
@@ -178,7 +187,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__HIERARCHY = 11;
+    int ITEM__HIERARCHY = 12;
 
     /**
      * The feature id for the '<em><b>Remote Min</b></em>' attribute.
@@ -187,7 +196,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_MIN = 12;
+    int ITEM__REMOTE_MIN = 13;
 
     /**
      * The feature id for the '<em><b>Remote Max</b></em>' attribute.
@@ -196,7 +205,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_MAX = 13;
+    int ITEM__REMOTE_MAX = 14;
 
     /**
      * The feature id for the '<em><b>Remote High High</b></em>' attribute.
@@ -205,7 +214,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_HIGH_HIGH = 14;
+    int ITEM__REMOTE_HIGH_HIGH = 15;
 
     /**
      * The feature id for the '<em><b>Remote High</b></em>' attribute.
@@ -214,7 +223,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_HIGH = 15;
+    int ITEM__REMOTE_HIGH = 16;
 
     /**
      * The feature id for the '<em><b>Remote Low</b></em>' attribute.
@@ -223,7 +232,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_LOW = 16;
+    int ITEM__REMOTE_LOW = 17;
 
     /**
      * The feature id for the '<em><b>Remote Low Low</b></em>' attribute.
@@ -232,7 +241,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_LOW_LOW = 17;
+    int ITEM__REMOTE_LOW_LOW = 18;
 
     /**
      * The feature id for the '<em><b>Remote Bool</b></em>' attribute.
@@ -241,7 +250,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_BOOL = 18;
+    int ITEM__REMOTE_BOOL = 19;
 
     /**
      * The feature id for the '<em><b>Remote Bool Ack Value</b></em>' attribute.
@@ -250,7 +259,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__REMOTE_BOOL_ACK_VALUE = 19;
+    int ITEM__REMOTE_BOOL_ACK_VALUE = 20;
 
     /**
      * The feature id for the '<em><b>Input</b></em>' attribute.
@@ -259,7 +268,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__INPUT = 20;
+    int ITEM__INPUT = 21;
 
     /**
      * The feature id for the '<em><b>Output</b></em>' attribute.
@@ -268,7 +277,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__OUTPUT = 21;
+    int ITEM__OUTPUT = 22;
 
     /**
      * The feature id for the '<em><b>Local Scale Available</b></em>' attribute.
@@ -277,7 +286,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_SCALE_AVAILABLE = 22;
+    int ITEM__LOCAL_SCALE_AVAILABLE = 23;
 
     /**
      * The feature id for the '<em><b>Local Scale Factor</b></em>' attribute.
@@ -286,7 +295,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_SCALE_FACTOR = 23;
+    int ITEM__LOCAL_SCALE_FACTOR = 24;
 
     /**
      * The feature id for the '<em><b>Local Scale Offset</b></em>' attribute.
@@ -295,7 +304,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_SCALE_OFFSET = 24;
+    int ITEM__LOCAL_SCALE_OFFSET = 25;
 
     /**
      * The feature id for the '<em><b>Debug Information</b></em>' attribute.
@@ -304,7 +313,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__DEBUG_INFORMATION = 25;
+    int ITEM__DEBUG_INFORMATION = 26;
 
     /**
      * The feature id for the '<em><b>Ignore Summary</b></em>' attribute.
@@ -313,7 +322,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__IGNORE_SUMMARY = 26;
+    int ITEM__IGNORE_SUMMARY = 27;
 
     /**
      * The feature id for the '<em><b>Block</b></em>' attribute.
@@ -322,7 +331,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__BLOCK = 27;
+    int ITEM__BLOCK = 28;
 
     /**
      * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -331,7 +340,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__ENABLED = 28;
+    int ITEM__ENABLED = 29;
 
     /**
      * The feature id for the '<em><b>Hd Storage</b></em>' attribute.
@@ -340,7 +349,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__HD_STORAGE = 29;
+    int ITEM__HD_STORAGE = 30;
 
     /**
      * The feature id for the '<em><b>Mapper</b></em>' containment reference list.
@@ -349,7 +358,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__MAPPER = 30;
+    int ITEM__MAPPER = 31;
 
     /**
      * The feature id for the '<em><b>Simulation Value</b></em>' attribute.
@@ -358,7 +367,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__SIMULATION_VALUE = 31;
+    int ITEM__SIMULATION_VALUE = 32;
 
     /**
      * The feature id for the '<em><b>Rounding Available</b></em>' attribute.
@@ -367,7 +376,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__ROUNDING_AVAILABLE = 32;
+    int ITEM__ROUNDING_AVAILABLE = 33;
 
     /**
      * The feature id for the '<em><b>Rounding Value</b></em>' attribute.
@@ -376,7 +385,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__ROUNDING_VALUE = 33;
+    int ITEM__ROUNDING_VALUE = 34;
 
     /**
      * The feature id for the '<em><b>Local High High</b></em>' containment reference.
@@ -385,7 +394,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_HIGH_HIGH = 34;
+    int ITEM__LOCAL_HIGH_HIGH = 35;
 
     /**
      * The feature id for the '<em><b>Local High</b></em>' containment reference.
@@ -394,7 +403,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_HIGH = 35;
+    int ITEM__LOCAL_HIGH = 36;
 
     /**
      * The feature id for the '<em><b>Local Low</b></em>' containment reference.
@@ -403,7 +412,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_LOW = 36;
+    int ITEM__LOCAL_LOW = 37;
 
     /**
      * The feature id for the '<em><b>Local Low Low</b></em>' containment reference.
@@ -412,7 +421,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_LOW_LOW = 37;
+    int ITEM__LOCAL_LOW_LOW = 38;
 
     /**
      * The feature id for the '<em><b>Local Min</b></em>' containment reference.
@@ -421,7 +430,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_MIN = 38;
+    int ITEM__LOCAL_MIN = 39;
 
     /**
      * The feature id for the '<em><b>Local Max</b></em>' containment reference.
@@ -430,7 +439,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_MAX = 39;
+    int ITEM__LOCAL_MAX = 40;
 
     /**
      * The feature id for the '<em><b>Local List Monitor</b></em>' containment reference.
@@ -439,7 +448,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_LIST_MONITOR = 40;
+    int ITEM__LOCAL_LIST_MONITOR = 41;
 
     /**
      * The feature id for the '<em><b>Local Boolean Monitor</b></em>' containment reference.
@@ -448,7 +457,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__LOCAL_BOOLEAN_MONITOR = 41;
+    int ITEM__LOCAL_BOOLEAN_MONITOR = 42;
 
     /**
      * The feature id for the '<em><b>Default Monitor Demote</b></em>' attribute.
@@ -457,7 +466,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM__DEFAULT_MONITOR_DEMOTE = 42;
+    int ITEM__DEFAULT_MONITOR_DEMOTE = 43;
 
     /**
      * The number of structural features of the '<em>Item</em>' class.
@@ -466,7 +475,7 @@ public interface ModelPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM_FEATURE_COUNT = 43;
+    int ITEM_FEATURE_COUNT = 44;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.SummaryGroupImpl <em>Summary Group</em>}' class.
@@ -668,6 +677,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int FORMULA_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>Local Manual Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__LOCAL_MANUAL_PRESET = ITEM__LOCAL_MANUAL_PRESET;
 
     /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
@@ -1293,6 +1311,15 @@ public interface ModelPackage extends EPackage
      * @ordered
      */
     int SCRIPT_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
+
+    /**
+     * The feature id for the '<em><b>Local Manual Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__LOCAL_MANUAL_PRESET = ITEM__LOCAL_MANUAL_PRESET;
 
     /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
@@ -2204,6 +2231,15 @@ public interface ModelPackage extends EPackage
     int AVERAGE_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
 
     /**
+     * The feature id for the '<em><b>Local Manual Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int AVERAGE_ITEM__LOCAL_MANUAL_PRESET = ITEM__LOCAL_MANUAL_PRESET;
+
+    /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2628,6 +2664,15 @@ public interface ModelPackage extends EPackage
     int CONSTANT_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
 
     /**
+     * The feature id for the '<em><b>Local Manual Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_ITEM__LOCAL_MANUAL_PRESET = ITEM__LOCAL_MANUAL_PRESET;
+
+    /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3034,6 +3079,15 @@ public interface ModelPackage extends EPackage
     int MOVING_AVERAGE_ITEM__LOCAL_MANUAL = ITEM__LOCAL_MANUAL;
 
     /**
+     * The feature id for the '<em><b>Local Manual Preset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_ITEM__LOCAL_MANUAL_PRESET = ITEM__LOCAL_MANUAL_PRESET;
+
+    /**
      * The feature id for the '<em><b>Remote Manual</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3422,13 +3476,22 @@ public interface ModelPackage extends EPackage
     int MOVING_AVERAGE__NULL_RANGE = 4;
 
     /**
+     * The feature id for the '<em><b>Trigger Only</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE__TRIGGER_ONLY = 5;
+
+    /**
      * The number of structural features of the '<em>Moving Average</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MOVING_AVERAGE_FEATURE_COUNT = 5;
+    int MOVING_AVERAGE_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl <em>List Monitor Entry</em>}' class.
@@ -3837,6 +3900,17 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EAttribute getItem_LocalManual ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#getLocalManualPreset <em>Local Manual Preset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Local Manual Preset</em>'.
+     * @see org.openscada.deploy.iolist.model.Item#getLocalManualPreset()
+     * @see #getItem()
+     * @generated
+     */
+    EAttribute getItem_LocalManualPreset ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.Item#isRemoteManual <em>Remote Manual</em>}'.
@@ -4943,6 +5017,17 @@ public interface ModelPackage extends EPackage
     EAttribute getMovingAverage_NullRange ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.deploy.iolist.model.MovingAverage#isTriggerOnly <em>Trigger Only</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger Only</em>'.
+     * @see org.openscada.deploy.iolist.model.MovingAverage#isTriggerOnly()
+     * @see #getMovingAverage()
+     * @generated
+     */
+    EAttribute getMovingAverage_TriggerOnly ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.deploy.iolist.model.ListMonitorEntry <em>List Monitor Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5299,6 +5384,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute ITEM__LOCAL_MANUAL = eINSTANCE.getItem_LocalManual ();
+
+        /**
+         * The meta object literal for the '<em><b>Local Manual Preset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM__LOCAL_MANUAL_PRESET = eINSTANCE.getItem_LocalManualPreset ();
 
         /**
          * The meta object literal for the '<em><b>Remote Manual</b></em>' attribute feature.
@@ -6151,6 +6244,14 @@ public interface ModelPackage extends EPackage
          * @generated
          */
         EAttribute MOVING_AVERAGE__NULL_RANGE = eINSTANCE.getMovingAverage_NullRange ();
+
+        /**
+         * The meta object literal for the '<em><b>Trigger Only</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE__TRIGGER_ONLY = eINSTANCE.getMovingAverage_TriggerOnly ();
 
         /**
          * The meta object literal for the '{@link org.openscada.deploy.iolist.model.impl.ListMonitorEntryImpl <em>List Monitor Entry</em>}' class.

@@ -457,7 +457,7 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Item item : this.items )
         {
-            if ( ( item.getDevice () != null ) && !item.getDevice ().isEmpty () )
+            if ( item.getDevice () != null && !item.getDevice ().isEmpty () )
             {
                 connections.add ( item.getDevice () );
             }
@@ -505,7 +505,7 @@ public class Configuration extends GenericMasterConfiguration
                 sourceId = item.getName () + ".ds"; //$NON-NLS-1$
                 addDSDataSource ( sourceId );
             }
-            else if ( ( item.getDevice () != null ) && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
+            else if ( item.getDevice () != null && !"".equals ( item.getDevice () ) ) //$NON-NLS-1$
             {
                 sourceId = internalItemId + ".source"; //$NON-NLS-1$
 
@@ -574,7 +574,7 @@ public class Configuration extends GenericMasterConfiguration
 
             if ( item.isLocalManual () )
             {
-                addLocalManual ( masterId + ".manual", masterId, attributes ); //$NON-NLS-1$
+                addLocalManual ( masterId + ".manual", masterId, item.getLocalManualPreset (), attributes ); //$NON-NLS-1$
                 reportItem.addFeature ( Messages.getString ( "Configuration.report.feature.manual" ) ); //$NON-NLS-1$
             }
 
@@ -735,15 +735,15 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        if ( ( item.getWriteValueName () != null ) && !item.getWriteValueName ().isEmpty () )
+        if ( item.getWriteValueName () != null && !item.getWriteValueName ().isEmpty () )
         {
             data.put ( "writeValueName", item.getWriteValueName () ); //$NON-NLS-1$
         }
-        if ( ( item.getOutputDatasourceId () != null ) && !item.getOutputDatasourceId ().isEmpty () )
+        if ( item.getOutputDatasourceId () != null && !item.getOutputDatasourceId ().isEmpty () )
         {
             data.put ( "outputDatasource.id", item.getOutputDatasourceId () ); //$NON-NLS-1$
         }
-        if ( ( item.getOutputFormula () != null ) && !item.getOutputFormula ().isEmpty () )
+        if ( item.getOutputFormula () != null && !item.getOutputFormula ().isEmpty () )
         {
             data.put ( "outputFormula", item.getOutputFormula () ); //$NON-NLS-1$
         }
@@ -752,7 +752,7 @@ public class Configuration extends GenericMasterConfiguration
             data.put ( "outputDatasource.type", convert ( item.getOutputDatasourceType () ) ); //$NON-NLS-1$
         }
 
-        if ( ( item.getInputFormula () != null ) && !item.getInputFormula ().isEmpty () )
+        if ( item.getInputFormula () != null && !item.getInputFormula ().isEmpty () )
         {
             data.put ( "inputFormula", item.getInputFormula () ); //$NON-NLS-1$
         }
@@ -766,7 +766,7 @@ public class Configuration extends GenericMasterConfiguration
             }
         }
 
-        if ( ( item.getInitScript () != null ) && !item.getInitScript ().isEmpty () )
+        if ( item.getInitScript () != null && !item.getInitScript ().isEmpty () )
         {
             data.put ( "init.0", item.getInitScript () ); //$NON-NLS-1$
         }
@@ -821,18 +821,18 @@ public class Configuration extends GenericMasterConfiguration
     {
         switch ( type )
         {
-        case BOOLEAN:
-            return VariantType.BOOLEAN.name ();
-        case INTEGER:
-            return VariantType.INT32.name ();
-        case LONG_INTEGER:
-            return VariantType.INT64.name ();
-        case STRING:
-            return VariantType.STRING.name ();
-        case FLOAT:
-            return VariantType.DOUBLE.name ();
-        case VARIANT:
-            return null;
+            case BOOLEAN:
+                return VariantType.BOOLEAN.name ();
+            case INTEGER:
+                return VariantType.INT32.name ();
+            case LONG_INTEGER:
+                return VariantType.INT64.name ();
+            case STRING:
+                return VariantType.STRING.name ();
+            case FLOAT:
+                return VariantType.DOUBLE.name ();
+            case VARIANT:
+                return null;
         }
         return null;
     }
@@ -858,11 +858,17 @@ public class Configuration extends GenericMasterConfiguration
         addData ( "org.openscada.da.datasource.ds", id, data ); //$NON-NLS-1$
     }
 
-    private void addLocalManual ( final String id, final String masterId, final Map<String, String> attributes )
+    private void addLocalManual ( final String id, final String masterId, final Variant localManualPreset, final Map<String, String> attributes )
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
         fillMasterHandler ( FACTORY_MASTER_HANDLER_MANUAL, id, data, masterId, null );
+
+        if ( localManualPreset != null && !localManualPreset.isNull () )
+        {
+            data.put ( "active", "true" );
+            data.put ( "value", localManualPreset.toString () );
+        }
 
         applyInfoAttributes ( attributes, data );
 
@@ -873,7 +879,7 @@ public class Configuration extends GenericMasterConfiguration
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        if ( ( engine != null ) && !engine.isEmpty () )
+        if ( engine != null && !engine.isEmpty () )
         {
             data.put ( "engine", engine ); //$NON-NLS-1$
         }
@@ -891,7 +897,7 @@ public class Configuration extends GenericMasterConfiguration
         {
             data.put ( "updateCommand", update ); //$NON-NLS-1$
         }
-        if ( ( outputs != null ) && !outputs.isEmpty () )
+        if ( outputs != null && !outputs.isEmpty () )
         {
             final Set<String> oldSources = new HashSet<String> ();
             for ( final Map.Entry<String, String> entry : outputs.entrySet () )
@@ -925,11 +931,13 @@ public class Configuration extends GenericMasterConfiguration
 
     static final String NL = System.getProperty ( "line.separator" ); //$NON-NLS-1$
 
-    /** Loads text data from a file
+    /**
+     * Loads text data from a file
      * 
      * @param file
      * @return
-     * @throws Exception */
+     * @throws Exception
+     */
     public static String loadFromFile ( final Reader sourceReader ) throws Exception
     {
         final BufferedReader reader = new BufferedReader ( sourceReader );
@@ -962,9 +970,9 @@ public class Configuration extends GenericMasterConfiguration
 
         fillMasterHandler ( FACTORY_MASTER_HANDLER_SCALE, id, data, masterId, null );
 
-        data.put ( "active", "" + ( ( localScaleFactor != null ) || ( localScaleOffset != null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        data.put ( "factor", ( "" + localScaleFactor ) != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
-        data.put ( "offset", ( "" + localScaleOffset ) != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "active", "" + ( localScaleFactor != null || localScaleOffset != null ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "factor", "" + localScaleFactor != null ? "" + localScaleFactor : "1.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        data.put ( "offset", "" + localScaleOffset != null ? "" + localScaleOffset : "0.0" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
         applyInfoAttributes ( attributes, data );
 
@@ -1341,7 +1349,7 @@ public class Configuration extends GenericMasterConfiguration
 
         for ( final Map.Entry<String, String> entry : attributes.entrySet () )
         {
-            if ( ( entry.getKey () == null ) || entry.getKey ().isEmpty () )
+            if ( entry.getKey () == null || entry.getKey ().isEmpty () )
             {
                 //ignore empty keys
                 continue;
@@ -1518,7 +1526,7 @@ public class Configuration extends GenericMasterConfiguration
             {
                 this.logStream.println ( "Overriding item: " + origItem ); //$NON-NLS-1$
 
-                if ( ( item.getName () == null ) || "".equals ( item.getName () ) ) //$NON-NLS-1$
+                if ( item.getName () == null || "".equals ( item.getName () ) ) //$NON-NLS-1$
                 {
                     this.logStream.println ( "Use original source name: " + origItem.getName () ); //$NON-NLS-1$
                     item.setName ( origItem.getName () );
@@ -1629,6 +1637,7 @@ public class Configuration extends GenericMasterConfiguration
 
         data.put ( "datasource.id", average.getSource () ); //$NON-NLS-1$
         data.put ( "trigger", "" + average.getTrigger () ); //$NON-NLS-1$ //$NON-NLS-2$
+        data.put ( "triggerOnly", "" + average.isTriggerOnly () ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "nullRange", "" + average.getNullRange () ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "range", "" + average.getRange () ); //$NON-NLS-1$ //$NON-NLS-2$
 

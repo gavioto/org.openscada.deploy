@@ -1,5 +1,5 @@
 %define _datadir /usr/share
-%define version 1.0.0
+%define version 1.1.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      org.openscada.p2.repo.eclipse
@@ -8,7 +8,7 @@ Version:   %{version}
 Release:   %{qualifier}
 License:   various
 BuildArch: noarch
-Packager:  TH4 SYSTEMS GmbH <jens.reimann@th4-systems.com>
+Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
 Source0:   %{name}_%{version}%{qualifier}.tar.gz
 BuildRoot: %{buildroot}
