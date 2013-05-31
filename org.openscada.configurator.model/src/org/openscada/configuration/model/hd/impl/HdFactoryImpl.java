@@ -35,7 +35,7 @@ public class HdFactoryImpl extends EFactoryImpl implements HdFactory
     {
         try
         {
-            HdFactory theHdFactory = (HdFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Deploy/Configurator/HD" );
+            HdFactory theHdFactory = (HdFactory)EPackage.Registry.INSTANCE.getEFactory ( HdPackage.eNS_URI );
             if ( theHdFactory != null )
             {
                 return theHdFactory;

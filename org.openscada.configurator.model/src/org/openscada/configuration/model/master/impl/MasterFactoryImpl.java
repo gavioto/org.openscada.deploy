@@ -34,7 +34,7 @@ public class MasterFactoryImpl extends EFactoryImpl implements MasterFactory
     {
         try
         {
-            MasterFactory theMasterFactory = (MasterFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Deploy/Configurator/Master" );
+            MasterFactory theMasterFactory = (MasterFactory)EPackage.Registry.INSTANCE.getEFactory ( MasterPackage.eNS_URI );
             if ( theMasterFactory != null )
             {
                 return theMasterFactory;

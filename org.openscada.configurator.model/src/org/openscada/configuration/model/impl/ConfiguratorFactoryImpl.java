@@ -35,7 +35,7 @@ public class ConfiguratorFactoryImpl extends EFactoryImpl implements Configurato
     {
         try
         {
-            ConfiguratorFactory theConfiguratorFactory = (ConfiguratorFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/Deploy/Configurator" );
+            ConfiguratorFactory theConfiguratorFactory = (ConfiguratorFactory)EPackage.Registry.INSTANCE.getEFactory ( ConfiguratorPackage.eNS_URI );
             if ( theConfiguratorFactory != null )
             {
                 return theConfiguratorFactory;
