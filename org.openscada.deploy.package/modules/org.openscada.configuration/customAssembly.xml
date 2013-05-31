@@ -28,7 +28,7 @@
     	<delete dir="${gather.base}/schemaorg_apache_xmlbeans"/>
     	<delete dir="${gather.base}/jar"/>
     	
-    	<move file="${gather.base}/schema" todir="${gather.base}/schema"/>
+    	<move file="${gather.base}/model" todir="${gather.base}/schema"/>
     </target>
 	
 	<!-- ================================= 
