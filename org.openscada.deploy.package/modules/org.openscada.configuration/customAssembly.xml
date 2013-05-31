@@ -26,8 +26,8 @@
     	</unjar>
     	
     	<delete dir="${gather.base}/schemaorg_apache_xmlbeans"/>
-    	
     	<delete dir="${gather.base}/jar"/>
+		<rename dest="${gather.base}/model" src="${gather.base}/schema"/>
     </target>
 	
 	<!-- ================================= 
