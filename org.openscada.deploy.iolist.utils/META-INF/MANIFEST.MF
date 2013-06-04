@@ -8,9 +8,9 @@ Bundle-Vendor: openSCADA.org
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;bundle-version="2.5.0",
  org.openscada.deploy.iolist.model;bundle-version="1.0.0",
- org.openscada.external.apache.poi;bundle-version="3.7.0",
  org.openscada.external.odfdom;bundle-version="0.8.7",
- org.apache.xerces;bundle-version="2.9.0"
+ org.apache.xerces;bundle-version="2.9.0",
+ org.apache.poi;bundle-version="3.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.openscada.deploy.iolist.utils;version="1.0.1";uses:="org.eclipse.core.runtime,com.inavare.vims.iolist.model,org.osgi.framework"
