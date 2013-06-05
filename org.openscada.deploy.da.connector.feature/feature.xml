@@ -19,14 +19,24 @@ are required to create connections to DA services using OSGi.
    </license>
 
    <requires>
-      <import plugin="slf4j.api"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.openscada.utils" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.mina.core"/>
       <import plugin="org.apache.mina.filter.compression"/>
       <import plugin="org.apache.mina.transport.socket.apr"/>
       <import plugin="com.google.guava"/>
+      <import plugin="org.openscada.core.data"/>
+      <import plugin="org.openscada.core.subscription"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.openscada.core.client.connection.service"/>
+      <import plugin="org.openscada.core.info"/>
+      <import plugin="org.apache.commons.beanutils"/>
+      <import plugin="org.openscada.da.data"/>
+      <import plugin="org.openscada.sec.utils"/>
+      <import plugin="org.openscada.ca.data"/>
+      <import plugin="org.openscada.core.client.ngp"/>
+      <import plugin="org.openscada.da.common.ngp"/>
+      <import plugin="org.openscada.protocol.ngp.common"/>
    </requires>
 
    <plugin
