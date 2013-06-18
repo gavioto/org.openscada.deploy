@@ -53,7 +53,7 @@ public interface MovingAverageItem extends Item
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
-     * The default value is <code>"WEIGHTED"</code>.
+     * The default value is <code>"weighted"</code>.
      * The literals are from the enumeration {@link org.openscada.deploy.iolist.model.MovingAverageReferenceType}.
      * <!-- begin-user-doc -->
      * <p>
@@ -65,7 +65,7 @@ public interface MovingAverageItem extends Item
      * @see org.openscada.deploy.iolist.model.MovingAverageReferenceType
      * @see #setType(MovingAverageReferenceType)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getMovingAverageItem_Type()
-     * @model default="WEIGHTED"
+     * @model default="weighted"
      * @generated
      */
     MovingAverageReferenceType getType ();

@@ -129,7 +129,7 @@ public class HierarchySummaryGroupImpl extends SummaryGroupImpl implements Hiera
     {
         if ( eContainerFeatureID () != ModelPackage.HIERARCHY_SUMMARY_GROUP__PARENT )
             return null;
-        return (HierarchySummaryGroup)eContainer ();
+        return (HierarchySummaryGroup)eInternalContainer ();
     }
 
     /**

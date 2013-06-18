@@ -53,7 +53,7 @@ public interface AverageItem extends Item
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
-     * The default value is <code>"MEAN"</code>.
+     * The default value is <code>"mean"</code>.
      * The literals are from the enumeration {@link org.openscada.deploy.iolist.model.AverageReferenceType}.
      * <!-- begin-user-doc -->
      * <p>
@@ -65,7 +65,7 @@ public interface AverageItem extends Item
      * @see org.openscada.deploy.iolist.model.AverageReferenceType
      * @see #setType(AverageReferenceType)
      * @see org.openscada.deploy.iolist.model.ModelPackage#getAverageItem_Type()
-     * @model default="MEAN"
+     * @model default="mean"
      * @generated
      */
     AverageReferenceType getType ();

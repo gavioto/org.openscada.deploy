@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.openscada.ae.data.Severity;
 import org.openscada.core.Variant;
-import org.openscada.deploy.iolist.model.*;
 import org.openscada.core.VariantEditor;
 import org.openscada.deploy.iolist.model.Average;
 import org.openscada.deploy.iolist.model.AverageItem;
@@ -57,7 +56,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     {
         try
         {
-            ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory ( "http:///org/openscada/deploy/iolist/model.ecore" );
+            ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory ( ModelPackage.eNS_URI );
             if ( theModelFactory != null )
             {
                 return theModelFactory;

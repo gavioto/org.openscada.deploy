@@ -49,7 +49,7 @@ public class MovingAverageItemImpl extends ItemImpl implements MovingAverageItem
      * @generated
      * @ordered
      */
-    protected static final MovingAverageReferenceType TYPE_EDEFAULT = MovingAverageReferenceType.MIN;
+    protected static final MovingAverageReferenceType TYPE_EDEFAULT = MovingAverageReferenceType.WEIGHTED;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

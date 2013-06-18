@@ -45,7 +45,7 @@ public class AverageItemImpl extends ItemImpl implements AverageItem
      * @generated
      * @ordered
      */
-    protected static final AverageReferenceType TYPE_EDEFAULT = AverageReferenceType.MIN;
+    protected static final AverageReferenceType TYPE_EDEFAULT = AverageReferenceType.MEAN;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

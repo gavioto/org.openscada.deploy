@@ -211,7 +211,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="average" lowerBound="1"
         eType="#//Average" eKeys="#//Average/id"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AverageReferenceType"
-        defaultValueLiteral="MEAN"/>
+        defaultValueLiteral="mean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AverageReferenceType">
     <eLiterals name="MIN" literal="min"/>
@@ -226,7 +226,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="average" lowerBound="1"
         eType="#//MovingAverage" eKeys="#//MovingAverage/id"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MovingAverageReferenceType"
-        defaultValueLiteral="WEIGHTED"/>
+        defaultValueLiteral="weighted"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MovingAverage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
