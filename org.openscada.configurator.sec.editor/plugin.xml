@@ -39,6 +39,22 @@
       </wizard>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated sec -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.openscada.configurator.sec.presentation.SecurityModelWizardID"
+            name="%_UI_SecurityModelWizard_label"
+            class="org.openscada.configurator.sec.presentation.SecurityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SecurityModelFile.gif">
+         <description>%_UI_SecurityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.openscada.configurator.sec.presentation.SecurityEditorID"

@@ -57,7 +57,7 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
     {
         try
         {
-            SecurityFactory theSecurityFactory = (SecurityFactory)EPackage.Registry.INSTANCE.getEFactory ( "urn:openscada:configurator:sec" );
+            SecurityFactory theSecurityFactory = (SecurityFactory)EPackage.Registry.INSTANCE.getEFactory ( SecurityPackage.eNS_URI );
             if ( theSecurityFactory != null )
             {
                 return theSecurityFactory;

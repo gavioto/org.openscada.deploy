@@ -37,13 +37,10 @@ import org.openscada.configurator.sec.ScriptRule;
 import org.openscada.configurator.sec.SecurityPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.openscada.configurator.sec.ScriptRule} object.
+ * This is the item provider adapter for a {@link org.openscada.configurator.sec.ScriptRule} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
- * @implements ITableItemLabelProvider
  */
 public class ScriptRuleItemProvider extends RuleItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
@@ -51,10 +48,9 @@ public class ScriptRuleItemProvider extends RuleItemProvider implements IEditing
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public ScriptRuleItemProvider ( final AdapterFactory adapterFactory )
+    public ScriptRuleItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -63,55 +59,51 @@ public class ScriptRuleItemProvider extends RuleItemProvider implements IEditing
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addScriptPropertyDescriptor ( object );
             addCallbackScriptPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Script feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addScriptPropertyDescriptor ( final Object object )
+    protected void addScriptPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_script_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_script_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__SCRIPT, true, false, true, null, getString ( "_UI_scriptPropertyCategory" ), null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_script_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_script_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__SCRIPT, true, false, true, null, getString ( "_UI_scriptPropertyCategory" ), null ) );
     }
 
     /**
      * This adds a property descriptor for the Callback Script feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addCallbackScriptPropertyDescriptor ( final Object object )
+    protected void addCallbackScriptPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_callbackScript_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_callbackScript_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__CALLBACK_SCRIPT, true, false, true, null, getString ( "_UI_scriptPropertyCategory" ), null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptRule_callbackScript_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptRule_callbackScript_feature", "_UI_ScriptRule_type" ), SecurityPackage.Literals.SCRIPT_RULE__CALLBACK_SCRIPT, true, false, true, null, getString ( "_UI_scriptPropertyCategory" ), null ) );
     }
 
     /**
      * This returns ScriptRule.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ScriptRule" ) );
     }
@@ -120,13 +112,12 @@ public class ScriptRuleItemProvider extends RuleItemProvider implements IEditing
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final String label = ( (ScriptRule)object ).getId ();
+        String label = ( (ScriptRule)object ).getId ();
         return label == null || label.length () == 0 ? getString ( "_UI_ScriptRule_type" ) : getString ( "_UI_ScriptRule_type" ) + " " + label;
     }
 
@@ -144,33 +135,28 @@ public class ScriptRuleItemProvider extends RuleItemProvider implements IEditing
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
