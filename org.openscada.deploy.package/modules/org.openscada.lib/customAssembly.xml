@@ -16,7 +16,10 @@
 				<include name="**/*-p2repo.zip"/>
 				<include name="**/emf-xsd-Update-*.zip"/>
 			</fileset>
-    		<patternset includes="plugins/*.jar"/>
+    		<patternset>
+    			<exclude name="**/*.source_*.jar"/>
+    			<include name="plugins/*.jar"/>
+			</patternset>
     		<mapper type="flatten"/>
 		</unzip>    	
     </target>

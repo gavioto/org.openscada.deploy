@@ -13,7 +13,10 @@
 			<fileset dir="${input.dir}/repos">
 				<include name="**/*external.sdk-*-p2repo.zip"/>
 			</fileset>
-    		<patternset includes="plugins/*.jar"/>
+			<patternset>
+    			<exclude name="**/*.source_*.jar"/>
+    			<include name="plugins/*.jar"/>
+			</patternset>
     		<mapper type="flatten"/>
 		</unzip>    	
     </target>
