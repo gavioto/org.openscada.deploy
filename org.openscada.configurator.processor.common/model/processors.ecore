@@ -112,7 +112,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SecurityLoader" eSuperTypes="../../org.openscada.configurator.model/model/configurator.ecore#//Processor">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rules" lowerBound="1"
-          eType="ecore:EClass ../../org.openscada.configurator.sec/model/sec.ecore#//Rules"/>
+          eType="ecore:EClass ../../org.openscada.configuration.security/model/sec.ecore#//Rules"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="slot" upperBound="-1"
           eType="ecore:EClass ../../org.openscada.configurator.model/model/configurator.ecore#//GenericMasterConfigurationSlot"/>
     </eClassifiers>

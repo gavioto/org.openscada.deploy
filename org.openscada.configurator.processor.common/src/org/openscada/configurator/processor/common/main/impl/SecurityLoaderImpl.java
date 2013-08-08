@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Project;
+import org.openscada.configuration.security.Rules;
 import org.openscada.configurator.processor.common.main.MainPackage;
 import org.openscada.configurator.processor.common.main.SecurityLoader;
-import org.openscada.configurator.sec.Rules;
 
 /**
  * <!-- begin-user-doc -->

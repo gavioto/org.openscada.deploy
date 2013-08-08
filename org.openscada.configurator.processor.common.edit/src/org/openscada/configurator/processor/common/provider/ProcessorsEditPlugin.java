@@ -9,7 +9,7 @@ package org.openscada.configurator.processor.common.provider;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.openscada.configuration.model.provider.ConfiguratorEditPlugin;
-import org.openscada.configurator.sec.provider.SecurityEditPlugin;
+import org.openscada.configuration.security.provider.SecurityEditPlugin;
 
 /**
  * This is the central singleton for the Processors edit plugin.

@@ -30,9 +30,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.openscada.configuration.security.Rule;
+import org.openscada.configuration.security.Rules;
 import org.openscada.configurator.data.rule.RuleEncoder;
-import org.openscada.configurator.sec.Rule;
-import org.openscada.configurator.sec.Rules;
 import org.openscada.utils.str.StringHelper;
 
 import com.google.common.collect.Lists;

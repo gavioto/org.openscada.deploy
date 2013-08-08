@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.ui,
  org.openscada.configurator.module.common;bundle-version="1.0.0",
  org.openscada.configurator.processor.common;bundle-version="1.1.0",
  org.openscada.configurator.model.editor;bundle-version="1.1.0",
- org.openscada.configurator.sec;bundle-version="1.1.0",
+ org.openscada.configuration.security;bundle-version="0.1.0",
  org.openscada.deploy.iolist.model;bundle-version="1.0.0",
  org.openscada.deploy.iolist.utils;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

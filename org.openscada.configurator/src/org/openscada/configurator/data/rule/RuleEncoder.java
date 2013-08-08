@@ -3,11 +3,11 @@ package org.openscada.configurator.data.rule;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openscada.configuration.security.Rule;
+import org.openscada.configuration.security.Script;
+import org.openscada.configuration.security.ScriptRule;
+import org.openscada.configuration.security.SignatureRule;
 import org.openscada.configurator.data.ConfigurationTarget;
-import org.openscada.configurator.sec.Rule;
-import org.openscada.configurator.sec.Script;
-import org.openscada.configurator.sec.ScriptRule;
-import org.openscada.configurator.sec.SignatureRule;
 
 public class RuleEncoder
 {

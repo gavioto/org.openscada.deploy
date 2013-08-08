@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.security.SecurityPackage;
 import org.openscada.configurator.processor.common.CommonPackage;
 import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl;
@@ -16,7 +17,6 @@ import org.openscada.configurator.processor.common.main.AuthorizationLoader;
 import org.openscada.configurator.processor.common.main.MainFactory;
 import org.openscada.configurator.processor.common.main.MainPackage;
 import org.openscada.configurator.processor.common.main.SecurityLoader;
-import org.openscada.configurator.sec.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->

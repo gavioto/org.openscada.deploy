@@ -44,7 +44,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.openscada.deploy.iolist.model;bundle-version="1.0.0",
  org.openscada.deploy.iolist.utils;bundle-version="1.0.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.8.1",
- org.openscada.configurator.sec;bundle-version="1.1.0"
+ org.openscada.configuration.security;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.openscada.ae;version="1.0.0",
  org.openscada.ae.data;version="1.0.0",

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
+import org.openscada.configuration.security.SecurityPackage;
 import org.openscada.configurator.processor.common.CommonFactory;
 import org.openscada.configurator.processor.common.CommonPackage;
 import org.openscada.configurator.processor.common.StoreConfigurationSlotProcessor;
@@ -22,7 +23,6 @@ import org.openscada.configurator.processor.common.global.GlobalPackage;
 import org.openscada.configurator.processor.common.global.impl.GlobalPackageImpl;
 import org.openscada.configurator.processor.common.main.MainPackage;
 import org.openscada.configurator.processor.common.main.impl.MainPackageImpl;
-import org.openscada.configurator.sec.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -397,7 +397,7 @@
           <styles xmi:type="notation:FilteringStyle" xmi:id="_QX1yA5ClEeKOcdCA4qJTng"/>
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_QXw5gZClEeKOcdCA4qJTng" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-        <element xmi:type="ecore:EClass" href="platform:/resource/org.openscada.configurator.sec/model/sec.ecore#//Rules"/>
+        <element xmi:type="ecore:EClass" href="platform:/resource/org.openscada.configuration.security/model/sec.ecore#//Rules"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXw5gpClEeKOcdCA4qJTng" x="355" y="39"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_CDhuIXXmEeKAy-ZuWXwWeQ"/>

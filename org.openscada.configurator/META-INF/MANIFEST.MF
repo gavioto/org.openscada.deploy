@@ -31,4 +31,4 @@ Require-Bundle: org.openscada.deploy.iolist.model;bundle-version="1.0.0",
  org.openscada.external.odfdom;bundle-version="0.8.7",
  org.apache.xerces;bundle-version="2.9.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.7.0",
- org.openscada.configurator.sec;bundle-version="1.1.0"
+ org.openscada.configuration.security;bundle-version="0.1.0"

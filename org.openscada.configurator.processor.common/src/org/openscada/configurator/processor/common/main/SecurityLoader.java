@@ -5,7 +5,7 @@ package org.openscada.configurator.processor.common.main;
 import org.eclipse.emf.common.util.EList;
 import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Processor;
-import org.openscada.configurator.sec.Rules;
+import org.openscada.configuration.security.Rules;
 
 /**
  * <!-- begin-user-doc -->

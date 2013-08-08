@@ -40,16 +40,16 @@ import org.eclipse.swt.widgets.Composite;
 import org.openscada.configuration.model.ConfigurationSlot;
 import org.openscada.configuration.model.GenericMasterConfigurationSlot;
 import org.openscada.configuration.model.Project;
+import org.openscada.configuration.security.Configuration;
+import org.openscada.configuration.security.GenericScript;
+import org.openscada.configuration.security.LogonRule;
+import org.openscada.configuration.security.ScriptRule;
+import org.openscada.configuration.security.SecurityFactory;
 import org.openscada.configurator.processor.common.main.SecurityLoader;
 import org.openscada.configurator.project.wizard.CreationContext;
 import org.openscada.configurator.project.wizard.CreationContext.OptionListener;
 import org.openscada.configurator.project.wizard.CreationResult;
 import org.openscada.configurator.project.wizard.processor.AbstractProcessor;
-import org.openscada.configurator.sec.Configuration;
-import org.openscada.configurator.sec.GenericScript;
-import org.openscada.configurator.sec.LogonRule;
-import org.openscada.configurator.sec.ScriptRule;
-import org.openscada.configurator.sec.SecurityFactory;
 
 public class SecurityWizardPage extends AbstractProjectWizardPage implements OptionListener
 {

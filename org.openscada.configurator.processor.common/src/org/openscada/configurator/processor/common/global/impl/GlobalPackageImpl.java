@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.openscada.configuration.model.ConfiguratorPackage;
 import org.openscada.configuration.model.master.MasterPackage;
+import org.openscada.configuration.security.SecurityPackage;
 import org.openscada.configurator.processor.common.CommonPackage;
 import org.openscada.configurator.processor.common.global.AePullConfiguration;
 import org.openscada.configurator.processor.common.global.EventQueryImport;
@@ -29,7 +30,6 @@ import org.openscada.configurator.processor.common.global.TransformSiteToGlobal;
 import org.openscada.configurator.processor.common.impl.CommonPackageImpl;
 import org.openscada.configurator.processor.common.main.MainPackage;
 import org.openscada.configurator.processor.common.main.impl.MainPackageImpl;
-import org.openscada.configurator.sec.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,8 +2,8 @@ package org.openscada.configurator.data.rule;
 
 import java.util.Map;
 
-import org.openscada.configurator.sec.CA;
-import org.openscada.configurator.sec.SignatureRule;
+import org.openscada.configuration.security.CA;
+import org.openscada.configuration.security.SignatureRule;
 
 public class SigatureRuleEncoder extends RuleEncoder
 {
