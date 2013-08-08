@@ -46,6 +46,15 @@
     	<buildModule name="org.openscada.p2.sample.master"/>
     	
     	<buildModule name="p2director" skipChangelog="true" qualifier="openscada2"/>
+    	
+
+    	<move todir="${output.dir}">
+    		<fileset dir="${rpm.base}/RPMS">
+    			<include name="**/*.rpm"/>
+    		</fileset>
+    		<flatten/>
+    	</move>
+    	
     </target>
 
 	
@@ -115,7 +124,6 @@
         			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier @{qualifier}'"/>
     			</else>
         	</if>
-	    	
         </sequential>
     </macrodef>
 
