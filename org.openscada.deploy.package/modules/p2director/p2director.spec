@@ -1,13 +1,13 @@
 %define _bindir /usr/bin
 %define _datadir /usr/share
-%define version 3.8.2
+%define version 4.3.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      p2director
 Summary:   openSCADA bin
 Version:   %{version}
 Release:   %{qualifier}
-License:   LGPLv3
+License:   EPLv1
 BuildArch: x86_64
 Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
@@ -42,6 +42,9 @@ cd ..
 %{_datadir}/p2director/
 
 %changelog
+* Fri Aug 09 2013 - jens.reimann@ibh-systems.com
+- Change to Eclipse version 4.3.0
+
 * Mon Mar 04 2013 - ctron@dentrassi.de
 - Change to Eclipse version 3.8.1
 
