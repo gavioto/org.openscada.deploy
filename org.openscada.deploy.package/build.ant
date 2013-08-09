@@ -52,7 +52,7 @@
     		<fileset dir="${rpm.base}/RPMS">
     			<include name="**/*.rpm"/>
     		</fileset>
-    		<flatten/>
+    		<mapper type="flatten"/>
     	</move>
     	
     </target>
