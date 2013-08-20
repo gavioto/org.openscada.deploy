@@ -12,6 +12,7 @@ Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
 Source0:   %{name}_%{version}%{qualifier}.tar.gz
 BuildRoot: %{buildroot}
+Requires: org.openscada.p2.bin
 
 %description
 
