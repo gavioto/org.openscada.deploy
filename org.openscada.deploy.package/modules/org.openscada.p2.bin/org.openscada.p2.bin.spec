@@ -38,7 +38,7 @@ cd ..
 
 %files
 %defattr(-,root,root)
-%attr(744,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/openscada/profiles
 %dir %{_datadir}/openscada/p2
 
