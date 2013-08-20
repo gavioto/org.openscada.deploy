@@ -49,11 +49,15 @@ mkdir -p "/var/lib/%{os_user}"
 chown -R "%{os_user}:%{os_user}" "/var/lib/%{os_user}"
 
 %postun
-if which userdel >/dev/null 2>&1; then
-	userdel "%{os_user}" > /dev/null || true
+if [ "$1" -eq "0" ]; then
+	# true uninstall
+	if which userdel >/dev/null 2>&1; then
+		userdel "%{os_user}" > /dev/null || true
+	fi
+	groupdel "%{os_user}" > /dev/null || true
 fi
 		
-groupdel "%{os_user}" > /dev/null || true
+
 
 %files
 %defattr(-,root,root)
