@@ -17,6 +17,10 @@ BuildRoot: %{buildroot}
 Requires: org.openscada
 Requires: org.openscada.lib
 Requires: org.openscada.configuration
+Requires: jakarta-commons-daemon-jsvc
+Requires: rsync
+Requires: openssh-clients
+Requires: perl
 
 %description
 
