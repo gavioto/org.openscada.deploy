@@ -21,7 +21,7 @@ sub new {
     my $instanceName = shift;
     
     my $self = openSCADA::Application->new (
-      "jsvc"
+      "/usr/bin/jsvc"
     );
     
     $self->{'className'} = $className;
