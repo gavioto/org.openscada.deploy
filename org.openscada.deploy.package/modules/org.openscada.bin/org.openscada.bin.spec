@@ -41,10 +41,10 @@ cd ..
 
 %files
 %defattr(-,root,root)
-%attr(744,root,root) %{_bindir}/osDriverExporter
-%attr(744,root,root) %{_bindir}/osFunctions
-%attr(744,root,root) %{_bindir}/osService
-%attr(744,root,root) %{_bindir}/hds-replicate-once
+%attr(755,root,root) %{_bindir}/osDriverExporter
+%attr(755,root,root) %{_bindir}/osFunctions
+%attr(755,root,root) %{_bindir}/osService
+%attr(755,root,root) %{_bindir}/hds-replicate-once
 %dir %{_perllibdir}/openSCADA
 %attr(644,root,root) %{_perllibdir}/openSCADA/Base.pm
 %attr(644,root,root) %{_perllibdir}/openSCADA/Application.pm
@@ -52,5 +52,7 @@ cd ..
 %attr(644,root,root) %{_docdir}/hds.pull.conf.sample
 
 %changelog
-* Tue Jul 31 2012 - jens.reimann@th4-systems.com
+* Tue Aug 20 2013 jens.reimann@ibh-systems.com 1.2.0
+- Fix permissions for bin files
+* Tue Jul 31 2012 jens.reimann@th4-systems.com 1.0.0
 - Initial version
