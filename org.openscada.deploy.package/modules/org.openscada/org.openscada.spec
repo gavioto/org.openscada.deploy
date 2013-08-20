@@ -19,8 +19,10 @@ Group:     Applications/System
 Source0:   %{name}_%{version}%{qualifier}.tar.gz
 BuildRoot: %{buildroot}
 Requires: java7
-Requires: shadow-utils # for adding the user with "adduser"
-Requires: glibc-common # for the "getent" command
+# for adding the user with "adduser"
+Requires: shadow-utils
+# for the "getent" command
+Requires: glibc-common
 
 %description
 
