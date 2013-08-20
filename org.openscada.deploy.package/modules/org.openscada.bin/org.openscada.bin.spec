@@ -1,6 +1,6 @@
 %define _bindir /usr/bin
 %define _docdir /usr/share/doc/%{name}
-%define _perllibdir /usr/lib/perl5
+%define _perllibdir /usr/share/perl5
 %define version 1.2.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
