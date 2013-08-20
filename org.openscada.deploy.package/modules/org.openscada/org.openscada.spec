@@ -6,6 +6,7 @@
 %define _cfgdir /etc/openscada
 %define version 1.2.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
+%define os_user openscada
 
 Name:      org.openscada
 Summary:   openSCADA base
@@ -36,8 +37,19 @@ cd ..
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
 
 %post
+if ! getent passwd "%{os_user}" >/dev/null; then
+adduser --system --group --home "/var/lib/%{os_user}" "%{os_user}" \
+    --quiet --gecos "openSCADA daemon user"
+fi
+mkdir -p "/var/lib/%{os_user}"
+chown -R "%{os_user}:%{os_user}" "/var/lib/%{os_user}"
 
 %postun
+if which deluser >/dev/null 2>&1; then
+	deluser --quiet "%{os_user}" > /dev/null || true
+fi
+		
+delgroup --quiet openscada > /dev/null || true
 
 %files
 %defattr(-,root,root)
@@ -49,5 +61,7 @@ cd ..
 %dir %{_datadir}/openscada
 
 %changelog
+* Tue Aug 20 2013 - jens.reimann@ibh-systems.com
+- Adding user creation for RPM
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
 - Initial version
