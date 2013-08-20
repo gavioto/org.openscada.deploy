@@ -35,7 +35,7 @@ tar xpzf %_sourcedir/%{name}_%{version}%{qualifier}.tar.gz
 %install
 rm -rf $RPM_BUILD_ROOT
 cd %{name}
-make DESTDIR=$RPM_BUILD_ROOT install
+make TYPE=centos DESTDIR=$RPM_BUILD_ROOT install
 cd ..
 
 %clean
