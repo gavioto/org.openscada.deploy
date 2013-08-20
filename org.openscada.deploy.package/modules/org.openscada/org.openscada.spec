@@ -18,6 +18,9 @@ Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
 Source0:   %{name}_%{version}%{qualifier}.tar.gz
 BuildRoot: %{buildroot}
+Requires: java7
+Requires: shadow-utils # for adding the user with "adduser"
+Requires: glibc-common # for the "getent" command
 
 %description
 
