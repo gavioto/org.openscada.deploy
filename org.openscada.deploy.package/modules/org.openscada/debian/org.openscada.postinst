@@ -10,7 +10,7 @@ case "$1" in
 # ...create $OS_USER user if it isn't already there...
 		if ! getent passwd $OS_USER >/dev/null; then
 	        adduser --system --group --home "/var/lib/$OS_USER" $OS_USER \
-	            --quiet --gecos "openscada daemon user"
+	            --quiet --gecos "openSCADA daemon user"
 		fi
 
 # ensure "/var/lib/$OS_USER" exists...
