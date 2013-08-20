@@ -43,18 +43,17 @@ cd ..
 
 %post
 if ! getent passwd "%{os_user}" >/dev/null; then
-adduser --system --group --home "/var/lib/%{os_user}" "%{os_user}" \
-    --quiet --gecos "openSCADA daemon user"
+	adduser --system --user-group --home "/var/lib/%{os_user}" "%{os_user}" --comment "openSCADA daemon user"
 fi
 mkdir -p "/var/lib/%{os_user}"
 chown -R "%{os_user}:%{os_user}" "/var/lib/%{os_user}"
 
 %postun
-if which deluser >/dev/null 2>&1; then
-	deluser --quiet "%{os_user}" > /dev/null || true
+if which userdel >/dev/null 2>&1; then
+	userdel "%{os_user}" > /dev/null || true
 fi
 		
-delgroup --quiet openscada > /dev/null || true
+groupdel "%{os_user}" > /dev/null || true
 
 %files
 %defattr(-,root,root)
