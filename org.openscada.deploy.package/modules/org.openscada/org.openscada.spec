@@ -3,6 +3,7 @@
 %define _datadir /usr/share
 %define _jardir /usr/jar
 %define _logdir /var/log
+%define _rundir /var/run
 %define _cfgdir /etc/openscada
 %define version 1.2.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
@@ -66,6 +67,7 @@ fi
 %dir %{_jardir}
 %dir %{_cfgdir}
 %dir %attr(775,root,openscada) %{_logdir}/openscada
+%dir %attr(775,root,openscada) %{_rundir}/openscada
 %dir %{_datadir}/openscada
 
 %changelog

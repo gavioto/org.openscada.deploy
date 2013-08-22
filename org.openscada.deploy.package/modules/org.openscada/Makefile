@@ -7,6 +7,7 @@ install:
 	install -d "$(DESTDIR)/usr/jar"
 	install -d "$(DESTDIR)/etc/openscada"
 	install -d "$(DESTDIR)/var/log/openscada"
+	install -d "$(DESTDIR)/var/run/openscada"
 	install -d "$(DESTDIR)/usr/share/openscada"
 	install -d "$(DESTDIR)/var/lib/openscada"
 	install -d "$(DESTDIR)/var/lib/openscada/hds.slave"
