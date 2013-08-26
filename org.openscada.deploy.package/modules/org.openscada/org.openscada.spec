@@ -57,8 +57,6 @@ if [ "$1" -eq "0" ]; then
 	fi
 	groupdel "%{os_user}" > /dev/null || true
 fi
-		
-
 
 %files
 %defattr(-,root,root)
