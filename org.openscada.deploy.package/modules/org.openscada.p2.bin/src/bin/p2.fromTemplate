@@ -222,16 +222,19 @@ def showNotes ( notes ):
 def createInstance ( target, p ):
 	if p.abstractDefinition:
 		raise Exception("You cannot create an abstract definition")
-		
-    subprocess.call ( ["p2.create", target] )
-    subprocess.call ( ["p2.install", target ] + p.features )
-    writeArguments ( target + os.sep + "launcher.args", p.arguments )
-    writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
-    writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
-    writeProfiles ( target, p.profiles )
-    writeDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
-    copyData ( target, p.dataDirectories )
-    showNotes ( p.notes )
+	
+	if len(p.features) < 1:
+		raise Exception("Configuration does not provide any installable unit")
+	
+	subprocess.call ( ["p2.create", target] )
+	subprocess.call ( ["p2.install", target ] + p.features )
+	writeArguments ( target + os.sep + "launcher.args", p.arguments )
+	writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
+	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
+	writeProfiles ( target, p.profiles )
+	writeDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
+	copyData ( target, p.dataDirectories )
+	showNotes ( p.notes )
 
 if __name__=='__main__':
     createInstance ( target, loadProfile(profileName, True) )
