@@ -32,6 +32,10 @@
           target: build                      
          - - - - - - - - - - - - - - - - - -->
     <target name="build">
+
+    	<buildModule name="p2director.i386" skipChangelog="true" qualifier="openscada1"/>
+    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
+    		
     	<buildModule name="org.openscada"/>
     	<buildModule name="org.openscada.bin"/>
     	<buildModule name="org.openscada.lib.ext"/>
@@ -45,9 +49,6 @@
     	
     	<buildModule name="org.openscada.p2.sample.master"/>
     	
-    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
-    	
-
     	<move todir="${output.dir}">
     		<fileset dir="${rpm.base}/RPMS">
     			<include name="**/*.rpm"/>
