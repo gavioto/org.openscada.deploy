@@ -33,7 +33,7 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="build">
 
-    	<buildModule name="p2director.i386" packageName="p2director" skipChangelog="true" qualifier="openscada1"/>
+    	<buildModule name="p2director.i386" packageName="p2director" skipChangelog="true" qualifier="openscada1" debianArgs="-ai386"/>
     	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
     		
     	<buildModule name="org.openscada"/>
@@ -67,6 +67,7 @@
     	<attribute name="packageName" default="@{name}"/>
     	<attribute name="skipChangelog" default="false" />
     	<attribute name="qualifier" default=""/>
+    	<attribute name="debianArgs" default=""/>
         <sequential>
         	
         	<!-- trigger custom build first -->
@@ -101,6 +102,7 @@
         	<exec dir="modules/@{name}" executable="debuild" failonerror="true">
 	    		<arg value="-us"/>
 	    		<arg value="-uc"/>
+        		<arg line="@{debianArgs}"/>
 			</exec>
 	    	<move todir="${output.dir}">
 	    		<fileset dir="modules">
