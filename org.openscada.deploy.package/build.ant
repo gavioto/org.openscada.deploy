@@ -89,7 +89,7 @@
           target: build.p2director.i386                      
          - - - - - - - - - - - - - - - - - -->
     <target name="build.p2director.i386" if="build.32bit">
-    	<buildModule name="p2director.i386" skipChangelog="true" qualifier="openscada1"/>
+    	<buildModule name="p2director.i386" packageName="p2director" skipChangelog="true" qualifier="openscada1"/>
 	</target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
@@ -99,6 +99,7 @@
         <attribute name="name"/>
     	<attribute name="skipChangelog" default="false" />
     	<attribute name="qualifier" default=""/>
+    	<attribute name="packageName" default="@{name}"/>
         <sequential>
         	
         	<!-- trigger custom build first -->
@@ -136,26 +137,26 @@
 			</exec>
 	    	<move todir="${output.dir}">
 	    		<fileset dir="modules">
-	    			<include name="@{name}_*.dsc"/>
-	    			<include name="@{name}_*.tar.gz"/>
-	    			<include name="@{name}_*.changes"/>
-	    			<include name="@{name}_*.deb"/>
+	    			<include name="@{packageName}_*.dsc"/>
+	    			<include name="@{packageName}_*.tar.gz"/>
+	    			<include name="@{packageName}_*.changes"/>
+	    			<include name="@{packageName}_*.deb"/>
 				</fileset>
 	    	</move>
-	    	<copy file="modules/@{name}/@{name}.spec" todir="${rpm.base}/SPECS"/>
+	    	<copy file="modules/@{name}/@{packageName}.spec" todir="${rpm.base}/SPECS"/>
         	<copy todir="${rpm.base}/SOURCES">
         		<fileset dir="${output.dir}">
-        			<include name="@{name}_*.tar.gz"/>
+        			<include name="@{packageName}_*.tar.gz"/>
         		</fileset>
     		</copy>
         	
         	<if>
         		<isfalse value="@{skipChangelog}" />
         		<then>
-        			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier ${buildTag}'"/>
+        			<rpm specfile="@{packageName}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier ${buildTag}'"/>
         		</then>
         		<else>
-        			<rpm specfile="@{name}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier @{qualifier}'"/>
+        			<rpm specfile="@{packageName}.spec" topdir="${rpm.base}" failOnError="true" command="-bb --define='qualifier @{qualifier}'"/>
     			</else>
         	</if>
         </sequential>
