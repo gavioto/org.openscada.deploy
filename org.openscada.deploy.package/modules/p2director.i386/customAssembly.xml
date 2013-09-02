@@ -9,7 +9,7 @@
          ================================= -->
     <target name="default" description="Gather resources">
     	<mkdir dir="${gather.base}/unpack"/>
-    	<copy todir="${gather.base}/unpack" file="${input.dir}/product/p2director-linux.gtk.x86_64.zip"/>
+    	<copy todir="${gather.base}/unpack" file="${input.dir}/product/p2director-linux.gtk.x86.zip"/>
     </target>
 
 </project>
