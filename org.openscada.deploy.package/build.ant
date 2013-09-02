@@ -89,7 +89,7 @@
           target: build.p2director.i386                      
          - - - - - - - - - - - - - - - - - -->
     <target name="build.p2director.i386" if="build.32bit">
-    	<buildModule name="p2director.i386" packageName="p2director" skipChangelog="true" qualifier="openscada1"/>
+    	<buildModule name="p2director.i386" packageName="p2director" skipChangelog="true" qualifier="openscada1.32"/>
 	</target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
