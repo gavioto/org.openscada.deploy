@@ -2,7 +2,7 @@
 
 <project name="customAssembly" default="default">
 	
-	<property name="gather.base" location="modules/p2director"/>
+	<property name="gather.base" location="modules/p2director.i386"/>
 	
 	<!-- ================================= 
           target: default              
