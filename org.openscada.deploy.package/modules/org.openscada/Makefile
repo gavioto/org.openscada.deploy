@@ -19,7 +19,7 @@ install:
 	
 	install -d "$(DESTDIR)/etc/default"
 	 
-	test -f "src/openscada.$(TYPE).$(ARCH)" && install -m 0644 "src/openscada.$(TYPE).$(ARCH)" "$(DESTDIR)/etc/default/openscada"
-	test -f "src/openscada.$(TYPE)" && install -m 0644 "src/openscada.$(TYPE)" "$(DESTDIR)/etc/default/openscada"
+	if [ -f "src/openscada.$(TYPE).$(ARCH)" ]; then install -m 0644 "src/openscada.$(TYPE).$(ARCH)" "$(DESTDIR)/etc/default/openscada"; fi;
+	if [ -f "src/openscada.$(TYPE)" ]; then install -m 0644 "src/openscada.$(TYPE)" "$(DESTDIR)/etc/default/openscada"; fi;
 
 .PHONY: default install
