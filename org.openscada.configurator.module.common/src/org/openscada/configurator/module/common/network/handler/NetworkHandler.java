@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.scada.utils.str.StringHelper;
 import org.openscada.ae.data.Severity;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
@@ -15,7 +16,6 @@ import org.openscada.configurator.module.common.network.NetworkModule;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;
-import org.openscada.utils.str.StringHelper;
 
 public class NetworkHandler
 {

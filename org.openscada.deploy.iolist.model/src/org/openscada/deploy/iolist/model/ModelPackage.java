@@ -3677,7 +3677,7 @@ public interface ModelPackage extends EPackage
      * The meta object id for the '<em>Variant</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.core.Variant
+     * @see org.eclipse.scada.core.Variant
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
      * @generated
      */
@@ -5188,12 +5188,12 @@ public interface ModelPackage extends EPackage
     EDataType getSeverity ();
 
     /**
-     * Returns the meta object for data type '{@link org.openscada.core.Variant <em>Variant</em>}'.
+     * Returns the meta object for data type '{@link org.eclipse.scada.core.Variant <em>Variant</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for data type '<em>Variant</em>'.
-     * @see org.openscada.core.Variant
-     * @model instanceClass="org.openscada.core.Variant"
+     * @see org.eclipse.scada.core.Variant
+     * @model instanceClass="org.eclipse.scada.core.Variant"
      * @generated
      */
     EDataType getVariant ();
@@ -6395,7 +6395,7 @@ public interface ModelPackage extends EPackage
          * The meta object literal for the '<em>Variant</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.openscada.core.Variant
+         * @see org.eclipse.scada.core.Variant
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getVariant()
          * @generated
          */

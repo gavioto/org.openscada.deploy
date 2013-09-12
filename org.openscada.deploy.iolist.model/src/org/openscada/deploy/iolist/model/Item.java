@@ -8,7 +8,7 @@ package org.openscada.deploy.iolist.model;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.openscada.core.Variant;
+import org.eclipse.scada.core.Variant;
 
 /**
  * <!-- begin-user-doc -->

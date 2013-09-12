@@ -25,12 +25,12 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.scada.utils.str.StringHelper;
 import org.odftoolkit.odfdom.doc.OdfSpreadsheetDocument;
 import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.ListMonitorEntry;
-import org.openscada.utils.str.StringHelper;
 
 public class ListMonitorAckColumn extends ListMonitorColumn
 {

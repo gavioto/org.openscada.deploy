@@ -20,8 +20,8 @@
 
 package org.openscada.deploy.iolist.utils.column;
 
-import org.openscada.core.Variant;
-import org.openscada.core.VariantEditor;
+import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.core.VariantEditor;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ListMonitor;
 import org.openscada.deploy.iolist.model.ListMonitorEntry;

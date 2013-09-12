@@ -14,9 +14,9 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.openscada.deploy.iolist.utils;version="1.0.1";uses:="org.eclipse.core.runtime,com.inavare.vims.iolist.model,org.osgi.framework"
-Import-Package: org.openscada.ae;version="1.0.0",
+Import-Package: org.eclipse.scada.core;version="1.0.0",
+ org.eclipse.scada.utils.str;version="1.0.0",
+ org.openscada.ae;version="1.0.0",
  org.openscada.ae.data;version="1.0.0",
  org.openscada.ae.monitor.datasource.common;version="1.0.0",
- org.openscada.ca.oscar;version="1.0.0",
- org.openscada.core;version="1.0.0",
- org.openscada.utils.str;version="1.0.0"
+ org.openscada.ca.oscar;version="1.0.0"

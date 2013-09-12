@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+import org.eclipse.scada.utils.str.StringHelper;
 import org.openscada.configurator.loop.handler.AverageHandler;
 import org.openscada.configurator.loop.handler.FormulaHandler;
 import org.openscada.configurator.loop.handler.LoopHandler;
@@ -41,7 +42,6 @@ import org.openscada.configurator.loop.handler.ProxyQueryHandler;
 import org.openscada.configurator.loop.handler.SimpleAttributeHandler;
 import org.openscada.configurator.loop.handler.SimpleHandler;
 import org.openscada.configurator.loop.handler.SummaryHandler;
-import org.openscada.utils.str.StringHelper;
 
 public class LoopValidator
 {
