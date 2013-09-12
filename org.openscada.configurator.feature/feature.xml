@@ -27,8 +27,8 @@
       <import plugin="org.openscada.ae.data"/>
       <import plugin="org.openscada.ca"/>
       <import plugin="org.openscada.ca.oscar"/>
-      <import plugin="org.openscada.core"/>
-      <import plugin="org.openscada.utils"/>
+      <import plugin="org.eclipse.scada.core"/>
+      <import plugin="org.eclipse.scada.utils"/>
       <import plugin="org.openscada.ae.monitor"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>

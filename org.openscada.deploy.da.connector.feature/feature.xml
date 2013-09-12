@@ -29,10 +29,10 @@ are required to create connections to DA services using OSGi.
       <import plugin="org.openscada.core.subscription"/>
       <import plugin="org.slf4j.api"/>
       <import plugin="org.openscada.core.client.connection.service"/>
-      <import plugin="org.openscada.core.info"/>
+      <import plugin="org.eclipse.scada.core.info"/>
       <import plugin="org.apache.commons.beanutils"/>
       <import plugin="org.openscada.da.data"/>
-      <import plugin="org.openscada.sec.utils"/>
+      <import plugin="org.eclipse.scada.sec.utils"/>
       <import plugin="org.openscada.ca.data"/>
       <import plugin="org.openscada.core.client.ngp"/>
       <import plugin="org.openscada.da.common.ngp"/>
@@ -82,7 +82,7 @@ are required to create connections to DA services using OSGi.
          unpack="false"/>
 
    <plugin
-         id="org.openscada.core"
+         id="org.eclipse.scada.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -131,14 +131,14 @@ are required to create connections to DA services using OSGi.
          unpack="false"/>
 
    <plugin
-         id="org.openscada.sec"
+         id="org.eclipse.scada.sec"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.utils"
+         id="org.eclipse.scada.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -152,14 +152,14 @@ are required to create connections to DA services using OSGi.
          unpack="false"/>
 
    <plugin
-         id="org.openscada.utils.osgi"
+         id="org.eclipse.scada.utils.osgi"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.utils.propertyeditors"
+         id="org.eclipse.scada.utils.propertyeditors"
          download-size="0"
          install-size="0"
          version="0.0.0"

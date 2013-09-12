@@ -26,7 +26,7 @@
          version="0.0.0"/>
 
    <includes
-         id="org.openscada.aurora"
+         id="org.eclipse.scada.aurora"
          version="0.0.0"/>
 
    <includes
@@ -42,7 +42,7 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.openscada.sec.provider.dummy"
+         id="org.eclipse.scada.sec.provider.dummy"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -69,7 +69,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.openscada.ds.storage.file"
+         id="org.eclipse.scada.ds.storage.file"
          download-size="0"
          install-size="0"
          version="0.0.0"

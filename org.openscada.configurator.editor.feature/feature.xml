@@ -28,8 +28,8 @@
       <import plugin="org.eclipse.emf.ecore.xmi" version="2.7.0" match="greaterOrEqual"/>
       <import plugin="org.openscada.ae"/>
       <import plugin="org.openscada.ae.data"/>
-      <import plugin="org.openscada.utils"/>
-      <import plugin="org.openscada.core"/>
+      <import plugin="org.eclipse.scada.utils"/>
+      <import plugin="org.eclipse.scada.core"/>
    </requires>
 
    <plugin
