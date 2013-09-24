@@ -26,7 +26,11 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.scada.aurora"
+         id="org.eclipse.scada.utils"
+         version="0.0.0"/>
+         
+   <includes
+         id="org.eclipse.scada.base"
          version="0.0.0"/>
 
    <includes
