@@ -22,7 +22,7 @@ package org.openscada.deploy.iolist.utils.column;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.openscada.ae.data.Severity;
+import org.eclipse.scada.ae.data.Severity;
 import org.openscada.deploy.iolist.model.BasicMonitor;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ModelFactory;

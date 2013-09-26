@@ -3667,7 +3667,7 @@ public interface ModelPackage extends EPackage
      * The meta object id for the '<em>Severity</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.openscada.ae.data.Severity
+     * @see org.eclipse.scada.ae.data.Severity
      * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
      * @generated
      */
@@ -5176,12 +5176,12 @@ public interface ModelPackage extends EPackage
     EDataType getListSeverity ();
 
     /**
-     * Returns the meta object for data type '{@link org.openscada.ae.data.Severity <em>Severity</em>}'.
+     * Returns the meta object for data type '{@link org.eclipse.scada.ae.data.Severity <em>Severity</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for data type '<em>Severity</em>'.
-     * @see org.openscada.ae.data.Severity
-     * @model instanceClass="org.openscada.ae.data.Severity"
+     * @see org.eclipse.scada.ae.data.Severity
+     * @model instanceClass="org.eclipse.scada.ae.data.Severity"
      *        extendedMetaData="enumeration='INFORMATION WARNING ALARM ERROR'"
      * @generated
      */
@@ -6385,7 +6385,7 @@ public interface ModelPackage extends EPackage
          * The meta object literal for the '<em>Severity</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.openscada.ae.data.Severity
+         * @see org.eclipse.scada.ae.data.Severity
          * @see org.openscada.deploy.iolist.model.impl.ModelPackageImpl#getSeverity()
          * @generated
          */

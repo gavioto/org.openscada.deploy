@@ -9,7 +9,7 @@ package org.openscada.deploy.iolist.model.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.openscada.ae.data.Severity;
+import org.eclipse.scada.ae.data.Severity;
 import org.openscada.deploy.iolist.model.BasicMonitor;
 import org.openscada.deploy.iolist.model.ModelFactory;
 import org.openscada.deploy.iolist.model.ModelPackage;

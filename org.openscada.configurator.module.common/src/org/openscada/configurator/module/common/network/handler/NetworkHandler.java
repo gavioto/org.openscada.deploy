@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.scada.ae.data.Severity;
 import org.eclipse.scada.utils.str.StringHelper;
-import org.openscada.ae.data.Severity;
 import org.openscada.configuration.model.Project;
 import org.openscada.configurator.Configuration;
 import org.openscada.configurator.data.DataLoaderOdfDom;

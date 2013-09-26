@@ -13,10 +13,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.xerces;bundle-version="2.9.0",
  org.apache.poi;bundle-version="3.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.scada.core;version="0.1.0",
+Import-Package: org.eclipse.scada.ae.data;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.utils.str;version="0.1.0",
  org.openscada.ae;version="1.0.0",
- org.openscada.ae.data;version="1.0.0",
  org.openscada.ae.monitor.datasource.common;version="1.0.0",
  org.openscada.ca.oscar;version="1.0.0"
 Bundle-ActivationPolicy: lazy

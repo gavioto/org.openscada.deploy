@@ -281,7 +281,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
         eType="#//Severity" defaultValueLiteral="ERROR"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Severity" instanceClassName="org.openscada.ae.data.Severity">
+  <eClassifiers xsi:type="ecore:EDataType" name="Severity" instanceClassName="org.eclipse.scada.ae.data.Severity">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="enumeration" value="INFORMATION WARNING ALARM ERROR"/>
     </eAnnotations>
