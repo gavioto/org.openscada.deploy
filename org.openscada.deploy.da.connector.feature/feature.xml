@@ -25,57 +25,57 @@ are required to create connections to DA services using OSGi.
       <import plugin="org.apache.mina.filter.compression"/>
       <import plugin="org.apache.mina.transport.socket.apr"/>
       <import plugin="com.google.guava"/>
-      <import plugin="org.openscada.core.data"/>
-      <import plugin="org.openscada.core.subscription"/>
+      <import plugin="org.eclipse.scada.core.data"/>
+      <import plugin="org.eclipse.scada.core.subscription"/>
       <import plugin="org.slf4j.api"/>
-      <import plugin="org.openscada.core.client.connection.service"/>
+      <import plugin="org.eclipse.scada.core.client.connection.service"/>
       <import plugin="org.eclipse.scada.core.info"/>
       <import plugin="org.apache.commons.beanutils"/>
-      <import plugin="org.openscada.da.data"/>
+      <import plugin="org.eclipse.scada.da.data"/>
       <import plugin="org.eclipse.scada.sec.utils"/>
-      <import plugin="org.openscada.ca.data"/>
-      <import plugin="org.openscada.core.client.ngp"/>
-      <import plugin="org.openscada.da.common.ngp"/>
-      <import plugin="org.openscada.protocol.ngp.common"/>
+      <import plugin="org.eclipse.scada.ca.data"/>
+      <import plugin="org.eclipse.scada.core.client.ngp"/>
+      <import plugin="org.eclipse.scada.da.common.ngp"/>
+      <import plugin="org.eclipse.scada.protocol.ngp.common"/>
    </requires>
 
    <plugin
-         id="org.openscada.da.client"
+         id="org.eclipse.scada.da.client"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.client.connection.service"
+         id="org.eclipse.scada.da.client.connection.service"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.client.connector"
+         id="org.eclipse.scada.da.client.connector"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.client.net"
+         id="org.eclipse.scada.da.client.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.core.common"
+         id="org.eclipse.scada.da.core.common"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.net"
+         id="org.eclipse.scada.da.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -89,42 +89,42 @@ are required to create connections to DA services using OSGi.
          unpack="false"/>
 
    <plugin
-         id="org.openscada.core.client"
+         id="org.eclipse.scada.core.client"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.core.client.net"
+         id="org.eclipse.scada.core.client.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.core.connection.provider"
+         id="org.eclipse.scada.core.connection.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.core.net"
+         id="org.eclipse.scada.core.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.connection.provider"
+         id="org.eclipse.scada.da.connection.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.net"
+         id="org.eclipse.scada.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -145,7 +145,7 @@ are required to create connections to DA services using OSGi.
          unpack="false"/>
 
    <plugin
-         id="org.openscada.ca"
+         id="org.eclipse.scada.ca"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -166,7 +166,7 @@ are required to create connections to DA services using OSGi.
          unpack="false"/>
 
    <plugin
-         id="org.openscada.da.client.ngp"
+         id="org.eclipse.scada.da.client.ngp"
          download-size="0"
          install-size="0"
          version="0.0.0"
