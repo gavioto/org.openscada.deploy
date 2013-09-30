@@ -23,14 +23,14 @@ for UI applications to create DA connections.
    </requires>
 
    <plugin
-         id="org.openscada.da.ui.connection.creator.net"
+         id="org.eclipse.scada.da.ui.connection.creator.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.openscada.core.ui.connection.creator"
+         id="org.eclipse.scada.core.ui.connection.creator"
          download-size="0"
          install-size="0"
          version="0.0.0"
