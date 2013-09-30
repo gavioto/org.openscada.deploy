@@ -42,7 +42,7 @@ import org.odftoolkit.odfdom.dom.style.props.OdfTableRowProperties;
 import org.odftoolkit.odfdom.incubator.doc.office.OdfOfficeStyles;
 import org.odftoolkit.odfdom.incubator.doc.style.OdfStyle;
 import org.odftoolkit.odfdom.incubator.doc.style.OdfStylePageLayout;
-import org.openscada.ae.monitor.datasource.common.ListSeverity;
+import org.eclipse.scada.ae.monitor.datasource.common.ListSeverity;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.Mapper;
 import org.openscada.deploy.iolist.model.ModelPackage;

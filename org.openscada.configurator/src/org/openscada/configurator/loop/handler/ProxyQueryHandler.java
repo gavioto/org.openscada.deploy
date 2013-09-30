@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.openscada.ca.ConfigurationDataHelper;
+import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.openscada.configurator.loop.DataSourceDescriptor;
 
 public class ProxyQueryHandler extends NoOpHandler

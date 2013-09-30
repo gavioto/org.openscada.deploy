@@ -37,7 +37,7 @@ import org.odftoolkit.odfdom.doc.table.OdfTable;
 import org.odftoolkit.odfdom.dom.element.table.TableTableCellElement;
 import org.odftoolkit.odfdom.dom.element.table.TableTableRowElement;
 import org.odftoolkit.odfdom.incubator.doc.text.OdfWhitespaceProcessor;
-import org.openscada.ae.monitor.datasource.common.ListSeverity;
+import org.eclipse.scada.ae.monitor.datasource.common.ListSeverity;
 import org.openscada.deploy.iolist.model.BooleanMonitor;
 import org.openscada.deploy.iolist.model.DataType;
 import org.openscada.deploy.iolist.model.Item;

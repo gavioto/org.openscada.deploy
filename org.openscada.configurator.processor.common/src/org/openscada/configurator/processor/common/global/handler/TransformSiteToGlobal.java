@@ -148,7 +148,7 @@ public class TransformSiteToGlobal
             data.put ( "connection.id", connectionAeId );
             data.put ( "priority", "" + this.proxyAknCounter );
 
-            this.cfg.addData ( "org.openscada.ae.server.akn.proxy", String.format ( "%s-%s", site.getId (), this.proxyAknCounter ), data );
+            this.cfg.addData ( "org.eclipse.scada.ae.server.akn.proxy", String.format ( "%s-%s", site.getId (), this.proxyAknCounter ), data );
 
             this.proxyAknCounter++;
         }
@@ -173,7 +173,7 @@ public class TransformSiteToGlobal
             }
             putProperties ( data, "jdbcProperties.", this.processor.getAePullConfiguration ().getProperties () );
 
-            this.cfg.addData ( "org.openscada.ae.slave.pull", site.getId (), data );
+            this.cfg.addData ( "org.eclipse.scada.ae.slave.pull", site.getId (), data );
         }
     }
 

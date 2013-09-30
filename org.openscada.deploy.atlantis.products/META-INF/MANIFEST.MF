@@ -4,7 +4,7 @@ Bundle-Name: openSCADA Atlantis Products
 Bundle-SymbolicName: org.openscada.deploy.atlantis.products;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.openscada.atlantis.products.Activator
-Bundle-Vendor: openSCADA.org
+Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

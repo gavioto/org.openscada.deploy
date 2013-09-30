@@ -38,6 +38,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
@@ -54,7 +55,6 @@ import org.openscada.configurator.project.wizard.page.IOptionalPage;
 import org.openscada.configurator.project.wizard.page.NewProjectModelFilePageWizard;
 import org.openscada.configurator.project.wizard.page.ProjectFeaturePage;
 import org.openscada.configurator.project.wizard.page.SecurityWizardPage;
-import org.openscada.ui.utils.status.StatusHelper;
 
 public class NewConfiguratorModelWizard extends Wizard implements INewWizard
 {

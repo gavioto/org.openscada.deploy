@@ -109,9 +109,9 @@ public class Configuration extends GenericMasterConfiguration
 
     private static final String FACTORY_AE_MONITOR_REMOTE_BOOLEAN = "ae.monitor.da.remote.booleanValueAlarm"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_BIT = "org.openscada.ae.monitor.bit"; //$NON-NLS-1$
+    private static final String FACTORY_AE_MONITOR_BIT = "org.eclipse.scada.ae.monitor.bit"; //$NON-NLS-1$
 
-    private static final String FACTORY_MASTER_HANDLER_LOGGER = "org.openscada.ae.event.logger"; //$NON-NLS-1$
+    private static final String FACTORY_MASTER_HANDLER_LOGGER = "org.eclipse.scada.ae.event.logger"; //$NON-NLS-1$
 
     private static final String FACTORY_MASTER_HANDLER_NEGATE = "org.openscada.da.negate.input"; //$NON-NLS-1$
 
@@ -121,15 +121,15 @@ public class Configuration extends GenericMasterConfiguration
 
     private static final String FACTORY_MASTER_HANDLER_MANUAL = "org.openscada.da.manual"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_LEVEL = "org.openscada.ae.monitor.level"; //$NON-NLS-1$
+    private static final String FACTORY_AE_MONITOR_LEVEL = "org.eclipse.scada.ae.monitor.level"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_LIST = "org.openscada.ae.monitor.list"; //$NON-NLS-1$
+    private static final String FACTORY_AE_MONITOR_LIST = "org.eclipse.scada.ae.monitor.list"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_SCRIPT = "org.openscada.ae.monitor.script"; //$NON-NLS-1$
+    private static final String FACTORY_AE_MONITOR_SCRIPT = "org.eclipse.scada.ae.monitor.script"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_MONITOR_PROXY_QUERY = "org.openscada.ae.server.monitor.proxy"; //$NON-NLS-1$
+    private static final String FACTORY_AE_MONITOR_PROXY_QUERY = "org.eclipse.scada.ae.server.monitor.proxy"; //$NON-NLS-1$
 
-    private static final String FACTORY_AE_EVENT_PROXY_QUERY = "org.openscada.ae.server.event.proxy"; //$NON-NLS-1$
+    private static final String FACTORY_AE_EVENT_PROXY_QUERY = "org.eclipse.scada.ae.server.event.proxy"; //$NON-NLS-1$
 
     private final List<Item> items = new ArrayList<Item> ();
 
@@ -215,7 +215,7 @@ public class Configuration extends GenericMasterConfiguration
         final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "filter", filter ); //$NON-NLS-1$
         data.put ( "size", "" + size ); //$NON-NLS-1$ //$NON-NLS-2$
-        addData ( "org.openscada.ae.server.common.event.pool", id, data ); //$NON-NLS-1$
+        addData ( "org.eclipse.scada.ae.server.common.event.pool", id, data ); //$NON-NLS-1$
     }
 
     public void addScriptComponent ( final String id, final String scriptEngine, final String script, final Map<String, String> properties )
@@ -1599,7 +1599,7 @@ public class Configuration extends GenericMasterConfiguration
         data.put ( "priority", "" + priority ); //$NON-NLS-1$ //$NON-NLS-2$
         data.put ( "type", type ); //$NON-NLS-1$
         data.put ( "id", id ); // for now ... //$NON-NLS-1$
-        addData ( "org.openscada.ae.server.http.eventFilter", id, data ); //$NON-NLS-1$
+        addData ( "org.eclipse.scada.ae.server.http.eventFilter", id, data ); //$NON-NLS-1$
     }
 
     public void addAverage ( final Average average )

@@ -21,7 +21,7 @@
 package org.openscada.deploy.iolist.utils.column;
 
 import org.eclipse.scada.core.Variant;
-import org.openscada.ae.monitor.datasource.common.ListSeverity;
+import org.eclipse.scada.ae.monitor.datasource.common.ListSeverity;
 import org.openscada.deploy.iolist.model.Item;
 import org.openscada.deploy.iolist.model.ListMonitorEntry;
 import org.openscada.deploy.iolist.utils.Cell;

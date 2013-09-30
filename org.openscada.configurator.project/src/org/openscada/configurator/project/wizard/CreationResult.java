@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.openscada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.ui.databinding.AdapterHelper;
 
 public class CreationResult
 {
