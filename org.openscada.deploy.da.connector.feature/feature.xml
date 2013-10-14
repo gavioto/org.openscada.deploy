@@ -29,7 +29,6 @@ are required to create connections to DA services using OSGi.
       <import plugin="org.eclipse.scada.core.subscription"/>
       <import plugin="org.slf4j.api"/>
       <import plugin="org.eclipse.scada.core.client.connection.service"/>
-      <import plugin="org.eclipse.scada.core.info"/>
       <import plugin="org.apache.commons.beanutils"/>
       <import plugin="org.eclipse.scada.da.data"/>
       <import plugin="org.eclipse.scada.sec.utils"/>
@@ -48,13 +47,6 @@ are required to create connections to DA services using OSGi.
 
    <plugin
          id="org.eclipse.scada.da.client.connection.service"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.da.client.connector"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -167,6 +159,13 @@ are required to create connections to DA services using OSGi.
 
    <plugin
          id="org.eclipse.scada.da.client.ngp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.utils.stats"
          download-size="0"
          install-size="0"
          version="0.0.0"
