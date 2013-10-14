@@ -10,5 +10,5 @@ if [ -z "$OPENSCADA_CONFIGURATION_ROOT" ]; then
 	cfg="$OPENSCADA_CONFIGURATION_ROOT"
 fi
 
-osService org.openscada.da.utils.daemon.ExporterDaemon "$INST" "$cfg/drivers/$INST/exporter.xml" `user` "$@"
+osService org.eclipse.scada.da.utils.daemon.ExporterDaemon "$INST" "$cfg/drivers/$INST/exporter.xml" `user` "$@"
  
