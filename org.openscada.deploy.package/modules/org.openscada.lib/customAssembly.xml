@@ -13,6 +13,7 @@
 			<fileset dir="${input.dir}/repos">
 				<exclude name="**/*external.sdk-*-p2repo.zip"/>
 				<exclude name="**/*deploy.repo-*-p2repo.zip"/>
+				<include name="**/org.eclipse.scada.*.zip"/>
 				<include name="**/*-p2repo.zip"/>
 				<include name="**/emf-xsd-Update-*.zip"/>
 			</fileset>
