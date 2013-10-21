@@ -45,6 +45,7 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="build.openscada" unless="skip.openscada">
     	<buildModule name="org.openscada.bin"/>
+        <buildModule name="org.openscada.configuration"/>
     	<buildModule name="org.openscada.lib.ext"/>
     	<buildModule name="org.openscada.lib"/>
     	<buildModule name="org.openscada.p2.bin"/>

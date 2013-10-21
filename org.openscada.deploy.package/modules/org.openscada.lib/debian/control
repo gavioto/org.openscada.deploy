@@ -7,6 +7,6 @@ Build-Depends: debhelper (>=8)
 
 Package: org.openscada.lib
 Architecture: all
-Depends: ${misc:Depends}, org.openscada, org.openscada.bin, org.openscada.lib.ext
+Depends: ${misc:Depends}, org.eclipse.scada, org.openscada.bin, org.openscada.lib.ext
 Description: openSCADA lib package
  The lib openSCADA package
