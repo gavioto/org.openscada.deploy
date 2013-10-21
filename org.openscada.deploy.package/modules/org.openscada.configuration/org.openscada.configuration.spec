@@ -1,4 +1,4 @@
-%define _cfgdir /etc/openscada
+%define _cfgdir /etc/eclipsescada
 %define version 1.2.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
