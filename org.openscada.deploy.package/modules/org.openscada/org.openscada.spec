@@ -44,7 +44,7 @@ cd ..
 
 %post
 if ! getent passwd "%{os_user}" >/dev/null; then
-	adduser --system --user-group --home "/var/lib/%{os_user}" "%{os_user}" --comment "openSCADA daemon user"
+	adduser --system --user-group --comment "openSCADA daemon user"  --home "/var/lib/%{os_user}" "%{os_user}"
 fi
 mkdir -p "/var/lib/%{os_user}"
 chown -R "%{os_user}:%{os_user}" "/var/lib/%{os_user}"

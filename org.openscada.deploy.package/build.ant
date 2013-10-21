@@ -44,18 +44,12 @@
           target: build.openscada
          - - - - - - - - - - - - - - - - - -->
     <target name="build.openscada" unless="skip.openscada">
-    	<buildModule name="org.openscada"/>
     	<buildModule name="org.openscada.bin"/>
     	<buildModule name="org.openscada.lib.ext"/>
     	<buildModule name="org.openscada.lib"/>
-    	<buildModule name="org.openscada.configuration"/>
-		<buildModule name="org.openscada.drivers.common"/>
     	<buildModule name="org.openscada.p2.bin"/>
-    	<buildModule name="org.openscada.p2.profiles"/>
     	<buildModule name="org.openscada.p2.repo.main"/>
     	<buildModule name="org.openscada.p2.repo.eclipse"/>
-    	
-    	<buildModule name="org.openscada.p2.sample.master"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
