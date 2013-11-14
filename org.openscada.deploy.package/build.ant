@@ -26,6 +26,7 @@
           target: default              
          ================================= -->
     <target name="default" depends="clean,init,setup,build.openscada,finish" >
+        <echo message="${buildTag}" file="${output.dir}/build.txt" append="false"/>
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
