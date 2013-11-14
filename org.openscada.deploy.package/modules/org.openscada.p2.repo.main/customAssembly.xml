@@ -14,6 +14,23 @@
 				<include name="*-p2repo.zip"/>
 			</fileset>
     	</copy>
+        <unpackRepo name="org.openscada.external" version="${external.version}"/>
+        <unpackRepo name="org.openscada.jinterop" version="${jinterop.version}"/>
+        <unpackRepo name="org.openscada.utgard" version="${utgard.version}"/>
+        <unpackRepo name="org.openscada.atlantis" version="${atlantis.version}"/>
     </target>
+        
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: unpackRepo          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="unpackRepo">
+        <attribute name="name" />
+        <sequential>
+            <mkdir dir="${gather.base}/repos/@{name}"/>
+            <unzip dest="${gather.base}/repos/@{name}" src="${input.dir}/repos/@{name}-@{version}-p2repo.zip">
+        	</unzip>
+        </sequential>
+    </macrodef>
+
 
 </project>
