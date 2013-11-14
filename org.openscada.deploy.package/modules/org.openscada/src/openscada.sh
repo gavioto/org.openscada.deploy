@@ -1,2 +1,0 @@
-export OPENSCADA_HOME=/usr
-export PATH="$PATH:$OPENSCADA_HOME/bin"

@@ -6,7 +6,7 @@ Name:      org.openscada.p2.repo.main
 Summary:   openSCADA P2 main repositories
 Version:   %{version}
 Release:   %{qualifier}
-License:   LGPLv3
+License:   EPL
 BuildArch: noarch
 Packager:  openSCADA.org <ctron@dentrassi.de>
 Group:     Applications/System
@@ -37,7 +37,7 @@ cd ..
 
 %files
 %defattr(-,root,root)
-%attr(744,root,root) %{_datadir}/openscada/p2/*
+%attr(744,root,root) %{_datadir}/eclipsescada/p2/*
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com

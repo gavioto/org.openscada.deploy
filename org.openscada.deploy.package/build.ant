@@ -25,7 +25,7 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean,init,setup,build.p2director,build.openscada,finish" >
+    <target name="default" depends="clean,init,setup,build.openscada,finish" >
     </target>
 	
 	<!-- - - - - - - - - - - - - - - - - - 
@@ -44,48 +44,8 @@
           target: build.openscada
          - - - - - - - - - - - - - - - - - -->
     <target name="build.openscada" unless="skip.openscada">
-    	<buildModule name="org.openscada.bin"/>
-        <buildModule name="org.openscada.configuration"/>
-    	<buildModule name="org.openscada.lib.ext"/>
-    	<buildModule name="org.openscada.lib"/>
-    	<buildModule name="org.openscada.p2.bin"/>
     	<buildModule name="org.openscada.p2.repo.main"/>
-    	<buildModule name="org.openscada.p2.repo.eclipse"/>
     </target>
-	
-	<!-- - - - - - - - - - - - - - - - - - 
-          target: build.p2director                      
-         - - - - - - - - - - - - - - - - - -->
-	<target name="build.p2director" depends="build.p2director.x86_64,build.p2director.i386">
-	</target>
-
-	<condition property="build.32bit">
-		<and>
-			<isfalse value="${skip.p2director}"/>
-			<os arch="i386"/>
-		</and>
-	</condition>
-	
-	<condition property="build.64bit">
-		<and>
-			<isfalse value="${skip.p2director}"/>
-			<os arch="amd64"/>
-		</and>
-	</condition>
-	
-	<!-- - - - - - - - - - - - - - - - - - 
-          target: build.p2director.x86_64
-         - - - - - - - - - - - - - - - - - -->
-    <target name="build.p2director.x86_64" if="build.64bit">
-    	<buildModule name="p2director" skipChangelog="true" qualifier="openscada1"/>
-	</target>
-	
-	<!-- - - - - - - - - - - - - - - - - - 
-          target: build.p2director.i386                      
-         - - - - - - - - - - - - - - - - - -->
-    <target name="build.p2director.i386" if="build.32bit">
-    	<buildModule name="p2director.i386" packageName="p2director" skipChangelog="true" qualifier="openscada1.32"/>
-	</target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
           macrodef: buildModule          

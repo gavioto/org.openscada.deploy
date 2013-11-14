@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-. p2.functions || exit 1
-
-p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -list
