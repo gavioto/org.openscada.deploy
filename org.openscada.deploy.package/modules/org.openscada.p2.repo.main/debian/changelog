@@ -1,4 +1,4 @@
-org.openscada.p2.repo.main (1.2.0) unstable; urgency=low
+org.openscada.p2.repo.main (1.2.0) development; urgency=low
 
   * Upgrade to openSCADA 1.2.0
 
