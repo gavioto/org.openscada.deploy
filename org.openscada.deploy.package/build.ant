@@ -11,7 +11,7 @@
 	
 	<property name="buildNumber" value="${env.BUILD_NUMBER}"/>
 	<property name="buildTag" value="build${buildNumber}"/>
-	<property name="distribution" value="unstable"/>
+	<property name="distribution" value="development"/>
 	
 	<property name="build.root" location="."/>
 	
