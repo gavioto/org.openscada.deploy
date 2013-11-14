@@ -25,6 +25,7 @@
          = = = = = = = = = = = = = = = = = -->
     <macrodef name="unpackRepo">
         <attribute name="name" />
+        <attribute name="version" />
         <sequential>
             <mkdir dir="${gather.base}/repos/@{name}"/>
             <unzip dest="${gather.base}/repos/@{name}" src="${input.dir}/repos/@{name}-@{version}-p2repo.zip">
