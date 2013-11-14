@@ -8,12 +8,6 @@
           target: default              
          ================================= -->
     <target name="default" description="Gather resources">
-    	<mkdir dir="${gather.base}/repos"/>
-		<copy todir="${gather.base}/repos">
-			<fileset dir="${input.dir}/repos">
-				<include name="*-p2repo.zip"/>
-			</fileset>
-    	</copy>
         <unpackRepo name="org.openscada.external" version="${external.version}"/>
         <unpackRepo name="org.openscada.jinterop" version="${jinterop.version}"/>
         <unpackRepo name="org.openscada.utgard" version="${utgard.version}"/>
