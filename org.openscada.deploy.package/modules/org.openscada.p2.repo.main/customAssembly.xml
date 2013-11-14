@@ -28,7 +28,7 @@
         <attribute name="version" />
         <sequential>
             <mkdir dir="${gather.base}/repos/@{name}"/>
-            <unzip dest="${gather.base}/repos/@{name}" src="${input.dir}/repos/@{name}-@{version}-p2repo.zip">
+            <unzip dest="${gather.base}/repos/@{name}.sdk" src="${input.dir}/repos/@{name}-@{version}-p2repo.zip">
         	</unzip>
         </sequential>
     </macrodef>
