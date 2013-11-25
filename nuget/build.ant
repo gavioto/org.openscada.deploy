@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.openscada.atlantis-customize" default="default">
+    
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default">
+		<mkdir dir="lib"/>
+		<fetch name="org.eclipse.scada.external"/>
+		<fetch name="org.eclipse.scada.utils"/>
+		<fetch name="org.eclipse.scada.protocols"/>
+		<fetch name="org.eclipse.scada.base"/>
+		<fetch name="org.eclipse.scada.core"/>
+	</target>
+	
+	<macrodef name="fetch">
+		<attribute name="name"/>
+		<sequential>
+			<get dest="lib/net40-Client" src="http://builder.intra/job/org.openscada.builder.ikvm-1.2/lastSuccessfulBuild/artifact/builder_ikvm/output/@{name}.dll" usetimestamp="true"/>
+			<get dest="lib/net40-Client" src="http://builder.intra/job/org.openscada.builder.ikvm-1.2/lastSuccessfulBuild/artifact/builder_ikvm/output/@{name}.pdb" usetimestamp="true"/>
+		</sequential>
+	</macrodef>
+</project>

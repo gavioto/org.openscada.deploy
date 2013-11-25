@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>org.eclipse.scada</id>
+    <version>0.1.0-M1</version>
+    <authors>Jens Reimann</authors>
+    <owners>Eclipse Foundation</owners>
+	<licenseUrl>http://www.eclipse.org/legal/epl-v10.html</licenseUrl>
+    <projectUrl>http://www.eclipse.org/eclipsescada/</projectUrl>
+    <iconUrl>http://git.eclipse.org/c/eclipsescada/org.eclipse.scada.hmi.git/plain/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon.ico</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Eclipse SCADA</description>
+    <releaseNotes>Initial release based on Eclipse SCADA 0.0.1-M1</releaseNotes>
+    <copyright>Copyright 2007, 2013</copyright>
+    <tags>eclipse scada</tags>
+    <dependencies>
+      <dependency id="IKVM" version="7.3.4830.0" />
+    </dependencies>
+  </metadata>
+</package>
