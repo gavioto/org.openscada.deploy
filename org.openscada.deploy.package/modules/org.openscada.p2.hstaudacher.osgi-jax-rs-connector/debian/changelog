@@ -1,0 +1,5 @@
+org.openscada.p2.hstaudacher.osgi-jax-rs-connector (3.1.0) development; urgency=low
+
+  * Initial version of package script
+
+ -- Jens Reimann <jens.reimann@ibh-systems.com>  Fri, 29 Nov 2013 11:19:00 +0100

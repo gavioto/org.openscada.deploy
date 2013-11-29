@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="customAssembly" default="default">
+	
+	<property name="gather.base" location="modules/org.openscada.p2.hstaudacher.osgi-jax-rs-connector"/>
+	
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" description="Gather resources">
+        <get src="https://github.com/hstaudacher/osgi-jax-rs-connector/releases/download/v3.1.0/com.eclipsesource.jaxrs.repository-3.1.0.zip" dest="${gather.base}/repos" usetimestamp="true"/>
+    </target>
+
+</project>

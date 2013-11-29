@@ -1,9 +1,9 @@
 %define _datadir /usr/share
-%define version 1.2.0
+%define version 3.1.0
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
-Name:      org.openscada.p2.repo.main
-Summary:   openSCADA P2 main repositories
+Name:      org.openscada.p2.hstaudacher.osgi-jax-rs-connector
+Summary:   openSCADA P2 package wrapper for OSGi - JAX-RS Connector 3.1.0
 Version:   %{version}
 Release:   %{qualifier}
 License:   EPL
@@ -40,5 +40,5 @@ cd ..
 %attr(744,root,root) %{_datadir}/eclipsescada/p2/*
 
 %changelog
-* Tue Jul 31 2012 - jens.reimann@th4-systems.com
+* Fri Nov 29 2013 - jens.reimann@ibh-systems.com
 - Initial version

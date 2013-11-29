@@ -1,0 +1,12 @@
+Source: org.openscada.p2.hstaudacher.osgi-jax-rs-connector
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: org.openscada.p2.hstaudacher.osgi-jax-rs-connector
+Architecture: all
+Depends: ${misc:Depends}, org.eclipse.scada.p2
+Description: openSCADA P2 package of OSGi - JAX-RS Connector 3.1.0
+ The wrapped P2 repository of https://github.com/hstaudacher/osgi-jax-rs-connector
