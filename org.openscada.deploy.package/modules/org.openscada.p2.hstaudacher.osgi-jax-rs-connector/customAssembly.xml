@@ -8,6 +8,7 @@
           target: default              
          ================================= -->
     <target name="default" description="Gather resources">
+        <mkdir dir="${gather.base}/repos"/>
         <get src="https://github.com/hstaudacher/osgi-jax-rs-connector/releases/download/v3.1.0/com.eclipsesource.jaxrs.repository-3.1.0.zip" dest="${gather.base}/repos/com.eclipsesource.jaxrs.repository-3.1.0.zip" usetimestamp="true"/>
     </target>
 
