@@ -1,4 +1,4 @@
-org.openscada.p2.hstaudacher.osgi-jax-rs-connector (3.1.0-1) development; urgency=low
+org.openscada.p2.hstaudacher.osgi-jax-rs-connector (3.1.0) development; urgency=low
 
   * Initial version of package script
 
