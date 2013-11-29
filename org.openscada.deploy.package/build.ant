@@ -46,7 +46,7 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="build.openscada" unless="skip.openscada">
     	<buildModule name="org.openscada.p2.repo.main"/>
-        <buildModule name="org.openscada.p2.hstaudacher.osgi-jax-rs-connector"/>
+        <buildModule name="org.openscada.p2.hstaudacher.osgi-jax-rs-connector" skipChangelog="true"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
