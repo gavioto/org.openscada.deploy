@@ -46,7 +46,7 @@
          - - - - - - - - - - - - - - - - - -->
     <target name="build.openscada" unless="skip.openscada">
     	<buildModule name="org.openscada.p2.repo.main"/>
-        <buildModule name="org.openscada.p2.hstaudacher.osgi-jax-rs-connector" skipChangelog="true"/>
+        <buildModule name="org.openscada.p2.hstaudacher.osgi-jax-rs-connector" version="3.1.0"/>
     </target>
 	
 	<!-- = = = = = = = = = = = = = = = = =
@@ -57,6 +57,7 @@
     	<attribute name="skipChangelog" default="false" />
     	<attribute name="qualifier" default=""/>
     	<attribute name="packageName" default="@{name}"/>
+        <attribute name="version" default="${deploy.version}"/>
         <sequential>
         	
         	<!-- trigger custom build first -->
@@ -80,7 +81,7 @@
         		<then>
 	        	<exec dir="modules/@{name}" executable="dch" failonerror="true">
 	        		<arg value="-Mv"/>
-	        		<arg value="${deploy.version}${buildTag}"/>
+	        		<arg value="@{version}${buildTag}"/>
 	        		<arg value="-D"/>
 	        		<arg value="${distribution}"/>
 	        		<arg value="Automatic build: ${buildNumber}"/>
