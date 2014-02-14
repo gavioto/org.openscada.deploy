@@ -37,7 +37,7 @@ cd ..
 
 %files
 %defattr(-,root,root)
-%attr(744,root,root) %{_datadir}/eclipsescada/p2/*
+%{_datadir}/eclipsescada/p2/*
 
 %changelog
 * Tue Jul 31 2012 - jens.reimann@th4-systems.com
