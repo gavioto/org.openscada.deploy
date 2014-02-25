@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<?define Manufacturer = "openSCADA Project" ?>
+
+<?if $(var.Platform) = x64 ?>
+	<?define Win64 = "yes" ?>
+	<?define ArchTag = "x64" ?>
+	<?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+<?else ?>
+	<?define Win64 = "no" ?>
+	<?define ArchTag = "x86" ?>
+	<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+<?endif ?>
+
+<Wix
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+>
+	
+	<Product Id="*"
+	         Name="openSCADA"
+	         Language="1033"
+	         Version="0.1.0.0"
+	         UpgradeCode="5004F6F9-33CA-4AA9-8F39-7D50286439A1"
+	         Manufacturer="$(var.Manufacturer)">
+		
+		<Package
+			InstallScope="perMachine"
+			InstallPrivileges="elevated"
+			InstallerVersion="301"
+			Compressed="yes"
+		/>
+		
+		<Property Id="INSTALLDIR">
+			<!-- we do need the check here in addition, here we need the actual result as target directory -->
+			<ComponentSearch Id="search.extra.jars" Guid="674735BD-AB86-44D6-B6FF-4589E58CB7A5" Type="directory"/>
+		</Property>
+		
+		<Condition Message="You need to install the Eclipse SCADA Common Driver package first">INSTALLDIR</Condition>
+		
+		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="none"/>
+		
+		<MajorUpgrade
+			AllowDowngrades="yes"/>
+		
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="INSTALLDIR" Name=".">
+			</Directory>
+		</Directory>
+		
+		<Feature Id="extra.jars" Level="1">
+			<ComponentGroupRef Id="ScanComponent"/>
+		</Feature>
+	</Product>
+</Wix>

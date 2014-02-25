@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        MSI Setup build for openSCADA Common Driver extensions
+    </description>
+
+    <property file="local.properties" />
+    <property file="common.properties" />
+
+    <property name="visibleVersion" value="${version}${versionSuffix}" />
+    
+    <property environment="env" />
+
+    <property name="wix.root" value="${env.WIX_ROOT}" />
+	
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean,fetch,unpack,heat,build">
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="fetch" />
+		<delete dir="unpack" />
+
+        <delete dir=".">
+            <include name="*.msi" />
+            <include name="*.wixobj" />
+            <include name="Scan.*.wxs" />
+        </delete>
+    </target>
+
+    <!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="fetch">
+        <mkdir dir="fetch" />
+		
+		<get usetimestamp="true" src="http://download.openscada.org/external/${buildType}/${version}/org.openscada.external.sdk-${version}-p2repo.zip" dest="fetch"/>
+        
+        <get usetimestamp="true" src="http://download.openscada.org/jinterop/${buildType}/${version}/org.openscada.jinterop.p2-${version}${versionSuffix}.zip" dest="fetch"/>
+	    <get usetimestamp="true" src="http://download.openscada.org/utgard/${buildType}/${version}/org.openscada.utgard.p2-${version}${versionSuffix}.zip" dest="fetch"/>
+        <get usetimestamp="true" src="http://download.openscada.org/atlantis/${buildType}/${version}/org.openscada.atlantis.p2-${version}${versionSuffix}.zip" dest="fetch"/>
+    </target>
+
+    <!-- ================================= 
+          target: unpack
+         ================================= -->
+    <target name="unpack">
+        <mkdir dir="unpack/extra-jars" />
+
+		<unzip dest="unpack/extra-jars">
+			<fileset dir="fetch">
+				<include name="*.zip"/>
+			</fileset>
+			<patternset>
+				<include name="plugins/*.jar"/>
+				<exclude name="**/*.source_*.jar"/>
+			</patternset>
+			<mapper type="flatten"/>
+		</unzip>
+    </target>
+
+    <macrodef name="heat">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${wix.root}/bin/heat.exe" dir="unpack/extra-jars" failifexecutionfails="true" failonerror="true">
+                <arg value="dir" />
+                <arg value="." />
+                <arg value="-gg" />
+                <arg value="-cg" />
+                <arg value="ScanComponent" />
+                <arg value="-sfrag" />
+                <arg value="-sreg" />
+                <arg value="-scom" />
+                <arg value="-suid" />
+                <arg value="-dr" />
+                <arg value="INSTALLDIR" />
+                <arg value="-var" />
+                <arg value="var.UnpackDir" />
+                <arg value="-out" />
+                <arg file="Scan.wxs" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- ================================= 
+          target: heat
+         ================================= -->
+    <target name="heat">
+        <heat platform="any" />
+    </target>
+
+    <property name="unpack.dir" location="unpack" />
+
+    <macrodef name="build">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${wix.root}/bin/candle.exe" dir="." failifexecutionfails="true" failonerror="true">
+                <arg value="-dUnpackDir=${unpack.dir}" />
+                <arg value="-dPlatform=@{platform}" />
+				<arg value="-dVersion=${version}" />
+				<arg value="-dBuildNumber=${buildNumber}" />
+                <arg value="-arch" />
+                <arg value="@{platform}" />
+                <arg value="Setup.wxs" />
+                <arg value="Scan.jar.wxs" />
+            </exec>
+            <exec executable="${wix.root}/bin/light.exe" dir="." failifexecutionfails="true" failonerror="true">
+                <arg value="Setup.wixobj" />
+                <arg value="Scan.jar.wixobj" />
+
+                <arg value="-out" />
+                <arg value="openscada_common_server_${visibleVersion}_.msm" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <build platform="x86" />
+        <build platform="x64" />
+    </target>
+
+</project>
