@@ -120,7 +120,7 @@
                 <arg value="Scan.wixobj" />
 
                 <arg value="-out" />
-                <arg value="openscada_common_server_extensions_${visibleVersion}.msi" />
+                <arg value="openscada_common_server_extensions_${visibleVersion}_@{platform}.msi" />
             </exec>
         </sequential>
     </macrodef>
