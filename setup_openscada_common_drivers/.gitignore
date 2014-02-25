@@ -1,3 +1,6 @@
 fetch/
 unpack/
 Scan.wxs
+*.msi
+*.wixpdb
+*.wixobj
