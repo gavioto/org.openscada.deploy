@@ -17,7 +17,7 @@
 >
 	
 	<Product Id="*"
-	         Name="openSCADA"
+	         Name="openSCADA Common Driver Extensions"
 	         Language="1033"
 	         Version="0.1.0.0"
 	         UpgradeCode="5004F6F9-33CA-4AA9-8F39-7D50286439A1"
